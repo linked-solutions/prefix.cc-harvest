@@ -1,0 +1,268 @@
+<http://geovocab.org/geometry#Polygon>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A closed area defined by an exterior boundary, and optionally one or more interior boundaries." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Polygon" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#Geometry> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://geovocab.org/geometry#LinearRing> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://geovocab.org/geometry#exterior> ;
+                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://geovocab.org/geometry#interior> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://geovocab.org/geometry#LinearRing>
+                ] ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#exterior>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Defines a polygon's outer boundary." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#Polygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "exterior" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#LinearRing> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://geovocab.org/geometry#boundary> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#interior>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Defines an polygon's boundary within its outer boundary, i.e. a polygon with 'holes' in it." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#Polygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "interior" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#LinearRing> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://geovocab.org/geometry#boundary> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#MultiLineString>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Describes a geometric shape composed of several LineString resources." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "MultiLineString" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#GeometryCollection> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#boundary>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Super-property that groups all properties defining a polygon's boundaries." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#Polygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "boundary" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#LinearRing> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#lineStringMember>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links a LineString simple geometry to a MultiLineString composite geometry." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#MultiLineString> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LineString member" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#LineString> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#bbox>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relates a Geometry to its Bounding Box." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#Geometry> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bounding box" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#BoundingBox> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#pointMember>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links a Point simple geometry to a MultiPoint composite Geometry." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#MultiPoint> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Point member" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#BoundingBox>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Represents a bounding box composed by four line segments." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Bounding Box" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#Geometry> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#MultiPolygon>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Describes a geometric shape composed of several Polygon resources." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "MultiPolygon" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#GeometryCollection> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#GeometryCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Super-class grouping all composite geometrical representations." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Geometry Collection" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#Geometry> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#LineString>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Represents a series of points connected by straight lines." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LineString" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#Geometry> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#LinearRing>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Represents a series of points connected by straight lines, which form a closed shape. Last point must be the same as the first point." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LinearRing" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#LineString> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A vocabulary for describing geographical regions in RDF. $Id: geometry# 81 2012-02-05 11:06:49Z non88sense@gmail.com $" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "NeoGeo Geometry Ontology" ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <http://geovocab.org/mappings/geometry> .
+
+<http://geovocab.org/geometry#MultiPoint>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Describes a collection of Point resources, which define a resource's geometric representation." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "MultiPoint" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#GeometryCollection> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#partOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relates a point to a geometric shape's boundary." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "part of" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#LineString> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#geometry>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relates a resource to its geometric shape." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "geometry" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#Geometry> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "testing" .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#Point>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Point" .
+
+<http://geovocab.org/geometry#polygonMember>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links a Polygon simple geometry to a MultiPolygon composite geometry." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#MultiPolygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Polygon member" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://geovocab.org/geometry#Polygon> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://geovocab.org/geometry#Geometry>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Super-class grouping all geometrical representations (also ones in non-RDF formats, such as KML, GML, WKT...)." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Geometry" ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "testing" .
+
+<http://geovocab.org/geometry#posList>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relates a LineString or LinearRing to the points that define them." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://geovocab.org/geometry#LineString> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "position list" ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "unstable" .
+
+<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://geovocab.org/geometry#asWKT>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "WKT serialization of the geometry." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "As WKT" ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "deprecated" .

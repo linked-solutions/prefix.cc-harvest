@@ -1,0 +1,59 @@
+<http://www.w3.org/2002/01/bookmark>
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "$Id: bookmark.rdf,v 1.16 2003/07/18 18:15:18 swick Exp $" ;
+        <http://purl.org/dc/elements/1.1/description>
+                "The Annotea Bookmark Schema, describing properties used\n        to define instances of bookmarks, topics, and shortcuts." ;
+        <http://purl.org/dc/elements/1.1/title>
+                "Bookmark Schema" .
+
+<http://www.w3.org/2002/01/bookmark#Shortcut>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Specifies a behavior; when the\n                object of type 'Shortcut' is activated, the\n                client follows the 'recalls' property and\n                activates the object at the end of that\n                'recalls' property.  The target object may\n                be another Bookmark or may be a Topic." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Shortcut" .
+
+<http://www.w3.org/2002/01/bookmark#bookmarks>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This corresponds to XBEL:href an\n                object of type Bookmark is expected to have a\n                'recalls' relationship to the document being\n                bookmarked.  The 'bookmarks' property is an older\n                name for the 'recalls' relationship." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bookmarks" .
+
+<http://www.w3.org/2002/01/bookmark#subTopicOf>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Describes a relationship between Topics.\n        When a topic T is a sub-topic of a topic U then all\n        bookmarks that have topic T are also considered to have\n        topic U. A topic may be a sub-topic of one or more\n        topics; trivially, every topic is a sub-topic of itself.\n        More formally; for all B, T, and U: b b:hasTopic T,\n        T b:subTopicOf U implies B b:hasTopic U." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "subTopicOf" .
+
+<http://www.w3.org/2002/01/bookmark#leadsTo>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "connects a Shortcut to the bookmark or topic that is\nbeing included by reference in some other topic"@en .
+
+<http://www.w3.org/2002/01/bookmark#recalls>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relates a bookmark with the resource that\n                has been bookmarked.  This corresponds to XBEL:href;\n                an object of type Bookmark is expected to have a\n                'recalls' relationship to the document being\n                bookmarked " ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "recalls" .
+
+<http://www.w3.org/2002/01/bookmark#Bookmark>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The class to which all bookmarks belong." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Bookmark" .
+
+<http://www.w3.org/2002/01/bookmark#Topic>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Topic" .
+
+<http://www.w3.org/2002/01/bookmark#hasTopic>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "relates a bookmark to a topic.\n                A bookmark must have at least one hasTopic property.\n                The typical user operation of following a bookmark link\n                will use the value of the b:recalls property. This property\n                corresponds to XBEL:href property." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasTopic" .

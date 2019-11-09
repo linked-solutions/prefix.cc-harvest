@@ -1,0 +1,77 @@
+<http://www.w3.org/2000/10/swap/crypto#CanSign>
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "PublicKeyObjects which are capable of signing things.\nTrue if the algorithm is capable of signing data; false otherwise. To\ntest if a given key object can sign data, use CanSign and HasPrivate." ;
+        <http://www.w3.org/2000/01/rdf-schema#isSubClassOf>
+                <http://www.w3.org/2000/10/swap/crypto#PublicKeyObject> .
+
+<http://www.w3.org/2000/10/swap/crypto#md5>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The object is a MD5 hash of the subject." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2000/10/swap/string#String> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "MD5 hash" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/10/swap/string#String> .
+
+<http://www.w3.org/2000/10/swap/crypto#sha>
+        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The object is a SHA-1 hash of the subject." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2000/10/swap/string#String> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SHA hash" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/10/swap/string#String> .
+
+<http://www.w3.org/2000/10/swap/crypto#sign>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The subject should be a list of two things, a hash\nstring and a key (containing private and public parts). The object is\ncalculated as a signature string by signing the hash with the key's\nprivate part." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "sign" .
+
+<http://www.w3.org/2000/10/swap/crypto#HasPrivate>
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nSome keys have private parts, some don't.  This is the class of those which do.\n" ;
+        <http://www.w3.org/2000/01/rdf-schema#isSubClassOf>
+                <http://www.w3.org/2000/10/swap/crypto#PublicKeyObject> .
+
+<http://www.w3.org/2000/10/swap/crypto#PublicKeyObject>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An object corresponding to a key for some algorithm.\nThe object can hold a public and optionally a private key." .
+
+<http://www.w3.org/2000/10/swap/crypto#verifyBoolean>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "If the subject is a list containg a keypair, a hash,\nand a signature, then the object is either \"1\" if the signature\nvalidates or \"0\" if it does not." .
+
+<http://www.w3.org/2000/10/swap/crypto#HashFunction>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nThe crypographic hash functions are (being functions) unique and are,\nwhen secure, assumed unambiguous (the whole point of being hash\nfunctions). That is, when you have the right hash, you have the right\ndocument. Currently (2001/9) only SHA is given that property.\n" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Any crypographic hash function" .
+
+<http://www.w3.org/2000/10/swap/crypto#publicKey>
+        a       <http://www.w3.org/2000/01/rdf-schema#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The object is a public key object that doesn't\n    contain the private key data in the subject.\n    This function extracts the public part." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2000/10/swap/crypto#PublicKeyObject> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/10/swap/crypto#PublicKeyObject> .
+
+<http://www.w3.org/2000/10/swap/crypto#verify>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "If the subject is a key object containing private and\npublic parts and the obejct is a list of a hash and a signature, then\nthis is true if and only if the signature is a valid signature of the\nhash with the key." .
+
+<http://www.w3.org/2000/10/swap/crypto#CanEncrypt>
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "PublicKeyObjects which are capable of encrypting things" ;
+        <http://www.w3.org/2000/01/rdf-schema#isSubClassOf>
+                <http://www.w3.org/2000/10/swap/crypto#PublicKeyObject> .

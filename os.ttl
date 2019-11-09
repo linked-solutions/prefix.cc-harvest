@@ -1,0 +1,35 @@
+<http://www.w3.org/2000/10/swap/os#baseRelative>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.daml.org/2000/10/daml-ont#UniqueProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The baseRelative property of a URI string is a string\nwhich is a valid relative form of the URI, relative to the\nbase of the running process.  The base of a running unix\nprocess is typically a file: URI for the file being processed,\nor just the current working directory followed by a \"/\".\n\nThe relative form is suitable for quotation in a file\nwhose URI is the same (except for anything after the last slash).\n" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/2000/10/swap/os> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "relative to current base" .
+
+<http://www.w3.org/2000/10/swap/os#baseAbsolute>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.daml.org/2000/10/daml-ont#UniqueProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The baseAbsolute property of a URI reference string is a string\nwhich is an (absolute) URI, generated assuming the\nbase of the running process.  This will, for example,\ngenerate a file: URI from a unix relative file path when running\nin file: space.  (Cwm uses the current working directory as a base\nunless the --base option is given)\n" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/2000/10/swap/os> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "absolute form assuming current base" .
+
+<http://www.w3.org/2000/10/swap/os#argv>
+        a       <http://www.daml.org/2000/10/daml-ont#UniqueProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The object is looked up as the literal string which was given\nas the nth command line argument. \n    \n    The os:argv property allows one to make statements whose interpretation\nis relative to the conditions pertaining at the time of execution. Beware\nof writing axioms about these, in making optimizations for example about\nreuse of information between runs.  The uniqueness of this property pertains\nto one run of a program.  The ont:UniqueProperty may be removed if it\nmesses up more complex processing.\n\n(For example, cwm uses a \"-with\" argument\nto indicate that the following args should be passed to the RDF system.\n\nExample:\n    cwm foo.n3 -think -with bar baz\n    when processing,   {\"1\" os:argv \"bar\". \"2\" os:arv \"baz\"} will be true)\n\n" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/2000/10/swap/os> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "command line argument value" .
+
+<http://www.w3.org/2000/10/swap/os#environ>
+        a       <http://www.daml.org/2000/10/daml-ont#UniqueProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nThe os:environ property of a string is the value corresponding to\nthe string when looked up in the curent environment.  This is\nnot, of course, something of global significance: it is only\nused in local processing for passing parameters into a semantic web\nprocessor.  The subject is the name of the environment variable\nand the object its value.\n\nos:environ is a built-in function in cwm, and corresponds\nto Python's os.environ[] .\n" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/2000/10/swap/os> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "environment value" .

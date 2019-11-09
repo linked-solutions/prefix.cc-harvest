@@ -1,0 +1,782 @@
+[ a       <http://xmlns.com/foaf/0.1/Person> ;
+  <http://www.w3.org/ns/org#hasMembership>
+          [ a       <http://www.w3.org/ns/org#Membership> ;
+            <http://www.w3.org/ns/org#memberDuring>
+                    [ a       <http://www.w3.org/2006/time#Interval> ;
+                      <http://www.w3.org/2006/time#hasBeginning>
+                              [ a       <http://www.w3.org/2006/time#Instant> ;
+                                <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                                        "2014-04-01T00:00:00+08:00"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp>
+                              ]
+                    ] ;
+            <http://www.w3.org/ns/org#organization>
+                    <https://www.jpl.nasa.gov> , <http://dbpedia.org/resource/JPL> ;
+            <http://www.w3.org/ns/org#role>
+                    [ a       <http://www.w3.org/ns/org#Role> ;
+                      <http://www.w3.org/2000/01/rdf-schema#label>
+                              "Data Scientist"
+                    ]
+          ] ;
+  <http://xmlns.com/foaf/0.1/family_name>
+          "McGibbney" ;
+  <http://xmlns.com/foaf/0.1/firstName>
+          "Lewis J" ;
+  <http://xmlns.com/foaf/0.1/mbox>
+          <mailto:lewis.j.mcgibbney@jpl.nasa.gov> ;
+  <http://xmlns.com/foaf/0.1/name>
+          "Lewis John McGibbney"
+] .
+
+<http://data.ign.fr/def/geometrie#coordX>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "L'interprétation des coordonnées d'un point dépend du système de coordonnées de référence associé à ce point. La propriété coordX désigne la coordonnée définie par rapport au premier axe du système de coordonnées."@fr , "The interpretation of the coordinates of a point depends on the reference coordinate system associated with that point. The coordX property is the coordinate defined relative to the first axis of the coordinate system."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Point> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "x"@fr , "x"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.ign.fr/def/geometrie#coordY>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "L'interprétation des coordonnées d'un point dépend du système de coordonnées de référence associé à ce point. La propriété coordY désigne la coordonnée définie par rapport au deuxième axe du système de coordonnées."@fr , "The interpretation of the coordinates of a point depends on the reference coordinate system associated with that point. The coordY property is the coordinate defined relative to the second axis of the coordinate system."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Point> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "y"@fr , "y"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.ign.fr/def/geometrie#LineString>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Primitive géométrique spécialisant la primitive abstraite curve. Ses points sont reliés par une fonction d'interpolation linéaire. Chaque paire de points successifs constitue donc un segment de ligne droite."@fr , "Geometric primitive specializing the abstract primitive curve. Its points are linked by a linear interpolation function. Each pair of successive points therefore constitutes a straight line segment."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Polyligne"@fr , "Line string"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#Curve> , <http://www.opengis.net/ont/sf#LineString> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://data.ign.fr/def/geometrie#PointsList> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#points> ;
+                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#points> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://data.ign.fr/def/geometrie#PointsList>
+                ] .
+
+<http://data.ign.fr/def/geometrie#coordZ>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The interpretation of the coordinates of a point depends on the reference coordinate system associated with that point. The coordZ property is the coordinate defined relative to the third axis of the coordinate system. The Z coordinate of a point typically, but not necessarily, represents the altitude or height of that point."@en , "L'interprétation des coordonnées d'un point dépend du système de coordonnées de référence associé à ce point. La propriété coordZ désigne la coordonnée définie par rapport au troisième axe du système de coordonnées. La coordonnées Z d'un point représente typiquement, mais pas nécessairement, l'altitude ou la hauteur de ce point."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Point> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "z"@fr , "z"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#double> .
+
+<http://data.ign.fr/def/geometrie#Geometry>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Primitive géométrique non instanciable, racine de l'ontologie des primitives géométriques. Une géométrie est associée à un système de coordonnées et un seul."@fr , "Non-instantiable geometric primitive, root of the ontology of geometric primitives. Geometry is associated with a coordinate system and only one."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Geometry"@en , "Géométrie"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://geovocab.org/geometry#Geometry> , <http://www.opengis.net/ont/sf#Geometry> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://data.ign.fr/def/ignf#CoordinatesSystem> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#crs> ;
+                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] .
+
+<http://data.ign.fr/def/geometrie#upperCorner>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Corner of an envelope corresponding to the highest values of X and Y."@en , "Coin d'une enveloppe correspondant aux valeurs de X et Y les plus élevées."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Envelope> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "coin supérieur"@fr , "upper corner"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Point> .
+
+<http://data.ign.fr/def/geometrie#firstAndLast>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Désigne le point servant de point initial et de point final à une liste circulaire de points."@fr , "Refers to the point that serves as the start and end point for a circular list of points."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#PointsList> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "premier et dernier"@fr , "first and last"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Point> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> .
+
+<http://data.ign.fr/def/geometrie#Polygon>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Geometric primitive specializing Surface primitive. It is a flat surface defined by an outer boundary and zero or more interior boundaries. Each inner boundary defines a hole in the polygon."@en , "Primitive géométrique spécialisant la primitive Surface. C'est une surface plane définie par une frontière extérieure et zéro ou plusieurs frontières intérieures. Chaque frontière intérieure définit un trou dans le polygone."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Polygone"@fr , "Polygon"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#Surface> , <http://www.opengis.net/ont/sf#Polygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#interior> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://data.ign.fr/def/geometrie#LinearRing>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onClass>
+                                      <http://data.ign.fr/def/geometrie#LinearRing> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#exterior> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#exterior> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://data.ign.fr/def/geometrie#LinearRing>
+                ] .
+
+<http://data.ign.fr/def/geometrie#Point>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Primitive géométrique permettant de représenter une position géographique. Cette position est représentée via des coordonnées X et Y exprimées dans un système de coordonnées donné. Si le système de coordonnées associé au point le permet, ce dernier peut également avoir des coordonnées Z et M."@fr , "Geometric primitive to represent a geographical position. This position is represented via X and Y coordinates expressed in a given coordinate system. If the coordinate system associated with the point allows it, the point may also have Z and M coordinates."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Point"@en , "Point"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.opengis.net/ont/sf#Point> , <http://data.ign.fr/def/geometrie#Geometry> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onDataRange>
+                                      <http://www.w3.org/2001/XMLSchema#double> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#coordX> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onDataRange>
+                                      <http://www.w3.org/2001/XMLSchema#double> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#coordY> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onDataRange>
+                                      <http://www.w3.org/2001/XMLSchema#double> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#coordM>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onDataRange>
+                                      <http://www.w3.org/2001/XMLSchema#double> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#coordZ>
+                            ]
+                          )
+                ] .
+
+<http://data.ign.fr/def/geometrie#points>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "La liste ordonnée des points consitutant une géométrie de type Curve."@fr , "The ordered list of points constituting a Curve geometry."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Curve> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "points"@en , "points"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#PointsList> .
+
+<http://data.ign.fr/def/geometrie#pointMember>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Connect a MultiPoint geometry to the points that compose it."@en , "Relie une géométrie de type MultiPoint aux points qui la composent."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#MultiPoint> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "point membre"@fr , "point member"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Point> .
+
+<http://www.opengis.net/ont/sf#Polygon>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.w3.org/ns/org#Membership>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://data.ign.fr/def/geometrie#interior>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relie un polygone à un anneau décrivant un trou dans sa surface."@fr , "Connect a polygon to a ring describing a hole in its surface."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Polygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "intérieur"@fr , "interior"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#LinearRing> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://data.ign.fr/def/geometrie#boundary> .
+
+<http://data.ign.fr/def/geometrie#polygonMember>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Connects a MultiPolygon geometry to the polygons that compose it."@en , "Relie une géométrie de type MultiPolygon aux polygones qui la composent."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#MultiPolygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "polygon member"@en , "polygone membre"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Polygon> .
+
+<http://data.ign.fr/def/geometrie#MultiCurve>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Collection d'objets géométriques de type Courbe. Cette primitive n'est pas instanciable: elle définit des propriétés pour ses sous-classes."@fr , "Collection of geometric objects of type Curve. This primitive is not instantiable: it defines properties for its subclasses."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multicourbe"@fr , "Multi curve"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.opengis.net/ont/sf#MultiCurve> , <http://data.ign.fr/def/geometrie#GeometryCollection> .
+
+<http://data.ign.fr/def/geometrie#GeometryCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Collection comprenant un ou plusieurs objets géométriques, sans structure interne. Tous les éléments d'une collection de géométries sont définis dans le même système de coordonnées."@fr , "Collection comprising one or more geometric objects, without internal structure. All elements of a collection of geometries are defined in the same coordinate system."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Collection de géométries"@fr , "Geometry collection"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#Geometry> , <http://www.opengis.net/ont/sf#GeometryCollection> .
+
+<http://www.opengis.net/ont/sf#Curve>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.opengis.net/ont/sf#LineString>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.opengis.net/ont/sf#Line>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://data.ign.fr/def/geometrie#Curve>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Geometric primitive representing a curve. It is not instantiable. It's specializations are instantiated as an ordered list of points associated with an interpolation function."@en , "Primitive géométrique représentant une courbe. Elle n'est pas instanciable. Ses spécialisations sont instanciées sous la forme d'une liste ordonnée de points associée à une fonction d'interpolation."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Courbe"@fr , "Curve"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.opengis.net/ont/sf#Curve> , <http://data.ign.fr/def/geometrie#Geometry> .
+
+<http://data.ign.fr/def/geometrie#Line>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Primitive géométrique spécialisant la primitive Polyligne et composée de seulement deux points."@fr , "Geometric primitive specializing the primitive Polyline and consisting of only two points."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ligne"@fr , "Line"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.opengis.net/ont/sf#Line> , <http://data.ign.fr/def/geometrie#LineString> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#points> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#intersectionOf>
+                                    ( <http://data.ign.fr/def/geometrie#PointsList>
+                                      [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                        <http://www.w3.org/2002/07/owl#onProperty>
+                                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ;
+                                        <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                                                          ( <http://data.ign.fr/def/geometrie#PointsList>
+                                                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                                              <http://www.w3.org/2002/07/owl#hasValue>
+                                                                      () ;
+                                                              <http://www.w3.org/2002/07/owl#onProperty>
+                                                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                            ]
+                                                          )
+                                                ]
+                                      ]
+                                    )
+                          ]
+                ] .
+
+<http://data.ign.fr/def/geometrie>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://creativecommons.org/ns#license>
+                <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> , <http://creativecommons.org/licenses/by/2.0/> , <http://opendatacommons.org/licenses/by/> ;
+        <http://purl.org/dc/terms/contributor>
+                <http://recherche.ign.fr/labos/cogit/cv.php?prenom=Bénédicte&nom=Bucher> , <http://data.semanticweb.org/person/bernard-vatant> , <http://www.eurecom.fr/~troncy/> , <_:genid-nodeid-node1d3jq8du2x108> ;
+        <http://purl.org/dc/terms/creator>
+                <_:genid-nodeid-node1d3jq8du2x103> , <http://www.eurecom.fr/~atemezin/> ;
+        <http://purl.org/dc/terms/description>
+                "Ontologie des primitives géométriques représentant la forme et la localisation d'entités topographiques."@fr , "Ontology of geometric primitives representing the shape and location of topographic features."@en ;
+        <http://purl.org/dc/terms/issued>
+                "2013-06-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/terms/modified>
+                "2019-02-12"^^<http://www.w3.org/2001/XMLSchema#date> , "2016-06-28"^^<http://www.w3.org/2001/XMLSchema#date> , "2014-08-22"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/terms/publisher>
+                <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
+        <http://purl.org/dc/terms/rights>
+                "Copyright 2019, IGN" ;
+        <http://purl.org/dc/terms/title>
+                "Ontologie des primitives géométriques"@fr , "Ontology of geometric primitives"@en ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "geom" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                <http://data.ign.fr/def/geometrie#> ;
+        <http://www.w3.org/2002/07/owl#priorVersion>
+                <http://data.ign.fr/def/geometrie/20160628.ttl> ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "Version 1.2 - 2019-02-12" .
+
+<http://data.ign.fr/def/geometrie#lowerCorner>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The corner of an envelope corresponding to the lowest values of X and Y."@en , "Coin d'une enveloppe correspondant aux valeurs de X et Y les moins élevées."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Envelope> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "coin inférieur"@fr , "lower corner"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Point> .
+
+<http://www.w3.org/ns/org#Role>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+[ a       <http://xmlns.com/foaf/0.1/Person> ;
+  <http://www.w3.org/ns/org#hasMembership>
+          [ a       <http://www.w3.org/ns/org#Membership> ;
+            <http://www.w3.org/ns/org#memberDuring>
+                    [ a       <http://www.w3.org/2006/time#Interval> ;
+                      <http://www.w3.org/2006/time#hasBeginning>
+                              [ a       <http://www.w3.org/2006/time#Instant> ;
+                                <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                                        "2005-09-09"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp>
+                              ]
+                    ] ;
+            <http://www.w3.org/ns/org#organization>
+                    <http://www.ign.fr/> , <http://recherche.ign.fr/> ;
+            <http://www.w3.org/ns/org#role>
+                    [ a       <http://www.w3.org/ns/org#Role> ;
+                      <http://www.w3.org/2000/01/rdf-schema#label>
+                              "Chargée de recherche"@fr , "Survey engineer and Scientist"@en
+                    ]
+          ] ;
+  <http://xmlns.com/foaf/0.1/family_name>
+          "Abadie" ;
+  <http://xmlns.com/foaf/0.1/firstName>
+          "Nathalie" ;
+  <http://xmlns.com/foaf/0.1/mbox>
+          <mailto:nathalie-f.abadie@ign.fr> ;
+  <http://xmlns.com/foaf/0.1/name>
+          "Nathalie Abadie" ;
+  <http://xmlns.com/foaf/0.1/workInfoHomepage>
+          <http://recherche.ign.fr/labos/cogit/cv.php?prenom=Nathalie&nom=Abadie>
+] .
+
+<http://data.ign.fr/def/geometrie#LinearRing>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Geometric primitive specializing the primitive Polyline. It is a simple, closed curve."@en , "Primitive géométrique spécialisant la primitive Polyligne. C'est une courbe simple et fermée."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Anneau"@fr , "Linear ring"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#LineString> , <http://www.opengis.net/ont/sf#LinearRing> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#points> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#intersectionOf>
+                                    ( <http://data.ign.fr/def/geometrie#PointsList>
+                                      [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                        <http://www.w3.org/2002/07/owl#onClass>
+                                                <http://data.ign.fr/def/geometrie#Point> ;
+                                        <http://www.w3.org/2002/07/owl#onProperty>
+                                                <http://data.ign.fr/def/geometrie#firstAndLast> ;
+                                        <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                                "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                                      ]
+                                    )
+                          ]
+                ] .
+
+<http://www.w3.org/ns/org#organization>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://data.ign.fr/def/geometrie#crs>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Système de coordonnées associé à une primitive géométrique."@fr , "Coordinate system associated with a geometric primitive."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Geometry> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "coordinate reference system"@en , "système de coordonnées"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/ignf#CRS> .
+
+<http://data.ign.fr/def/geometrie#MultiSurface>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Collection of geometric objects of Surface type. This primitive is not instantiable: it defines properties for its subclasses."@en , "Collection d'objets géométriques de type Surface. Cette primitive n'est pas instanciable: elle définit des propriétés pour ses sous classes."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multisurface"@fr , "Multi surface"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.opengis.net/ont/sf#MultiSurface> , <http://data.ign.fr/def/geometrie#GeometryCollection> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://data.ign.fr/def/geometrie#coordM>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The interpretation of the coordinates of a point depends on the reference coordinate system associated with that point. The coordinate M of a point represents a measurement."@en , "L'interprétation des coordonnées d'un point dépend du système de coordonnées de référence associé à ce point. La coordonnées M d'un point représente une mesure."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Point> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "m"@en , "m"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#double> .
+
+<http://www.w3.org/2006/time#inXSDDateTimeStamp>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/terms/issued>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/2006/time#hasBeginning>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://data.ign.fr/def/geometrie#lineStringMember>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links a MultiLineString geometry to the linestrings that compose it."@en , "Relie une géométrie de type MultiLineString aux linestrings qui la composent."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#MultiLineString> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "polyligne membre"@fr , "line string member"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#LineString> .
+
+<http://data.ign.fr/def/geometrie#Surface>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Geometric primitive locally representing a continuous image of a region of a plane. It is not instantiable. The outline of a surface is a set of closed curves corresponding to its boundaries."@en , "Primitive géométrique représentant localement une image continue d'une région d'un plan. Elle n'est pas instanciable. Le contour d'une surface est un ensemble de courbes fermées correspondant à ses frontières."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Surface"@en , "Surface"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#Geometry> , <http://www.opengis.net/ont/sf#Surface> .
+
+<http://data.ign.fr/def/geometrie#MultiPolygon>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Collection d'objets géométriques de type Polygone. C'est une MultiSurface dont tous les éléments sont des Polygones."@fr , "Collection of geometric objects of type Polygon. It is a MultiSurface whose elements are all Polygons."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multi polygon"@en , "Multipolygone"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#MultiSurface> , <http://www.opengis.net/ont/sf#MultiPolygon> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#polygonMember> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://data.ign.fr/def/geometrie#Polygon>
+                ] .
+
+<http://data.ign.fr/def/geometrie#MultiLineString>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Collection d'objets géométriques de type Polyligne. C'est une MultiCourbe dont tous les éléments sont des Polylignes."@fr , "Collection of geometric objects of type Polyline. It's a MultiCurve whose elements are all Polylines."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multi line string"@en , "Multipolyligne"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.opengis.net/ont/sf#MultiLineString> , <http://data.ign.fr/def/geometrie#MultiCurve> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#lineStringMember> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://data.ign.fr/def/geometrie#LineString>
+                ] .
+
+<http://data.ign.fr/def/geometrie#MultiPoint>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Collection d'objets géométriques de type Point, non connectés et non ordonnés. Un multipoint est dit simple si tous ses points sont différents (i.e. ont des coordonnées différentes)."@fr , "Collection of Point geometric objects, unconnected and unordered. A multipoint is said to be simple if all its points are different (i.e. have different coordinates)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multi point"@en , "Multipoint"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#GeometryCollection> , <http://www.opengis.net/ont/sf#MultiPoint> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://data.ign.fr/def/geometrie#pointMember> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://data.ign.fr/def/geometrie#Point>
+                ] .
+
+<http://www.eurecom.fr/~troncy/>
+        a       <http://xmlns.com/foaf/0.1/Person> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://data.ign.fr/def/geometrie#Envelope>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Geometric primitive representing the minimal envelope of a geometry. An envelope is represented by two points: its maximum coordinate corner and its minimal coordinate corner."@en , "Primitive géométrique représentant l'enveloppe minimale d'une géométrie. Une enveloppe est représentée par deux points: son coin de coordonnées maximales et son coin de coordonnées minimales."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Envelope"@en , "Enveloppe"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://data.ign.fr/def/geometrie#Geometry> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onClass>
+                                      <http://data.ign.fr/def/geometrie#Point> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#lowerCorner> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onClass>
+                                      <http://data.ign.fr/def/geometrie#Point> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://data.ign.fr/def/geometrie#upperCorner> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                          )
+                ] .
+
+<http://www.opengis.net/ont/sf#MultiPoint>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://data.ign.fr/def/geometrie#geometry>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Geometric primitive associated with an object to represent its location and possibly its shape."@en , "Primitive géométrique associée à un objet pour représenter sa localisation et éventuellement sa forme."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has geometry"@en , "a pour géométrie"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Geometry> .
+
+<http://www.opengis.net/ont/sf#MultiLineString>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://data.ign.fr/def/geometrie#centroid>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Centroid of a geometry"@en , "Centroide d'une géométrie"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Surface> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "centroïde"@fr , "centroid"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Point> .
+
+<http://purl.org/dc/terms/creator>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/terms/title>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://www.opengis.net/ont/sf#GeometryCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://data.ign.fr/def/geometrie#PointsList>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "List of points"@en , "Liste de points."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Liste de points"@fr , "List of points"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://www.w3.org/1999/02/22-rdf-syntax-ns#List>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://data.ign.fr/def/geometrie#Point> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://data.ign.fr/def/geometrie#PointsList> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                          )
+                ] .
+
+<http://www.opengis.net/ont/sf#MultiSurface>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://data.ign.fr/def/geometrie#boundary>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Connect a polygon to a ring describing its boundary."@en , "Relie un polygone à un anneau décrivant sa frontière."@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Polygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "boundary"@en , "frontière"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#LinearRing> .
+
+<http://data.ign.fr/def/geometrie#exterior>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relie un polygone à un anneau décrivant le contour extérieur de sa surface."@fr , "Connect a polygon to a ring describing the outer contour of its surface."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Polygon> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "exterior"@en , "extérieur"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#LinearRing> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://data.ign.fr/def/geometrie#boundary> .
+
+<http://www.eurecom.fr/~atemezin/>
+        a       <http://xmlns.com/foaf/0.1/Person> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://data.ign.fr/def/geometrie#envelope>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Rectangle englobant minimal d'une géométrie"@fr , "Minimal enclosing rectangle of a geometry"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://data.ign.fr/def/geometrie#Geometry> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "enveloppe"@fr , "envelope"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://data.ign.fr/def/geometrie#Envelope> .
+
+<http://recherche.ign.fr/labos/cogit/cv.php?prenom=Bénédicte&nom=Bucher>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://xmlns.com/foaf/0.1/Person> .
+
+<http://data.semanticweb.org/person/bernard-vatant>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://xmlns.com/foaf/0.1/Person> .
+
+<http://www.w3.org/2006/time#Instant>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/vocab/vann/preferredNamespaceUri>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/workInfoHomepage>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://data.ign.fr/def/ignf#CRS>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.w3.org/ns/org#memberDuring>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/name>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/ns/org#hasMembership>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/terms/contributor>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.opengis.net/ont/sf#MultiPolygon>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://xmlns.com/foaf/0.1/mbox>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/firstName>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/ns/org#role>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://creativecommons.org/ns#license>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/terms/publisher>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#List>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://xmlns.com/foaf/0.1/Person>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/dc/terms/description>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://data.ign.fr/def/ignf#CoordinatesSystem>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.opengis.net/ont/sf#LinearRing>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://geovocab.org/geometry#Geometry>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.w3.org/2006/time#Interval>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://xmlns.com/foaf/0.1/family_name>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/terms/modified>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.opengis.net/ont/sf#MultiCurve>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.opengis.net/ont/sf#Point>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.opengis.net/ont/sf#Surface>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/dc/terms/rights>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.opengis.net/ont/sf#Geometry>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/vocab/vann/preferredNamespacePrefix>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .

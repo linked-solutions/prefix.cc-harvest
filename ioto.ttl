@@ -1,0 +1,656 @@
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Precondition>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.wsmo.org/ns/wsmo-lite#Condition> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#getsFeedbackFrom>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relation between a controlled system and the entities that provide it with a feedback about its action, usually sensors." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#ControlledSystem> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "gets feedback from" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.oclc.org/NET/ssnx/ssn#System> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#providesFeedbackTo> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isFeatureOfInterestOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Indicates that the property is the feature of interest of some entity of an IoT system, that can measure it/act upon it." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.oclc.org/NET/ssnx/ssn#FeatureOfInterest> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is feature of interest for" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#IoT_Thing> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#EmptyMessage>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.wsmo.org/ns/wsmo-lite#Message> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Specific message that has no content, its sole transfer achieves its purpose. For example, if an empty message is sent to the \"switch light on\" service of a light bulb, there is no need for an explicit content of the message asking the light to be turned on." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Empty message" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#ControlledSystem>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "System implementing a control feedback loop in order to control an actuator thanks to the feedback of some sensors." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Controlled system" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.oclc.org/NET/ssnx/ssn#System> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#getsFeedbackFrom> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.oclc.org/NET/ssnx/ssn#Sensor>
+                ] .
+
+<https://www.irit.fr/recherches/MELODI/ontologies/IoT-O>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "There are currently issues with the DUL namespace (http://www.ontologydesignpatterns.org/ont/dul/DUL.owl), which is no longer dereferencable. It is however referenced by SSN, which is out of our control. In order to enforce consistency and to allow reasoning to happen successfully, we removed the import of SSN and DUL. The concepts from these ontologies are still referenced, but it is up to the users of IoT-O to import these ontologies as a whole if required.\n" , "Release note : added the raw value representation"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://creativecommons.org/ns#license>
+                <http://creativecommons.org/licenses/by/4.0/> ;
+        <http://purl.org/dc/elements/1.1/creator>
+                "Nicolas Seydoux, Mahdi Ben Alaya, Khalil Drira, Nathalie Hernandez, Thierry Monteil" ;
+        <http://purl.org/dc/elements/1.1/creator>
+                <http://www.irit.fr/recherches/MELODI/ontologies/contributors#ben_alaya> , <http://www.irit.fr/recherches/MELODI/ontologies/contributors#drira> , <http://www.irit.fr/recherches/MELODI/ontologies/contributors#monteil> , <http://www.irit.fr/recherches/MELODI/ontologies/contributors#seydoux> , <http://www.irit.fr/recherches/MELODI/ontologies/contributors#hernandez> ;
+        <http://purl.org/dc/elements/1.1/description>
+                "\n\t\tIoT-O is a core domain Internet of Things ontology. It is intended to model horizontal knowledge about IoT systems and applications, and to be extended with vertical, application specific knowledge.\nIt is constituted of different modules :\n - A sensing module, based on W3C's SSN (http://purl.oclc.org/NET/ssnx/ssn)\n - An acting module, based on SAN (http://www.irit.fr/recherches/MELODI/ontologies/SAN)\n - A service module, based on MSM (http://iserve.kmi.open.ac.uk/ns/msm/msm-2014-09-03.rdf) and hRest (http://www.wsmo.org/ns/hrests)\n - A lifecycle module, based on a lifecycle vocabulary (http://vocab.org/lifecycle/schema-20080603.rdf) and an iot-specific extension (http://www.irit.fr/recherches/MELODI/ontologies/IoT-Lifecycle)\n - An energy module, based on powerOnt (ttp://elite.polito.it/ontologies/poweront.owl)\n\nIoT-O developping team also contributes to the oneM2M IoT interoperability standard." ;
+        <http://purl.org/dc/elements/1.1/publisher>
+                "LAAS-CNRS (https://www.laas.fr)" , "IRIT (https://www.irit.fr/)" ;
+        <http://purl.org/dc/elements/1.1/title>
+                "IoT-O" ;
+        <http://purl.org/dc/terms/issued>
+                "2015-02-20" ;
+        <http://purl.org/dc/terms/modified>
+                "2016-06-29"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "ioto" ;
+        <http://purl.org/vocab/vann/preferredNamespaceURI>
+                "http://www.irit.fr/recherches/MELODI/ontologies/IoT-O" ;
+        <http://purl.org/vocommons/voaf#extends>
+                <http://purl.oclc.org/NET/ssnx/ssn> , <http://iserve.kmi.open.ac.uk/ns/msm/msm-2014-09-03.rdf> , <http://www.irit.fr/recherches/MELODI/ontologies/SAN> , <http://www.irit.fr/recherches/MELODI/ontologies/IoT-Lifecycle> , <http://elite.polito.it/ontologies/poweront.owl> ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <http://iserve.kmi.open.ac.uk/ns/msm> , <http://www.irit.fr/recherches/MELODI/ontologies/SAN> , <http://elite.polito.it/ontologies/poweront.owl> , <http://www.irit.fr/recherches/MELODI/ontologies/IoT-Lifecycle> ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "2.1.2"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+        <http://xmlns.com/foaf/0.1/primaryTopic>
+                "IoT" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasImpactonProperty>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between an impact and the impacted property" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#ImpactOnProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "on property" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.oclc.org/NET/ssnx/ssn#Property> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#propertyIsImpactedBy> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#DeviceManagementOperation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Service operation that deals with device management" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Device management operation" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Operation> .
+
+<http://elite.polito.it/ontologies/poweront.owl#consumptionValue>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Consumption value" .
+
+<http://iserve.kmi.open.ac.uk/ns/msm#hasOperation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://elite.polito.it/ontologies/poweront.owl#PowerConsumptionValue>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Power consumption value" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasInputMessage>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between an Operation that requires some Message as its input" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.wsmo.org/ns/wsmo-lite#Operation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has input message" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.wsmo.org/ns/wsmo-lite#Message> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.wsmo.org/ns/wsmo-lite#hasInputMessage> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasRelationshipWithProperty>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Generic property that marks the relationship between some entity and some ssn:Property. Dependant on context, it can be sensing, acting or else. Useful to descrie a generic service offered by a complex system that aggregates both sensors and actuators." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has relationship with property" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.oclc.org/NET/ssnx/ssn#Property> .
+
+<http://purl.oclc.org/NET/muo/muo#PhysicalQuality>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalAttribute> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Operation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An operation is a function provided by a service. It implements a functionnality, and can be accessed by an end user by any mean offered by the service." ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://iserve.kmi.open.ac.uk/ns/msm#Operation> , <http://www.wsmo.org/ns/wsmo-lite#Operation> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#FormalEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.wsmo.org/ns/hrests#hasAddress> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.wsmo.org/ns/hrests#URITemplate>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://iserve.kmi.open.ac.uk/ns/msm#hasInput> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://iserve.kmi.open.ac.uk/ns/msm#MessageContent>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://iserve.kmi.open.ac.uk/ns/msm#hasOutput> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://iserve.kmi.open.ac.uk/ns/msm#MessageContent>
+                ] .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/SAN#impactsState>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/vocab/lifecycle/schema#State> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#BuildingEnvironment>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalPlace> , <http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasAddress>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.wsmo.org/ns/wsmo-lite#Operation> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.wsmo.org/ns/hrests#URITemplate> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.wsmo.org/ns/hrests#hasAddress> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Service>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Service is the abstract representation of a set of data and requests processing functionnalities, generally linked by common traits (domain, service provider...)" , "A service is a set of operation, and provides a user a way to issu requests  through an interface. Underlying implementation needn't to be known by the end user." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Service" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#FormalEntity> , <http://iserve.kmi.open.ac.uk/ns/msm#Service> , <http://www.wsmo.org/ns/wsmo-lite#Service> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://iserve.kmi.open.ac.uk/ns/msm#hasOperation> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://iserve.kmi.open.ac.uk/ns/msm#Operation>
+                ] .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasOutputMessage>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relashionship between an Operation and the Message that it will output as the result of its processing" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.wsmo.org/ns/wsmo-lite#Operation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has output message" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.wsmo.org/ns/wsmo-lite#Message> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.wsmo.org/ns/wsmo-lite#hasOutputMessage> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#DefectuousSystem>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Controlled system that requires an operator attention, because it is not functionnig properly. Detected when the difference between the Observations and the Actuation made on the monitored property is out of its operating range." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Defectuous System" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#ControlledSystem> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasId>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Characterizes a unique identifier for a thing" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#IoT_Thing> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has id" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Message>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Message is a instance of data that is sent by a source and that is received by a target" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Message" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object> , <http://www.wsmo.org/ns/wsmo-lite#Message> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://iserve.kmi.open.ac.uk/ns/msm#MessagePart>
+                ] .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasMethod>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.wsmo.org/ns/wsmo-lite#Operation> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.wsmo.org/ns/hrests#hasMethod> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Notification>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity> , <http://www.wsmo.org/ns/wsmo-lite#Message> , <http://elite.polito.it/ontologies/dogont.owl#Notification> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Network>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Set of communicating entities"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Network"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Virtual_space> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Postcondition>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.wsmo.org/ns/wsmo-lite#Effect> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Sensing_device>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.oclc.org/NET/ssnx/ssn#SensingDevice> , <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Device> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasImpact>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between an operation and its impact on a property" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.irit.fr/recherches/MELODI/ontologies/SAN#Actuation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has impact" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#ImpactOnProperty> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isImpactOf> .
+
+<http://qudt.org/schema/qudt#Unit>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasService>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between an Entity and a service that is accessible through it." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has service" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Service> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isServiceOf> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#providesFeedbackTo>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between an entity that provides informations to a system and this system, that interprets these informations as a feedback of its action." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.oclc.org/NET/ssnx/ssn#System> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "provides feedback to" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#ControlledSystem> .
+
+<http://iserve.kmi.open.ac.uk/ns/msm#MessageContent>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#SoftwareAgent>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Service or piece of software running in an IoT node. Can also be an abstracted device, issued from the composition of physical devices and abstract processing." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Software agent" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#IoT_Thing> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O>
+        a       <http://purl.org/vocommons/voaf#Vocabulary> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Command>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity> , <http://elite.polito.it/ontologies/dogont.owl#Command> .
+
+<http://elite.polito.it/ontologies/poweront.owl#consumptionOf>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "consumption of" .
+
+<http://elite.polito.it/ontologies/dogont.owl#hasState>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has state" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasRawRepresentation>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links an entity derived from a raw representation to said representation. For instance, sensor observations are represented by xml documents and converted to knowledge instances." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://www.irit.fr/recherches/MELODI/ontologies/SAN#ActuatorInput> <http://purl.oclc.org/NET/ssnx/ssn#SensorOutput> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has raw representation" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasTimeStamp>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Associates an Instant individual with a timestamp" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Manager>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A manager is an application that offers management capabilities as described in the OneM2M norm." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Manager" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#SoftwareAgent> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isServiceOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between a service and an entity that accesses it." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Service> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is service of" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isInputMessageOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is input message of" ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://www.wsmo.org/ns/wsmo-lite#hasInputMessage> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#IoT_Thing>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Most general thing in an iot ontology, a Thing can either be a physical connected object, an application, an abstracted interface... The class Object of DUL, from whom it inherits, doen't only represent physical objects, and can cover a fonction for instance." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "IoT-Thing" , "Thing" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.oclc.org/NET/ssnx/ssn#implements> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.oclc.org/NET/ssnx/ssn#Process>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasService> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Service>
+                ] .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#BusinessService>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Service intended to be an interface for the functionnalities the object was designed to perform : measure temperature for a temperature sensor, switch on/off for a switch..." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Business service" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Service> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasRelationshipWithProperty> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.oclc.org/NET/ssnx/ssn#Property>
+                ] .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Virtual_space>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A region that is not defined in the physical world, but that can have a logical, existential or software definition."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Virtual space"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasOperation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Service> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has operation" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Operation> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.wsmo.org/ns/wsmo-lite#hasOperation> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#PowerConsumption>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://elite.polito.it/ontologies/poweront.owl#PowerConsumption> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalAttribute> .
+
+<http://qudt.org/schema/qudt#QuantityKind>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#MessagePart>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://iserve.kmi.open.ac.uk/ns/msm#MessagePart> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#BuildingThing>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> , <http://elite.polito.it/ontologies/dogont.owl#BuildingThing> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#ImpactOnProperty>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class describes the impact an operation may have on a property. It makes sense in an IoT environement, where things can manage properties of their environment and modify them." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Impact on property" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/SAN#Effect> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isGroundedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Inverse of grounds" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://www.irit.fr/recherches/MELODI/ontologies/SAN#Actuation> <http://purl.oclc.org/NET/ssnx/ssn#Observation> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is grounded by" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://iserve.kmi.open.ac.uk/ns/msm#Operation> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isImpactOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is impact of" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#SimpleDataContent>
+        a       <http://iserve.kmi.open.ac.uk/ns/msm#MessageContent> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This individual represents the body of a request containing simple data, such as a numerical value." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Simple data content" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#hasFeatureOfInterest>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between a Thing and a property of the environment. In a cyber-physical system, devices and software agents may have one to many feature of interest from the environment. This feature can be a property, another device, a person..." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#IoT_Thing> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has feature of interest" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.oclc.org/NET/ssnx/ssn#FeatureOfInterest> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isFeatureOfInterestOf> .
+
+<http://elite.polito.it/ontologies/dogont.owl#ContinuousValue>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Continuous value" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Functionality>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://elite.polito.it/ontologies/dogont.owl#Functionality> , <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Abstract> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Device>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#IoT_Thing> , <http://purl.oclc.org/NET/ssnx/ssn#Device> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#BusinessOperation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Service operation that is relevant to the business function of the service (and the object underneath in the case of IoT). This type of functions may be linked to a property the object deals with (monitoring or modification)" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Business operation" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Operation> .
+
+<http://iserve.kmi.open.ac.uk/ns/msm#hasOutput>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/SAN#ActuationValue>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.irit.fr/recherches/MELODI/ontologies/IoT-Lifecycle#triggersTransition> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.org/vocab/lifecycle/schema#Transition>
+                ] .
+
+<http://elite.polito.it/ontologies/dogont.owl#hasStateValue>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has state value" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#propertyIsImpactedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "property impacted by" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#DeviceManagementService>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This kind of service offers a set of operations regarding device management. That means it's not related to the functionnality of the object itsefl, but rather to its inner working : battery state, connectivity, firmware update..." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Device management service" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#Service> .
+
+<http://www.wsmo.org/ns/hrests#URITemplate>
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Template providing information about the construction of the URI providing access to the service" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "URI Template" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#State>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://elite.polito.it/ontologies/dogont.owl#StateValue> , <http://purl.org/vocab/lifecycle/schema#State> , <http://delicias.dia.fi.upm.es/ontologies/ObjectWithStates.owl#State> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://elite.polito.it/ontologies/dogont.owl#StateValue>
+                ] .
+
+<http://www.wsmo.org/ns/hrests#hasMethod>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has method" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#URITemplate>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity> , <http://www.wsmo.org/ns/hrests#URITemplate> .
+
+<http://elite.polito.it/ontologies/dogont.owl#NetworkSpecificStateValue>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Network specific state value" .
+
+<http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#grounds>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relationship between a Situation and its concrete implementation. For instance, an Operation can ground an Observation" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://iserve.kmi.open.ac.uk/ns/msm#Operation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "grounds" ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://www.irit.fr/recherches/MELODI/ontologies/IoT-O#isGroundedBy> .
+
+<http://www.wsmo.org/ns/hrests#hasAddress>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Associates a ressource to a URI in compliance with REST principles" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has address" .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParametrizedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://elite.polito.it/ontologies/poweront.owl#hasConsumption>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has consumption" .
+
+<http://elite.polito.it/ontologies/poweront.owl#whenIn>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "when in" .
+
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+
+<http://iserve.kmi.open.ac.uk/ns/msm#hasInput>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://elite.polito.it/ontologies/dogont.owl#DiscreteValue>
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Discrete value" .

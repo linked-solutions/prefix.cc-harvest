@@ -1,0 +1,154 @@
+<http://rdf.myexperiment.org/ontologies/snarm/Policy>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Policy for the access rights to an object for users in the social network" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Policy" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/dc/terms/RightsStatement> ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://rdf.myexperiment.org/ontologies/snarm/Accesser> , <http://rdf.myexperiment.org/ontologies/snarm/Access> , <http://rdf.myexperiment.org/ontologies/snarm/AccessType> .
+
+<http://rdf.myexperiment.org/ontologies/snarm/>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                " This ontology is designed for representing access rights within a simple network of associated users/groups." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SNARM Ontology v1.1" ;
+        <http://purl.org/dc/elements/1.1/contributor>
+                "David R Newman" ;
+        <http://purl.org/dc/elements/1.1/creator>
+                <http://id.ecs.soton.ac.uk/person/9421> ;
+        <http://purl.org/dc/elements/1.1/date>
+                "2009-01-28"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/elements/1.1/format>
+                "rdf/xml" ;
+        <http://purl.org/dc/elements/1.1/language>
+                "en" ;
+        <http://purl.org/dc/elements/1.1/publisher>
+                <http://rdf.myexperiment.org> ;
+        <http://purl.org/dc/elements/1.1/title>
+                "Simple Network Access Rights Management (SNARM) Ontology"@en ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "" , "$Date: 2011/09/02 $" .
+
+<http://rdf.myexperiment.org/ontologies/snarm/has-accesser>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An Accesser that a Mode provides access to" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://rdf.myexperiment.org/ontologies/snarm/Access> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has-accesser" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://rdf.myexperiment.org/ontologies/snarm/Accesser> .
+
+<http://rdf.myexperiment.org/ontologies/snarm/Accesser>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Accesser that is getting access" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Accesser" ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://rdf.myexperiment.org/ontologies/snarm/Access> , <http://rdf.myexperiment.org/ontologies/snarm/AccessType> , <http://rdf.myexperiment.org/ontologies/snarm/Policy> .
+
+<http://purl.org/dc/terms/RightsStatement>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://rdf.myexperiment.org/ontologies/snarm/has-access>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An Access that a Policy provides" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://rdf.myexperiment.org/ontologies/snarm/Policy> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has-access" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://rdf.myexperiment.org/ontologies/snarm/Access> .
+
+<http://purl.org/dc/elements/1.1/date>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://rdf.myexperiment.org/ontologies/snarm/Access>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Unrestricted Access to an AccessType" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Access" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://rdf.myexperiment.org/ontologies/snarm/has-access-type>
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://rdf.myexperiment.org/ontologies/snarm/AccessType> , <http://rdf.myexperiment.org/ontologies/snarm/Policy> , <http://rdf.myexperiment.org/ontologies/snarm/Accesser> .
+
+<http://purl.org/dc/elements/1.1/language>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://rdf.myexperiment.org/ontologies/snarm/RestrictedAccess>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The restricted Access to an AccessType" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "RestrictedAccess" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdf.myexperiment.org/ontologies/snarm/Access> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://rdf.myexperiment.org/ontologies/snarm/has-accesser>
+                ] .
+
+<http://rdf.myexperiment.org/ontologies/snarm/AccessType>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The AccessType that is being giving, e.g. view, edit, download, etc." ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AccessType" ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://rdf.myexperiment.org/ontologies/snarm/Access> , <http://rdf.myexperiment.org/ontologies/snarm/Accesser> , <http://rdf.myexperiment.org/ontologies/snarm/Policy> .
+
+<http://purl.org/dc/elements/1.1/creator>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://rdf.myexperiment.org/ontologies/snarm/has-access-type>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The AccessType an Access provides" ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://rdf.myexperiment.org/ontologies/snarm/> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has-access-type" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://rdf.myexperiment.org/ontologies/snarm/AccessType> .
+
+<http://purl.org/dc/elements/1.1/format>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/elements/1.1/publisher>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/elements/1.1/title>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/elements/1.1/contributor>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .

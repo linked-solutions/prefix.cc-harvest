@@ -1,0 +1,208 @@
+<http://purl.org/reco#>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/reco#reco.owl> ;
+        <http://purl.org/dc/elements/1.1/contributor>
+                "Carlos Ruiz (iSOCO S.A.)" , "Emilio Rubiera (Fundación CTIC)" , "Diego Berrueta (Fundación CTIC)" ;
+        <http://purl.org/dc/elements/1.1/creator>
+                "Iván Mínguez (Fundación CTIC)" , "Luis Polo (Fundación CTIC)" ;
+        <http://purl.org/dc/elements/1.1/date>
+                "August, 2011"@en ;
+        <http://purl.org/dc/elements/1.1/description>
+                "The RECO ontology defines the vocabulary for representing prefereces-as-constraints and preferences-as-ratings as RDF graphs. This lightweight vocabulary provides domain-independent means to describe user profiles in a coherent and context-aware way. RECO has been designed as an extension of both Friend-Of-A-Friend (FOAF) and Who Am I! (WAI) ontologies."@en ;
+        <http://purl.org/dc/elements/1.1/rights>
+                "Copyright by Fundación CTIC" ;
+        <http://purl.org/dc/elements/1.1/title>
+                "RECommendations Ontology"@en ;
+        <http://purl.org/dc/terms/license>
+                <http://creativecommons.org/licenses/by-sa/3.0/> ;
+        <http://www.w3.org/2002/07/owl#priorVersion>
+                <http://ontologies.ezweb.morfeo-project.org/reco/spec/> .
+
+<http://purl.org/reco#requiredPreference>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property relates a demand with a preference P. The items fulfilling the constraints of P must be included in the final set of results for this demand."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Demand> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Required Preference"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Preference> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/reco#preference> .
+
+<http://purl.org/reco#excludedPreference>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property relates a demand with a particular preference P. The items that fulfill the constraints of P are excluded from the set of results calculated for this demand."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Demand> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Excluded Preference"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Preference> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/reco#preference> .
+
+<http://purl.org/reco#preference>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property relates a demand with the set of preferences that defines its matchmaking conditions. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Demand> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Preference"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Preference> .
+
+<http://purl.org/reco#operator>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A property that relates a filter to the operator restraining the value of a datatype property."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Filter> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Operator"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Operator> .
+
+<http://purl.org/reco#assignedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property relates a rating with the person having carried out it."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Rating> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Assigned by"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/wai#Profile> <http://purl.org/wai#Role> <http://xmlns.com/foaf/0.1/Agent> <http://xmlns.com/foaf/0.1/Group> )
+                ] .
+
+<http://purl.org/reco#rates>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property relates a rating with the resource assessed. Notice that this property has an open range (rdfs:Resource), therefore ratings can be applied to anything, including preferences themselves."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Rating> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Rates"@en .
+
+<http://purl.org/reco#about>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A property that relates a preference with its main pattern."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Preference> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "About"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Pattern> .
+
+<http://purl.org/reco#optionalPreference>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property relates a demand to a preference P. The items that fulfill the constraints of P increase or decline their utility value according to the utility of P."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Demand> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Optional Preference"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Preference> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/reco#preference> .
+
+<http://purl.org/reco#holds>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property relates a person with a preference."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/wai#Profile> <http://purl.org/wai#Role> <http://xmlns.com/foaf/0.1/Agent> <http://xmlns.com/foaf/0.1/Group> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Holds"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Preference> .
+
+<http://purl.org/reco#Demand>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Groups of preferences representing users' requests at a given context or situation."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Demand"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2002/07/owl#Thing> .
+
+<http://purl.org/reco#Rating>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A rating is a quantitative measurement of the \"appealingness\" of a particular item to a user."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Rating"@en .
+
+<http://purl.org/reco#Filter>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A datatype constraint based on boolean operators."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Filter"@en .
+
+<http://purl.org/reco#utility>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property captures the utility value of a rating. The utility in RECO is measured in the real interval [-1,1]. In practice, other discrete scales can be also used to measure users' opinions on resources, such as the Likert scale. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Preference> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Utility"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#float> .
+
+<http://purl.org/reco#Preference>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A preference is a qualitative description of the desired attributes that resources must ideally satisfy in order to be of interest for a user. A preference is described by a set of constraints."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Preference"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2002/07/owl#Thing> .
+
+<http://purl.org/reco#Operator>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Boolean operations on data values: string comparisons, numerical intervales and (in)equality. Operators are reused from the X-path specification to ensure interoperability."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Operator"@en .
+
+<http://purl.org/reco#Pattern>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Patterns are reifications of constraints, which are conditions about the desired or preferred attributes of the resources. A constraint ranges over a set of individuals. RECO considers several kind of constraint expressions: (1) conjunction of constraints: \"music from the sixties\"; (2) disjunction of constraints: \"music or films\"; (3) composition of constraints: \"cars with powerful engines\"; (4) datatype constraints based on boolean operators: \"released before 1980\"."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Pattern"@en .
+
+<http://purl.org/reco#filter>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A property that relates a pattern with a constraint of the value of a datatype property. For instance, \"less than 180 cms height\" or \"released before 1980\"."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Pattern> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Filter"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Filter> .
+
+<http://purl.org/reco#union>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A property which reifies a disjunction of constraints."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/reco#Pattern> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Union composition"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/reco#Filter> .
