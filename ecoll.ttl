@@ -1,0 +1,1444 @@
+<http://purl.org/ceu/eco#hasFirstItem>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona una colección ordenada con su primer item."@es , "Property that relates an ordered collection with its first item."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene primer item"@es , "has first item"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#OrderedItem>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#cardinality>
+                                      "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasPreviousItem>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#hasValue>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#positiveInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasIndex>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#hasOrderedItem> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/ceu/eco#isFirstItemOf> .
+
+<http://purl.org/ceu/eco#Item>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An item is a container for elements of collections. It's a workaround to allow duplicate elements in a collections."@en , "Un item es un contenedor para los elementos de las colecciones. Es un rodeo para permitir la duplicidad de elementos en la colecciones."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Item"@en , "Item"@es .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#item1> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item2> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#followedByItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#collection> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#item1> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasOrderedItem>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              ()
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item2> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasOrderedItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<http://www.essepuntato.it/2009/10/error/hasError>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+
+<http://purl.org/ceu/eco#Heteroset>
+        a       <http://purl.org/ceu/eco#Heteroset> , <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A heteroset is an heterogeneous, with uniqueness, non ordered and with variable cardinality collection."@en , "Un heteroconjunto es una colección heterogénea, con unicidad, no ordenada y de cardinalidad variable."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Heteroconjunto"@es , "Heteroset"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Multiheteroset> , <http://purl.org/ceu/eco#UniquenessCollection> .
+
+<http://purl.org/ceu/eco#List>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://purl.org/ceu/eco#List> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una lista es una colección heterogénea, sin unicidad, ordenada y de cardinalidad variable."@es , "A list is an heterogeneous, without uniqueness, ordered and with variable cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "List"@en , "Lista"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Multiheteroset> , <http://purl.org/ceu/eco#OrderedCollection> .
+
+<http://purl.org/ceu/eco#Heteroranking>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> , <http://purl.org/ceu/eco#Heteroranking> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An heteroranking is an heterogeneous, with uniqueness, ordered and with variable cardinality collection."@en , "Un heteroranking es una colección heterogénea, con unicidad, ordenada y de cardinalidad variable."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Heteroranking"@es , "Heteroranking"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#List> , <http://purl.org/ceu/eco#Heteroset> .
+
+<http://purl.org/ceu/eco>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The E-Collections ontology defines a collections taxonomy for different collection types based on the structural properties of homogeneity, uniqueness, order and cardinality."@en , "La ontología E-Collections define una clasificación taxonómica de distintos tipos de colecciones de acuerdo a las características de homogeneidad, unicidad, orden y cardinalidad."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ontología E-Collections"@es , "E-Collections Ontology"@en ;
+        <http://purl.org/dc/elements/1.1/creator>
+                "Alfredo Sánchez Alberca (asalber@ceu.es) <http://aprendeconalf.es/foaf.rdf>"@es ;
+        <http://purl.org/dc/elements/1.1/rights>
+                "La ontología E-Collections está bajo una licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional ( http://creativecommons.org/licenses/by-sa/4.0/)."@es , "E-Collections ontology is released under Attribution-ShareAlike 4.0 International Creative Commons license: http://creativecommons.org/licenses/by-sa/4.0/"@en ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <http://www.essepuntato.it/2009/10/error> ;
+        <http://www.w3.org/2002/07/owl#versionIRI>
+                <http://purl.org/ceu/eco/1.0> ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "Versión 1.0 01/02/2015"@de , "Version 1.0 2015/02/01"@en .
+
+<http://purl.org/ceu/eco#hasIndex>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona un item ordenado con su posición en una colección ordenada."@es , "Property that relates an ordered item with its position in an ordered collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#OrderedItem> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has index"@en , "tiene índice"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#item1> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item2> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#followedByItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#item2> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#item1> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#followedByItem>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              ()
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#item1> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              "An ordered item can not be followed and preceded at the same time by another item" ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://www.essepuntato.it/2009/10/error/hasError>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<http://purl.org/ceu/eco#hasContent>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Property that relates an item with the element or object that contains."@en , "Propiedad que relaciona un Item con el elemento u objecto que contiene."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#Item> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has content"@en , "contiene"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#complementOf>
+                          <http://purl.org/ceu/eco#Item>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2002/07/owl#topObjectProperty> .
+
+<urn:swrl#item2>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://purl.org/ceu/eco#isLastItemOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Property that relates an ordered item with an ordered collection in which the item occupies the last position."@en , "Propiedad que relaciona un item ordenado con una colección ordenada en la que el item ocupa la última posición."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "es último item de"@es , "is last item of"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#isOrderedItemOf> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/ceu/eco#hasLastItem> .
+
+<urn:swrl#item1>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://purl.org/ceu/eco#Sequence>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://purl.org/ceu/eco#Sequence> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una secuencia es una colección homogenea, sin unicidad, ordenada y de cardinalidad variable."@es , "A sequence is an homogeneous, without uniqueness, ordered and with variable cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Sequence"@en , "Secuencia"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#List> , <http://purl.org/ceu/eco#Multiset> .
+
+<http://purl.org/ceu/eco#Multiset>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://purl.org/ceu/eco#Multiset> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un multiconjunto es una colección homogenea, sin unicidad, no ordenada y de cardinalidad variable."@es , "A multiset is an homogeneous, without uniqueness, non ordered and with variable cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multiconjunto"@es , "Multiset"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Multiheteroset> , <http://purl.org/ceu/eco#HomogeneousCollection> .
+
+<http://purl.org/ceu/eco#hasPreviousItem>
+        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Property that relates an ordered item with another that precedes it immediately in the same ordered collection."@en , "Propiedad que relaciona un item ordenado con otro que le precede inmediatamente en una misma colección ordenada."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene previo item"@es , "has previous item"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#precededByItem> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/ceu/eco#hasNextItem> .
+
+<http://purl.org/ceu/eco#Vector>
+        a       <http://purl.org/ceu/eco#Vector> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un vector es una colección homogénea, sin unicidad, ordenada y de cardinalidad fija."@es , "A vector is an homogeneous, without uniqueness, ordered and with fixed cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Vector"@es , "Vector"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Tuple> , <http://purl.org/ceu/eco#Sequence> , <http://purl.org/ceu/eco#Multicombination> .
+
+<http://purl.org/ceu/eco#Multicombination>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://purl.org/ceu/eco#Multicombination> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A multicombination is an homogeneous, without uniqueness, non ordered and with fixed cardinality collection."@en , "Una multicombinación es una colección homogénea, sin unicidad, no ordenada y de cardinalidad fija."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multicombinación"@es , "Multicombination"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Multiset> , <http://purl.org/ceu/eco#Box> .
+
+<http://purl.org/ceu/eco#Tuple>
+        a       <http://purl.org/ceu/eco#Tuple> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una tupla es una colección heterogénea, sin unicidad, ordenada y de cardinalidad fija."@es , "A tuple is an heterogeneous, without uniqueness, ordered and with fixed cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Tuple"@en , "Tupla"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Box> , <http://purl.org/ceu/eco#List> .
+
+<http://purl.org/ceu/eco#2CardinalityCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#FixedCardinalityCollection>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onClass>
+                                      <http://purl.org/ceu/eco#Item> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasItem> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/ceu/eco#Element>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Element or object beloging to a collection."@en , "Elemento u objeto perteneciente a una colección."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Elemento"@es , "Element"@en .
+
+<http://purl.org/ceu/eco#hasElementsOfType>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#HomogeneousCollection> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has elements of type"@en , "tiene elementos de tipo"@es .
+
+<http://purl.org/ceu/eco#precededByItem>
+        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona un item ordenado con otro que le precede en una misma colección ordenada."@es , "Property that relates an ordered item with another that precedes it in the same ordered collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#OrderedItem> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "preceded by item"@en , "precedido por item"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/ceu/eco#OrderedItem> .
+
+<http://purl.org/ceu/eco#hasCardinality>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Property that relates a collection with the number of elements or objects that contains."@en , "Propiedad que relaciona una colección con el número de elementos que contiene."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#Collection> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene cardinalidad"@es , "has cardinality"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+<http://purl.org/ceu/eco#hasItem>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Property that relates a collection with an item that is part of it."@en , "Propiedad que relaciona una colección con un item que forma parte de ella."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#Collection> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene item"@es , "has item"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/ceu/eco#Item> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/ceu/eco#isItemOf> .
+
+<http://purl.org/ceu/eco#Heterovariation>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://purl.org/ceu/eco#Heterovariation> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An heterovariation is an heterogeneous, with uniqueness, ordered and with fixed cardinality collection."@en , "Una heterovariación es una colección heterogénea, con unicidad, ordenada y de cardinalidad fija."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Heterovariación"@es , "Heterovariation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Heteroranking> , <http://purl.org/ceu/eco#Heterocombination> , <http://purl.org/ceu/eco#Tuple> .
+
+<http://purl.org/ceu/eco#hasNextItem>
+        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Property that relates an ordered item with other that follows it immediately in the same ordered collection."@en , "Propiedad que relaciona un item ordenado con otro que le sigue inmediatamente en un misma colección ordenada."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene siguiente item"@es , "has next item"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#followedByItem> .
+
+<urn:swrl#index>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://purl.org/ceu/eco#col2>
+        a       <http://purl.org/ceu/eco#HomogeneousCollection> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+        a       [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://purl.org/ceu/eco#Element> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/ceu/eco#hasElement>
+                ] ;
+        <http://purl.org/ceu/eco#hasElementsOfType>
+                <http://purl.org/ceu/eco#elemento1> .
+
+<http://purl.org/ceu/eco#col1>
+        a       <http://purl.org/ceu/eco#FixedCardinalityCollection> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://purl.org/ceu/eco#OrderedCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una colección ordenada es una colección donde los elementos siguen un orden secuencial."@es , "An ordered collection is a collection where elements follow a sequential order."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ordered collection"@en , "Colección ordenada"@es ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#Collection>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://purl.org/ceu/eco#OrderedItem> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasItem>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#maxCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasFirstItem>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#maxCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasLastItem>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/ceu/eco#Multiheteroset>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> , <http://purl.org/ceu/eco#Multiheteroset> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A multiheteroset is an heterogeneous, without uniqueness, non ordered and with variable cardinality collection."@en , "Un multiheteroconjunto es una colección heterogénea, sin unicidad, no ordenada y de cardilnalidad variable."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Multiheteroset"@en , "Multiheteroconjunto"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Collection> .
+
+<http://purl.org/ceu/eco#Ranking>
+        a       <http://purl.org/ceu/eco#Ranking> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un ranking es una colección homogénea, con unicidad, ordenada y de cardinalidad variable."@es , "A ranking is an homogeneous, with uniqueness, ordered and with variable cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ranking"@en , "Ranking"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Set> , <http://purl.org/ceu/eco#Heteroranking> , <http://purl.org/ceu/eco#Sequence> .
+
+<http://purl.org/dc/elements/1.1/creator>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#classPredicate>
+                              <http://purl.org/ceu/eco#FixedCardinalityCollection>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#collection> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        1 ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasCardinality>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              ()
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#classPredicate>
+                              [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                <http://www.w3.org/2002/07/owl#onClass>
+                                        <http://purl.org/ceu/eco#Item> ;
+                                <http://www.w3.org/2002/07/owl#onProperty>
+                                        <http://purl.org/ceu/eco#hasItem> ;
+                                <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                        "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                              ]
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<http://purl.org/ceu/eco#hasOrderedItem>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona una colección ordenada con un item ordenado que forma parte de ella."@es , "Property that relates an ordered collection with an ordered item that is part of it."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#OrderedCollection> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene item ordenado"@es , "has ordered item"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/ceu/eco#OrderedItem> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#hasItem> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/ceu/eco#isOrderedItemOf> .
+
+<http://purl.org/ceu/eco#Collection>
+        a       <http://purl.org/ceu/eco#Collection> , <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una colección es una agrupación de objetos o elementos."@es , "A collection is a group of objects or elements."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Colección"@es , "Collection"@en ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://purl.org/ceu/eco#Item> .
+
+<http://purl.org/ceu/eco#followedByItem>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona un item ordenado con otro que le sigue después en una misma colección ordenada."@es , "Property that relates an ordered item with another that follows it after in the same ordered collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#OrderedItem> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "seguido por item"@es , "followed by item"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/ceu/eco#OrderedItem> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/ceu/eco#precededByItem> .
+
+<http://purl.org/ceu/eco#isItemOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona un item con la colección de la que forma parte."@es , "Property that relates an item with the collection that is part of."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "es item de"@es , "is item of"@en .
+
+<http://purl.org/ceu/eco#Set>
+        a       <http://purl.org/ceu/eco#Set> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A set is an homogeneous, with uniqueness, non ordered and with variable cardinality collection."@en , "Un conjunto es una colección homogénea, con unicidad, no ordenada y de cardinalidad fija."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Conjunto"@es , "Set"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Multiset> , <http://purl.org/ceu/eco#Heteroset> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasOrderedItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#item> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#n> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasIndex>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                          <http://www.w3.org/2003/11/swrl#argument1>
+                                                  <urn:swrl#collection> ;
+                                          <http://www.w3.org/2003/11/swrl#argument2>
+                                                  <urn:swrl#n> ;
+                                          <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                  <http://purl.org/ceu/eco#hasCardinality>
+                                        ] ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        ()
+                              ]
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasLastItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#item> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              "1" ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasIndex>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#collection> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#item> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasOrderedItem>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              ()
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collectionl> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasFirstItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<http://purl.org/ceu/eco#UniquenessCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una colección con unicidad es una colección donde cada elemento aparece a lo sumo una vez, es decir, donde no se permiten las repeticiones de elementos."@es , "An uniqueness collection is a collection where each element appears at most one time, that is, element repetitions are not allowed."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Colección con unicidad"@es , "Uniqueness collection"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Collection> .
+
+<http://purl.org/ceu/eco#Heterocombination>
+        a       <http://purl.org/ceu/eco#Heterocombination> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una heterocombinación es una colección heterogénea, con unicidad, no ordenada y de cardinalidad fija."@es , "An heterocombination is an heterogeneous, with uniqueness, non ordered and with fixed cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Heterocombination"@en , "Heterocombinación"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Box> , <http://purl.org/ceu/eco#Heteroset> .
+
+<http://purl.org/ceu/eco#HomogeneousCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una coleccion homogénea es una colección donde todos los elementos son del mismo tipo."@es , "An homogeneous collection is a collection with all its element of the same type."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Colección homogénea"@es , "Homogeneous collection"@en ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#Collection>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#cardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasElementsOfType>
+                            ]
+                          )
+                ] .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item2> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasOrderedItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#item2> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#j> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasIndex>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                          <http://www.w3.org/2003/11/swrl#argument1>
+                                                  <urn:swrl#item1> ;
+                                          <http://www.w3.org/2003/11/swrl#argument2>
+                                                  <urn:swrl#i> ;
+                                          <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                  <http://purl.org/ceu/eco#hasIndex>
+                                        ] ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                  [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                    <http://www.w3.org/2003/11/swrl#argument1>
+                                                            <urn:swrl#collection> ;
+                                                    <http://www.w3.org/2003/11/swrl#argument2>
+                                                            <urn:swrl#item1> ;
+                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                            <http://purl.org/ceu/eco#hasOrderedItem>
+                                                  ] ;
+                                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                  [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                            [ a       <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                              <http://www.w3.org/2003/11/swrl#arguments>
+                                                                      [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                                <urn:swrl#j> ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                                [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                                                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                                          <urn:swrl#i> ;
+                                                                                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                                          [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                                                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                                                    1 ;
+                                                                                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                                                    ()
+                                                                                          ]
+                                                                                ]
+                                                                      ] ;
+                                                              <http://www.w3.org/2003/11/swrl#builtin>
+                                                                      <http://www.w3.org/2003/11/swrlb#add>
+                                                            ] ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                            ()
+                                                  ]
+                                        ]
+                              ]
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#item1> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#item2> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasNextItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#item> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#index> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasIndex>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#item> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#nextitem> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasNextItem>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        [ a       <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                          <http://www.w3.org/2003/11/swrl#arguments>
+                                                  [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                            <urn:swrl#nextindex> ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                            [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                              <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                      <urn:swrl#index> ;
+                                                              <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                      [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                                1 ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                                ()
+                                                                      ]
+                                                            ]
+                                                  ] ;
+                                          <http://www.w3.org/2003/11/swrl#builtin>
+                                                  <http://www.w3.org/2003/11/swrlb#add>
+                                        ] ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        ()
+                              ]
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#nextitem> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#nextindex> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasIndex>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<http://purl.org/ceu/eco#3CardinalityCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#FixedCardinalityCollection>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onClass>
+                                      <http://purl.org/ceu/eco#Item> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasItem> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/ceu/eco#Box>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://purl.org/ceu/eco#Box> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una caja es una colección heterogénea, sin unicidad, no ordenada y de cardinalidad fija."@es , "A box is an heterogeneous, without uniqueness, non ordered and with fixed cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Box"@en , "Caja"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Multiheteroset> , <http://purl.org/ceu/eco#FixedCardinalityCollection> .
+
+<http://purl.org/ceu/eco#isFirstItemOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona un item ordenado con una colección ordenada en la que el item ocupa la primera posición."@es , "Property that relates an ordered item with an ordered collection in which the item occupies the first position."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is first item of"@en , "es primer item de"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#isOrderedItemOf> .
+
+<http://www.w3.org/2001/XMLSchema#positiveInteger>
+        a       <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+
+<http://purl.org/ceu/eco#elemento1>
+        a       <http://purl.org/ceu/eco#Element> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://purl.org/ceu/eco#isOrderedItemOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona un item ordenado con la colección ordenada a la que pertenece."@es , "Property that relates an ordered item with the ordered collection that belongs to."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "es item ordenado de"@es , "is ordered item of"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#isItemOf> .
+
+<http://www.w3.org/2000/01/rdf-schema#comment>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/dc/elements/1.1/rights>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/ceu/eco#OrderedItem>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un item ordenado es un item que forma parte de una secuencia ordenada de items."@es , "An ordered item is an item that is part of an ordered sequence of items."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ordered item"@en , "Item ordenado"@es ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#Item>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#maxCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasNextItem>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#maxCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasPreviousItem>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onDataRange>
+                                      <http://www.w3.org/2001/XMLSchema#positiveInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasIndex> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/ceu/eco#Combination>
+        a       <http://purl.org/ceu/eco#Combination> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una combinación es una colección homogénea, con unicidad, no ordenada y de cardinalidad fija."@es , "A combination is an homogeneous, with uniqueness, non ordered and with fixed cardinality collection."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Combination"@en , "Combinación"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Set> , <http://purl.org/ceu/eco#Multicombination> , <http://purl.org/ceu/eco#Heterocombination> .
+
+<http://purl.org/ceu/eco#isElementOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona un elemento u objeto con una colección a la que pertenece."@es , "Property that relates an element or object with a collection that belongs to."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is element of"@en , "es elemento de"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/ceu/eco#Collection> .
+
+<http://www.w3.org/2000/01/rdf-schema#label>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/2002/07/owl#Thing>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/ceu/eco#Variation>
+        a       <http://purl.org/ceu/eco#Variation> , <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A variation is an homogeneous, with uniqueness, ordered and with fixed cardinality collection."@en , "Una variación es una colección homogénea, con unicidad, ordenada y de cardinalidad fija."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Variation"@en , "Variación"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Heterovariation> , <http://purl.org/ceu/eco#Combination> , <http://purl.org/ceu/eco#Ranking> , <http://purl.org/ceu/eco#Vector> .
+
+<http://purl.org/ceu/eco#hasElement>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Propiedad que relaciona una colección con un elemento que pertenece a ella."@es , "Property that relates a collection with an element that belongs to it."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/ceu/eco#Collection> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene elemento"@es , "has element"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#complementOf>
+                          <http://purl.org/ceu/eco#Item>
+                ] ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/ceu/eco#isElementOf> ;
+        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
+                ( <http://purl.org/ceu/eco#hasItem> <http://purl.org/ceu/eco#hasContent> ) .
+
+<http://www.w3.org/2002/07/owl#topObjectProperty>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#classPredicate>
+                              <http://purl.org/ceu/eco#FixedCardinalityCollection>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#collection> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        2 ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasCardinality>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              ()
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#classPredicate>
+                              [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                <http://www.w3.org/2002/07/owl#onClass>
+                                        <http://purl.org/ceu/eco#Item> ;
+                                <http://www.w3.org/2002/07/owl#onProperty>
+                                        <http://purl.org/ceu/eco#hasItem> ;
+                                <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                        "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                              ]
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<http://purl.org/ceu/eco#1CardinalityCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#FixedCardinalityCollection>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onClass>
+                                      <http://purl.org/ceu/eco#Item> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasItem> ;
+                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                            ]
+                          )
+                ] .
+
+<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+        a       <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#x> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#x> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#followedByItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#x> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              "An ordered item cannot be followed by itself" ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://www.essepuntato.it/2009/10/error/hasError>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              3 ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasCardinality>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#collection> ;
+                                <http://www.w3.org/2003/11/swrl#classPredicate>
+                                        <http://purl.org/ceu/eco#FixedCardinalityCollection>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              ()
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#classPredicate>
+                              [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                <http://www.w3.org/2002/07/owl#onClass>
+                                        <http://purl.org/ceu/eco#Item> ;
+                                <http://www.w3.org/2002/07/owl#onProperty>
+                                        <http://purl.org/ceu/eco#hasItem> ;
+                                <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                                        "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                              ]
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<http://purl.org/ceu/eco#hasLastItem>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Property that relates an ordered collection with its last item."@en , "Propiedad que relaciona una colección ordenada con su último item."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has last item"@en , "tiene último item"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/ceu/eco#OrderedItem>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#cardinality>
+                                      "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/ceu/eco#hasNextItem>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/ceu/eco#hasOrderedItem> .
+
+<http://purl.org/ceu/eco#FixedCardinalityCollection>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una colección de cardinalidad fija es una colección con un número fijo de elementos."@es , "A fixed cardiality collection is a collection of a fixed number of elements."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Colección de cardinalidad fija"@es , "Fixed cardinality collection"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/ceu/eco#Collection> .
+
+<urn:swrl#x>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#last>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#n>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#j>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#i>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#nextindex>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#current> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#next> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasNextItem>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#current> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#index> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasIndex>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        [ a       <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                          <http://www.w3.org/2003/11/swrl#arguments>
+                                                  [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                            <urn:swrl#nextindex> ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                            [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                              <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                      <urn:swrl#index> ;
+                                                              <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                      [ a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                                1 ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                                ()
+                                                                      ]
+                                                            ]
+                                                  ] ;
+                                          <http://www.w3.org/2003/11/swrl#builtin>
+                                                  <http://www.w3.org/2003/11/swrlb#add>
+                                        ] ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        ()
+                              ]
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#next> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#nextindex> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasIndex>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#last> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#n> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasIndex>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#collecction> ;
+                                <http://www.w3.org/2003/11/swrl#classPredicate>
+                                        [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                          <http://www.w3.org/2002/07/owl#complementOf>
+                                                  <http://purl.org/ceu/eco#UniquenessCollection>
+                                        ]
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                          <http://www.w3.org/2003/11/swrl#argument1>
+                                                  <urn:swrl#collection> ;
+                                          <http://www.w3.org/2003/11/swrl#argument2>
+                                                  <urn:swrl#last> ;
+                                          <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                  <http://purl.org/ceu/eco#hasLastItem>
+                                        ] ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        ()
+                              ]
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#n> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasCardinality>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<urn:swrl#collection>
+        a       <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+        a       <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#classPredicate>
+                              <http://purl.org/ceu/eco#UniquenessCollection>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#item1> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#element1> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasContent>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                          <http://www.w3.org/2003/11/swrl#argument1>
+                                                  <urn:swrl#item2> ;
+                                          <http://www.w3.org/2003/11/swrl#argument2>
+                                                  <urn:swrl#element2> ;
+                                          <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                  <http://purl.org/ceu/eco#hasContent>
+                                        ] ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                  [ a       <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                    <http://www.w3.org/2003/11/swrl#argument1>
+                                                            <urn:swrl#item1> ;
+                                                    <http://www.w3.org/2003/11/swrl#argument2>
+                                                            <urn:swrl#item2>
+                                                  ] ;
+                                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                  [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                            [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                              <http://www.w3.org/2003/11/swrl#argument1>
+                                                                      <urn:swrl#collection> ;
+                                                              <http://www.w3.org/2003/11/swrl#argument2>
+                                                                      <urn:swrl#item1> ;
+                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                                      <http://purl.org/ceu/eco#hasItem>
+                                                            ] ;
+                                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                            [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                              <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                      [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                        <http://www.w3.org/2003/11/swrl#argument1>
+                                                                                <urn:swrl#collection> ;
+                                                                        <http://www.w3.org/2003/11/swrl#argument2>
+                                                                                <urn:swrl#item2> ;
+                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                                                <http://purl.org/ceu/eco#hasItem>
+                                                                      ] ;
+                                                              <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                      [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                                                                [ a       <http://www.w3.org/2003/11/swrl#SameIndividualAtom> ;
+                                                                                  <http://www.w3.org/2003/11/swrl#argument1>
+                                                                                          <urn:swrl#element1> ;
+                                                                                  <http://www.w3.org/2003/11/swrl#argument2>
+                                                                                          <urn:swrl#element2>
+                                                                                ] ;
+                                                                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                                                                ()
+                                                                      ]
+                                                            ]
+                                                  ]
+                                        ]
+                              ]
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collection> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              "A colllection with uniqueness has repeated elements" ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://www.essepuntato.it/2009/10/error/hasError>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<urn:swrl#element1>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#element2>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ a       <http://www.w3.org/2003/11/swrl#Imp> ;
+  <http://www.w3.org/2003/11/swrl#body>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#collecction> ;
+                      <http://www.w3.org/2003/11/swrl#classPredicate>
+                              [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                <http://www.w3.org/2002/07/owl#complementOf>
+                                        <http://purl.org/ceu/eco#UniquenessCollection>
+                              ]
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                              [ a       <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                <http://www.w3.org/2003/11/swrl#argument1>
+                                        <urn:swrl#collection> ;
+                                <http://www.w3.org/2003/11/swrl#argument2>
+                                        <urn:swrl#last> ;
+                                <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                        <http://purl.org/ceu/eco#hasLastItem>
+                              ] ;
+                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                              [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                                        [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                          <http://www.w3.org/2003/11/swrl#argument1>
+                                                  <urn:swrl#collection> ;
+                                          <http://www.w3.org/2003/11/swrl#argument2>
+                                                  <urn:swrl#n> ;
+                                          <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                                                  <http://purl.org/ceu/eco#hasCardinality>
+                                        ] ;
+                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                                        ()
+                              ]
+                    ]
+          ] ;
+  <http://www.w3.org/2003/11/swrl#head>
+          [ a       <http://www.w3.org/2003/11/swrl#AtomList> ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                    [ a       <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                      <http://www.w3.org/2003/11/swrl#argument1>
+                              <urn:swrl#last> ;
+                      <http://www.w3.org/2003/11/swrl#argument2>
+                              <urn:swrl#n> ;
+                      <http://www.w3.org/2003/11/swrl#propertyPredicate>
+                              <http://purl.org/ceu/eco#hasIndex>
+                    ] ;
+            <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                    ()
+          ]
+] .
+
+<urn:swrl#collectionl>
+        a       <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.w3.org/2001/XMLSchema#integer>
+        a       <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+
+<urn:swrl#nextitem>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#item>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#collecction>
+        a       <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#next>  a  <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl#current>  a  <http://www.w3.org/2003/11/swrl#Variable> .

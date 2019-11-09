@@ -1,0 +1,198 @@
+<http://premon.fbk.eu/ontology/nb#core>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Set to true if the semantic role explicitly occurs in a frame file"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://premon.fbk.eu/ontology/nb#SemanticRole> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "core"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://premon.fbk.eu/ontology/nb#Modifier>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Modifier (NB)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://premon.fbk.eu/ontology/nb#Argument> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#oneOf>
+                          ( <http://premon.fbk.eu/ontology/nb#argm-cau> <http://premon.fbk.eu/ontology/nb#argm-tmp> <http://premon.fbk.eu/ontology/nb#argm-dis> <http://premon.fbk.eu/ontology/nb#argm-dir> <http://premon.fbk.eu/ontology/nb#argm-prd> <http://premon.fbk.eu/ontology/nb#argm-ext> <http://premon.fbk.eu/ontology/nb#argm-mnr> <http://premon.fbk.eu/ontology/nb#argm-loc> <http://premon.fbk.eu/ontology/nb#argm-neg> <http://premon.fbk.eu/ontology/nb#argm-pnc> <http://premon.fbk.eu/ontology/nb#argm-adv> )
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://premon.fbk.eu/ontology/nb#NumberedArgument> .
+
+<http://premon.fbk.eu/ontology/nb>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The NomBank module of the PreMOn ontology extends the core module for representing concepts specific to NomBank. The modelling is based on the [NomBank Specifications](http://nlp.cs.nyu.edu/meyers/nombank/nombank-specs-2007.pdf)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://premon.fbk.eu/ontology/nb.ttl> ;
+        <http://purl.org/dc/terms/creator>
+                "Francesco Corcoglioniti" , "Marco Rospocher <https://dkm.fbk.eu/rospocher>" ;
+        <http://purl.org/dc/terms/description>
+                "The NomBank module of the PreMOn ontology defines [pmonb:Roleset](http://premon.fbk.eu/ontology/nb#Roleset) and [pmonb:SemanticRole](http://premon.fbk.eu/ontology/nb#SemanticRole) as subclasses of [pmo:SemanticClass](http://premon.fbk.eu/ontology/core#SemanticClass) and [pmo:SemanticRole](http://premon.fbk.eu/ontology/core#SemanticRole), respectively.\n\nEach [pmonb:SemanticRole](http://premon.fbk.eu/ontology/nb#SemanticRole) instance is related (via property [pmonb:argument](http://premon.fbk.eu/ontology/nb#argument)) to exactly one [pmonb:Argument](http://premon.fbk.eu/ontology/nb#Argument), which is defined as the disjoint union of two subclasses: \n\n* [pmonb:NumberedArgument](http://premon.fbk.eu/ontology/nb#NumberedArgument), containing the individuals corresponding to numbered argument (e.g., *Arg0*, *Arg1*); and, \n* [pmonb:Modifier](http://premon.fbk.eu/ontology/nb#Modifier), containing the individuals corresponding to modifiers (e.g., *ArgM-LOC*, *ArgM-TMP*).\n\nWe also define class [pmonb:Tag](http://premon.fbk.eu/ontology/nb#Tag) to capture (via property [pmonb:tag](http://premon.fbk.eu/ontology/nb#tag)) some specific annotations of markables (e.g., *PRD*, *REF*, *SUPPORT*) in the examples."@en ;
+        <http://purl.org/dc/terms/description>
+                <http://premon.fbk.eu/images/nb.svg> ;
+        <http://purl.org/dc/terms/issued>
+                "2015-10-28"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/terms/license>
+                <http://creativecommons.org/licenses/by-sa/4.0/> ;
+        <http://purl.org/dc/terms/modified>
+                "2018-02-15"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/terms/publisher>
+                "DKM, Fondazione Bruno Kessler <http://dkm.fbk.eu/>" ;
+        <http://purl.org/dc/terms/rights>
+                "This ontology is licensed under CC-BY-SA <http://creativecommons.org/licenses/by-sa/4.0/>"@en ;
+        <http://purl.org/dc/terms/title>
+                "Predicate Model for Ontologies (PreMOn) - NomBank ontology module"@en ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "pmonb" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "http://premon.fbk.eu/ontology/nb#" ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <http://www.w3.org/ns/lemon/ontolex> , <http://premon.fbk.eu/ontology/core> ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "2018a" .
+
+<http://premon.fbk.eu/ontology/nb#argm-neg>
+        a       <http://premon.fbk.eu/ontology/nb#Modifier> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#argument>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://premon.fbk.eu/ontology/nb#SemanticRole> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "argument"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://premon.fbk.eu/ontology/nb#Argument> .
+
+<http://premon.fbk.eu/ontology/nb#argm-adv>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Modifier> .
+
+<http://premon.fbk.eu/ontology/nb#argm-prd>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Modifier> .
+
+<http://premon.fbk.eu/ontology/nb#argm-dis>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Modifier> .
+
+<http://premon.fbk.eu/ontology/nb#argm-dir>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Modifier> .
+
+<http://premon.fbk.eu/ontology/nb#Roleset>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Roleset (NB)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://premon.fbk.eu/ontology/core#SemanticClass> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://premon.fbk.eu/ontology/nb#SemanticRole> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://premon.fbk.eu/ontology/core#semRole>
+                ] .
+
+<http://premon.fbk.eu/ontology/nb#SemanticRole>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Semantic Role (NB)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://premon.fbk.eu/ontology/core#SemanticRole> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://premon.fbk.eu/ontology/nb#Roleset> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          [ <http://www.w3.org/2002/07/owl#inverseOf>
+                                    <http://premon.fbk.eu/ontology/core#semRole> ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://premon.fbk.eu/ontology/nb#argument> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://premon.fbk.eu/ontology/nb#Argument>
+                ] .
+
+<http://premon.fbk.eu/ontology/nb#tag>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tag"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://premon.fbk.eu/ontology/nb#Tag> .
+
+<http://premon.fbk.eu/ontology/nb#NumberedArgument>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Numbered Argument (NB)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://premon.fbk.eu/ontology/nb#Argument> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#oneOf>
+                          ( <http://premon.fbk.eu/ontology/nb#arg5> <http://premon.fbk.eu/ontology/nb#arg4> <http://premon.fbk.eu/ontology/nb#arg3> <http://premon.fbk.eu/ontology/nb#arg2> <http://premon.fbk.eu/ontology/nb#arg1> <http://premon.fbk.eu/ontology/nb#arg0> )
+                ] .
+
+<http://premon.fbk.eu/ontology/nb#argm-pnc>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Modifier> .
+
+<http://premon.fbk.eu/ontology/nb#arg2>
+        a       <http://premon.fbk.eu/ontology/nb#NumberedArgument> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#arg1>
+        a       <http://premon.fbk.eu/ontology/nb#NumberedArgument> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#arg4>
+        a       <http://premon.fbk.eu/ontology/nb#NumberedArgument> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#arg3>
+        a       <http://premon.fbk.eu/ontology/nb#NumberedArgument> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#arg0>
+        a       <http://premon.fbk.eu/ontology/nb#NumberedArgument> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#argm-mnr>
+        a       <http://premon.fbk.eu/ontology/nb#Modifier> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#argm-ext>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Modifier> .
+
+<http://premon.fbk.eu/ontology/nb#argm-loc>
+        a       <http://premon.fbk.eu/ontology/nb#Modifier> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#arg5>
+        a       <http://premon.fbk.eu/ontology/nb#NumberedArgument> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#Argument>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Argument (NB)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2004/02/skos/core#Concept> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://premon.fbk.eu/ontology/nb#Modifier> <http://premon.fbk.eu/ontology/nb#NumberedArgument> )
+                ] .
+
+<http://premon.fbk.eu/ontology/nb#Tag>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Tag"@en .
+
+<http://premon.fbk.eu/ontology/nb#argm-tmp>
+        a       <http://premon.fbk.eu/ontology/nb#Modifier> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#argm-cau>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Modifier> .
+
+<http://premon.fbk.eu/ontology/nb#tag-ref>
+        a       <http://premon.fbk.eu/ontology/nb#Tag> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#tag-prd>
+        a       <http://premon.fbk.eu/ontology/nb#Tag> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
+
+<http://premon.fbk.eu/ontology/nb#tag-support>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://premon.fbk.eu/ontology/nb#Tag> .

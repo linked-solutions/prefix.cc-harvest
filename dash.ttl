@@ -1,0 +1,2639 @@
+<http://datashapes.org/dash#GraphUpdate>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A suggestion consisting of added and/or deleted triples, represented as rdf:Statements via dash:addedTriple and dash:deletedTriple." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Graph update" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#Suggestion> .
+
+<http://datashapes.org/dash#fixed>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to mark that certain validation results have already been fixed." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#ValidationResult> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "fixed" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#width>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The width." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "width" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://datashapes.org/dash#TextAreaWithLangEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A multi-line text area to enter the value of a literal and a drop down to select a language." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Text area with lang editor" .
+
+<http://datashapes.org/dash#HasValueWithClassConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to express a constraint on property shapes so that one of the values of the property path must be an instance of a given class." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Has value with class constraint component" ;
+        <http://www.w3.org/ns/shacl#message>
+                "At least one of the values must be an instance of class {$hasValueWithClass}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#HasValueWithClassConstraintComponent-hasValueWithClass> ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "SELECT $this\nWHERE {\n\tFILTER NOT EXISTS {\n    \t$this $PATH ?value .\n\t\t?value a ?type .\n\t\t?type rdfs:subClassOf* ?hasValueWithClass .\n\t}\n}"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateHasValueWithClass" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#JSTestCase>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A test case that calls a given JavaScript function like a sh:JSFunction and compares its result with the dash:expectedResult." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "JavaScript test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#TestCase> , <http://www.w3.org/ns/shacl#JSFunction> ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The expected result of the JavaScript function call, as an RDF node." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "expected result" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#expectedResult>
+                ] .
+
+<http://datashapes.org/dash#addedTriple>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "May link a dash:GraphUpdate with one or more triples (represented as instances of rdf:Statement) that should be added to fix the source of the result." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#GraphUpdate> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "added triple" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement> .
+
+<http://datashapes.org/dash#shape>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "States that a subject resource has a given shape. This property can, for example, be used to capture results of SHACL validation on static data." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "shape" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/ns/shacl#Shape> .
+
+<http://datashapes.org/dash#singleLine>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "single line" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#TextFieldEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A simple input field to enter the value of a literal, without the ability to change language or datatype.\n\nThis is the fallback editor for any literal if no other editors are more suitable." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Text field editor" .
+
+<http://www.w3.org/ns/shacl#NodeKindConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must have node kind {$nodeKind}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value does not have node kind {$nodeKind}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasNodeKind> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateNodeKind" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#isDeactivated>
+        a       <http://www.w3.org/ns/shacl#SPARQLFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given shape or constraint has been marked as \"deactivated\" using sh:deactivated." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is deactivated" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK {\n    ?constraintOrShape sh:deactivated true .\n}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ <http://www.w3.org/ns/shacl#description>
+                          "The sh:Constraint or sh:Shape to test." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "constraint or shape" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#constraintOrShape>
+                ] ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#returnType>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://www.w3.org/ns/shacl#QualifiedMinCountConstraintComponent>
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "No fewer than {$qualifiedMinCount} values can have shape {$qualifiedValueShape}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Fewer than {$qualifiedMinCount} values have shape {$qualifiedValueShape}" ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateQualifiedMinCountProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#StringOrLangString>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                [ <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#string> ] ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                ( [ <http://www.w3.org/ns/shacl#datatype>
+                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> ]
+                ) ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An rdf:List that can be used in property constraints as value for sh:or to indicate that all values of a property must be either xsd:string or rdf:langString." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "String or langString" .
+
+<http://datashapes.org/dash#SPARQLUpdateSuggestionGenerator>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A SuggestionGenerator based on a SPARQL UPDATE query (sh:update), producing an instance of dash:GraphUpdate. The INSERTs become dash:addedTriple and the DELETEs become dash:deletedTriple. The WHERE clause operates on the data graph with the pre-bound variables $subject, $predicate and $object, as well as the other pre-bound variables for the parameters of the constraint.\n\nIn many cases, there may be multiple possible suggestions to fix a problem. For example, with sh:maxLength there are many ways to slice a string. In those cases, the system will first iterate through the result variables from a SELECT query (sh:select) and apply these results as pre-bound variables into the UPDATE query." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SPARQL UPDATE suggestion generator" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#SPARQLSelectExecutable> , <http://www.w3.org/ns/shacl#SPARQLUpdateExecutable> , <http://datashapes.org/dash#SuggestionGenerator> .
+
+<http://datashapes.org/dash#isNodeKindBlankNode>
+        a       <http://www.w3.org/ns/shacl#SPARQLFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks if a given sh:NodeKind is one that includes BlankNodes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is NodeKind BlankNode" ;
+        <http://datashapes.org/dash#cachable>
+                true ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK {\n\tFILTER ($nodeKind IN ( sh:BlankNode, sh:BlankNodeOrIRI, sh:BlankNodeOrLiteral ))\n}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ <http://www.w3.org/ns/shacl#class>
+                          <http://www.w3.org/ns/shacl#NodeKind> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The sh:NodeKind to check." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "node kind" ;
+                  <http://www.w3.org/ns/shacl#nodeKind>
+                          <http://www.w3.org/ns/shacl#IRI> ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#nodeKind>
+                ] ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#returnType>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#URIEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An input field to enter the URI of a resource, e.g. rdfs:seeAlso links or images." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "URI editor" .
+
+<http://datashapes.org/dash>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "DASH defines SPARQL-based validators for many SHACL Core constraint components. These are (among others) utilized by TopBraid and its API. Note that constraint components that require validation of nested shapes (such as sh:node) are not implementable without a function such as tosh:hasShape.\n\nDASH is also a SHACL library for frequently needed features and design patterns. All features in this library are 100% standards compliant and will work on any engine that fully supports SHACL." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DASH Data Shapes Library" ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <http://topbraid.org/tosh> , <http://www.w3.org/ns/shacl#> ;
+        <http://www.w3.org/ns/shacl#declare>
+                [ <http://www.w3.org/ns/shacl#namespace>
+                          "http://www.w3.org/2002/07/owl#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#prefix>
+                          "owl"
+                ] ;
+        <http://www.w3.org/ns/shacl#declare>
+                [ <http://www.w3.org/ns/shacl#namespace>
+                          "http://www.w3.org/2001/XMLSchema#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#prefix>
+                          "xsd"
+                ] ;
+        <http://www.w3.org/ns/shacl#declare>
+                [ <http://www.w3.org/ns/shacl#namespace>
+                          "http://datashapes.org/dash#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#prefix>
+                          "dash"
+                ] ;
+        <http://www.w3.org/ns/shacl#declare>
+                [ <http://www.w3.org/ns/shacl#namespace>
+                          "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#prefix>
+                          "rdf"
+                ] ;
+        <http://www.w3.org/ns/shacl#declare>
+                [ <http://www.w3.org/ns/shacl#namespace>
+                          "http://www.w3.org/2000/01/rdf-schema#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#prefix>
+                          "rdfs"
+                ] ;
+        <http://www.w3.org/ns/shacl#declare>
+                [ <http://www.w3.org/ns/shacl#namespace>
+                          "http://purl.org/dc/terms/"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#prefix>
+                          "dcterms"
+                ] ;
+        <http://www.w3.org/ns/shacl#declare>
+                [ <http://www.w3.org/ns/shacl#namespace>
+                          "http://www.w3.org/2004/02/skos/core#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#prefix>
+                          "skos"
+                ] .
+
+<http://datashapes.org/dash#suggestion>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to link a result with one or more suggestions on how to address or improve the underlying issue." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#AbstractResult> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "suggestion" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#Suggestion> .
+
+<http://datashapes.org/dash#suggestionConfidence>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An optional confidence between 0% and 100%. Suggestions with 100% confidence are strongly recommended. Can be used to sort recommended updates." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#Suggestion> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "suggestion confidence" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#decimal> .
+
+<http://datashapes.org/dash#y>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The y position." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "y" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://datashapes.org/dash#isNodeKindIRI>
+        a       <http://www.w3.org/ns/shacl#SPARQLFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks if a given sh:NodeKind is one that includes IRIs." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is NodeKind IRI" ;
+        <http://datashapes.org/dash#cachable>
+                true ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK {\n\tFILTER ($nodeKind IN ( sh:IRI, sh:BlankNodeOrIRI, sh:IRIOrLiteral ))\n}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ <http://www.w3.org/ns/shacl#class>
+                          <http://www.w3.org/ns/shacl#NodeKind> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The sh:NodeKind to check." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "node kind" ;
+                  <http://www.w3.org/ns/shacl#nodeKind>
+                          <http://www.w3.org/ns/shacl#IRI> ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#nodeKind>
+                ] ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#returnType>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#Suggestion>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Base class of suggestions that modify a graph to \"fix\" the source of a validation result." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Suggestion" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#FailureResult>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A result representing a validation failure such as an unsupported recursion." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Failure result" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#AbstractResult> .
+
+<http://datashapes.org/dash#height>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The height." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "height" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://datashapes.org/dash#TestCase>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A test case to verify that a (SHACL-based) feature works as expected." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://datashapes.org/dash#abstract>
+                true ;
+        <http://www.w3.org/ns/shacl#property>
+                [ <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#boolean> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "If set to true, this test case will be skipped." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "deactivated" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://www.w3.org/ns/shacl#deactivated>
+                ] .
+
+<http://datashapes.org/dash#FunctionTestCase>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A test case that verifies that a given SPARQL expression produces a given, expected result." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Function test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The expected result of a function call." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "expected result" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#expectedResult>
+                ] ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "A valid SPARQL expression calling the function to test." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#minCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "expression" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#expression>
+                ] .
+
+<http://datashapes.org/dash#AllObjectsTarget>
+        a       <http://www.w3.org/ns/shacl#SPARQLTargetType> , <http://www.w3.org/ns/shacl#JSTargetType> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A target containing all objects in the data graph as focus nodes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "All objects target" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#Target> ;
+        <http://www.w3.org/ns/shacl#jsFunctionName>
+                "dash_allObjects" ;
+        <http://www.w3.org/ns/shacl#jsLibrary>
+                <http://datashapes.org/dash#DASHJSLibrary> ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "All objects" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#select>
+                "SELECT DISTINCT ?this\nWHERE {\n    ?anyS ?anyP ?this .\n}" .
+
+<http://datashapes.org/dash#requiredExecutionPlatform>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links a SPARQL executable with the platforms that it can be executed on. This can be used by a SHACL implementation to determine whether a constraint validator or rule shall be ignored based on the current platform. For example, if a SPARQL query uses a function or magic property that is only available in TopBraid then a non-TopBraid platform can ignore the constraint (or simply always return no validation results). If this property has no value then the assumption is that the execution will succeed. As soon as one value exists, the assumption is that the engine supports at least one of the given platforms." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#SPARQLExecutable> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "required execution platform" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#ExecutionPlatform> .
+
+<http://datashapes.org/dash#ListShape>
+        a       <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Defines constraints on what it means for a node to be a well-formed RDF list.\n\nThe focus node must either be rdf:nil or not recursive. Furthermore, this shape uses dash:ListNodeShape as a \"helper\" to walk through all members of the whole list (including itself)." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "List shape" ;
+        <http://www.w3.org/ns/shacl#or>
+                ( [ <http://www.w3.org/ns/shacl#hasValue>
+                            () ]
+                  [ <http://www.w3.org/ns/shacl#not>
+                            [ <http://www.w3.org/ns/shacl#hasValue>
+                                      () ] ;
+                    <http://www.w3.org/ns/shacl#property>
+                            [ <http://datashapes.org/dash#nonRecursive>
+                                      true ;
+                              <http://www.w3.org/ns/shacl#path>
+                                      [ <http://www.w3.org/ns/shacl#oneOrMorePath>
+                                                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ]
+                            ]
+                  ]
+                ) ;
+        <http://www.w3.org/ns/shacl#property>
+                [ <http://www.w3.org/2000/01/rdf-schema#comment>
+                          "Each list member (including this node) must be have the shape dash:ListNodeShape." ;
+                  <http://www.w3.org/ns/shacl#node>
+                          <http://datashapes.org/dash#ListNodeShape> ;
+                  <http://www.w3.org/ns/shacl#path>
+                          [ <http://www.w3.org/ns/shacl#zeroOrMorePath>
+                                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> ]
+                ] .
+
+<http://datashapes.org/dash#staticConstraint>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be set to true for those constraint components where the validation does not require to visit any other triples than the parameters. Examples of this include sh:datatype or sh:nodeKind, where no further triples need to be queried to determine the result.\n\nConstraint components that are marked as such can be optimized by engines, e.g. they can be evaluated client-side at form submission time, without having to make a round-trip to a server." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "static constraint" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#BooleanSelectEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An editor for boolean literals, rendering as a select box with values true and false.\n\nAlso displays the current value (such as \"1\"^^xsd:boolean), but only allows to switch to true or false." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Boolean select editor" .
+
+<http://datashapes.org/dash#coExistsWith>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Specifies a property that must have a value whenever the property path has a value, and must have no value whenever the property path has no value." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "co-exists with" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+
+<http://datashapes.org/dash#abstract>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Indicates that a class is \"abstract\" and cannot be used in asserted rdf:type triples. Only non-abstract subclasses of abstract classes should be instantiated directly." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "abstract" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#NonRecursiveConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Used to state that a property or path must not point back to itself.\n\nFor example, \"a person cannot have itself as parent\" can be expressed by setting dash:nonRecursive=true for a given sh:path.\n\nTo express that a person cannot have itself among any of its (recursive) parents, use a sh:path with the + operator such as ex:parent+." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Non-recursive constraint component" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Points back at itself (recursively)" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#NonRecursiveConstraintComponent-nonRecursive> ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateNonRecursiveProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "SELECT DISTINCT $this ($this AS ?value)\nWHERE {\n\t{\n\t\tFILTER (?nonRecursive)\n\t}\n    $this $PATH $this .\n}"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#GraphStoreTestCase>
+        a       <http://www.w3.org/ns/shacl#NodeShape> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A test case that can be used to verify that an RDF file could be loaded (from a file) and that the resulting RDF graph is equivalent to a given TTL file." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Graph store test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#anyURI> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The URI of the graph to load." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#minCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "uri" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#uri>
+                ] ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#string> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The expected RDF graph, as a Turtle string." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#minCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#expectedResult>
+                ] .
+
+<http://datashapes.org/dash#CoExistsWithConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to express a constraint on property shapes so that if the property path has any value then the given property must also have a value, and vice versa." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Co-exists-with constraint component" ;
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#message>
+                "Values must co-exist with values of {$coExistsWith}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#CoExistsWithConstraintComponent-coExistsWith> ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateCoExistsWith" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "SELECT $this\nWHERE {\n\t{\n    \tFILTER (EXISTS { $this $PATH ?any } && NOT EXISTS { $this $coExistsWith ?any })\n\t}\n\tUNION\n\t{\n    \tFILTER (NOT EXISTS { $this $PATH ?any } && EXISTS { $this $coExistsWith ?any })\n\t}\n}"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#hasNodeKind>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given node (?value) has a given sh:NodeKind (?nodeKind). For example, sh:hasNodeKind(42, sh:Literal) = true." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has node kind" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "\n\t\tASK {\n\t\t\tFILTER ((isIRI($value) && $nodeKind IN ( sh:IRI, sh:BlankNodeOrIRI, sh:IRIOrLiteral ) ) ||\n\t\t\t\t(isLiteral($value) && $nodeKind IN ( sh:Literal, sh:BlankNodeOrLiteral, sh:IRIOrLiteral ) ) ||\n\t\t\t\t(isBlank($value)   && $nodeKind IN ( sh:BlankNode, sh:BlankNodeOrIRI, sh:BlankNodeOrLiteral ) )) .\n\t\t}\n\t\t" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://www.w3.org/ns/shacl#MaxCountConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Must not have more than {$maxCount} values" ;
+        <http://www.w3.org/ns/shacl#message>
+                "More than {$maxCount} values" ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT $this\n\t\tWHERE {\n\t\t\t$this $PATH ?value .\n\t\t}\n\t\tGROUP BY $this\n\t\tHAVING (COUNT(DISTINCT ?value) > $maxCount)\n\t\t"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMaxCountProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#QueryTestCase>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A test case running a given SPARQL SELECT query and comparing its results with those stored as JSON Result Set in the expected result property." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Query test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#SPARQLSelectExecutable> , <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#string> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The expected result set, as a JSON string." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#minCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "expected result" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#expectedResult>
+                ] ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#string> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The SPARQL SELECT query to execute." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#minCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "SPARQL query" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://www.w3.org/ns/shacl#select>
+                ] .
+
+<http://datashapes.org/dash#SingleLineConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to declare that all values that are literals must have a lexical form that contains no line breaks ('\\n' or '\\r').\n\nUser interfaces may use the dash:singleLine flag to prefer a text field over a (multi-line) text area." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Single line constraint component" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Must not contain line breaks." ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ a       <http://www.w3.org/ns/shacl#Parameter> ;
+                  <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#boolean> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "True to state that the lexical form of literal value nodes must not contain any line breaks. False to state that line breaks are explicitly permitted." ;
+                  <http://www.w3.org/ns/shacl#group>
+                          <http://topbraid.org/tosh#StringBasedConstraintPropertyGroup> ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "single line" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#singleLine>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+                  <http://www.w3.org/ns/shacl#ask>
+                          "ASK {\n    FILTER (!$singleLine || !isLiteral($value) || (!contains(str($value), '\\n') && !contains(str($value), '\\r')))\n}" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash>
+                ] ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateSingleLine" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#hidden>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Properties marked as readOnly do not appear in user interfaces, yet remain part of the shape for other purposes such as validation and GraphQL schemas." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hidden" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#suggestionGroup>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to link a suggestion with the group identifier to which it belongs. By default this is a link to the dash:SuggestionGenerator, but in principle this could be any value." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#Suggestion> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "suggestion" .
+
+<http://datashapes.org/dash#expectedResultIsTTL>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A flag to indicate that the expected result represents an RDF graph encoded as a Turtle file. If set to true, then tests would compare graphs instead of actual syntax." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "expected result is Turtle" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#StemConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to verify that every value node is an IRI and the IRI starts with a given string value."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Stem constraint component"@en ;
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value needs to have stem {$stem}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value does not have stem {$stem}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#StemConstraintComponent-stem> ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasStem> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateStem" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#SymmetricConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A contraint component for property shapes to validate that a property is symmetric. For symmetric properties, if A relates to B then B must relate to A." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Symmetric constraint component" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Symmetric value expected" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#SymmetricConstraintComponent-symmetric> ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "SELECT $this ?value {\n\tFILTER ($symmetric) .\n\t$this $PATH ?value .\n\tFILTER NOT EXISTS {\n    \t?value $PATH $this .\n\t}\n}"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateSymmetric" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#DefaultValueTypeRule>
+        a       <http://www.w3.org/ns/shacl#SPARQLConstructExecutable> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\n\t\tA resource encapsulating a query that can be used to construct rdf:type triples for certain untyped nodes\n\t\tthat are an object in a triple where the predicate has a sh:defaultValueType.\n\t\tThis can be used as a pre-processor for shape graphs before they are validated.\n\t\t"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "default value type inference rule" ;
+        <http://www.w3.org/ns/shacl#construct>
+                "\n\t\tCONSTRUCT {\n\t\t\t?node a ?defaultValueType .\n\t\t}\n\t\tWHERE {\n\t\t\t?predicate sh:defaultValueType ?defaultValueType .\n\t\t\t?anySubject ?predicate ?node .\n\t\t\tFILTER (NOT EXISTS { ?node a ?anyType }) .\n\t\t}\n\t\t" .
+
+<http://www.w3.org/ns/shacl#DatatypeConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Values must have datatype {$datatype}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value does not have datatype {$datatype}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateDatatype" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://www.w3.org/ns/shacl#MinInclusiveConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must be >= {$minInclusive}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value is not >= {$minInclusive}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasMinInclusive> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMinInclusive" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#ListNodeShape>
+        a       <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Defines constraints on what it means for a node to be a node within a well-formed RDF list. Note that this does not check whether the rdf:rest items are also well-formed lists as this would lead to unsupported recursion." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "List node shape" ;
+        <http://www.w3.org/ns/shacl#or>
+                ( [ <http://www.w3.org/ns/shacl#hasValue>
+                            () ;
+                    <http://www.w3.org/ns/shacl#property>
+                            [ <http://www.w3.org/ns/shacl#maxCount>
+                                      0 ;
+                              <http://www.w3.org/ns/shacl#path>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                            ] ;
+                    <http://www.w3.org/ns/shacl#property>
+                            [ <http://www.w3.org/ns/shacl#maxCount>
+                                      0 ;
+                              <http://www.w3.org/ns/shacl#path>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                  ]
+                  [ <http://www.w3.org/ns/shacl#not>
+                            [ <http://www.w3.org/ns/shacl#hasValue>
+                                      () ] ;
+                    <http://www.w3.org/ns/shacl#property>
+                            [ <http://www.w3.org/ns/shacl#maxCount>
+                                      1 ;
+                              <http://www.w3.org/ns/shacl#minCount>
+                                      1 ;
+                              <http://www.w3.org/ns/shacl#path>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                            ] ;
+                    <http://www.w3.org/ns/shacl#property>
+                            [ <http://www.w3.org/ns/shacl#maxCount>
+                                      1 ;
+                              <http://www.w3.org/ns/shacl#minCount>
+                                      1 ;
+                              <http://www.w3.org/ns/shacl#path>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                  ]
+                ) .
+
+<http://www.w3.org/ns/shacl#EqualsConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#message>
+                "Must have same values as {$equals}" ;
+        <http://www.w3.org/ns/shacl#nodeValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT DISTINCT $this ?value\n\t\tWHERE {\n\t\t\t{\n\t\t\t\tFILTER NOT EXISTS { $this $equals $this }\n\t\t\t\tBIND ($this AS ?value) .\n\t\t\t}\n\t\t\tUNION\n\t\t\t{\n\t\t\t\t$this $equals ?value .\n\t\t\t\tFILTER (?value != $this) .\n\t\t\t}\n\t\t}\n\t\t"
+                ] ;
+        <http://www.w3.org/ns/shacl#nodeValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateEqualsNode" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT DISTINCT $this ?value\n\t\tWHERE {\n\t\t\t{\n\t\t\t\t$this $PATH ?value .\n\t\t\t\tMINUS {\n\t\t\t\t\t$this $equals ?value .\n\t\t\t\t}\n\t\t\t}\n\t\t\tUNION\n\t\t\t{\n\t\t\t\t$this $equals ?value .\n\t\t\t\tMINUS {\n\t\t\t\t\t$this $PATH ?value .\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateEqualsProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> .
+
+<http://datashapes.org/dash#RDFQueryJSLibrary>
+        a       <http://www.w3.org/ns/shacl#JSLibrary> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "rdfQuery JavaScript Library" ;
+        <http://www.w3.org/ns/shacl#jsLibraryURL>
+                "http://datashapes.org/js/rdfquery.js"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+
+<http://datashapes.org/dash#isIn>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is in" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "\n\t\tASK {\n\t\t\tGRAPH $shapesGraph {\n\t\t\t\t$in (rdf:rest*)/rdf:first $value .\n\t\t\t}\n\t\t}\n\t\t" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://www.w3.org/ns/shacl#SPARQLExecutable>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#URIViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for URI resources, rendering as a hyperlink to that URI. Also includes other ways of interacting with the URI such as opening a nested summary display." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "URI Viewer" .
+
+<http://datashapes.org/dash#hasMinLength>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given string (?value) has a length within a given minimum string length." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has min length" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "\n\t\tASK {\n\t\t\tFILTER (STRLEN(str($value)) >= $minLength) .\n\t\t}\n\t\t" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://www.w3.org/ns/shacl#ClassConstraintComponent>
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value needs to have class {$class}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasClass> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateClass" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#PrimaryKeyConstraintComponent-uriStart>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#datatype>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/ns/shacl#description>
+                "The start of the URIs of well-formed resources. If specified then the associated property/path serves as \"primary key\" for all target nodes (instances). All such target nodes need to have a URI that starts with the given string, followed by the URI-encoded value of the primary key property." ;
+        <http://www.w3.org/ns/shacl#name>
+                "URI start" ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#uriStart> .
+
+<http://datashapes.org/dash#AllSubjectsTarget>
+        a       <http://www.w3.org/ns/shacl#SPARQLTargetType> , <http://www.w3.org/ns/shacl#JSTargetType> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A target containing all subjects in the data graph as focus nodes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "All subjects target" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#Target> ;
+        <http://www.w3.org/ns/shacl#jsFunctionName>
+                "dash_allSubjects" ;
+        <http://www.w3.org/ns/shacl#jsLibrary>
+                <http://datashapes.org/dash#DASHJSLibrary> ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "All subjects" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#select>
+                "SELECT DISTINCT ?this\nWHERE {\n    ?this ?anyP ?anyO .\n}" .
+
+<http://datashapes.org/dash#SubSetOfConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to state that the set of value nodes must be a subset of the value of a given property." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Sub set of constraint component" ;
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#message>
+                "Must be one of the values of {$subSetOf}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#SubSetOfConstraintComponent-subSetOf> ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+                  <http://www.w3.org/ns/shacl#ask>
+                          "ASK {\n    $this $subSetOf $value .\n}" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateSubSetOf" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#CoExistsWithConstraintComponent-coExistsWith>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#class>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/ns/shacl#nodeKind>
+                <http://www.w3.org/ns/shacl#IRI> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#coExistsWith> .
+
+<http://datashapes.org/dash#hasStem>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given node is an IRI starting with a given stem." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has stem" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK { FILTER (isIRI($value) && STRSTARTS(str($value), $stem)) }" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#ReifiableByConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Reifiable-by constraint component" ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Reifiable by {$reifiableBy}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#ReifiableByConstraintComponent-reifiableBy> .
+
+<http://www.w3.org/ns/shacl#MinCountConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Must have at least {$minCount} values" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Fewer than {$minCount} values" ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMinCountProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT $this\n\t\tWHERE {\n\t\t\tOPTIONAL {\n\t\t\t\t$this $PATH ?value .\n\t\t\t}\n\t\t}\n\t\tGROUP BY $this\n\t\tHAVING (COUNT(DISTINCT ?value) < $minCount)\n\t\t"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#DASHJSLibrary>
+        a       <http://www.w3.org/ns/shacl#JSLibrary> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DASH JavaScript library" ;
+        <http://www.w3.org/ns/shacl#jsLibrary>
+                <http://datashapes.org/dash#RDFQueryJSLibrary> ;
+        <http://www.w3.org/ns/shacl#jsLibraryURL>
+                "http://datashapes.org/js/dash.js"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+
+<http://datashapes.org/dash#composite>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to indicate that a property/path represented by a property constraint represents a composite relationship. In a composite relationship, the life cycle of a \"child\" object (value of the property/path) depends on the \"parent\" object (focus node). If the parent gets deleted, then the child objects should be deleted, too. Tools may use dash:composite (if set to true) to implement cascading delete operations." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "composite" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#hasMaxInclusive>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given node (?value) has a value less than or equal to (<=) the provided ?maxInclusive. Returns false if this cannot be determined, e.g. because values do not have comparable types." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has max inclusive" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK { FILTER ($value <= $maxInclusive) }" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://www.w3.org/ns/shacl#PatternConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must match pattern \"{$pattern}\"" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value does not match pattern \"{$pattern}\"" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasPattern> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validatePattern" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#isNodeKindLiteral>
+        a       <http://www.w3.org/ns/shacl#SPARQLFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks if a given sh:NodeKind is one that includes Literals." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is NodeKind Literal" ;
+        <http://datashapes.org/dash#cachable>
+                true ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK {\n\tFILTER ($nodeKind IN ( sh:Literal, sh:BlankNodeOrLiteral, sh:IRIOrLiteral ))\n}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ <http://www.w3.org/ns/shacl#class>
+                          <http://www.w3.org/ns/shacl#NodeKind> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The sh:NodeKind to check." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "node kind" ;
+                  <http://www.w3.org/ns/shacl#nodeKind>
+                          <http://www.w3.org/ns/shacl#IRI> ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#nodeKind>
+                ] ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#returnType>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#PrimaryKeyConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Enforces a constraint that the given property (sh:path) serves as primary key for all resources in the target of the shape. If a property has been declared to be the primary key then each resource must have exactly one value for that property. Furthermore, the URIs of those resources must start with a given string (dash:uriStart), followed by the URL-encoded primary key value. For example if dash:uriStart is \"http://example.org/country-\" and the primary key for an instance is \"de\" then the URI must be \"http://example.org/country-de\". Finally, as a result of the URI policy, there can not be any other resource with the same value under the same primary key policy." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Primary key constraint component" ;
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "The property {?predicate} is the primary key and URIs start with {?uriStart}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Violation of primary key constraint" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#PrimaryKeyConstraintComponent-uriStart> ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "SELECT DISTINCT $this\nWHERE {\n        FILTER (\n\t\t\t# Must have a value for the primary key\n\t\t\tNOT EXISTS { ?this $PATH ?any }\n\t\t\t||\n\t\t\t# Must have no more than one value for the primary key\n\t\t\tEXISTS {\n\t\t\t\t?this $PATH ?value1 .\n\t\t\t\t?this $PATH ?value2 .\n\t\t\t\tFILTER (?value1 != ?value2) .\n\t\t\t}\n\t\t\t||\n\t\t\t# The value of the primary key must align with the derived URI\n\t\t\tEXISTS {\n\t\t\t\t{\n        \t\t\t?this $PATH ?value .\n\t\t\t\t\tFILTER NOT EXISTS { ?this $PATH ?value2 . FILTER (?value != ?value2) }\n\t\t\t\t}\n        \t\tBIND (CONCAT($uriStart, ENCODE_FOR_URI(str(?value))) AS ?uri) .\n        \t\tFILTER (str(?this) != ?uri) .\n    \t\t}\n\t\t)\n}"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validatePrimaryKeyProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#editor>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to link a property shape with an editor, to state a preferred editing widget in user interfaces." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "editor" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#Editor> .
+
+<http://www.w3.org/ns/shacl#QualifiedMaxCountConstraintComponent>
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "No more than {$qualifiedMaxCount} values can have shape {$qualifiedValueShape}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "More than {$qualifiedMaxCount} values have shape {$qualifiedValueShape}" ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateQualifiedMaxCountProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#TestCaseResult>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Base class for results produced by running test cases." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Test case result" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#AbstractResult> ;
+        <http://datashapes.org/dash#abstract>
+                true ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#class>
+                          <http://datashapes.org/dash#TestCase> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The dash:TestCase that was executed." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#minCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "test case" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#testCase>
+                ] ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#class>
+                          <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The graph containing the test case." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#minCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "test graph" ;
+                  <http://www.w3.org/ns/shacl#nodeKind>
+                          <http://www.w3.org/ns/shacl#IRI> ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#testGraph>
+                ] .
+
+<http://datashapes.org/dash#hasMaxExclusive>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given node (?value) has a value less than (<) the provided ?maxExclusive. Returns false if this cannot be determined, e.g. because values do not have comparable types." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has max exclusive" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK { FILTER ($value < $maxExclusive) }" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#Widget>
+        a       <http://www.w3.org/ns/shacl#NodeShape> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Base class of user interface components that can be used to display or edit value nodes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Widget" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#stem>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Specifies a string value that the IRI of the value nodes must start with."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "stem"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://www.w3.org/ns/shacl#HasValueConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Must have value {$hasValue}" ;
+        <http://www.w3.org/ns/shacl#nodeValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+                  <http://www.w3.org/ns/shacl#ask>
+                          "ASK {\n    FILTER ($value = $hasValue)\n}" ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Value must be {$hasValue}" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash>
+                ] ;
+        <http://www.w3.org/ns/shacl#nodeValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateHasValueNode" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Value must be {$hasValue}"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateHasValueProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Missing expected value {$hasValue}"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Missing expected value {$hasValue}" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT $this\n\t\tWHERE {\n\t\t\tFILTER NOT EXISTS { $this $PATH $hasValue }\n\t\t}\n\t\t"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> .
+
+<http://datashapes.org/dash#LangStringViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for literals with a language tag, rendering as the text plus a language indicator." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "LangString Viewer" .
+
+<http://datashapes.org/dash#hasRootClass>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has root class" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK {\n    $value rdfs:subClassOf* $rootClass .\n}" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#HTMLOrStringOrLangString>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                [ <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> ] ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                ( [ <http://www.w3.org/ns/shacl#datatype>
+                            <http://www.w3.org/2001/XMLSchema#string> ]
+                  [ <http://www.w3.org/ns/shacl#datatype>
+                            <http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> ]
+                ) ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An rdf:List that can be used in property constraints as value for sh:or to indicate that all values of a property must be either rdf:HTML, xsd:string or rdf:langString." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "HTML or string or langString" .
+
+<http://datashapes.org/dash#hasMaxLength>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given string (?value) has a length within a given maximum string length." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has max length" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "\n\t\tASK {\n\t\t\tFILTER (STRLEN(str($value)) <= $maxLength) .\n\t\t}\n\t\t" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#SPARQLSelectTemplate>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Encapsulates a SPARQL SELECT query that can be parameterized. Parameters will become pre-bound variables in the query." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SPARQL SELECT template" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#Parameterizable> , <http://www.w3.org/ns/shacl#SPARQLSelectExecutable> .
+
+<http://datashapes.org/dash#GraphValidationTestCase>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A test case that performs SHACL constraint validation on the whole graph and compares the results with the expected validation results stored with the test case. By default this excludes meta-validation (i.e. the validation of the shape definitions themselves). If that's desired, set dash:validateShapes to true." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Graph validation test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#ValidationTestCase> .
+
+<http://www.w3.org/ns/shacl#UniqueLangConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "No language can be used more than once" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Language \"{?lang}\" used more than once" ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateUniqueLangProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT DISTINCT $this ?lang\n\t\tWHERE {\n\t\t\t{\n\t\t\t\tFILTER sameTerm($uniqueLang, true) .\n\t\t\t}\n\t\t\t$this $PATH ?value .\n\t\t\tBIND (lang(?value) AS ?lang) .\n\t\t\tFILTER (bound(?lang) && ?lang != \"\") .\n\t\t\tFILTER EXISTS {\n\t\t\t\t$this $PATH ?otherValue .\n\t\t\t\tFILTER (?otherValue != ?value && ?lang = lang(?otherValue)) .\n\t\t\t}\n\t\t}\n\t\t"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#Viewer>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The class of widgets for viewing value nodes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Viewer" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#Widget> .
+
+<http://datashapes.org/dash#testEnvironment>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used by TestCases to point at a resource with information on how to set up the execution environment prior to execution." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "test environment" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#TestEnvironment> .
+
+<http://datashapes.org/dash#InstancesSelectEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A drop-down editor for all instances of the target class (based on sh:class of the property)." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Instances select editor" .
+
+<http://datashapes.org/dash#SubSetOfConstraintComponent-subSetOf>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#class>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/ns/shacl#description>
+                "A property (of the focus node) that must (at least) have all values from the set of value nodes." ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#subSetOf> .
+
+<http://www.w3.org/ns/shacl#LessThanConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value is not < value of {$lessThan}" ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT $this ?value\n\t\tWHERE {\n\t\t\t$this $PATH ?value .\n\t\t\t$this $lessThan ?otherValue .\n\t\t\tBIND (?value < ?otherValue AS ?result) .\n\t\t\tFILTER (!bound(?result) || !(?result)) .\n\t\t}\n\t\t"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateLessThanProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#SymmetricConstraintComponent-symmetric>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#datatype>
+                <http://www.w3.org/2001/XMLSchema#boolean> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#symmetric> .
+
+<http://www.w3.org/ns/shacl#node>
+        <http://datashapes.org/dash#defaultValueType>
+                <http://www.w3.org/ns/shacl#NodeShape> .
+
+<http://datashapes.org/dash#NonRecursiveConstraintComponent-nonRecursive>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#datatype>
+                <http://www.w3.org/2001/XMLSchema#boolean> ;
+        <http://www.w3.org/ns/shacl#maxCount>
+                1 ;
+        <http://www.w3.org/ns/shacl#name>
+                "non-recursive" ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#nonRecursive> .
+
+<http://datashapes.org/dash#toString>
+        a       <http://www.w3.org/ns/shacl#JSFunction> , <http://www.w3.org/ns/shacl#SPARQLFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Returns a literal with datatype xsd:string that has the input value as its string. If the input value is an (URI) resource then its URI will be used." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "to string" ;
+        <http://datashapes.org/dash#cachable>
+                true ;
+        <http://www.w3.org/ns/shacl#jsFunctionName>
+                "dash_toString" ;
+        <http://www.w3.org/ns/shacl#jsLibrary>
+                <http://datashapes.org/dash#DASHJSLibrary> ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Convert {$arg} to xsd:string" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ <http://www.w3.org/ns/shacl#description>
+                          "The input value." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "arg" ;
+                  <http://www.w3.org/ns/shacl#nodeKind>
+                          <http://www.w3.org/ns/shacl#IRIOrLiteral> ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#arg>
+                ] ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#returnType>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/ns/shacl#select>
+                "SELECT (xsd:string($arg) AS ?result)\nWHERE {\n}" .
+
+<http://datashapes.org/dash#isLanguageIn>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is language in" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "\n\t\tASK {\n\t\t\tBIND (lang($value) AS ?valueLang) .\n\t\t\tFILTER EXISTS {\n\t\t\t\tGRAPH $shapesGraph {\n\t\t\t\t\t$languageIn (rdf:rest*)/rdf:first ?lang .\n\t\t\t\t    FILTER (langMatches(?valueLang, ?lang))\n\t\t\t\t} }\n\t\t}\n\t\t" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#cachable>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "If set to true then the results of the SHACL function can be cached in between invocations with the same arguments. In other words, they are stateless and do not depend on triples in any graph, or the current time stamp etc." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#Function> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "cachable" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#InferencingTestCase>
+        a       <http://www.w3.org/ns/shacl#NodeShape> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A test case to verify whether an inferencing engine is producing identical results to those stored as expected results." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Inferencing test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The expected inferred triples, represented by instances of rdfs:Statement." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "expected result" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#expectedResult>
+                ] .
+
+<http://datashapes.org/dash#LiteralViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A simple viewer for literals, rendering the lexical form of the value." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Literal Viewer" .
+
+<http://www.w3.org/ns/shacl#MaxLengthConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must not have more than {$maxLength} characters" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value has more than {$maxLength} characters" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasMaxLength> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMaxLength" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#ClosedByTypesConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to declare that focus nodes are \"closed\" based on their rdf:types, meaning that focus nodes may only have values for the properties that are explicitly enumerated via sh:property/sh:path in property constraints at their rdf:types and the superclasses of those. This assumes that the type classes are also shapes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Closed by types constraint component" ;
+        <http://www.w3.org/ns/shacl#nodeValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Property {?path} is not among those permitted for any of the types" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "SELECT $this (?predicate AS ?path) ?value\nWHERE {\n\tFILTER ($closedByTypes) .\n    $this ?predicate ?value .\n\tFILTER (?predicate != rdf:type) .\n\tFILTER NOT EXISTS {\n\t\t$this rdf:type ?type .\n\t\t?type rdfs:subClassOf* ?class .\n\t\tGRAPH $shapesGraph {\n\t\t\t?class sh:property/sh:path ?predicate .\n\t\t}\n\t}\n}"
+                ] ;
+        <http://www.w3.org/ns/shacl#nodeValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateClosedByTypesNode" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Property is not among those permitted for any of the types"
+                ] ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#ClosedByTypesConstraintComponent-closedByTypes> ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#NodeShape> .
+
+<http://datashapes.org/dash#HyperlinkViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for literals, rendering as a hyperlink to a URL.\n\nFor literals it assumes the lexical form is the URL.\n\nThis is often used as default viewer for xsd:anyURI literals. Unsupported for blank nodes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Hyperlink Viewer" .
+
+<http://www.w3.org/ns/shacl#NotConstraintComponent>
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must not have shape {$not}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value does have shape {$not}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateNot" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#DateOrDateTime>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                [ <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#date> ] ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                ( [ <http://www.w3.org/ns/shacl#datatype>
+                            <http://www.w3.org/2001/XMLSchema#dateTime> ]
+                ) ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An rdf:List that can be used in property constraints as value for sh:or to indicate that all values of a property must be either xsd:date or xsd:dateTime." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Date or date time" .
+
+<http://datashapes.org/dash#UniqueValueForClassConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to state that the values of a property must be unique for all instances of a given class (and its subclasses)." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Unique value for class constraint component" ;
+        <http://datashapes.org/dash#propertySuggestionGenerator>
+                <http://topbraid.org/tosh#DeleteTripleSuggestionGenerator> ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Values must be unique among all instances of {?uniqueValueForClass}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#UniqueValueForClassConstraintComponent-uniqueValueForClass> ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Value {?value} must be unique but is also used by {?other}" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "SELECT DISTINCT $this ?value ?other\nWHERE {\n\t{\n    \t$this $PATH ?value .\n\t\t?other $PATH ?value .\n\t\tFILTER (?other != $this) .\n\t}\n\t?other a ?type .\n\t?type rdfs:subClassOf* $uniqueValueForClass .\n}"
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateUniqueValueForClass" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Value {?value} must be unique but is also used by {?other}"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://www.w3.org/ns/shacl#MinLengthConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must have less than {$minLength} characters" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value has less than {$minLength} characters" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasMinLength> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMinLength" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://www.w3.org/ns/shacl#parameter>
+        <http://datashapes.org/dash#defaultValueType>
+                <http://www.w3.org/ns/shacl#Parameter> .
+
+<http://datashapes.org/dash#RootClassConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component defining the parameter dash:rootClass, which restricts the values to be either the root class itself or one of its subclasses. This is typically used in conjunction with properties that have rdfs:Class as their type." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Root class constraint component" ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Root class {$rootClass}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value must be subclass of {$rootClass}" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#RootClassConstraintComponent-rootClass> ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasRootClass> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateRootClass" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#defaultValueType>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\n\t\tLinks a property with a default value type.\n\t\tThe default value type is assumed to be the <code>rdf:type</code> of values of the property\n\t\tthat declare no type on their own.\n\t\tAn example use of <code>sh:defaultValueType</code> is <code>sh:property</code>,\n\t\tthe values of which are assumed to be instances of <code>sh:PropertyShape</code>\n\t\teven if they are untyped (blank) nodes.\n\t\t"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "default value type" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "Note this property may get removed in future versions. It is a left-over from a previous design in SHACL." .
+
+<http://datashapes.org/dash#deletedTriple>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "May link a dash:GraphUpdate result with one or more triples (represented as instances of rdf:Statement) that should be deleted to fix the source of the result." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#GraphUpdate> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "deleted triple" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement> .
+
+<http://datashapes.org/dash#hasClass>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has class" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "\n\t\tASK {\n\t\t\t$value rdf:type/rdfs:subClassOf* $class .\n\t\t}\n\t\t" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value does not have class {$class}" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://www.w3.org/ns/shacl#DisjointConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+                  <http://www.w3.org/ns/shacl#ask>
+                          "\n\t\tASK {\n\t\t\tFILTER NOT EXISTS {\n\t\t\t\t$this $disjoint $value .\n\t\t\t}\n\t\t}\n\t\t" ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Property must not share any values with {$disjoint}" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash>
+                ] ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateDisjoint" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Value node must not also be one of the values of {$disjoint}"
+                ] .
+
+<http://www.w3.org/ns/shacl#MaxInclusiveConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must be <= {$maxInclusive}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value is not <= {$maxInclusive}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasMaxInclusive> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMaxInclusive" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#valueCount>
+        a       <http://www.w3.org/ns/shacl#SPARQLFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Computes the number of objects for a given subject/predicate combination." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "value count" ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ <http://www.w3.org/ns/shacl#class>
+                          <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The subject to get the number of objects of." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "subject" ;
+                  <http://www.w3.org/ns/shacl#order>
+                          0 ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#subject>
+                ] ;
+        <http://www.w3.org/ns/shacl#parameter>
+                [ <http://www.w3.org/ns/shacl#class>
+                          <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The predicate to get the number of objects of." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "predicate" ;
+                  <http://www.w3.org/ns/shacl#order>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#predicate>
+                ] ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> ;
+        <http://www.w3.org/ns/shacl#returnType>
+                <http://www.w3.org/2001/XMLSchema#integer> ;
+        <http://www.w3.org/ns/shacl#select>
+                "\n\t\tSELECT (COUNT(?object) AS ?result)\n\t\tWHERE {\n    \t\t$subject $predicate ?object .\n\t\t}\n" .
+
+<http://datashapes.org/dash#TestEnvironment>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Abstract base class for test environments, holding information on how to set up a test case." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Test environment" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#testModifiesEnvironment>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Indicates whether this test modifies the specified dash:testEnvironment. If set to true then a test runner can make sure to wipe out the previous environment, while leaving it false (or undefined) means that the test runner can reuse the environment from the previous test case. As setting up and tearing down tests is sometimes slow, this flag can significantly accelerate test execution." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "test modifies environment" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#suggestionGenerator>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links a sh:SPARQLConstraint or sh:JSConstraint with instances of dash:SuggestionGenerator that may be used to produce suggestions for a given validation result that was produced by the constraint." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "suggestion generator" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#SuggestionGenerator> .
+
+<http://datashapes.org/dash#viewer>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to link a property shape with a viewer, to state a preferred viewing widget in user interfaces." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "viewer" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#Viewer> .
+
+<http://datashapes.org/dash#reifiableBy>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to specify the node shape that may be applied to reified statements produced by a property shape. The property shape must have a URI resource as its sh:path. The values of this property must be node shapes. User interfaces can use this information to determine which properties to present to users when reified statements are explored or edited. Use dash:None to indicate that no reification should be permitted." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "reifiable by" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/ns/shacl#NodeShape> .
+
+<http://datashapes.org/dash#ValueTableViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A viewer that renders all values of a given property as a table, with one value per row, and the columns defined by the shape that is the sh:node or sh:class of the property." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Value table viewer" .
+
+<http://datashapes.org/dash#expectedResult>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The expected result(s) of a test case. The value range of this property is different for each kind of test cases." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "expected result" .
+
+<http://datashapes.org/dash#all>
+        a       <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Represents all users/roles, for example as a possible value of the default view for role property." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "all" .
+
+<http://www.w3.org/ns/shacl#Shape>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#SuggestionGenerator>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Base class of objects that can generate suggestions (added or deleted triples) for a validation result of a given constraint component." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Suggestion generator" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#readOnly>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Used as a hint for user interfaces that values of the associated property should not be editable. The values of this may be the boolean literals true or false or, more generally, a SHACL node expression that must evaluate to true or false." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#PropertyShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "read only" .
+
+<http://datashapes.org/dash#TextFieldWithLangEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A single-line input field to enter the value of a literal and a drop down to select language, which is mandatory unless xsd:string is among the permissible datatypes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Text field with lang editor" .
+
+<http://www.w3.org/ns/shacl#ClosedConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Closed shape: only the enumerated properties can be used" ;
+        <http://www.w3.org/ns/shacl#nodeValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Predicate {?path} is not allowed (closed shape)" ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT $this (?predicate AS ?path) ?value\n\t\tWHERE {\n\t\t\t{\n\t\t\t\tFILTER ($closed) .\n\t\t\t}\n\t\t\t$this ?predicate ?value .\n\t\t\tFILTER (NOT EXISTS {\n\t\t\t\tGRAPH $shapesGraph {\n\t\t\t\t\t$currentShape sh:property/sh:path ?predicate .\n\t\t\t\t}\n\t\t\t} && (!bound($ignoredProperties) || NOT EXISTS {\n\t\t\t\tGRAPH $shapesGraph {\n\t\t\t\t\t$ignoredProperties rdf:rest*/rdf:first ?predicate .\n\t\t\t\t}\n\t\t\t}))\n\t\t}\n"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateClosed" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary> ;
+                  <http://www.w3.org/ns/shacl#message>
+                          "Predicate is not allowed (closed shape)"
+                ] .
+
+<http://datashapes.org/dash#ParameterConstraintComponent>
+        a       <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A constraint component that can be used to verify that all value nodes conform to the given Parameter."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Parameter constraint component"@en ;
+        <http://www.w3.org/ns/shacl#parameter>
+                <http://datashapes.org/dash#ParameterConstraintComponent-parameter> .
+
+<http://www.w3.org/ns/shacl#MinExclusiveConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must be > {$minExclusive}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value is not > {$minExclusive}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasMinExclusive> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMinExclusive" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#SuccessTestCaseResult>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Represents a successful run of a test case." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Success test case result" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#TestCaseResult> .
+
+<http://datashapes.org/dash#ParameterConstraintComponent-parameter>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://www.w3.org/ns/shacl#parameter> .
+
+<http://datashapes.org/dash#applicableToClass>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to state that a shape is applicable to instances of a given class. This is a softer statement than \"target class\": a target means that all instances of the class must conform to the shape. Being applicable to simply means that the shape may apply to (some) instances of the class. This information can be used by algorithms or humans." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "applicable to class" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://datashapes.org/dash#ValidationTestCase>
+        a       <http://www.w3.org/ns/shacl#NodeShape> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Abstract superclass for test cases concerning SHACL constraint validation. Future versions may add new kinds of validatin test cases, e.g. to validate a single resource only." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Validation test case" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#TestCase> ;
+        <http://datashapes.org/dash#abstract>
+                true ;
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#class>
+                          <http://www.w3.org/ns/shacl#ValidationReport> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "The expected validation report." ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "expected result" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#expectedResult>
+                ] .
+
+<http://www.w3.org/ns/shacl#Rules>
+        a       <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The SHACL rules entailment regime." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SHACL Rules" ;
+        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                <https://www.w3.org/TR/shacl-af/#Rules> .
+
+<http://datashapes.org/dash#StemConstraintComponent-stem>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#datatype>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#stem> .
+
+<http://datashapes.org/dash#ImageViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for URI values that are recognized as images by a browser, rendering as an image." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Image Viewer" .
+
+<http://www.w3.org/2002/07/owl#Class>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://www.w3.org/ns/shacl#NodeConstraintComponent>
+        <http://www.w3.org/ns/shacl#message>
+                "Value does not have shape {$node}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateNode" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#localConstraint>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be set to true for those constraint components where the validation does not require to visit any other triples than the shape definitions and the direct property values of the focus node mentioned in the property constraints. Examples of this include sh:minCount and sh:hasValue.\n\nConstraint components that are marked as such can be optimized by engines, e.g. they can be evaluated client-side at form submission time, without having to make a round-trip to a server, assuming the client has downloaded a complete snapshot of the resource.\n\nAny component marked with dash:staticConstraint is also a dash:localConstraint." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "local constraint" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#None>
+        a       <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Shape that is no node can conform to." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "None" ;
+        <http://www.w3.org/ns/shacl#in>
+                () .
+
+<http://datashapes.org/dash#TextAreaEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A multi-line text area to enter the value of a literal." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Text area editor" .
+
+<http://www.w3.org/ns/shacl#order>
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#decimal> .
+
+<http://datashapes.org/dash#SPARQLConstructTemplate>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Encapsulates one or more SPARQL CONSTRUCT queries that can be parameterized. Parameters will become pre-bound variables in the queries." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SPARQL CONSTRUCT template" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#Parameterizable> , <http://www.w3.org/ns/shacl#SPARQLConstructExecutable> .
+
+<http://datashapes.org/dash#x>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The x position." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "x" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://datashapes.org/dash#defaultViewForRole>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links a node shape with the roles for which it shall be used as default view. User interfaces can use these values to select how to present a given RDF resource. The values of this property are URIs representing a group of users or agents. There is a dedicated URI dash:all representing all users." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "default view for role" .
+
+<http://datashapes.org/dash#SuccessResult>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A result representing a successfully validated constraint." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Success result" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#AbstractResult> .
+
+<http://datashapes.org/dash#LabelViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for URI resources, rendering as a hyperlink to that URI based on the display label of the resource. Also includes other ways of interacting with the URI such as opening a nested summary display." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Label Viewer" .
+
+<http://datashapes.org/dash#AllSubjects>
+        a       <http://datashapes.org/dash#AllSubjectsTarget> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A reusable instance of dash:AllSubjectsTarget." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "All subjects" .
+
+<http://datashapes.org/dash#FailureTestCaseResult>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Represents a failure of a test case." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Failure test case result" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#TestCaseResult> .
+
+<http://datashapes.org/dash#rootClass>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "root class" .
+
+<http://www.w3.org/ns/shacl#LanguageInConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Language must match any of {$languageIn}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Language does not match any of {$languageIn}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#isLanguageIn> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateLanguageIn" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#validateShapes>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "True to also validate the shapes itself (i.e. parameter declarations)." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#GraphValidationTestCase> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "validate shapes" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#propertySuggestionGenerator>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Links the constraint component with instances of dash:SuggestionGenerator that may be used to produce suggestions for a given validation result that was produced by a property constraint." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/ns/shacl#ConstraintComponent> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "property suggestion generator" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#SuggestionGenerator> .
+
+<http://datashapes.org/dash#subSetOf>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "sub set of" .
+
+<http://www.w3.org/ns/shacl#InConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must be in {$in}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value is not in {$in}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#isIn> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateIn" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#SuggestionResult>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Class of results that have been produced as suggestions, not through SHACL validation. How the actual results are produced is up to implementers. Each instance of this class should have values for sh:focusNode, sh:resultMessage, sh:resultSeverity (suggested default: sh:Info), and dash:suggestion to point at one or more suggestions." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Suggestion result" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/shacl#AbstractResult> .
+
+<http://datashapes.org/dash#includedExecutionPlatform>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to state that one (subject) execution platform includes all features of another platform (object)." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datashapes.org/dash#ExecutionPlatform> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "included execution platform" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datashapes.org/dash#ExecutionPlatform> .
+
+<http://datashapes.org/dash#detailsGraph>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to link a SHACL property shape with a SHACL node expression that produces the URIs of one or more graphs that contain further RDF triples for the value nodes delivered by the property. This can be used to inform a processor that it should switch to another data graph when the user wants to retrieve more information about a value.\n\nThe node expressions are evaluated with the focus node as input. (It is unclear whether there are also cases where the result may be different for each specific value, in which case the node expression would need a second input argument).\n\nThis property should be regarded as an \"annotation\", i.e. it does not have any impact on validation or other built-in SHACL features. However, selected tools may want to use this information." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "details graph" .
+
+<http://datashapes.org/dash#ClosedByTypesConstraintComponent-closedByTypes>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#datatype>
+                <http://www.w3.org/2001/XMLSchema#boolean> ;
+        <http://www.w3.org/ns/shacl#description>
+                "True to indicate that the focus nodes are closed by their types. A constraint violation is reported for each property value of the focus node where the property is not among those that are explicitly declared via sh:property/sh:path in any of the rdf:types of the focus node (and their superclasses). The property rdf:type is always permitted." ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#closedByTypes> .
+
+<http://datashapes.org/dash#detailsEndpoint>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Can be used to link a SHACL property shape with the URL of a SPARQL endpoint that may contain further RDF triples for the value nodes delivered by the property. This can be used to inform a processor that it should switch to values from an external graph when the user wants to retrieve more information about a value.\n\nThis property should be regarded as an \"annotation\", i.e. it does not have any impact on validation or other built-in SHACL features. However, selected tools may want to use this information. One implementation strategy would be to periodically fetch the values specified by the sh:node or sh:class shape associated with the property, using the property shapes in that shape, and add the resulting triples into the main query graph.\n\nAn example value is \"https://query.wikidata.org/sparql\"." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "details endpoint" .
+
+<http://datashapes.org/dash#hasPattern>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether the string representation of a given node (?value) matches a given regular expression (?pattern). Returns false if the value is a blank node." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has pattern" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK { FILTER (!isBlank($value) && IF(bound($flags), regex(str($value), $pattern, $flags), regex(str($value), $pattern))) }" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#AllObjects>
+        a       <http://datashapes.org/dash#AllObjectsTarget> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A reusable instance of dash:AllObjectsTarget." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "All objects" .
+
+<http://datashapes.org/dash#expectedResultIsJSON>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A flag to indicate that the expected result represents a JSON string. If set to true, then tests would compare JSON structures (regardless of whitespaces) instead of actual syntax." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "expected result is JSON" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://datashapes.org/dash#DetailsViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for resources that shows the details of the value using its default view shape as a nested form-like display." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Details Viewer" .
+
+<http://datashapes.org/dash#RootClassConstraintComponent-rootClass>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#class>
+                <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/ns/shacl#description>
+                "The root class." ;
+        <http://www.w3.org/ns/shacl#name>
+                "root class" ;
+        <http://www.w3.org/ns/shacl#nodeKind>
+                <http://www.w3.org/ns/shacl#IRI> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#rootClass> .
+
+<http://datashapes.org/dash#BlankNodeViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for blank nodes, rendering as the label of the blank node." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Blank Node Viewer" .
+
+<http://datashapes.org/dash#ExecutionPlatform>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An platform (such as TopBraid) that may have features needed to execute, for example, SPARQL queries." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Execution platform" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://datashapes.org/dash#RichTextEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A rich text editor to enter the lexical value of a literal and a drop down to select language. The selected language is stored in the HTML lang attribute of the root node in the HTML DOM tree." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Rich text editor" .
+
+<http://datashapes.org/dash#hasValueWithClass>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Specifies a constraint that at least one of the value nodes must be an instance of a given class." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has value with class" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://datashapes.org/dash#uniqueValueForClass>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "unique value for class" .
+
+<http://www.w3.org/ns/shacl#MaxExclusiveConstraintComponent>
+        <http://datashapes.org/dash#staticConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#labelTemplate>
+                "Value must be < {$maxExclusive}" ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value is not < {$maxExclusive}" ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                <http://datashapes.org/dash#hasMaxExclusive> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateMaxExclusive" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://datashapes.org/dash#Editor>
+        a       <http://www.w3.org/ns/shacl#NodeShape> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The class of widgets for editing value nodes." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Editor" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datashapes.org/dash#Widget> .
+
+<http://datashapes.org/dash#ReifiableByConstraintComponent-reifiableBy>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#class>
+                <http://www.w3.org/ns/shacl#NodeShape> ;
+        <http://www.w3.org/ns/shacl#description>
+                "Can be used to specify the node shape that may be applied to reified statements produced by a property shape. The property shape must have a URI resource as its sh:path. The values of this property must be node shapes. User interfaces can use this information to determine which properties to present to users when reified statements are explored or edited. Also, SHACL validators can use it to determine how to validate reified triples. Use dash:None to indicate that no reification should be permitted." ;
+        <http://www.w3.org/ns/shacl#nodeKind>
+                <http://www.w3.org/ns/shacl#IRI> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#reifiableBy> .
+
+<http://datashapes.org/dash#EnumSelectEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A drop-down editor for enumerated values (typically based on sh:in lists)." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Enum select editor" .
+
+<http://www.w3.org/ns/shacl#Function>
+        <http://www.w3.org/ns/shacl#property>
+                [ a       <http://www.w3.org/ns/shacl#PropertyShape> ;
+                  <http://www.w3.org/ns/shacl#datatype>
+                          <http://www.w3.org/2001/XMLSchema#boolean> ;
+                  <http://www.w3.org/ns/shacl#description>
+                          "True to indicate that this function will always return the same values for the same combination of arguments, regardless of the query graphs. Engines can use this information to cache and reuse previous function calls." ;
+                  <http://www.w3.org/ns/shacl#maxCount>
+                          1 ;
+                  <http://www.w3.org/ns/shacl#name>
+                          "cachable" ;
+                  <http://www.w3.org/ns/shacl#path>
+                          <http://datashapes.org/dash#cachable>
+                ] .
+
+<http://www.w3.org/ns/shacl#Validator>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://www.w3.org/ns/shacl#LessThanOrEqualsConstraintComponent>
+        <http://datashapes.org/dash#localConstraint>
+                true ;
+        <http://www.w3.org/ns/shacl#message>
+                "Value is not <= value of {$lessThanOrEquals}" ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateLessThanOrEqualsProperty" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] ;
+        <http://www.w3.org/ns/shacl#propertyValidator>
+                [ a       <http://www.w3.org/ns/shacl#SPARQLSelectValidator> ;
+                  <http://www.w3.org/ns/shacl#prefixes>
+                          <http://datashapes.org/dash> ;
+                  <http://www.w3.org/ns/shacl#select>
+                          "\n\t\tSELECT DISTINCT $this ?value\n\t\tWHERE {\n\t\t\t$this $PATH ?value .\n\t\t\t$this $lessThanOrEquals ?otherValue .\n\t\t\tBIND (?value <= ?otherValue AS ?result) .\n\t\t\tFILTER (!bound(?result) || !(?result)) .\n\t\t}\n"
+                ] ;
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#PropertyShape> .
+
+<http://datashapes.org/dash#hasMinExclusive>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given node (?value) has value greater than (>) the provided ?minExclusive. Returns false if this cannot be determined, e.g. because values do not have comparable types." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has min exclusive" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK { FILTER ($value > $minExclusive) }" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#HTMLViewer>
+        a       <http://datashapes.org/dash#Viewer> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Viewer for HTML encoded text from rdf:HTML literals, rendering as parsed HTML DOM elements. Also displays the language if the HTML has a lang attribute on its root DOM element." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "HTML Viewer" .
+
+<http://datashapes.org/dash#DatePickerEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An editor for xsd:date literals, offering a calendar-like date picker." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Date picker editor" .
+
+<http://datashapes.org/dash#hasMinInclusive>
+        a       <http://www.w3.org/ns/shacl#SPARQLAskValidator> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Checks whether a given node (?value) has value greater than or equal to (>=) the provided ?minInclusive. Returns false if this cannot be determined, e.g. because values do not have comparable types." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has min inclusive" ;
+        <http://www.w3.org/ns/shacl#ask>
+                "ASK { FILTER ($value >= $minInclusive) }" ;
+        <http://www.w3.org/ns/shacl#prefixes>
+                <http://datashapes.org/dash> .
+
+<http://datashapes.org/dash#HasValueWithClassConstraintComponent-hasValueWithClass>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#class>
+                <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/ns/shacl#nodeKind>
+                <http://www.w3.org/ns/shacl#IRI> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#hasValueWithClass> .
+
+<http://www.w3.org/ns/shacl#TargetType>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://www.w3.org/ns/shacl#Parameterizable>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://www.w3.org/ns/shacl#AndConstraintComponent>
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateAnd" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://www.w3.org/ns/shacl#XoneConstraintComponent>
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateXone" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://www.w3.org/ns/shacl#Rule>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#symmetric>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "True to declare that the associated property path is symmetric." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "symmetric" .
+
+<http://datashapes.org/dash#UniqueValueForClassConstraintComponent-uniqueValueForClass>
+        a       <http://www.w3.org/ns/shacl#Parameter> ;
+        <http://www.w3.org/ns/shacl#class>
+                <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/ns/shacl#nodeKind>
+                <http://www.w3.org/ns/shacl#IRI> ;
+        <http://www.w3.org/ns/shacl#path>
+                <http://datashapes.org/dash#uniqueValueForClass> .
+
+<http://datashapes.org/dash#closedByTypes>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "closed by types" .
+
+<http://www.w3.org/ns/shacl#JSExecutable>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://datashapes.org/dash#AutoCompleteEditor>
+        a       <http://datashapes.org/dash#Editor> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An auto-complete field to enter the label of instances of a class. This is the fallback editor for any URI resource if no other editors are more suitable." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Auto-complete editor" .
+
+<http://www.w3.org/ns/shacl#AbstractResult>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://www.w3.org/ns/shacl#OrConstraintComponent>
+        <http://www.w3.org/ns/shacl#targetClass>
+                <http://www.w3.org/ns/shacl#Shape> ;
+        <http://www.w3.org/ns/shacl#validator>
+                [ a       <http://www.w3.org/ns/shacl#JSValidator> ;
+                  <http://www.w3.org/ns/shacl#jsFunctionName>
+                          "validateOr" ;
+                  <http://www.w3.org/ns/shacl#jsLibrary>
+                          <http://datashapes.org/dash#DASHJSLibrary>
+                ] .
+
+<http://www.w3.org/ns/shacl#Target>
+        <http://datashapes.org/dash#abstract>
+                true .
+
+<http://www.w3.org/ns/shacl#sparql>
+        <http://datashapes.org/dash#defaultValueType>
+                <http://www.w3.org/ns/shacl#SPARQLConstraint> .
+
+<http://www.w3.org/ns/shacl#not>
+        <http://datashapes.org/dash#defaultValueType>
+                <http://www.w3.org/ns/shacl#Shape> .
+
+<http://www.w3.org/ns/shacl#qualifiedValueShape>
+        <http://datashapes.org/dash#defaultValueType>
+                <http://www.w3.org/ns/shacl#Shape> .
+
+<http://www.w3.org/ns/shacl#property>
+        <http://datashapes.org/dash#defaultValueType>
+                <http://www.w3.org/ns/shacl#PropertyShape> .

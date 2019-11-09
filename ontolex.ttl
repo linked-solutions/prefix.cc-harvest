@@ -279,6 +279,35 @@
 <http://xmlns.com/foaf/0.1/Organization>
         a       <http://www.w3.org/2002/07/owl#Class> .
 
+<http://www.w3.org/ns/lemon/ontolex#LexicalEntry>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "'Словарная единица' представляет собой единицу анализа словаря, которая состоит из совокупности грамматически связанных форм и совокупности основных значений, ассоциирующихся со всеми этими формами. 'Словарная единица' - это слово, словосочетание или аффикс одной части речи, морфологической модели, этимологии и набора значений."@ru , "A lexical entry represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/ns/lemon/ontolex> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "leksikale inskrywing"@af , "словарная единица"@ru , "Lexikoneintrag"@de , "înregistrare lexicală"@ro , "lexikaal item"@nl , "entrée lexicale"@fr , "entrata lessicale"@it , "lexikoningång"@sv , "entrada léxica"@es , "lexical entry"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Expression> , <http://www.w3.org/2002/07/owl#Thing> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://www.w3.org/ns/lemon/ontolex#Form> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/ns/lemon/ontolex#canonicalForm>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://www.w3.org/ns/lemon/ontolex#Form> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/ns/lemon/ontolex#lexicalForm>
+                ] .
+
 <http://www.w3.org/ns/lemon/ontolex#isSenseOf>
         a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -345,19 +374,19 @@
                 <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Meaning> ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/lemon/ontolex#reference>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
                   <http://www.w3.org/2002/07/owl#onClass>
                           <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
                           <http://www.w3.org/ns/lemon/ontolex#isSenseOf> ;
                   <http://www.w3.org/2002/07/owl#qualifiedCardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/ns/lemon/ontolex#reference>
                 ] .
 
 <http://www.w3.org/ns/lemon/ontolex#writtenRep>
@@ -400,35 +429,6 @@
 
 <http://www.w3.org/ns/lemon/synsem#OntoMap>
         a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/lemon/ontolex#LexicalEntry>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "'Словарная единица' представляет собой единицу анализа словаря, которая состоит из совокупности грамматически связанных форм и совокупности основных значений, ассоциирующихся со всеми этими формами. 'Словарная единица' - это слово, словосочетание или аффикс одной части речи, морфологической модели, этимологии и набора значений."@ru , "A lexical entry represents a unit of analysis of the lexicon that consists of a set of forms that are grammatically related and a set of base meanings that are associated with all of these forms. Thus, a lexical entry is a word, multiword expression or affix with a single part-of-speech, morphological pattern, etymology and set of senses."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/lemon/ontolex> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "leksikale inskrywing"@af , "словарная единица"@ru , "Lexikoneintrag"@de , "înregistrare lexicală"@ro , "lexikaal item"@nl , "entrée lexicale"@fr , "entrata lessicale"@it , "lexikoningång"@sv , "entrada léxica"@es , "lexical entry"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#Expression> , <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://www.w3.org/ns/lemon/ontolex#Form> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/lemon/ontolex#lexicalForm>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://www.w3.org/ns/lemon/ontolex#Form> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/lemon/ontolex#canonicalForm>
-                ] .
 
 <http://www.w3.org/ns/lemon/ontolex#usage>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;

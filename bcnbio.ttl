@@ -1,0 +1,882 @@
+<http://datos.bcn.cl/ontologies/bcn-biographies#ParliamentaryPeriod>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Define un periodo temporal para un parlamentario"@es , "Defines a temporal period for a parliamentary"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Periodo parlamentario"@es , "Parliamentary period"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroIndustrias>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministros de Industria, Obras Públicas y Ferrocarriles"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#MinistroObras> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroTrabajo>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro del Trabajo y Previsión Social"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Eleccion>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                " Designación, que regularmente se hace por votos, para algún cargo, comisión, etc."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Elección"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-congress#Evento> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasCandidate>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Eleccion> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene candidato" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Candidato> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Rol>
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Función que alguien o algo cumple en algún momento."@es , "Función que toma una persona en un determinado instante, y que participa en las sesiones de sala o comisión, independiente de su cargo. Es un atributo circunstancial y puede coincidir con el cargo de la persona."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Rol"@es .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#profession>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The profession of a person"@en , "La profesion de una persona"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "" , "profession"@en , "profesión"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasPosition>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod> <http://datos.bcn.cl/ontologies/bcn-biographies#Eleccion> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene cargo"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasPoliticalPartyAsReferring>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Describe una relacion en donde un partido politico tiene a otro partido politico como referencia."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has political party as referring"@en , "tiene partido politico como referencia"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Candidato>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un politico que quiere ser electo."@es , "A politician that wants be elected."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Candidate"@en , "Candidato"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Rol> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#bcnPage>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Enlaza un recurso con su página Web correspondiente en el sitio de la BCN"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2002/07/owl#Thing> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "página BCN"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://xmlns.com/foaf/0.1/Document> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Cargo>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Investidura o nombramiento que se otorga a una persona. Dignidad, empleo u oficio. Una persona puede ser |nombrada en uno o más cargos."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Cargo"@es .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#religion>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "La creencia religiosa de una persona"@es , "The religious belief of a person"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "religión"@es , "religion"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#originalDate>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2006/time#DateTimeDescription> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "fecha original"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasRepresentationIn>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "referencia al label de una división electoral del país"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene representación en"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasReferring>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Define que algo tiene como referente a otra cosa."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene referente"@es , "has referring"@en .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Periodo en cargo"@es .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroGuerra>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Guerra"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#MinistroDefensa> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#PresidenteDeLaRepublica>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un politico que es presidente de la republica (de un pais)."@es , "A politician that is president of the republic (of a country)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "President of Republic"@en , "Presidente de la Republica"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Consejero>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Consejero"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroSecretario>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro Secretario General de Gobierno"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Defines a political party, which can belong a person"@en , "Define un partido politico al que puede pertenecer una persona"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Partido político" , "Political party"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/org#FormalOrganization> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasFoundationDate>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Define la fecha de fundacion de un partido politico"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene fecha de fundacion"@es , "has foundation date"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2006/time#DateTimeDescription> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Senador>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A parlamentary that is Senator."@en , "Un parlamentario que es senador."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Senador"@es , "Senator"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Parliamentary> , <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#belongsToElection>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Candidato> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "elección a la que pertenece"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Eleccion> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#hasCandidate> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Parliamentary>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Una persona que es parlamentario."@es , "A person that is parlamentary."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Parliamentary"@en , "Parlamentario"@es .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasPositionPeriod>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene cargo por periodo" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#PresidenteDelSenado>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un senador que es presidente del Senado."@es , "A senator that is president of Senate."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Presidente del Senado."@es , "President of Senate"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Senador> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#partOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Cargo> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "es parte de " ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/ns/org#FormalOrganization> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Plenipotenciario>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Dicho de una persona: Enviada por los reyes y las repúblicas a los congresos o a otros Estados, con el pleno poder y facultad de tratar, concluir y ajustar las paces u otros intereses."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Plenipotenciario"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroJusticia>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Justicia"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasDead>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Indica los datos de una persona cuando ha muerto."@es , "Indicates the data of a person when has died."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ha muerto"@es , "Has dead" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/vocab/bio/0.1/Death> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/vocab/bio/0.1/event> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasPeriod>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene periodo"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2006/time#Interval> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasParliamentaryAppointment>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relates a parlamentary with a parlamentary period."@en , "Relaciona un parlamentario con un periodo."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene nombramiento parlamentario"@es , "has parliamentary appointment."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#hasPositionPeriod> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#representingPlaceNamed>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#ParliamentaryPeriod> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "representando a un lugar llamado"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroRelaciones>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Relaciones Exteriores"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#nationality>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Agent> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "nacionalidad"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://dbpedia.org/ontology/Place> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#totalVotes>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Número total de votos que se obtuvieron, ya sea para un candidato como para una elección, según dependa el caso."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://datos.bcn.cl/ontologies/bcn-biographies#Eleccion> <http://datos.bcn.cl/ontologies/bcn-biographies#Candidato> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "total votos"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#long> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#composedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Utilizada para modelar las coaliciones de partidos"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "compuesto por"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Esta ontologia modela en rdfs y owl clases y relaciones en el dominio de biografias de parlamentarios. "@es , "This ontology allow modeling, using RDFs and OWL, relations in the domain of parliamentary biographies."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ontologia de biografias parlamentarias"@es , "Parliamentary biographies ontology"@en ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <http://www.w3.org/2006/time#> , <http://www.w3.org/ns/org.rdf> , <http://datos.bcn.cl/ontologies/bcn-congress/bcn-congress.rdf> , <http://xmlns.com/foaf/spec/20100809.rdf> , <http://purl.org/dc/elements/1.1/> , <http://datos.bcn.cl/ontologies/bcn-resources/bcn-resources.rdf> , <http://vocab.org/bio/0.1/.rdf> ;
+        <http://www.w3.org/2002/07/owl#priorVersion>
+                <http://datos.bcn.cl/ontologies/bcn-biographies/1.2/bcn-biographies.rdf> ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "1.3" .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#candidatureOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Establece la entidad a al cual pertenece la candidatura"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Candidato> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "candidatura de"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://xmlns.com/foaf/0.1/Agent> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#hasCandidature> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Regidor>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Regidor"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasBorn>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "relates a person with their birth data"@en , "relaciona a una persona con los datos de su nacimiento"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ha nacido"@es , "Has born"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/vocab/bio/0.1/Birth> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/vocab/bio/0.1/event> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#periodoAEjercer>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Eleccion> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "periodo a ejercer"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2006/time#Interval> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroAgricultura>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Agricultura"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#surnameOfMother>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "apellido materno"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2000/01/rdf-schema#label> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasPublicOffice>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene cargo público"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#hasPositionPeriod> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasFounder>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "corresponde a una propiedad generica para definir un fundador de partido politico"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene fundador"@es , "has founder"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasEnd>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene fin"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2006/time#DateTimeDescription> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2006/time#hasEnd> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#ofNamedPoliticalParty>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#ParliamentaryPeriod> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "representa a un partido político llamado" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasCandidature>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "tiene candidatura permite determinar un candidato para una elección particular." ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Agent> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene candidatura" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Candidato> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Ministro>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Persona que dirige cada uno de los departamentos ministeriales en que se divide la gobernación del Estado"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Alcalde>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Autoridad máxima de una comuna."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Alcalde"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Coalicion>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Coalición o grupo de partidos políticos unidos."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Coalición"@es .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasParliamentaryFounder>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Describe una relacion entre un parlamentario y un partido politico, en donde el parlamentario es fundador del partido."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has parliamentary founder"@en , "tiene fundador parlamentario"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://xmlns.com/foaf/0.1/Person> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Concejal>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Autoridad municipal perteneciente al concejo municipal."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Concejal"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Cargo público" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Cargo> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasParliamentaryRepresentationIn>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Indica un lugar en el cual un parlamentario ha sido elegido, o el lugar en donde un partido político ha obtenido una representación parlamentaria"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://datos.bcn.cl/ontologies/bcn-biographies#Parliamentary> <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene representación parlamentaria en"@es .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#PresidenteDeLaCamaraDeDiputados>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un diputado que es presidente de la camara de diputados."@es , "A Deputy that is president of house of representatives."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "President of House of representatives"@en , "Presidente de la camara de diputados"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Diputado> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasPoliticalParty>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Relaciona un periodo parlamentario con un partido politico."@es , "Relates a parlamentary period with a political party."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2002/07/owl#Thing> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has political party" , "tiene partido politico" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Director>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Director"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Cargo> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Intendente>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Máxima autoridad provincial regional, representante del poder ejecutivo."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Intendente"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#surnameOfFather>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://xmlns.com/foaf/0.1/Person> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "apellido paterno"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2000/01/rdf-schema#label> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroHacienda>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Hacienda"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasElectedCandidate>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Representa al ganador de la elección."@es ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Eleccion> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene candidato electo" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Candidato> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#Diputado>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Un Parlamentario que es diputado."@es , "A parlamentary that is deputy."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Diputado"@es , "Deputy"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#CargoPublico> , <http://datos.bcn.cl/ontologies/bcn-biographies#Parliamentary> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasBeginning>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene inicio" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2006/time#DateTimeDescription> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2006/time#hasBeginning> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasAcronym>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "representa una sigla asociada a un recurso"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene acrónimo"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#representing>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#ParliamentaryPeriod> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "representa a"@es .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#usedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Cargo> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "usado por"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PositionPeriod> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#hasHistoricalData>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/ns/org#Organization> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "tiene datos históricos"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2006/time#Instant> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroEducacion>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Educación"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#representedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#PoliticalParty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "es representado por"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://xmlns.com/foaf/0.1/Person> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroSalubridad>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Salubridad"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroEnergia>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Energía"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroMinas>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Minería"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroObras>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Obras Públicas"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroEconomia>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Economía, Fomento y Turismo" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroInterior>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro del Interior y Seguridad Pública"@es ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .
+
+<http://datos.bcn.cl/ontologies/bcn-biographies#MinistroDefensa>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ministro de Defensa Nacional" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://datos.bcn.cl/ontologies/bcn-biographies#Ministro> .

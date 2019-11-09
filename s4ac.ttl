@@ -1,0 +1,386 @@
+<http://ns.inria.fr/s4ac/v2>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://creativecommons.org/ns#license>
+                <http://creativecommons.org/licenses/by/3.0/> ;
+        <http://purl.org/dc/elements/1.1/description>
+                "A vocabulary to describe the access policies which protect an RDF data store."@en ;
+        <http://purl.org/dc/elements/1.1/issued>
+                "2011-06-28"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/elements/1.1/modified>
+                "2011-10-06"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/elements/1.1/publisher>
+                <http://dbpedia.org/resource/National_Institute_for_Research_in_Computer_Science_and_Control> ;
+        <http://purl.org/dc/elements/1.1/title>
+                "Social Semantic SPARQL Security For Access Control (S4AC) Ontology"@en ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "s4ac" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "http://ns.inria.fr/s4ac/v2#" ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                0.2 ;
+        <http://xmlns.com/foaf/0.1/page>
+                <http://ns.inria.fr/s4ac/v2/s4ac_v2.html> .
+
+<http://ns.inria.fr/s4ac/v2#DisjunctiveAccessConditionSet>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Disjunctive ACS (DACS) is a logical disjunction of Access Conditions, and it is said to be verified if and only if at least one Access Condition it contains is verified.\n\t\t"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "DisjontiveAccessConditionSet"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.inria.fr/s4ac/v2#AccessConditionSet> ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://ns.inria.fr/s4ac/v2#ConjunctiveAccessConditionSet> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#ConjunctiveAccessConditionSet>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Conjunctive ACS (CACS) is a logical conjunction of Access Conditions, and it is said to be verified if and only if every Access Condition it contains is verified.\n\t\t"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "ConjontiveAccessConditionSet"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.inria.fr/s4ac/v2#AccessConditionSet> ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://ns.inria.fr/s4ac/v2#DisjunctiveAccessConditionSet> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#Delete>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents a delete access on the resource."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Delete"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.inria.fr/s4ac/v2#AccessPrivilege> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" ;
+        <http://www.w3.org/2004/02/skos/core#related>
+                <http://spinrdf.org/sp#Drop> , <http://spinrdf.org/sp#DeleteData> , <http://spinrdf.org/sp#Clear> , <http://spinrdf.org/sp#DeleteWhere> .
+
+<http://ns.inria.fr/s4ac/v2#hasName>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property assigns a name to an Access Condition."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessCondition> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasName"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#appliesTo>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property associates the Access Policy to the URI of the resource to which the policy is applied."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessPolicy> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "appliesTo"@en ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#isAccessConditionOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property says that an Access Condition is part of an Access Condition Set."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessCondition> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "isAccessConditionOf"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/s4ac/v2#AccessConditionSet> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://ns.inria.fr/s4ac/v2#hasAccessCondition> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasVarName>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property associates a name to the variable used in the Access Conditions."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#Variable> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasVarName"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasVariable>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The property associates the variables and the Access Condition Set where they are used."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessConditionSet> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasVariable"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/s4ac/v2#Variable> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#AccessPolicy>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An Access Policy (AP) is a composed by an Access Condition Set, a Subject, an Access Evaluation Context, an Access Privilege, and a URI of the resource to which it is applied. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AccessPolicy"@en ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasAccessConditionSet>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property defines whether the Access Condition Set (ACS) of an Access Policy is a Conjunctive ACS, or a Disjunctive ACS."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessPolicy> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasAccessConditionSet"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/s4ac/v2#AccessConditionSet> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasAccessCondition>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property adds an Access Condition to an Access Condition Set."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessConditionSet> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasAccessCondition"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/s4ac/v2#AccessCondition> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://ns.inria.fr/s4ac/v2#isAccessConditionOf> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasAccessEvaluationContext>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property associates an Access Policy with an Access Evaluation Context."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessPolicy> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasAccessEvaluationContext"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/s4ac/v2#AccessEvaluationContext> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#Update>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents an update access on the resource."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Update"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.inria.fr/s4ac/v2#AccessPrivilege> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" ;
+        <http://www.w3.org/2004/02/skos/core#related>
+                <http://spinrdf.org/sp#Modify> .
+
+<http://ns.inria.fr/s4ac/v2#hasQueryAsk>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property defines the SPARQL 1.1 ASK queries which represent the Access Conditions."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessCondition> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasQueryAsk"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasDescription>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property associates a description of the variable used in the Access Condition Set to explain their use in the definition of the policies. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#Variable> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasDescription"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasAccessPrivilege>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property associates the Access Privileges to the Access Policies."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#AccessPolicy> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasAccessPrivilege"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/s4ac/v2#AccessPrivilege> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#AccessPrivilege>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents the kind of access privileges which is granted to the user (Create, Read, Update, Delete)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AccessPrivilege"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/ns#Item> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#Create>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents a create access on the resource. This class is equivalent to acl:Append."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Create"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.inria.fr/s4ac/v2#AccessPrivilege> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://www.w3.org/ns/auth/acl#Append> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" ;
+        <http://www.w3.org/2004/02/skos/core#related>
+                <http://spinrdf.org/sp#Load> , <http://spinrdf.org/sp#Create> , <http://spinrdf.org/sp#InsertData> .
+
+<http://ns.inria.fr/s4ac/v2#AccessEvaluationContext>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An Access Evaluation Context (AEC) is a list L of predetermined bound variables names of the form (var1, val1) for which a SPARQL 1.1 Binding Clause constrains the ASK query evaluation (i.e., the evaluation of the Access Conditions) when verifying the Access Conditions."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AccessEvaluationContext"@en ;
+        <http://www.w3.org/2002/07/owl#isEquivalentTo>
+                <http://ns.inria.fr/prissma/v2#Context> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#Variable>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class is used to describe the variables used in the Access Conditions."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Variable"@en ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#AccessConditionSet>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An Access Condition Set (ACS) represents a set of Access Conditions which can be either Conjunctive or Disjunctive.\n\t\t"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AccessConditionSet"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/ns#Container> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#Read>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents a read access on the resource. This class is equivalent to acl:Read."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Read"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.inria.fr/s4ac/v2#AccessPrivilege> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://www.w3.org/ns/auth/acl#Read> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" ;
+        <http://www.w3.org/2004/02/skos/core#related>
+                <http://spinrdf.org/sp#Select> , <http://spinrdf.org/sp#Ask> , <http://spinrdf.org/sp#Construct> , <http://spinrdf.org/sp#Describe> .
+
+<http://ns.inria.fr/s4ac/v2#AccessCondition>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Access Condition (AC) allows the users to access specific resources. An AC is a SPARQL 1.1 ASK query. If a solution exists, the ASK query returns true, and the AC is said to be verified. If no solution exists, the ASK query returns false, and the AC is said not to be verified."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AccessCondition"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/ns#Item> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#Value>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class is used to describe the value assigned to the variables used in the Access Conditions."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Value"@en ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://ns.inria.fr/s4ac/v2#hasValue>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property associates a value to the variable used in the Access Conditions."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/s4ac/v2#Variable> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://ns.inria.fr/s4ac/v2#> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasValue"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/s4ac/v2#Value> ;
+        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
+                "stable" .
+
+<http://dbpedia.org/resource/National_Institute_for_Research_in_Computer_Science_and_Control>
+        a       <http://xmlns.com/foaf/0.1/Organization> .

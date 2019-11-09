@@ -31,6 +31,43 @@
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 <http://www.w3.org/2007/uwa/context/software.owl#Program> .
 
+<http://www.w3.org/2007/uwa/context/software.owl#HandlingAssociation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents the relationship between an entity (MIME Type, URI Scheme, etc.)  and a program capable of handling such entity" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Handling Association" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#handledElement>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#handler> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2007/uwa/context/software.owl#Program>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#handler>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#handledElement> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Context_Entity>
+                ] .
+
 <http://www.w3.org/2007/uwa/context/software.owl#FontStyle_ITALICS>
         a       <http://www.w3.org/2007/uwa/context/software.owl#FontStyle> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -58,73 +95,6 @@
                 "http://www.w3.org/TR/CSS21/fonts.html#serif-def"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
         <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
                 <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
-
-<http://www.w3.org/2007/uwa/context/software.owl#Certificate>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents a digital certificate" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Certificate" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#issuer>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#notAfter>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#subject>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#notBefore>
-                ] .
-
-<http://www.w3.org/2007/uwa/context/software.owl#Program>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents a computer program" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Program" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/software.owl#SoftwareAspect> , <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#vendor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#name>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#version>
-                ] .
 
 <http://www.w3.org/2007/uwa/context/software.owl#operatingSystem>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
@@ -200,14 +170,14 @@
                   <http://www.w3.org/2002/07/owl#cardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#fontFamily>
+                          <http://www.w3.org/2007/uwa/context/software.owl#fontSize>
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/software.owl#FontStyle> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#fontStyle>
+                          <http://www.w3.org/2007/uwa/context/software.owl#fontFamily>
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
@@ -218,10 +188,10 @@
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://www.w3.org/2007/uwa/context/software.owl#FontStyle> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#fontSize>
+                          <http://www.w3.org/2007/uwa/context/software.owl#fontStyle>
                 ] .
 
 <http://www.w3.org/2007/uwa/context/software.owl#XmlFormat>
@@ -250,17 +220,40 @@
                 <http://www.w3.org/2007/uwa/context/software.owl#SoftwareAspect> , <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/common.owl#name>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
                   <http://www.w3.org/2002/07/owl#maxCardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
                           <http://www.w3.org/2007/uwa/context/common.owl#version>
-                ] ;
+                ] .
+
+<http://www.w3.org/2007/uwa/context/software.owl#Api>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This is a generic class that represents an application programming interface" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "API" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
                   <http://www.w3.org/2002/07/owl#cardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
                           <http://www.w3.org/2007/uwa/context/common.owl#name>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#maxCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/common.owl#version>
                 ] .
 
 <http://www.w3.org/2007/uwa/context/software.owl#certificates>
@@ -653,14 +646,51 @@
                           <http://www.w3.org/2007/uwa/context/software.owl#AudioFormat>
                 ] .
 
-<http://www.w3.org/2007/uwa/context/software.owl#Api>
+<http://www.w3.org/2007/uwa/context/software.owl#Certificate>
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is a generic class that represents an application programming interface" ;
+                "This class represents a digital certificate" ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "API" ;
+                "Certificate" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#subject>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#issuer>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#notBefore>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/software.owl#notAfter>
+                ] .
+
+<http://www.w3.org/2007/uwa/context/software.owl#Program>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents a computer program" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Program" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/software.owl#SoftwareAspect> , <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
                   <http://www.w3.org/2002/07/owl#cardinality>
@@ -674,6 +704,13 @@
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
                           <http://www.w3.org/2007/uwa/context/common.owl#version>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#maxCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/common.owl#vendor>
                 ] .
 
 <http://www.w3.org/2007/uwa/context/software.owl#supportedFormats>
@@ -734,22 +771,6 @@
                 "GIF87" , "GIF" ;
         <http://www.w3.org/2007/uwa/context/common.owl#version>
                 "87" .
-
-<http://www.w3.org/2007/uwa/context/software.owl#X509Certificate>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents an X.509 certificate" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "X.509 Certificate" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/software.owl#Certificate> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#serialNumber>
-                ] .
 
 <http://www.w3.org/2007/uwa/context/software.owl#characterColumns>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
@@ -821,6 +842,22 @@
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://www.w3.org/2007/uwa/context/software.owl#Program> .
 
+<http://www.w3.org/2007/uwa/context/software.owl#X509Certificate>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents an X.509 certificate" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "X.509 Certificate" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/software.owl#Certificate> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#maxCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/common.owl#serialNumber>
+                ] .
+
 <http://www.w3.org/2007/uwa/context/common.owl#serialNumber>
         a       <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 
@@ -852,43 +889,6 @@
                 ] ;
         <http://www.w3.org/2007/uwa/context/common.owl#normativeReference>
                 "http://www.w3.org/TR/CSS21/fonts.html#font-family-prop"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://www.w3.org/2007/uwa/context/software.owl#HandlingAssociation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents the relationship between an entity (MIME Type, URI Scheme, etc.)  and a program capable of handling such entity" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Handling Association" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/software.owl#Context_SoftwareEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#handler> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/software.owl#Program>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#handledElement> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Context_Entity>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#handler>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/software.owl#handledElement>
-                ] .
 
 <http://www.w3.org/2007/uwa/context/software.owl#gif89a>
         a       <http://www.w3.org/2007/uwa/context/software.owl#ImageFormat> ;
@@ -1011,22 +1011,6 @@
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 <http://www.w3.org/2007/uwa/context/software.owl#Format> .
 
-<http://www.w3.org/2007/uwa/context/deliverycontext.owl#component>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/2007/uwa/context/software.owl#apis>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The  APIs supported by a user agent" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/software.owl#UserAgent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "APIs" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/software.owl#Api> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2007/uwa/context/common.owl#supports> .
-
 <http://www.w3.org/2007/uwa/context/software.owl#AudioRecorder>
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1042,6 +1026,22 @@
                   <http://www.w3.org/2002/07/owl#someValuesFrom>
                           <http://www.w3.org/2007/uwa/context/software.owl#AudioFormat>
                 ] .
+
+<http://www.w3.org/2007/uwa/context/deliverycontext.owl#component>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://www.w3.org/2007/uwa/context/software.owl#apis>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The  APIs supported by a user agent" ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2007/uwa/context/software.owl#UserAgent> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "APIs" ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2007/uwa/context/software.owl#Api> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2007/uwa/context/common.owl#supports> .
 
 <http://www.w3.org/2007/uwa/context/software.owl#supportedStreamedFormats>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;

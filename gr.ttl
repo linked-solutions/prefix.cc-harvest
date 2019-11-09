@@ -13,6 +13,22 @@
         <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
                 <http://purl.org/goodrelations/v1#hasMaxValue> , <http://purl.org/goodrelations/v1#hasMinValue> .
 
+<http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This is the super property of all quantitative  properties for products and services. All properties in product or service ontologies that specify quantitative characteristics, for which an interval is at least theoretically an appropriate value, are subproperties of this property."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "quantitative product or service property (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#QuantitativeValue> .
+
 <http://purl.org/goodrelations/v1#BusinessEntityType>
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -122,22 +138,6 @@
                 "has currency (1..1)"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/goodrelations/v1#owns>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates that a particular person or business owns a particular product. It can be used to expose the products in one's posession in order to empower recommender systems to suggest matching offers.\n\nNote that the product must be an instance of the class gr:Individual.\n\nThis property can also be safely applied to foaf:Agent instances."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://schema.org/Organization> <http://schema.org/Person> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "owns (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#Individual> .
 
 <http://purl.org/goodrelations/v1#Saturday>
         a       <http://purl.org/goodrelations/v1#DayOfWeek> ;
@@ -590,22 +590,6 @@
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 <http://purl.org/goodrelations/v1#PaymentMethod> .
 
-<http://purl.org/goodrelations/v1#datatypeProductOrServiceProperty>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property is the super property for all pure datatype properties that can be used to describe a gr:ProductOrService.\n\nIn products and services ontologies, only such properties that are no quantitative properties and that have no predefined gr:QualitativeValue instances are subproperties of this property. In practice, this refers to a few integer properties for which the integer value represents qualitative aspects, for string datatypes (as long as no predefined values exist), for boolean datatype properties, and for dates and times."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "datatype product or service property (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
 <http://purl.org/goodrelations/v1#UnitPriceSpecification>
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -667,22 +651,6 @@
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://purl.org/goodrelations/v1#ProductOrService> .
 
-<http://purl.org/goodrelations/v1#taxID>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Tax / Fiscal ID of the gr:BusinessEntity, e.g. the TIN in the US or the CIF/NIF in Spain. It is usually assigned by the country of residence"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://schema.org/Organization> <http://schema.org/Person> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Tax ID (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
 <http://purl.org/goodrelations/v1#hasMinValueFloat>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -722,6 +690,22 @@
                 <http://purl.org/goodrelations/v1> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "PayPal (payment method)"@en .
+
+<http://purl.org/goodrelations/v1#hasBusinessFunction>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This specifies the business function of the gr:Offering, i.e. whether the gr:BusinessEntity is offering to sell, to lease, or to repair the particular type of product. In the case of bundles, it is also possible to attach individual business functions to each gr:TypeAndQuantityNode. The business function of the main gr:Offering determines the business function for all included objects or services, unless a business function attached to a gr:TypeAndQuantityNode overrides it.\n\t\nNote: While it is possible that an entity is offering multiple types of business functions for the same set of objects (e.g. rental and sales), this should usually not be stated by attaching multiple business functions to the same gr:Offering, since the gr:UnitPriceSpecification for the varying business functions will typically be very different."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#TypeAndQuantityNode> <http://schema.org/Offer> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has business function (1..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#BusinessFunction> .
 
 <http://purl.org/goodrelations/v1#includesObject>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -764,22 +748,6 @@
                 <http://purl.org/goodrelations/v1#ProductOrService> , <http://schema.org/Product> ;
         <http://www.w3.org/2002/07/owl#disjointWith>
                 <http://purl.org/goodrelations/v1#Brand> , <http://purl.org/goodrelations/v1#BusinessEntity> , <http://purl.org/goodrelations/v1#SomeItems> , <http://purl.org/goodrelations/v1#Individual> .
-
-<http://purl.org/goodrelations/v1#hasEligibleQuantity>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This specifies the interval and unit of measurement of ordering quantities for which the gr:Offering or gr:PriceSpecification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.\nNote that if an offering is a bundle, i.e. it consists of more than one unit of a single type of good, or if the unit of measurement for the good is different from unit (Common Code C62), then gr:hasEligibleQuantity refers to units of this bundle. In other words, \"C62\" for \"Units or pieces\" is usually the appropriate unit of measurement."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#PriceSpecification> <http://schema.org/Offer> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has eligible quantity (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValue> .
 
 <http://purl.org/goodrelations/v1#Cash>
         a       <http://purl.org/goodrelations/v1#PaymentMethod> ;
@@ -855,38 +823,6 @@
         <http://www.w3.org/2002/07/owl#disjointWith>
                 <http://purl.org/goodrelations/v1#TypeAndQuantityNode> , <http://purl.org/goodrelations/v1#BusinessEntity> , <http://purl.org/goodrelations/v1#Brand> , <http://purl.org/goodrelations/v1#QuantitativeValue> , <http://purl.org/goodrelations/v1#WarrantyScope> , <http://purl.org/goodrelations/v1#PaymentMethod> , <http://purl.org/goodrelations/v1#BusinessEntityType> , <http://purl.org/goodrelations/v1#DeliveryMethod> , <http://purl.org/goodrelations/v1#WarrantyPromise> , <http://purl.org/goodrelations/v1#Location> , <http://purl.org/goodrelations/v1#BusinessFunction> , <http://purl.org/goodrelations/v1#OpeningHoursSpecification> , <http://purl.org/goodrelations/v1#ProductOrService> , <http://purl.org/goodrelations/v1#PriceSpecification> , <http://purl.org/goodrelations/v1#Offering> .
 
-<http://purl.org/goodrelations/v1#hasGlobalLocationNumber>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective gr:BusinessEntity or gr:Location.\nThe Global Location Number is a thirteen-digit number used to identify parties and physical locations."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://purl.org/goodrelations/v1#Location> <http://schema.org/Place> <http://schema.org/Organization> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Global Location Number (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/goodrelations/v1#hasInventoryLevel>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property specifies the current approximate inventory level for gr:SomeItems. The unit of measurement and the point value or interval are indicated using the attached gr:QuantitativeValueFloat instance.\n\nThis property can also be attached to a gr:Offering in cases where the included products are not modeled in more detail."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#SomeItems> <http://schema.org/Offer> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has inventory level (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValueFloat> .
-
 <http://purl.org/goodrelations/v1#hasMinValueInteger>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -926,22 +862,6 @@
         <http://www.w3.org/2002/07/owl#equivalentClass>
                 <http://purl.org/goodrelations/v1#SomeItems> .
 
-<http://purl.org/goodrelations/v1#offers>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This links a gr:BusinessEntity to the offers (gr:Offering) it makes. If you want to express interest in receiving offers, use gr:seeks instead."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://schema.org/Organization> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "offers (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#Offering> .
-
 <http://purl.org/goodrelations/v1#eligibleRegions>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -970,6 +890,24 @@
                 "is variant of (0..1)"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://purl.org/goodrelations/v1#ProductOrServiceModel> .
+
+<http://purl.org/goodrelations/v1#hasEAN_UCC-13>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The EAN·UCC-13 code of the given gr:ProductOrService or gr:Offering. This code is now officially called GTIN-13 (Global Trade Identifier Number) or EAN·UCC-13. Former 12-digit UPC codes can be converted into EAN·UCC-13 code by simply adding a preceeding zero.\n\nNote 1: When using this property for searching by 12-digit UPC codes, you must add a preceeding zero digit.\nNote 2: As of January 1, 2007, the former ISBN numbers for books etc. have been integrated into the EAN·UCC-13 code. For each old ISBN-10 code, there exists a proper translation into EAN·UCC-13 by adding \"978\" or \"979\" as prefix. Since the old ISBN-10 is now deprecated, GoodRelations does not provide a property for ISBNs."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has EAN/UCC-13 (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://schema.org/productID> .
 
 <http://purl.org/goodrelations/v1#greaterOrEqual>
         a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -1013,22 +951,6 @@
                 "has opening hours day of week (1..*)"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://purl.org/goodrelations/v1#DayOfWeek> .
-
-<http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is the super property of all quantitative  properties for products and services. All properties in product or service ontologies that specify quantitative characteristics, for which an interval is at least theoretically an appropriate value, are subproperties of this property."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "quantitative product or service property (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValue> .
 
 <http://purl.org/goodrelations/v1#isConsumableFor>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -1146,6 +1068,22 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Check in advance (payment method)"@en .
 
+<http://purl.org/goodrelations/v1#datatypeProductOrServiceProperty>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property is the super property for all pure datatype properties that can be used to describe a gr:ProductOrService.\n\nIn products and services ontologies, only such properties that are no quantitative properties and that have no predefined gr:QualitativeValue instances are subproperties of this property. In practice, this refers to a few integer properties for which the integer value represents qualitative aspects, for string datatypes (as long as no predefined values exist), for boolean datatype properties, and for dates and times."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "datatype product or service property (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Literal> .
+
 <http://purl.org/goodrelations/v1#hasNext>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1160,6 +1098,22 @@
                 <http://purl.org/goodrelations/v1#DayOfWeek> ;
         <http://www.w3.org/2002/07/owl#inverseOf>
                 <http://purl.org/goodrelations/v1#hasPrevious> .
+
+<http://purl.org/goodrelations/v1#isSimilarTo>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This states that a given gr:ProductOrService is similar to another product or service. Of course, this is a subjective statement; when interpreting it, the trust in the origin of the statement should be taken into account."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is similar to (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#ProductOrService> .
 
 <http://purl.org/goodrelations/v1#hasStockKeepingUnit>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
@@ -1200,6 +1154,22 @@
                 "Quantitative value"@en ;
         <http://www.w3.org/2002/07/owl#disjointWith>
                 <http://purl.org/goodrelations/v1#Brand> , <http://purl.org/goodrelations/v1#BusinessEntity> , <http://purl.org/goodrelations/v1#TypeAndQuantityNode> , <http://purl.org/goodrelations/v1#WarrantyScope> , <http://purl.org/goodrelations/v1#ProductOrService> , <http://purl.org/goodrelations/v1#OpeningHoursSpecification> , <http://purl.org/goodrelations/v1#BusinessFunction> , <http://purl.org/goodrelations/v1#Location> , <http://purl.org/goodrelations/v1#WarrantyPromise> , <http://purl.org/goodrelations/v1#DeliveryMethod> , <http://purl.org/goodrelations/v1#BusinessEntityType> , <http://purl.org/goodrelations/v1#PaymentMethod> , <http://purl.org/goodrelations/v1#Offering> , <http://purl.org/goodrelations/v1#PriceSpecification> , <http://purl.org/goodrelations/v1#DayOfWeek> , <http://purl.org/goodrelations/v1#QualitativeValue> .
+
+<http://purl.org/goodrelations/v1#hasManufacturer>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This object property links a gr:ProductOrService to the gr:BusinessEntity that produces it. Mostly used with gr:ProductOrServiceModel."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has manufacturer (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#BusinessEntity> .
 
 <http://purl.org/goodrelations/v1#serialNumber>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
@@ -1278,6 +1248,22 @@
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 <http://purl.org/goodrelations/v1#BusinessEntity> .
 
+<http://purl.org/goodrelations/v1#offers>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This links a gr:BusinessEntity to the offers (gr:Offering) it makes. If you want to express interest in receiving offers, use gr:seeks instead."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://schema.org/Organization> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "offers (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#Offering> .
+
 <http://purl.org/goodrelations/v1#FederalExpress>
         a       <http://purl.org/goodrelations/v1#DeliveryModeParcelService> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1352,6 +1338,42 @@
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://purl.org/goodrelations/v1#Location> .
 
+<http://purl.org/goodrelations/v1#weight>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The weight of the gr:ProductOrService.\nTypical unit code(s): GRM for gram, KGM for kilogram, LBR for pound"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "weight (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#QuantitativeValue> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty> .
+
+<http://purl.org/goodrelations/v1#hasMPN>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Manufacturer Part Number or MPN is a unique identifier for a product, service, or bundle from the perspective of a particular manufacturer. MPNs can be assigned to products or product datasheets, or bundles. Accordingly, the domain of this property is the union of gr:ProductOrService (the common superclass of goods and datasheets), and gr:Offering.\n\nImportant: Be careful when assuming two products or services instances or offering instances to be identical based on the MPN. Since MPNs are unique only for the same gr:BusinessEntity, this holds only when the two MPN values refer to the same gr:BusinessEntity. Such can be done by taking into account the provenance of the data. \n\nUsually, the properties gr:hasEAN_UCC-13 and gr:hasGTIN-14 are much more reliable identifiers, because they are globally unique.\n\nSee also http://en.wikipedia.org/wiki/Part_number"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has MPN (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://schema.org/productID> .
+
 <http://purl.org/goodrelations/v1#ConstructionInstallation>
         a       <http://purl.org/goodrelations/v1#BusinessFunction> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1407,23 +1429,23 @@
         <http://www.w3.org/2002/07/owl#inverseOf>
                 <http://purl.org/goodrelations/v1#successorOf> .
 
-<http://purl.org/goodrelations/v1#depth>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+<http://purl.org/goodrelations/v1#hasGTIN-8>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The depth of the product.\nTypical unit code(s): CMT for centimeters, INH for inches"@en ;
+                "The 8-digit Global Trade Item Number (GTIN-8) of the given gr:ProductOrService or gr:Offering, also known as EAN/UCC-8 (8-digit EAN)."@en ;
         <http://www.w3.org/2000/01/rdf-schema#domain>
                 [ a       <http://www.w3.org/2002/07/owl#Class> ;
                   <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
                 <http://purl.org/goodrelations/v1> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "depth (0..1)"@en ;
+                "has GTIN-8 (0..*)"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValue> ;
+                <http://www.w3.org/2001/XMLSchema#string> ;
         <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty> .
+                <http://schema.org/productID> .
 
 <http://purl.org/goodrelations/v1#hasMaxCurrencyValue>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
@@ -1450,22 +1472,6 @@
                 "has min value (0..1)"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/goodrelations/v1#isSimilarTo>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This states that a given gr:ProductOrService is similar to another product or service. Of course, this is a subjective statement; when interpreting it, the trust in the origin of the statement should be taken into account."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is similar to (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#ProductOrService> .
 
 <http://purl.org/goodrelations/v1#availabilityStarts>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
@@ -1504,6 +1510,38 @@
                 "Opening hours specification"@en ;
         <http://www.w3.org/2002/07/owl#disjointWith>
                 <http://purl.org/goodrelations/v1#WarrantyScope> , <http://purl.org/goodrelations/v1#BusinessEntity> , <http://purl.org/goodrelations/v1#TypeAndQuantityNode> , <http://purl.org/goodrelations/v1#QuantitativeValue> , <http://purl.org/goodrelations/v1#Brand> , <http://purl.org/goodrelations/v1#DayOfWeek> , <http://purl.org/goodrelations/v1#Offering> , <http://purl.org/goodrelations/v1#PriceSpecification> , <http://purl.org/goodrelations/v1#Location> , <http://purl.org/goodrelations/v1#WarrantyPromise> , <http://purl.org/goodrelations/v1#DeliveryMethod> , <http://purl.org/goodrelations/v1#BusinessEntityType> , <http://purl.org/goodrelations/v1#PaymentMethod> , <http://purl.org/goodrelations/v1#ProductOrService> , <http://purl.org/goodrelations/v1#BusinessFunction> .
+
+<http://purl.org/goodrelations/v1#hasGlobalLocationNumber>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective gr:BusinessEntity or gr:Location.\nThe Global Location Number is a thirteen-digit number used to identify parties and physical locations."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://purl.org/goodrelations/v1#Location> <http://schema.org/Place> <http://schema.org/Organization> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has Global Location Number (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
+
+<http://purl.org/goodrelations/v1#hasMakeAndModel>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This states that an actual product instance (gr:Individual) or a placeholder instance for multiple, unidentified such instances (gr:SomeItems) is one occurence of a particular gr:ProductOrServiceModel.\n\nExample: myFordT hasMakeAndModel FordT."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Individual> <http://purl.org/goodrelations/v1#SomeItems> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has make and model (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#ProductOrServiceModel> .
 
 <http://purl.org/goodrelations/v1#Friday>
         a       <http://purl.org/goodrelations/v1#DayOfWeek> ;
@@ -1549,6 +1587,22 @@
         <http://www.w3.org/2002/07/owl#disjointWith>
                 <http://purl.org/goodrelations/v1#WarrantyScope> , <http://purl.org/goodrelations/v1#BusinessEntity> , <http://purl.org/goodrelations/v1#TypeAndQuantityNode> , <http://purl.org/goodrelations/v1#QuantitativeValue> , <http://purl.org/goodrelations/v1#Brand> , <http://purl.org/goodrelations/v1#DayOfWeek> , <http://purl.org/goodrelations/v1#Offering> , <http://purl.org/goodrelations/v1#PriceSpecification> , <http://purl.org/goodrelations/v1#WarrantyPromise> , <http://purl.org/goodrelations/v1#Location> , <http://purl.org/goodrelations/v1#DeliveryMethod> , <http://purl.org/goodrelations/v1#BusinessEntityType> , <http://purl.org/goodrelations/v1#PaymentMethod> , <http://purl.org/goodrelations/v1#ProductOrService> , <http://purl.org/goodrelations/v1#OpeningHoursSpecification> .
 
+<http://purl.org/goodrelations/v1#hasInventoryLevel>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property specifies the current approximate inventory level for gr:SomeItems. The unit of measurement and the point value or interval are indicated using the attached gr:QuantitativeValueFloat instance.\n\nThis property can also be attached to a gr:Offering in cases where the included products are not modeled in more detail."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#SomeItems> <http://schema.org/Offer> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has inventory level (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#QuantitativeValueFloat> .
+
 <http://purl.org/goodrelations/v1#hasGTIN-14>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1566,6 +1620,22 @@
                 <http://www.w3.org/2001/XMLSchema#string> ;
         <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
                 <http://schema.org/productID> .
+
+<http://purl.org/goodrelations/v1#hasEligibleQuantity>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This specifies the interval and unit of measurement of ordering quantities for which the gr:Offering or gr:PriceSpecification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.\nNote that if an offering is a bundle, i.e. it consists of more than one unit of a single type of good, or if the unit of measurement for the good is different from unit (Common Code C62), then gr:hasEligibleQuantity refers to units of this bundle. In other words, \"C62\" for \"Units or pieces\" is usually the appropriate unit of measurement."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#PriceSpecification> <http://schema.org/Offer> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has eligible quantity (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#QuantitativeValue> .
 
 <http://schema.org/description>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
@@ -1586,22 +1656,6 @@
                 <http://www.w3.org/2001/XMLSchema#float> ;
         <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
                 <http://purl.org/goodrelations/v1#hasMinCurrencyValue> , <http://purl.org/goodrelations/v1#hasMaxCurrencyValue> .
-
-<http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property links a gr:Location to a gr:OpeningHoursSpecification."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Location> <http://schema.org/Place> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has opening hours specification (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#OpeningHoursSpecification> .
 
 <http://purl.org/goodrelations/v1#Labor-BringIn>
         a       <http://purl.org/goodrelations/v1#WarrantyScope> ;
@@ -1631,24 +1685,6 @@
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 <http://purl.org/goodrelations/v1#BusinessEntity> .
-
-<http://purl.org/goodrelations/v1#hasMPN>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Manufacturer Part Number or MPN is a unique identifier for a product, service, or bundle from the perspective of a particular manufacturer. MPNs can be assigned to products or product datasheets, or bundles. Accordingly, the domain of this property is the union of gr:ProductOrService (the common superclass of goods and datasheets), and gr:Offering.\n\nImportant: Be careful when assuming two products or services instances or offering instances to be identical based on the MPN. Since MPNs are unique only for the same gr:BusinessEntity, this holds only when the two MPN values refer to the same gr:BusinessEntity. Such can be done by taking into account the provenance of the data. \n\nUsually, the properties gr:hasEAN_UCC-13 and gr:hasGTIN-14 are much more reliable identifiers, because they are globally unique.\n\nSee also http://en.wikipedia.org/wiki/Part_number"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has MPN (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://schema.org/productID> .
 
 <http://purl.org/goodrelations/v1#hasMaxValueFloat>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
@@ -1681,6 +1717,24 @@
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://purl.org/goodrelations/v1#BusinessEntityType> .
 
+<http://purl.org/goodrelations/v1#depth>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The depth of the product.\nTypical unit code(s): CMT for centimeters, INH for inches"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "depth (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#QuantitativeValue> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty> .
+
 <http://purl.org/goodrelations/v1#hasWarrantyScope>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1703,22 +1757,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "MasterCard (payment method)"@en .
 
-<http://purl.org/goodrelations/v1#hasManufacturer>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This object property links a gr:ProductOrService to the gr:BusinessEntity that produces it. Mostly used with gr:ProductOrServiceModel."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has manufacturer (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#BusinessEntity> .
-
 <http://purl.org/goodrelations/v1#addOn>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1734,22 +1772,6 @@
                 "add-on (0..*)"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://purl.org/goodrelations/v1#Offering> .
-
-<http://purl.org/goodrelations/v1#hasBusinessFunction>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This specifies the business function of the gr:Offering, i.e. whether the gr:BusinessEntity is offering to sell, to lease, or to repair the particular type of product. In the case of bundles, it is also possible to attach individual business functions to each gr:TypeAndQuantityNode. The business function of the main gr:Offering determines the business function for all included objects or services, unless a business function attached to a gr:TypeAndQuantityNode overrides it.\n\t\nNote: While it is possible that an entity is offering multiple types of business functions for the same set of objects (e.g. rental and sales), this should usually not be stated by attaching multiple business functions to the same gr:Offering, since the gr:UnitPriceSpecification for the varying business functions will typically be very different."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#TypeAndQuantityNode> <http://schema.org/Offer> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has business function (1..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#BusinessFunction> .
 
 <http://schema.org/manufacturer>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -1825,22 +1847,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "PaySwarm (payment method)"@en .
 
-<http://purl.org/goodrelations/v1#hasMakeAndModel>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This states that an actual product instance (gr:Individual) or a placeholder instance for multiple, unidentified such instances (gr:SomeItems) is one occurence of a particular gr:ProductOrServiceModel.\n\nExample: myFordT hasMakeAndModel FordT."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Individual> <http://purl.org/goodrelations/v1#SomeItems> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has make and model (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#ProductOrServiceModel> .
-
 <http://purl.org/goodrelations/v1#LeaseOut>
         a       <http://purl.org/goodrelations/v1#BusinessFunction> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1858,6 +1864,38 @@
                 <http://purl.org/goodrelations/v1> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Delivery mode mail (delivery method)"@en .
+
+<http://purl.org/goodrelations/v1#availabilityEnds>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property specifies the end of the availability of the gr:ProductOrService included in the gr:Offering.\nThe difference to the properties gr:validFrom and gr:validThrough is that those specify the period of time during which the offer is valid and can be accepted.\n\nExample: I offer to lease my boat for the period of August 1 - August 31, 2010, but you must accept by offer no later than July 15.\n\nA time-zone should be specified. For a time in GMT/UTC, simply add a \"Z\" following the time:\n\n2008-05-30T09:30:10Z.\n\nAlternatively, you can specify an offset from the UTC time by adding a positive or negative time following the time:\n\n2008-05-30T09:30:10-09:00\n\nor\n\n2008-05-30T09:30:10+09:00.\n\nNote: There is another property gr:availableAtOrFrom, which is used to indicate the gr:Location (e.g. store or shop) from which the goods would be available."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://schema.org/Offer> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "availability ends (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://purl.org/goodrelations/v1#owns>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property indicates that a particular person or business owns a particular product. It can be used to expose the products in one's posession in order to empower recommender systems to suggest matching offers.\n\nNote that the product must be an instance of the class gr:Individual.\n\nThis property can also be safely applied to foaf:Agent instances."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://schema.org/Organization> <http://schema.org/Person> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "owns (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#Individual> .
 
 <http://purl.org/goodrelations/v1#valueReference>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -1878,22 +1916,6 @@
                           ( <http://purl.org/goodrelations/v1#QualitativeValue> <http://purl.org/goodrelations/v1#QuantitativeValue> )
                 ] .
 
-<http://purl.org/goodrelations/v1#acceptedPaymentMethods>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The gr:PaymentMethod or methods accepted by the gr:BusinessEntity for the given gr:Offering."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://schema.org/Offer> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "accepted payment methods (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#PaymentMethod> .
-
 <http://purl.org/goodrelations/v1#QuantitativeValueInteger>
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -1906,24 +1928,6 @@
                 <http://purl.org/goodrelations/v1#QuantitativeValue> ;
         <http://www.w3.org/2002/07/owl#disjointWith>
                 <http://purl.org/goodrelations/v1#QuantitativeValueFloat> .
-
-<http://purl.org/goodrelations/v1#hasEAN_UCC-13>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The EAN·UCC-13 code of the given gr:ProductOrService or gr:Offering. This code is now officially called GTIN-13 (Global Trade Identifier Number) or EAN·UCC-13. Former 12-digit UPC codes can be converted into EAN·UCC-13 code by simply adding a preceeding zero.\n\nNote 1: When using this property for searching by 12-digit UPC codes, you must add a preceeding zero digit.\nNote 2: As of January 1, 2007, the former ISBN numbers for books etc. have been integrated into the EAN·UCC-13 code. For each old ISBN-10 code, there exists a proper translation into EAN·UCC-13 by adding \"978\" or \"979\" as prefix. Since the old ISBN-10 is now deprecated, GoodRelations does not provide a property for ISBNs."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has EAN/UCC-13 (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://schema.org/productID> .
 
 <http://purl.org/goodrelations/v1#QuantitativeValueFloat>
         a       <http://www.w3.org/2002/07/owl#Class> ;
@@ -1980,6 +1984,22 @@
         <http://www.w3.org/2002/07/owl#inverseOf>
                 <http://purl.org/goodrelations/v1#greater> .
 
+<http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property links a gr:Location to a gr:OpeningHoursSpecification."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Location> <http://schema.org/Place> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has opening hours specification (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#OpeningHoursSpecification> .
+
 <http://purl.org/goodrelations/v1#legalName>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -2034,6 +2054,22 @@
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://www.w3.org/2001/XMLSchema#float> .
 
+<http://purl.org/goodrelations/v1#isAccessoryOrSparePartFor>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This states that a particular gr:ProductOrService is an accessory or spare part for another product or service."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is accessory or spare part for (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#ProductOrService> .
+
 <http://purl.org/goodrelations/v1#hasBrand>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -2050,24 +2086,6 @@
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://purl.org/goodrelations/v1#Brand> .
 
-<http://purl.org/goodrelations/v1#weight>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The weight of the gr:ProductOrService.\nTypical unit code(s): GRM for gram, KGM for kilogram, LBR for pound"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "weight (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty> .
-
 <http://purl.org/goodrelations/v1#description>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -2083,6 +2101,22 @@
                 "description (0..1)"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://www.w3.org/2000/01/rdf-schema#Literal> .
+
+<http://purl.org/goodrelations/v1#taxID>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Tax / Fiscal ID of the gr:BusinessEntity, e.g. the TIN in the US or the CIF/NIF in Spain. It is usually assigned by the country of residence"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://schema.org/Organization> <http://schema.org/Person> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Tax ID (0..1)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> .
 
 <http://purl.org/goodrelations/v1#hasPrevious>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -2173,24 +2207,6 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "By bank transfer in advance (payment method)"@en .
 
-<http://purl.org/goodrelations/v1#hasGTIN-8>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The 8-digit Global Trade Item Number (GTIN-8) of the given gr:ProductOrService or gr:Offering, also known as EAN/UCC-8 (8-digit EAN)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has GTIN-8 (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://schema.org/productID> .
-
 <http://purl.org/goodrelations/v1#Sell>
         a       <http://purl.org/goodrelations/v1#BusinessFunction> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -2210,22 +2226,6 @@
                 "N-ary relations (DEPRECATED)"@en ;
         <http://www.w3.org/2002/07/owl#deprecated>
                 true .
-
-<http://purl.org/goodrelations/v1#availabilityEnds>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property specifies the end of the availability of the gr:ProductOrService included in the gr:Offering.\nThe difference to the properties gr:validFrom and gr:validThrough is that those specify the period of time during which the offer is valid and can be accepted.\n\nExample: I offer to lease my boat for the period of August 1 - August 31, 2010, but you must accept by offer no later than July 15.\n\nA time-zone should be specified. For a time in GMT/UTC, simply add a \"Z\" following the time:\n\n2008-05-30T09:30:10Z.\n\nAlternatively, you can specify an offset from the UTC time by adding a positive or negative time following the time:\n\n2008-05-30T09:30:10-09:00\n\nor\n\n2008-05-30T09:30:10+09:00.\n\nNote: There is another property gr:availableAtOrFrom, which is used to indicate the gr:Location (e.g. store or shop) from which the goods would be available."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#Offering> <http://schema.org/Offer> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "availability ends (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
 
 <http://purl.org/goodrelations/v1#DeliveryModeFreight>
         a       <http://purl.org/goodrelations/v1#DeliveryMethod> ;
@@ -2287,17 +2287,26 @@
         <http://www.w3.org/2002/07/owl#equivalentClass>
                 <http://purl.org/goodrelations/v1#ProductOrService> .
 
+<http://purl.org/goodrelations/v1#acceptedPaymentMethods>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The gr:PaymentMethod or methods accepted by the gr:BusinessEntity for the given gr:Offering."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://purl.org/goodrelations/v1#Offering> <http://schema.org/Offer> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/goodrelations/v1> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "accepted payment methods (0..*)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/goodrelations/v1#PaymentMethod> .
+
 <http://schema.org/Place>
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2002/07/owl#equivalentClass>
                 <http://purl.org/goodrelations/v1#Location> .
-
-[ a       <http://purl.org/goodrelations/v1#Offering> ;
-  <http://purl.org/goodrelations/v1#category>
-          "42" ;
-  <http://purl.org/goodrelations/v1#description>
-          "VGhlIFNldmVuIE5vYWhpZGUgTGF3cw0KMS4gQmVsaWVmIGluIEctZA0KMi4gUmVzcGVjdCBHLWQgYW5kIHByYWlzZSBoaW0NCjMuIFJlc3BlY3QgaHVtYW4gbGlmZQ0KNC4gUmVzcGVjdCB0aGUgZmFtaWx5DQo1LiBSZXNwZWN0IGh1bWFuIGJlaW5ncw0KNi4gSGF2ZSBhIGp1ZGljaWFsIHN5c3RlbQ0KNy4gUmVzcGVjdCBhbGwgY3JlYXR1cmVz"
-] .
 
 <http://schema.org/name>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
@@ -2366,6 +2375,13 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "VISA (payment method)"@en .
 
+[ a       <http://purl.org/goodrelations/v1#Offering> ;
+  <http://purl.org/goodrelations/v1#category>
+          "42" ;
+  <http://purl.org/goodrelations/v1#description>
+          "VGhlIFNldmVuIE5vYWhpZGUgTGF3cw0KMS4gQmVsaWVmIGluIEctZA0KMi4gUmVzcGVjdCBHLWQgYW5kIHByYWlzZSBoaW0NCjMuIFJlc3BlY3QgaHVtYW4gbGlmZQ0KNC4gUmVzcGVjdCB0aGUgZmFtaWx5DQo1LiBSZXNwZWN0IGh1bWFuIGJlaW5ncw0KNi4gSGF2ZSBhIGp1ZGljaWFsIHN5c3RlbQ0KNy4gUmVzcGVjdCBhbGwgY3JlYXR1cmVz"
+] .
+
 <http://purl.org/goodrelations/v1#Enduser>
         a       <http://purl.org/goodrelations/v1#BusinessEntityType> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -2404,22 +2420,6 @@
 
 <http://purl.org/dc/elements/1.1/creator>
         a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/goodrelations/v1#isAccessoryOrSparePartFor>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This states that a particular gr:ProductOrService is an accessory or spare part for another product or service."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#ProductOrService> <http://schema.org/Product> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is accessory or spare part for (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#ProductOrService> .
 
 <http://purl.org/dc/terms/license>
         a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .

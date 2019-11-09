@@ -57,6 +57,11 @@
         <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
                 <http://www.w3.org/2002/07/owl#topObjectProperty> .
 
+[ a       <http://www.w3.org/2002/07/owl#AllDifferent> ;
+  <http://www.w3.org/2002/07/owl#distinctMembers>
+          ( <http://linkeddata.center/kees/v1#append> <http://linkeddata.center/kees/v1#replace> )
+] .
+
 <http://linkeddata.center/kees/v1#replace>
         a       <http://linkeddata.center/kees/v1#AccrualPolicy> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -119,10 +124,35 @@
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "SPARQL update script"@en .
 
-[ a       <http://www.w3.org/2002/07/owl#AllDifferent> ;
-  <http://www.w3.org/2002/07/owl#distinctMembers>
-          ( <http://linkeddata.center/kees/v1#append> <http://linkeddata.center/kees/v1#replace> )
-] .
+<http://linkeddata.center/kees/v1#Plan>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A subclass of a prov:Plan. States a named graph accual activity plan"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Plan"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://linkeddata.center/kees/v1#AccrualPolicy> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://linkeddata.center/kees/v1#accrualPolicy> ;
+                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://linkeddata.center/kees/v1#builds>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://linkeddata.center/kees/v1#changes> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2002/07/owl#Thing>
+                ] .
 
 <http://linkeddata.center/kees/v1#accrualPolicy>
         a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
@@ -134,36 +164,6 @@
                 "accrualPolicy"@en ;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 <http://linkeddata.center/kees/v1#AccrualPolicy> .
-
-<http://linkeddata.center/kees/v1#Plan>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A subclass of a prov:Plan. States a named graph accual activity plan"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Plan"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linkeddata.center/kees/v1#changes> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2002/07/owl#Thing>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linkeddata.center/kees/v1#builds>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linkeddata.center/kees/v1#AccrualPolicy> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linkeddata.center/kees/v1#accrualPolicy> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
 
 <http://linkeddata.center/kees/v1#answers>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
