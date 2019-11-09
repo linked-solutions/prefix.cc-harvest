@@ -1,0 +1,302 @@
+<http://purl.org/eis/vocab/daq#isEstimate>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This property flags true if an assessed observation of a metric gives an estimate result instead of a more accurate one."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Observation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "is estimate"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#boolean> .
+
+<http://purl.org/eis/vocab/daq#computedOn>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://purl.org/linked-data/cube#DimensionProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Quality metrics can be (in principle) calculated on various forms of data (such as datasets, graphs, set of triples etc...). This vocabulary allow the owner/user of such RDF data to calculate metrics on multiple (and different) resources."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Observation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "computed on"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> ;
+        <http://www.w3.org/2002/07/owl#equivalentProperty>
+                <http://www.w3.org/ns/dqv#computedOn> .
+
+[ <http://www.w3.org/2002/07/owl#equivalentProperty>
+          <http://www.w3.org/ns/dqv#inCategory> ;
+  <http://www.w3.org/2002/07/owl#inverseOf>
+          <http://purl.org/eis/vocab/daq#hasDimension>
+] .
+
+<http://purl.org/eis/vocab/daq#hasObservation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Computed metrics can have 1 or more quality observations, where each computed resource has one observation."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Metric> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "has observation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/eis/vocab/daq#Observation> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/eis/vocab/daq#metric> .
+
+<http://purl.org/eis/vocab/daq#hasMetric>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A dimension is an abstract concept which groups an number of more concrete metrics to measure quality of a dataset. This is an abstract property and should not be used directly. Specific sub-properties should be inherited for different metrics."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Dimension> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasMetric"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/eis/vocab/daq#Metric> .
+
+<http://purl.org/eis/vocab/daq#value>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://purl.org/linked-data/cube#MeasureProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Each metric will have a value computed. In order to deal with the different return type of the metric computation, this property links a metric with a value object (e.g. boolean, double, Literal)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Observation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "value"@en ;
+        <http://www.w3.org/2002/07/owl#equivalentProperty>
+                <http://www.w3.org/ns/dqv#value> .
+
+[ <http://www.w3.org/2002/07/owl#equivalentProperty>
+          <http://www.w3.org/ns/dqv#inDimension> ;
+  <http://www.w3.org/2002/07/owl#inverseOf>
+          <http://purl.org/eis/vocab/daq#hasMetric>
+] .
+
+<http://purl.org/eis/vocab/daq#Dimension>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Each dimension is part of a larger group called category (See daq:Category). Each dimension has a number of metrics which are associated to it. A dimension is linked with a category using the daq:hasDimension property. Dimensions are provided as subclasses of this abstract class, which is not intended for direct usage."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Dimension"@en ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://www.w3.org/ns/dqv#Dimension> .
+
+<http://purl.org/eis/vocab/daq#QualityGraph>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Defines a quality graph which will contain all metadata about quality metrics on the dataset."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Quality Graph Statistics"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2004/03/trix/rdfg-1/Graph> , <http://purl.org/linked-data/cube#DataSet> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#hasValue>
+                          <http://purl.org/eis/vocab/daq#dsd> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/linked-data/cube#structure>
+                ] ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://www.w3.org/ns/dqv#QualityMeasurementDataset> .
+
+<http://purl.org/eis/vocab/daq#expectedDataType>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Each metric should have an expect data type for it's observed value (e.g. xsd:boolean, xsd:double etc...)"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Metric> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "expected data type"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#anySimpleType> ;
+        <http://www.w3.org/2002/07/owl#equivalentProperty>
+                <http://www.w3.org/ns/dqv#expectedDataType> .
+
+<http://purl.org/eis/vocab/daq#metric>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://purl.org/linked-data/cube#DimensionProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Represents the metric being observed."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Observation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "metric"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/eis/vocab/daq#Metric> ;
+        <http://www.w3.org/2002/07/owl#equivalentProperty>
+                <http://www.w3.org/ns/dqv#isMeasurementOf> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://purl.org/eis/vocab/daq#hasObservation> .
+
+<http://purl.org/eis/vocab/daq#>
+        a       <http://purl.org/vocommons/voaf#Vocabulary> , <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://purl.org/dc/elements/1.1/description>
+                "The Dataset Quality Vocabulary (daQ) is a lightweight, extensible core vocabulary for attaching the result of quality benchmarking of a linked open dataset (usually an expensive process) to that dataset.  daQ is designed to be extended by custom quality metrics.  Use cases include filtering and ranking datasets by quality."@en ;
+        <http://purl.org/dc/terms/contributor>
+                [ <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                          <http://purl.org/net/clange> ;
+                  <http://xmlns.com/foaf/0.1/homepage>
+                          <http://langec.wordpress.com/about/> ;
+                  <http://xmlns.com/foaf/0.1/name>
+                          "Christoph Lange"
+                ] ;
+        <http://purl.org/dc/terms/creator>
+                [ <http://xmlns.com/foaf/0.1/mbox>
+                          <mailto:debattij@scss.tcd.ie> ;
+                  <http://xmlns.com/foaf/0.1/name>
+                          "Jeremy Debattista"
+                ] ;
+        <http://purl.org/dc/terms/language>
+                "en"^^<http://www.w3.org/2001/XMLSchema#language> ;
+        <http://purl.org/dc/terms/modified>
+                "2017-08-03"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/terms/title>
+                "Dataset Quality Vocabulary (daQ)"@en ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "daq" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "http://purl.org/eis/vocab/daq#" ;
+        <http://xmlns.com/foaf/0.1/homepage>
+                <http://purl.org/eis/vocab/daq> .
+
+<http://purl.org/eis/vocab/daq#requires>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A metric might require a number of external resources (e.g. a gold standard) in order to be able to measure the quality. In order to cater for the most generic requirement, this property links a metric to the required resource (e.g. a URI to the gold standard dataset used)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Metric> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "requires"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://purl.org/linked-data/sdmx/2009/dimension#timePeriod>
+        a       <http://purl.org/linked-data/cube#DimensionProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Observation> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<http://purl.org/eis/vocab/daq#computedBy>
+        a       <http://www.w3.org/2002/07/owl#DeprecatedProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "**Deprecated Property**. The computedBy property defines the Agent that computed a metric on a dataset."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/linked-data/cube#Observation> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "computed by"@en .
+
+<http://purl.org/eis/vocab/daq#Metric>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The smallest unit of measuring a quality dimension is a metric. A metric belongs to exactly one dimension. Each metric has one or more observations (daq:hasObservation), which records data quality assessment value following a computation. Metrics are provided as subclasses of this abstract class, which is not intended for direct usage."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Metric"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/eis/vocab/daq#expectedDataType>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#minCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/eis/vocab/daq#hasObservation>
+                ] ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://www.w3.org/ns/dqv#Metric> .
+
+<http://purl.org/eis/vocab/daq#Category>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The highest level of quality metric is a category. A category groups a number of dimensions relevant to each other which aims at measuring the quality of a dataset from different aspects. Categories are provided as subclasses of this abstract class, which is not intended for direct usage."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Category"@en ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://www.w3.org/ns/dqv#Category> .
+
+<http://purl.org/eis/vocab/daq#hasDimension>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The category concept classifies dimensions related to the measurement of quality for a specific criteria. This is an abstract property and should not be used directly. Specific sub-properties should be inherited for different dimensions."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://purl.org/eis/vocab/daq#Category> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasDimension"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://purl.org/eis/vocab/daq#Dimension> .
+
+<http://purl.org/eis/vocab/daq#Observation>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A quality observation represents the statistical and provenance information of the attached metric's assessment activity."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Quality Observation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/ns/prov#Entity> , <http://purl.org/linked-data/cube#Observation> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#minCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/eis/vocab/daq#metric>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/linked-data/sdmx/2009/dimension#timePeriod>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/eis/vocab/daq#isEstimate>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/eis/vocab/daq#value>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/eis/vocab/daq#computedOn>
+                ] ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://www.w3.org/ns/dqv#QualityMeasurement> .
+
+[ <http://www.w3.org/2002/07/owl#equivalentProperty>
+          <http://www.w3.org/ns/dqv#hasQualityMeasurement> ;
+  <http://www.w3.org/2002/07/owl#inverseOf>
+          <http://purl.org/eis/vocab/daq#computedOn>
+] .
+
+<http://purl.org/eis/vocab/daq#dsd>
+        a       <http://purl.org/linked-data/cube#DataStructureDefinition> ;
+        <http://purl.org/linked-data/cube#component>
+                [ <http://purl.org/linked-data/cube#measure>
+                          <http://purl.org/eis/vocab/daq#value> ] ;
+        <http://purl.org/linked-data/cube#component>
+                [ <http://purl.org/linked-data/cube#dimension>
+                          <http://purl.org/linked-data/sdmx/2009/dimension#timePeriod> ;
+                  <http://purl.org/linked-data/cube#order>
+                          3
+                ] ;
+        <http://purl.org/linked-data/cube#component>
+                [ <http://purl.org/linked-data/cube#dimension>
+                          <http://purl.org/eis/vocab/daq#computedOn> ;
+                  <http://purl.org/linked-data/cube#order>
+                          2
+                ] ;
+        <http://purl.org/linked-data/cube#component>
+                [ <http://purl.org/linked-data/cube#dimension>
+                          <http://purl.org/eis/vocab/daq#metric> ;
+                  <http://purl.org/linked-data/cube#order>
+                          1
+                ] .

@@ -1,0 +1,1206 @@
+<http://purl.org/spar/doco/TextChunk>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A piece of text defined by a start point and an end point."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "text chunk"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.essepuntato.it/2008/12/pattern#Inline> .
+
+<http://purl.org/spar/doco/Title>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A word, phrase or sentence that precedes and indicates the subject of a document or a document component - e.g., a book, a report, a news article, a chapter, a section or a table."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "title"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Field> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.essepuntato.it/2008/12/pattern#HeadedContainer>
+                ] .
+
+<http://purl.org/spar/doco/Subtitle>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An explanatory or alternative title of a publication. For example, Mary Shelley uses the alternative title 'The Modern Prometheus' to hint at the theme of her most famous novel 'Frankenstein'; Nick Efford uses the subtitle 'a practical introduction using Java' to qualify the title of his book 'Digital Image Processing'."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "subtitle"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.essepuntato.it/2008/12/pattern#Block> , <http://purl.org/spar/deo/DiscourseElement> .
+
+<http://salt.semanticauthoring.org/ontologies/sro#Abstract>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/doco/Section>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A logical division of the text, usually numbered and/or titled, which may contain subsections."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "section"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#unionOf>
+                                    ( <http://purl.org/spar/doco/Paragraph> <http://purl.org/spar/doco/Section> )
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#complementOf>
+                                    <http://purl.org/spar/doco/Chapter>
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> )
+                ] .
+
+<http://www.essepuntato.it/2008/12/pattern#Container>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/doco/Bibliography>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A document section containing a list of bibliographic references."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bibliography"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#unionOf>
+                                      ( <http://purl.org/spar/doco/Chapter> <http://purl.org/spar/doco/Section> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/hasPart> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/deo/BibliographicReference>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/Afterword>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A literary device that is often found at the end of a piece of literature. It generally covers the story of how the book came into being, or how the idea for the book was developed. Alternatively, it may be written by someone other than the author of the book, and may discuss the work's historical or cultural context, if the work is being reissued many years after its original publication."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "afterword"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Section>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/BackMatter>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/ListOfAuthors>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A list of items each denoting an author of a particular publication."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list of authors"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/ListOfAgents> .
+
+<http://purl.org/spar/doco/ListOfAgents>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A list of items each denoting an agent, such as an author, a contributor or an organization, related to a particular publication."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list of agents"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/List> ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://purl.org/spar/doco/ListOfReferences> .
+
+<http://purl.org/spar/doco/ChapterSubtitle>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The subtitle of a chapter."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "chapter subtitle"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/Subtitle> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/dc/terms/isPartOf> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.org/spar/doco/Chapter>
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://purl.org/spar/doco/SectionSubtitle> .
+
+<http://purl.org/spar/doco/ChapterTitle>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The title of a chapter."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "chapter title"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/Title> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.org/spar/doco/Chapter>
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://purl.org/spar/doco/SectionTitle> .
+
+<http://purl.org/spar/doco/FrontMatter>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The initial principle part of a document, usually containing self-referential metadata. In a book, this typically includes its title, authors, publisher, publication date, ISBN and copyright declaration, together with the preface, foreword, table of content, etc. In a journal article, the front matter is normally restricted to the title, authors and the authors' affiliation details, although the latter may alternatively be included in a footnote or the back matter. In books, the front matter pages may be numbered in lowercase Roman numerals."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "front matter"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#complementOf>
+                                    [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                      <http://www.w3.org/2002/07/owl#unionOf>
+                                              ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                    ]
+                          ] ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#isContainedBy>
+                ] ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://purl.org/orb/1.0/Header> .
+
+<http://purl.org/spar/doco/Sentence>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An expression in natural language forming a single grammatical unit. A sentence minimally consists of a subject and an intransitive verb, or a subject, a transitive verb and an object, and may include additional dependent clauses. In written text, a sentence is always terminated by a full stop. A sentence can include words grouped meaningfully to express a statement, a question, an exclamation, a request or a command."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "sentence"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.essepuntato.it/2008/12/pattern#Inline> , <http://purl.org/spar/deo/DiscourseElement> .
+
+<http://purl.org/spar/doco/Table>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A set of data arranged in cells within rows and columns."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "table"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> , <http://www.essepuntato.it/2008/12/pattern#Table> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.essepuntato.it/2008/12/pattern#Container>
+                ] .
+
+<http://purl.org/dc/elements/1.1/title>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/spar/doco>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This ontology is available at http://purl.org/spar/doco, and uses the namespace prefix doco."@en , "The Document Components Ontology (DoCO) in an ontology that provides a structured vocabulary written of document components, both structural (e.g., block, inline, paragraph, section, chapter) and rhetorical (e.g., introduction, discussion, acknowledgements, reference list, figure, appendix).\n\n**URL:** http://purl.org/spar/doco\n\n**Creators**: [David Shotton](http://orcid.org/0000-0001-5506-523X), [Silvio Peroni](http://orcid.org/0000-0003-0530-4305)\n\n**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)\n\n**Website:** http://www.sparontologies.net/ontologies/doco\n\n**Cite as:** Constantin, A., Peroni, S., Pettifer, S., Shotton, D., Vitali, F. (2016). The Document Components Ontology (DoCO). In Semantic Web, 7 (2): 167-181. DOI: http://dx.doi.org/10.3233/SW-150177"@en ;
+        <http://purl.org/dc/elements/1.1/creator>
+                "David Shotton" , "Silvio Peroni" ;
+        <http://purl.org/dc/elements/1.1/date>
+                "2015-07-03" ;
+        <http://purl.org/dc/elements/1.1/description>
+                "DoCO, the Document Components Ontology, provides a structured vocabulary written in OWL 2 DL of document components, both structural (e.g. block, inline, paragraph, section, chapter) and rhetorical (e.g. introduction, discussion, acknowledgements, reference list, figure, appendix), enabling these components, and documents composed of them, to be described in RDF. It imports the Discourse Elements Ontology (http://purl.org/spar/deo) and the Document Structural Patterns Ontology (http://purl.org/spar/po), and uses seven rhetorical block elements abstracted from the SALT Rhetorical Ontology and the Ontology of Rhetorical Blocks (ORB)."@en ;
+        <http://purl.org/dc/elements/1.1/description>
+                <http://purl.org/spar/doco/doco%20architecture.png> ;
+        <http://purl.org/dc/elements/1.1/rights>
+                "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+        <http://purl.org/dc/elements/1.1/title>
+                "DoCO, the Document Components Ontology"@en ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <http://purl.org/spar/deo> , <http://purl.org/spar/po> ;
+        <http://www.w3.org/2002/07/owl#priorVersion>
+                <https://svn.code.sf.net/p/sempublishing/code/DoCO/2014-05-14_doco-1_2.owl> ;
+        <http://www.w3.org/2002/07/owl#versionIRI>
+                <http://purl.org/spar/doco/2015-07-03> ;
+        <http://www.w3.org/2002/07/owl#versionInfo>
+                "1.3" .
+
+<http://purl.org/spar/doco/Footnote>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A structure within a sentence that permits the author to make a comment or to cite another publication in support of the text, or both. A footnote is normally flagged by a superscript number immediately following that portion of the text to which it relates. For convenience of reading, the text of the footnote is usually printed at the bottom of the page or at the end of a text."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "footnote"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://www.essepuntato.it/2008/12/pattern#Container> <http://www.essepuntato.it/2008/12/pattern#Popup> )
+                ] .
+
+<http://purl.org/spar/doco/TableOfContents>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A section of the document listing all the chapters and sections, identified by their titles and referenced to their locations in the document. The table of contents may include a list of the front-matter and back-matter items, in addition to the body-matter items.  Where the document is a journal or magazine issue, the table of content lists the constituent items contained in that issue, typically by title, authors and first page number."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "table of contents"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/dc/terms/hasPart> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#intersectionOf>
+                                    ( <http://purl.org/spar/doco/ListOfReferences>
+                                      [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                        <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                                  <http://www.w3.org/2002/07/owl#onProperty>
+                                                          <http://purl.org/dc/terms/relation> ;
+                                                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                                          <http://purl.org/spar/doco/Section>
+                                                ] ;
+                                        <http://www.w3.org/2002/07/owl#onProperty>
+                                                <http://www.essepuntato.it/2008/12/pattern#contains>
+                                      ]
+                                    )
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Section>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                        <http://www.w3.org/2002/07/owl#unionOf>
+                                                ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                      ]
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/SimpleRunInQuotation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A textual quotation that is included inline and is usually enclosed within quotation marks."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "simple run-in quotation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.essepuntato.it/2008/12/pattern#Inline> .
+
+<http://purl.org/spar/doco/Figure>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A communication object comprising one or more graphics, drawings, images, or other visual representations.."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "figure"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://www.essepuntato.it/2008/12/pattern#Meta> <http://www.essepuntato.it/2008/12/pattern#Milestone> )
+                ] .
+
+<http://purl.org/spar/deo/Reference>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/doco/ListOfContributors>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A list of items, each denoting a contributor to a publication such as an encyclopedia or a text book, where such contributions are insufficient to warrant classification as author."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list of contributors"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/ListOfAgents> .
+
+<http://purl.org/spar/doco/Formula>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A unit of information expressed in mathematical, chemical or logical symbols and language."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "formula"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> , <http://www.essepuntato.it/2008/12/pattern#Popup> .
+
+<http://purl.org/spar/doco/ListOfTables>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A section of the document listing all the tables, identified by their titles and referenced to their locations in the document."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list of tables"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/dc/terms/hasPart> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#intersectionOf>
+                                    ( <http://purl.org/spar/doco/ListOfReferences>
+                                      [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                        <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                                  <http://www.w3.org/2002/07/owl#onProperty>
+                                                          <http://purl.org/dc/terms/relation> ;
+                                                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                                          <http://purl.org/spar/doco/TableBox>
+                                                ] ;
+                                        <http://www.w3.org/2002/07/owl#onProperty>
+                                                <http://www.essepuntato.it/2008/12/pattern#contains>
+                                      ]
+                                    )
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/doco/Section> <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                        <http://www.w3.org/2002/07/owl#unionOf>
+                                                ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                      ]
+                            ]
+                          )
+                ] .
+
+[ a       <http://www.w3.org/2002/07/owl#AllDisjointClasses> ;
+  <http://www.w3.org/2002/07/owl#members>
+          ( <http://purl.org/spar/doco/Sentence> <http://purl.org/spar/doco/SimpleRunInQuotation> <http://purl.org/spar/doco/TextChunk> )
+] .
+
+<http://purl.org/dc/terms/isPartOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://purl.org/spar/doco/Colophon>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A brief description of publication or production notes relevant to the document."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "colophon"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Section>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                        <http://www.w3.org/2002/07/owl#unionOf>
+                                                ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                      ]
+                            ]
+                          )
+                ] .
+
+[ a       <http://www.w3.org/2002/07/owl#AllDisjointClasses> ;
+  <http://www.w3.org/2002/07/owl#members>
+          ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/CaptionedBox> <http://purl.org/spar/doco/Chapter> <http://purl.org/spar/doco/ComplexRunInQuotation> <http://purl.org/spar/doco/Footnote> <http://purl.org/spar/doco/Formula> <http://purl.org/spar/doco/FormulaBox> <http://purl.org/spar/doco/FrontMatter> <http://purl.org/spar/doco/List> <http://purl.org/spar/doco/Part> <http://purl.org/spar/doco/Section> <http://purl.org/spar/doco/Table> )
+] .
+
+<http://purl.org/spar/doco/ListOfOrganizations>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A list of items, each denoting an organization or institution related to the publication, for example the authors' affiliations, or the suppliers of information, software, equipment or consumables used in the work described in the publication."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list of organizations"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/ListOfAgents> .
+
+<http://purl.org/spar/doco/TextBox>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A space within a document that contains textual content relating to, quoting from or expanding upon the main text. Usually a textbox is delimited by a border or use of a background colour distinct from that of the main text."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "text box"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.essepuntato.it/2008/12/pattern#Container> , <http://purl.org/spar/deo/DiscourseElement> .
+
+<http://purl.org/dc/elements/1.1/creator>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/orb/1.0/Header>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/doco/SectionTitle>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The title of a section."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "section title"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/Title> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.org/spar/doco/Section>
+                ] .
+
+<http://purl.org/spar/deo/Caption>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/deo/BibliographicReference>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/doco/FigureBox>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A space within a document that contains a figure and its caption."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "figure box"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/CaptionedBox>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/hasPart> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/Figure>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://purl.org/spar/doco/TableBox> .
+
+<http://purl.org/spar/doco/BlockQuotation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A block quotation (also known as a long quotation or extract) is a quotation in a written document which is set off from the main text as a container for distinct paragraphs, which is typically distinguished visually using indentation, a different font, or smaller size. Block quotations are used for longer passages than run-in quotations (which are set off with quotation marks)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "block quotation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.essepuntato.it/2008/12/pattern#Container> .
+
+<http://purl.org/spar/doco/SectionSubtitle>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The subtitle of a section."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "section subtitle"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/Subtitle> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/dc/terms/isPartOf> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.org/spar/doco/Section>
+                ] .
+
+<http://purl.org/spar/doco/FigureLabel>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A block containing a label for the figure box, that may include the figure number."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "figure label"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Label>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/FigureBox>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/ListOfReferences>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A list of items each representing a reference to a specific part of the same document, or to another publication."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list of references"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/List>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://purl.org/spar/deo/Reference> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.essepuntato.it/2008/12/pattern#contains>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/ChapterLabel>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A block containing a label for the chapter, that may include the chapter number."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "chapter label"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Label>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/Chapter>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://purl.org/spar/doco/SectionLabel> .
+
+<http://purl.org/spar/doco/TableBox>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A space within a document that contains a table and its caption."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "table box"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/CaptionedBox>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/hasPart> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/Table>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/BodyMatter>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The central principle part of a document, that contains the real content. It may be subdivided hierarchically by the use of chapters and sections."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "body matter"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#complementOf>
+                                    [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                      <http://www.w3.org/2002/07/owl#unionOf>
+                                              ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                    ]
+                          ] ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#isContainedBy>
+                ] .
+
+<http://www.essepuntato.it/2008/12/pattern#Inline>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.essepuntato.it/2008/12/pattern#isContainedBy>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/dc/terms/isPartOf> .
+
+<http://purl.org/spar/doco/Part>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A container of a semantic subdivision of a document. For example, chapters of a novel may be grouped into distinct parts that may be named 'Part 1', 'Part 2', etc., 'Book 1', 'Book 2', etc., or 'Genesis', 'Exodus', etc."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "part"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                ] .
+
+<http://purl.org/spar/doco/FormulaBox>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A space within a document that contains one or more formulae."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "formula box"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/hasPart> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/Formula>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/TableLabel>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A block containing a label for the table box, that may include the table number."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "table label"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Label>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/TableBox>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/BibliographicReferenceList>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A list, usually within a bibliography, of all the references within the citing document that refer to  journal articles, books, book chapters, Web sites or similar publications."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bibliographic reference list"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/ListOfReferences>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/deo/BibliographicReference>
+                            ]
+                          )
+                ] .
+
+<http://www.w3.org/2000/01/rdf-schema#comment>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/spar/doco/ListOfFigures>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A section of the document listing all the figures, identified by their titles and referenced to their locations in the document. May also be referred to as 'List of illustrations'."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list of figures"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/dc/terms/hasPart> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#intersectionOf>
+                                    ( <http://purl.org/spar/doco/ListOfReferences>
+                                      [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                        <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                                  <http://www.w3.org/2002/07/owl#onProperty>
+                                                          <http://purl.org/dc/terms/relation> ;
+                                                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                                          <http://purl.org/spar/doco/FigureBox>
+                                                ] ;
+                                        <http://www.w3.org/2002/07/owl#onProperty>
+                                                <http://www.essepuntato.it/2008/12/pattern#contains>
+                                      ]
+                                    )
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/doco/Section> <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                        <http://www.w3.org/2002/07/owl#unionOf>
+                                                ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                      ]
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/Chapter>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A principle division of the body matter of a large document, such as a book, a report or a legislative document."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "chapter"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#unionOf>
+                                    ( <http://purl.org/spar/doco/Paragraph> <http://purl.org/spar/doco/Section> )
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#complementOf>
+                                    <http://purl.org/spar/doco/Chapter>
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> )
+                ] .
+
+<http://purl.org/dc/elements/1.1/rights>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.essepuntato.it/2008/12/pattern#Table>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/doco/Index>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A section containing a list of references to information on the named topic of importance to the content of the document. The references may be to page numbers, paragraph numbers, section numbers or chapter numbers within the document."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "index"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/dc/terms/hasPart> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#intersectionOf>
+                                    ( <http://purl.org/spar/doco/ListOfReferences>
+                                      [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                        <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                                                  <http://www.w3.org/2002/07/owl#onProperty>
+                                                          <http://purl.org/dc/terms/relation> ;
+                                                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                                          <http://purl.org/spar/doco/TextChunk>
+                                                ] ;
+                                        <http://www.w3.org/2002/07/owl#onProperty>
+                                                <http://www.essepuntato.it/2008/12/pattern#contains>
+                                      ]
+                                    )
+                          ]
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/doco/Section> <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/BackMatter>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/Abstract>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A brief summary of a book, a research article, thesis, review, conference proceeding or any in-depth analysis of a particular subject or discipline, the purpose of which is to help the reader quickly ascertain the publication's purpose." ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "abstract" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#unionOf>
+                                      ( <http://purl.org/spar/doco/Chapter> <http://purl.org/spar/doco/Section> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                        <http://www.w3.org/2002/07/owl#unionOf>
+                                                ( <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                      ]
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                <http://salt.semanticauthoring.org/ontologies/sro#Abstract> .
+
+<http://purl.org/spar/doco/Label>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A block containing text, that may include a number (e.g., \"Chapter Three\", \"3.2\", \"Figure 1\", \"Table\"), used to identify an item within the document, for example a chapter, a figure, a section or a table."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "label"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#isContainedBy> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#unionOf>
+                                    ( <http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                          ]
+                ] .
+
+<http://purl.org/spar/doco/ComplexRunInQuotation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A quotation with a complex structure, that is included inline and is usually enclosed within quotation marks."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "complex run-in quotation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> , <http://www.essepuntato.it/2008/12/pattern#Popup> .
+
+<http://purl.org/spar/doco/Stanza>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A unit within a larger poem. A stanza consists of a grouping of lines, set off by a vertical space from other stanzas, that usually has a set pattern of meter and rhyme."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "stanza"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://purl.org/spar/doco/Line> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.essepuntato.it/2008/12/pattern#contains>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/List>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An enumeration of items."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "list"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://www.essepuntato.it/2008/12/pattern#Table>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://www.essepuntato.it/2008/12/pattern#Pattern>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#unionOf>
+                                    ( <http://www.essepuntato.it/2008/12/pattern#Block> <http://www.essepuntato.it/2008/12/pattern#Field>
+                                      [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                        <http://www.w3.org/2002/07/owl#intersectionOf>
+                                                ( <http://www.essepuntato.it/2008/12/pattern#Container>
+                                                  [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                                    <http://www.w3.org/2002/07/owl#complementOf>
+                                                            [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                                              <http://www.w3.org/2002/07/owl#unionOf>
+                                                                      ( <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> <http://www.essepuntato.it/2008/12/pattern#Table> )
+                                                            ]
+                                                  ]
+                                                )
+                                      ]
+                                    )
+                          ] ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#contains>
+                ] .
+
+<http://www.w3.org/2000/01/rdf-schema#label>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://purl.org/spar/doco/CaptionedBox>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A rectangle space within a page that contains an object and its related caption."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "captioned box"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/hasPart> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/deo/Caption>
+                            ]
+                          )
+                ] .
+
+<http://www.w3.org/2002/07/owl#topObjectProperty>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://purl.org/spar/doco/Appendix>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A supplemental addition to the main work. It may contain data, more detailed information about methods and materials, or provide additional detail concerning the information found in the main work."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "appendix"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/doco/Section> <http://www.essepuntato.it/2008/12/pattern#HeadedContainer> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/BackMatter>
+                            ]
+                          )
+                ] .
+
+<http://www.essepuntato.it/2008/12/pattern#Block>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/spar/doco/Foreword>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A section in a book or report, usually written by someone other than the author, that introduces or commends the document to the reader. It may include description of the interaction between the writer of the foreword and the author."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "foreword"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Section>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/FrontMatter>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/SectionLabel>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A block containing a label for the section, that may include the section number."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "section label"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/doco/Label> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://purl.org/dc/terms/isPartOf> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://purl.org/spar/doco/Section>
+                ] .
+
+<http://purl.org/dc/terms/relation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://purl.org/spar/doco/Line>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A line in poetry is a unit of language into which a poem is divided which operates on principles which are distinct from and not necessarily coincident with grammatical structures, such as the sentence or clauses in sentences.\n\nA distinct numbered group of lines in verse is normally called a stanza."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "line"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://purl.org/spar/deo/DiscourseElement> , <http://www.essepuntato.it/2008/12/pattern#Block> .
+
+[ a       <http://www.w3.org/2002/07/owl#AllDisjointClasses> ;
+  <http://www.w3.org/2002/07/owl#members>
+          ( <http://purl.org/spar/doco/Abstract> <http://purl.org/spar/doco/Afterword> <http://purl.org/spar/doco/Appendix> <http://purl.org/spar/doco/Colophon> <http://purl.org/spar/doco/Foreword> <http://purl.org/spar/doco/Glossary> <http://purl.org/spar/doco/Index> <http://purl.org/spar/doco/ListOfFigures> <http://purl.org/spar/doco/ListOfTables> <http://purl.org/spar/doco/Preface> <http://purl.org/spar/doco/TableOfContents> )
+] .
+
+<http://purl.org/spar/doco/Preface>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A section describing how the document came into being, or how the idea for it was developed. The preface may contains acknowledgements. The preface to a later edition of the work often explains in what respect that edition differs from previous ones."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "preface"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Section>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/FrontMatter>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/Glossary>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A set of definitions of words or phrases of importance to the work, normally alphabetized. In longer works of fiction, the entries may contains places and characters."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "glossary"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/doco/Section>
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://purl.org/dc/terms/isPartOf> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                        <http://www.w3.org/2002/07/owl#unionOf>
+                                                ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                      ]
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/deo/DiscourseElement>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+[ a       <http://www.w3.org/2002/07/owl#AllDisjointClasses> ;
+  <http://www.w3.org/2002/07/owl#members>
+          ( <http://purl.org/spar/doco/Label> <http://purl.org/spar/doco/Paragraph> <http://purl.org/spar/doco/Subtitle> <http://purl.org/spar/doco/Title> )
+] .
+
+<http://purl.org/dc/terms/hasPart>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://purl.org/spar/doco/Paragraph>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A self-contained unit of discourse that deals with a particular point or idea. Paragraphs contains one or more sentences. The start of a paragraph is indicated by beginning on a new line, which may be indented or separated by a small vertical space by the preceding paragraph. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "paragraph"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                              <http://www.w3.org/2002/07/owl#intersectionOf>
+                                      ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Block> )
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.essepuntato.it/2008/12/pattern#contains> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://purl.org/spar/doco/Sentence>
+                            ]
+                          )
+                ] .
+
+<http://purl.org/spar/doco/BackMatter>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The final principle part of a document, in which is usually found the bibliography, index, appendixes, etc."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "back matter"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                            <http://www.w3.org/2002/07/owl#complementOf>
+                                    [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                                      <http://www.w3.org/2002/07/owl#unionOf>
+                                              ( <http://purl.org/spar/doco/BackMatter> <http://purl.org/spar/doco/BodyMatter> <http://purl.org/spar/doco/FrontMatter> )
+                                    ]
+                          ] ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.essepuntato.it/2008/12/pattern#isContainedBy>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( <http://purl.org/spar/deo/DiscourseElement> <http://www.essepuntato.it/2008/12/pattern#Container> )
+                ] .
+
+<http://www.essepuntato.it/2008/12/pattern#Milestone>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://purl.org/dc/elements/1.1/date>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.essepuntato.it/2008/12/pattern#HeadedContainer>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+[ a       <http://www.w3.org/2002/07/owl#AllDisjointClasses> ;
+  <http://www.w3.org/2002/07/owl#members>
+          ( <http://purl.org/spar/doco/ListOfAuthors> <http://purl.org/spar/doco/ListOfContributors> <http://purl.org/spar/doco/ListOfOrganizations> )
+] .
+
+<http://purl.org/dc/elements/1.1/description>
+        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.essepuntato.it/2008/12/pattern#contains>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/dc/terms/hasPart> .
+
+<http://www.essepuntato.it/2008/12/pattern#Meta>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.essepuntato.it/2008/12/pattern#Pattern>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.essepuntato.it/2008/12/pattern#Field>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.essepuntato.it/2008/12/pattern#Popup>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<http://www.essepuntato.it/2008/12/pattern#isContainedByAsHeader>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .

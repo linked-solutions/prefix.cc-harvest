@@ -126,22 +126,6 @@
         <http://www.w3.org/2007/uwa/context/common.owl#name>
                 "SMS" .
 
-<http://www.w3.org/2007/uwa/context/network.owl#WiFiNetwork>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents a WiFi network" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "WiFi Network" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/network.owl#Network> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#ssid>
-                ] .
-
 <http://www.w3.org/2007/uwa/context/network.owl#NetworkType_CDMA2000_EVDO>
         a       <http://www.w3.org/2007/uwa/context/network.owl#NetworkTechnology> ;
         <http://www.w3.org/2007/uwa/context/common.owl#id>
@@ -189,10 +173,10 @@
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
+                  <http://www.w3.org/2002/07/owl#maxCardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#typicalDownloadBandwith>
+                          <http://www.w3.org/2007/uwa/context/network.owl#maxUploadBandwidth>
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
@@ -203,14 +187,78 @@
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
+                  <http://www.w3.org/2002/07/owl#cardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#maxUploadBandwidth>
+                          <http://www.w3.org/2007/uwa/context/network.owl#typicalDownloadBandwith>
                 ] .
 
 <http://www.w3.org/2007/uwa/context/common.owl#name>
         a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+
+<http://www.w3.org/2007/uwa/context/network.owl#NetworkTechnology>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents different network technologies" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Network Technology" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/network.owl#Context_NetworkEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/common.owl#id>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#minCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/common.owl#name>
+                ] ;
+        <http://www.w3.org/2007/uwa/context/common.owl#relatedUAProfEntity>
+                "NetworkCharacteristics" .
+
+<http://www.w3.org/2007/uwa/context/network.owl#NetworkBearer>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents a network bearer in a delivery context" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Network Bearer" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Aspect> , <http://www.w3.org/2007/uwa/context/network.owl#Context_NetworkEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#maxCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#currentUploadBandwidth>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkBearerTechnology> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#bearerTechnology>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#maxCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#currentDownloadBandwidth>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#bearerTechnology>
+                ] ;
+        <http://www.w3.org/2007/uwa/context/common.owl#relatedUAProfEntity>
+                "NetworkCharacteristics" .
 
 <http://www.w3.org/2007/uwa/context/network.owl#bearerTechnology>
         a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
@@ -280,45 +328,6 @@
                 <http://www.w3.org/2001/XMLSchema#string> ;
         <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
                 <http://www.w3.org/2007/uwa/context/common.owl#id> .
-
-<http://www.w3.org/2007/uwa/context/network.owl#NetworkBearer>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents a network bearer in a delivery context" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Network Bearer" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Aspect> , <http://www.w3.org/2007/uwa/context/network.owl#Context_NetworkEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#bearerTechnology>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#currentDownloadBandwidth>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#currentUploadBandwidth>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkBearerTechnology> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#bearerTechnology>
-                ] ;
-        <http://www.w3.org/2007/uwa/context/common.owl#relatedUAProfEntity>
-                "NetworkCharacteristics" .
 
 <http://www.w3.org/2007/uwa/context/network.owl#BearerType_HSUPA>
         a       <http://www.w3.org/2007/uwa/context/network.owl#NetworkBearerTechnology> ;
@@ -501,6 +510,29 @@
         <http://www.w3.org/2007/uwa/context/common.owl#name>
                 "HSCSD" .
 
+<http://www.w3.org/2007/uwa/context/network.owl#NetworkSupport>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents the network characteristics of a device" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Network Support" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/network.owl#Context_NetworkEntity> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#supportedNetworkBearers> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkBearer>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#supportedNetworkModes> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkMode>
+                ] .
+
 <http://www.w3.org/2007/uwa/context/network.owl#mcc>
         a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
@@ -544,6 +576,22 @@
                 <http://www.w3.org/2007/uwa/context/network.owl#HttpProxy> ;
         <http://www.w3.org/2007/uwa/context/common.owl#normativeReference>
                 "http://www.ietf.org/rfc/rfc2616.txt"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+
+<http://www.w3.org/2007/uwa/context/network.owl#WiFiNetwork>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This class represents a WiFi network" ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "WiFi Network" ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2007/uwa/context/network.owl#Network> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#ssid>
+                ] .
 
 <http://www.w3.org/2007/uwa/context/network.owl#NetworkType_PDC>
         a       <http://www.w3.org/2007/uwa/context/network.owl#NetworkTechnology> ;
@@ -687,31 +735,6 @@
         <http://www.w3.org/2007/uwa/context/common.owl#name>
                 "PACKET" .
 
-<http://www.w3.org/2007/uwa/context/network.owl#NetworkTechnology>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents different network technologies" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Network Technology" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/network.owl#Context_NetworkEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#id>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#name>
-                ] ;
-        <http://www.w3.org/2007/uwa/context/common.owl#relatedUAProfEntity>
-                "NetworkCharacteristics" .
-
 <http://www.w3.org/2007/uwa/context/network.owl#BearerType_MPAK>
         a       <http://www.w3.org/2007/uwa/context/network.owl#NetworkBearerTechnology> ;
         <http://www.w3.org/2007/uwa/context/common.owl#id>
@@ -799,14 +822,14 @@
                   <http://www.w3.org/2002/07/owl#cardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#mcc>
+                          <http://www.w3.org/2007/uwa/context/network.owl#mnc>
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
                   <http://www.w3.org/2002/07/owl#cardinality>
                           "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#mnc>
+                          <http://www.w3.org/2007/uwa/context/network.owl#mcc>
                 ] .
 
 <http://www.w3.org/2007/uwa/context/network.owl#HttpProxy>
@@ -898,27 +921,34 @@
         <http://www.w3.org/2007/uwa/context/common.owl#disjointSet>
                 <http://www.w3.org/2007/uwa/context/network.owl#Sibling_Disjoint> .
 
-<http://www.w3.org/2007/uwa/context/network.owl#NetworkSupport>
+<http://www.w3.org/2007/uwa/context/network.owl#NetworkMode>
         a       <http://www.w3.org/2002/07/owl#Class> ;
         <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents the network characteristics of a device" ;
+                "A mode of operation of a network which includes network technology and operation frequency bands" ;
         <http://www.w3.org/2000/01/rdf-schema#label>
-                "Network Support" ;
+                "Newtwork Mode" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 <http://www.w3.org/2007/uwa/context/network.owl#Context_NetworkEntity> ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#supportedNetworkBearers> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkBearer>
+                          <http://www.w3.org/2007/uwa/context/network.owl#networkTechnology>
                 ] ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkTechnology> ;
                   <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#supportedNetworkModes> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkMode>
+                          <http://www.w3.org/2007/uwa/context/network.owl#networkTechnology>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#minCardinality>
+                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/2007/uwa/context/network.owl#operationBands>
                 ] .
 
 <http://www.w3.org/2007/uwa/context/network.owl#NetworkType_UMTS_W-CDMA>
@@ -950,36 +980,6 @@
                 <http://www.w3.org/2007/uwa/context/network.owl#NetworkType_ANSI-136> ;
         <http://www.w3.org/2007/uwa/context/network.owl#operationBands>
                 "800"^^<http://www.w3.org/2001/XMLSchema#long> .
-
-<http://www.w3.org/2007/uwa/context/network.owl#NetworkMode>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A mode of operation of a network which includes network technology and operation frequency bands" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Newtwork Mode" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/network.owl#Context_NetworkEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#networkTechnology>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#operationBands>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/network.owl#NetworkTechnology> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/network.owl#networkTechnology>
-                ] .
 
 <http://www.w3.org/2007/uwa/context/web.owl#Context_WebBrowsingEntity>
         a       <http://www.w3.org/2002/07/owl#Class> .
