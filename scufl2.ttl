@@ -1,0 +1,1361 @@
+<http://ns.taverna.org.uk/2010/scufl2#mergePosition>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#DataLink> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "merge position"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#integer> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Processor>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A processor is a unit of a Workflow which performs some work. It typically have some InputProcessorPorts and OutputProcessorPorts which are connected to other Ports within the workflow. A processor will start executing as soon as there is a value for each InputProcessorPort and there are no Blocking processors. \n\nA processor is bound to an Activity which specifies how to execute the task. This ProcessorBinding also specifies PortBindings to map ActivityPorts with ProcessorPorts."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Processor"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> , <http://ns.taverna.org.uk/2010/scufl2#Named> , <http://ns.taverna.org.uk/2010/scufl2#Configurable> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#name> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#string>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#outputWorkflowPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "output workflow port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputWorkflowPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#name>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Named> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "name"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#string> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/dc/terms/identifier> .
+
+<http://ns.taverna.org.uk/2010/scufl2#DataLink>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Data Link"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#sendTo> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#receiveFrom> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#WorkflowElement>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Any element that defines a workflow, such as a processor, port, datalink, activity, port binding, profile.\n\nSuper-class for any Scufl2 class. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Workflow Element"@en .
+
+<http://ns.taverna.org.uk/2010/scufl2#IterationStrategyStack>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Iteration Strategy Stack"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://ns.taverna.org.uk/2010/scufl2#IterationStrategyStack> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#hasValue>
+                                      () ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Product> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#activityPosition>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "activity position"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+<http://ns.taverna.org.uk/2010/scufl2#mainWorkflow>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowBundle> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "main workflow"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflow> .
+
+<http://ns.taverna.org.uk/2010/scufl2#DispatchStack>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Dispatch stack has been deprecated in favour of configuring the Processor."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Dispatch Stack"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#DispatchStackLayer> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://ns.taverna.org.uk/2010/scufl2#DispatchStack> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#hasValue>
+                                      () ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2002/07/owl#deprecated>
+                true .
+
+<http://ns.taverna.org.uk/2010/scufl2#Profile>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Profile"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> , <http://ns.taverna.org.uk/2010/scufl2#Named> , <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#WorkflowBundle> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#outputProcessorPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "output processor port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputProcessorPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#processorPort> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://ns.taverna.org.uk/2010/scufl2#mainProfile>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowBundle> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "main profile"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#profile> .
+
+<http://ns.taverna.org.uk/2010/scufl2#ActivityPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Activity Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Port> , <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputActivityPort> <http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Activity>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#bindProcessor>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bind processor"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#bind> .
+
+<http://ns.taverna.org.uk/2010/scufl2#dispatchStack>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Dispatch stack has been deprecated in favour of configuring the Processor"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "dispatch stack"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#DispatchStack> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> ;
+        <http://www.w3.org/2002/07/owl#deprecated>
+                true .
+
+<http://ns.taverna.org.uk/2010/scufl2#InputActivityPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Input Activity Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#ActivityPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#portDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Input Processor Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorPort> , <http://ns.taverna.org.uk/2010/scufl2#ReceiverPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#portDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#datalink>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "datalink"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#DataLink> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#activityPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Activity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Activity port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#ActivityPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#port> .
+
+<http://ns.taverna.org.uk/2010/scufl2#outputPortBinding>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "output port binding"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputPortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#WorkflowBundle>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Workflow Bundle"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Named> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
+                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://ns.taverna.org.uk/2010/scufl2#WorkflowBundle> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#globalBaseURI>
+                ] ;
+        <http://www.w3.org/2002/07/owl#hasKey>
+                ( <http://ns.taverna.org.uk/2010/scufl2#globalBaseURI> ) .
+
+<http://ns.taverna.org.uk/2010/scufl2#DispatchStackLayer>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Dispatch Stack Layer"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Configurable> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#DispatchStack> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] ;
+        <http://www.w3.org/2002/07/owl#deprecated>
+                true .
+
+<http://ns.taverna.org.uk/2010/scufl2#processor>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "processor"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#outputActivityPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Activity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "output activity port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#activityPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#inputActivityPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Activity> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "input acticity port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#InputActivityPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#activityPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#InputWorkflowPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An input to the workflow, representing a parameter required to run the workflow. \n\nThis is considered a SenderPort within the workflow, so that it can be connected to InputProcessorPort of processors contained by the same workflow."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Input Workflow Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowPort> , <http://ns.taverna.org.uk/2010/scufl2#SenderPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#portDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#Port>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A port is an input or output to a Processor, Workflow or Activity. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Named> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#name> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#string>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#ActivityPort> <http://ns.taverna.org.uk/2010/scufl2#ProcessorPort> <http://ns.taverna.org.uk/2010/scufl2#WorkflowPort> )
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#ProcessorPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Processor Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> , <http://ns.taverna.org.uk/2010/scufl2#Port> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort> <http://ns.taverna.org.uk/2010/scufl2#OutputProcessorPort> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#iterateOverInputPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#PortNode> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#profilePosition>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "profile position"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+<http://ns.taverna.org.uk/2010/scufl2#SenderPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Port which can send data to a DataLink"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Sender Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Port> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputWorkflowPort> <http://ns.taverna.org.uk/2010/scufl2#OutputProcessorPort> )
+                ] .
+
+<http://purl.org/dc/terms/isPartOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/dc/terms/> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#List>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://ns.taverna.org.uk/2010/scufl2#desiredDepth>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#PortNode> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "desired depth"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+<http://ns.taverna.org.uk/2010/scufl2#controlledProcessor>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Control> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Workflow>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Workflow"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Named> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#name> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#string>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#workflowIdentifier> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2002/07/owl#Thing>
+                ] ;
+        <http://www.w3.org/2002/07/owl#hasKey>
+                ( <http://ns.taverna.org.uk/2010/scufl2#workflowIdentifier> ) .
+
+<http://ns.taverna.org.uk/2010/scufl2#bindInputActivityPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#InputPortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bind input activity port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#InputActivityPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#bindPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#configure>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Configuration> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "configure"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Configurable> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Product>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Product"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#IterationStrategyNode> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#CrossProduct> <http://ns.taverna.org.uk/2010/scufl2#DotProduct> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#productOf> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#IterationStrategyChildren>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#inputProcessorPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "input processor port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#processorPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Named>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Anything identified with a scufl2:name"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Named"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#name> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#string>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#iterationStrategyStack>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "iteration strategy stack"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#IterationStrategyStack> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#bindInputProcessorPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#InputPortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bind input processor port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#bindPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Configuration>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Configuration"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Named> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#configure> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Configurable>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#port>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Parent> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#Activity> <http://ns.taverna.org.uk/2010/scufl2#Processor> <http://ns.taverna.org.uk/2010/scufl2#Workflow> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Port> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#NamedChild>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Any Named Child is uniquely identified by its scufl2:name and scufl2:parent"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Named Child"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Named> , <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2002/07/owl#equivalentClass>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#intersectionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://ns.taverna.org.uk/2010/scufl2#parent> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://ns.taverna.org.uk/2010/scufl2#Parent>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://ns.taverna.org.uk/2010/scufl2#name> ;
+                              <http://www.w3.org/2002/07/owl#someValuesFrom>
+                                      <http://www.w3.org/2001/XMLSchema#string>
+                            ]
+                          )
+                ] ;
+        <http://www.w3.org/2002/07/owl#hasKey>
+                ( <http://ns.taverna.org.uk/2010/scufl2#name> ) ;
+        <http://www.w3.org/2002/07/owl#hasKey>
+                ( <http://ns.taverna.org.uk/2010/scufl2#parent> ) .
+
+<http://ns.taverna.org.uk/2010/scufl2#Control>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Control"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#controllingProcessor> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#controlledProcessor> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#child>
+        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Parent> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "child"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/dc/terms/hasPart> , <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> ;
+        <http://www.w3.org/2002/07/owl#inverseOf>
+                <http://ns.taverna.org.uk/2010/scufl2#parent> .
+
+<http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Output Activity Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#ActivityPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#granularPortDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#portDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#bind>
+        a       <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#IrreflexiveProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#PortBinding> <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#DotProduct>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Dot Product"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Product> .
+
+<http://ns.taverna.org.uk/2010/scufl2#InputPortBinding>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Input Port Binding"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#PortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#bindInputActivityPort> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#InputActivityPort>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#bindInputProcessorPort> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort>
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputPortBinding> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Child>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A WorkflowElement which can be considered a child, for instance a Processor is a child of a Workflow, an InputActivityPort is a child of an Activity.\n\nThe Child-relationship also gives a strong hint that the entity should be serialised as part of its parent's serialisation."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Child"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
+                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://ns.taverna.org.uk/2010/scufl2#Parent> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#workflowPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "workflow port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#port> .
+
+<http://ns.taverna.org.uk/2010/scufl2#receiveFrom>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#DataLink> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "receive from"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#SenderPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#OutputProcessorPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Output Processor Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorPort> , <http://ns.taverna.org.uk/2010/scufl2#SenderPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#granularPortDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#portDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#OutputPortBinding>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Output Port binding"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#PortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#bindOutputActivityPort> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#bindOutputProcessorPort> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#OutputProcessorPort>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#bindOutputProcessorPort>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputPortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bind output processor port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputProcessorPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#bindPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#workflowRelation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "workflow relation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/dc/terms/relation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#WorkflowPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Ports of a Workflow. "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Workflow Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Port> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputWorkflowPort> <http://ns.taverna.org.uk/2010/scufl2#OutputWorkflowPort> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Workflow>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#bindOutputActivityPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputPortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bind output activity port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#bindPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#processorBinding>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "processor binding"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#PortBinding>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Port Binding"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputPortBinding> <http://ns.taverna.org.uk/2010/scufl2#OutputPortBinding> )
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#controllingProcessor>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Control> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "controlling processor"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#processorPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Processor> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "processor port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#port> .
+
+<http://ns.taverna.org.uk/2010/scufl2#portDepth>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputActivityPort> <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort> <http://ns.taverna.org.uk/2010/scufl2#InputWorkflowPort> <http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "port depth"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+<http://ns.taverna.org.uk/2010/scufl2#CrossProduct>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Cross Product"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Product> .
+
+<http://ns.taverna.org.uk/2010/scufl2#granularPortDepth>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputActivityPort> <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort> <http://ns.taverna.org.uk/2010/scufl2#OutputActivityPort> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "granular port depth"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+
+<http://ns.taverna.org.uk/2010/scufl2#bindPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#PortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#ActivityPort> <http://ns.taverna.org.uk/2010/scufl2#ProcessorPort> )
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#bind> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Parent>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Parent"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> .
+
+<http://ns.taverna.org.uk/2010/scufl2#sendTo>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#DataLink> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "send to"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#ReceiverPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#parent>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "parent"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Parent> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/dc/terms/isPartOf> , <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> ;
+        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
+                ( <http://ns.taverna.org.uk/2010/scufl2#sendTo> <http://ns.taverna.org.uk/2010/scufl2#parent> ) ;
+        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
+                ( <http://ns.taverna.org.uk/2010/scufl2#controlledProcessor> <http://ns.taverna.org.uk/2010/scufl2#parent> ) ;
+        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
+                ( <http://ns.taverna.org.uk/2010/scufl2#receiveFrom> <http://ns.taverna.org.uk/2010/scufl2#parent> ) ;
+        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
+                ( <http://ns.taverna.org.uk/2010/scufl2#controllingProcessor> <http://ns.taverna.org.uk/2010/scufl2#parent> ) .
+
+<http://ns.taverna.org.uk/2010/scufl2#productOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "product of"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#workflowIdentifier>
+        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "workflow identifier"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://purl.org/dc/terms/isVersionOf> , <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Blocking>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Blocking"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Control> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#untilFinished> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#block> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#untilFinished>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Blocking> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "until finished"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#controllingProcessor> .
+
+<http://ns.taverna.org.uk/2010/scufl2#activateConfiguration>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "activate configuration"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Configuration> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Configurable>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Configurable"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> .
+
+<http://ns.taverna.org.uk/2010/scufl2#PortNode>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Port Node"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#IterationStrategyNode> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#desiredDepth> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#iterateOverInputPort> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2#inputWorkflowPort>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "input workflow port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#InputWorkflowPort> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#control>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Control> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Processor Binding"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Named> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#bindProcessor> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Processor>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#bindActivity> ;
+                  <http://www.w3.org/2002/07/owl#someValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Activity>
+                ] .
+
+<http://ns.taverna.org.uk/2010/scufl2>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The ontology defining SCUFL2 - a model for describing Taverna workflows."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "SCUFL2 Core ontology"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                <http://www.taverna.org.uk/> , <http://www.mygrid.org.uk/dev/wiki/display/developer/Scufl2+Ontology> .
+
+<http://ns.taverna.org.uk/2010/scufl2#bindActivity>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "bind activity"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Activity> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#bind> .
+
+<http://ns.taverna.org.uk/2010/scufl2#globalBaseURI>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ReflexiveProperty> , <http://www.w3.org/2002/07/owl#SymmetricProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The resources are the same (like in owl:sameAs), and\n      so are the sub-resources having the same base URI as a parent.  For instance if \n        <file:///tmp/example/> scufl2:globalBaseURI \n            <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/> .\n      then also \n        <file:///tmp/example/workflow/HelloWorld/> scufl2:globalBaseURI \n            <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/> \n\n      Note that for URIs under\n      <http://ns.taverna.org.uk/2010/workflowBundle/> special URI template rules\n      link the URI with the scufl2:parent, rdf:type, scufl2:name of the\n      resource. \n      \n      For instance given \n        <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/processor/Hello/out/greeting> \n      it must be so that:\n\n        <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/processor/Hello/out/greeting>\n            a scufl2:OutputProcessorPort;\n            scufl2:name \"greeting\";\n            scufl2:parent <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/processor/Hello>.\n\n        <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/processor/Hello>\n            a scufl2:Processor;\n            scufl2:name \"Hello\";\n            scufl2:parent <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/>;\n            scufl2:outputProcessorPort <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/processor/Hello/out/greeting>.\n        \n        <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/>    \n            a scufl2:Workflow;\n            scufl2:name \"HelloWorld\";\n            scufl2:parent <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/>;\n            sculf2:processor <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/processor/Hello>.\n        \n        <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/>    \n            a scufl2:WorkflowBundle;\n            scufl2:workflow <http://ns.taverna.org.uk/2010/workflowBundle/28f7c554-4f35-401f-b34b-516e9a0ef731/workflow/HelloWorld/>;\n            scufl2:workflowBundleId \"28f7c554-4f35-401f-b34b-516e9a0ef731\";\n\n        Where 28f7c554-4f35-401f-b34b-516e9a0ef731 must be a randomly\n        generated UUID.    \n    " ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#workflowRelation> .
+
+<http://ns.taverna.org.uk/2010/scufl2#ReceiverPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A Port which can receive data from a DataLink"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Receiver Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Port> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( <http://ns.taverna.org.uk/2010/scufl2#InputProcessorPort> <http://ns.taverna.org.uk/2010/scufl2#OutputWorkflowPort> )
+                ] ;
+        <http://www.w3.org/2002/07/owl#disjointWith>
+                <http://ns.taverna.org.uk/2010/scufl2#SenderPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#block>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#Blocking> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#controlledProcessor> .
+
+<http://ns.taverna.org.uk/2010/scufl2#Activity>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Activity"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#Child> , <http://ns.taverna.org.uk/2010/scufl2#Configurable> , <http://ns.taverna.org.uk/2010/scufl2#Named> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://ns.taverna.org.uk/2010/scufl2#parent>
+                ] .
+
+<http://purl.org/dc/terms/relation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/dc/terms/> .
+
+<http://ns.taverna.org.uk/2010/scufl2#workflow>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowBundle> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "workflow"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Workflow> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#IterationStrategyChildren>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Iteration Strategy Children"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> , <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2002/07/owl#allValuesFrom>
+                          <http://ns.taverna.org.uk/2010/scufl2#IterationStrategyNode> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Class> ;
+                  <http://www.w3.org/2002/07/owl#unionOf>
+                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#allValuesFrom>
+                                      <http://ns.taverna.org.uk/2010/scufl2#IterationStrategyChildren> ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                              <http://www.w3.org/2002/07/owl#hasValue>
+                                      () ;
+                              <http://www.w3.org/2002/07/owl#onProperty>
+                                      <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+                            ]
+                          )
+                ] .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>
+        a       <http://www.w3.org/2002/07/owl#NamedIndividual> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://ns.taverna.org.uk/2010/scufl2#OutputWorkflowPort>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "An output from the workflow, representing the defined results of the workflow.\n\nThis is considered a ReceiverPort within the workflow, so that it can be connected from OutputProcessorPort of processors contained by the same workflow."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Output Workflow Port"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#ReceiverPort> , <http://ns.taverna.org.uk/2010/scufl2#WorkflowPort> .
+
+<http://ns.taverna.org.uk/2010/scufl2#inputPortBinding>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#ProcessorBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "input port binding"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#InputPortBinding> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://ns.taverna.org.uk/2010/scufl2#IterationStrategyNode>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Iteration Strategy Node"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowElement> .
+
+<http://ns.taverna.org.uk/2010/scufl2#profile>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.taverna.org.uk/2010/scufl2#WorkflowBundle> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "profile"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.taverna.org.uk/2010/scufl2#Profile> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.taverna.org.uk/2010/scufl2#child> .
+
+<http://purl.org/dc/terms/identifier>
+        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+
+<http://purl.org/dc/terms/hasPart>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/dc/terms/> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/dc/terms/isVersionOf>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+                <http://purl.org/dc/terms/> .

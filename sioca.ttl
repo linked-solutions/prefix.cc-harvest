@@ -1,0 +1,144 @@
+<http://rdfs.org/sioc/actions#creates>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nA digital artifact that was brought into existence by the action.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "crée"@fr , "creates"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/ns#product> , <http://rdfs.org/sioc/actions#object> .
+
+<http://rdfs.org/sioc/actions#byproduct>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nA digital artifact created by the action as a side-effect.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "sous-produit"@fr , "byproduct"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#creates> .
+
+<http://rdfs.org/sioc/actions#modifies>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nA digital artifact significantly altered by the action.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "modifies"@en , "modifie"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#uses> .
+
+<http://rdfs.org/sioc/actions#deletes>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nA digital artifact whose existence is ended by the action.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "deletes"@en , "détruit"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#object> .
+
+<http://rdfs.org/sioc/actions#object>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nAny digital artifact involved in the action.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://rdfs.org/sioc/actions#Action> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "object"@en , "objet"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://rdfs.org/sioc/actions#DigitalArtifact> .
+
+<http://rdfs.org/sioc/actions#uses>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nA digital artifact involved by the action, existing before and after it.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "utilise"@fr , "uses"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#object> ;
+        <http://www.w3.org/2004/02/skos/core#related>
+                <http://rdfs.org/sioc/ns#factor> .
+
+<http://rdfs.org/sioc/actions#Action>
+        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nA timestamped event involving a user and a number of digital artifacts.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Action"@fr , "Action"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/ns#Event> ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2000/01/rdf-schema#comment>
+                          "Every action has exactly one creator."@en ;
+                  <http://www.w3.org/2002/07/owl#cardinality>
+                          1 ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://rdfs.org/sioc/ns#has_creator>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2000/01/rdf-schema#comment>
+                          "Every action has at least one object."@en ;
+                  <http://www.w3.org/2002/07/owl#minCardinality>
+                          1 ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://rdfs.org/sioc/actions#object>
+                ] ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
+                  <http://www.w3.org/2000/01/rdf-schema#comment>
+                          "Every action has at least one object."@en ;
+                  <http://www.w3.org/2002/07/owl#minCardinality>
+                          1 ;
+                  <http://www.w3.org/2002/07/owl#onClass>
+                          <http://rdfs.org/sioc/ns#Instant> ;
+                  <http://www.w3.org/2002/07/owl#onProperty>
+                          <http://rdfs.org/sioc/actions#object>
+                ] .
+
+<http://rdfs.org/sioc/actions#source>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nAssociated to the creates property; a digital artifact that was used to produce\nthe created artifact.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "source"@en , "source"@fr ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#uses> .
+
+<http://rdfs.org/sioc/ns#Space>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#DigitalArtifact> .
+
+<http://rdfs.org/sioc/ns#Item>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#DigitalArtifact> .
+
+<http://rdfs.org/sioc/actions#DigitalArtifact>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nAnything that can be the object of an Action.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Artefact numérique"@fr , "Digital Artifact"@en .
+
+<http://rdfs.org/sioc/ns#Usergroup>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#DigitalArtifact> .
+
+<http://rdfs.org/sioc/actions#product>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "\nA digital artifact which the action directly intended to produce.\n    "@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "produit"@fr , "product"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#creates> .
+
+<http://rdfs.org/sioc/ns#Container>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#DigitalArtifact> .
+
+<http://rdfs.org/sioc/ns#UserAccount>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#DigitalArtifact> .
+
+<http://rdfs.org/sioc/ns#Role>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://rdfs.org/sioc/actions#DigitalArtifact> .

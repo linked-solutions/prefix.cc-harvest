@@ -1,0 +1,210 @@
+<http://ns.inria.fr/munc#World>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The context (Graph, Default Graph, etc.) in which the Sentence is associated to Meta. This is used generally by datastores which are unable to represent named graphs."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "World"@en .
+
+<http://ns.inria.fr/munc#>
+        a       <http://purl.org/vocommons/voaf#Vocabulary> , <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "This file specifies the set of OWL classes and properties to represent multi-level uncertainty metadata."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#isDefinedby>
+                <http://ns.inria.fr/munc> ;
+        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                <http://ns.inria.fr/munc/> ;
+        <http://purl.org/dc/terms/contributor>
+                "Fabien Gandon" , "Ahmed El Amine DJEBRI" , "Andrea G.B. Tettamanzi" ;
+        <http://purl.org/dc/terms/created>
+                "2018-12-23"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/terms/creator>
+                "Ahmed El Amine DJEBRI" ;
+        <http://purl.org/dc/terms/creator>
+                <http://i3s.unice.fr/~djebri/foaf.html#me> ;
+        <http://purl.org/dc/terms/description>
+                "An OWL vocabulary for describing uncertainty metadata."@en ;
+        <http://purl.org/dc/terms/hasVersion>
+                <http://ns.inria.fr/munc/v1#> ;
+        <http://purl.org/dc/terms/modified>
+                "2019-02-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://purl.org/dc/terms/publisher>
+                "Inria" ;
+        <http://purl.org/dc/terms/status>
+                <http://purl.org/adms/status/UnderDevelopment> ;
+        <http://purl.org/dc/terms/title>
+                "Meta-Uncertainty"@en ;
+        <http://purl.org/dc/terms/type>
+                <http://purl.org/adms/assettype/Ontology> ;
+        <http://purl.org/vocab/vann/preferredNamespacePrefix>
+                "munc" ;
+        <http://purl.org/vocab/vann/preferredNamespaceUri>
+                "http://ns.inria.fr/munc/v1#" ;
+        <http://xmlns.com/foaf/0.1/homepage>
+                <http://ns.inria.fr/munc> .
+
+<http://ns.inria.fr/munc#Meta>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The metadata associated to a Sentence in a certain World (Context)."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Meta"@en .
+
+<http://ns.inria.fr/munc#UncertaintyOperation>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Calculus to apply on the Values of a defined Uncertainty Feature."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Uncertainty Operation"@en .
+
+<http://ns.inria.fr/munc#UncertaintyApproach>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Individuals of this class represent uncertainty approaches, which are detailed in the appendix A."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Uncertainty Approach"@en .
+
+<http://ns.inria.fr/munc#uncertaintyOperator>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Each Uncertainty approach has its own logic to reason over metadata, This class defines the methods that can be applied over Uncertainty Values. Such logic is the same used in reasoners and inference engines."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#uncertaintyFeature> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "uncertaintyOperator"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyOperation> .
+
+<http://ns.inria.fr/munc#hasUncertaintyOperator>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#UncertaintyApproach> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasUncertaintyOperator"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#uncertaintyOperator> .
+
+<http://ns.inria.fr/munc#translateTo>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#TranslationFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "translateFrom"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyApproach> .
+
+<http://ns.inria.fr/munc#hasFullTranslation>
+        a       <http://www.w3.org/2002/07/owl#ReflexiveProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#SymmetricProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#UncertaintyApproach> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasFullTranslation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyApproach> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.inria.fr/munc#hasIdealTranslation> .
+
+<http://ns.inria.fr/munc#uncertaintyFeature>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Each Uncertainty approach has some features, which can be metrics or measures to compare, infer or reason over to have a decision about knowledge."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#Uncertainty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "uncertaintyFeature"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyValue> .
+
+<http://ns.inria.fr/munc#TranslationFunction>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Individuals of this class are LDScript functions enabling translating uncertainty information from one approach to another."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Translation Function"@en .
+
+<http://ns.inria.fr/munc#statedIn>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#Sentence> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "statedIn"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#World> .
+
+<http://ns.inria.fr/munc#hasUncertaintyFeature>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#UncertaintyApproach> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasUncertaintyFeature"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#uncertaintyFeature> .
+
+<http://ns.inria.fr/munc#hasMeta>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#World> , <http://ns.inria.fr/munc#Sentence> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasMeta"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#Meta> .
+
+<http://ns.inria.fr/munc#hasIdealTranslation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#UncertaintyApproach> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasIdealTranslation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyApproach> ;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://ns.inria.fr/munc#hasTranslation> .
+
+<http://ns.inria.fr/munc#hasTranslation>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#UncertaintyApproach> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasTranslation"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyApproach> .
+
+<http://ns.inria.fr/munc#UncertaintyValue>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "For each Uncertainty Feature, exists (when declared) a corresponding value."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Uncertainty Value"@en .
+
+<http://ns.inria.fr/munc#Uncertainty>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "A subclass of Meta, it enables annotating the Sentence associated to the metadata with uncertainty information."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Uncertainty"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://ns.inria.fr/munc#Meta> .
+
+<http://ns.inria.fr/munc#translateFrom>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#TranslationFunction> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "translateFrom"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyApproach> .
+
+<http://ns.inria.fr/munc#Sentence>
+        a       <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The Sentence (Triple, Graph, Graph Pattern) to which Meta is associated in a specific World."@en ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Sentence"@en .
+
+<http://ns.inria.fr/munc#hasUncertaintyApproach>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://ns.inria.fr/munc#Uncertainty> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "hasUncertaintyApproach"@en ;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://ns.inria.fr/munc#UncertaintyApproach> .
