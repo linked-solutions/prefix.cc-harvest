@@ -1,215 +1,114 @@
-<http://www.kanzaki.com/ns/dpd#near>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The subject generation event occured at some location near the object place (e.g. for privacy)." , "生成イベントが目的語の場所の近くで起こったことを表す。プライバシーに配慮する場合などに用いる。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.kanzaki.com/ns/dpd#GenerationEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Near" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.kanzaki.com/ns/dpd#Place> ;
-        <http://purl.org/net/ns/ex#example>
-                [ a       <http://purl.org/net/ns/ex#Example> ;
-                  <http://purl.org/net/ns/ex#code>
-                          "\n<foaf:Image rdf:about=\"...\">\n <dpd:generated rdf:parseType=\"Resource\">\n  <dc:date>2007-02-01T10:00:00+09:00</dc:date>\n  <dpd:near rdf:parseType=\"Resource\">\n   <geo:lat>35.571331</geo:lat>\n   <geo:long>139.86557</geo:long>\n  </dpd:near>\n </dpd:generated>\n</foaf:Image>\n"
-                ] .
-
-<http://www.kanzaki.com/ns/dpd#published>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "画像/文書が（ネットワーク上に）公開された状況（イベント）を記述する。"@ja , "Describes an event when/where the image/document file was published (on the net)." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://xmlns.com/foaf/0.1/Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Pulished" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
-
-<http://www.kanzaki.com/ns/dpd>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An experimental vocabulary to describe a digital document (originally aimed at picture, such as DSC photograph and digitally scanned image), especially to distinguish the attributes of its original form (when generated), those of published digital file and those of what is depicted." , "デジタル文書を（もともとは画像を、特に撮影に関するデータ、被写体のデータ、デジタルファイルのデータなどをきちんと区別して）記述するための実験ボキャブラリ。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Digital Picture/Document Description vocabulary" ;
-        <http://purl.org/net/ns/ontology-annot#created>
-                "2004-02-20" ;
-        <http://purl.org/net/ns/ontology-annot#creator>
-                <urn:pin:MK705> ;
-        <http://purl.org/net/ns/ontology-annot#modified>
-                "2008-11-22" ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://www.kanzaki.com/ns/dliser.rdf> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "Version 0.5.2. OWL DL version, added dpd:granularity. Expanded target from pictuire to any digital document." .
-
-<http://www.kanzaki.com/ns/dpd#digitized>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes an event when/where the image/document was digitized (e.g. scanned from the origial picture, or digitized with OCR). Has the same GenerationEvent as 'exposed' (and thus 'generated') if the picture was tekan with DSC." , "画像/文書がデジタル化された状況（イベント）を記述する。デジカメの場合は撮影イベントと同じイベントを示す。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Digitized" ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.kanzaki.com/ns/dpd#generated> .
-
-<http://www.kanzaki.com/ns/dpd#developed>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes an event when/where the photograph was developed." , "写真の現像に関する状況（イベント）を記述する。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://xmlns.com/foaf/0.1/Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Developed" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
-
-<http://www.kanzaki.com/ns/dpd#granularity>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Level of granularity to indicate the subject location. This is expressed as number of digits after decimal point of the geo code (geo:lat/geo:long), but can also be used to indicate lower granularity against heigh precision values, such as GPS data, for privacy concern. If the levels of precision of geo:lat and geo:long are different, use the lower number. Roughly, granularity 2 corresponds to accuracy of 1km square, 4 corresponds to 10m square, etc." , "位置の粒度を、緯度経度の精細度（小数点以下の桁数）で表す。また、GPSデータのような精細な値を、プライバシーなどの観点から、より低い粒度のものとして示すためにも用いることができる。緯度と経度の精細度が異なる場合は、低い方にあわせる。granularity 2 はおよそ1km四方レベル、granularity 4はおよそ10m四方レベルの粒度に相当する。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.kanzaki.com/ns/dpd#Place> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Granularity" ;
-        <http://purl.org/net/ns/ex#example>
-                [ a       <http://purl.org/net/ns/ex#Example> ;
-                  <http://purl.org/net/ns/ex#code>
-                          "\n<dpd:Place>\n <geo:lat>35.571331</geo:lat>\n <geo:long>139.86557</geo:long>\n <dpd:granularity>2</dpd:granularity>\n <!-- normal granularity is 5, but can state 2 for privacy -->\n</dpd:Place>\n"
-                ] ;
-        <http://purl.org/net/ns/ontology-annot#relation>
-                <http://esw.w3.org/topic/GeoOnion> .
-
-<http://www.kanzaki.com/works/2003/imagedesc/031229_1639-s.jpg>
-        a       <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://www.kanzaki.com/ns/dpd#generated>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "画像/文書が作成された状況（イベント）を記述する。"@ja , "Describes an event when/where the picture/document was generated. Super property of 'exposed' and 'digitized'." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://xmlns.com/foaf/0.1/Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "generated" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
-
-[ a       <http://purl.org/net/ns/ex#Example> ;
-  <http://www.w3.org/2000/01/rdf-schema#comment>
-          "A picture, taken at a highway parking area, depicting a mountain." , "高速道路のパーキングエリアから富士山を撮影した写真を記述する例。"@ja ;
-  <http://purl.org/net/ns/ex#code>
-          "\n<foaf:Image>\n <dc:title>Viewing Mt. Fuji from a highway parking area</dc:title>\n <img:width>640</img:width>\n <img:height>480</img:height>\n ...\n <dpd:generated rdf:parseType='Resource'>\n  <rdfs:label>Fujigawa service area, Tomei Highway</rdfs:label>\n  <geo:lat>35.647488888889</geo:lat>\n  <geo:long>139.73964166667</geo:long>\n  <dc:date>2003-12-29T16:39:39+09:00</dc:date>\n </dpd:generated>\n\n <foaf:depicts>\n  <wn:Mountain>\n   <rdfs:label>Mt. Fuji</rdfs:label>\n   <geo:lat>35.54139</geo:lat>\n   <geo:long>138.99799</geo:long>\n  </wn:Mountain>\n </foaf:depicts>\n\n</foaf:Image>\n " ;
-  <http://purl.org/net/ns/ex#exampleOf>
-          <http://www.kanzaki.com/ns/dpd> ;
-  <http://purl.org/net/ns/ex#image>
-          <http://www.kanzaki.com/works/2007/misc/dpd-vocab-sample1.png> ;
-  <http://purl.org/net/ns/ex#pfx>
-          "dpd:" ;
-  <http://www.w3.org/1999/xhtmlimg>
-          <http://www.kanzaki.com/works/2003/imagedesc/031229_1639-s.jpg>
-] .
-
-<http://www.kanzaki.com/ns/dpd#Place>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A place (or an area), described using a pair of geo:lat and geo:long, with varied granularity. This is a place with (some ambiguous) spatial extent, not a point." , "ある緯度、経度を用いて、ある粒度で表現される場所。点ではなく、（粒度に応じた）広がりある場所で、一定の曖昧さを含む。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Place" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
-
-<http://www.kanzaki.com/ns/dpd#edited>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "画像/文書が編集、レタッチされた状況（イベント）を記述する。"@ja , "Describes an event when/where the image/document file was edited, retouched, resized etc." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://xmlns.com/foaf/0.1/Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Edited" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
-
-<http://www.kanzaki.com/ns/dpd#exposed>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "写真が撮影された状況（イベント）を記述する。"@ja , "Describes an event when/where the photograph was taken." ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Exposed" ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.kanzaki.com/ns/dpd#generated> .
-
-<http://www.kanzaki.com/ns/dpd#GenerationEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An event on which a state of the picture/document was generated. Can have properties describing spatial and temporal attributes." , "画像/文書が作成されたり編集されたりする状況（イベント）。場所、時間に関するプロパティを持つことができる。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Generation Event" .
-
-<http://xmlns.com/foaf/0.1/Document>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.kanzaki.com/ns/dpd#accuracy>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#DeprecatedProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Level of granularity to indicate the subject location. This corresponds to Flickr's accuracy value for a photo's geocode. This property is deprecated; use dpd:granularity instead. (accuracy is roughly 19 - GeoOnion's power. ie, if accuracy = 9, it seems almost go:within_3_power_10_metres. Thus, granularity is given by: round(5 - log(3^(19 - accuracy))) , which leads accuracy 9 = granularity 0, accuracy 16 = granularity 4, etc.)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.kanzaki.com/ns/dpd#Place> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Accuracy" .
-
-<http://www.kanzaki.com/ns/dpd#location>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The subject thing is located at the object place." , "主語が目的語の場所に位置していることを表す。"@ja ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.kanzaki.com/ns/dpd> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location" .
-
-[ a       <http://purl.org/net/ns/ex#Example> ;
-  <http://www.w3.org/2000/01/rdf-schema#comment>
-          "写真が編集されてオリジナルデータとは異なってくる場合、もとの情報はdc:sourceで記述できる。写真は640x480のサイズで撮影され、128x96にリサイズされている。"@ja , "If a picture was edited, the original information may be described with 'dc:source'. This photo was taken as 640x480 pixels image, and then resized to 128x96." ;
-  <http://purl.org/net/ns/ex#code>
-          "\n<foaf:Image>\n <dc:title>Viewing Mt. Fuji from a highway parking area</dc:title>\n <dc:creator>Masahide Kanzaki</dc:creator>\n <img:width>128</img:width>\n <img:height>96</img:height>\n\n <dpd:generated rdf:parseType='Resource'>\n  <rdfs:label>Fujigawa service area, Tomei Highway</rdfs:label>\n  <geo:lat>35.647488888889</geo:lat>\n  <geo:long>139.73964166667</geo:long>\n  <dc:date>2003-12-29T16:39:39+09:00</dc:date>\n </dpd:generated>\n\n <dc:source>\n  <foaf:Image>\n   <exif:exposureTime>0.0388</exif:exposureTime>\n   <exif:exposureMode>Auto exposure</exif:exposureMode>\n   <exif:pixelXDimension>640</exif:pixelXDimension>\n   <exif:pixelYDimension>480</exif:pixelYDimension>\n  </foaf:Image>\n </dc:source>\n\n <dpd:edited rdf:parseType='Resource'>\n  <dc:date>2004-01-06T21:48+09:00</dc:date>\n </dpd:edited>\n\n <foaf:depicts>\n  <wn:Mountain>\n   <rdfs:label>Mt. Fuji</rdfs:label>\n   <geo:lat>35.54139</geo:lat>\n   <geo:long>138.99799</geo:long>\n  </wn:Mountain>\n </foaf:depicts>\n\n</foaf:Image>\n " ;
-  <http://purl.org/net/ns/ex#exampleOf>
-          <http://www.kanzaki.com/ns/dpd> ;
-  <http://purl.org/net/ns/ex#pfx>
-          "dpd:"
-] .
-
-<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<urn:pin:MK705>  a  <http://xmlns.com/foaf/0.1/Person> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://www.kanzaki.com/info/webwho.rdf> ;
-        <http://xmlns.com/foaf/0.1/homepage>
-                <http://www.kanzaki.com/> ;
-        <http://xmlns.com/foaf/0.1/name>
-                "神崎正英"@ja .
-
-<http://esw.w3.org/topic/GeoOnion>
-        a       <http://xmlns.com/foaf/0.1/Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GeoOnion" .
-
-<http://xmlns.com/foaf/0.1/Image>
-        a       <http://www.w3.org/2002/07/owl#Class> .
+_:Bdab6c352X2D479aX2D4c5dX2Da655X2D792825c332db <http://purl.org/net/ns/ex#code> "\n<foaf:Image>\n <dc:title>Viewing Mt. Fuji from a highway parking area</dc:title>\n <dc:creator>Masahide Kanzaki</dc:creator>\n <img:width>128</img:width>\n <img:height>96</img:height>\n\n <dpd:generated rdf:parseType='Resource'>\n  <rdfs:label>Fujigawa service area, Tomei Highway</rdfs:label>\n  <geo:lat>35.647488888889</geo:lat>\n  <geo:long>139.73964166667</geo:long>\n  <dc:date>2003-12-29T16:39:39+09:00</dc:date>\n </dpd:generated>\n\n <dc:source>\n  <foaf:Image>\n   <exif:exposureTime>0.0388</exif:exposureTime>\n   <exif:exposureMode>Auto exposure</exif:exposureMode>\n   <exif:pixelXDimension>640</exif:pixelXDimension>\n   <exif:pixelYDimension>480</exif:pixelYDimension>\n  </foaf:Image>\n </dc:source>\n\n <dpd:edited rdf:parseType='Resource'>\n  <dc:date>2004-01-06T21:48+09:00</dc:date>\n </dpd:edited>\n\n <foaf:depicts>\n  <wn:Mountain>\n   <rdfs:label>Mt. Fuji</rdfs:label>\n   <geo:lat>35.54139</geo:lat>\n   <geo:long>138.99799</geo:long>\n  </wn:Mountain>\n </foaf:depicts>\n\n</foaf:Image>\n " .
+<http://www.kanzaki.com/ns/dpd#near> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#published> <http://www.w3.org/2000/01/rdf-schema#label> "Pulished" .
+<http://www.kanzaki.com/ns/dpd> <http://www.w3.org/2000/01/rdf-schema#label> "Digital Picture/Document Description vocabulary" .
+<http://www.kanzaki.com/ns/dpd#digitized> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes an event when/where the image/document was digitized (e.g. scanned from the origial picture, or digitized with OCR). Has the same GenerationEvent as 'exposed' (and thus 'generated') if the picture was tekan with DSC." .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://purl.org/net/ns/ex#example> _:B3885fc23X2D7634X2D4a69X2D9826X2D1e62ca9e1209 .
+_:Bdab6c352X2D479aX2D4c5dX2Da655X2D792825c332db <http://purl.org/net/ns/ex#pfx> "dpd:" .
+<http://www.kanzaki.com/ns/dpd#developed> <http://www.w3.org/2000/01/rdf-schema#label> "Developed" .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://www.w3.org/2000/01/rdf-schema#label> "Granularity" .
+<http://www.kanzaki.com/works/2003/imagedesc/031229_1639-s.jpg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.kanzaki.com/ns/dpd> <http://www.w3.org/2000/01/rdf-schema#comment> "An experimental vocabulary to describe a digital document (originally aimed at picture, such as DSC photograph and digitally scanned image), especially to distinguish the attributes of its original form (when generated), those of published digital file and those of what is depicted." .
+_:Bdab6c352X2D479aX2D4c5dX2Da655X2D792825c332db <http://purl.org/net/ns/ex#exampleOf> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#generated> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
+<http://www.kanzaki.com/ns/dpd> <http://purl.org/net/ns/ontology-annot#creator> <urn:pin:MK705> .
+<http://www.kanzaki.com/ns/dpd#Place> <http://www.w3.org/2000/01/rdf-schema#label> "Place" .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://purl.org/net/ns/ex#code> "\n<foaf:Image>\n <dc:title>Viewing Mt. Fuji from a highway parking area</dc:title>\n <img:width>640</img:width>\n <img:height>480</img:height>\n ...\n <dpd:generated rdf:parseType='Resource'>\n  <rdfs:label>Fujigawa service area, Tomei Highway</rdfs:label>\n  <geo:lat>35.647488888889</geo:lat>\n  <geo:long>139.73964166667</geo:long>\n  <dc:date>2003-12-29T16:39:39+09:00</dc:date>\n </dpd:generated>\n\n <foaf:depicts>\n  <wn:Mountain>\n   <rdfs:label>Mt. Fuji</rdfs:label>\n   <geo:lat>35.54139</geo:lat>\n   <geo:long>138.99799</geo:long>\n  </wn:Mountain>\n </foaf:depicts>\n\n</foaf:Image>\n " .
+<http://www.kanzaki.com/ns/dpd#edited> <http://www.w3.org/2000/01/rdf-schema#comment> "画像/文書が編集、レタッチされた状況（イベント）を記述する。"@ja .
+<http://www.kanzaki.com/ns/dpd#published> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://www.w3.org/2000/01/rdf-schema#comment> "A picture, taken at a highway parking area, depicting a mountain." .
+<http://www.kanzaki.com/ns/dpd#exposed> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#generated> <http://www.w3.org/2000/01/rdf-schema#comment> "画像/文書が作成された状況（イベント）を記述する。"@ja .
+<http://www.kanzaki.com/ns/dpd#near> <http://purl.org/net/ns/ex#example> _:B98dfe2d4X2D3d72X2D42e6X2D930cX2D6354062359a1 .
+<http://www.kanzaki.com/ns/dpd#generated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#exposed> <http://www.w3.org/2000/01/rdf-schema#comment> "写真が撮影された状況（イベント）を記述する。"@ja .
+<http://www.kanzaki.com/ns/dpd#GenerationEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://purl.org/net/ns/ontology-annot#relation> <http://esw.w3.org/topic/GeoOnion> .
+<http://www.kanzaki.com/ns/dpd#digitized> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#near> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.kanzaki.com/ns/dpd#Place> .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://www.w3.org/2000/01/rdf-schema#comment> "高速道路のパーキングエリアから富士山を撮影した写真を記述する例。"@ja .
+<http://www.kanzaki.com/ns/dpd> <http://purl.org/net/ns/ontology-annot#modified> "2008-11-22" .
+<http://www.kanzaki.com/ns/dpd#near> <http://www.w3.org/2000/01/rdf-schema#label> "Near" .
+<http://www.kanzaki.com/ns/dpd#exposed> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes an event when/where the photograph was taken." .
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bdab6c352X2D479aX2D4c5dX2Da655X2D792825c332db <http://www.w3.org/2000/01/rdf-schema#comment> "写真が編集されてオリジナルデータとは異なってくる場合、もとの情報はdc:sourceで記述できる。写真は640x480のサイズで撮影され、128x96にリサイズされている。"@ja .
+<http://www.kanzaki.com/ns/dpd#GenerationEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Generation Event" .
+<http://www.kanzaki.com/ns/dpd#published> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://www.w3.org/2000/01/rdf-schema#comment> "Level of granularity to indicate the subject location. This is expressed as number of digits after decimal point of the geo code (geo:lat/geo:long), but can also be used to indicate lower granularity against heigh precision values, such as GPS data, for privacy concern. If the levels of precision of geo:lat and geo:long are different, use the lower number. Roughly, granularity 2 corresponds to accuracy of 1km square, 4 corresponds to 10m square, etc." .
+<http://www.kanzaki.com/ns/dpd#accuracy> <http://www.w3.org/2000/01/rdf-schema#comment> "Level of granularity to indicate the subject location. This corresponds to Flickr's accuracy value for a photo's geocode. This property is deprecated; use dpd:granularity instead. (accuracy is roughly 19 - GeoOnion's power. ie, if accuracy = 9, it seems almost go:within_3_power_10_metres. Thus, granularity is given by: round(5 - log(3^(19 - accuracy))) , which leads accuracy 9 = granularity 0, accuracy 16 = granularity 4, etc.)" .
+<http://www.kanzaki.com/ns/dpd#Place> <http://www.w3.org/2000/01/rdf-schema#comment> "A place (or an area), described using a pair of geo:lat and geo:long, with varied granularity. This is a place with (some ambiguous) spatial extent, not a point." .
+<http://www.kanzaki.com/ns/dpd#edited> <http://www.w3.org/2000/01/rdf-schema#label> "Edited" .
+<http://www.kanzaki.com/ns/dpd#accuracy> <http://www.w3.org/2000/01/rdf-schema#label> "Accuracy" .
+_:Bdab6c352X2D479aX2D4c5dX2Da655X2D792825c332db <http://www.w3.org/2000/01/rdf-schema#comment> "If a picture was edited, the original information may be described with 'dc:source'. This photo was taken as 640x480 pixels image, and then resized to 128x96." .
+<http://www.kanzaki.com/ns/dpd#near> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#Place> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.kanzaki.com/ns/dpd#digitized> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#Place> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<http://www.kanzaki.com/ns/dpd#GenerationEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event on which a state of the picture/document was generated. Can have properties describing spatial and temporal attributes." .
+<http://www.kanzaki.com/ns/dpd#generated> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/ns/ex#Example> .
+<http://www.kanzaki.com/ns/dpd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.kanzaki.com/ns/dpd#edited> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Document> .
+<http://www.kanzaki.com/ns/dpd#location> <http://www.w3.org/2000/01/rdf-schema#comment> "The subject thing is located at the object place." .
+<http://www.kanzaki.com/ns/dpd#published> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#exposed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#digitized> <http://www.w3.org/2000/01/rdf-schema#label> "Digitized" .
+<http://www.kanzaki.com/ns/dpd> <http://www.w3.org/2002/07/owl#versionInfo> "Version 0.5.2. OWL DL version, added dpd:granularity. Expanded target from pictuire to any digital document." .
+<http://www.kanzaki.com/ns/dpd#near> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
+_:B98dfe2d4X2D3d72X2D42e6X2D930cX2D6354062359a1 <http://purl.org/net/ns/ex#code> "\n<foaf:Image rdf:about=\"...\">\n <dpd:generated rdf:parseType=\"Resource\">\n  <dc:date>2007-02-01T10:00:00+09:00</dc:date>\n  <dpd:near rdf:parseType=\"Resource\">\n   <geo:lat>35.571331</geo:lat>\n   <geo:long>139.86557</geo:long>\n  </dpd:near>\n </dpd:generated>\n</foaf:Image>\n" .
+<http://www.kanzaki.com/ns/dpd#exposed> <http://www.w3.org/2000/01/rdf-schema#label> "Exposed" .
+<http://www.kanzaki.com/ns/dpd#location> <http://www.w3.org/2000/01/rdf-schema#comment> "主語が目的語の場所に位置していることを表す。"@ja .
+<http://www.kanzaki.com/ns/dpd> <http://purl.org/net/ns/ontology-annot#created> "2004-02-20" .
+<http://www.kanzaki.com/ns/dpd#edited> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
+<http://www.kanzaki.com/ns/dpd#developed> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://purl.org/net/ns/ex#pfx> "dpd:" .
+<http://www.kanzaki.com/ns/dpd#accuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://purl.org/net/ns/ex#image> <http://www.kanzaki.com/works/2007/misc/dpd-vocab-sample1.png> .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://purl.org/net/ns/ex#exampleOf> <http://www.kanzaki.com/ns/dpd> .
+<urn:pin:MK705> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.kanzaki.com/info/webwho.rdf> .
+<http://www.kanzaki.com/ns/dpd#digitized> <http://www.w3.org/2000/01/rdf-schema#comment> "画像/文書がデジタル化された状況（イベント）を記述する。デジカメの場合は撮影イベントと同じイベントを示す。"@ja .
+<http://www.kanzaki.com/ns/dpd#location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#edited> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#edited> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes an event when/where the image/document file was edited, retouched, resized etc." .
+<http://www.kanzaki.com/ns/dpd#published> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Document> .
+_:Bc83f9feeX2Dff63X2D401aX2D9889X2Dab1600c75ef8 <http://www.w3.org/1999/xhtmlimg> <http://www.kanzaki.com/works/2003/imagedesc/031229_1639-s.jpg> .
+<http://www.kanzaki.com/ns/dpd#published> <http://www.w3.org/2000/01/rdf-schema#comment> "画像/文書が（ネットワーク上に）公開された状況（イベント）を記述する。"@ja .
+<urn:pin:MK705> <http://xmlns.com/foaf/0.1/name> "神崎正英"@ja .
+<http://www.kanzaki.com/ns/dpd#accuracy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.kanzaki.com/ns/dpd#Place> .
+_:B3885fc23X2D7634X2D4a69X2D9826X2D1e62ca9e1209 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/ns/ex#Example> .
+<http://esw.w3.org/topic/GeoOnion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://www.kanzaki.com/ns/dpd#generated> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes an event when/where the picture/document was generated. Super property of 'exposed' and 'digitized'." .
+<http://www.kanzaki.com/ns/dpd#digitized> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.kanzaki.com/ns/dpd#generated> .
+<http://www.kanzaki.com/ns/dpd#GenerationEvent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#developed> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes an event when/where the photograph was developed." .
+<http://www.kanzaki.com/ns/dpd#published> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes an event when/where the image/document file was published (on the net)." .
+<urn:pin:MK705> <http://xmlns.com/foaf/0.1/homepage> <http://www.kanzaki.com/> .
+<http://www.kanzaki.com/ns/dpd#location> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#location> <http://www.w3.org/2000/01/rdf-schema#label> "Location" .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.kanzaki.com/ns/dpd#Place> .
+<http://www.kanzaki.com/ns/dpd#GenerationEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "画像/文書が作成されたり編集されたりする状況（イベント）。場所、時間に関するプロパティを持つことができる。"@ja .
+<http://www.kanzaki.com/ns/dpd#developed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.kanzaki.com/ns/dpd#developed> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Image> .
+<http://www.kanzaki.com/ns/dpd#Place> <http://www.w3.org/2000/01/rdf-schema#comment> "ある緯度、経度を用いて、ある粒度で表現される場所。点ではなく、（粒度に応じた）広がりある場所で、一定の曖昧さを含む。"@ja .
+_:B98dfe2d4X2D3d72X2D42e6X2D930cX2D6354062359a1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/ns/ex#Example> .
+<http://www.kanzaki.com/ns/dpd#generated> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Document> .
+<http://www.kanzaki.com/ns/dpd#accuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DeprecatedProperty> .
+<http://www.kanzaki.com/ns/dpd> <http://www.w3.org/2000/01/rdf-schema#comment> "デジタル文書を（もともとは画像を、特に撮影に関するデータ、被写体のデータ、デジタルファイルのデータなどをきちんと区別して）記述するための実験ボキャブラリ。"@ja .
+<urn:pin:MK705> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://www.w3.org/2000/01/rdf-schema#comment> "位置の粒度を、緯度経度の精細度（小数点以下の桁数）で表す。また、GPSデータのような精細な値を、プライバシーなどの観点から、より低い粒度のものとして示すためにも用いることができる。緯度と経度の精細度が異なる場合は、低い方にあわせる。granularity 2 はおよそ1km四方レベル、granularity 4はおよそ10m四方レベルの粒度に相当する。"@ja .
+<http://www.kanzaki.com/ns/dpd#Place> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#developed> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.kanzaki.com/ns/dpd#GenerationEvent> .
+<http://www.kanzaki.com/ns/dpd#developed> <http://www.w3.org/2000/01/rdf-schema#comment> "写真の現像に関する状況（イベント）を記述する。"@ja .
+<http://www.kanzaki.com/ns/dpd#granularity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://esw.w3.org/topic/GeoOnion> <http://www.w3.org/2000/01/rdf-schema#label> "GeoOnion" .
+<http://www.kanzaki.com/ns/dpd#exposed> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.kanzaki.com/ns/dpd#generated> .
+<http://www.kanzaki.com/ns/dpd#generated> <http://www.w3.org/2000/01/rdf-schema#label> "generated" .
+<http://www.kanzaki.com/ns/dpd#edited> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.kanzaki.com/ns/dpd> .
+<http://www.kanzaki.com/ns/dpd#near> <http://www.w3.org/2000/01/rdf-schema#comment> "The subject generation event occured at some location near the object place (e.g. for privacy)." .
+<http://www.kanzaki.com/ns/dpd> <http://www.w3.org/2002/07/owl#imports> <http://www.kanzaki.com/ns/dliser.rdf> .
+<http://www.kanzaki.com/ns/dpd#near> <http://www.w3.org/2000/01/rdf-schema#comment> "生成イベントが目的語の場所の近くで起こったことを表す。プライバシーに配慮する場合などに用いる。"@ja .
+_:B3885fc23X2D7634X2D4a69X2D9826X2D1e62ca9e1209 <http://purl.org/net/ns/ex#code> "\n<dpd:Place>\n <geo:lat>35.571331</geo:lat>\n <geo:long>139.86557</geo:long>\n <dpd:granularity>2</dpd:granularity>\n <!-- normal granularity is 5, but can state 2 for privacy -->\n</dpd:Place>\n" .
+_:Bdab6c352X2D479aX2D4c5dX2Da655X2D792825c332db <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/ns/ex#Example> .
+<http://xmlns.com/foaf/0.1/Image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .

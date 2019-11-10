@@ -1,709 +1,358 @@
-<http://linked.data.gov.au/def/gnaf#hasStreetLocality>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Street Locality"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#StreetLocality> .
-
-<http://linked.data.gov.au/def/gnaf#hasName>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is the same as dct:title."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has name"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2002/07/owl#sameAs>
-                <http://purl.org/dc/terms/title> .
-
-<http://linked.data.gov.au/def/gnaf#hasLegalParcelId>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has legal parcel ID"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://linked.data.gov.au/def/gnaf#hasDateLastModified>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is the same as dct:modified."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has date last modified"@en .
-
-<http://linked.data.gov.au/def/gnaf#Address>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Address"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#GnafEntity> , <http://www.w3.org/ns/prov#Location> , <http://reference.data.gov.au/def/ont/iso19160-1-address#Address> , <http://dbpedia.org/ontology/Location> , <http://www.opengis.net/ont/geosparql#Feature> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasMeshBlockMatch> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://linked.data.gov.au/def/gnaf#MeshBlockMatch>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#GeocodePoint> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.opengis.net/ont/geosparql#hasGeometry>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/description>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasAlias> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://linked.data.gov.au/def/gnaf#Alias>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasBuildingName>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#Locality> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasLocality> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasNumber> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://linked.data.gov.au/def/gnaf#Number>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasPostcode>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#StreetLocality> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasStreetLocality> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#AddressSite> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasAddressSite> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#GnafConfidence> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasGnafConfidence> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#dateTime> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasDateLastModified> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://reference.data.gov.au/def/ont/iso19160-1-address#Address>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ISO19160-1 Address"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://linked.data.gov.au/def/gnaf#hasNumber>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Number"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#Number> .
-
-<http://linked.data.gov.au/def/gnaf#hasMeshBlock>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#MeshBlockMatch> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Mesh Block"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#MeshBlock> .
-
-<http://linked.data.gov.au/def/gnaf#hasNeighbour>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Locality> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has neighbour"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#Locality> .
-
-<http://linked.data.gov.au/def/gnaf#hasDateCreated>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is the same as prov:wasGeneratedAtTime."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has date created"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <http://www.w3.org/2002/07/owl#sameAs>
-                <http://www.w3.org/ns/prov#wasGeneratedAtTime> .
-
-<http://linked.data.gov.au/def/gnaf#aliasOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "alias of"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://linked.data.gov.au/def/gnaf#hasAlias> .
-
-<http://linked.data.gov.au/def/gnaf#StreetLocality>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Street Locality" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#Street> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#GnafConfidence> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasGnafConfidence> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#GeocodePoint> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.opengis.net/ont/geosparql#hasGeometry>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#Locality> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasLocality> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://linked.data.gov.au/def/gnaf#MeshBlock>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Mesh Blocks are the smallest geographical area defined by the Australian Bureau of Statistics (ABS) and form the building blocks for the larger regions of the Australian Statistical Geography Standard (ASGS). All other statistical areas or regions are built up from or, approximated by whole Mesh Blocks. They broadly identify land use such as residential, commercial, primary production and parks, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Mesh Block"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#GnafEntity> .
-
-<http://linked.data.gov.au/def/gnaf#hasStreetConfirmation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Street> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Street Confirmation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#StreetConfirmation> .
-
-<http://linked.data.gov.au/def/gnaf#hasMeshBlockMatch>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Mesh Block match"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#MeshBlockMatch> .
-
-<http://linked.data.gov.au/def/gnaf#hasState>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://dbpedia.org/ontology/Location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has State"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#State> .
-
-<http://linked.data.gov.au/def/gnaf#hasGnafConfidence>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has GNAF confidence"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#GnafConfidence> .
-
-<http://linked.data.gov.au/def/gnaf#hasDescription>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is the same as dct:description."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has description"@en ;
-        <http://www.w3.org/2002/07/owl#sameAs>
-                <http://purl.org/dc/terms/description> .
-
-<http://linked.data.gov.au/def/gnaf#hasAlias>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Alias> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Alias"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#Address> , <http://linked.data.gov.au/def/gnaf#Street> , <http://linked.data.gov.au/def/gnaf#Locality> .
-
-<http://www.w3.org/ns/prov#wasGeneratedAtTime>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://linked.data.gov.au/def/gnaf#Locality>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Locality" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Location> , <http://linked.data.gov.au/def/gnaf#GnafEntity> , <http://www.opengis.net/ont/geosparql#Feature> , <http://dbpedia.org/ontology/Location> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasNeighbour> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://linked.data.gov.au/def/gnaf#Locality>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasPrimaryPostcode>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasAlias> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://linked.data.gov.au/def/gnaf#Alias>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#GeocodePoint> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.opengis.net/ont/geosparql#hasGeometry>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasName> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://linked.data.gov.au/def/gnaf#hasStreetSuffix>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#StreetLocality> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Street Suffix"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#StreetSuffix> .
-
-<http://linked.data.gov.au/def/gnaf#isPrivateStreet>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has private street"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2002/07/owl#topDataProperty> .
-
-<http://linked.data.gov.au/def/gnaf#hasAddressSecondary>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Address Secondary"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#Address> .
-
-<http://www.w3.org/2002/07/owl#qualifiedCardinality>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://linked.data.gov.au/def/gnaf#MB2016>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Mesh Block from the 2016 census"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://linked.data.gov.au/def/gnaf/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "2016 Mesh Block"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#MeshBlock> ;
-        <http://purl.org/dc/terms/contributor>
-                <http://orcid.org/0000-0002-8742-7730> ;
-        <http://purl.org/dc/terms/source>
-                "G-NAF Data Product Description, November 2017" .
-
-<http://linked.data.gov.au/def/gnaf#MeshBlockMatch>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Mesh Block Match"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#GnafEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#MeshBlock> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasMeshBlock> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://linked.data.gov.au/def/gnaf#AddressSite>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Address Site"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#GnafEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasName>
-                ] .
-
-<http://linked.data.gov.au/def/gnaf#MB2011>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Mesh Block from the 2011 census"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://linked.data.gov.au/def/gnaf/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "2011 Mesh Block"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#MeshBlock> ;
-        <http://purl.org/dc/terms/contributor>
-                <http://orcid.org/0000-0002-8742-7730> ;
-        <http://purl.org/dc/terms/source>
-                "G-NAF Data Product Description, November 2017" .
-
-<http://linked.data.gov.au/def/gnaf>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An ontology for the content of the PSMA Geocoded National Address File (G-NAF).\n\n  The G-NAF is Australia’s authoritative, geocoded address file. It contains more than 13 million Australian physical address records. The records include geocodes which are latitude and longitude map coordinates with coordinate reference system details and other information necissary to prcicely locate addresses on the earth's surface.\n\n  The G-NAF does not contain any names or personal information.\n\n  The base content of the G-NAF is available freely online at <https://data.gov.au/dataset/geocoded-national-address-file-g-naf> and also via a Linked Data API that uses this ontology at <http://gnafld.net>.\n\n  This ontology draws heavily from the OWL ontology version of the ISO19160-1:2015 \"Addressing -- Part 1: Conceptual model\" standard (see <https://www.iso.org/standard/61710.html>) which has been created by the ISO TC211, Group for Ontology Management (GOM) and published online by the Australian Government Linked Data Working Group at <http://reference.data.gov.au/def/ont/iso19160-1-address>."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GNAF ontology" ;
-        <http://purl.org/dc/elements/1.1/contributor>
-                "Joseph Abhayaratna" ;
-        <http://purl.org/dc/elements/1.1/creator>
-                "Nicholas Car" ;
-        <http://purl.org/dc/elements/1.1/publisher>
-                "PSMA Australia" ;
-        <http://purl.org/dc/terms/contributor>
-                <http://gnafld.net/def/joseph.abhayaratna@psma.com.au> ;
-        <http://purl.org/dc/terms/created>
-                "2017-12-23"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/creator>
-                <http://orcid.org/0000-0002-8742-7730> ;
-        <http://purl.org/dc/terms/modified>
-                "2018-02-07"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/publisher>
-                <http://catalogue.linked.data.gov.au/org/psma> ;
-        <http://purl.org/dc/terms/source>
-                "https://www.psma.com.au/sites/default/files/g-naf_product_description.pdf" ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://www.opengis.net/ont/geosparql> , <http://www.w3.org/ns/prov-o-20130430> ;
-        <http://www.w3.org/2002/07/owl#versionIRI>
-                <http://linked.data.gov.au/def/gnaf/1.1> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "1.1" .
-
-<http://linked.data.gov.au/def/gnaf#hasPostcode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has postcode"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> .
-
-<http://linked.data.gov.au/def/gnaf#GnafEntity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Entities (things) that are present as records in the GNAF database. Every GNAF Entity has a data created, date last modified (can be the same) and may have a data retired. These dates indicate the creation, modification & retirement of the representation of the Entity in the GNAF database, not the real-world Entity."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GNAF Entity"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#dateTime> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasDateCreated> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#dateTime> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasDateRetired>
-                ] .
-
-<http://linked.data.gov.au/def/gnaf#Alias>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Alias" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#GnafEntity> .
-
-<http://linked.data.gov.au/def/gnaf#hasPrimaryPostcode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Locality> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has primary postcode"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> .
-
-<http://purl.org/dc/terms/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://linked.data.gov.au/def/gnaf#hasAddressSite>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Address Site"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#AddressSite> .
-
-<http://linked.data.gov.au/def/gnaf#hasGeocode>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Geocode"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#GeocodePoint> .
-
-<http://linked.data.gov.au/def/gnaf#GeocodePoint>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class is the equivalent class to the non-Linked Data version of the GNAF's Geocode. It is subclassed as a Point since all the GNAF's Geocodes are points.\n\nIn addition to the stuff of geometry (lats, longs etc.), a Geocode Point also has a Geocode Reliability."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Geocode Point"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.opengis.net/ont/sf#Point> .
-
-<http://linked.data.gov.au/def/gnaf#hasDateRetired>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is the same as prov:wasInvalidatedAtTime."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has date retired"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <http://www.w3.org/2002/07/owl#sameAs>
-                <http://www.w3.org/ns/prov#wasInvalidatedAtTime> .
-
-<http://linked.data.gov.au/def/gnaf#Number>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Number"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasSuffix>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasPrefix>
-                ] .
-
-<http://purl.org/dc/terms/description>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://linked.data.gov.au/def/gnaf#Street>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Street"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Location> , <http://linked.data.gov.au/def/gnaf#GnafEntity> , <http://dbpedia.org/ontology/Location> , <http://www.opengis.net/ont/geosparql#Feature> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasAlias> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://linked.data.gov.au/def/gnaf#Alias>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#string> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasName> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#StreetSuffix> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasStreetSuffix>
-                ] .
-
-<http://dbpedia.org/ontology/Location>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://linked.data.gov.au/def/gnaf#hasPrefix>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Number> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has prefix"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://linked.data.gov.au/def/gnaf#State>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Australian State, including \"Other Territories\" for Cocos & Keeling Islands, Jervis Bay etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "State"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#GnafEntity> .
-
-<http://linked.data.gov.au/def/gnaf#hasLocality>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#StreetLocality> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Locality"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://linked.data.gov.au/def/gnaf#Locality> .
-
-<http://linked.data.gov.au/def/gnaf#hasAddressPrimary>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://linked.data.gov.au/def/gnaf#hasAddressSecondary> .
-
-<http://linked.data.gov.au/def/gnaf#hasGeocodeReliability>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Geocode Reliability"@en .
-
-<http://www.w3.org/ns/prov#Collection>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Collection> .
-
-<http://linked.data.gov.au/def/gnaf#hasSuffix>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://linked.data.gov.au/def/gnaf#Number> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has suffix"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://linked.data.gov.au/def/gnaf#hasBuildingName>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has building name"@en .
-
-<http://linked.data.gov.au/def/gnaf#gnafType>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A property to allow for GNAF-specific soft typing of various GNAF classes using code list terms published in the GNAF product guide, for example Locality class instances being soft typed according to the Locality Types list which includes *Alias Only*, *District*, *Gazeted* etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GNAF type"@en .
-
-[ <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ] .
-
-<http://www.opengis.net/ont/geosparql#Geometry>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://linked.data.gov.au/def/gnaf#GnafEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://linked.data.gov.au/def/gnaf#GeocodeReliability> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://linked.data.gov.au/def/gnaf#hasGeocodeReliability> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://purl.org/dc/terms/title>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-[ <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ] .
-
-<http://purl.org/dc/terms/source>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/prov#wasInvalidatedAtTime>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://linked.data.gov.au/def/gnaf#hasStreetLocality> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Address> .
+<http://linked.data.gov.au/def/gnaf#hasName> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the same as dct:title."@en .
+<http://linked.data.gov.au/def/gnaf#hasLegalParcelId> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B51b43c8217fce3fe33106586940ae8b7 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#GeocodePoint> .
+<http://linked.data.gov.au/def/gnaf#hasDateLastModified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B60e5783fa98fc42111e622fcee36f0d5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://reference.data.gov.au/def/ont/iso19160-1-address#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://linked.data.gov.au/def/gnaf#hasNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Address> .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlock> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bc38ee53379b8a7cd923ffaff64be4d55 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#Locality> .
+<http://linked.data.gov.au/def/gnaf#hasNeighbour> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Locality> .
+<http://linked.data.gov.au/def/gnaf#hasDateCreated> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+_:Baa937700a019b20aca069c916841dbdf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bc527205447659012e7bf410d71f2d5a6 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasPostcode> .
+_:Bc8be77dad351e87c998cfa9d61ed4975 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasPrefix> .
+_:B51b43c8217fce3fe33106586940ae8b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#aliasOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#hasNeighbour> <http://www.w3.org/2000/01/rdf-schema#label> "has neighbour"@en .
+<http://linked.data.gov.au/def/gnaf#aliasOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://linked.data.gov.au/def/gnaf#hasAlias> .
+<http://linked.data.gov.au/def/gnaf#MeshBlock> <http://www.w3.org/2000/01/rdf-schema#label> "Mesh Block"@en .
+<http://linked.data.gov.au/def/gnaf#hasStreetConfirmation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Street> .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlockMatch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#hasState> <http://www.w3.org/2000/01/rdf-schema#domain> <http://dbpedia.org/ontology/Location> .
+<http://reference.data.gov.au/def/ont/iso19160-1-address#Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasGnafConfidence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Address> .
+_:Bf08b52cc5e27f65c1f7995c6e62b1512 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasAlias> .
+<http://linked.data.gov.au/def/gnaf#hasDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://linked.data.gov.au/def/gnaf#hasAlias> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#Address> .
+<http://www.w3.org/ns/prov#wasGeneratedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://linked.data.gov.au/def/gnaf#StreetLocality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bd7e9bf0cebbf7c6b7ae5777c012b1d05 .
+<http://linked.data.gov.au/def/gnaf#hasDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Ba77bd9b24d1455c6e6bf355213f59c8c <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasLegalParcelId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbc04f743635dd85b6bff2c51108a151b .
+_:Baa937700a019b20aca069c916841dbdf <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Location> .
+_:Bc66c4f95f422b0dd3f8c507d39a13bf2 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#GeocodePoint> .
+_:B28873e7cb883f2bcefb47835c886ac0d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#StreetLocality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc38ee53379b8a7cd923ffaff64be4d55 .
+<http://linked.data.gov.au/def/gnaf#hasStreetSuffix> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#StreetSuffix> .
+<http://linked.data.gov.au/def/gnaf#isPrivateStreet> <http://www.w3.org/2000/01/rdf-schema#label> "has private street"@en .
+_:Bcd044f64536c835bc2e24bf0a8a17c35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#hasAddressSecondary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#MeshBlock> <http://www.w3.org/2000/01/rdf-schema#comment> "Mesh Blocks are the smallest geographical area defined by the Australian Bureau of Statistics (ABS) and form the building blocks for the larger regions of the Australian Statistical Geography Standard (ASGS). All other statistical areas or regions are built up from or, approximated by whole Mesh Blocks. They broadly identify land use such as residential, commercial, primary production and parks, etc."@en .
+<http://www.w3.org/2002/07/owl#qualifiedCardinality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B28e9547629b6c26fce661831bbf9e47c .
+<http://linked.data.gov.au/def/gnaf#hasStreetLocality> <http://www.w3.org/2000/01/rdf-schema#label> "has Street Locality"@en .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3d4a2d004a06123eb398ec77bef9dc8a .
+<http://linked.data.gov.au/def/gnaf#MB2016> <http://purl.org/dc/terms/contributor> <http://orcid.org/0000-0002-8742-7730> .
+_:Bc527205447659012e7bf410d71f2d5a6 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B8d9021a79f5d19ff5b31a0a5d486889b <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bbf62f7d8a66b1f432d63535a001a076a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#AddressSite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#MeshBlock> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+_:B3d4a2d004a06123eb398ec77bef9dc8a <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bc66c4f95f422b0dd3f8c507d39a13bf2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#AddressSite> <http://www.w3.org/2000/01/rdf-schema#label> "Address Site"@en .
+<http://linked.data.gov.au/def/gnaf#MB2011> <http://purl.org/dc/terms/contributor> <http://orcid.org/0000-0002-8742-7730> .
+<http://linked.data.gov.au/def/gnaf> <http://www.w3.org/2002/07/owl#versionIRI> <http://linked.data.gov.au/def/gnaf/1.1> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc527205447659012e7bf410d71f2d5a6 .
+<http://linked.data.gov.au/def/gnaf#hasPostcode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B28e9547629b6c26fce661831bbf9e47c <http://www.w3.org/2002/07/owl#someValuesFrom> <http://linked.data.gov.au/def/gnaf#Alias> .
+_:Bc8be77dad351e87c998cfa9d61ed4975 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#hasStreetSuffix> <http://www.w3.org/2000/01/rdf-schema#label> "has Street Suffix"@en .
+<http://linked.data.gov.au/def/gnaf#GnafEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasStreetConfirmation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B60e5783fa98fc42111e622fcee36f0d5 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasDateCreated> .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlock> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#MeshBlockMatch> .
+<http://linked.data.gov.au/def/gnaf#hasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B92f8a0f785fa853f31bb0da78e367028 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://linked.data.gov.au/def/gnaf#Locality> .
+<http://linked.data.gov.au/def/gnaf#Alias> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasPrimaryPostcode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Locality> .
+_:B7dbc07fc705dde0b200ba47c24b5682d <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B60e5783fa98fc42111e622fcee36f0d5 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+_:B8614134262d2cee6f929f248d1aa7489 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://linked.data.gov.au/def/gnaf#hasDateCreated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://linked.data.gov.au/def/gnaf#Number> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B8d9021a79f5d19ff5b31a0a5d486889b .
+_:B102f2ec1dcfb852bf44d8b36bce10782 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+_:Bea440bd2245e84a2478ce553d1a1e67a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf> <http://www.w3.org/2000/01/rdf-schema#label> "GNAF ontology" .
+<http://linked.data.gov.au/def/gnaf#hasGnafConfidence> <http://www.w3.org/2000/01/rdf-schema#label> "has GNAF confidence"@en .
+_:B9bb6f42b3da7c4166e45f0987c2f2344 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#GeocodeReliability> .
+<http://linked.data.gov.au/def/gnaf#GnafEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bfe3484d9bcc0a97d63bf5bf670b9fd0b .
+<http://linked.data.gov.au/def/gnaf#hasAddressSite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B9bb6f42b3da7c4166e45f0987c2f2344 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bbc04f743635dd85b6bff2c51108a151b <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bf8167b4e9a077408eb35dd810bada065 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bc8be77dad351e87c998cfa9d61ed4975 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://linked.data.gov.au/def/gnaf#hasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Ba821107a8be24b0035592fc5dd723016 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#GnafEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://linked.data.gov.au/def/gnaf> <http://www.w3.org/2002/07/owl#imports> <http://www.opengis.net/ont/geosparql> .
+<http://linked.data.gov.au/def/gnaf#hasPrimaryPostcode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+_:B43ea87f6a30028bc4a97a0ff86b22db6 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasAddressSite> .
+<http://linked.data.gov.au/def/gnaf#MeshBlockMatch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bea440bd2245e84a2478ce553d1a1e67a .
+<http://linked.data.gov.au/def/gnaf#hasGeocode> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#GeocodePoint> .
+<http://linked.data.gov.au/def/gnaf#StreetLocality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B51b43c8217fce3fe33106586940ae8b7 .
+<http://linked.data.gov.au/def/gnaf#GeocodePoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasDateCreated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://linked.data.gov.au/def/gnaf#hasAlias> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#Street> .
+<http://linked.data.gov.au/def/gnaf#hasAlias> <http://www.w3.org/2000/01/rdf-schema#label> "has Alias"@en .
+<http://linked.data.gov.au/def/gnaf#hasDateRetired> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bd2c4bede84d80485b1592438af303192 .
+<http://linked.data.gov.au/def/gnaf#Number> <http://www.w3.org/2000/01/rdf-schema#label> "Number"@en .
+<http://reference.data.gov.au/def/ont/iso19160-1-address#Address> <http://www.w3.org/2000/01/rdf-schema#label> "ISO19160-1 Address"@en .
+<http://linked.data.gov.au/def/gnaf#hasAddressSite> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Address> .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bc527205447659012e7bf410d71f2d5a6 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:B8d9021a79f5d19ff5b31a0a5d486889b <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:B3d4a2d004a06123eb398ec77bef9dc8a <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:B28873e7cb883f2bcefb47835c886ac0d <http://www.w3.org/2002/07/owl#someValuesFrom> <http://linked.data.gov.au/def/gnaf#Alias> .
+<http://linked.data.gov.au/def/gnaf#hasStreetConfirmation> <http://www.w3.org/2000/01/rdf-schema#label> "has Street Confirmation"@en .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-8742-7730> .
+<http://linked.data.gov.au/def/gnaf#hasDateCreated> <http://www.w3.org/2000/01/rdf-schema#label> "has date created"@en .
+_:B7dbc07fc705dde0b200ba47c24b5682d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/elements/1.1/contributor> "Joseph Abhayaratna" .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:B28e9547629b6c26fce661831bbf9e47c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Location> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+<http://linked.data.gov.au/def/gnaf#MB2011> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.data.gov.au/def/gnaf/> .
+_:B61bf36f29b4067edc0df0c34c823cd3c <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasName> .
+<http://linked.data.gov.au/def/gnaf#hasDateLastModified> <http://www.w3.org/2000/01/rdf-schema#label> "has date last modified"@en .
+<http://linked.data.gov.au/def/gnaf#MB2016> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://linked.data.gov.au/def/gnaf/> .
+<http://www.opengis.net/ont/geosparql#Geometry> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9bb6f42b3da7c4166e45f0987c2f2344 .
+_:B43ea87f6a30028bc4a97a0ff86b22db6 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bc8be77dad351e87c998cfa9d61ed4975 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba9f0108e2c5933743661352924d8e0ab .
+<http://linked.data.gov.au/def/gnaf#StreetLocality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#Street> .
+_:Ba68d5f68e74539293c8879d7125d91bc <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasPrimaryPostcode> .
+<http://dbpedia.org/ontology/Location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bd7e9bf0cebbf7c6b7ae5777c012b1d05 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasGnafConfidence> .
+_:B3d4a2d004a06123eb398ec77bef9dc8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/elements/1.1/creator> "Nicholas Car" .
+_:Bc527205447659012e7bf410d71f2d5a6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B8d9021a79f5d19ff5b31a0a5d486889b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#hasPrefix> <http://www.w3.org/2000/01/rdf-schema#label> "has prefix"@en .
+_:Bcd044f64536c835bc2e24bf0a8a17c35 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasState> <http://www.w3.org/2000/01/rdf-schema#label> "has State"@en .
+_:B7dbc07fc705dde0b200ba47c24b5682d <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://linked.data.gov.au/def/gnaf#GeocodePoint> <http://www.w3.org/2000/01/rdf-schema#comment> "This class is the equivalent class to the non-Linked Data version of the GNAF's Geocode. It is subclassed as a Point since all the GNAF's Geocodes are points.\n\nIn addition to the stuff of geometry (lats, longs etc.), a Geocode Point also has a Geocode Reliability."@en .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Location> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Baa937700a019b20aca069c916841dbdf .
+<http://linked.data.gov.au/def/gnaf#State> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+<http://linked.data.gov.au/def/gnaf#hasName> <http://www.w3.org/2002/07/owl#sameAs> <http://purl.org/dc/terms/title> .
+<http://linked.data.gov.au/def/gnaf#hasAddressSecondary> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Address> .
+_:Ba9f0108e2c5933743661352924d8e0ab <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasDateLastModified> .
+_:B8d9021a79f5d19ff5b31a0a5d486889b <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasSuffix> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf8167b4e9a077408eb35dd810bada065 .
+<http://linked.data.gov.au/def/gnaf#Alias> <http://www.w3.org/2000/01/rdf-schema#label> "Alias" .
+_:Bcd044f64536c835bc2e24bf0a8a17c35 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#StreetSuffix> .
+_:Bd7e9bf0cebbf7c6b7ae5777c012b1d05 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasDescription> <http://www.w3.org/2000/01/rdf-schema#label> "has description"@en .
+<http://linked.data.gov.au/def/gnaf#hasLocality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/terms/modified> "2018-02-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:Ba9f0108e2c5933743661352924d8e0ab <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlockMatch> <http://www.w3.org/2000/01/rdf-schema#label> "has Mesh Block match"@en .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlockMatch> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Address> .
+_:Bf8526e0d5880b22e5189495b1885f7d2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bc38ee53379b8a7cd923ffaff64be4d55 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasAddressPrimary> <http://www.w3.org/2002/07/owl#inverseOf> <http://linked.data.gov.au/def/gnaf#hasAddressSecondary> .
+<http://linked.data.gov.au/def/gnaf#hasStreetSuffix> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#StreetLocality> .
+<http://linked.data.gov.au/def/gnaf#hasLegalParcelId> <http://www.w3.org/2000/01/rdf-schema#label> "has legal parcel ID"@en .
+_:B7dbc07fc705dde0b200ba47c24b5682d <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasName> .
+<http://linked.data.gov.au/def/gnaf#hasGeocodeReliability> <http://www.w3.org/2000/01/rdf-schema#label> "has Geocode Reliability"@en .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba68d5f68e74539293c8879d7125d91bc .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/terms/contributor> <http://gnafld.net/def/joseph.abhayaratna@psma.com.au> .
+<http://linked.data.gov.au/def/gnaf#hasGnafConfidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bbf62f7d8a66b1f432d63535a001a076a <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#GnafConfidence> .
+_:Bbc04f743635dd85b6bff2c51108a151b <http://www.w3.org/2002/07/owl#onProperty> <http://www.opengis.net/ont/geosparql#hasGeometry> .
+<http://linked.data.gov.au/def/gnaf#hasLocality> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#Locality> .
+_:B61bf36f29b4067edc0df0c34c823cd3c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#MeshBlockMatch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasDateRetired> <http://www.w3.org/2002/07/owl#sameAs> <http://www.w3.org/ns/prov#wasInvalidatedAtTime> .
+<http://linked.data.gov.au/def/gnaf#hasNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlock> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#MeshBlock> .
+<http://linked.data.gov.au/def/gnaf#hasAddressPrimary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Ba68d5f68e74539293c8879d7125d91bc <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#int> .
+_:Bea440bd2245e84a2478ce553d1a1e67a <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasMeshBlock> .
+<http://linked.data.gov.au/def/gnaf#hasDateRetired> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Baa937700a019b20aca069c916841dbdf <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B102f2ec1dcfb852bf44d8b36bce10782 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://linked.data.gov.au/def/gnaf#Number> .
+<http://linked.data.gov.au/def/gnaf#hasAddressSecondary> <http://www.w3.org/2000/01/rdf-schema#label> "has Address Secondary"@en .
+<http://linked.data.gov.au/def/gnaf#hasStreetLocality> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#StreetLocality> .
+_:B61bf36f29b4067edc0df0c34c823cd3c <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://linked.data.gov.au/def/gnaf#hasStreetLocality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bc38ee53379b8a7cd923ffaff64be4d55 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasLocality> .
+<http://linked.data.gov.au/def/gnaf#hasDateRetired> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://linked.data.gov.au/def/gnaf> <http://www.w3.org/2002/07/owl#versionInfo> "1.1" .
+<http://www.w3.org/ns/prov#Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Collection> .
+<http://linked.data.gov.au/def/gnaf#hasNeighbour> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#AddressSite> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+<http://linked.data.gov.au/def/gnaf#MeshBlock> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasSuffix> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Number> .
+<http://linked.data.gov.au/def/gnaf#hasPrefix> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Number> .
+_:B92f8a0f785fa853f31bb0da78e367028 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasNeighbour> .
+_:Bd7e9bf0cebbf7c6b7ae5777c012b1d05 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#label> "Locality" .
+<http://linked.data.gov.au/def/gnaf#hasName> <http://www.w3.org/2000/01/rdf-schema#label> "has name"@en .
+_:Ba9f0108e2c5933743661352924d8e0ab <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#hasPostcode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<http://linked.data.gov.au/def/gnaf#hasNeighbour> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#Locality> .
+_:Bf8526e0d5880b22e5189495b1885f7d2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bc38ee53379b8a7cd923ffaff64be4d55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#hasPostcode> <http://www.w3.org/2000/01/rdf-schema#label> "has postcode"@en .
+<http://linked.data.gov.au/def/gnaf#hasBuildingName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://linked.data.gov.au/def/gnaf#State> <http://www.w3.org/2000/01/rdf-schema#comment> "An Australian State, including \"Other Territories\" for Cocos & Keeling Islands, Jervis Bay etc."@en .
+_:Bc66c4f95f422b0dd3f8c507d39a13bf2 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#gnafType> <http://www.w3.org/2000/01/rdf-schema#label> "GNAF type"@en .
+<http://linked.data.gov.au/def/gnaf#hasPrimaryPostcode> <http://www.w3.org/2000/01/rdf-schema#label> "has primary postcode"@en .
+_:B61bf36f29b4067edc0df0c34c823cd3c <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasLocality> <http://www.w3.org/2000/01/rdf-schema#label> "has Locality"@en .
+<http://www.opengis.net/ont/geosparql#Geometry> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+_:B102f2ec1dcfb852bf44d8b36bce10782 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasNumber> .
+_:Bbc04f743635dd85b6bff2c51108a151b <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#GeocodePoint> .
+_:Bf08b52cc5e27f65c1f7995c6e62b1512 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://linked.data.gov.au/def/gnaf#Alias> .
+<http://linked.data.gov.au/def/gnaf#hasDescription> <http://www.w3.org/2002/07/owl#sameAs> <http://purl.org/dc/terms/description> .
+<http://linked.data.gov.au/def/gnaf> <http://www.w3.org/2000/01/rdf-schema#comment> "An ontology for the content of the PSMA Geocoded National Address File (G-NAF).\n\n  The G-NAF is Australia’s authoritative, geocoded address file. It contains more than 13 million Australian physical address records. The records include geocodes which are latitude and longitude map coordinates with coordinate reference system details and other information necissary to prcicely locate addresses on the earth's surface.\n\n  The G-NAF does not contain any names or personal information.\n\n  The base content of the G-NAF is available freely online at <https://data.gov.au/dataset/geocoded-national-address-file-g-naf> and also via a Linked Data API that uses this ontology at <http://gnafld.net>.\n\n  This ontology draws heavily from the OWL ontology version of the ISO19160-1:2015 \"Addressing -- Part 1: Conceptual model\" standard (see <https://www.iso.org/standard/61710.html>) which has been created by the ISO TC211, Group for Ontology Management (GOM) and published online by the Australian Government Linked Data Working Group at <http://reference.data.gov.au/def/ont/iso19160-1-address>."@en .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/terms/source> "https://www.psma.com.au/sites/default/files/g-naf_product_description.pdf" .
+<http://linked.data.gov.au/def/gnaf#Alias> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+_:Bf8526e0d5880b22e5189495b1885f7d2 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasLocality> .
+<http://linked.data.gov.au/def/gnaf#hasPrimaryPostcode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bbc04f743635dd85b6bff2c51108a151b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/terms/created> "2017-12-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://linked.data.gov.au/def/gnaf#AddressSite> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7dbc07fc705dde0b200ba47c24b5682d .
+_:Bfe3484d9bcc0a97d63bf5bf670b9fd0b <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba821107a8be24b0035592fc5dd723016 .
+<http://linked.data.gov.au/def/gnaf#StreetLocality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bd2c4bede84d80485b1592438af303192 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://linked.data.gov.au/def/gnaf#MeshBlockMatch> .
+<http://linked.data.gov.au/def/gnaf#MB2016> <http://www.w3.org/2000/01/rdf-schema#label> "2016 Mesh Block"@en .
+<http://linked.data.gov.au/def/gnaf#MB2011> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasGnafConfidence> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#GnafConfidence> .
+<http://linked.data.gov.au/def/gnaf#MeshBlockMatch> <http://www.w3.org/2000/01/rdf-schema#label> "Mesh Block Match"@en .
+<http://linked.data.gov.au/def/gnaf#hasDateRetired> <http://www.w3.org/2000/01/rdf-schema#label> "has date retired"@en .
+_:Ba68d5f68e74539293c8879d7125d91bc <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://reference.data.gov.au/def/ont/iso19160-1-address#Address> .
+<http://linked.data.gov.au/def/gnaf#MB2016> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#hasSuffix> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B102f2ec1dcfb852bf44d8b36bce10782 .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlockMatch> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#MeshBlockMatch> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf08b52cc5e27f65c1f7995c6e62b1512 .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://dbpedia.org/ontology/Location> .
+_:B28e9547629b6c26fce661831bbf9e47c <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasAlias> .
+_:B51b43c8217fce3fe33106586940ae8b7 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasPrefix> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://linked.data.gov.au/def/gnaf#GnafEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "Entities (things) that are present as records in the GNAF database. Every GNAF Entity has a data created, date last modified (can be the same) and may have a data retired. These dates indicate the creation, modification & retirement of the representation of the Entity in the GNAF database, not the real-world Entity."@en .
+<http://linked.data.gov.au/def/gnaf#MB2016> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#MeshBlock> .
+<http://linked.data.gov.au/def/gnaf#hasPrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Ba821107a8be24b0035592fc5dd723016 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#StreetLocality> .
+<http://linked.data.gov.au/def/gnaf#GnafEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B60e5783fa98fc42111e622fcee36f0d5 .
+_:B43ea87f6a30028bc4a97a0ff86b22db6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://linked.data.gov.au/def/gnaf#hasState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#GeocodePoint> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/sf#Point> .
+<http://linked.data.gov.au/def/gnaf#hasSuffix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://linked.data.gov.au/def/gnaf#MB2011> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#MeshBlock> .
+<http://linked.data.gov.au/def/gnaf> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/prov-o-20130430> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B43ea87f6a30028bc4a97a0ff86b22db6 .
+<http://linked.data.gov.au/def/gnaf#isPrivateStreet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://dbpedia.org/ontology/Location> .
+<http://linked.data.gov.au/def/gnaf#hasGeocode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#hasState> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#State> .
+<http://linked.data.gov.au/def/gnaf#isPrivateStreet> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+_:B3d4a2d004a06123eb398ec77bef9dc8a <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/description> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc66c4f95f422b0dd3f8c507d39a13bf2 .
+_:Ba821107a8be24b0035592fc5dd723016 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasStreetLocality> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B92f8a0f785fa853f31bb0da78e367028 .
+_:Ba9f0108e2c5933743661352924d8e0ab <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://linked.data.gov.au/def/gnaf#hasGeocode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Address> .
+_:Bd7e9bf0cebbf7c6b7ae5777c012b1d05 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#GnafConfidence> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
+<http://linked.data.gov.au/def/gnaf#hasBuildingName> <http://www.w3.org/2000/01/rdf-schema#label> "has building name"@en .
+<http://linked.data.gov.au/def/gnaf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://linked.data.gov.au/def/gnaf#hasSuffix> <http://www.w3.org/2000/01/rdf-schema#label> "has suffix"@en .
+_:Bea440bd2245e84a2478ce553d1a1e67a <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#MeshBlock> .
+_:B28873e7cb883f2bcefb47835c886ac0d <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasAlias> .
+<http://linked.data.gov.au/def/gnaf#MB2016> <http://purl.org/dc/terms/source> "G-NAF Data Product Description, November 2017" .
+<http://linked.data.gov.au/def/gnaf#gnafType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#GnafEntity> <http://www.w3.org/2000/01/rdf-schema#label> "GNAF Entity"@en .
+_:Bbf62f7d8a66b1f432d63535a001a076a <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bd2c4bede84d80485b1592438af303192 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#hasDateLastModified> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the same as dct:modified."@en .
+<http://linked.data.gov.au/def/gnaf#MB2011> <http://purl.org/dc/terms/source> "G-NAF Data Product Description, November 2017" .
+_:Bf8167b4e9a077408eb35dd810bada065 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://linked.data.gov.au/def/gnaf#hasStreetConfirmation> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#StreetConfirmation> .
+<http://linked.data.gov.au/def/gnaf#Locality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://dbpedia.org/ontology/Location> .
+<http://linked.data.gov.au/def/gnaf#hasAlias> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#Alias> .
+<http://linked.data.gov.au/def/gnaf#MB2011> <http://www.w3.org/2000/01/rdf-schema#label> "2011 Mesh Block"@en .
+<http://linked.data.gov.au/def/gnaf#Number> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc8be77dad351e87c998cfa9d61ed4975 .
+<http://linked.data.gov.au/def/gnaf#gnafType> <http://www.w3.org/2000/01/rdf-schema#comment> "A property to allow for GNAF-specific soft typing of various GNAF classes using code list terms published in the GNAF product guide, for example Locality class instances being soft typed according to the Locality Types list which includes *Alias Only*, *District*, *Gazeted* etc."@en .
+_:Bfe3484d9bcc0a97d63bf5bf670b9fd0b <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://linked.data.gov.au/def/gnaf#isPrivateStreet> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+_:Bea440bd2245e84a2478ce553d1a1e67a <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
+_:Ba68d5f68e74539293c8879d7125d91bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bc66c4f95f422b0dd3f8c507d39a13bf2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.opengis.net/ont/geosparql#hasGeometry> .
+<http://linked.data.gov.au/def/gnaf#hasGeocode> <http://www.w3.org/2000/01/rdf-schema#label> "has Geocode"@en .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf8526e0d5880b22e5189495b1885f7d2 .
+_:B9bb6f42b3da7c4166e45f0987c2f2344 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#hasMeshBlock> <http://www.w3.org/2000/01/rdf-schema#label> "has Mesh Block"@en .
+<http://linked.data.gov.au/def/gnaf#hasNumber> <http://www.w3.org/2000/01/rdf-schema#label> "has Number"@en .
+_:Bf8167b4e9a077408eb35dd810bada065 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://linked.data.gov.au/def/gnaf#MeshBlockMatch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+_:Ba821107a8be24b0035592fc5dd723016 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B61bf36f29b4067edc0df0c34c823cd3c .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#label> "Address"@en .
+<http://linked.data.gov.au/def/gnaf#hasAddressSecondary> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#Address> .
+<http://linked.data.gov.au/def/gnaf#hasDateRetired> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the same as prov:wasInvalidatedAtTime."@en .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbf62f7d8a66b1f432d63535a001a076a .
+_:Baa937700a019b20aca069c916841dbdf <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasBuildingName> .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bfe3484d9bcc0a97d63bf5bf670b9fd0b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B9bb6f42b3da7c4166e45f0987c2f2344 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasGeocodeReliability> .
+_:Bd2c4bede84d80485b1592438af303192 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasMeshBlockMatch> .
+<http://linked.data.gov.au/def/gnaf#hasAlias> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B60e5783fa98fc42111e622fcee36f0d5 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/elements/1.1/publisher> "PSMA Australia" .
+<http://linked.data.gov.au/def/gnaf#hasNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#Number> .
+<http://linked.data.gov.au/def/gnaf#State> <http://www.w3.org/2000/01/rdf-schema#label> "State"@en .
+<http://linked.data.gov.au/def/gnaf#hasLocality> <http://www.w3.org/2000/01/rdf-schema#domain> <http://linked.data.gov.au/def/gnaf#StreetLocality> .
+<http://linked.data.gov.au/def/gnaf#GeocodePoint> <http://www.w3.org/2000/01/rdf-schema#label> "Geocode Point"@en .
+<http://linked.data.gov.au/def/gnaf#Number> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/dc/terms/source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://linked.data.gov.au/def/gnaf#hasAlias> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#Locality> .
+<http://www.w3.org/ns/prov#wasInvalidatedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bf8526e0d5880b22e5189495b1885f7d2 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#Locality> .
+<http://linked.data.gov.au/def/gnaf#hasDateCreated> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the same as prov:wasGeneratedAtTime."@en .
+<http://linked.data.gov.au/def/gnaf> <http://purl.org/dc/terms/publisher> <http://catalogue.linked.data.gov.au/org/psma> .
+<http://linked.data.gov.au/def/gnaf#hasGeocodeReliability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B92f8a0f785fa853f31bb0da78e367028 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B43ea87f6a30028bc4a97a0ff86b22db6 <http://www.w3.org/2002/07/owl#onClass> <http://linked.data.gov.au/def/gnaf#AddressSite> .
+<http://linked.data.gov.au/def/gnaf#hasStreetSuffix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://linked.data.gov.au/def/gnaf#hasAddressSite> <http://www.w3.org/2000/01/rdf-schema#range> <http://linked.data.gov.au/def/gnaf#AddressSite> .
+<http://linked.data.gov.au/def/gnaf#aliasOf> <http://www.w3.org/2000/01/rdf-schema#label> "alias of"@en .
+<http://linked.data.gov.au/def/gnaf#MB2016> <http://www.w3.org/2000/01/rdf-schema#comment> "A Mesh Block from the 2016 census"@en .
+_:Bf08b52cc5e27f65c1f7995c6e62b1512 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bfe3484d9bcc0a97d63bf5bf670b9fd0b <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasDateRetired> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#label> "Street"@en .
+<http://linked.data.gov.au/def/gnaf#MB2011> <http://www.w3.org/2000/01/rdf-schema#comment> "A Mesh Block from the 2011 census"@en .
+<http://linked.data.gov.au/def/gnaf#hasDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the same as dct:description."@en .
+<http://linked.data.gov.au/def/gnaf#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B28873e7cb883f2bcefb47835c886ac0d .
+<http://linked.data.gov.au/def/gnaf#hasAddressSite> <http://www.w3.org/2000/01/rdf-schema#label> "has Address Site"@en .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://linked.data.gov.au/def/gnaf#State> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linked.data.gov.au/def/gnaf#GnafEntity> .
+<http://linked.data.gov.au/def/gnaf#Street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bcd044f64536c835bc2e24bf0a8a17c35 .
+_:B51b43c8217fce3fe33106586940ae8b7 <http://www.w3.org/2002/07/owl#onProperty> <http://www.opengis.net/ont/geosparql#hasGeometry> .
+_:Bbf62f7d8a66b1f432d63535a001a076a <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasGnafConfidence> .
+<http://linked.data.gov.au/def/gnaf#StreetLocality> <http://www.w3.org/2000/01/rdf-schema#label> "Street Locality" .
+<http://linked.data.gov.au/def/gnaf#Number> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bcd044f64536c835bc2e24bf0a8a17c35 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasStreetSuffix> .
+_:Bf8167b4e9a077408eb35dd810bada065 <http://www.w3.org/2002/07/owl#onProperty> <http://linked.data.gov.au/def/gnaf#hasName> .
+<http://linked.data.gov.au/def/gnaf#hasDateCreated> <http://www.w3.org/2002/07/owl#sameAs> <http://www.w3.org/ns/prov#wasGeneratedAtTime> .

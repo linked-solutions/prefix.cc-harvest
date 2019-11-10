@@ -1,124 +1,59 @@
-<http://www.daml.org/services/owl-s/1.2/Service.owl#presents>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                " \n    There are no cardinality restrictions on this property. \n  " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "See comments above" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ServiceModel" .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#supports>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#providedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#provides> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                " \n    There are no cardinality restrictions on this property. \n  " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#presents> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#provides>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n    OWL-S is completely agnostic at present about what kind of thing\n    provides a service (hence, no domain declared here).\n  " ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#providedBy> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#Service>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "See comments above" , " \n    A service has 0 or 1 models.  (But note that a service with 0 models \n    does not provide automated online access; it exists only for\n    discovery purposes; that is, it exists so as to provide a Profile.)\n  " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Service" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1" ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy>
-                ] .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#supports> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#describes>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                " \n    There are no cardinality restrictions on this property. That is,\n    the same service model can be used by many different services.\n  " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n    Top level of OWL ontology for services.\n    Part of the OWL-S ontology; see http://www.daml.org/services/.  \n  " ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "\n    $Id: Service.owl,v 1.25 2005/05/18 21:45:19 martin Exp $\n  " .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.daml.org/services/owl-s/1.2/Service.owl#describes> .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                " \n    A Grounding must be associated with exactly one service.\n    (Also, that service must have a model - but that constraint\n    isn't expressed here.)\n  " , "See comments above" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ServiceGrounding" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1" ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy>
-                ] .
-
-<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "See comments above" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ServiceProfile" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presents> <http://www.w3.org/2000/01/rdf-schema#comment> " \n    There are no cardinality restrictions on this property. \n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> <http://www.w3.org/2000/01/rdf-schema#label> "ServiceModel" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bddd6c463X2D9ff2X2D4ee4X2Db97eX2D3cc595436452 .
+_:B94525c9cX2D79d0X2D4aa9X2D9bedX2D4d67e26670a8 <http://www.w3.org/2002/07/owl#onProperty> <http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supports> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#providedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#provides> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#providedBy> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#Service> <http://www.w3.org/2000/01/rdf-schema#comment> "See comments above" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#Service> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B94525c9cX2D79d0X2D4aa9X2D9bedX2D4d67e26670a8 .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presents> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supports> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#Service> <http://www.w3.org/2000/01/rdf-schema#comment> " \n    A service has 0 or 1 models.  (But note that a service with 0 models \n    does not provide automated online access; it exists only for\n    discovery purposes; that is, it exists so as to provide a Profile.)\n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supports> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describes> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl> <http://www.w3.org/2002/07/owl#versionInfo> "\n    $Id: Service.owl,v 1.25 2005/05/18 21:45:19 martin Exp $\n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#Service> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> <http://www.w3.org/2000/01/rdf-schema#comment> " \n    A Grounding must be associated with exactly one service.\n    (Also, that service must have a model - but that constraint\n    isn't expressed here.)\n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#provides> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl> <http://www.w3.org/2000/01/rdf-schema#comment> "\n    Top level of OWL ontology for services.\n    Part of the OWL-S ontology; see http://www.daml.org/services/.  \n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presents> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#Service> <http://www.w3.org/2000/01/rdf-schema#label> "Service" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> <http://www.w3.org/2000/01/rdf-schema#comment> "See comments above" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> <http://www.w3.org/2000/01/rdf-schema#comment> " \n    There are no cardinality restrictions on this property. \n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> <http://www.w3.org/2000/01/rdf-schema#comment> "See comments above" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presents> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#describes> .
+_:B94525c9cX2D79d0X2D4aa9X2D9bedX2D4d67e26670a8 <http://www.w3.org/2002/07/owl#maxCardinality> "1" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#providedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> .
+_:Bddd6c463X2D9ff2X2D4ee4X2Db97eX2D3cc595436452 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#providedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#provides> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> <http://www.w3.org/2000/01/rdf-schema#label> "ServiceGrounding" .
+_:Bddd6c463X2D9ff2X2D4ee4X2Db97eX2D3cc595436452 <http://www.w3.org/2002/07/owl#onProperty> <http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> <http://www.w3.org/2000/01/rdf-schema#label> "ServiceProfile" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supports> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B94525c9cX2D79d0X2D4aa9X2D9bedX2D4d67e26670a8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describes> <http://www.w3.org/2000/01/rdf-schema#comment> " \n    There are no cardinality restrictions on this property. That is,\n    the same service model can be used by many different services.\n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presentedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#presents> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#provides> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describes> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#provides> <http://www.w3.org/2000/01/rdf-schema#comment> "\n    OWL-S is completely agnostic at present about what kind of thing\n    provides a service (hence, no domain declared here).\n  " .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supportedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.daml.org/services/owl-s/1.2/Service.owl#supports> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presents> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> .
+_:Bddd6c463X2D9ff2X2D4ee4X2Db97eX2D3cc595436452 <http://www.w3.org/2002/07/owl#cardinality> "1" .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> <http://www.w3.org/2000/01/rdf-schema#comment> "See comments above" .

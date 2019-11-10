@@ -1,160 +1,92 @@
-<http://purl.org/wai#personalizes>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A role is personalized by means of a profile, which wrap the role in the identity of the person behind the profile."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wai#Profile> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "personalizes"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wai#Role> .
-
-<http://purl.org/wai#profiles>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property relates people and the featured profiles."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://xmlns.com/foaf/0.1/Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "profiles"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wai#Profile> .
-
-<http://purl.org/wai#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wai.owl> ;
-        <http://purl.org/dc/terms/contributor>
-                "Diego Berrueta" , "Marcos Sacristán" , "Emilio Rubiera" , "Pablo López" ;
-        <http://purl.org/dc/terms/creator>
-                "Luis Polo" , "Ivan Mínguez" ;
-        <http://purl.org/dc/terms/date>
-                "2010-10-11" ;
-        <http://purl.org/dc/terms/description>
-                ""@en ;
-        <http://purl.org/dc/terms/rights>
-                "(c) TreeLogic, 2009" ;
-        <http://purl.org/dc/terms/title>
-                "Roles and Profiles Ontology"@en .
-
-<http://purl.org/wai#isActive>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property allows to specify which is the user profile that is active, \ngiven a interaction between two applications."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wai#Profile> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is active"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/wai#plays>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property relates roles and their players, who can be any foaf:Agent (a person, a group, etc.)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://xmlns.com/foaf/0.1/Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "plays"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wai#Role> ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://purl.org/wai#profiles> <http://purl.org/wai#personalizes> ) ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://purl.org/wai#plays> <http://purl.org/wai#requires> ) ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://purl.org/wai#plays> <http://purl.org/wai#specializes> ) .
-
-<http://purl.org/wai#participates>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property encodes the participation relation between profiles and the communities they are member of."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wai#Profile> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "participates"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Group> .
-
-<http://purl.org/wai#atContext>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property enables to relate a profile with a given context (geographical, temporal, spatial, social, etc.)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wai#Profile> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "at context"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wai#Context> .
-
-<http://purl.org/dc/terms/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/rights>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/wai#Profile>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A profile represents a particular person playing a given role. In the literature it is also known as a \"qua-individual\". WAI extends the meaning of profile to capture \"person-as-role\", \"person-at-context\" and \"person-in-community\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Profile"@en ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://purl.org/wai#Role> .
-
-<http://purl.org/dc/terms/title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/wai#Context>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Contexts are similar to situations or state of affairs providing interpretation coordinates for profiles. In the most simple case, these coordinates are just geographical/spatial or temporal coordinates. WAI does not impose a fixed definition of context. It is deliberately wide in order to enable third-parties the adequation of the meaning of context according to their modeling needs and requirements."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Context"@en .
-
-<http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/wai#requires>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property relates roles and their requisites, i.e. other roles."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wai#Role> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "requires"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wai#Role> .
-
-<http://purl.org/wai#specializes>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property allows to express hierarchies of roles, through of role specialization: if role A specializes role B, and B specializes C, then role A specializes role C."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wai#Role> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "specializes"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wai#Role> .
-
-<http://purl.org/dc/terms/date>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://xmlns.com/foaf/0.1/member>
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://purl.org/wai#profiles> <http://purl.org/wai#participates> ) .
-
-<http://purl.org/dc/terms/description>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/wai#Role>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A property that can be predicated of a person. In WAI ontology, roles are reified as first order individuals and relations between roles and players are expressed by means of the wai:plays property. WAI does not impose any subclassification of roles. The concept is open to be refined according to domain or application requirements."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Role"@en ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://purl.org/wai#Profile> .
-
-<http://purl.org/dc/terms/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#personalizes> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wai#Role> .
+<http://purl.org/wai#profiles> <http://www.w3.org/2000/01/rdf-schema#comment> "This property relates people and the featured profiles."@en .
+_:Bcc20dc77X2Dea0dX2D412cX2Da906X2D53f7b94a1ec5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#plays> .
+<http://purl.org/wai#profiles> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wai#Profile> .
+<http://purl.org/wai#> <http://purl.org/dc/terms/contributor> "Diego Berrueta" .
+_:B09f89c39X2D43cfX2D46abX2D8b70X2Dc022c7765aa4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/wai#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/wai#personalizes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wai#isActive> <http://www.w3.org/2000/01/rdf-schema#comment> "This property allows to specify which is the user profile that is active, \ngiven a interaction between two applications."@en .
+_:B17f32cadX2D7943X2D4d44X2D9508X2Dcdd904a1e862 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#requires> .
+<http://purl.org/wai#> <http://purl.org/dc/terms/creator> "Luis Polo" .
+<http://purl.org/wai#isActive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:Bcc20dc77X2Dea0dX2D412cX2Da906X2D53f7b94a1ec5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B58c8f033X2D6f4eX2D4819X2D8352X2Dd5c9de4bef84 .
+<http://purl.org/wai#participates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wai#Profile> .
+<http://purl.org/wai#atContext> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wai#Context> .
+<http://purl.org/wai#> <http://purl.org/dc/terms/contributor> "Marcos Sacristán" .
+<http://purl.org/wai#> <http://purl.org/dc/terms/date> "2010-10-11" .
+_:B4a98cd69X2Db2b5X2D42cfX2Daf6eX2D25b30e7cb5b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#plays> .
+<http://purl.org/wai#plays> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/wai#participates> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Group> .
+_:B17f32cadX2D7943X2D4d44X2D9508X2Dcdd904a1e862 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/wai#isActive> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wai#Profile> .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#personalizes> <http://www.w3.org/2000/01/rdf-schema#comment> "A role is personalized by means of a profile, which wrap the role in the identity of the person behind the profile."@en .
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#Profile> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/wai#Role> .
+<http://purl.org/wai#> <http://purl.org/dc/terms/contributor> "Emilio Rubiera" .
+<http://purl.org/wai#plays> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B81578a35X2Df3ffX2D4d71X2D98c2X2D9c2eabad9ac8 .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#plays> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wai#Role> .
+<http://purl.org/wai#plays> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wai#plays> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:Bcc20dc77X2Dea0dX2D412cX2Da906X2D53f7b94a1ec5 .
+<http://purl.org/wai#Context> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wai#> <http://purl.org/dc/terms/contributor> "Pablo López" .
+<http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#isActive> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/wai#plays> <http://www.w3.org/2000/01/rdf-schema#comment> "This property relates roles and their players, who can be any foaf:Agent (a person, a group, etc.)"@en .
+<http://purl.org/wai#> <http://purl.org/dc/terms/creator> "Ivan Mínguez" .
+<http://purl.org/wai#isActive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/wai#atContext> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wai#Profile> .
+<http://purl.org/wai#requires> <http://www.w3.org/2000/01/rdf-schema#comment> "This property relates roles and their requisites, i.e. other roles."@en .
+<http://purl.org/wai#specializes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/dc/terms/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#plays> <http://www.w3.org/2000/01/rdf-schema#label> "plays"@en .
+_:B58c8f033X2D6f4eX2D4819X2D8352X2Dd5c9de4bef84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/wai#Profile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wai#specializes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wai#isActive> <http://www.w3.org/2000/01/rdf-schema#label> "is active"@en .
+<http://purl.org/wai#> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wai.owl> .
+_:B81578a35X2Df3ffX2D4d71X2D98c2X2D9c2eabad9ac8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#profiles> .
+<http://purl.org/wai#profiles> <http://www.w3.org/2000/01/rdf-schema#label> "profiles"@en .
+<http://purl.org/wai#specializes> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wai#Role> .
+<http://purl.org/wai#Profile> <http://www.w3.org/2000/01/rdf-schema#comment> "A profile represents a particular person playing a given role. In the literature it is also known as a \"qua-individual\". WAI extends the meaning of profile to capture \"person-as-role\", \"person-at-context\" and \"person-in-community\"."@en .
+<http://purl.org/wai#specializes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wai#Role> .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#profiles> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/wai#Role> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/wai#Profile> .
+<http://purl.org/wai#Role> <http://www.w3.org/2000/01/rdf-schema#label> "Role"@en .
+<http://purl.org/wai#specializes> <http://www.w3.org/2000/01/rdf-schema#comment> "This property allows to express hierarchies of roles, through of role specialization: if role A specializes role B, and B specializes C, then role A specializes role C."@en .
+<http://purl.org/wai#atContext> <http://www.w3.org/2000/01/rdf-schema#comment> "This property enables to relate a profile with a given context (geographical, temporal, spatial, social, etc.)."@en .
+<http://purl.org/wai#atContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wai#personalizes> <http://www.w3.org/2000/01/rdf-schema#label> "personalizes"@en .
+<http://purl.org/wai#specializes> <http://www.w3.org/2000/01/rdf-schema#label> "specializes"@en .
+<http://purl.org/wai#> <http://purl.org/dc/terms/title> "Roles and Profiles Ontology"@en .
+<http://purl.org/wai#> <http://purl.org/dc/terms/rights> "(c) TreeLogic, 2009" .
+<http://purl.org/wai#participates> <http://www.w3.org/2000/01/rdf-schema#comment> "This property encodes the participation relation between profiles and the communities they are member of."@en .
+<http://purl.org/wai#Role> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wai#plays> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B4a98cd69X2Db2b5X2D42cfX2Daf6eX2D25b30e7cb5b8 .
+<http://purl.org/wai#Context> <http://www.w3.org/2000/01/rdf-schema#comment> "Contexts are similar to situations or state of affairs providing interpretation coordinates for profiles. In the most simple case, these coordinates are just geographical/spatial or temporal coordinates. WAI does not impose a fixed definition of context. It is deliberately wide in order to enable third-parties the adequation of the meaning of context according to their modeling needs and requirements."@en .
+<http://purl.org/wai#requires> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wai#Role> .
+<http://purl.org/wai#atContext> <http://www.w3.org/2000/01/rdf-schema#label> "at context"@en .
+_:Bf98b5fe2X2D55adX2D4bb0X2Dabf9X2D88456a93fc8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B58c8f033X2D6f4eX2D4819X2D8352X2Dd5c9de4bef84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#specializes> .
+_:B84b81fddX2D1af5X2D4131X2D974cX2D10fa83a29ac8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B09f89c39X2D43cfX2D46abX2D8b70X2Dc022c7765aa4 .
+<http://purl.org/wai#profiles> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wai#Profile> <http://www.w3.org/2000/01/rdf-schema#label> "Profile"@en .
+<http://purl.org/wai#Role> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that can be predicated of a person. In WAI ontology, roles are reified as first order individuals and relations between roles and players are expressed by means of the wai:plays property. WAI does not impose any subclassification of roles. The concept is open to be refined according to domain or application requirements."@en .
+<http://purl.org/wai#requires> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wai#Role> .
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wai#requires> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bf98b5fe2X2D55adX2D4bb0X2Dabf9X2D88456a93fc8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#personalizes> .
+_:B4a98cd69X2Db2b5X2D42cfX2Daf6eX2D25b30e7cb5b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B17f32cadX2D7943X2D4d44X2D9508X2Dcdd904a1e862 .
+<http://purl.org/wai#personalizes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wai#Profile> .
+<http://purl.org/wai#Context> <http://www.w3.org/2000/01/rdf-schema#label> "Context"@en .
+_:B09f89c39X2D43cfX2D46abX2D8b70X2Dc022c7765aa4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#participates> .
+<http://purl.org/wai#> <http://purl.org/dc/terms/description> ""@en .
+<http://xmlns.com/foaf/0.1/member> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B84b81fddX2D1af5X2D4131X2D974cX2D10fa83a29ac8 .
+<http://purl.org/wai#requires> <http://www.w3.org/2000/01/rdf-schema#label> "requires"@en .
+<http://purl.org/wai#participates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wai#participates> <http://www.w3.org/2000/01/rdf-schema#label> "participates"@en .
+_:B81578a35X2Df3ffX2D4d71X2D98c2X2D9c2eabad9ac8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf98b5fe2X2D55adX2D4bb0X2Dabf9X2D88456a93fc8f .
+_:B84b81fddX2D1af5X2D4131X2D974cX2D10fa83a29ac8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wai#profiles> .

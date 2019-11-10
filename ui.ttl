@@ -1,808 +1,526 @@
-<http://www.w3.org/ns/ui#initialProperties>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A really simple way of enabling user interfaces to\n            create new information about a class of things is to make a define of properties\n            to be specified when a information about a new item\n            (\"New item\" here means an item which the system\n            does not have prvious information about yet,\n            not an items which has just been created,\n            like new friend as opposed to new baby)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "initial properties" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
-        <http://www.w3.org/ns/ui#prompt>
-                "Properties to be specified for new ones" .
-
-<http://www.w3.org/ns/ui#style>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Must be a valid CSS style string such as one could put in\n        an HTML style attribute.  Depending on the user interface system, this can\n        by given to individuals, classes or properties. It is up to a user interface\n        which wants to draw on them to pick how it uses styles from which parts\n        of the data it has.  For example, the style of a class may be picked\n        to distinguish information about things in that class." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "style" ;
-        <http://www.w3.org/ns/ui#prompt>
-                "CSS style" .
-
-<http://www.w3.org/ns/ui#Choice>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Form> , <http://www.w3.org/ns/ui#Single> .
-
-<http://www.w3.org/ns/ui#Form>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A form can be any type of single field, or typically a Group of several fields,\n    including interspersed headings and comments.  " ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://www.w3.org/ns/ui#ValueField> <http://www.w3.org/ns/ui#Group> <http://www.w3.org/ns/ui#Choice> <http://www.w3.org/ns/ui#Classifier> <http://www.w3.org/ns/ui#Options> <http://www.w3.org/ns/ui#Multiple> <http://www.w3.org/ns/ui#Heading> <http://www.w3.org/ns/ui#Comment> ) ;
-        <http://www.w3.org/ns/ui#creationForm>
-                <http://www.w3.org/ns/ui#FormForm> .
-
-<http://www.w3.org/ns/ui#ValueField>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Form> , <http://www.w3.org/ns/ui#Single> ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://www.w3.org/ns/ui#TextField> <http://www.w3.org/ns/ui#NumericField> <http://www.w3.org/ns/ui#ColorField> <http://www.w3.org/ns/ui#DateField> <http://www.w3.org/ns/ui#DateTimeField> <http://www.w3.org/ns/ui#PhoneField> <http://www.w3.org/ns/ui#EmailField> ) .
-
-<http://www.w3.org/ns/ui#category>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The superclass subclasses of which will be selected." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#Classifier> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "overall superclass"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Class> .
-
-<http://www.w3.org/ns/ui#FormForm>
-        a                               <http://www.w3.org/ns/ui#Form> , <http://www.w3.org/ns/ui#Group> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "Form for editing Forms" ;
-        <http://www.w3.org/ns/ui#part>  <http://www.w3.org/ns/ui#FieldList> ;
-        <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#Comment> ;
-                                          <http://www.w3.org/ns/ui#contents>
-                                                  "To add a field to the form, press the blue plus at the bottom,\n        and then select what sort of field you want."@en ;
-                                          <http://www.w3.org/ns/ui#sequence>
-                                                  3 ;
-                                          <http://www.w3.org/ns/ui#style>
-                                                  "background-color: #ffe;"
-                                        ] ;
-        <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#SingleLineTextField> ;
-                                          <http://www.w3.org/ns/ui#property>
-                                                  <http://purl.org/dc/elements/1.1/title> ;
-                                          <http://www.w3.org/ns/ui#sequence>
-                                                  2 ;
-                                          <http://www.w3.org/ns/ui#size>  60
-                                        ] ;
-        <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#Heading> ;
-                                          <http://www.w3.org/ns/ui#contents>
-                                                  "Edit Form"@en ;
-                                          <http://www.w3.org/ns/ui#sequence>
-                                                  1
-                                        ] .
-
-<http://www.w3.org/ns/ui#maxValue>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#ValueField> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "max" .
-
-<http://www.w3.org/ns/ui#seqeunce>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The sequence in which this item is arranged with repect to other parts." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "sequence number" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<http://www.w3.org/ns/ui#use>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#dependingOn>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Many fields prompt for infromation about a gven property of the subject" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#Options> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "depending on"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
-
-<http://www.w3.org/ns/ui#part>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#Form> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "part"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#MultiLineTextField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#TextField> .
-
-<http://www.w3.org/ns/ui#Group>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Single> , <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#for>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The value for which this case is selected." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "for"@en .
-
-<http://www.w3.org/ns/ui>
-        <http://purl.org/dc/elements/1.1/author>
-                <https://www.w3.org/People/Berners-Lee/card#i> ;
-        <http://purl.org/dc/elements/1.1/created>
-                "2010-08-07"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "The User Interface ontology allows the definition\n\tof forms for processing RDF model data, and include a bootstrap form for\n\tediting forms. It allows user interface hints such as background colors,\n\tcan be associated with objects and classes.\n\t" ;
-        <http://purl.org/dc/elements/1.1/license>
-                <https://creativecommons.org/publicdomain/zero/1.0/> ;
-        <http://purl.org/dc/elements/1.1/modified>
-                "$Date: 2019/07/31 14:50:19 $" ;
-        <http://purl.org/dc/elements/1.1/title>
-                "An ontology for User Interface description, Hints and Forms." .
-
-<http://www.w3.org/ns/ui#minValue>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#ValueField> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "min" .
-
-<http://www.w3.org/ns/ui#backgroundImage>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "URI or base64 representation of an image" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "background image"@en .
-
-<http://www.w3.org/ns/ui#TriStateField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#NumericField> .
-
-<http://www.w3.org/ns/ui#sortPriority>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "When individuals or classes must be sorted, then\n        if they are given different values of sortPriority a user agent can\n        use this as a hint to how to present information." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "sort priority" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<http://www.w3.org/ns/ui#creationForm>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A form which may be used to collect information about a\n    hitherto locally undocumented instance instance of this class." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "creation form" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#EmailField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#ValueField> .
-
-<http://www.w3.org/ns/ui#TextField>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#ValueField> ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://www.w3.org/ns/ui#SingleLineTextField> <http://www.w3.org/ns/ui#MultiLineTextField> ) .
-
-<http://www.w3.org/ns/ui#tableProperties>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This  is a crude way of specifying a table-based\n            view for objects of this class." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "table properties" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> ;
-        <http://www.w3.org/ns/ui#prompt>
-                "Properties to be given in a default table view" .
-
-<http://www.w3.org/ns/ui#annotationForm>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A form which may be used to add more infromation to an\ninstance of this class which we know something about.  Anything from\nadding just add one more fact, to adding a whole lot of information about a specific\nfacet of the thing.\n" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "annotation form" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#size>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#ValueField> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "size of field" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> ;
-        <http://www.w3.org/ns/ui#prompt>
-                "size of field in characters" .
-
-<http://www.w3.org/ns/ui#SingleLineTextField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#TextField> .
-
-<http://www.w3.org/ns/ui#from>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#Choice> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "from" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Class> ;
-        <http://www.w3.org/ns/ui#prompt>
-                "from what class" .
-
-<http://www.w3.org/ns/ui#FieldForm>
-        a                               <http://www.w3.org/ns/ui#Group> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "Form for selecting a type of field" ;
-        <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Options> ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#FloatField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#FloatField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "minimum value" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#min> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#FloatField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "maximum value" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#max> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       3
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#Classifier> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#Comment> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#contents>
-                                                                                                                                                       "A classifier allows the user to which classes the item belongs to, given a common superclass of the allowed classes.  Give the superclass here:" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#Comment> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#contents>
-                                                                                                                                                       "(When the choice is made normally the item is given a rdf:type. Set this to rdf:type unless you want the form to set a different property.)" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       6
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2000/01/rdf-schema#Class> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "superclass" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#category> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       4
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#default>
-                                                                                                                                                       <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       8
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#DecimalField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#DecimalField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "minimum value" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#min> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#DecimalField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "maximum value" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#max> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       3
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#IntegerField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#IntegerField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "maximum value" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#max> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       3
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#IntegerField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "minimum value" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#min> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#Choice> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/ns/ui#Form> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "Nested Form (if any)" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#optional>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#use> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       4 ;
-                                                                                                                                               <http://www.w3.org/ns/ui#use>   <http://www.w3.org/ns/ui#FormForm>
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#BooleanField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "user can add new" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#canMintNew> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       3
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2000/01/rdf-schema#Class> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "destination class" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#from> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#Options> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Multiple> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#part>  <http://www.w3.org/ns/ui#CaseForm> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#case> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#default>
-                                                                                                                                                       <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "depending on" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#dependingOn> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#EmailField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#PhoneField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#DateTimeField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#DateTimeField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "max" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#max> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       3
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#DateTimeField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "min" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#min> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#ColorField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#Heading> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a       <http://www.w3.org/ns/ui#SingleLineTextField> ;
-                                                                                                             <http://www.w3.org/ns/ui#property>
-                                                                                                                     <http://www.w3.org/ns/ui#contents>
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#TextField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                              <http://www.w3.org/ns/ui#IntegerField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "field size" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#max>  4096 ;
-                                                                                                                                               <http://www.w3.org/ns/ui#min>  1 ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#size>
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property>
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                              <http://www.w3.org/ns/ui#IntegerField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "Max. length of string" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#min>  1 ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#maxLength>
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#DateField> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#DateField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "min" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#min> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#DateField> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "max" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#max> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       3
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#Multiple> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a                               <http://www.w3.org/ns/ui#Group> ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#label>
-                                                                                                                                                       "property" ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#property> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       1
-                                                                                                                                             ] ;
-                                                                                                             <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#canMintNew>
-                                                                                                                                                       <http://www.w3.org/ns/ui#true> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#from>  <http://www.w3.org/ns/ui#Form> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#property>
-                                                                                                                                                       <http://www.w3.org/ns/ui#part> ;
-                                                                                                                                               <http://www.w3.org/ns/ui#sequence>
-                                                                                                                                                       2 ;
-                                                                                                                                               <http://www.w3.org/ns/ui#use>   <http://www.w3.org/ns/ui#FieldForm>
-                                                                                                                                             ]
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#Comment> ;
-                                                                            <http://www.w3.org/ns/ui#use>  [ a       <http://www.w3.org/ns/ui#MultiLineTextField> ;
-                                                                                                             <http://www.w3.org/ns/ui#property>
-                                                                                                                     <http://www.w3.org/ns/ui#contents>
-                                                                                                           ]
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#case>  [ <http://www.w3.org/ns/ui#for>  <http://www.w3.org/ns/ui#Group> ;
-                                                                            <http://www.w3.org/ns/ui#use>  <http://www.w3.org/ns/ui#FieldList>
-                                                                          ] ;
-                                          <http://www.w3.org/ns/ui#dependingOn>
-                                                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
-                                          <http://www.w3.org/ns/ui#sequence>
-                                                  2
-                                        ] ;
-        <http://www.w3.org/ns/ui#part>  [ a       <http://www.w3.org/ns/ui#Classifier> ;
-                                          <http://www.w3.org/ns/ui#category>
-                                                  <http://www.w3.org/ns/ui#Form> ;
-                                          <http://www.w3.org/ns/ui#property>
-                                                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ;
-                                          <http://www.w3.org/ns/ui#sequence>
-                                                  1
-                                        ] .
-
-<http://www.w3.org/ns/ui#Options>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Single> , <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#prompt>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A string for the UI to use if the user needs a longer\n        prompts than just a field name, the rdfs:label. " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "user prompt" ;
-        <http://www.w3.org/ns/ui#prompt>
-                "A longer prompt for a user inputting this property" .
-
-<http://www.w3.org/ns/ui#CaseForm>
-        a                               <http://www.w3.org/ns/ui#Group> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "Form for a conditional case in a form" ;
-        <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                          <http://www.w3.org/ns/ui#canMintNew>
-                                                  <http://www.w3.org/ns/ui#true> ;
-                                          <http://www.w3.org/ns/ui#from>  <http://www.w3.org/ns/ui#Form> ;
-                                          <http://www.w3.org/ns/ui#property>
-                                                  <http://www.w3.org/ns/ui#use> ;
-                                          <http://www.w3.org/ns/ui#sequence>
-                                                  2 ;
-                                          <http://www.w3.org/ns/ui#use>   <http://www.w3.org/ns/ui#FieldForm>
-                                        ] ;
-        <http://www.w3.org/ns/ui#part>  [ a                               <http://www.w3.org/ns/ui#Choice> ;
-                                          <http://www.w3.org/ns/ui#canMintNew>
-                                                  <http://www.w3.org/ns/ui#true> ;
-                                          <http://www.w3.org/ns/ui#from>  <http://www.w3.org/2000/01/rdf-schema#Class> ;
-                                          <http://www.w3.org/ns/ui#label>
-                                                  "when it is" ;
-                                          <http://www.w3.org/ns/ui#property>
-                                                  <http://www.w3.org/ns/ui#for> ;
-                                          <http://www.w3.org/ns/ui#sequence>
-                                                  1
-                                        ] .
-
-<http://www.w3.org/ns/ui#Classifier>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A classifier allows the user to select the type of an object.\n    The possible types must be subclasses of some overall class, the \"category\".\n    (Ideally, the superclass is also set up as the disjoint union of the subclasses,\n    if they are disjoint.)\n\n    The form normally stores the resulting classes using an rdf:type triple,\n    but a different predicate can be used if required, so the classifier field\n    needs is 'property' defined too.\n\n    If the subclass selected itself is has subclasses defined, the user can\n    recursively select from them in turn, as many levels as needed." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "classifier" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Single> , <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#DecimalField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#NumericField> .
-
-<http://www.w3.org/ns/ui#Heading>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Form> , <http://www.w3.org/ns/ui#Single> .
-
-<http://www.w3.org/ns/ui#color>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Must be a valid CSS color string such as one could put in\n        an HTML style attribute.  This should be in the #xxxxxx form,\n        (with 6 digits of hex)  so that it\n        can work with Graphviz." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "color"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/ui#Color> .
-
-<http://www.w3.org/ns/ui#BooleanField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#NumericField> .
-
-<http://www.w3.org/ns/ui#backgroundColor>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Must be a valid CSS color string such as one could put in\n        an HTML style attribute.  This should be in the #xxxxxx form,\n        (with 6 digits of hex)  so that it\n        can work with Graphviz." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "background color"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/ui#Color> .
-
-<http://www.w3.org/ns/ui#Comment>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Form> , <http://www.w3.org/ns/ui#Single> .
-
-<http://www.w3.org/ns/ui#property>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Many fields prompt for infromation about a given property of the subject.\n    When field is filled in, this gives which property is written into the data." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#Form> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "property to be stored"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
-
-<http://www.w3.org/ns/ui#Single>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://www.w3.org/ns/ui#ValueField> <http://www.w3.org/ns/ui#Group> <http://www.w3.org/ns/ui#Choice> <http://www.w3.org/ns/ui#Classifier> <http://www.w3.org/ns/ui#Options> <http://www.w3.org/ns/ui#Heading> <http://www.w3.org/ns/ui#Comment> ) .
-
-<http://www.w3.org/ns/ui#sortBy>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A property which typically is used to sort\n        members of a given class." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "sort by" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
-
-<http://www.w3.org/ns/ui#maxLength>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/ui#TextField> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "max length of value" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<http://www.w3.org/ns/ui#FieldList>
-        a                               <http://www.w3.org/ns/ui#Multiple> ;
-        <http://www.w3.org/ns/ui#part>  <http://www.w3.org/ns/ui#FieldForm> ;
-        <http://www.w3.org/ns/ui#property>
-                <http://www.w3.org/ns/ui#part> ;
-        <http://www.w3.org/ns/ui#sequence>
-                10 .
-
-<http://www.w3.org/ns/ui#Multiple>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#Form> .
-
-<http://www.w3.org/ns/ui#DateTimeField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#ValueField> .
-
-<http://www.w3.org/ns/ui#NumericField>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#ValueField> ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://www.w3.org/ns/ui#BooleanField> <http://www.w3.org/ns/ui#TriStateField> <http://www.w3.org/ns/ui#IntegerField> <http://www.w3.org/ns/ui#DecimalField> <http://www.w3.org/ns/ui#FloatField> ) .
-
-<http://www.w3.org/ns/ui#DateField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#ValueField> .
-
-<http://www.w3.org/ns/ui#ColorField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#ValueField> .
-
-<http://www.w3.org/ns/ui#FloatField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#NumericField> .
-
-<http://www.w3.org/ns/ui#PhoneField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#ValueField> .
-
-<http://www.w3.org/ns/ui#IntegerField>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ui#NumericField> .
+<http://www.w3.org/ns/ui#initialProperties> <http://www.w3.org/ns/ui#prompt> "Properties to be specified for new ones" .
+_:Ba4505d0d1f0343a8c75e7697d8eaa80f <http://www.w3.org/ns/ui#part> _:Bc92a81a3501cda248c34425d940f2194 .
+<http://www.w3.org/ns/ui#style> <http://www.w3.org/2000/01/rdf-schema#comment> "Must be a valid CSS style string such as one could put in\n        an HTML style attribute.  Depending on the user interface system, this can\n        by given to individuals, classes or properties. It is up to a user interface\n        which wants to draw on them to pick how it uses styles from which parts\n        of the data it has.  For example, the style of a class may be picked\n        to distinguish information about things in that class." .
+_:B504213c1d7bcc7a382d1a70b7d691aa6 <http://www.w3.org/ns/ui#label> "property" .
+_:Ba326bde3b2181d4d87df74db540f52d4 <http://www.w3.org/ns/ui#use> _:Ba4505d0d1f0343a8c75e7697d8eaa80f .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Options> .
+_:B87c8c25ada14fee4a69420f7a4b8ffac <http://www.w3.org/ns/ui#label> "property" .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+<http://www.w3.org/ns/ui#FormForm> <http://www.w3.org/ns/ui#part> _:Bee4c454beecaa9a338975bb2c5cf3d93 .
+_:B5dae0ad8X2D9bc9X2D4c8cX2D916fX2D057c14afc20e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#DecimalField> .
+_:Bee4c454beecaa9a338975bb2c5cf3d93 <http://www.w3.org/ns/ui#contents> "Edit Form"@en .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:Be7c65b78efdd26807442f3f73a4b3c7d .
+<http://www.w3.org/ns/ui#Choice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+_:B566b034652f1645cdd8da96f959ecf1c <http://www.w3.org/ns/ui#part> _:B3e65917adb87d6695890fbde4b1776b4 .
+_:B3e645089a3088014329ef8cbcd3533ac <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#Form> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#use> .
+<http://www.w3.org/ns/ui#ValueField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+<http://www.w3.org/ns/ui#style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B31ac4df239e25294560ed7960db32797 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#min> .
+<http://www.w3.org/ns/ui#category> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#Classifier> .
+_:Bf03286e0c74273023f3b011f0eace312 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#min> .
+<http://www.w3.org/ns/ui#Form> <http://www.w3.org/2000/01/rdf-schema#comment> "A form can be any type of single field, or typically a Group of several fields,\n    including interspersed headings and comments.  " .
+_:B7bd7fe90cb8ef472042e8f9b95cf6385 <http://www.w3.org/ns/ui#contents> "To add a field to the form, press the blue plus at the bottom,\n        and then select what sort of field you want."@en .
+<http://www.w3.org/ns/ui#FormForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Form> .
+<http://www.w3.org/ns/ui#maxValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#seqeunce> <http://www.w3.org/2000/01/rdf-schema#comment> "The sequence in which this item is arranged with repect to other parts." .
+_:Bf9b75f6da42802b057aa77f2f9f60bda <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Multiple> .
+<http://www.w3.org/ns/ui#use> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:Bc236212bX2Dfaa2X2D4492X2D8c50X2Db048147735c7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#IntegerField> .
+_:B79d56969X2Db039X2D4d79X2D82ebX2D423da1272fdf <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#FloatField> .
+<http://www.w3.org/ns/ui#dependingOn> <http://www.w3.org/2000/01/rdf-schema#label> "depending on"@en .
+<http://www.w3.org/ns/ui#part> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#Form> .
+_:B365a2c0cb3a8a115e94f3a0ed4407ee9 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#EmailField> .
+_:B08fbb90a57a57be9abb2c828b4d8271b <http://www.w3.org/ns/ui#part> _:B191251cf4af687cdfaa0b49eabc02b85 .
+_:B14df3da152776e1b172a844d603df583 <http://www.w3.org/ns/ui#from> <http://www.w3.org/ns/ui#Form> .
+_:Bf04595b8db111b8816675f6936c6ab9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#initialProperties> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B7aaa483da1f78f780fce373d166e647d <http://www.w3.org/ns/ui#label> "property" .
+_:B5df73f84X2D35c9X2D49d9X2D9462X2De1c82f0f4731 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4f0d391cX2D5e53X2D4628X2Da773X2Dfc781837223a .
+_:Bf25d3feb233d937dba64e702561d60db <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B50fe27d4X2D2906X2D4428X2D9cc1X2D3f082feea648 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf319d2fbX2De69fX2D4cceX2D8e97X2Dfeef67815612 .
+_:Be34ecb592e5cad86211a5434cefeaa84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Classifier> .
+_:B679d6966f14cb8b224c0ff9e1cb906d6 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#min> .
+<http://www.w3.org/ns/ui#MultiLineTextField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#TextField> .
+_:Ba548afa4ac6268532b84ad1f10c85e86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#IntegerField> .
+_:Bee4c454beecaa9a338975bb2c5cf3d93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Heading> .
+_:B51bd568b4e26d46f1343ea026fa7a31a <http://www.w3.org/ns/ui#min> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B8fce05543dd524b1e9a599b7c077e3a4 .
+<http://www.w3.org/ns/ui#Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Single> .
+_:B95aefc58b75d488ed2cbd68f44b5ec81 <http://www.w3.org/ns/ui#use> <http://www.w3.org/ns/ui#FieldForm> .
+_:Be1650af696f17678adc1aa3dba3a2188 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#for> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B31ac4df239e25294560ed7960db32797 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#DateField> .
+_:Bf25d3feb233d937dba64e702561d60db <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B705237dcc06882934e72def3b67e5640 <http://www.w3.org/ns/ui#use> _:B51a4b97646510cad595a210ce3f063c5 .
+<http://www.w3.org/ns/ui> <http://purl.org/dc/elements/1.1/license> <https://creativecommons.org/publicdomain/zero/1.0/> .
+_:B14df3da152776e1b172a844d603df583 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#minValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#ValueField> .
+<http://www.w3.org/ns/ui#backgroundImage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/ui#TriStateField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#NumericField> .
+_:B191251cf4af687cdfaa0b49eabc02b85 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#initialProperties> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B4161cba6X2D0068X2D49c4X2D8c90X2Dd2a8060bbecb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B30b0112eX2D012aX2D4886X2Dae13X2D20bef2dde8e1 .
+_:Ba61870bcad214f1fff2e114680b1aaf2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#FloatField> .
+_:Bbf1dbde9ca6a02f6cabdf53c36ba5611 <http://www.w3.org/ns/ui#label> "property" .
+_:B1bfde2d4fbd7476124ac270158d883c2 <http://www.w3.org/ns/ui#sequence> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Be17c4f32176662efe40de9e8a6e66e58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B7ebcaea5bd1c04f6d1d2904d401b33e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:Bc92a81a3501cda248c34425d940f2194 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B08f34e871242a8fcac1734d3ebafebb9 .
+_:B566b034652f1645cdd8da96f959ecf1c <http://www.w3.org/ns/ui#part> _:B679d6966f14cb8b224c0ff9e1cb906d6 .
+<http://www.w3.org/ns/ui#FormForm> <http://www.w3.org/ns/ui#part> _:B228a81ff5af74c7dfe42e47b7c8cdbdf .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B365a2c0cb3a8a115e94f3a0ed4407ee9 .
+_:B0ffb2828X2D3b54X2D495fX2Dad72X2D2d9d6ed8f878 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B6929dd0cX2D3225X2D44cdX2Dbb8eX2D1a460a2cbf47 .
+<http://www.w3.org/ns/ui#sortPriority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#ValueField> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:Be02bce4fX2Dd784X2D4e54X2Da99dX2D3bf198e5196a .
+_:B6929dd0cX2D3225X2D44cdX2Dbb8eX2D1a460a2cbf47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B99e45f26X2Da734X2D49dcX2D885bX2D65519703ba78 .
+_:B51a4b97646510cad595a210ce3f063c5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:Bbf1dbde9ca6a02f6cabdf53c36ba5611 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B679d6966f14cb8b224c0ff9e1cb906d6 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Bf9ac242873aa104ae8f5338fb4a045b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#creationForm> <http://www.w3.org/2000/01/rdf-schema#label> "creation form" .
+_:B12dd1132b9a3aad2c024b9a6e207ce7c <http://www.w3.org/ns/ui#label> "maximum value" .
+<http://www.w3.org/ns/ui#Form> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B0ffb2828X2D3b54X2D495fX2Dad72X2D2d9d6ed8f878 .
+_:B7bd7fe90cb8ef472042e8f9b95cf6385 <http://www.w3.org/ns/ui#style> "background-color: #ffe;" .
+_:B5dae0ad8X2D9bc9X2D4c8cX2D916fX2D057c14afc20e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B79d56969X2Db039X2D4d79X2D82ebX2D423da1272fdf .
+_:B30ab722c700270115da01d3cc8926887 <http://www.w3.org/ns/ui#use> _:B566b034652f1645cdd8da96f959ecf1c .
+<http://www.w3.org/ns/ui#EmailField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#ValueField> .
+_:B4f0d391cX2D5e53X2D4628X2Da773X2Dfc781837223a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1ed524a5X2Db0b1X2D4ca1X2D9f2cX2D9ecb56a5739a .
+_:B9b29bc62X2D1e1dX2D4e97X2D9a86X2D327efd7097f5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#EmailField> .
+_:B95aefc58b75d488ed2cbd68f44b5ec81 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B9b29bc62X2D1e1dX2D4e97X2D9a86X2D327efd7097f5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Be34ecb592e5cad86211a5434cefeaa84 <http://www.w3.org/ns/ui#property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
+_:B5bbc7823X2D49e2X2D48beX2D8fd9X2Dcdf06753308a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Comment> .
+_:B0dc13b94b73520c366fd390b19131623 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:Bf319d2fbX2De69fX2D4cceX2D8e97X2Dfeef67815612 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Multiple> .
+_:B95aefc58b75d488ed2cbd68f44b5ec81 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#use> .
+_:B30ab722c700270115da01d3cc8926887 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#DateTimeField> .
+_:Bed8cc89f03336444c0ea717876fc0ad1 <http://www.w3.org/ns/ui#use> _:B4636cdc0d4cef6b792bbf360da2aba0d .
+_:B8e6dc7cbf848d5914aa3cb31faf37aaa <http://www.w3.org/ns/ui#part> _:B4c9cccb6d51ceb541ed7d0e41c18352d .
+<http://www.w3.org/ns/ui#sortPriority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Be15068a052ad82a6cf9d748e170b9652 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B9c2959b3X2Db2fdX2D4d62X2D85b4X2Db05f78e498c0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5bbc7823X2D49e2X2D48beX2D8fd9X2Dcdf06753308a .
+<http://www.w3.org/ns/ui#Form> <http://www.w3.org/ns/ui#creationForm> <http://www.w3.org/ns/ui#FormForm> .
+_:Bf25d3feb233d937dba64e702561d60db <http://www.w3.org/ns/ui#label> "property" .
+<http://www.w3.org/ns/ui#tableProperties> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:Bfe1cc30695d020b5cd5e3eed2f71da2d <http://www.w3.org/ns/ui#use> _:Bec0a091a29f4f6c52b8badc001b267de .
+<http://www.w3.org/ns/ui#NumericField> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B411c4849X2D7460X2D438cX2D8b95X2D0947c1ca031d .
+_:B7aaa483da1f78f780fce373d166e647d <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B1bfde2d4fbd7476124ac270158d883c2 <http://www.w3.org/ns/ui#label> "max" .
+<http://www.w3.org/ns/ui#annotationForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#size> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#ValueField> .
+_:B6693af8483873104cb187177d46560a2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:B0dc13b94b73520c366fd390b19131623 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/ns/ui#Single> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:Bc82e81b4X2D748eX2D41c4X2D88c5X2Dca7a69e08d26 .
+_:B458faa81X2Dc503X2D4042X2Daf96X2D02e88c03f16b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9b29bc62X2D1e1dX2D4e97X2D9a86X2D327efd7097f5 .
+<http://www.w3.org/ns/ui#SingleLineTextField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#TextField> .
+<http://www.w3.org/ns/ui#backgroundImage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:Bc92a81a3501cda248c34425d940f2194 <http://www.w3.org/ns/ui#default> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
+<http://www.w3.org/ns/ui#from> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#Choice> .
+_:B0244703d16adcb1c0d5d7f318ed21173 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B5998ec20e8b810e5458ba61ba06dd901 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+<http://www.w3.org/ns/ui#style> <http://www.w3.org/2000/01/rdf-schema#label> "style" .
+_:B24cdf214a3159c6f0976b158dee216b9 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#max> .
+_:B7aaa483da1f78f780fce373d166e647d <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/ui#style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B6684d8c44d4849cfd26b81e0f75fb4e0 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#creationForm> <http://www.w3.org/2000/01/rdf-schema#comment> "A form which may be used to collect information about a\n    hitherto locally undocumented instance instance of this class." .
+_:B228a81ff5af74c7dfe42e47b7c8cdbdf <http://www.w3.org/ns/ui#property> <http://purl.org/dc/elements/1.1/title> .
+_:Bbf1dbde9ca6a02f6cabdf53c36ba5611 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B12dd1132b9a3aad2c024b9a6e207ce7c <http://www.w3.org/ns/ui#sequence> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#sortPriority> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+_:Bf03286e0c74273023f3b011f0eace312 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B8e6dc7cbf848d5914aa3cb31faf37aaa <http://www.w3.org/ns/ui#part> _:Bbf1dbde9ca6a02f6cabdf53c36ba5611 .
+_:B779efe00e1bc121903c1f5030e71fd6f <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#TextField> .
+_:B50833286X2Dec05X2D4e88X2Da973X2De15fac5039de <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/ns/ui#label> "Nested Form (if any)" .
+_:B08fbb90a57a57be9abb2c828b4d8271b <http://www.w3.org/ns/ui#part> _:B14df3da152776e1b172a844d603df583 .
+_:B31ac4df239e25294560ed7960db32797 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B99e45f26X2Da734X2D49dcX2D885bX2D65519703ba78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Choice> .
+_:B87c8c25ada14fee4a69420f7a4b8ffac <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:Bed8cc89f03336444c0ea717876fc0ad1 .
+_:B1bfde2d4fbd7476124ac270158d883c2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#DateField> .
+<http://www.w3.org/ns/ui#FieldForm> <http://www.w3.org/ns/ui#part> _:B74443d35d3fe0acb74c52771e3b573ad .
+_:Ba847c595d065d44fdcc22818ac9f324f <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:B504213c1d7bcc7a382d1a70b7d691aa6 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+<http://www.w3.org/ns/ui#tableProperties> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#annotationForm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B228a81ff5af74c7dfe42e47b7c8cdbdf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#SingleLineTextField> .
+_:Bf9b75f6da42802b057aa77f2f9f60bda <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B87c8c25ada14fee4a69420f7a4b8ffac <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/ui#FormForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B504213c1d7bcc7a382d1a70b7d691aa6 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B0dc13b94b73520c366fd390b19131623 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#category> .
+<http://www.w3.org/ns/ui#FieldForm> <http://purl.org/dc/elements/1.1/title> "Form for selecting a type of field" .
+_:B6684d8c44d4849cfd26b81e0f75fb4e0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:Bed8cc89f03336444c0ea717876fc0ad1 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#FloatField> .
+_:B1ed524a5X2Db0b1X2D4ca1X2D9f2cX2D9ecb56a5739a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Classifier> .
+_:Be15068a052ad82a6cf9d748e170b9652 <http://www.w3.org/ns/ui#part> _:B6693af8483873104cb187177d46560a2 .
+<http://www.w3.org/ns/ui#Options> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Single> .
+_:B6929dd0cX2D3225X2D44cdX2Dbb8eX2D1a460a2cbf47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#prompt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:Bfe1cc30695d020b5cd5e3eed2f71da2d .
+_:Bc92a81a3501cda248c34425d940f2194 <http://www.w3.org/ns/ui#label> "depending on" .
+_:B073748d055f39ff9d8411aa98e4e154e <http://www.w3.org/ns/ui#label> "maximum value" .
+_:B5bbc7823X2D49e2X2D48beX2D8fd9X2Dcdf06753308a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B4d59e772X2Dd82cX2D4268X2D9e96X2D53bef8ca88bd <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#SingleLineTextField> .
+_:Be9e947acX2Dd12aX2D4900X2Db0e3X2Dbce29ef9c759 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B458faa81X2Dc503X2D4042X2Daf96X2D02e88c03f16b .
+<http://www.w3.org/ns/ui#Classifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:Ba847c595d065d44fdcc22818ac9f324f <http://www.w3.org/ns/ui#label> "property" .
+_:Bc82e81b4X2D748eX2D41c4X2D88c5X2Dca7a69e08d26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5df73f84X2D35c9X2D49d9X2D9462X2De1c82f0f4731 .
+_:B50fe27d4X2D2906X2D4428X2D9cc1X2D3f082feea648 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Options> .
+_:Be1650af696f17678adc1aa3dba3a2188 <http://www.w3.org/ns/ui#part> _:B51bd568b4e26d46f1343ea026fa7a31a .
+_:Bee4c454beecaa9a338975bb2c5cf3d93 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#for> <http://www.w3.org/2000/01/rdf-schema#label> "for"@en .
+_:Be02bce4fX2Dd784X2D4e54X2Da99dX2D3bf198e5196a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#TextField> .
+<http://www.w3.org/ns/ui#tableProperties> <http://www.w3.org/2000/01/rdf-schema#comment> "This  is a crude way of specifying a table-based\n            view for objects of this class." .
+_:B99e45f26X2Da734X2D49dcX2D885bX2D65519703ba78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bef7313d6X2Da179X2D4197X2D9adcX2D80ecd7766b49 .
+_:Bc92a81a3501cda248c34425d940f2194 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#dependingOn> .
+_:B3e65917adb87d6695890fbde4b1776b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#DateTimeField> .
+<http://www.w3.org/ns/ui#prompt> <http://www.w3.org/2000/01/rdf-schema#comment> "A string for the UI to use if the user needs a longer\n        prompts than just a field name, the rdfs:label. " .
+<http://www.w3.org/ns/ui#DecimalField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#NumericField> .
+_:B228a81ff5af74c7dfe42e47b7c8cdbdf <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#Heading> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+_:B0244703d16adcb1c0d5d7f318ed21173 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#for> .
+_:B14df3da152776e1b172a844d603df583 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#part> .
+_:B4636cdc0d4cef6b792bbf360da2aba0d <http://www.w3.org/ns/ui#part> _:Bf25d3feb233d937dba64e702561d60db .
+<http://www.w3.org/ns/ui#color> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bf9ac242873aa104ae8f5338fb4a045b3 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B705237dcc06882934e72def3b67e5640 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#ColorField> .
+_:Ba548afa4ac6268532b84ad1f10c85e86 <http://www.w3.org/ns/ui#label> "field size" .
+_:Bf25d3feb233d937dba64e702561d60db <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:B5998ec20e8b810e5458ba61ba06dd901 <http://www.w3.org/ns/ui#label> "destination class" .
+<http://www.w3.org/ns/ui#initialProperties> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/ns/ui#CaseForm> <http://www.w3.org/ns/ui#part> _:B0244703d16adcb1c0d5d7f318ed21173 .
+_:B51bd568b4e26d46f1343ea026fa7a31a <http://www.w3.org/ns/ui#label> "Max. length of string" .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B76bf8cd67731801c6e62150df1fc52ae .
+_:Be02bce4fX2Dd784X2D4e54X2Da99dX2D3bf198e5196a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bfb3e96f2X2D8ec8X2D48e2X2Da4f0X2D19570f3947be .
+_:B073748d055f39ff9d8411aa98e4e154e <http://www.w3.org/ns/ui#sequence> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#sortPriority> <http://www.w3.org/2000/01/rdf-schema#label> "sort priority" .
+<http://www.w3.org/ns/ui#BooleanField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#NumericField> .
+_:B0dc13b94b73520c366fd390b19131623 <http://www.w3.org/ns/ui#sequence> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#TextField> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B4d59e772X2Dd82cX2D4268X2D9e96X2D53bef8ca88bd .
+<http://www.w3.org/ns/ui#Classifier> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Single> .
+_:B4636cdc0d4cef6b792bbf360da2aba0d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#backgroundColor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B4c9cccb6d51ceb541ed7d0e41c18352d <http://www.w3.org/ns/ui#contents> "A classifier allows the user to which classes the item belongs to, given a common superclass of the allowed classes.  Give the superclass here:" .
+_:B30b0112eX2D012aX2D4886X2Dae13X2D20bef2dde8e1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bbf0d119aX2Dffb3X2D47eeX2Db6bfX2D220bceaa0abf .
+<http://www.w3.org/ns/ui#Comment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+_:B6693af8483873104cb187177d46560a2 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B00675c1014e213cb6f61803692fdc330 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#contents> .
+<http://www.w3.org/ns/ui#creationForm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/ui#Form> .
+_:B044055af6896d7eff2b4cf7daa1a7495 <http://www.w3.org/ns/ui#part> _:B5998ec20e8b810e5458ba61ba06dd901 .
+_:Be17c4f32176662efe40de9e8a6e66e58 <http://www.w3.org/ns/ui#part> _:B073748d055f39ff9d8411aa98e4e154e .
+_:B3e65917adb87d6695890fbde4b1776b4 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#max> .
+_:B30b0112eX2D012aX2D4886X2Dae13X2D20bef2dde8e1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Heading> .
+_:B365a2c0cb3a8a115e94f3a0ed4407ee9 <http://www.w3.org/ns/ui#use> _:Be15068a052ad82a6cf9d748e170b9652 .
+_:Bec0a091a29f4f6c52b8badc001b267de <http://www.w3.org/ns/ui#part> _:B87c8c25ada14fee4a69420f7a4b8ffac .
+<http://www.w3.org/ns/ui#tableProperties> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/ns/ui#CaseForm> <http://purl.org/dc/elements/1.1/title> "Form for a conditional case in a form" .
+_:Bbf1dbde9ca6a02f6cabdf53c36ba5611 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:Bc236212bX2Dfaa2X2D4492X2D8c50X2Db048147735c7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5dae0ad8X2D9bc9X2D4c8cX2D916fX2D057c14afc20e .
+_:B14df3da152776e1b172a844d603df583 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:B8358e938a9db8036753aca0b981ad467 <http://www.w3.org/ns/ui#label> "user can add new" .
+<http://www.w3.org/ns/ui#color> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#initialProperties> <http://www.w3.org/2000/01/rdf-schema#label> "initial properties" .
+_:B1db274d5b95a0daa0e99b3be1a39c708 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B191251cf4af687cdfaa0b49eabc02b85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:B9c2959b3X2Db2fdX2D4d62X2D85b4X2Db05f78e498c0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Heading> .
+_:Bf03286e0c74273023f3b011f0eace312 <http://www.w3.org/ns/ui#label> "minimum value" .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B3b9bd38e3a6a3c9db81b28635ef221fd .
+_:Bc92a81a3501cda248c34425d940f2194 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:B7ebcaea5bd1c04f6d1d2904d401b33e7 <http://www.w3.org/ns/ui#part> _:B1bfde2d4fbd7476124ac270158d883c2 .
+_:Ba4505d0d1f0343a8c75e7697d8eaa80f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#backgroundColor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B7aaa483da1f78f780fce373d166e647d <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:B0ffb2828X2D3b54X2D495fX2Dad72X2D2d9d6ed8f878 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#ValueField> .
+_:B51bd568b4e26d46f1343ea026fa7a31a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#IntegerField> .
+_:B4c9cccb6d51ceb541ed7d0e41c18352d <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Ba548afa4ac6268532b84ad1f10c85e86 <http://www.w3.org/ns/ui#min> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B08fbb90a57a57be9abb2c828b4d8271b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#category> <http://www.w3.org/2000/01/rdf-schema#label> "overall superclass"@en .
+_:B15c912ea8b4aad90dc39affcb008fa97 <http://www.w3.org/ns/ui#contents> "(When the choice is made normally the item is given a rdf:type. Set this to rdf:type unless you want the form to set a different property.)" .
+<http://www.w3.org/ns/ui#backgroundColor> <http://www.w3.org/2000/01/rdf-schema#label> "background color"@en .
+<http://www.w3.org/ns/ui#category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#property> <http://www.w3.org/2000/01/rdf-schema#label> "property to be stored"@en .
+_:B3e645089a3088014329ef8cbcd3533ac <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B51934e6f69122c53741a1925bc52cde1 .
+_:B624c8644097df3c2a664bc012b4099b1 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#DateField> .
+_:B779efe00e1bc121903c1f5030e71fd6f <http://www.w3.org/ns/ui#use> _:Be1650af696f17678adc1aa3dba3a2188 .
+_:Bec0a091a29f4f6c52b8badc001b267de <http://www.w3.org/ns/ui#part> _:B24cdf214a3159c6f0976b158dee216b9 .
+_:B044055af6896d7eff2b4cf7daa1a7495 <http://www.w3.org/ns/ui#part> _:B6684d8c44d4849cfd26b81e0f75fb4e0 .
+<http://www.w3.org/ns/ui#Single> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/ns/ui#part> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B4c9cccb6d51ceb541ed7d0e41c18352d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Comment> .
+<http://www.w3.org/ns/ui#CaseForm> <http://www.w3.org/ns/ui#part> _:B95aefc58b75d488ed2cbd68f44b5ec81 .
+_:Ba847c595d065d44fdcc22818ac9f324f <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B1ed524a5X2Db0b1X2D4ca1X2D9f2cX2D9ecb56a5739a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4161cba6X2D0068X2D49c4X2D8c90X2Dd2a8060bbecb .
+_:Bef7313d6X2Da179X2D4197X2D9adcX2D80ecd7766b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B50fe27d4X2D2906X2D4428X2D9cc1X2D3f082feea648 .
+_:Bf319d2fbX2De69fX2D4cceX2D8e97X2Dfeef67815612 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9c2959b3X2Db2fdX2D4d62X2D85b4X2Db05f78e498c0 .
+_:B87c8c25ada14fee4a69420f7a4b8ffac <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+<http://www.w3.org/ns/ui#sortPriority> <http://www.w3.org/2000/01/rdf-schema#comment> "When individuals or classes must be sorted, then\n        if they are given different values of sortPriority a user agent can\n        use this as a hint to how to present information." .
+_:Bf04595b8db111b8816675f6936c6ab9f <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B504213c1d7bcc7a382d1a70b7d691aa6 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:Ba847c595d065d44fdcc22818ac9f324f <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B08f34e871242a8fcac1734d3ebafebb9 <http://www.w3.org/ns/ui#use> _:B8e6dc7cbf848d5914aa3cb31faf37aaa .
+_:Bd30c8eadX2Dd997X2D4d82X2D9fdeX2D458a46b0fd7b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#DateField> .
+_:Bf9ac242873aa104ae8f5338fb4a045b3 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:B566b034652f1645cdd8da96f959ecf1c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B14df3da152776e1b172a844d603df583 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B624c8644097df3c2a664bc012b4099b1 <http://www.w3.org/ns/ui#use> _:B7ebcaea5bd1c04f6d1d2904d401b33e7 .
+_:Bf25d3feb233d937dba64e702561d60db <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Ba4505d0d1f0343a8c75e7697d8eaa80f <http://www.w3.org/ns/ui#part> _:Bf9b75f6da42802b057aa77f2f9f60bda .
+_:Ba61870bcad214f1fff2e114680b1aaf2 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#min> .
+_:Bbf1dbde9ca6a02f6cabdf53c36ba5611 <http://www.w3.org/ns/ui#default> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
+<http://www.w3.org/ns/ui#sortBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#backgroundColor> <http://www.w3.org/2000/01/rdf-schema#comment> "Must be a valid CSS color string such as one could put in\n        an HTML style attribute.  This should be in the #xxxxxx form,\n        (with 6 digits of hex)  so that it\n        can work with Graphviz." .
+<http://www.w3.org/ns/ui#FormForm> <http://www.w3.org/ns/ui#part> <http://www.w3.org/ns/ui#FieldList> .
+_:Bc92a81a3501cda248c34425d940f2194 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/ns/ui#from> <http://www.w3.org/ns/ui#Form> .
+_:B8e6dc7cbf848d5914aa3cb31faf37aaa <http://www.w3.org/ns/ui#part> _:B15c912ea8b4aad90dc39affcb008fa97 .
+_:B679d6966f14cb8b224c0ff9e1cb906d6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#DateTimeField> .
+_:Bec0a091a29f4f6c52b8badc001b267de <http://www.w3.org/ns/ui#part> _:B6c2fa96a72d4bc180033d70223715672 .
+<http://www.w3.org/ns/ui#sortBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B191251cf4af687cdfaa0b49eabc02b85 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:Bfb3e96f2X2D8ec8X2D48e2X2Da4f0X2D19570f3947be <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#NumericField> .
+_:B6693af8483873104cb187177d46560a2 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+<http://www.w3.org/ns/ui#color> <http://www.w3.org/2000/01/rdf-schema#comment> "Must be a valid CSS color string such as one could put in\n        an HTML style attribute.  This should be in the #xxxxxx form,\n        (with 6 digits of hex)  so that it\n        can work with Graphviz." .
+<http://www.w3.org/ns/ui#maxLength> <http://www.w3.org/2000/01/rdf-schema#label> "max length of value" .
+<http://www.w3.org/ns/ui#dependingOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Many fields prompt for infromation about a gven property of the subject" .
+_:B8358e938a9db8036753aca0b981ad467 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#canMintNew> .
+<http://www.w3.org/ns/ui#FieldList> <http://www.w3.org/ns/ui#sequence> "10"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B15c912ea8b4aad90dc39affcb008fa97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Comment> .
+_:B4636cdc0d4cef6b792bbf360da2aba0d <http://www.w3.org/ns/ui#part> _:B12dd1132b9a3aad2c024b9a6e207ce7c .
+_:Bf9b75f6da42802b057aa77f2f9f60bda <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#case> .
+_:B3b9bd38e3a6a3c9db81b28635ef221fd <http://www.w3.org/ns/ui#use> _:B08fbb90a57a57be9abb2c828b4d8271b .
+<http://www.w3.org/ns/ui#Multiple> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+<http://www.w3.org/ns/ui#DateTimeField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#ValueField> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#dependingOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> .
+<http://www.w3.org/ns/ui> <http://purl.org/dc/elements/1.1/author> <https://www.w3.org/People/Berners-Lee/card#i> .
+_:B15c912ea8b4aad90dc39affcb008fa97 <http://www.w3.org/ns/ui#sequence> "6"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#category> <http://www.w3.org/2000/01/rdf-schema#comment> "The superclass subclasses of which will be selected." .
+_:B6c2fa96a72d4bc180033d70223715672 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B779efe00e1bc121903c1f5030e71fd6f .
+<http://www.w3.org/ns/ui#property> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#part> <http://www.w3.org/2000/01/rdf-schema#label> "part"@en .
+_:B12dd1132b9a3aad2c024b9a6e207ce7c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#FloatField> .
+_:Ba847c595d065d44fdcc22818ac9f324f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:Bbf0d119aX2Dffb3X2D47eeX2Db6bfX2D220bceaa0abf <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B6c2fa96a72d4bc180033d70223715672 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#DecimalField> .
+<http://www.w3.org/ns/ui#sortBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B8358e938a9db8036753aca0b981ad467 <http://www.w3.org/ns/ui#sequence> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B4f0d391cX2D5e53X2D4628X2Da773X2Dfc781837223a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#FieldList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Multiple> .
+_:B4636cdc0d4cef6b792bbf360da2aba0d <http://www.w3.org/ns/ui#part> _:Ba61870bcad214f1fff2e114680b1aaf2 .
+_:B1bfde2d4fbd7476124ac270158d883c2 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#max> .
+<http://www.w3.org/ns/ui#property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#color> <http://www.w3.org/2000/01/rdf-schema#label> "color"@en .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/ns/ui#sequence> "4"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B6684d8c44d4849cfd26b81e0f75fb4e0 <http://www.w3.org/ns/ui#label> "property" .
+<http://www.w3.org/ns/ui#annotationForm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/ui#Form> .
+<http://www.w3.org/ns/ui#TextField> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:Be1650af696f17678adc1aa3dba3a2188 <http://www.w3.org/ns/ui#part> _:Ba847c595d065d44fdcc22818ac9f324f .
+<http://www.w3.org/ns/ui#style> <http://www.w3.org/ns/ui#prompt> "CSS style" .
+_:B441c28c0e81b8362e389cb8f16d6de64 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#size> <http://www.w3.org/2000/01/rdf-schema#label> "size of field" .
+_:B1db274d5b95a0daa0e99b3be1a39c708 <http://www.w3.org/ns/ui#part> _:B3e645089a3088014329ef8cbcd3533ac .
+_:B7bd7fe90cb8ef472042e8f9b95cf6385 <http://www.w3.org/ns/ui#sequence> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B24cdf214a3159c6f0976b158dee216b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#DecimalField> .
+<http://www.w3.org/ns/ui#category> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B6684d8c44d4849cfd26b81e0f75fb4e0 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B3e645089a3088014329ef8cbcd3533ac <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+<http://www.w3.org/ns/ui#CaseForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B6c2fa96a72d4bc180033d70223715672 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#min> .
+_:Bd30c8eadX2Dd997X2D4d82X2D9fdeX2D458a46b0fd7b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be9e947acX2Dd12aX2D4900X2Db0e3X2Dbce29ef9c759 .
+_:B95aefc58b75d488ed2cbd68f44b5ec81 <http://www.w3.org/ns/ui#from> <http://www.w3.org/ns/ui#Form> .
+_:B24cdf214a3159c6f0976b158dee216b9 <http://www.w3.org/ns/ui#sequence> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#annotationForm> <http://www.w3.org/2000/01/rdf-schema#comment> "A form which may be used to add more infromation to an\ninstance of this class which we know something about.  Anything from\nadding just add one more fact, to adding a whole lot of information about a specific\nfacet of the thing.\n" .
+_:Bf063a6221d7db1ef18418a270955f90b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#SingleLineTextField> .
+_:B51bd568b4e26d46f1343ea026fa7a31a <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#maxLength> .
+_:Ba326bde3b2181d4d87df74db540f52d4 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#Options> .
+<http://www.w3.org/ns/ui#backgroundImage> <http://www.w3.org/2000/01/rdf-schema#comment> "URI or base64 representation of an image" .
+_:B8fce05543dd524b1e9a599b7c077e3a4 <http://www.w3.org/ns/ui#use> _:B044055af6896d7eff2b4cf7daa1a7495 .
+_:Be7c65b78efdd26807442f3f73a4b3c7d <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#PhoneField> .
+_:B044055af6896d7eff2b4cf7daa1a7495 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#from> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Class> .
+_:Bc82e81b4X2D748eX2D41c4X2D88c5X2Dca7a69e08d26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#ValueField> .
+_:B87c8c25ada14fee4a69420f7a4b8ffac <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui> <http://purl.org/dc/elements/1.1/created> "2010-08-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.w3.org/ns/ui#Comment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Single> .
+_:B5469b016X2Da2a2X2D4c4fX2D9ec2X2D5160f59d440a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#ColorField> .
+_:B7bd7fe90cb8ef472042e8f9b95cf6385 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Comment> .
+_:B504213c1d7bcc7a382d1a70b7d691aa6 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#Classifier> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+_:Bf04595b8db111b8816675f6936c6ab9f <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B705237dcc06882934e72def3b67e5640 .
+_:Ba548afa4ac6268532b84ad1f10c85e86 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#size> .
+_:B95aefc58b75d488ed2cbd68f44b5ec81 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#NumericField> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B6684d8c44d4849cfd26b81e0f75fb4e0 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ui#FormForm> <http://www.w3.org/ns/ui#part> _:B7bd7fe90cb8ef472042e8f9b95cf6385 .
+<http://www.w3.org/ns/ui#prompt> <http://www.w3.org/2000/01/rdf-schema#label> "user prompt" .
+_:B411c4849X2D7460X2D438cX2D8b95X2D0947c1ca031d <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#BooleanField> .
+_:B14df3da152776e1b172a844d603df583 <http://www.w3.org/ns/ui#use> <http://www.w3.org/ns/ui#FieldForm> .
+_:B12dd1132b9a3aad2c024b9a6e207ce7c <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#max> .
+_:B073748d055f39ff9d8411aa98e4e154e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#IntegerField> .
+<http://www.w3.org/ns/ui#FormForm> <http://purl.org/dc/elements/1.1/title> "Form for editing Forms" .
+_:Ba61870bcad214f1fff2e114680b1aaf2 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#DateField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#ValueField> .
+<http://www.w3.org/ns/ui#Options> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+_:B191251cf4af687cdfaa0b49eabc02b85 <http://www.w3.org/ns/ui#label> "property" .
+<http://www.w3.org/ns/ui> <http://purl.org/dc/elements/1.1/description> "The User Interface ontology allows the definition\n\tof forms for processing RDF model data, and include a bootstrap form for\n\tediting forms. It allows user interface hints such as background colors,\n\tcan be associated with objects and classes.\n\t" .
+<http://www.w3.org/ns/ui#property> <http://www.w3.org/2000/01/rdf-schema#comment> "Many fields prompt for infromation about a given property of the subject.\n    When field is filled in, this gives which property is written into the data." .
+<http://www.w3.org/ns/ui#use> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/ui#Form> .
+_:B7ebcaea5bd1c04f6d1d2904d401b33e7 <http://www.w3.org/ns/ui#part> _:B504213c1d7bcc7a382d1a70b7d691aa6 .
+_:Bbf1dbde9ca6a02f6cabdf53c36ba5611 <http://www.w3.org/ns/ui#sequence> "8"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#Heading> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Single> .
+_:B8e6dc7cbf848d5914aa3cb31faf37aaa <http://www.w3.org/ns/ui#part> _:B0dc13b94b73520c366fd390b19131623 .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Bc92a81a3501cda248c34425d940f2194 <http://www.w3.org/ns/ui#from> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B0244703d16adcb1c0d5d7f318ed21173 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B5998ec20e8b810e5458ba61ba06dd901 <http://www.w3.org/ns/ui#sequence> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B228a81ff5af74c7dfe42e47b7c8cdbdf <http://www.w3.org/ns/ui#size> "60"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B441c28c0e81b8362e389cb8f16d6de64 .
+_:B1b8e2530X2D12eeX2D4c5cX2D9345X2D85c438f2e397 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc236212bX2Dfaa2X2D4492X2D8c50X2Db048147735c7 .
+_:B76bf8cd67731801c6e62150df1fc52ae <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#Comment> .
+_:Be9e947acX2Dd12aX2D4900X2Db0e3X2Dbce29ef9c759 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#DateTimeField> .
+_:B24cdf214a3159c6f0976b158dee216b9 <http://www.w3.org/ns/ui#label> "maximum value" .
+_:B191251cf4af687cdfaa0b49eabc02b85 <http://www.w3.org/ns/ui#from> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B7aaa483da1f78f780fce373d166e647d <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B30ab722c700270115da01d3cc8926887 .
+_:Bfe1cc30695d020b5cd5e3eed2f71da2d <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#DecimalField> .
+_:B0244703d16adcb1c0d5d7f318ed21173 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B95aefc58b75d488ed2cbd68f44b5ec81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:Ba548afa4ac6268532b84ad1f10c85e86 <http://www.w3.org/ns/ui#max> "4096"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Bf9ac242873aa104ae8f5338fb4a045b3 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/ui#sortBy> <http://www.w3.org/2000/01/rdf-schema#comment> "A property which typically is used to sort\n        members of a given class." .
+_:B5998ec20e8b810e5458ba61ba06dd901 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/ns/ui> <http://purl.org/dc/elements/1.1/title> "An ontology for User Interface description, Hints and Forms." .
+<http://www.w3.org/ns/ui#FieldForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:Be1650af696f17678adc1aa3dba3a2188 <http://www.w3.org/ns/ui#part> _:Ba548afa4ac6268532b84ad1f10c85e86 .
+_:B0dc13b94b73520c366fd390b19131623 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+<http://www.w3.org/ns/ui#minValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:Bbf1dbde9ca6a02f6cabdf53c36ba5611 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#seqeunce> <http://www.w3.org/2000/01/rdf-schema#label> "sequence number" .
+_:Bf9ac242873aa104ae8f5338fb4a045b3 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B044055af6896d7eff2b4cf7daa1a7495 <http://www.w3.org/ns/ui#part> _:B8358e938a9db8036753aca0b981ad467 .
+_:B6693af8483873104cb187177d46560a2 <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:B79d56969X2Db039X2D4d79X2D82ebX2D423da1272fdf <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B191251cf4af687cdfaa0b49eabc02b85 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+_:Be34ecb592e5cad86211a5434cefeaa84 <http://www.w3.org/ns/ui#sequence> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:Ba326bde3b2181d4d87df74db540f52d4 .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/ns/ui#use> <http://www.w3.org/ns/ui#FormForm> .
+_:B0f6eed2bc9b2f01f1217ebeaa0e717f8 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#Heading> .
+_:B76bf8cd67731801c6e62150df1fc52ae <http://www.w3.org/ns/ui#use> _:B00675c1014e213cb6f61803692fdc330 .
+_:B6c2fa96a72d4bc180033d70223715672 <http://www.w3.org/ns/ui#label> "minimum value" .
+_:B5998ec20e8b810e5458ba61ba06dd901 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:B0244703d16adcb1c0d5d7f318ed21173 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#part> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/ui#Form> .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B0f6eed2bc9b2f01f1217ebeaa0e717f8 .
+<http://www.w3.org/ns/ui#maxLength> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#seqeunce> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B3b9bd38e3a6a3c9db81b28635ef221fd <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#Multiple> .
+_:Bec0a091a29f4f6c52b8badc001b267de <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B8358e938a9db8036753aca0b981ad467 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#BooleanField> .
+<http://www.w3.org/ns/ui#minValue> <http://www.w3.org/2000/01/rdf-schema#label> "min" .
+_:B7aaa483da1f78f780fce373d166e647d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#Classifier> <http://www.w3.org/2000/01/rdf-schema#label> "classifier" .
+_:Bf04595b8db111b8816675f6936c6ab9f <http://www.w3.org/ns/ui#label> "property" .
+<http://www.w3.org/ns/ui#from> <http://www.w3.org/ns/ui#prompt> "from what class" .
+_:B073748d055f39ff9d8411aa98e4e154e <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#max> .
+<http://www.w3.org/ns/ui#tableProperties> <http://www.w3.org/ns/ui#prompt> "Properties to be given in a default table view" .
+<http://www.w3.org/ns/ui#size> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+_:Be34ecb592e5cad86211a5434cefeaa84 <http://www.w3.org/ns/ui#category> <http://www.w3.org/ns/ui#Form> .
+<http://www.w3.org/ns/ui#TextField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#ValueField> .
+<http://www.w3.org/ns/ui#Classifier> <http://www.w3.org/2000/01/rdf-schema#comment> "A classifier allows the user to select the type of an object.\n    The possible types must be subclasses of some overall class, the \"category\".\n    (Ideally, the superclass is also set up as the disjoint union of the subclasses,\n    if they are disjoint.)\n\n    The form normally stores the resulting classes using an rdf:type triple,\n    but a different predicate can be used if required, so the classifier field\n    needs is 'property' defined too.\n\n    If the subclass selected itself is has subclasses defined, the user can\n    recursively select from them in turn, as many levels as needed." .
+_:B74443d35d3fe0acb74c52771e3b573ad <http://www.w3.org/ns/ui#case> _:B624c8644097df3c2a664bc012b4099b1 .
+_:B0244703d16adcb1c0d5d7f318ed21173 <http://www.w3.org/ns/ui#label> "when it is" .
+_:Bf03286e0c74273023f3b011f0eace312 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#IntegerField> .
+_:B5998ec20e8b810e5458ba61ba06dd901 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#from> .
+_:B3e65917adb87d6695890fbde4b1776b4 <http://www.w3.org/ns/ui#label> "max" .
+_:B8fce05543dd524b1e9a599b7c077e3a4 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui> <http://purl.org/dc/elements/1.1/modified> "$Date: 2019/07/31 14:50:19 $" .
+<http://www.w3.org/ns/ui#ColorField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#ValueField> .
+<http://www.w3.org/ns/ui#maxValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#ValueField> .
+_:B00675c1014e213cb6f61803692fdc330 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#MultiLineTextField> .
+<http://www.w3.org/ns/ui#from> <http://www.w3.org/2000/01/rdf-schema#label> "from" .
+_:B3e645089a3088014329ef8cbcd3533ac <http://www.w3.org/ns/ui#label> "property" .
+_:Be17c4f32176662efe40de9e8a6e66e58 <http://www.w3.org/ns/ui#part> _:Bf03286e0c74273023f3b011f0eace312 .
+_:B51934e6f69122c53741a1925bc52cde1 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#IntegerField> .
+_:B566b034652f1645cdd8da96f959ecf1c <http://www.w3.org/ns/ui#part> _:Bf9ac242873aa104ae8f5338fb4a045b3 .
+_:B6693af8483873104cb187177d46560a2 <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ui#backgroundImage> <http://www.w3.org/2000/01/rdf-schema#label> "background image"@en .
+_:B7ebcaea5bd1c04f6d1d2904d401b33e7 <http://www.w3.org/ns/ui#part> _:B31ac4df239e25294560ed7960db32797 .
+_:B87c8c25ada14fee4a69420f7a4b8ffac <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:B504213c1d7bcc7a382d1a70b7d691aa6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+_:B50833286X2Dec05X2D4e88X2Da973X2De15fac5039de <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#MultiLineTextField> .
+_:Bf063a6221d7db1ef18418a270955f90b <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#contents> .
+_:B4d59e772X2Dd82cX2D4268X2D9e96X2D53bef8ca88bd <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B50833286X2Dec05X2D4e88X2Da973X2De15fac5039de .
+_:Be7c65b78efdd26807442f3f73a4b3c7d <http://www.w3.org/ns/ui#use> _:B1db274d5b95a0daa0e99b3be1a39c708 .
+_:B6684d8c44d4849cfd26b81e0f75fb4e0 <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#property> .
+<http://www.w3.org/ns/ui#size> <http://www.w3.org/ns/ui#prompt> "size of field in characters" .
+_:B3e645089a3088014329ef8cbcd3533ac <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+<http://www.w3.org/ns/ui#tableProperties> <http://www.w3.org/2000/01/rdf-schema#label> "table properties" .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Form> .
+_:B5df73f84X2D35c9X2D49d9X2D9462X2De1c82f0f4731 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Group> .
+<http://www.w3.org/ns/ui#seqeunce> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#FieldList> <http://www.w3.org/ns/ui#part> <http://www.w3.org/ns/ui#FieldForm> .
+_:B3e65917adb87d6695890fbde4b1776b4 <http://www.w3.org/ns/ui#sequence> "3"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.w3.org/ns/ui#FloatField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#NumericField> .
+<http://www.w3.org/ns/ui#prompt> <http://www.w3.org/ns/ui#prompt> "A longer prompt for a user inputting this property" .
+<http://www.w3.org/ns/ui#maxLength> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B679d6966f14cb8b224c0ff9e1cb906d6 <http://www.w3.org/ns/ui#label> "min" .
+_:B44df8c9ad5c52d56ece15314001a3495 <http://www.w3.org/ns/ui#optional> <http://www.w3.org/ns/ui#true> .
+_:B0f6eed2bc9b2f01f1217ebeaa0e717f8 <http://www.w3.org/ns/ui#use> _:Bf063a6221d7db1ef18418a270955f90b .
+_:B4161cba6X2D0068X2D49c4X2D8c90X2Dd2a8060bbecb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Options> .
+<http://www.w3.org/ns/ui#property> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#Form> .
+_:Bf04595b8db111b8816675f6936c6ab9f <http://www.w3.org/ns/ui#canMintNew> <http://www.w3.org/ns/ui#true> .
+_:Ba61870bcad214f1fff2e114680b1aaf2 <http://www.w3.org/ns/ui#label> "minimum value" .
+<http://www.w3.org/ns/ui#creationForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#dependingOn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#Options> .
+<http://www.w3.org/ns/ui#ValueField> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/ns/ui#FieldList> <http://www.w3.org/ns/ui#property> <http://www.w3.org/ns/ui#part> .
+_:Bf9b75f6da42802b057aa77f2f9f60bda <http://www.w3.org/ns/ui#part> <http://www.w3.org/ns/ui#CaseForm> .
+_:B51934e6f69122c53741a1925bc52cde1 <http://www.w3.org/ns/ui#use> _:Be17c4f32176662efe40de9e8a6e66e58 .
+<http://www.w3.org/ns/ui#PhoneField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#ValueField> .
+_:B5469b016X2Da2a2X2D4c4fX2D9ec2X2D5160f59d440a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bd30c8eadX2Dd997X2D4d82X2D9fdeX2D458a46b0fd7b .
+_:Bf04595b8db111b8816675f6936c6ab9f <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bef7313d6X2Da179X2D4197X2D9adcX2D80ecd7766b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Classifier> .
+_:B31ac4df239e25294560ed7960db32797 <http://www.w3.org/ns/ui#label> "min" .
+<http://www.w3.org/ns/ui#ValueField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Single> .
+_:B441c28c0e81b8362e389cb8f16d6de64 <http://www.w3.org/ns/ui#use> <http://www.w3.org/ns/ui#FieldList> .
+_:B6693af8483873104cb187177d46560a2 <http://www.w3.org/ns/ui#label> "property" .
+<http://www.w3.org/ns/ui#initialProperties> <http://www.w3.org/2000/01/rdf-schema#comment> "A really simple way of enabling user interfaces to\n            create new information about a class of things is to make a define of properties\n            to be specified when a information about a new item\n            (\"New item\" here means an item which the system\n            does not have prvious information about yet,\n            not an items which has just been created,\n            like new friend as opposed to new baby)" .
+<http://www.w3.org/ns/ui#sortBy> <http://www.w3.org/2000/01/rdf-schema#label> "sort by" .
+<http://www.w3.org/ns/ui#from> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#Choice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#Single> .
+_:B044055af6896d7eff2b4cf7daa1a7495 <http://www.w3.org/ns/ui#part> _:B44df8c9ad5c52d56ece15314001a3495 .
+_:B3e645089a3088014329ef8cbcd3533ac <http://www.w3.org/ns/ui#from> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ui#IntegerField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#NumericField> .
+_:Bf25d3feb233d937dba64e702561d60db <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Choice> .
+<http://www.w3.org/ns/ui#annotationForm> <http://www.w3.org/2000/01/rdf-schema#label> "annotation form" .
+<http://www.w3.org/ns/ui#dependingOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#maxValue> <http://www.w3.org/2000/01/rdf-schema#label> "max" .
+_:B458faa81X2Dc503X2D4042X2Daf96X2D02e88c03f16b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#PhoneField> .
+<http://www.w3.org/ns/ui#color> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/ui#Color> .
+_:Bbf0d119aX2Dffb3X2D47eeX2Db6bfX2D220bceaa0abf <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#Comment> .
+<http://www.w3.org/ns/ui#size> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/ns/ui#for> <http://www.w3.org/2000/01/rdf-schema#comment> "The value for which this case is selected." .
+_:B1b8e2530X2D12eeX2D4c5cX2D9345X2D85c438f2e397 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ui#TriStateField> .
+<http://www.w3.org/ns/ui#maxLength> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/ui#TextField> .
+<http://www.w3.org/ns/ui#dependingOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B51a4b97646510cad595a210ce3f063c5 <http://www.w3.org/ns/ui#part> _:B7aaa483da1f78f780fce373d166e647d .
+_:Be17c4f32176662efe40de9e8a6e66e58 <http://www.w3.org/ns/ui#part> _:Bf04595b8db111b8816675f6936c6ab9f .
+_:Bfb3e96f2X2D8ec8X2D48e2X2Da4f0X2D19570f3947be <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5469b016X2Da2a2X2D4c4fX2D9ec2X2D5160f59d440a .
+_:B08f34e871242a8fcac1734d3ebafebb9 <http://www.w3.org/ns/ui#for> <http://www.w3.org/ns/ui#Classifier> .
+<http://www.w3.org/ns/ui#NumericField> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ui#ValueField> .
+<http://www.w3.org/ns/ui#backgroundColor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/ui#Color> .
+<http://www.w3.org/ns/ui#creationForm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B8e6dc7cbf848d5914aa3cb31faf37aaa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/ui#Group> .
+_:B0dc13b94b73520c366fd390b19131623 <http://www.w3.org/ns/ui#label> "superclass" .
+_:Bf9ac242873aa104ae8f5338fb4a045b3 <http://www.w3.org/ns/ui#label> "property" .
+<http://www.w3.org/ns/ui#FieldForm> <http://www.w3.org/ns/ui#part> _:Be34ecb592e5cad86211a5434cefeaa84 .
+_:B411c4849X2D7460X2D438cX2D8b95X2D0947c1ca031d <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1b8e2530X2D12eeX2D4c5cX2D9345X2D85c438f2e397 .

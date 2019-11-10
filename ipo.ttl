@@ -1,1038 +1,548 @@
-<http://purl.org/ipo/core#canBeCausedBy>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Issue can be caused by another Issue directly or indirectly.\nThis property is transitive, i.e., if the issue \"A\" can be caused by the issue \"B\" and the issue \"B\" can be caused by the issue \"C\", then the issue \"A\" can be caused by the issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canBeCausedBy"@en .
-
-<http://purl.org/ipo/core#indicates>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property relates a Issue indicated by this Symptom.\nA Symptom may indicate many Issues, such as a Symptom of fever can indicate many diseases."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Symptom> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "indicates"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#indicatedBy> .
-
-<http://purl.org/ipo/core#directCategoryOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a IssueEntity directly classified in a skos:Concept."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "directCategoryOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#categoryOf> .
-
-<http://purl.org/ipo/core#Issue>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A problem or issue to be resolved. For example, something that is not operating normally or a hindrance to performing some task.\nA Issue can be cause and/or caused, directly or indirectly, by another Issue, the same that the Issue A can depend on the Issue B, needing that the Issue B be solved before solving Issue A.\nThe Issue can have a set of Actions (Procedures) that will fix it and also a Issue can be indicated by several Symptoms, where a set of Symptoms can identify a Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Issue"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#IssueEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#indicatedBy> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#Symptom>
-                ] .
-
-<http://purl.org/ipo/core#hasHostAsset>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates an Asset that is the host (harbourer) of the Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasHostAsset"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#hasAsset> .
-
-<http://purl.org/ipo/core>
-        a       <http://purl.org/vocommons/voaf#Vocabulary> , <http://www.w3.org/2002/07/owl#Ontology> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Vocabulary for describing issues (or problems) and corresponding symptoms and solutions to a broad variety of contexts. It is intended to provide a generic, reusable core ontology that can be extended or specialized for use in domain-specific situations, aimed at supporting linked data publishing. The solutions are represented by procedures, which are possible workflows for solving corresponding issues." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "IPO - Issue Procedure Ontology" ;
-        <http://creativecommons.org/ns#license>
-                <http://creativecommons.org/licenses/by/3.0/> ;
-        <http://purl.org/dc/elements/1.1/creator>
-                "Mark Douglas de Azevedo Jacyntho" , "Matheus Dimas de Morais" ;
-        <http://purl.org/dc/elements/1.1/description>
-                "The conceptual model of the Issue Procedure Ontology can be seen below, where their classes and properties are presented by means of a UML class diagram.\nFor better understanding, the ontology can be divided into four modules:\nIssueEntity\nClasses: IssueEntity, Asset, Image, skos:Concept.\n\nProperties: directCategoryOf, hasDirectCategory, categoryOf, hasCategory, hasMaker, makerOf, hasAsset, assetOf, hasDepiction, depictionOf, title, description.\n\nPersons and Organizations\nClasses: Party, Person e Organization\n\nProperties: hasMember, memberOf, name.\n\nProblems and Symptoms\nClasses: Symptom, Issue.\n\nProperties: directlyCauses, directlyCausedBy, causes, causedBy, dependenceOf, dependsOn, directDependenceOf, directlyDependsOn, canDirectlyCause, canBeDirectlyCausedBy, canCause, canBeCausedBy, canBeDependenceOf, canDependOn, canBeDirectDependenceOf, canDirectlyDependOn, indicatedBy, indicates, hasCausativeAsset, causativeAssetOf, hasHostAsset, hostAssetOf.\n\nProblems and Solutions\nClasses: Action, Task, CompoundAction, Procedure, Activity, Step, Transition, BooleanExpression.\n\nProperties: solves, solvedBy, hasFirstStep, hasStep, activates, hasSource, hasTarget, hasIncoming, hasOutcoming, hasGuardCondition, hasPostCondition, hasPreCondition, goal.\n\nClassifying a IssueEntity\nThere are two ways of classifying a IssueEntity:\n1 - A non-intrinsic classification, ie, a classification aiming a simple grouping of IssueEntities, where the IPO ontology provides ipo use of the property \"ipo:hasCategory\" linking to \"skos:Concept\", enabling the creation of schemes of categories and subcategories.\n2 - A classification that is intrinsic to a IssueEntity, so that classification implies the creation of subclasses of IssueEntity with specific restrictions. For example, the \"Hard Disk Problem\" class being defined by a specific restriction that is being linked to at least one of the symptoms \"Error Reading File\" or \"Error Writing File\" (instances of Symptom class). Thus, resources can be classified based on the description of their symptoms, as an instance of the new class of \"Hard Disk Problem\" (HD)." ;
-        <http://purl.org/dc/elements/1.1/description>
-                <http://ipocore.sourceforge.net/1.2.0/ipo.png> ;
-        <http://purl.org/dc/elements/1.1/language>
-                "en" ;
-        <http://purl.org/dc/elements/1.1/modified>
-                "2015-07-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "IPO - Issue Procedure Ontology" ;
-        <http://purl.org/dc/terms/issued>
-                "2014-11-21"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/license>
-                <http://creativecommons.org/licenses/by/3.0/> ;
-        <http://purl.org/dc/terms/rights>
-                "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "ipo" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://purl.org/ipo/core#" ;
-        <http://www.w3.org/2002/07/owl#versionIRI>
-                <http://purl.org/ipo/core/1.2.0> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "1.2.0" .
-
-<http://purl.org/ipo/core#hasTarget>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the Step of destination of this Transition."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasTarget"@en .
-
-<http://purl.org/ipo/core#hasGuardCondition>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a BooleanExpression for that a Transition occurs.\nFor example, a Transition can have as guardCondition that the Step of origin be executed 10 times. So while this Step does is not executes 10 times, will not be started the Step of destination. This example illustrates a repeating structure within the workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Transition> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasGuardCondition"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#BooleanExpression> .
-
-<http://purl.org/ipo/core#hasDepiction>
-        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates an image that illustrates the IssueEntity.\nSeeking a better description of IssueEntity, one can make use of this property to relate an illustrative image. For example, an image of a software screen containing an error occurred can help describe the problem."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#IssueEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasDepiction"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Image> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://xmlns.com/foaf/0.1/depiction> .
-
-<http://purl.org/ipo/core#directDependenceOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that a Issue is direct dependence of another Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "directDependenceOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#dependenceOf> .
-
-<http://purl.org/ipo/core#activates>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the action to be activated by a Step."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Step> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "activates"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Action> .
-
-<http://purl.org/ipo/core#canBeDependenceOf>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that an Issue can be a dependence of another Issue directly or indirectly.\nThis property is also transitive, i.e., if the issue \"A\" can be dependence of the issue \"B\" and the issue \"B\" can be dependence of the issue \"C\", then the issue \"A\" can be dependence of the issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canBeDependenceOf"@en .
-
-<http://purl.org/ipo/core#hostAssetOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates an Asset with a Issue that occurs in it.\nThis property can be used to relate a person with a disease whose the person is where the disease occurs."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hostAssetOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#assetOf> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#hasHostAsset> .
-
-<http://purl.org/ipo/core#name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a name to identify something."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "name"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/ipo/core#assetOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a IssueEntity that is related to the Asset.\nThis property can be used to facilitate retrieval records of problems related to the Asset."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "assetOf"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#hasAsset> .
-
-<http://purl.org/ipo/core#solves>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Issue that this Procedure solves."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Procedure> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "solves"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#solvedBy> .
-
-<http://purl.org/ipo/core#hasCausativeAsset>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates an Asset that is the causer of the Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasCausativeAsset"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#hasAsset> .
-
-<http://purl.org/ipo/core#depictionOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a IssueEntity illustrated by the image.\nThis property is functional, i.e., an Image is related by this property with only one IssueEntity."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "depictionOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://xmlns.com/foaf/0.1/depicts> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#hasDepiction> .
-
-[ a       <http://www.w3.org/2002/07/owl#AllDisjointClasses> ;
-  <http://www.w3.org/2002/07/owl#members>
-          ( <http://purl.org/ipo/core#Action> <http://purl.org/ipo/core#Issue> <http://purl.org/ipo/core#Symptom> )
-] .
-
-<http://purl.org/ipo/core#hasAsset>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates an Asset to IssueEntity, i.e., any \"thing\" which is related to IssueEntity."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#IssueEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasAsset"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Asset> .
-
-<http://purl.org/ipo/core#hasIncoming>
-        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the Transition that starts the execution of this Step."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Step> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasIncoming"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Transition> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#hasTarget> .
-
-<http://purl.org/ipo/core#hasMember>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Person who is a member of this Organization or another Organization that is member of this Organization, representing here a department or business unit.\n"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Organization> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasMember"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Party> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#memberOf> .
-
-<http://purl.org/ipo/core#canDirectlyDependOn>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that an Issue can directly depend on another Issue.\nFor example, pneumonia can directly depend that the flu is cured to finally be treated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canDirectlyDependOn"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#canDependOn> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#canBeDirectDependenceOf> .
-
-<http://purl.org/ipo/core#Action>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents an action to be performed. An Action can only be a primitive action (Task) or a set of actions (CompoundAction).\nAn Action has a precondition that will enable the execution of the Action, and a postcondition (effect) which will be validated after running the Action."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Action"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#IssueEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#hasPostCondition> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#BooleanExpression>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#hasPreCondition> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#BooleanExpression>
-                ] .
-
-<http://purl.org/ipo/core#canCause>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Issue can cause another Issue directly or indirectly. \nThis property aims to express a possible causal relationship and has the characteristic of transitivity, i.e., the Issue \"A\" can cause the Issue \"B\" and the Issue \"B\" can cause the Issue \"C\", then the Issue \"A\" can cause the Issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canCause"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#canBeCausedBy> .
-
-<http://purl.org/ipo/core#canBeDirectlyCausedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Issue can be  directly caused by another Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canBeDirectlyCausedBy"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#canBeCausedBy> .
-
-<http://xmlns.com/foaf/0.1/Organization>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/ipo/core#solvedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a solution (Procedure) for this Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "solvedBy"@en .
-
-<http://purl.org/ipo/core#canDependOn>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that an Issue can depend on another Issue directly or indirectly.\nThis property can express a dependency relationship between Issues and has the characteristic of transitivity, i.e., the Issue \"A\" can depend on the Issue \"B\" and the Issue \"B\" can depend on \"C\", then the Issue \"A\" can depend on the Issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canDependOn"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#canBeDependenceOf> .
-
-<http://purl.org/ipo/core#Transition>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Transition represents a transition (passage) between two Steps. Each Transition has a Step of origin (source) and a Step of destination (target). A Transition has a guard condition that specifies a boolean condition for that the Transition to occur.\nThrough the guard condition, can be implemented, in a simplified way, a workflow, establishing decision structures, repetition, choice, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Transition"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#hasTarget> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#Step>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#hasSource> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#Step>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#hasGuardCondition> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#BooleanExpression>
-                ] .
-
-<http://purl.org/ipo/core#Organization>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents a group of people organized aiming at a common goal: social, commercial or political.\nCan be used, for example, to represent a company that manufactures an Asset."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Organization"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#Party> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://purl.org/ipo/core#Person> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://xmlns.com/foaf/0.1/Organization> .
-
-<http://purl.org/ipo/core#hasPreCondition>
-        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a precondition for the Action be executed.\n\nA precondition may represent a prerequisite for execution of the Action, without which it is not guaranteed correct execution."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Action> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasPreCondition"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#BooleanExpression> .
-
-<http://purl.org/dc/elements/1.1/title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/ipo/core#Asset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Any \"thing\" that a IssueEntity is related. \nFor example, a problem (disease) diagnosed in a patient, can have a virus and the patient as Asset, since the virus is the causative agent of the problem and the patient is the host in which the problem manifests itself.\nAn Asset can be a person, an object, a report, a document, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Asset"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#title> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2001/XMLSchema#string>
-                ] .
-
-<http://purl.org/ipo/core#categoryOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a IssueEntity classified in a skos:Concept."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "categoryOf"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#hasCategory> .
-
-<http://purl.org/ipo/core#hasFirstStep>
-        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A CompoundAction has one or more steps, so this property indicates the first step should be executed."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasFirstStep"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#hasStep> .
-
-<http://purl.org/ipo/core#Procedure>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A sequence of steps which, after executed solve one or more Issues.\nA procedure has a number of steps that are executed in a specific sequence, one seeking to solve Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Procedure"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#CompoundAction> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#solves> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#Issue>
-                ] .
-
-<http://purl.org/ipo/core#Party>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A class representing a Person or an Organization, and it assumes a role of agent within the treated domain."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Party"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://xmlns.com/foaf/0.1/Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#name> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2001/XMLSchema#string>
-                ] ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/ipo/core#Organization> <http://purl.org/ipo/core#Person> )
-                ] .
-
-<http://purl.org/ipo/core#Step>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A step to be performed within a CompoundAction. Every Step has an Action to be performed and a Transition to another Step to be performed after completing the execution of the Action. \nWith Steps is possible to establish an order for the execution of Actions, as each Step has a Transition that sets the Step of origin and destination. Once a CompoundAction has an initial Step (IPO: hasFirstStep), from this Step can be run all other steps that composes the compoundAction following the Transition between them."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Step"@en .
-
-<http://purl.org/ipo/core#hasStep>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Step that composes the compoundAction."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#CompoundAction> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasStep"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Step> ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://purl.org/ipo/core#hasStep> <http://purl.org/ipo/core#hasOutcoming> <http://purl.org/ipo/core#hasTarget> ) .
-
-<http://purl.org/ipo/core#title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Title (word or phrase) that briefly describes something."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "title"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2000/01/rdf-schema#label> , <http://purl.org/dc/terms/title> .
-
-<http://purl.org/ipo/core#directlyCauses>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates that an Issue directly causes another Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "directlyCauses"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#causes> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#directlyCausedBy> .
-
-<http://purl.org/ipo/core#IssueEntity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A generic class representing the three main concepts within the domain of ontology: Symptom, Problem and Action."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "IssueEntity"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#description> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2001/XMLSchema#string>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#title> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2001/XMLSchema#string>
-                ] .
-
-<http://purl.org/ipo/core#dependsOn>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates that an Issue depends on another Issue directly or indirectly.\nThis property expresses a dependence relationship between Issues and has the characteristic of transitivity, i.e. , if Issue \"A\" depends on the Issue \"B\", and the Issue \"B\" depends on Issue \"C\", then the Issue \"A\" depends on Issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "dependsOn"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#dependenceOf> .
-
-<http://purl.org/ipo/core#causativeAssetOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property relates a Asset with a Issue caused by this Asset. For example, a virus associated with a disease caused by it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "causativeAssetOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#assetOf> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#hasCausativeAsset> .
-
-<http://purl.org/ipo/core#causedBy>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that an Issue is caused by another Issue directly or indirectly.\nThis property also has a transitive characteristic, i.e., if the Issue \"A\" is caused by Issue \"B\" and the Issue \"B\" is caused by Issue \"C\", then the Issue \"A\" is caused by Issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "causedBy"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2002/07/owl#topObjectProperty> .
-
-<http://purl.org/ipo/core#causes>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that an Issue causes another Issue directly or indirectly.\nThis property expresses a causal relationship between Issues and have the characteristic of transitivity, i.e., if the Issue \"A\" causes Issue \"B\" and the Issue \"B\" causes Issue \"C\", then the Issue \"A\" causes Issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "causes"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Issue> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2002/07/owl#topObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#causedBy> .
-
-<http://purl.org/ipo/core#dependenceOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that an Issue is a dependence of another Issue directly or indirectly. \nThis property also has a transitive characteristic, i.e. , if Issue \"A\" is dependence of the Issue \"B\", and the Issue \"B\" is dependence of Issue \"C\", then the Issue \"A\" is dependence of Issue \"C\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "dependenceOf"@en .
-
-<http://purl.org/dc/terms/description>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/ipo/core#hasMaker>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Person or Organization (Party) who created or registered the IssueEntity. This property is also used by Asset class to relate to its manufacturer, developer, inventor, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/ipo/core#Asset> <http://purl.org/ipo/core#IssueEntity> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasMaker"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Party> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://xmlns.com/foaf/0.1/maker> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#makerOf> .
-
-<http://purl.org/ipo/core#hasPostCondition>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a postcondition (effect) will be reached after executing the Action."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Action> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasPostCondition"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#BooleanExpression> .
-
-<http://purl.org/ipo/core#goal>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the description of the goal to be reached after the execution of Procedure."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Procedure> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "goal"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-[ a       <http://purl.org/ipo/core#Person> ] .
-
-<http://purl.org/ipo/core#hasCategory>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a category (skos: Concept) directly or indirectly related to a IssueEntity.\nThe Concept class of SKOS ontology has properties that allow you to create hierarchies of categories (Concepts), still allowing express transitivity between categories. This approach should be used as an alternative to classification by subclass of IssueEntity when it are not intrinsic classifications, just grouping. For example, in the field of medicine, disease can be grouped as viral diseases, bacterial diseases, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#IssueEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasCategory"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://purl.org/ipo/core#hasCategory> <http://www.w3.org/2004/02/skos/core#broaderTransitive> ) .
-
-<http://purl.org/ipo/core#CompoundAction>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An action composed of several other actions. A CompoundAction may have the goal of solving one or more Issues, representing a Procedure or not having an explicit goal, just be a group of Actions to be reused, behaving as an Activity. A CompoundAction has one or more execution steps that activate one Action (Task or other CompoundAction), thus allowing, that a compoundAction reuse another.\nA CompoundAction can be used to create a workflow structure, aimed at better structuring of actions that compose it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "CompoundAction"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#Action> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#hasStep> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#Step>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#hasFirstStep> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#Step>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://purl.org/ipo/core#Task> .
-
-<http://purl.org/ipo/core#Image>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An artifact that illustrates or records a visual perception.\n\nIt can be used to illustrate a IssueEntity seeking a better understanding of it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Image"@en ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://xmlns.com/foaf/0.1/Image> .
-
-<http://purl.org/ipo/core#makerOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property can be used to indicates an Asset created/manufactured by Party or a IssueEntity created/registered by the Party."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "makerOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://xmlns.com/foaf/0.1/made> .
-
-<http://purl.org/ipo/core#canDirectlyCause>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Issue can directly cause another Issue.\nThis property aims to express a possible causal relationship, where an Issue can be direct cause of another Issue. For example, flu disease can cause pneumonia, i.e., in some cases, flu causes pneumonia and in another cases not."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canDirectlyCause"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#canCause> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#canBeDirectlyCausedBy> .
-
-<http://purl.org/dc/elements/1.1/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/vocommons/voaf#Vocabulary>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/ipo/core#Symptom>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents a sign or indication of one or more Issues. Something that is perceived when a problem occurs.\n"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Symptom"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#IssueEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#indicates> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://purl.org/ipo/core#Issue>
-                ] .
-
-[ a       <http://www.w3.org/2002/07/owl#AllDisjointClasses> ;
-  <http://www.w3.org/2002/07/owl#members>
-          ( <http://purl.org/ipo/core#BooleanExpression> <http://purl.org/ipo/core#Image> <http://purl.org/ipo/core#IssueEntity> <http://purl.org/ipo/core#Party> <http://purl.org/ipo/core#Step> <http://purl.org/ipo/core#Transition> <http://www.w3.org/2004/02/skos/core#Concept> )
-] .
-
-<http://purl.org/ipo/core#description>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates text that describes something in detail."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "description"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/terms/description> , <http://www.w3.org/2000/01/rdf-schema#comment> .
-
-<http://purl.org/ipo/core#directlyDependsOn>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This relation indicates that a issue directly depends on another Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "directlyDependsOn"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#dependsOn> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#directDependenceOf> .
-
-<http://purl.org/ipo/core#indicatedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Symptom of this Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "indicatedBy"@en .
-
-<http://xmlns.com/foaf/0.1/Image>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/ipo/core#hasDirectCategory>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a category (skos: Concept) directly related to a IssueEntity."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasDirectCategory"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#hasCategory> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#directCategoryOf> .
-
-<http://purl.org/dc/elements/1.1/date>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/ipo/core#BooleanExpression>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A logical expression whose value is true or false, aiming to validate a Transition between two Steps, or serve with a pre-condition for the execution of a Action or serve as a post-condition to validate the execution of an Action.\n\t   "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "BooleanExpression"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ipo/core#description> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2001/XMLSchema#string>
-                ] .
-
-<http://purl.org/ipo/core#memberOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a organization that the Party is participant.\nThis property can be used to indicates that an employee is a member of an organization.\nAnother approach is to use this property to relate two organizations thus representing a department that is a member of his company."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "memberOf"@en .
-
-<http://purl.org/ipo/core#hasOutcoming>
-        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the Transition that occurs after execution of this Step and that activates the next Step to be executed."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ipo/core#Step> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasOutcoming"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ipo/core#Transition> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ipo/core#hasSource> .
-
-<http://xmlns.com/foaf/0.1/Agent>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-[ <http://purl.org/ipo/core#name>
-          "Matheus Dimas de Morais" ] .
-
-<http://purl.org/ipo/core#Person>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents a person.\nCan be used, for example, to represent a person who works in an Organization, produces some Asset or records an IssueEntity."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Person"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#Party> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://xmlns.com/foaf/0.1/Person> .
-
-<http://purl.org/ipo/core#canBeDirectDependenceOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates an Issue that can be direct dependence of another Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "canBeDirectDependenceOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#canBeDependenceOf> .
-
-<http://purl.org/ipo/core#Activity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A set of steps that perform an activity, but does not aim to solve a particular Issue.\nCan be used to group multiple steps that are repeated in various Procedures to facilitate reuse."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Activity"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#CompoundAction> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://purl.org/ipo/core#Procedure> .
-
-<http://purl.org/ipo/core#hasSource>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the Step of origin of this Transition."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasSource"@en .
-
-<http://www.w3.org/2000/01/rdf-schema#comment>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-[ a       <http://purl.org/ipo/core#Person> ] .
-
-<http://purl.org/dc/elements/1.1/rights>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/ipo/core#Task>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "One elementary and single action.\nBeing an elementary task, it can not be decomposed into simpler actions."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Task"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ipo/core#Action> .
-
-<http://purl.org/ipo/core#directlyCausedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that an Issue is directly caused by another Issue."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ipo/core> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "directlyCausedBy"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ipo/core#causedBy> .
-
-<http://purl.org/vocab/vann/preferredNamespaceUri>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/2000/01/rdf-schema#label>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-[ <http://purl.org/ipo/core#name>
-          "Mark Douglas de Azevedo Jacyntho" ] .
-
-<http://xmlns.com/foaf/0.1/Person>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://xmlns.com/foaf/0.1/made>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/elements/1.1/language>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/elements/1.1/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/title>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://xmlns.com/foaf/0.1/depicts>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://xmlns.com/foaf/0.1/maker>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/2004/02/skos/core#Concept>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/2004/02/skos/core#broaderTransitive>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/vocab/vann/preferredNamespacePrefix>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://xmlns.com/foaf/0.1/depiction>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#canBeCausedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#indicates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Symptom> .
+<http://purl.org/ipo/core#directCategoryOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#Issue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#Issue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B15acebbdX2D64b8X2D4eb5X2D9cc3X2Db22cda166eae .
+_:B928868b9X2D03e3X2D4e54X2D92dbX2D76e628a3478c <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#hasPostCondition> .
+_:B37a464e2X2D51b0X2D40faX2D8410X2De2362c41f429 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2004/02/skos/core#broaderTransitive> .
+<http://purl.org/ipo/core#hasHostAsset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#hasAsset> .
+_:Bc443b5deX2D5053X2D46bdX2Da1d1X2Df4853dabd5a6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ipo/core> <http://www.w3.org/2002/07/owl#versionInfo> "1.2.0" .
+<http://purl.org/ipo/core#Issue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#IssueEntity> .
+_:B9563adf9X2D3ca0X2D4f74X2D958dX2Ded06a4bd9d58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Party> .
+<http://purl.org/ipo/core#hasTarget> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the Step of destination of this Transition."@en .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Issue> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#directDependenceOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#activates> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the action to be activated by a Step."@en .
+<http://purl.org/ipo/core#canBeDependenceOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hostAssetOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#hasHostAsset> .
+<http://purl.org/ipo/core#name> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a name to identify something."@en .
+<http://purl.org/ipo/core#assetOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#hasAsset> .
+<http://purl.org/ipo/core#solves> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#solvedBy> .
+_:Bf2bc3f71X2D196cX2D4bedX2D8e11X2Dd593dbfe78c3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ipo/core#hasCausativeAsset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#depictionOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Symptom> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc9753421X2D923dX2D41ffX2D8ae3X2D92c96e4b25cf .
+<http://purl.org/ipo/core#depictionOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/depicts> .
+<http://purl.org/ipo/core#hasAsset> <http://www.w3.org/2000/01/rdf-schema#label> "hasAsset"@en .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Transition> .
+<http://purl.org/ipo/core#hasMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#canDirectlyDependOn> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#canBeDirectDependenceOf> .
+<http://purl.org/ipo/core#hasAsset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#IssueEntity> .
+<http://purl.org/ipo/core#hasMember> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Organization> .
+<http://purl.org/ipo/core#assetOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#canBeDirectlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "An Issue can be  directly caused by another Issue."@en .
+<http://purl.org/ipo/core#hasHostAsset> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates an Asset that is the host (harbourer) of the Issue."@en .
+<http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#solvedBy> <http://www.w3.org/2000/01/rdf-schema#label> "solvedBy"@en .
+<http://purl.org/ipo/core#indicates> <http://www.w3.org/2000/01/rdf-schema#comment> "This property relates a Issue indicated by this Symptom.\nA Symptom may indicate many Issues, such as a Symptom of fever can indicate many diseases."@en .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/2000/01/rdf-schema#comment> "An Issue can cause another Issue directly or indirectly. \nThis property aims to express a possible causal relationship and has the characteristic of transitivity, i.e., the Issue \"A\" can cause the Issue \"B\" and the Issue \"B\" can cause the Issue \"C\", then the Issue \"A\" can cause the Issue \"C\"."@en .
+_:Bc001f1e2X2D5c22X2D4229X2Daa31X2D6dc732a49047 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#BooleanExpression> .
+_:Bc001f1e2X2D5c22X2D4229X2Daa31X2D6dc732a49047 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#hasPreCondition> .
+_:Beb5fd8e0X2DcdbeX2D43fcX2Dab48X2D76b181f49951 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Step> .
+_:B0d1fb549X2D8f6fX2D4cbeX2Da19aX2D67c2c9d0a1e3 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#title> .
+<http://purl.org/ipo/core#Organization> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://purl.org/ipo/core#IssueEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0d1fb549X2D8f6fX2D4cbeX2Da19aX2D67c2c9d0a1e3 .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "Any \"thing\" that a IssueEntity is related. \nFor example, a problem (disease) diagnosed in a patient, can have a virus and the patient as Asset, since the virus is the causative agent of the problem and the patient is the host in which the problem manifests itself.\nAn Asset can be a person, an object, a report, a document, etc."@en .
+<http://purl.org/ipo/core#categoryOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a precondition for the Action be executed.\n\nA precondition may represent a prerequisite for execution of the Action, without which it is not guaranteed correct execution."@en .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#BooleanExpression> .
+<http://purl.org/ipo/core#hasFirstStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+_:B8ebf8dc7X2D5db7X2D488eX2D928fX2D706eb6ba72c0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf2bc3f71X2D196cX2D4bedX2D8e11X2Dd593dbfe78c3 .
+<http://purl.org/ipo/core#Procedure> <http://www.w3.org/2000/01/rdf-schema#comment> "A sequence of steps which, after executed solve one or more Issues.\nA procedure has a number of steps that are executed in a specific sequence, one seeking to solve Issue."@en .
+<http://purl.org/ipo/core#depictionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a IssueEntity illustrated by the image.\nThis property is functional, i.e., an Image is related by this property with only one IssueEntity."@en .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#Party> <http://www.w3.org/2000/01/rdf-schema#comment> "A class representing a Person or an Organization, and it assumes a role of agent within the treated domain."@en .
+<http://purl.org/ipo/core#Step> <http://www.w3.org/2000/01/rdf-schema#label> "Step"@en .
+<http://purl.org/ipo/core#hasStep> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#CompoundAction> .
+<http://purl.org/ipo/core#title> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#directlyCauses> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates that an Issue directly causes another Issue."@en .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#canBeCausedBy> .
+<http://purl.org/ipo/core> <http://purl.org/vocab/vann/preferredNamespacePrefix> "ipo" .
+<http://purl.org/ipo/core#IssueEntity> <http://www.w3.org/2000/01/rdf-schema#label> "IssueEntity"@en .
+_:Bc9753421X2D923dX2D41ffX2D8ae3X2D92c96e4b25cf <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#Procedure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#CompoundAction> .
+<http://purl.org/ipo/core> <http://purl.org/dc/terms/issued> "2014-11-21"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:B37044e3bX2De3b2X2D4766X2D9193X2D31404aac5e58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Organization> .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#causativeAssetOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:Be1b092adX2Dd680X2D4622X2D8c84X2Da759e3680547 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#causedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B26a41a8dX2Df833X2D41e0X2D8020X2D533aa905a551 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:B7ee06166X2Df521X2D4d2eX2D86fbX2D80ee112eeb90 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#description> .
+<http://purl.org/ipo/core#Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#canDirectlyDependOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#dependenceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#causedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ipo/core#canBeDependenceOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Issue can be a dependence of another Issue directly or indirectly.\nThis property is also transitive, i.e., if the issue \"A\" can be dependence of the issue \"B\" and the issue \"B\" can be dependence of the issue \"C\", then the issue \"A\" can be dependence of the issue \"C\"."@en .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#makerOf> .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#label> "hasPostCondition"@en .
+<http://purl.org/ipo/core#goal> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Procedure> .
+<http://purl.org/ipo/core> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+<http://purl.org/ipo/core#title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#activates> <http://www.w3.org/2000/01/rdf-schema#label> "activates"@en .
+<http://purl.org/ipo/core#activates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/ipo/core#Procedure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#hasCategory> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/2000/01/rdf-schema#label> "CompoundAction"@en .
+_:B4ebfe825X2D2f05X2D4976X2Dba8aX2D02eb4e737df6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/ipo/core#directDependenceOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#dependenceOf> .
+_:Bb8cddf69X2D607bX2D4b3bX2D9649X2D7a73c5109e7f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#IssueEntity> .
+<http://purl.org/ipo/core#hasTarget> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Image> <http://www.w3.org/2002/07/owl#equivalentClass> <http://xmlns.com/foaf/0.1/Image> .
+<http://purl.org/ipo/core#Action> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc001f1e2X2D5c22X2D4229X2Daa31X2D6dc732a49047 .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#label> "hasPreCondition"@en .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Transition> <http://www.w3.org/2000/01/rdf-schema#label> "Transition"@en .
+<http://purl.org/ipo/core> <http://www.w3.org/2002/07/owl#versionIRI> <http://purl.org/ipo/core/1.2.0> .
+<http://purl.org/ipo/core#depictionOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#hasDepiction> .
+<http://purl.org/ipo/core#makerOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#canBeDirectlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canDirectlyCause> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#canBeDirectlyCausedBy> .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/ipo/core#Task> .
+<http://purl.org/ipo/core#dependenceOf> <http://www.w3.org/2000/01/rdf-schema#label> "dependenceOf"@en .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#hasFirstStep> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core> <http://purl.org/dc/elements/1.1/language> "en" .
+<http://purl.org/ipo/core#Transition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7b4269b9X2Dbfc7X2D44a6X2D9129X2D549fca5d1af3 .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B26604c13X2Da535X2D4842X2Da9c9X2D8dc01543a918 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates that an Issue depends on another Issue directly or indirectly.\nThis property expresses a dependence relationship between Issues and has the characteristic of transitivity, i.e. , if Issue \"A\" depends on the Issue \"B\", and the Issue \"B\" depends on Issue \"C\", then the Issue \"A\" depends on Issue \"C\"."@en .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/ipo/core#Procedure> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Action> .
+<http://purl.org/ipo/core#hostAssetOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#assetOf> .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/2000/01/rdf-schema#comment> "An action composed of several other actions. A CompoundAction may have the goal of solving one or more Issues, representing a Procedure or not having an explicit goal, just be a group of Actions to be reused, behaving as an Activity. A CompoundAction has one or more execution steps that activate one Action (Task or other CompoundAction), thus allowing, that a compoundAction reuse another.\nA CompoundAction can be used to create a workflow structure, aimed at better structuring of actions that compose it."@en .
+_:B15acebbdX2D64b8X2D4eb5X2D9cc3X2Db22cda166eae <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#Symptom> .
+<http://purl.org/ipo/core> <http://www.w3.org/2000/01/rdf-schema#label> "IPO - Issue Procedure Ontology" .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/2000/01/rdf-schema#label> "canDependOn"@en .
+<http://purl.org/ipo/core#Step> <http://www.w3.org/2000/01/rdf-schema#comment> "A step to be performed within a CompoundAction. Every Step has an Action to be performed and a Transition to another Step to be performed after completing the execution of the Action. \nWith Steps is possible to establish an order for the execution of Actions, as each Step has a Transition that sets the Step of origin and destination. Once a CompoundAction has an initial Step (IPO: hasFirstStep), from this Step can be run all other steps that composes the compoundAction following the Transition between them."@en .
+<http://purl.org/ipo/core#Image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B309e49b0X2Db94dX2D45f7X2Da1bbX2Dd9a48c8b5eba <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#hasStep> .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Be1b092adX2Dd680X2D4622X2D8c84X2Da759e3680547 .
+_:Bb8cddf69X2D607bX2D4b3bX2D9649X2D7a73c5109e7f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ipo/core#description> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/description> .
+<http://purl.org/ipo/core#canBeDependenceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+_:B73d99f19X2D03a0X2D43a4X2Da6ebX2D13b54b27533e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#canBeDependenceOf> .
+_:Bc23309c8X2D16ebX2D43f9X2D8802X2De9cf64fea013 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#solves> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/ipo/core#title> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/ipo/core#Image> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#goal> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the description of the goal to be reached after the execution of Procedure."@en .
+<http://purl.org/ipo/core#IssueEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7ee06166X2Df521X2D4d2eX2D86fbX2D80ee112eeb90 .
+<http://purl.org/ipo/core#directlyCauses> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#directlyCausedBy> .
+<http://purl.org/ipo/core#categoryOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#hasCategory> .
+<http://purl.org/ipo/core#canDirectlyCause> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/2000/01/rdf-schema#label> "causes"@en .
+_:B8901f7faX2D32a8X2D4753X2Db18aX2Df952555b23d1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#directlyDependsOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#canBeCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/ipo/core#hostAssetOf> <http://www.w3.org/2000/01/rdf-schema#label> "hostAssetOf"@en .
+<http://purl.org/ipo/core#indicatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://xmlns.com/foaf/0.1/Image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#activates> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasAsset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasTarget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/ipo/core> <http://purl.org/dc/elements/1.1/creator> "Mark Douglas de Azevedo Jacyntho" .
+<http://purl.org/ipo/core#hasDirectCategory> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:Bc9753421X2D923dX2D41ffX2D8ae3X2D92c96e4b25cf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bf2bc3f71X2D196cX2D4bedX2D8e11X2Dd593dbfe78c3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://purl.org/ipo/core#hostAssetOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a postcondition (effect) will be reached after executing the Action."@en .
+<http://purl.org/ipo/core#BooleanExpression> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#IssueEntity> .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/2000/01/rdf-schema#label> "canCause"@en .
+<http://purl.org/ipo/core#hasCategory> <http://www.w3.org/2000/01/rdf-schema#label> "hasCategory"@en .
+<http://purl.org/ipo/core#hasDirectCategory> <http://www.w3.org/2000/01/rdf-schema#label> "hasDirectCategory"@en .
+_:B37044e3bX2De3b2X2D4766X2D9193X2D31404aac5e58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B73d99f19X2D03a0X2D43a4X2Da6ebX2D13b54b27533e .
+<http://purl.org/ipo/core#Symptom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#indicates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#memberOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B8901f7faX2D32a8X2D4753X2Db18aX2Df952555b23d1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/ipo/core#Party> <http://www.w3.org/2000/01/rdf-schema#label> "Party"@en .
+<http://purl.org/ipo/core> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/3.0/> .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#BooleanExpression> <http://www.w3.org/2000/01/rdf-schema#comment> "A logical expression whose value is true or false, aiming to validate a Transition between two Steps, or serve with a pre-condition for the execution of a Action or serve as a post-condition to validate the execution of an Action.\n\t   "@en .
+<http://purl.org/ipo/core#Symptom> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#IssueEntity> .
+_:Bd46d3917X2Dd744X2D4b53X2D9bedX2D4b4f0465a8a7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#hasTarget> .
+<http://purl.org/ipo/core#directCategoryOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#categoryOf> .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Party> .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ipo/core#Symptom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#hasFirstStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/ipo/core#BooleanExpression> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#canDirectlyCause> <http://www.w3.org/2000/01/rdf-schema#label> "canDirectlyCause"@en .
+<http://purl.org/ipo/core#description> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates text that describes something in detail."@en .
+<http://purl.org/ipo/core#goal> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B15acebbdX2D64b8X2D4eb5X2D9cc3X2Db22cda166eae <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B386295c7X2D7bcdX2D49c4X2Da593X2D125d6484041a <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#solves> .
+<http://purl.org/ipo/core#hasHostAsset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B7b2788cfX2Da9eeX2D4dd8X2D9822X2D263930f2a1ac <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://purl.org/ipo/core#Person> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents a person.\nCan be used, for example, to represent a person who works in an Organization, produces some Asset or records an IssueEntity."@en .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/depiction> .
+<http://purl.org/ipo/core#canDirectlyCause> <http://www.w3.org/2000/01/rdf-schema#comment> "An Issue can directly cause another Issue.\nThis property aims to express a possible causal relationship, where an Issue can be direct cause of another Issue. For example, flu disease can cause pneumonia, i.e., in some cases, flu causes pneumonia and in another cases not."@en .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B2e7a9986X2D4b0cX2D4178X2Dbff7X2D26bc0faf3d1a <http://purl.org/ipo/core#name> "Mark Douglas de Azevedo Jacyntho" .
+<http://purl.org/ipo/core#Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#canBeCausedBy> <http://www.w3.org/2000/01/rdf-schema#label> "canBeCausedBy"@en .
+_:Bc9753421X2D923dX2D41ffX2D8ae3X2D92c96e4b25cf <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#indicates> .
+<http://purl.org/ipo/core#description> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canBeDirectDependenceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#Activity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#CompoundAction> .
+_:B71629d79X2D8da2X2D453dX2Dbf3dX2De8458598f690 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#directCategoryOf> <http://www.w3.org/2000/01/rdf-schema#label> "directCategoryOf"@en .
+<http://purl.org/ipo/core#hasSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B26604c13X2Da535X2D4842X2Da9c9X2D8dc01543a918 <http://www.w3.org/2002/07/owl#unionOf> _:B37044e3bX2De3b2X2D4766X2D9193X2D31404aac5e58 .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#BooleanExpression> .
+<http://purl.org/ipo/core#hasSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the Step of origin of this Transition."@en .
+_:B6f692794X2D19e3X2D4888X2D924cX2Dac5cc85dcb7d <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B37a464e2X2D51b0X2D40faX2D8410X2De2362c41f429 .
+<http://www.w3.org/2000/01/rdf-schema#comment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#Person> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#solvedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#causativeAssetOf> <http://www.w3.org/2000/01/rdf-schema#label> "causativeAssetOf"@en .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+_:B9d967a10X2D4dcfX2D4766X2Da664X2D4f637971985e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9563adf9X2D3ca0X2D4f74X2D958dX2Ded06a4bd9d58 .
+<http://purl.org/ipo/core#activates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#makerOf> <http://www.w3.org/2000/01/rdf-schema#comment> "This property can be used to indicates an Asset created/manufactured by Party or a IssueEntity created/registered by the Party."@en .
+<http://purl.org/ipo/core#hasStep> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B309e49b0X2Db94dX2D45f7X2Da1bbX2Dd9a48c8b5eba .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/2000/01/rdf-schema#label> "dependsOn"@en .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/elements/1.1/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#causedBy> <http://www.w3.org/2000/01/rdf-schema#label> "causedBy"@en .
+_:B653e1bb6X2D3578X2D483bX2Db738X2Dc1a1e54cbf9e <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#title> .
+<http://purl.org/ipo/core#BooleanExpression> <http://www.w3.org/2000/01/rdf-schema#label> "BooleanExpression"@en .
+<http://purl.org/ipo/core#Organization> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/ipo/core#Person> .
+<http://purl.org/ipo/core#canDirectlyDependOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Issue can directly depend on another Issue.\nFor example, pneumonia can directly depend that the flu is cured to finally be treated."@en .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bc23309c8X2D16ebX2D43f9X2D8802X2De9cf64fea013 .
+<http://purl.org/ipo/core#directCategoryOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a IssueEntity directly classified in a skos:Concept."@en .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the Transition that occurs after execution of this Step and that activates the next Step to be executed."@en .
+<http://purl.org/ipo/core#Activity> <http://www.w3.org/2000/01/rdf-schema#comment> "A set of steps that perform an activity, but does not aim to solve a particular Issue.\nCan be used to group multiple steps that are repeated in various Procedures to facilitate reuse."@en .
+<http://purl.org/ipo/core#activates> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Action> .
+<http://purl.org/ipo/core#Task> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#Action> .
+_:Bd46d3917X2Dd744X2D4b53X2D9bedX2D4b4f0465a8a7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ipo/core#Activity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasStep> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/3.0/> .
+<http://purl.org/ipo/core#hasCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#IssueEntity> .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+_:Bad46d9ceX2D1ebaX2D487aX2D9145X2D0b85fe49ff8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb8cddf69X2D607bX2D4b3bX2D9649X2D7a73c5109e7f .
+<http://purl.org/ipo/core#title> <http://www.w3.org/2000/01/rdf-schema#label> "title"@en .
+<http://purl.org/ipo/core#Activity> <http://www.w3.org/2000/01/rdf-schema#label> "Activity"@en .
+<http://purl.org/ipo/core#directlyCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#directlyDependsOn> <http://www.w3.org/2000/01/rdf-schema#comment> "This relation indicates that a issue directly depends on another Issue."@en .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Transition> .
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#goal> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B24fc1b18X2Db26bX2D4252X2D9d97X2Da80f24e36fe4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+<http://purl.org/ipo/core#title> <http://www.w3.org/2000/01/rdf-schema#comment> "Title (word or phrase) that briefly describes something."@en .
+<http://purl.org/ipo/core#solvedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a solution (Procedure) for this Issue."@en .
+<http://purl.org/ipo/core#causativeAssetOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#assetOf> .
+<http://purl.org/ipo/core#Action> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B928868b9X2D03e3X2D4e54X2D92dbX2D76e628a3478c .
+<http://www.w3.org/2000/01/rdf-schema#label> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#memberOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a organization that the Party is participant.\nThis property can be used to indicates that an employee is a member of an organization.\nAnother approach is to use this property to relate two organizations thus representing a department that is a member of his company."@en .
+<http://purl.org/ipo/core#Party> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/ipo/core#description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bc001f1e2X2D5c22X2D4229X2Daa31X2D6dc732a49047 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#indicatedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Symptom of this Issue."@en .
+<http://purl.org/ipo/core#Person> <http://www.w3.org/2002/07/owl#equivalentClass> <http://xmlns.com/foaf/0.1/Person> .
+<http://purl.org/ipo/core#canBeDirectDependenceOf> <http://www.w3.org/2000/01/rdf-schema#label> "canBeDirectDependenceOf"@en .
+<http://purl.org/ipo/core> <http://purl.org/dc/elements/1.1/modified> "2015-07-30"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:Beb5fd8e0X2DcdbeX2D43fcX2Dab48X2D76b181f49951 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8ebf8dc7X2D5db7X2D488eX2D928fX2D706eb6ba72c0 .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/2000/01/rdf-schema#label> "hasOutcoming"@en .
+_:B3732b51cX2D281dX2D42fbX2D8175X2Dc43cc3b6fa6a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#BooleanExpression> .
+<http://purl.org/ipo/core#title> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#label> .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canBeDirectlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#canBeCausedBy> .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/maker> .
+_:B9bb2391fX2Da1fcX2D4fedX2D892eX2De292c356d855 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a BooleanExpression for that a Transition occurs.\nFor example, a Transition can have as guardCondition that the Step of origin be executed 10 times. So while this Step does is not executes 10 times, will not be started the Step of destination. This example illustrates a repeating structure within the workflow."@en .
+<http://purl.org/ipo/core#directlyCauses> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasCausativeAsset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#directlyCauses> <http://www.w3.org/2000/01/rdf-schema#label> "directlyCauses"@en .
+<http://purl.org/ipo/core#directlyDependsOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasDirectCategory> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#hasCategory> .
+<http://purl.org/ipo/core#directlyCauses> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#causes> .
+<http://purl.org/ipo/core#hasCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a category (skos: Concept) directly or indirectly related to a IssueEntity.\nThe Concept class of SKOS ontology has properties that allow you to create hierarchies of categories (Concepts), still allowing express transitivity between categories. This approach should be used as an alternative to classification by subclass of IssueEntity when it are not intrinsic classifications, just grouping. For example, in the field of medicine, disease can be grouped as viral diseases, bacterial diseases, etc."@en .
+<http://purl.org/ipo/core#title> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/title> .
+_:B64a0c107X2Dc743X2D4730X2DbcedX2D26af40f8a947 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Image> .
+<http://purl.org/ipo/core#hasSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/ipo/core#indicatedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canDirectlyCause> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#solves> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#Action> .
+_:B64a0c107X2Dc743X2D4730X2DbcedX2D26af40f8a947 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9d967a10X2D4dcfX2D4766X2Da664X2D4f637971985e .
+<http://purl.org/ipo/core#canDirectlyDependOn> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#canDependOn> .
+<http://purl.org/ipo/core#Task> <http://www.w3.org/2000/01/rdf-schema#label> "Task"@en .
+<http://purl.org/ipo/core#Action> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Transition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Transition> .
+<http://purl.org/ipo/core#hasMember> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Party> .
+<http://purl.org/ipo/core#Procedure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B386295c7X2D7bcdX2D49c4X2Da593X2D125d6484041a .
+<http://purl.org/ipo/core#Transition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B71629d79X2D8da2X2D453dX2Dbf3dX2De8458598f690 .
+_:B7b2788cfX2Da9eeX2D4dd8X2D9822X2D263930f2a1ac <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#hasSource> .
+_:B928868b9X2D03e3X2D4e54X2D92dbX2D76e628a3478c <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#BooleanExpression> .
+<http://purl.org/ipo/core#hasCausativeAsset> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates an Asset that is the causer of the Issue."@en .
+<http://purl.org/ipo/core#solves> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Action> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#Transition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#directlyDependsOn> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#dependsOn> .
+<http://purl.org/ipo/core#canDirectlyDependOn> <http://www.w3.org/2000/01/rdf-schema#label> "canDirectlyDependOn"@en .
+<http://purl.org/ipo/core#causedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Issue is caused by another Issue directly or indirectly.\nThis property also has a transitive characteristic, i.e., if the Issue \"A\" is caused by Issue \"B\" and the Issue \"B\" is caused by Issue \"C\", then the Issue \"A\" is caused by Issue \"C\"."@en .
+_:B71629d79X2D8da2X2D453dX2Dbf3dX2De8458598f690 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#hasTarget> .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/2000/01/rdf-schema#label> "hasMaker"@en .
+<http://purl.org/ipo/core#Symptom> <http://www.w3.org/2000/01/rdf-schema#label> "Symptom"@en .
+<http://purl.org/ipo/core#hasStep> <http://www.w3.org/2000/01/rdf-schema#label> "hasStep"@en .
+<http://purl.org/ipo/core#hostAssetOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an Asset with a Issue that occurs in it.\nThis property can be used to relate a person with a disease whose the person is where the disease occurs."@en .
+<http://purl.org/ipo/core#depictionOf> <http://www.w3.org/2000/01/rdf-schema#label> "depictionOf"@en .
+<http://purl.org/ipo/core#memberOf> <http://www.w3.org/2000/01/rdf-schema#label> "memberOf"@en .
+_:B24fc1b18X2Db26bX2D4252X2D9d97X2Da80f24e36fe4 <http://www.w3.org/2002/07/owl#members> _:B3732b51cX2D281dX2D42fbX2D8175X2Dc43cc3b6fa6a .
+<http://purl.org/ipo/core#Image> <http://www.w3.org/2000/01/rdf-schema#comment> "An artifact that illustrates or records a visual perception.\n\nIt can be used to illustrate a IssueEntity seeking a better understanding of it."@en .
+<http://purl.org/ipo/core#Action> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#IssueEntity> .
+_:Bd65f6723X2D9868X2D4d33X2D8d73X2D6383c23ebd4f <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#name> .
+<http://purl.org/ipo/core#Asset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B653e1bb6X2D3578X2D483bX2Db738X2Dc1a1e54cbf9e .
+<http://purl.org/ipo/core#IssueEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "A generic class representing the three main concepts within the domain of ontology: Symptom, Problem and Action."@en .
+<http://purl.org/ipo/core#description> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#comment> .
+<http://purl.org/ipo/core#Symptom> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a sign or indication of one or more Issues. Something that is perceived when a problem occurs.\n"@en .
+<http://purl.org/ipo/core#hasMember> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#memberOf> .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#causedBy> .
+_:Bb2d79181X2Dad0aX2D474dX2Dbf6aX2D70875d27f3de <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#hasOutcoming> .
+_:B9563adf9X2D3ca0X2D4f74X2D958dX2Ded06a4bd9d58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Beb5fd8e0X2DcdbeX2D43fcX2Dab48X2D76b181f49951 .
+<http://purl.org/ipo/core#canBeDirectlyCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Be1b092adX2Dd680X2D4622X2D8c84X2Da759e3680547 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#hasMember> <http://www.w3.org/2000/01/rdf-schema#label> "hasMember"@en .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the Transition that starts the execution of this Step."@en .
+<http://purl.org/ipo/core> <http://purl.org/dc/elements/1.1/description> <http://ipocore.sourceforge.net/1.2.0/ipo.png> .
+<http://purl.org/ipo/core#hasFirstStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#Party> <http://www.w3.org/2002/07/owl#equivalentClass> _:B26604c13X2Da535X2D4842X2Da9c9X2D8dc01543a918 .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#Organization> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a group of people organized aiming at a common goal: social, commercial or political.\nCan be used, for example, to represent a company that manufactures an Asset."@en .
+<http://purl.org/ipo/core#canBeDirectDependenceOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#canBeDependenceOf> .
+_:B8901f7faX2D32a8X2D4753X2Db18aX2Df952555b23d1 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#description> .
+<http://purl.org/ipo/core#makerOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasSource> <http://www.w3.org/2000/01/rdf-schema#label> "hasSource"@en .
+<http://purl.org/ipo/core#hasHostAsset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Issue> .
+_:B15acebbdX2D64b8X2D4eb5X2D9cc3X2Db22cda166eae <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#indicatedBy> .
+<http://purl.org/ipo/core> <http://www.w3.org/2000/01/rdf-schema#comment> "Vocabulary for describing issues (or problems) and corresponding symptoms and solutions to a broad variety of contexts. It is intended to provide a generic, reusable core ontology that can be extended or specialized for use in domain-specific situations, aimed at supporting linked data publishing. The solutions are represented by procedures, which are possible workflows for solving corresponding issues." .
+<http://purl.org/ipo/core#categoryOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a IssueEntity classified in a skos:Concept."@en .
+<http://purl.org/ipo/core#hasCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasTarget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B9bb2391fX2Da1fcX2D4fedX2D892eX2De292c356d855 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#hasStep> .
+<http://purl.org/ipo/core#canDirectlyDependOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/2000/01/rdf-schema#label> "hasDepiction"@en .
+_:B9d967a10X2D4dcfX2D4766X2Da664X2D4f637971985e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#IssueEntity> .
+<http://purl.org/ipo/core#dependenceOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#directlyDependsOn> <http://www.w3.org/2000/01/rdf-schema#label> "directlyDependsOn"@en .
+<http://purl.org/ipo/core#causativeAssetOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#causedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B6f692794X2D19e3X2D4888X2D924cX2Dac5cc85dcb7d <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#hasCategory> .
+<http://purl.org/ipo/core#categoryOf> <http://www.w3.org/2000/01/rdf-schema#label> "categoryOf"@en .
+<http://purl.org/ipo/core#causedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://purl.org/ipo/core#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization"@en .
+<http://purl.org/ipo/core#Transition> <http://www.w3.org/2000/01/rdf-schema#comment> "An Transition represents a transition (passage) between two Steps. Each Transition has a Step of origin (source) and a Step of destination (target). A Transition has a guard condition that specifies a boolean condition for that the Transition to occur.\nThrough the guard condition, can be implemented, in a simplified way, a workflow, establishing decision structures, repetition, choice, etc."@en .
+<http://purl.org/ipo/core#dependenceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/ipo/core#Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#Party> .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates an image that illustrates the IssueEntity.\nSeeking a better description of IssueEntity, one can make use of this property to relate an illustrative image. For example, an image of a software screen containing an error occurred can help describe the problem."@en .
+<http://purl.org/ipo/core#IssueEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#directlyDependsOn> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#directDependenceOf> .
+<http://purl.org/ipo/core#hasMember> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Person who is a member of this Organization or another Organization that is member of this Organization, representing here a department or business unit.\n"@en .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasFirstStep> <http://www.w3.org/2000/01/rdf-schema#label> "hasFirstStep"@en .
+<http://purl.org/ipo/core#categoryOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:Bc443b5deX2D5053X2D46bdX2Da1d1X2Df4853dabd5a6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Symptom> .
+<http://purl.org/ipo/core#IssueEntity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#description> <http://www.w3.org/2000/01/rdf-schema#label> "description"@en .
+<http://purl.org/ipo/core#Image> <http://www.w3.org/2000/01/rdf-schema#label> "Image"@en .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#dependenceOf> .
+<http://purl.org/ipo/core> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/ipo/core#hasCategory> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B6f692794X2D19e3X2D4888X2D924cX2Dac5cc85dcb7d .
+<http://purl.org/ipo/core#Party> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bd65f6723X2D9868X2D4d33X2D8d73X2D6383c23ebd4f .
+<http://purl.org/ipo/core#assetOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a IssueEntity that is related to the Asset.\nThis property can be used to facilitate retrieval records of problems related to the Asset."@en .
+_:B37a464e2X2D51b0X2D40faX2D8410X2De2362c41f429 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ipo/core#directlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Issue is directly caused by another Issue."@en .
+_:B26a41a8dX2Df833X2D41e0X2D8020X2D533aa905a551 <http://www.w3.org/2002/07/owl#members> _:B7257c7aaX2D1122X2D44d4X2D9b09X2Daefe8a749962 .
+<http://purl.org/ipo/core#assetOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#hasDirectCategory> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#directCategoryOf> .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Issue can depend on another Issue directly or indirectly.\nThis property can express a dependency relationship between Issues and has the characteristic of transitivity, i.e., the Issue \"A\" can depend on the Issue \"B\" and the Issue \"B\" can depend on \"C\", then the Issue \"A\" can depend on the Issue \"C\"."@en .
+<http://purl.org/ipo/core#hasMember> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#Organization> <http://www.w3.org/2002/07/owl#equivalentClass> <http://xmlns.com/foaf/0.1/Organization> .
+_:B7ee06166X2Df521X2D4d2eX2D86fbX2D80ee112eeb90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#hasCausativeAsset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#depictionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ipo/core#directDependenceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#canBeDependenceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasAsset> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Asset> .
+<http://purl.org/ipo/core#hasStep> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Step> .
+<http://purl.org/ipo/core#hasCausativeAsset> <http://www.w3.org/2000/01/rdf-schema#label> "hasCausativeAsset"@en .
+<http://purl.org/ipo/core#Transition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7b2788cfX2Da9eeX2D4dd8X2D9822X2D263930f2a1ac .
+_:B309e49b0X2Db94dX2D45f7X2Da1bbX2Dd9a48c8b5eba <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb2d79181X2Dad0aX2D474dX2Dbf6aX2D70875d27f3de .
+_:Bb2d79181X2Dad0aX2D474dX2Dbf6aX2D70875d27f3de <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bd46d3917X2Dd744X2D4b53X2D9bedX2D4b4f0465a8a7 .
+<http://purl.org/ipo/core#canBeDirectDependenceOf> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates an Issue that can be direct dependence of another Issue."@en .
+_:B386295c7X2D7bcdX2D49c4X2Da593X2D125d6484041a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#CompoundAction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9bb2391fX2Da1fcX2D4fedX2D892eX2De292c356d855 .
+_:B653e1bb6X2D3578X2D483bX2Db738X2Dc1a1e54cbf9e <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:B7b4269b9X2Dbfc7X2D44a6X2D9129X2D549fca5d1af3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#directCategoryOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://xmlns.com/foaf/0.1/made> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#hasTarget> .
+_:Bad46d9ceX2D1ebaX2D487aX2D9145X2D0b85fe49ff8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Asset> .
+<http://purl.org/ipo/core#canBeCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#canDirectlyCause> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#canCause> .
+<http://purl.org/ipo/core#hasIncoming> <http://www.w3.org/2000/01/rdf-schema#label> "hasIncoming"@en .
+_:Bd65f6723X2D9868X2D4d33X2D8d73X2D6383c23ebd4f <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/ipo/core#hasFirstStep> <http://www.w3.org/2000/01/rdf-schema#comment> "A CompoundAction has one or more steps, so this property indicates the first step should be executed."@en .
+_:B0d1fb549X2D8f6fX2D4cbeX2Da19aX2D67c2c9d0a1e3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#directlyCauses> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasDepiction> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Image> .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#hasSource> .
+_:B7ee06166X2Df521X2D4d2eX2D86fbX2D80ee112eeb90 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/ipo/core#indicates> <http://www.w3.org/2000/01/rdf-schema#label> "indicates"@en .
+<http://purl.org/ipo/core#canBeDirectlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#label> "canBeDirectlyCausedBy"@en .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#Task> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/ipo/core#hasMaker> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Person or Organization (Party) who created or registered the IssueEntity. This property is also used by Asset class to relate to its manufacturer, developer, inventor, etc."@en .
+_:B9e431425X2Db60fX2D4c45X2Dba07X2Daae886bcdca7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ipo/core#Person> .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#Party> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B3e4eabd9X2D0232X2D4068X2Dad8cX2Dd636510c7258 <http://purl.org/ipo/core#name> "Matheus Dimas de Morais" .
+<http://purl.org/ipo/core#Task> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/ipo/core#" .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#makerOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/made> .
+_:B0d1fb549X2D8f6fX2D4cbeX2Da19aX2D67c2c9d0a1e3 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bd65f6723X2D9868X2D4d33X2D8d73X2D6383c23ebd4f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#hasDirectCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a category (skos: Concept) directly related to a IssueEntity."@en .
+<http://purl.org/ipo/core> <http://purl.org/dc/elements/1.1/description> "The conceptual model of the Issue Procedure Ontology can be seen below, where their classes and properties are presented by means of a UML class diagram.\nFor better understanding, the ontology can be divided into four modules:\nIssueEntity\nClasses: IssueEntity, Asset, Image, skos:Concept.\n\nProperties: directCategoryOf, hasDirectCategory, categoryOf, hasCategory, hasMaker, makerOf, hasAsset, assetOf, hasDepiction, depictionOf, title, description.\n\nPersons and Organizations\nClasses: Party, Person e Organization\n\nProperties: hasMember, memberOf, name.\n\nProblems and Symptoms\nClasses: Symptom, Issue.\n\nProperties: directlyCauses, directlyCausedBy, causes, causedBy, dependenceOf, dependsOn, directDependenceOf, directlyDependsOn, canDirectlyCause, canBeDirectlyCausedBy, canCause, canBeCausedBy, canBeDependenceOf, canDependOn, canBeDirectDependenceOf, canDirectlyDependOn, indicatedBy, indicates, hasCausativeAsset, causativeAssetOf, hasHostAsset, hostAssetOf.\n\nProblems and Solutions\nClasses: Action, Task, CompoundAction, Procedure, Activity, Step, Transition, BooleanExpression.\n\nProperties: solves, solvedBy, hasFirstStep, hasStep, activates, hasSource, hasTarget, hasIncoming, hasOutcoming, hasGuardCondition, hasPostCondition, hasPreCondition, goal.\n\nClassifying a IssueEntity\nThere are two ways of classifying a IssueEntity:\n1 - A non-intrinsic classification, ie, a classification aiming a simple grouping of IssueEntities, where the IPO ontology provides ipo use of the property \"ipo:hasCategory\" linking to \"skos:Concept\", enabling the creation of schemes of categories and subcategories.\n2 - A classification that is intrinsic to a IssueEntity, so that classification implies the creation of subclasses of IssueEntity with specific restrictions. For example, the \"Hard Disk Problem\" class being defined by a specific restriction that is being linked to at least one of the symptoms \"Error Reading File\" or \"Error Writing File\" (instances of Symptom class). Thus, resources can be classified based on the description of their symptoms, as an instance of the new class of \"Hard Disk Problem\" (HD)." .
+<http://purl.org/ipo/core#Party> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#causativeAssetOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#hasCausativeAsset> .
+_:B653e1bb6X2D3578X2D483bX2Db738X2Dc1a1e54cbf9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#hasPreCondition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Action> .
+<http://purl.org/ipo/core#makerOf> <http://www.w3.org/2000/01/rdf-schema#label> "makerOf"@en .
+<http://purl.org/ipo/core#causativeAssetOf> <http://www.w3.org/2000/01/rdf-schema#comment> "This property relates a Asset with a Issue caused by this Asset. For example, a virus associated with a disease caused by it."@en .
+<http://purl.org/ipo/core#canCause> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Issue> .
+_:B71629d79X2D8da2X2D453dX2Dbf3dX2De8458598f690 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#directlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B7b4269b9X2Dbfc7X2D44a6X2D9129X2D549fca5d1af3 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#BooleanExpression> .
+<http://purl.org/ipo/core#Asset> <http://www.w3.org/2000/01/rdf-schema#label> "Asset"@en .
+<http://purl.org/ipo/core#solves> <http://www.w3.org/2000/01/rdf-schema#label> "solves"@en .
+<http://purl.org/ipo/core#Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person"@en .
+<http://purl.org/ipo/core#Action> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents an action to be performed. An Action can only be a primitive action (Task) or a set of actions (CompoundAction).\nAn Action has a precondition that will enable the execution of the Action, and a postcondition (effect) which will be validated after running the Action."@en .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/ipo/core#Activity> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/ipo/core#Procedure> .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#name> <http://www.w3.org/2000/01/rdf-schema#label> "name"@en .
+<http://purl.org/ipo/core#Issue> <http://www.w3.org/2000/01/rdf-schema#label> "Issue"@en .
+<http://purl.org/ipo/core#canDependOn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#solves> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ipo/core#Procedure> .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#hasStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Step that composes the compoundAction."@en .
+<http://purl.org/ipo/core#hasFirstStep> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#hasStep> .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#hasTarget> <http://www.w3.org/2000/01/rdf-schema#label> "hasTarget"@en .
+<http://purl.org/ipo/core#goal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#directDependenceOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Issue is direct dependence of another Issue."@en .
+_:B7b2788cfX2Da9eeX2D4dd8X2D9822X2D263930f2a1ac <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#Task> <http://www.w3.org/2000/01/rdf-schema#comment> "One elementary and single action.\nBeing an elementary task, it can not be decomposed into simpler actions."@en .
+_:B4ebfe825X2D2f05X2D4976X2Dba8aX2D02eb4e737df6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc443b5deX2D5053X2D46bdX2Da1d1X2Df4853dabd5a6 .
+<http://purl.org/ipo/core#indicatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "indicatedBy"@en .
+<http://purl.org/ipo/core#solvedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#name> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#canBeDirectDependenceOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#hasCausativeAsset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#hasAsset> .
+<http://purl.org/ipo/core#Issue> <http://www.w3.org/2000/01/rdf-schema#comment> "A problem or issue to be resolved. For example, something that is not operating normally or a hindrance to performing some task.\nA Issue can be cause and/or caused, directly or indirectly, by another Issue, the same that the Issue A can depend on the Issue B, needing that the Issue B be solved before solving Issue A.\nThe Issue can have a set of Actions (Procedures) that will fix it and also a Issue can be indicated by several Symptoms, where a set of Symptoms can identify a Issue."@en .
+<http://purl.org/ipo/core#hasSource> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B386295c7X2D7bcdX2D49c4X2Da593X2D125d6484041a <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ipo/core#Issue> .
+_:B7257c7aaX2D1122X2D44d4X2D9b09X2Daefe8a749962 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4ebfe825X2D2f05X2D4976X2Dba8aX2D02eb4e737df6 .
+<http://purl.org/ipo/core#canBeCausedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The Issue can be caused by another Issue directly or indirectly.\nThis property is transitive, i.e., if the issue \"A\" can be caused by the issue \"B\" and the issue \"B\" can be caused by the issue \"C\", then the issue \"A\" can be caused by the issue \"C\"."@en .
+_:B8ebf8dc7X2D5db7X2D488eX2D928fX2D706eb6ba72c0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Transition> .
+<http://purl.org/ipo/core#hasOutcoming> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#dependsOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://purl.org/ipo/core#Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ipo/core#Party> .
+<http://purl.org/ipo/core#hasGuardCondition> <http://www.w3.org/2000/01/rdf-schema#label> "hasGuardCondition"@en .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://xmlns.com/foaf/0.1/depicts> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://xmlns.com/foaf/0.1/maker> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasHostAsset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasHostAsset> <http://www.w3.org/2000/01/rdf-schema#label> "hasHostAsset"@en .
+_:Bc23309c8X2D16ebX2D43f9X2D8802X2De9cf64fea013 <http://www.w3.org/2002/07/owl#unionOf> _:Bad46d9ceX2D1ebaX2D487aX2D9145X2D0b85fe49ff8f .
+_:B928868b9X2D03e3X2D4e54X2D92dbX2D76e628a3478c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ipo/core#hasAsset> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates an Asset to IssueEntity, i.e., any \"thing\" which is related to IssueEntity."@en .
+_:B3732b51cX2D281dX2D42fbX2D8175X2Dc43cc3b6fa6a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B64a0c107X2Dc743X2D4730X2DbcedX2D26af40f8a947 .
+_:B7257c7aaX2D1122X2D44d4X2D9b09X2Daefe8a749962 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Action> .
+<http://purl.org/ipo/core#dependenceOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Issue is a dependence of another Issue directly or indirectly. \nThis property also has a transitive characteristic, i.e. , if Issue \"A\" is dependence of the Issue \"B\", and the Issue \"B\" is dependence of Issue \"C\", then the Issue \"A\" is dependence of Issue \"C\"."@en .
+<http://purl.org/ipo/core#directlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#label> "directlyCausedBy"@en .
+<http://purl.org/ipo/core#indicates> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ipo/core#indicatedBy> .
+<http://purl.org/ipo/core> <http://purl.org/dc/terms/rights> "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en .
+<http://purl.org/ipo/core#hasCategory> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://purl.org/ipo/core#BooleanExpression> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B8901f7faX2D32a8X2D4753X2Db18aX2Df952555b23d1 .
+<http://purl.org/ipo/core#Action> <http://www.w3.org/2000/01/rdf-schema#label> "Action"@en .
+<http://purl.org/ipo/core#directDependenceOf> <http://www.w3.org/2000/01/rdf-schema#label> "directDependenceOf"@en .
+_:B73d99f19X2D03a0X2D43a4X2Da6ebX2D13b54b27533e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ipo/core#Person> .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+_:Be1b092adX2Dd680X2D4622X2D8c84X2Da759e3680547 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#hasFirstStep> .
+<http://purl.org/ipo/core#Procedure> <http://www.w3.org/2000/01/rdf-schema#label> "Procedure"@en .
+<http://purl.org/ipo/core#indicates> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core> <http://purl.org/dc/elements/1.1/title> "IPO - Issue Procedure Ontology" .
+<http://purl.org/ipo/core#causes> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Issue causes another Issue directly or indirectly.\nThis property expresses a causal relationship between Issues and have the characteristic of transitivity, i.e., if the Issue \"A\" causes Issue \"B\" and the Issue \"B\" causes Issue \"C\", then the Issue \"A\" causes Issue \"C\"."@en .
+<http://purl.org/ipo/core#memberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#hasPostCondition> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#BooleanExpression> .
+<http://purl.org/ipo/core#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ipo/core#solves> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Issue that this Procedure solves."@en .
+<http://purl.org/ipo/core#goal> <http://www.w3.org/2000/01/rdf-schema#label> "goal"@en .
+<http://purl.org/ipo/core#Step> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#Asset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+_:B9bb2391fX2Da1fcX2D4fedX2D892eX2De292c356d855 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2004/02/skos/core#broaderTransitive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#assetOf> <http://www.w3.org/2000/01/rdf-schema#label> "assetOf"@en .
+_:Bea3d3a19X2Df25fX2D465fX2D9c7eX2D91e4c5e21fa7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ipo/core#Person> .
+<http://purl.org/ipo/core#canBeDependenceOf> <http://www.w3.org/2000/01/rdf-schema#label> "canBeDependenceOf"@en .
+<http://purl.org/ipo/core#hostAssetOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B7b4269b9X2Dbfc7X2D44a6X2D9129X2D549fca5d1af3 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ipo/core#hasGuardCondition> .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/ipo/core#hasDirectCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://xmlns.com/foaf/0.1/depiction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core> <http://purl.org/dc/elements/1.1/creator> "Matheus Dimas de Morais" .
+<http://purl.org/ipo/core#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ipo/core#indicates> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ipo/core#Issue> .
+<http://purl.org/ipo/core#Step> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ipo/core> .
+<http://purl.org/ipo/core#activates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ipo/core#directlyCausedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ipo/core#causedBy> .
+<http://purl.org/ipo/core#hasAsset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .

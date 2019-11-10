@@ -1,898 +1,472 @@
-<http://schema.org/image>
-        <http://www.w3.org/2002/07/owl#equivalentProperty>
-                <http://xmlns.com/foaf/0.1/depiction> .
-
-<http://purl.org/uco/ns#partReplaced>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A textual description of the part or parts replaced in the modification (e.g. tuning) or maintenance (e.g. new engine) task"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#ModificationOrMaintenance> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "part replaced (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/uco/ns#feature>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property points to vehicle features in a semi-structured property-value form."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "feature (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/uco/ns#PropertyValue> .
-
-<http://purl.org/uco/ns#structuralDamage>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates whether the vehicle has suffered from structural damage in the respective accident (when attached to uco:DamageOrAccident) or ever (when directly applied to a vso:Vehicle)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/vso/ns#Vehicle> <http://purl.org/uco/ns#DamageOrAccident> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "structural damage (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/uco/ns#AuthorizedDealer>
-        a       <http://purl.org/goodrelations/v1#BusinessEntityType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An authorized dealer of the manufacturer of the respective vehicle"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Authorized Dealer (gr:BusinessEntityType)"@en .
-
-<http://purl.org/uco/ns#Check>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A mandatory or optional technical inspection, e.g. the MOT, a vendor-specific certification of used cars, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Check"@en .
-
-<http://purl.org/uco/ns#listPrice>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The original list price of the new car at the time of production"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "listPrice (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#PriceSpecification> .
-
-<http://purl.org/uco/ns#propertyValue>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The value of of the property"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#PropertyValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "property value (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/uco/ns#validThrough>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates the end of the validity of the inspection represented by the uco:Check node. This is typically the day of the inspection plus one (UK MOT) or two years (e.g. German TÜV)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#Check> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "valid to (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/uco/ns#owner>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property points to the owner of the vehicle for the respective period of time, as indicated by the uco:OwnershipInfo node."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> , <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "owner (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://schema.org/Person> , <http://purl.org/goodrelations/v1#BusinessEntity> , <http://schema.org/Organization> .
-
-<http://purl.org/uco/ns#Carport>
-        a       <http://purl.org/uco/ns#ParkingType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The parking of a vehicle under a protective roof, e.g. in a carport"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Carport (uco:ParkingType)"@en .
-
-<http://purl.org/uco/ns#mileageEnd>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The mileage of the vehicle at the end of the period of ownership. \n\nTypical unit code(s): KMT for kilometers, SMI for statute miles"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "mileage end (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValue> .
-
-<http://purl.org/uco/ns#Taxi>
-        a       <http://purl.org/uco/ns#UsageType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The usage of a vehicle as a taxi"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Taxi (uco:UsageType)"@en .
-
-<http://purl.org/uco/ns#propertyID>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A global identifier, e.g. a URI, a prefixed string, or any other identifier that can be used to refer to a standardized property type"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#PropertyValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "property ID (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/uco/ns#currentOwner>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property points to the current owner of the vehicle."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> , <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "currentOwner (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://schema.org/Organization> , <http://purl.org/goodrelations/v1#BusinessEntity> , <http://schema.org/Person> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/uco/ns#owner> .
-
-<http://purl.org/uco/ns#unitCode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A UN/CEFACT Common Code for indicating the unit of measurement of the value, if available"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#PropertyValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "unit code (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/uco/ns#eventInformation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property points to events related to the vehicle, like accidents and damages or major modifications or maintenance."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "eventInformation (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://schema.org/Event> .
-
-<http://purl.org/uco/ns#numberOfDrivers>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The number of people who were/are regularly driving the vehicle in the respective period of time (when attached to uco:OwnershipInfo) or in total (when directly applied to a vso:Vehicle)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/vso/ns#Vehicle> <http://purl.org/uco/ns#OwnershipInfo> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "number of drivers (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<http://purl.org/uco/ns#inspected>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property points to inspections and certifications that the vehicle has undergone."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "inspected (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/uco/ns#Check> .
-
-<http://purl.org/uco/ns#Species>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A species, typically a pet, for indicating the type of animals that were regularly transported in the vehicle. \n\nIf possible, use DBPedia URIs, e.g. http://dbpedia.org/resource/Dog."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Species"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/goodrelations/v1#QualitativeValue> .
-
-<http://purl.org/uco/ns#mainLocation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The main location(s) of the vehicle during the period of ownership"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "main location (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://schema.org/Place> , <http://schema.org/PostalAddress> .
-
-<http://ontologies.makolab.com/uco/ns>
-        a       <http://xmlns.com/foaf/0.1/Document> ;
-        <http://xmlns.com/foaf/0.1/primaryTopic>
-                <http://purl.org/uco/ns#> .
-
-<http://purl.org/uco/ns#licensePlate>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The license plate string(s) assigned to the vehicle during the period of ownership"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "license plate (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/uco/ns#repaired>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This indicates whether damages resulting from a certain uco:DamageOrAccident (when attached to this type) or all damages (when directly attached to a vso:Vehicle) have been properly repaired. Do not use this propery on a vso:Vehicle if it never had a damage."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/vso/ns#Vehicle> <http://purl.org/uco/ns#DamageOrAccident> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "repaired (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/uco/ns#airbagDeployment>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates whether at least one of the airbags of the vehicle has been deployed in the respective accident (when attached to uco:DamageOrAccident) or ever (when directly applied to a vso:Vehicle)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/vso/ns#Vehicle> <http://purl.org/uco/ns#DamageOrAccident> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "airbag deployment (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/uco/ns#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "UCO: The The Used Cars Ontology\n    \nA Web vocabulary for describing aspects of used cars for e-commerce.\n\nVocabulary:    http://purl.org/uco/ns#\nNamespace:     http://purl.org/uco/ns#\n\nThe vocabulary is designed to be used in combination with \n(1) GoodRelations, a standard vocabulary for the commercial aspects of offers for sale, rental, repair, or disposal; and\n(2) the Vehicle Sales Ontology, a standard vocabulary for cars and other vehicles.\n\t\nSee http://purl.org/goodrelations/ and http://purl.org/vso/ns for more information."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Used Cars Ontology"@en ;
-        <http://purl.org/dc/terms/creator>
-                "Hepp Research GmbH and Makolab S.A."@en ;
-        <http://purl.org/dc/terms/license>
-                <http://creativecommons.org/licenses/by/3.0/> ;
-        <http://purl.org/dc/terms/rights>
-                "The Used Cars Ontology is available under the Creative Commons Attribution 3.0 Unported license; see http://creativecommons.org/licenses/by/3.0/. \nIn a nutshell, you are free to copy, distribute and transmit the work; to remix/adapt the work (e.g. to import the ontology and create specializations of its elements), \nas long as you attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)."@en ;
-        <http://purl.org/dc/terms/subject>
-                "E-Commerce, E-Business, GoodRelations, Ontology, Automotive, Cars, Vehicles, Used Cars"@en ;
-        <http://purl.org/dc/terms/title>
-                "UCO: The Used Cars Ontology for Semantic Web-based E-Commerce"@en ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://purl.org/goodrelations/v1> , <http://purl.org/vso/ns> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "V 1.0:A, Release 2012-12-31" .
-
-<http://ontologies.makolab.com/uco/ns.html>
-        a       <http://xmlns.com/foaf/0.1/Document> ;
-        <http://xmlns.com/foaf/0.1/primaryTopic>
-                <http://purl.org/uco/ns#> .
-
-<http://purl.org/uco/ns#parking>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The main type(s) of parking that have been used for the vehicle during the period of ownership (if attached to uco:OwnershipInfo) or in general (if attached to the vso:Vehicle directly)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> , <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "parking (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/uco/ns#ParkingType> .
-
-<http://purl.org/uco/ns#valuation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The market price assessment gained by the respective valuation. Use gr:name to indicate the name of the valuation service."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "valuation (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#PriceSpecification> .
-
-<http://purl.org/uco/ns#usage>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The type(s) of usage during the period of ownership (if attached to uco:OwnershipInfo) or in general (if attached to the vso:Vehicle directly)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> , <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "usage (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/uco/ns#UsageType> .
-
-<http://purl.org/uco/ns#mileageInitial>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The mileage of the vehicle at the beginning of the period of ownership. \n\nTypical unit code(s): KMT for kilometers, SMI for statute miles"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "mileage initial (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValue> .
-
-<http://purl.org/uco/ns#currentLocation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The current location of the vehicle, i.e. where the car could be tested. For indicating alternative locations to which the seller is willing to bring the car, use gr:availableAtOrFrom attached to the gr:Offering, since those are aspects of the offer, not of the vehicle."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "currentLocation (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://schema.org/PostalAddress> , <http://schema.org/Place> .
-
-<http://purl.org/uco/ns#UsageType>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A type of usage of a vehicle, e.g. rental, taxi, driving school, commuting. It is best to either use one of the predefined individuals or DBpedia URIs whenever possible."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Usage Type"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/goodrelations/v1#QualitativeValue> .
-
-<http://purl.org/uco/ns#driver>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property points to the driver or drivers that were regularly driving the vehicle during the respective period of time (when attached to uco:OwnershipInfo) or in total (when attached directly to a vso:Vehicle)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> , <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "driver (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://schema.org/Person> .
-
-<http://purl.org/uco/ns#ParkingType>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A type of parking for a vehicle, e.g. in a garage, on the street (open-sky), or in a carport. You can use DBpedia URIs for additional types."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Parking Type"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/goodrelations/v1#QualitativeValue> .
-
-<http://purl.org/uco/ns.owl>
-        a       <http://xmlns.com/foaf/0.1/Document> ;
-        <http://xmlns.com/foaf/0.1/primaryTopic>
-                <http://purl.org/uco/ns#> .
-
-<http://purl.org/uco/ns#pets>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The type(s) of animals that have been transported in the vehicle during the period of ownership (if attached to uco:OwnershipInfo) or in general (if attached to the vso:Vehicle directly). \n\t\nIf possible, use DBPedia URIs, e.g. http://dbpedia.org/resource/Dog."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> , <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "pets (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/uco/ns#Species> .
-
-<http://purl.org/uco/ns#partRemoved>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A textual description of the part or parts removed in the modification (e.g. tuning) or maintenance task"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#ModificationOrMaintenance> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "part removed (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/uco/ns#notAtFaultAccident>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates whether the accident leading to the damage was a not-at-fault accident from the perspective of the owner."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#DamageOrAccident> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "total loss (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/uco/ns#MoneyBack>
-        a       <http://purl.org/goodrelations/v1#WarrantyScope> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The promise to take back the vehicle without any specific reason for a full refund within a certain amount of time"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Money-back Guarantee (gr:WarrantyScope)"@en .
-
-<http://purl.org/uco/ns#numberOfOwners>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The total number of people or organizations who owned the vehicle, including the current owner.\n\nNote that this value can be higher (but not lower) than the number of uco:OwnershipInfo nodes, since those records may be incomplete."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "number of owners (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<http://purl.org/uco/ns#validFrom>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates the beginning of the validity of the inspection represented by the uco:Check node. This is typically the day of the inspection."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#Check> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "valid from (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/uco/ns#hasOwnershipInfo>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property points to information about the current and previous owners of the vehicle."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasOwnershipInfo (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/uco/ns#OwnershipInfo> .
-
-<http://schema.org/Person>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/goodrelations/v1#BusinessEntity> .
-
-<http://purl.org/uco/ns#partAdded>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A textual description of the part or parts added in the modification (e.g. tuning) or maintenance task"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#ModificationOrMaintenance> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "part added (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/uco/ns#ModificationOrMaintenance>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A modification or maintenance is an event in which a part of the vehicle is being replaced or removed, or a new part is being added.\nTypical examples are the replacement of the engine or the installation of a trailor-hitch."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Modification or Maintenance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://schema.org/Event> .
-
-<http://purl.org/uco/ns#Garage>
-        a       <http://purl.org/uco/ns#ParkingType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The parking of a vehicle in a closed garage"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Garage (uco:ParkingType)"@en .
-
-<http://purl.org/uco/ns#contains>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A naive part-whole relation that allows providing more granular uco:OwnershipInfo data for a part of the duration of the ownership"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "contains (0..*)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/uco/ns#OwnershipInfo> .
-
-<http://purl.org/uco/ns#IndependentDealer>
-        a       <http://purl.org/goodrelations/v1#BusinessEntityType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An independent dealer"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Independent Dealer (gr:BusinessEntityType)"@en .
-
-<http://purl.org/uco/ns#CarSharing>
-        a       <http://purl.org/uco/ns#UsageType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The usage of a vehicle for car sharing networks"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Car Sharing (uco:UsageType)"@en .
-
-<http://purl.org/uco/ns#originalPartsOnly>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This indicates whether the parts used for repairing a damage, for a maintenance task, or a modification were all original."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/uco/ns#ModificationOrMaintenance> <http://purl.org/uco/ns#DamageOrAccident> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "original parts only (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/uco/ns#PropertyValue>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A property-value is a structured value for representing a feature of a vehicle in a semi-formal way."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Property Value"@en .
-
-<http://purl.org/uco/ns#from>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates the beginning of the period of ownership represented by this uco:OwnershipInfo node."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "from (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/uco/ns#totalLoss>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates whether the vehicle is considered a total loss as the result of a damage in the respective accident (when attached to uco:DamageOrAccident) or in general (when directly applied to a vso:Vehicle)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/vso/ns#Vehicle> <http://purl.org/uco/ns#DamageOrAccident> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "total loss (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/uco/ns#mileage>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The mileage of the vehicle at the event, e.g. at the accident, maintenance, check, or modification. \n\nTypical unit code(s): KMT for kilometers, SMI for statute miles"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/uco/ns#Check> <http://purl.org/uco/ns#DamageOrAccident> <http://purl.org/uco/ns#ModificationOrMaintenance> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "mileage (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/goodrelations/v1#QuantitativeValue> .
-
-<http://purl.org/dc/terms/license>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/uco/ns#indicationOfOdometerRollback>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates whether it is likely or known that the odometer of the vehicle does not properly reflect the total mileage of the vehicle, e.g. because the odometer has been replaced, reset, or tampered with "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "indication of odometer rollback (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://purl.org/dc/terms/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/uco/ns#carriedOutBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The business or type of business that carried out the check, repair, maintenance, or modification"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/uco/ns#Check> <http://purl.org/uco/ns#DamageOrAccident> <http://purl.org/uco/ns#ModificationOrMaintenance> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "carried out by (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/goodrelations/v1#BusinessEntity> <http://purl.org/goodrelations/v1#BusinessEntityType> )
-                ] .
-
-<http://purl.org/uco/ns#DamageOrAccident>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A damage or accident is an event in which the vehicle is being damaged."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Damage or Accident"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://schema.org/Event> .
-
-<http://purl.org/uco/ns#propertyName>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of the property"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#PropertyValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "property name (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/uco/ns#countryOfRegistration>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The country or geo-political region in which the vehicle is currently registered, indicated as the two-character version of ISO 3166-1 (ISO 3166-1 alpha-2) for regions or ISO 3166-2, which breaks down the countries from ISO 3166-1 into administrative subdivisions."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "country of registration (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://xmlns.com/foaf/0.1/Document>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://schema.org/Place>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://purl.org/goodrelations/v1#Location> .
-
-<http://schema.org/Event>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/uco/ns#DrivingSchool>
-        a       <http://purl.org/uco/ns#UsageType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The usage of a vehicle for commercial driver's education"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Driving School (uco:UsageType)"@en .
-
-<http://purl.org/uco/ns#Rental>
-        a       <http://purl.org/uco/ns#UsageType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The usage of a vehicle as a rental car"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Rental (uco:UsageType)"@en .
-
-<http://purl.org/uco/ns#countryOfOrigin>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The country or geo-political region in which the vehicle was initially sold officially, indicated as the two-character version of ISO 3166-1 (ISO 3166-1 alpha-2) for regions or ISO 3166-2, which breaks down the countries from ISO 3166-1 into administrative subdivisions."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/vso/ns#Vehicle> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "country of origin (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/uco/ns#Business>
-        a       <http://purl.org/uco/ns#UsageType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The usage of a vehicle for general business purposes, i.e. excluding usages like as a taxi, rental car, or driving instructions."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Business (uco:UsageType)"@en .
-
-<http://purl.org/uco/ns#to>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates the end of the period of ownership represented by this uco:OwnershipInfo node."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#OwnershipInfo> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "to (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://schema.org/PostalAddress>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/uco/ns#Private>
-        a       <http://purl.org/uco/ns#UsageType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The usage of a vehicle soleley for private purposes"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Private (uco:UsageType)"@en .
-
-<http://purl.org/uco/ns#unitText>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for uco:unitCode."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/uco/ns#PropertyValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "unit text (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/uco/ns#smoking>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates whether it has been smoked inside the car in the respective period of time (when attached to uco:OwnershipInfo) or ever (when directly applied to a vso:Vehicle)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/vso/ns#Vehicle> <http://purl.org/uco/ns#OwnershipInfo> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "smoking (0..1)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://ontologies.makolab.com/uco/ns.owl>
-        a       <http://xmlns.com/foaf/0.1/Document> ;
-        <http://xmlns.com/foaf/0.1/primaryTopic>
-                <http://purl.org/uco/ns#> .
-
-<http://purl.org/uco/ns>
-        a       <http://xmlns.com/foaf/0.1/Document> ;
-        <http://xmlns.com/foaf/0.1/primaryTopic>
-                <http://purl.org/uco/ns#> .
-
-<http://schema.org/Organization>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/goodrelations/v1#BusinessEntity> .
-
-<http://purl.org/dc/terms/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/uco/ns#OwnershipInfo>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An ownership information node is a structured value representing information about the period of ownership of a vehicle by a person or organisation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Ownership Info"@en .
-
-<http://purl.org/goodrelations/v1#BusinessEntity>
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://schema.org/Person> <http://schema.org/Organization> )
-                ] .
-
-<http://purl.org/dc/terms/subject>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://xmlns.com/foaf/0.1/primaryTopic>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/uco/ns#Street>
-        a       <http://purl.org/uco/ns#ParkingType> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The parking of a vehicle on a public or private street"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/uco/ns#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Street (uco:ParkingType)"@en .
-
-<http://purl.org/dc/terms/rights>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://xmlns.com/foaf/0.1/depiction>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://schema.org/image> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://xmlns.com/foaf/0.1/depiction> .
+<http://purl.org/uco/ns#partReplaced> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/uco/ns#feature> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/uco/ns#PropertyValue> .
+<http://purl.org/uco/ns#AuthorizedDealer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#BusinessEntityType> .
+<http://purl.org/uco/ns#Check> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#listPrice> <http://www.w3.org/2000/01/rdf-schema#label> "listPrice (0..1)"@en .
+<http://purl.org/uco/ns#propertyValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#validThrough> <http://www.w3.org/2000/01/rdf-schema#label> "valid to (0..1)"@en .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#Carport> <http://www.w3.org/2000/01/rdf-schema#comment> "The parking of a vehicle under a protective roof, e.g. in a carport"@en .
+<http://purl.org/uco/ns#mileageEnd> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#Taxi> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#propertyID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#listPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#label> "currentOwner (0..1)"@en .
+<http://purl.org/uco/ns#unitCode> <http://www.w3.org/2000/01/rdf-schema#comment> "A UN/CEFACT Common Code for indicating the unit of measurement of the value, if available"@en .
+<http://purl.org/uco/ns#eventInformation> <http://www.w3.org/2000/01/rdf-schema#comment> "This property points to events related to the vehicle, like accidents and damages or major modifications or maintenance."@en .
+<http://purl.org/uco/ns#numberOfDrivers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#validThrough> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#Check> .
+<http://purl.org/uco/ns#inspected> <http://www.w3.org/2000/01/rdf-schema#comment> "This property points to inspections and certifications that the vehicle has undergone."@en .
+<http://purl.org/uco/ns#Species> <http://www.w3.org/2000/01/rdf-schema#comment> "A species, typically a pet, for indicating the type of animals that were regularly transported in the vehicle. \n\nIf possible, use DBPedia URIs, e.g. http://dbpedia.org/resource/Dog."@en .
+<http://purl.org/uco/ns#mainLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Place> .
+_:Bfdd3ded3X2Dfe9dX2D4410X2Dbe4aX2Df48b52112bef <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#mainLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://ontologies.makolab.com/uco/ns> <http://xmlns.com/foaf/0.1/primaryTopic> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#numberOfDrivers> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://purl.org/uco/ns#Species> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#licensePlate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#repaired> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#eventInformation> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Event> .
+_:B4bd536f8X2D60a9X2D4aabX2Da5a8X2D638a00d4fab1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#repaired> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/uco/ns#airbagDeployment> <http://www.w3.org/2000/01/rdf-schema#domain> _:B9e75beb0X2Db3c4X2D493dX2Da301X2D5b3212b37b22 .
+<http://purl.org/uco/ns#airbagDeployment> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#> <http://www.w3.org/2002/07/owl#versionInfo> "V 1.0:A, Release 2012-12-31" .
+_:B43204177X2D8c8cX2D4c9aX2Da1d0X2D44b003e09ab8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Organization> .
+<http://ontologies.makolab.com/uco/ns.html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://purl.org/uco/ns#parking> <http://www.w3.org/2000/01/rdf-schema#label> "parking (0..*)"@en .
+_:B73072dbbX2D2008X2D4ea0X2Daef1X2D542c28a73e90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#valuation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#usage> <http://www.w3.org/2000/01/rdf-schema#label> "usage (0..*)"@en .
+<http://purl.org/uco/ns#mileageInitial> <http://www.w3.org/2000/01/rdf-schema#comment> "The mileage of the vehicle at the beginning of the period of ownership. \n\nTypical unit code(s): KMT for kilometers, SMI for statute miles"@en .
+<http://purl.org/uco/ns#currentLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#UsageType> <http://www.w3.org/2000/01/rdf-schema#label> "Usage Type"@en .
+<http://purl.org/uco/ns#driver> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#unitCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/uco/ns#ParkingType> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of parking for a vehicle, e.g. in a garage, on the street (open-sky), or in a carport. You can use DBpedia URIs for additional types."@en .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Organization> .
+<http://purl.org/uco/ns#> <http://www.w3.org/2000/01/rdf-schema#comment> "UCO: The The Used Cars Ontology\n    \nA Web vocabulary for describing aspects of used cars for e-commerce.\n\nVocabulary:    http://purl.org/uco/ns#\nNamespace:     http://purl.org/uco/ns#\n\nThe vocabulary is designed to be used in combination with \n(1) GoodRelations, a standard vocabulary for the commercial aspects of offers for sale, rental, repair, or disposal; and\n(2) the Vehicle Sales Ontology, a standard vocabulary for cars and other vehicles.\n\t\nSee http://purl.org/goodrelations/ and http://purl.org/vso/ns for more information."@en .
+<http://purl.org/uco/ns.owl> <http://xmlns.com/foaf/0.1/primaryTopic> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#pets> <http://www.w3.org/2000/01/rdf-schema#label> "pets (0..*)"@en .
+_:Bfdd3ded3X2Dfe9dX2D4410X2Dbe4aX2Df48b52112bef <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/uco/ns#partRemoved> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#notAtFaultAccident> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/uco/ns#> <http://purl.org/dc/terms/subject> "E-Commerce, E-Business, GoodRelations, Ontology, Automotive, Cars, Vehicles, Used Cars"@en .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Person> .
+<http://purl.org/uco/ns#notAtFaultAccident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#unitCode> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#MoneyBack> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#WarrantyScope> .
+<http://purl.org/uco/ns#numberOfOwners> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://purl.org/uco/ns#validFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#Check> .
+_:B4504be62X2D92f9X2D4b1fX2D8cf2X2Df1e8a1a33d5d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#propertyID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/uco/ns#Check> <http://www.w3.org/2000/01/rdf-schema#label> "Check"@en .
+<http://purl.org/uco/ns#hasOwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#notAtFaultAccident> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates whether the accident leading to the damage was a not-at-fault accident from the perspective of the owner."@en .
+_:B8f5b34a4X2D0f50X2D488fX2D9eb1X2Df94d7670796f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#feature> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#partReplaced> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bea1eea84X2Dedc8X2D4cbeX2D8337X2D695b16f2edcb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#partAdded> <http://www.w3.org/2000/01/rdf-schema#label> "part added (0..1)"@en .
+<http://purl.org/uco/ns#ModificationOrMaintenance> <http://www.w3.org/2000/01/rdf-schema#comment> "A modification or maintenance is an event in which a part of the vehicle is being replaced or removed, or a new part is being added.\nTypical examples are the replacement of the engine or the installation of a trailor-hitch."@en .
+<http://purl.org/uco/ns#Species> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/goodrelations/v1#QualitativeValue> .
+<http://purl.org/uco/ns#valuation> <http://www.w3.org/2000/01/rdf-schema#comment> "The market price assessment gained by the respective valuation. Use gr:name to indicate the name of the valuation service."@en .
+<http://purl.org/uco/ns#Garage> <http://www.w3.org/2000/01/rdf-schema#comment> "The parking of a vehicle in a closed garage"@en .
+<http://purl.org/uco/ns#contains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B06dd7ab8X2Dfcb5X2D4565X2D8af4X2D621ef5a0c376 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#currentLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "The current location of the vehicle, i.e. where the car could be tested. For indicating alternative locations to which the seller is willing to bring the car, use gr:availableAtOrFrom attached to the gr:Offering, since those are aspects of the offer, not of the vehicle."@en .
+<http://purl.org/uco/ns#propertyValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+_:Bcd88e442X2D0d62X2D482bX2Da8a1X2D6af17157a785 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#repaired> <http://www.w3.org/2000/01/rdf-schema#domain> _:B73072dbbX2D2008X2D4ea0X2Daef1X2D542c28a73e90 .
+<http://purl.org/uco/ns#mileageInitial> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#IndependentDealer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/goodrelations/v1#BusinessEntityType> .
+<http://purl.org/uco/ns#Check> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#inspected> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/uco/ns#Check> .
+<http://purl.org/uco/ns#inspected> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#validFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates the beginning of the validity of the inspection represented by the uco:Check node. This is typically the day of the inspection."@en .
+<http://purl.org/uco/ns#CarSharing> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#mainLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "The main location(s) of the vehicle during the period of ownership"@en .
+<http://purl.org/uco/ns#licensePlate> <http://www.w3.org/2000/01/rdf-schema#comment> "The license plate string(s) assigned to the vehicle during the period of ownership"@en .
+_:Bdb5b9988X2D56d5X2D4a53X2D9279X2D83f7c1518db4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bce36cbe8X2D5e4cX2D4649X2D911cX2D94ed0f99842f .
+<http://purl.org/uco/ns#contains> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#usage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#partReplaced> <http://www.w3.org/2000/01/rdf-schema#label> "part replaced (0..1)"@en .
+<http://purl.org/uco/ns#originalPartsOnly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#PropertyValue> <http://www.w3.org/2000/01/rdf-schema#label> "Property Value"@en .
+<http://purl.org/uco/ns#from> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#totalLoss> <http://www.w3.org/2000/01/rdf-schema#label> "total loss (0..1)"@en .
+<http://purl.org/uco/ns#Garage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#ParkingType> .
+<http://purl.org/uco/ns#originalPartsOnly> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/uco/ns#mileage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B159f8076X2Dfe2aX2D49c1X2D9b9fX2Da01941e09896 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#Check> .
+<http://purl.org/uco/ns#parking> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#pets> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/uco/ns#Species> .
+_:Bcd88e442X2D0d62X2D482bX2Da8a1X2D6af17157a785 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/uco/ns#numberOfOwners> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B8f5b34a4X2D0f50X2D488fX2D9eb1X2Df94d7670796f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#ModificationOrMaintenance> .
+<http://purl.org/uco/ns#Species> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#numberOfOwners> <http://www.w3.org/2000/01/rdf-schema#label> "number of owners (0..1)"@en .
+<http://purl.org/uco/ns#totalLoss> <http://www.w3.org/2000/01/rdf-schema#domain> _:B4fa8f690X2Db9b8X2D45fcX2D90f9X2Db6c38ccb7068 .
+<http://purl.org/uco/ns#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/uco/ns#Garage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#pets> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/3.0/> .
+<http://purl.org/uco/ns#driver> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Person> .
+<http://purl.org/uco/ns#structuralDamage> <http://www.w3.org/2000/01/rdf-schema#domain> _:B13988998X2D47fdX2D486cX2D8e77X2Da7bc5328191d .
+_:Bb19b1ac9X2D12f9X2D42e5X2D9558X2Da5402812c9ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bfdd3ded3X2Dfe9dX2D4410X2Dbe4aX2Df48b52112bef .
+<http://purl.org/uco/ns#indicationOfOdometerRollback> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:B31e165f4X2D3a3dX2D4b67X2Da32fX2D37d8b512aab4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#listPrice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#PropertyValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#mileageEnd> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/goodrelations/v1#QuantitativeValue> .
+_:B7c6ca3caX2Dee26X2D4d65X2D9286X2Db9f600d84b64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Person> .
+<http://purl.org/uco/ns#carriedOutBy> <http://www.w3.org/2000/01/rdf-schema#range> _:Bae4c4d7bX2D841cX2D4316X2D94ceX2D6a7fd5422730 .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ontologies.makolab.com/uco/ns> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+_:Bc685369bX2D7a63X2D49afX2Dad28X2D5cdeb69fe77f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/uco/ns#unitCode> <http://www.w3.org/2000/01/rdf-schema#label> "unit code (0..1)"@en .
+<http://purl.org/uco/ns#mileage> <http://www.w3.org/2000/01/rdf-schema#comment> "The mileage of the vehicle at the event, e.g. at the accident, maintenance, check, or modification. \n\nTypical unit code(s): KMT for kilometers, SMI for statute miles"@en .
+<http://purl.org/uco/ns#mileageEnd> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#repaired> <http://www.w3.org/2000/01/rdf-schema#comment> "This indicates whether damages resulting from a certain uco:DamageOrAccident (when attached to this type) or all damages (when directly attached to a vso:Vehicle) have been properly repaired. Do not use this propery on a vso:Vehicle if it never had a damage."@en .
+<http://purl.org/uco/ns#mainLocation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#carriedOutBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#ModificationOrMaintenance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<http://purl.org/uco/ns#DamageOrAccident> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Event> .
+<http://purl.org/uco/ns#propertyName> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#IndependentDealer> <http://www.w3.org/2000/01/rdf-schema#comment> "An independent dealer"@en .
+<http://purl.org/uco/ns#countryOfRegistration> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#hasOwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#label> "hasOwnershipInfo (0..*)"@en .
+<http://purl.org/uco/ns#partAdded> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+_:B81f09aaeX2D44d6X2D487aX2D8f86X2D43e4b5fb51b5 <http://www.w3.org/2002/07/owl#unionOf> _:B738f6fd7X2D72a0X2D47a6X2D8e10X2Daa6c48c3d673 .
+_:B4e825633X2D1792X2D4204X2Da818X2D55b82040a911 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/uco/ns#eventInformation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://ontologies.makolab.com/uco/ns.html> <http://xmlns.com/foaf/0.1/primaryTopic> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#countryOfRegistration> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bae4c4d7bX2D841cX2D4316X2D94ceX2D6a7fd5422730 <http://www.w3.org/2002/07/owl#unionOf> _:Bdb5b9988X2D56d5X2D4a53X2D9279X2D83f7c1518db4 .
+<http://purl.org/uco/ns#validThrough> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:B1aaa5988X2Da2e4X2D44a0X2D86fbX2D539f1e9a1750 <http://www.w3.org/2002/07/owl#unionOf> _:B159f8076X2Dfe2aX2D49c1X2D9b9fX2Da01941e09896 .
+<http://purl.org/uco/ns#totalLoss> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#driver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://schema.org/Place> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/Place> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/goodrelations/v1#Location> .
+<http://schema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#currentLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#valuation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#structuralDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates whether the vehicle has suffered from structural damage in the respective accident (when attached to uco:DamageOrAccident) or ever (when directly applied to a vso:Vehicle)."@en .
+<http://purl.org/uco/ns#originalPartsOnly> <http://www.w3.org/2000/01/rdf-schema#comment> "This indicates whether the parts used for repairing a damage, for a maintenance task, or a modification were all original."@en .
+<http://purl.org/uco/ns#from> <http://www.w3.org/2000/01/rdf-schema#label> "from (0..1)"@en .
+<http://purl.org/uco/ns#DrivingSchool> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#Garage> <http://www.w3.org/2000/01/rdf-schema#label> "Garage (uco:ParkingType)"@en .
+<http://purl.org/uco/ns#Taxi> <http://www.w3.org/2000/01/rdf-schema#comment> "The usage of a vehicle as a taxi"@en .
+<http://purl.org/uco/ns.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://purl.org/uco/ns#inspected> <http://www.w3.org/2000/01/rdf-schema#label> "inspected (0..*)"@en .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#Rental> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#numberOfOwners> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#mileageInitial> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/goodrelations/v1#QuantitativeValue> .
+<http://purl.org/uco/ns#countryOfOrigin> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#countryOfOrigin> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/uco/ns#Business> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#UsageType> .
+<http://purl.org/uco/ns#MoneyBack> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#to> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://schema.org/PostalAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B159f8076X2Dfe2aX2D49c1X2D9b9fX2Da01941e09896 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4e825633X2D1792X2D4204X2Da818X2D55b82040a911 .
+<http://purl.org/uco/ns#Private> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#UsageType> .
+_:B4bd536f8X2D60a9X2D4aabX2Da5a8X2D638a00d4fab1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bcd88e442X2D0d62X2D482bX2Da8a1X2D6af17157a785 .
+<http://purl.org/uco/ns#propertyValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#PropertyValue> .
+<http://schema.org/Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/goodrelations/v1#BusinessEntity> .
+<http://purl.org/uco/ns#DamageOrAccident> <http://www.w3.org/2000/01/rdf-schema#comment> "A damage or accident is an event in which the vehicle is being damaged."@en .
+<http://purl.org/uco/ns#propertyID> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#PropertyValue> .
+_:Bff990371X2Dcdc2X2D41f1X2D9e94X2D935f1fdca75f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#MoneyBack> <http://www.w3.org/2000/01/rdf-schema#label> "Money-back Guarantee (gr:WarrantyScope)"@en .
+<http://purl.org/uco/ns#Private> <http://www.w3.org/2000/01/rdf-schema#label> "Private (uco:UsageType)"@en .
+<http://purl.org/uco/ns#Species> <http://www.w3.org/2000/01/rdf-schema#label> "Species"@en .
+<http://purl.org/uco/ns#to> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates the end of the period of ownership represented by this uco:OwnershipInfo node."@en .
+<http://purl.org/uco/ns#PropertyValue> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#Taxi> <http://www.w3.org/2000/01/rdf-schema#label> "Taxi (uco:UsageType)"@en .
+<http://purl.org/uco/ns#mileageInitial> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#pets> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/goodrelations/v1#BusinessEntity> .
+<http://purl.org/uco/ns#unitText> <http://www.w3.org/2000/01/rdf-schema#label> "unit text (0..1)"@en .
+<http://purl.org/uco/ns#driver> <http://www.w3.org/2000/01/rdf-schema#label> "driver (0..*)"@en .
+<http://purl.org/uco/ns#countryOfRegistration> <http://www.w3.org/2000/01/rdf-schema#label> "country of registration (0..1)"@en .
+<http://purl.org/uco/ns#> <http://purl.org/dc/terms/title> "UCO: The Used Cars Ontology for Semantic Web-based E-Commerce"@en .
+_:B13988998X2D47fdX2D486cX2D8e77X2Da7bc5328191d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#structuralDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#from> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:B4e825633X2D1792X2D4204X2Da818X2D55b82040a911 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0f79c92cX2Dc512X2D4cffX2D8963X2D65a655e9c4ec .
+<http://purl.org/uco/ns#parking> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#partRemoved> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#ModificationOrMaintenance> .
+<http://purl.org/uco/ns#usage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#unitText> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#to> <http://www.w3.org/2000/01/rdf-schema#label> "to (0..1)"@en .
+<http://purl.org/uco/ns#partAdded> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description of the part or parts added in the modification (e.g. tuning) or maintenance task"@en .
+_:B9de7acf6X2D7605X2D4019X2D893fX2Dfa5a8bebce80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#propertyName> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the property"@en .
+<http://purl.org/uco/ns#to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#smoking> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#validFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#partAdded> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#validFrom> <http://www.w3.org/2000/01/rdf-schema#label> "valid from (0..1)"@en .
+<http://purl.org/uco/ns#AuthorizedDealer> <http://www.w3.org/2000/01/rdf-schema#comment> "An authorized dealer of the manufacturer of the respective vehicle"@en .
+_:B4fa8f690X2Db9b8X2D45fcX2D90f9X2Db6c38ccb7068 <http://www.w3.org/2002/07/owl#unionOf> _:Bea1eea84X2Dedc8X2D4cbeX2D8337X2D695b16f2edcb .
+<http://purl.org/uco/ns#currentLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/PostalAddress> .
+<http://purl.org/uco/ns#inspected> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#ParkingType> <http://www.w3.org/2000/01/rdf-schema#label> "Parking Type"@en .
+<http://purl.org/uco/ns#driver> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#currentLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Place> .
+<http://purl.org/uco/ns#numberOfDrivers> <http://www.w3.org/2000/01/rdf-schema#domain> _:B9de7acf6X2D7605X2D4019X2D893fX2Dfa5a8bebce80 .
+<http://purl.org/uco/ns#totalLoss> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates whether the vehicle is considered a total loss as the result of a damage in the respective accident (when attached to uco:DamageOrAccident) or in general (when directly applied to a vso:Vehicle)."@en .
+<http://purl.org/uco/ns#originalPartsOnly> <http://www.w3.org/2000/01/rdf-schema#label> "original parts only (0..1)"@en .
+_:B0f79c92cX2Dc512X2D4cffX2D8963X2D65a655e9c4ec <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#ModificationOrMaintenance> .
+_:B06dd7ab8X2Dfcb5X2D4565X2D8af4X2D621ef5a0c376 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B7f2c57fbX2Deb42X2D406eX2D9f94X2Dd46164b25198 .
+_:Bafded409X2D546bX2D454bX2Da124X2Df5cbb1c8019e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#propertyID> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#unitText> <http://www.w3.org/2000/01/rdf-schema#comment> "A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for uco:unitCode."@en .
+<http://purl.org/uco/ns#countryOfRegistration> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#numberOfDrivers> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#eventInformation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#propertyID> <http://www.w3.org/2000/01/rdf-schema#comment> "A global identifier, e.g. a URI, a prefixed string, or any other identifier that can be used to refer to a standardized property type"@en .
+<http://purl.org/uco/ns#hasOwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#comment> "This property points to information about the current and previous owners of the vehicle."@en .
+_:B4ccb43ecX2Dca8aX2D45c7X2Dbc83X2De3861a58214b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/uco/ns#mileage> <http://www.w3.org/2000/01/rdf-schema#domain> _:B1aaa5988X2Da2e4X2D44a0X2D86fbX2D539f1e9a1750 .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#UsageType> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of usage of a vehicle, e.g. rental, taxi, driving school, commuting. It is best to either use one of the predefined individuals or DBpedia URIs whenever possible."@en .
+<http://purl.org/uco/ns#valuation> <http://www.w3.org/2000/01/rdf-schema#label> "valuation (0..*)"@en .
+<http://purl.org/uco/ns#propertyValue> <http://www.w3.org/2000/01/rdf-schema#label> "property value (0..1)"@en .
+<http://purl.org/uco/ns#propertyValue> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#DamageOrAccident> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#ModificationOrMaintenance> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#contains> <http://www.w3.org/2000/01/rdf-schema#comment> "A naive part-whole relation that allows providing more granular uco:OwnershipInfo data for a part of the duration of the ownership"@en .
+<http://purl.org/goodrelations/v1#BusinessEntity> <http://www.w3.org/2002/07/owl#equivalentClass> _:Ba1591824X2D07fbX2D459dX2D90d0X2D61c186fc6b15 .
+<http://purl.org/uco/ns#propertyName> <http://www.w3.org/2000/01/rdf-schema#label> "property name (0..1)"@en .
+<http://purl.org/uco/ns#indicationOfOdometerRollback> <http://www.w3.org/2000/01/rdf-schema#label> "indication of odometer rollback (0..1)"@en .
+<http://purl.org/uco/ns#structuralDamage> <http://www.w3.org/2000/01/rdf-schema#label> "structural damage (0..1)"@en .
+<http://ontologies.makolab.com/uco/ns.owl> <http://xmlns.com/foaf/0.1/primaryTopic> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns> <http://xmlns.com/foaf/0.1/primaryTopic> <http://purl.org/uco/ns#> .
+_:B4ccb43ecX2Dca8aX2D45c7X2Dbc83X2De3861a58214b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#Carport> <http://www.w3.org/2000/01/rdf-schema#label> "Carport (uco:ParkingType)"@en .
+<http://purl.org/uco/ns#partRemoved> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B0f79c92cX2Dc512X2D4cffX2D8963X2D65a655e9c4ec <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#numberOfDrivers> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of people who were/are regularly driving the vehicle in the respective period of time (when attached to uco:OwnershipInfo) or in total (when directly applied to a vso:Vehicle)"@en .
+<http://purl.org/uco/ns#AuthorizedDealer> <http://www.w3.org/2000/01/rdf-schema#label> "Authorized Dealer (gr:BusinessEntityType)"@en .
+<http://purl.org/uco/ns#listPrice> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#Check> <http://www.w3.org/2000/01/rdf-schema#comment> "A mandatory or optional technical inspection, e.g. the MOT, a vendor-specific certification of used cars, etc."@en .
+<http://purl.org/uco/ns#Private> <http://www.w3.org/2000/01/rdf-schema#comment> "The usage of a vehicle soleley for private purposes"@en .
+<http://purl.org/uco/ns#Carport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#ParkingType> .
+<http://purl.org/uco/ns#notAtFaultAccident> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:Bafded409X2D546bX2D454bX2Da124X2Df5cbb1c8019e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/uco/ns#unitCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#carriedOutBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The business or type of business that carried out the check, repair, maintenance, or modification"@en .
+<http://purl.org/uco/ns#indicationOfOdometerRollback> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#smoking> <http://www.w3.org/2000/01/rdf-schema#domain> _:B31e165f4X2D3a3dX2D4b67X2Da32fX2D37d8b512aab4 .
+<http://purl.org/uco/ns#licensePlate> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#airbagDeployment> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://schema.org/Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/goodrelations/v1#BusinessEntity> .
+<http://purl.org/uco/ns#repaired> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B81f09aaeX2D44d6X2D487aX2D8f86X2D43e4b5fb51b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#airbagDeployment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#airbagDeployment> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates whether at least one of the airbags of the vehicle has been deployed in the respective accident (when attached to uco:DamageOrAccident) or ever (when directly applied to a vso:Vehicle)."@en .
+<http://purl.org/uco/ns#partReplaced> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description of the part or parts replaced in the modification (e.g. tuning) or maintenance (e.g. new engine) task"@en .
+<http://purl.org/uco/ns#partAdded> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#ModificationOrMaintenance> .
+<http://purl.org/uco/ns#numberOfOwners> <http://www.w3.org/2000/01/rdf-schema#comment> "The total number of people or organizations who owned the vehicle, including the current owner.\n\nNote that this value can be higher (but not lower) than the number of uco:OwnershipInfo nodes, since those records may be incomplete."@en .
+<http://purl.org/uco/ns#Carport> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#Taxi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#UsageType> .
+_:Bc685369bX2D7a63X2D49afX2Dad28X2D5cdeb69fe77f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8f5b34a4X2D0f50X2D488fX2D9eb1X2Df94d7670796f .
+<http://purl.org/uco/ns#AuthorizedDealer> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#licensePlate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#unitText> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#PropertyValue> .
+<http://purl.org/uco/ns#propertyValue> <http://www.w3.org/2000/01/rdf-schema#comment> "The value of of the property"@en .
+<http://purl.org/uco/ns#valuation> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/goodrelations/v1#PriceSpecification> .
+<http://purl.org/uco/ns#mileage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#parking> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/uco/ns#ParkingType> .
+<http://purl.org/uco/ns#partReplaced> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:B990068adX2D6aacX2D487cX2Db95dX2D5e474a22562f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B75624de1X2D27bfX2D469bX2Da22eX2Dd8252560ea4a .
+<http://purl.org/uco/ns#feature> <http://www.w3.org/2000/01/rdf-schema#comment> "This property points to vehicle features in a semi-structured property-value form."@en .
+<http://purl.org/uco/ns#mileageEnd> <http://www.w3.org/2000/01/rdf-schema#label> "mileage end (0..1)"@en .
+<http://purl.org/uco/ns#DamageOrAccident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#ModificationOrMaintenance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#parking> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#usage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#hasOwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#numberOfDrivers> <http://www.w3.org/2000/01/rdf-schema#label> "number of drivers (0..1)"@en .
+<http://purl.org/uco/ns#CarSharing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#UsageType> .
+<http://purl.org/uco/ns#propertyName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#PropertyValue> .
+_:B8939e62aX2DeeefX2D481dX2D8134X2Dfd4ec5ca7ebb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bafded409X2D546bX2D454bX2Da124X2Df5cbb1c8019e .
+<http://purl.org/uco/ns#pets> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+_:Bea1eea84X2Dedc8X2D4cbeX2D8337X2D695b16f2edcb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4ccb43ecX2Dca8aX2D45c7X2Dbc83X2De3861a58214b .
+<http://purl.org/uco/ns#inspected> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#> <http://purl.org/dc/terms/rights> "The Used Cars Ontology is available under the Creative Commons Attribution 3.0 Unported license; see http://creativecommons.org/licenses/by/3.0/. \nIn a nutshell, you are free to copy, distribute and transmit the work; to remix/adapt the work (e.g. to import the ontology and create specializations of its elements), \nas long as you attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work)."@en .
+<http://purl.org/uco/ns#mileage> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/goodrelations/v1#QuantitativeValue> .
+<http://purl.org/uco/ns#mileageEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "The mileage of the vehicle at the end of the period of ownership. \n\nTypical unit code(s): KMT for kilometers, SMI for statute miles"@en .
+<http://purl.org/uco/ns#> <http://www.w3.org/2000/01/rdf-schema#label> "Used Cars Ontology"@en .
+<http://purl.org/uco/ns#Rental> <http://www.w3.org/2000/01/rdf-schema#comment> "The usage of a vehicle as a rental car"@en .
+<http://purl.org/uco/ns#currentLocation> <http://www.w3.org/2000/01/rdf-schema#label> "currentLocation (0..1)"@en .
+<http://purl.org/uco/ns#OwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#label> "Ownership Info"@en .
+_:B4504be62X2D92f9X2D4b1fX2D8cf2X2Df1e8a1a33d5d <http://www.w3.org/2002/07/owl#unionOf> _:B8939e62aX2DeeefX2D481dX2D8134X2Dfd4ec5ca7ebb .
+<http://purl.org/uco/ns#pets> <http://www.w3.org/2000/01/rdf-schema#comment> "The type(s) of animals that have been transported in the vehicle during the period of ownership (if attached to uco:OwnershipInfo) or in general (if attached to the vso:Vehicle directly). \n\t\nIf possible, use DBPedia URIs, e.g. http://dbpedia.org/resource/Dog."@en .
+<http://purl.org/uco/ns#feature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#to> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#comment> "This property points to the current owner of the vehicle."@en .
+<http://purl.org/uco/ns#IndependentDealer> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/goodrelations/v1#BusinessEntity> .
+<http://purl.org/uco/ns#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/goodrelations/v1> .
+_:B1aaa5988X2Da2e4X2D44a0X2D86fbX2D539f1e9a1750 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/terms/subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/uco/ns#contains> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#numberOfOwners> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#smoking> <http://www.w3.org/2000/01/rdf-schema#label> "smoking (0..1)"@en .
+<http://purl.org/uco/ns#countryOfOrigin> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#carriedOutBy> <http://www.w3.org/2000/01/rdf-schema#label> "carried out by (0..1)"@en .
+_:Ba1591824X2D07fbX2D459dX2D90d0X2D61c186fc6b15 <http://www.w3.org/2002/07/owl#unionOf> _:B7c6ca3caX2Dee26X2D4d65X2D9286X2Db9f600d84b64 .
+_:Bb19b1ac9X2D12f9X2D42e5X2D9558X2Da5402812c9ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#> <http://purl.org/dc/terms/creator> "Hepp Research GmbH and Makolab S.A."@en .
+_:B9e75beb0X2Db3c4X2D493dX2Da301X2D5b3212b37b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#listPrice> <http://www.w3.org/2000/01/rdf-schema#comment> "The original list price of the new car at the time of production"@en .
+_:B7c6ca3caX2Dee26X2D4d65X2D9286X2Db9f600d84b64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B43204177X2D8c8cX2D4c9aX2Da1d0X2D44b003e09ab8 .
+<http://purl.org/uco/ns#partRemoved> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/uco/ns#Business> <http://www.w3.org/2000/01/rdf-schema#comment> "The usage of a vehicle for general business purposes, i.e. excluding usages like as a taxi, rental car, or driving instructions."@en .
+<http://purl.org/uco/ns#originalPartsOnly> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#hasOwnershipInfo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://xmlns.com/foaf/0.1/primaryTopic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/uco/ns#ModificationOrMaintenance> <http://www.w3.org/2000/01/rdf-schema#label> "Modification or Maintenance"@en .
+<http://purl.org/uco/ns#mainLocation> <http://www.w3.org/2000/01/rdf-schema#label> "main location (0..*)"@en .
+<http://purl.org/uco/ns#OwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#comment> "An ownership information node is a structured value representing information about the period of ownership of a vehicle by a person or organisation."@en .
+<http://purl.org/uco/ns#currentLocation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#carriedOutBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:B81f09aaeX2D44d6X2D487aX2D8f86X2D43e4b5fb51b5 .
+<http://purl.org/uco/ns#driver> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:B738f6fd7X2D72a0X2D47a6X2D8e10X2Daa6c48c3d673 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc685369bX2D7a63X2D49afX2Dad28X2D5cdeb69fe77f .
+<http://purl.org/uco/ns#mileage> <http://www.w3.org/2000/01/rdf-schema#label> "mileage (0..1)"@en .
+<http://purl.org/uco/ns#validThrough> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/uco/ns#MoneyBack> <http://www.w3.org/2000/01/rdf-schema#comment> "The promise to take back the vehicle without any specific reason for a full refund within a certain amount of time"@en .
+<http://purl.org/uco/ns#eventInformation> <http://www.w3.org/2000/01/rdf-schema#label> "eventInformation (0..*)"@en .
+<http://purl.org/uco/ns#valuation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#UsageType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#OwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:Ba1591824X2D07fbX2D459dX2D90d0X2D61c186fc6b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#propertyName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#Rental> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#UsageType> .
+<http://purl.org/uco/ns#ParkingType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B9e75beb0X2Db3c4X2D493dX2Da301X2D5b3212b37b22 <http://www.w3.org/2002/07/owl#unionOf> _:B4bd536f8X2D60a9X2D4aabX2Da5a8X2D638a00d4fab1 .
+<http://purl.org/uco/ns#indicationOfOdometerRollback> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/uco/ns#owner> .
+<http://purl.org/uco/ns#DrivingSchool> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#UsageType> .
+<http://purl.org/uco/ns#eventInformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#indicationOfOdometerRollback> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/uco/ns#validThrough> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates the end of the validity of the inspection represented by the uco:Check node. This is typically the day of the inspection plus one (UK MOT) or two years (e.g. German TÜV)."@en .
+_:Bae4c4d7bX2D841cX2D4316X2D94ceX2D6a7fd5422730 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#CarSharing> <http://www.w3.org/2000/01/rdf-schema#comment> "The usage of a vehicle for car sharing networks"@en .
+_:B7f2c57fbX2Deb42X2D406eX2D9f94X2Dd46164b25198 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/uco/ns#partRemoved> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description of the part or parts removed in the modification (e.g. tuning) or maintenance task"@en .
+<http://purl.org/uco/ns#partReplaced> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#ModificationOrMaintenance> .
+<http://purl.org/uco/ns#Rental> <http://www.w3.org/2000/01/rdf-schema#label> "Rental (uco:UsageType)"@en .
+<http://purl.org/uco/ns#totalLoss> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#countryOfRegistration> <http://www.w3.org/2000/01/rdf-schema#comment> "The country or geo-political region in which the vehicle is currently registered, indicated as the two-character version of ISO 3166-1 (ISO 3166-1 alpha-2) for regions or ISO 3166-2, which breaks down the countries from ISO 3166-1 into administrative subdivisions."@en .
+_:B31e165f4X2D3a3dX2D4b67X2Da32fX2D37d8b512aab4 <http://www.w3.org/2002/07/owl#unionOf> _:B990068adX2D6aacX2D487cX2Db95dX2D5e474a22562f .
+<http://purl.org/uco/ns#licensePlate> <http://www.w3.org/2000/01/rdf-schema#label> "license plate (0..*)"@en .
+<http://purl.org/uco/ns#mileageEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bdb5b9988X2D56d5X2D4a53X2D9279X2D83f7c1518db4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/goodrelations/v1#BusinessEntity> .
+_:B670a431cX2D80b7X2D47b7X2Dae62X2Df91d8025c4f8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#totalLoss> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/uco/ns> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://ontologies.makolab.com/uco/ns.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#comment> "This property points to the owner of the vehicle for the respective period of time, as indicated by the uco:OwnershipInfo node."@en .
+_:B8939e62aX2DeeefX2D481dX2D8134X2Dfd4ec5ca7ebb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#ModificationOrMaintenance> .
+<http://purl.org/uco/ns#unitText> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/uco/ns#mainLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#carriedOutBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#DrivingSchool> <http://www.w3.org/2000/01/rdf-schema#comment> "The usage of a vehicle for commercial driver's education"@en .
+_:B7f2c57fbX2Deb42X2D406eX2D9f94X2Dd46164b25198 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://schema.org/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#licensePlate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Organization> .
+<http://purl.org/uco/ns#CarSharing> <http://www.w3.org/2000/01/rdf-schema#label> "Car Sharing (uco:UsageType)"@en .
+<http://purl.org/uco/ns#countryOfRegistration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bce36cbe8X2D5e4cX2D4649X2D911cX2D94ed0f99842f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/goodrelations/v1#BusinessEntityType> .
+<http://purl.org/uco/ns#parking> <http://www.w3.org/2000/01/rdf-schema#comment> "The main type(s) of parking that have been used for the vehicle during the period of ownership (if attached to uco:OwnershipInfo) or in general (if attached to the vso:Vehicle directly)"@en .
+<http://purl.org/uco/ns#indicationOfOdometerRollback> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates whether it is likely or known that the odometer of the vehicle does not properly reflect the total mileage of the vehicle, e.g. because the odometer has been replaced, reset, or tampered with "@en .
+_:B75624de1X2D27bfX2D469bX2Da22eX2Dd8252560ea4a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#label> "owner (0..*)"@en .
+<http://purl.org/uco/ns#Street> <http://www.w3.org/2000/01/rdf-schema#comment> "The parking of a vehicle on a public or private street"@en .
+<http://purl.org/uco/ns#validThrough> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#IndependentDealer> <http://www.w3.org/2000/01/rdf-schema#label> "Independent Dealer (gr:BusinessEntityType)"@en .
+<http://purl.org/uco/ns#currentOwner> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/Person> .
+<http://purl.org/uco/ns#owner> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#originalPartsOnly> <http://www.w3.org/2000/01/rdf-schema#domain> _:B4504be62X2D92f9X2D4b1fX2D8cf2X2Df1e8a1a33d5d .
+<http://purl.org/uco/ns#ParkingType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/goodrelations/v1#QualitativeValue> .
+_:B4fa8f690X2Db9b8X2D45fcX2D90f9X2Db6c38ccb7068 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B75624de1X2D27bfX2D469bX2Da22eX2Dd8252560ea4a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#parking> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#Street> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#airbagDeployment> <http://www.w3.org/2000/01/rdf-schema#label> "airbag deployment (0..1)"@en .
+<http://purl.org/uco/ns#Business> <http://www.w3.org/2000/01/rdf-schema#label> "Business (uco:UsageType)"@en .
+<http://purl.org/uco/ns#from> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/uco/ns#ParkingType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#usage> <http://www.w3.org/2000/01/rdf-schema#comment> "The type(s) of usage during the period of ownership (if attached to uco:OwnershipInfo) or in general (if attached to the vso:Vehicle directly)"@en .
+<http://purl.org/uco/ns#from> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates the beginning of the period of ownership represented by this uco:OwnershipInfo node."@en .
+<http://purl.org/uco/ns#partRemoved> <http://www.w3.org/2000/01/rdf-schema#label> "part removed (0..1)"@en .
+<http://purl.org/uco/ns#DamageOrAccident> <http://www.w3.org/2000/01/rdf-schema#label> "Damage or Accident"@en .
+<http://purl.org/uco/ns#Street> <http://www.w3.org/2000/01/rdf-schema#label> "Street (uco:ParkingType)"@en .
+<http://purl.org/uco/ns#mileageInitial> <http://www.w3.org/2000/01/rdf-schema#label> "mileage initial (0..1)"@en .
+_:B9de7acf6X2D7605X2D4019X2D893fX2Dfa5a8bebce80 <http://www.w3.org/2002/07/owl#unionOf> _:Bff990371X2Dcdc2X2D41f1X2D9e94X2D935f1fdca75f .
+<http://purl.org/uco/ns#usage> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/uco/ns#UsageType> .
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/uco/ns#pets> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+_:B43204177X2D8c8cX2D4c9aX2Da1d0X2D44b003e09ab8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/uco/ns#OwnershipInfo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B670a431cX2D80b7X2D47b7X2Dae62X2Df91d8025c4f8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#OwnershipInfo> .
+<http://purl.org/uco/ns#repaired> <http://www.w3.org/2000/01/rdf-schema#label> "repaired (0..1)"@en .
+_:B990068adX2D6aacX2D487cX2Db95dX2D5e474a22562f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vso/ns#Vehicle> .
+_:Bff990371X2Dcdc2X2D41f1X2D9e94X2D935f1fdca75f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B670a431cX2D80b7X2D47b7X2Dae62X2Df91d8025c4f8 .
+<http://purl.org/uco/ns#Street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/uco/ns#ParkingType> .
+<http://purl.org/uco/ns#countryOfOrigin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#smoking> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates whether it has been smoked inside the car in the respective period of time (when attached to uco:OwnershipInfo) or ever (when directly applied to a vso:Vehicle)."@en .
+<http://purl.org/uco/ns#countryOfOrigin> <http://www.w3.org/2000/01/rdf-schema#comment> "The country or geo-political region in which the vehicle was initially sold officially, indicated as the two-character version of ISO 3166-1 (ISO 3166-1 alpha-2) for regions or ISO 3166-2, which breaks down the countries from ISO 3166-1 into administrative subdivisions."@en .
+<http://purl.org/uco/ns#usage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#UsageType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/uco/ns#validFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/uco/ns#propertyName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/uco/ns#feature> <http://www.w3.org/2000/01/rdf-schema#label> "feature (0..*)"@en .
+<http://purl.org/uco/ns#Private> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#to> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#smoking> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#validFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B738f6fd7X2D72a0X2D47a6X2D8e10X2Daa6c48c3d673 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/uco/ns#Check> .
+<http://purl.org/uco/ns#countryOfOrigin> <http://www.w3.org/2000/01/rdf-schema#label> "country of origin (0..1)"@en .
+<http://purl.org/uco/ns#mainLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://schema.org/PostalAddress> .
+<http://purl.org/uco/ns#smoking> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://purl.org/uco/ns#partAdded> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#hasOwnershipInfo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#contains> <http://www.w3.org/2000/01/rdf-schema#label> "contains (0..*)"@en .
+<http://purl.org/uco/ns#Business> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/uco/ns#> .
+<http://purl.org/uco/ns#contains> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#OwnershipInfo> .
+_:Bce36cbe8X2D5e4cX2D4649X2D911cX2D94ed0f99842f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B73072dbbX2D2008X2D4ea0X2Daef1X2D542c28a73e90 <http://www.w3.org/2002/07/owl#unionOf> _:Bb19b1ac9X2D12f9X2D42e5X2D9558X2Da5402812c9ed .
+<http://purl.org/uco/ns#listPrice> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/goodrelations/v1#PriceSpecification> .
+<http://purl.org/uco/ns#mileageInitial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#driver> <http://www.w3.org/2000/01/rdf-schema#comment> "This property points to the driver or drivers that were regularly driving the vehicle during the respective period of time (when attached to uco:OwnershipInfo) or in total (when attached directly to a vso:Vehicle)."@en .
+_:B13988998X2D47fdX2D486cX2D8e77X2Da7bc5328191d <http://www.w3.org/2002/07/owl#unionOf> _:B06dd7ab8X2Dfcb5X2D4565X2D8af4X2D621ef5a0c376 .
+<http://purl.org/uco/ns#unitCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#PropertyValue> .
+<http://purl.org/uco/ns#UsageType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/goodrelations/v1#QualitativeValue> .
+<http://purl.org/uco/ns#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/vso/ns> .
+<http://purl.org/uco/ns#notAtFaultAccident> <http://www.w3.org/2000/01/rdf-schema#label> "total loss (0..1)"@en .
+<http://purl.org/uco/ns#notAtFaultAccident> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/uco/ns#DamageOrAccident> .
+<http://purl.org/uco/ns#structuralDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#from> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://xmlns.com/foaf/0.1/depiction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/uco/ns#DrivingSchool> <http://www.w3.org/2000/01/rdf-schema#label> "Driving School (uco:UsageType)"@en .
+<http://purl.org/uco/ns#propertyID> <http://www.w3.org/2000/01/rdf-schema#label> "property ID (0..1)"@en .
+<http://purl.org/uco/ns#unitText> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/uco/ns#feature> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/vso/ns#Vehicle> .
+<http://purl.org/uco/ns#PropertyValue> <http://www.w3.org/2000/01/rdf-schema#comment> "A property-value is a structured value for representing a feature of a vehicle in a semi-formal way."@en .
+<http://purl.org/uco/ns#structuralDamage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .

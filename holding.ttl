@@ -1,245 +1,161 @@
-<http://purl.org/ontology/holding#broaderExemplar>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates a document to an item that contains an exemplar of the document as part."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "broader exemplar"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/i/containedInItem> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#broaderExemplarOf> .
-
-<http://purl.org/ontology/holding#Document>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Use one of bibo:Document, foaf:Document, bf:Work or bf:Instance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Document"@en ;
-        <http://www.w3.org/2002/07/owl#unionOf>
-                ( <http://purl.org/ontology/bibo/Document> <http://xmlns.com/foaf/0.1/Document> <http://bibframe.org/vocab/Work> <http://bibframe.org/vocab/Instance> <http://schema.org/CreativeWork> ) .
-
-<http://purl.org/ontology/holding#label>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A call number, shelf mark or similar label of an item"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "label"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://bibframe.org/vocab/label> , <http://schema.org/name> , <http://purl.org/goodrelations/v1#hasStockKeepingUnit> , <http://bibframe.org/vocab/shelfMark> , <http://rdaregistry.info/Elements/i/identifierForTheItem> , <http://schema.org/sku> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/terms/identifier> .
-
-<http://purl.org/ontology/holding#collects>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates an agent to a document and/or item that is collected by the agent."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "collects"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/ontology/holding#Document> <http://purl.org/ontology/holding#Item> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/i/collectorOf> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#collectedBy> .
-
-<http://purl.org/ontology/dso#DocumentService>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/dso> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "DocumentService" .
-
-<http://purl.org/ontology/holding#holds>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates an agent to an item which the agent holds."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "holds"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/a/ownerOf> , <http://rdaregistry.info/Elements/a/currentOwnerOf> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ontology/holding#collects> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#heldBy> .
-
-<http://purl.org/ontology/holding#narrowerExemplar>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates a document to an item that is an exemplar of a part of the document."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "narrower exemplar"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/i/containsItem> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#narrowerExemplarOf> .
-
-<http://purl.org/ontology/holding>
-        a       <http://purl.org/vocommons/voaf#Vocabulary> , <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Holding Ontology"@en ;
-        <http://creativecommons.org/ns#license>
-                <http://creativecommons.org/licenses/by/3.0/> ;
-        <http://purl.org/dc/terms/creator>
-                "Carsten Klee" , "Jakob Voß" ;
-        <http://purl.org/dc/terms/description>
-                "A vocabulary to express (library) holdings in RDF" ;
-        <http://purl.org/dc/terms/modified>
-                "2015-12-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/title>
-                "Holding Ontology"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "holding" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://purl.org/ontology/holding#" ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "0.1.2+35" .
-
-<http://purl.org/ontology/holding#heldBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates an item to an agent who holds the item."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "held by"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/i/owner> , <http://bibframe.org/vocab/heldBy> , <http://rdaregistry.info/Elements/i/currentOwner> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ontology/holding#collectedBy> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#holds> .
-
-<http://purl.org/ontology/ecpo#Chronology>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/ecpo> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Chronology"@en .
-
-<http://purl.org/ontology/holding#narrowerExemplarOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates an item to a document which is partly exemplified by the item."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "narrower exemplar of"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/i/containedInItem> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#narrowerExemplar> .
-
-<http://purl.org/ontology/holding#collectedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates a document and/or item to an agent who collects it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/ontology/holding#Document> <http://purl.org/ontology/holding#Item> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "collected by"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/i/collector> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#collects> .
-
-<http://purl.org/ontology/holding#exemplarOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates an item to the document that is exemplified by the item."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is examplar of"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://bibframe.org/vocab/holdingFor> , <http://rdaregistry.info/Elements/i/manifestationExemplified> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#exemplar> .
-
-<http://purl.org/ontology/holding#exemplar>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates a document to an item that is an exemplar of the document."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has exemplar"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/vocab/frbr/core#exemplar> , <http://rdaregistry.info/Elements/m/exemplarOfManifestation> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#exemplarOf> .
-
-<http://purl.org/ontology/holding#broaderExemplarOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relates an item to a document which is partly exemplified by the item."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/holding#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "broader exemplar of"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/holding#Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://rdaregistry.info/Elements/i/containsItem> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/ontology/holding#broaderExemplar> .
-
-<http://purl.org/ontology/holding#Agent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Use one of bf:Agent or foaf:Agent"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Agent"@en ;
-        <http://www.w3.org/2002/07/owl#unionOf>
-                ( <http://bibframe.org/vocab/Agent> <http://xmlns.com/foaf/0.1/Agent> <http://schema.org/Organization> <http://schema.org/Person> <http://rdaregistry.info/Elements/c/Agent> ) .
-
-<http://purl.org/goodrelations/v1#Location>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/goodrelations/v1> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location"@en ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://schema.org/Place> .
-
-<http://purl.org/ontology/holding#Item>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Use one of bf:HeldItem frbr:Item rdac:Item"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Item"@en ;
-        <http://www.w3.org/2002/07/owl#unionOf>
-                ( <http://bibframe.org/vocab/HeldItem> <http://purl.org/vocab/frbr/core#Item> <http://rdaregistry.info/Elements/c/Item> ) .
+_:Baa57356fX2Dbc7aX2D413fX2D8eccX2D436d5ed8fc19 <http://www.w3.org/2002/07/owl#unionOf> _:Ba7fd47f1X2Dcc0bX2D415fX2D80fbX2D65bd7c399c87 .
+<http://purl.org/ontology/holding#broaderExemplar> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Document> .
+<http://purl.org/ontology/holding#Document> <http://www.w3.org/2000/01/rdf-schema#comment> "Use one of bibo:Document, foaf:Document, bf:Work or bf:Instance"@en .
+_:Badd233c8X2D51f3X2D4e02X2D81b0X2Dd295fe639a9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B0000d5f8X2D0ccfX2D44efX2D95cdX2D2581a6d39b89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bbf3703cdX2Dac99X2D44c5X2D89a2X2D12b0db3829c6 .
+_:B0ced42eeX2D9ac3X2D4c10X2D8c8aX2Db3370c527356 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf57d6b0aX2Dd5b5X2D47e7X2Db011X2D7557e93f43ed .
+<http://purl.org/ontology/holding#broaderExemplar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#comment> "A call number, shelf mark or similar label of an item"@en .
+<http://purl.org/ontology/holding#collects> <http://www.w3.org/2000/01/rdf-schema#label> "collects"@en .
+<http://purl.org/ontology/holding#broaderExemplar> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Item> .
+_:Bf3b81989X2D617bX2D4fc3X2Db04fX2D3f1d862a4b5a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B7381c684X2De7dfX2D4715X2D89baX2Da69c33eb6cf5 .
+<http://purl.org/ontology/holding#collectedBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:B078a2048X2D3c8cX2D42beX2D9d68X2D49cc6e95e723 .
+<http://purl.org/ontology/dso#DocumentService> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B767bcf3fX2D2520X2D49a8X2Db49bX2D87f88f2672fb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/holding#Document> .
+_:Ba7fd47f1X2Dcc0bX2D415fX2D80fbX2D65bd7c399c87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/holding#Document> .
+<http://purl.org/ontology/holding#broaderExemplar> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a document to an item that contains an exemplar of the document as part."@en .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/holding#collects> .
+<http://purl.org/ontology/holding#narrowerExemplar> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a document to an item that is an exemplar of a part of the document."@en .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://bibframe.org/vocab/label> .
+<http://purl.org/ontology/holding> <http://purl.org/dc/terms/description> "A vocabulary to express (library) holdings in RDF" .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/owner> .
+<http://purl.org/ontology/holding#collects> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an agent to a document and/or item that is collected by the agent."@en .
+<http://purl.org/ontology/holding#narrowerExemplar> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#narrowerExemplarOf> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#label> "label"@en .
+<http://purl.org/ontology/ecpo#Chronology> <http://www.w3.org/2000/01/rdf-schema#label> "Chronology"@en .
+_:B81e5a24fX2D36b6X2D4328X2D8eacX2D8efd6e846e71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vocab/frbr/core#Item> .
+_:Bf3b81989X2D617bX2D4fc3X2Db04fX2D3f1d862a4b5a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://bibframe.org/vocab/Instance> .
+_:B7e9edf05X2D5016X2D45b9X2D9437X2D5a1be58720c4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://bibframe.org/vocab/HeldItem> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an agent to an item which the agent holds."@en .
+<http://purl.org/ontology/holding#Agent> <http://www.w3.org/2002/07/owl#unionOf> _:B0925e025X2D1c2bX2D4d98X2D861eX2D4b14374564e9 .
+<http://purl.org/ontology/holding> <http://purl.org/dc/terms/creator> "Carsten Klee" .
+_:Bbf3703cdX2Dac99X2D44c5X2D89a2X2D12b0db3829c6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://xmlns.com/foaf/0.1/Document> .
+_:Ba7fd47f1X2Dcc0bX2D415fX2D80fbX2D65bd7c399c87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Badd233c8X2D51f3X2D4e02X2D81b0X2Dd295fe639a9b .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://schema.org/name> .
+<http://purl.org/ontology/holding> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/ontology/holding#" .
+<http://purl.org/ontology/holding#Document> <http://www.w3.org/2002/07/owl#unionOf> _:B0000d5f8X2D0ccfX2D44efX2D95cdX2D2581a6d39b89 .
+_:B01538939X2D8a8eX2D49e6X2Da810X2D58d22cfcf128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2000/01/rdf-schema#label> "holds"@en .
+<http://purl.org/ontology/holding#narrowerExemplarOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#narrowerExemplar> .
+<http://purl.org/ontology/holding#collectedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#collects> .
+<http://purl.org/ontology/holding#collects> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/collectorOf> .
+_:B0925e025X2D1c2bX2D4d98X2D861eX2D4b14374564e9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://bibframe.org/vocab/Agent> .
+<http://purl.org/ontology/holding#broaderExemplar> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#broaderExemplarOf> .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://bibframe.org/vocab/holdingFor> .
+<http://purl.org/ontology/holding#narrowerExemplarOf> <http://www.w3.org/2000/01/rdf-schema#label> "narrower exemplar of"@en .
+_:Bf57d6b0aX2Dd5b5X2D47e7X2Db011X2D7557e93f43ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bf57d6b0aX2Dd5b5X2D47e7X2Db011X2D7557e93f43ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://rdaregistry.info/Elements/c/Agent> .
+_:B26a4ff91X2D4e81X2D4510X2Da308X2Daff7bf33ed88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf3b81989X2D617bX2D4fc3X2Db04fX2D3f1d862a4b5a .
+<http://purl.org/ontology/holding#collectedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#exemplarOf> .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding#broaderExemplarOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/containsItem> .
+_:B0ced42eeX2D9ac3X2D4c10X2D8c8aX2Db3370c527356 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Person> .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/ontology/holding#broaderExemplarOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding> <http://purl.org/dc/terms/title> "Holding Ontology"@en .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Agent> .
+<http://purl.org/ontology/holding#broaderExemplarOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Item> .
+_:Bc250802eX2D92baX2D4768X2D86b6X2D03623baa1c20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ontology/holding#broaderExemplarOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Document> .
+<http://purl.org/ontology/dso#DocumentService> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/dso> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/goodrelations/v1#hasStockKeepingUnit> .
+<http://purl.org/ontology/holding> <http://purl.org/dc/terms/creator> "Jakob Voß" .
+<http://purl.org/ontology/holding#broaderExemplarOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#broaderExemplar> .
+_:B7e9edf05X2D5016X2D45b9X2D9437X2D5a1be58720c4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B81e5a24fX2D36b6X2D4328X2D8eacX2D8efd6e846e71 .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#label> "held by"@en .
+<http://purl.org/ontology/dso#DocumentService> <http://www.w3.org/2000/01/rdf-schema#label> "DocumentService" .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an item to the document that is exemplified by the item."@en .
+<http://purl.org/ontology/holding> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.2+35" .
+_:B7381c684X2De7dfX2D4715X2D89baX2Da69c33eb6cf5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/CreativeWork> .
+<http://purl.org/ontology/holding#collects> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Agent> .
+<http://purl.org/goodrelations/v1#Location> <http://www.w3.org/2000/01/rdf-schema#label> "Location"@en .
+_:B427f2a26X2Dd74eX2D427fX2DafdfX2D4360eebc6b7b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://schema.org/Organization> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Baa57356fX2Dbc7aX2D413fX2D8eccX2D436d5ed8fc19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/holding#narrowerExemplarOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Document> .
+<http://purl.org/ontology/holding#narrowerExemplarOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/vocab/frbr/core#exemplar> .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/ontology/holding#broaderExemplarOf> <http://www.w3.org/2000/01/rdf-schema#label> "broader exemplar of"@en .
+<http://purl.org/ontology/holding#narrowerExemplarOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Document> .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://bibframe.org/vocab/heldBy> .
+_:B0000d5f8X2D0ccfX2D44efX2D95cdX2D2581a6d39b89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/bibo/Document> .
+_:Badd233c8X2D51f3X2D4e02X2D81b0X2Dd295fe639a9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/identifier> .
+_:B26a4ff91X2D4e81X2D4510X2Da308X2Daff7bf33ed88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://bibframe.org/vocab/Work> .
+<http://purl.org/ontology/holding#collects> <http://www.w3.org/2000/01/rdf-schema#range> _:Baa57356fX2Dbc7aX2D413fX2D8eccX2D436d5ed8fc19 .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an item to an agent who holds the item."@en .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/2000/01/rdf-schema#label> "is examplar of"@en .
+<http://purl.org/ontology/holding#broaderExemplar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/containedInItem> .
+<http://purl.org/ontology/holding#collects> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#collectedBy> .
+<http://purl.org/ontology/holding#Item> <http://www.w3.org/2002/07/owl#unionOf> _:B7e9edf05X2D5016X2D45b9X2D9437X2D5a1be58720c4 .
+<http://purl.org/ontology/holding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+<http://purl.org/ontology/holding#narrowerExemplar> <http://www.w3.org/2000/01/rdf-schema#label> "narrower exemplar"@en .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#heldBy> .
+<http://purl.org/ontology/holding#Agent> <http://www.w3.org/2000/01/rdf-schema#label> "Agent"@en .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://bibframe.org/vocab/shelfMark> .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#holds> .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Document> .
+<http://purl.org/ontology/holding#collectedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a document and/or item to an agent who collects it."@en .
+<http://purl.org/ontology/holding#Item> <http://www.w3.org/2000/01/rdf-schema#label> "Item"@en .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/goodrelations/v1#Location> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/goodrelations/v1> .
+<http://purl.org/ontology/holding#broaderExemplar> <http://www.w3.org/2000/01/rdf-schema#label> "broader exemplar"@en .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding> <http://www.w3.org/2000/01/rdf-schema#label> "Holding Ontology"@en .
+_:B01538939X2D8a8eX2D49e6X2Da810X2D58d22cfcf128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/2000/01/rdf-schema#label> "has exemplar"@en .
+_:B7381c684X2De7dfX2D4715X2D89baX2Da69c33eb6cf5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B078a2048X2D3c8cX2D42beX2D9d68X2D49cc6e95e723 <http://www.w3.org/2002/07/owl#unionOf> _:B767bcf3fX2D2520X2D49a8X2Db49bX2D87f88f2672fb .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/m/exemplarOfManifestation> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/identifierForTheItem> .
+_:B1efeff68X2Df370X2D4e33X2D9e5eX2Dd5045f9d7232 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B427f2a26X2Dd74eX2D427fX2DafdfX2D4360eebc6b7b .
+<http://purl.org/ontology/holding#collectedBy> <http://www.w3.org/2000/01/rdf-schema#label> "collected by"@en .
+_:Bc250802eX2D92baX2D4768X2D86b6X2D03623baa1c20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://rdaregistry.info/Elements/c/Item> .
+<http://purl.org/ontology/holding> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/3.0/> .
+<http://purl.org/ontology/holding#Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bbf3703cdX2Dac99X2D44c5X2D89a2X2D12b0db3829c6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B26a4ff91X2D4e81X2D4510X2Da308X2Daff7bf33ed88 .
+<http://purl.org/ontology/holding#Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document"@en .
+<http://purl.org/ontology/holding#collects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/a/ownerOf> .
+_:B0925e025X2D1c2bX2D4d98X2D861eX2D4b14374564e9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1efeff68X2Df370X2D4e33X2D9e5eX2Dd5045f9d7232 .
+<http://purl.org/ontology/ecpo#Chronology> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/ecpo> .
+<http://purl.org/ontology/holding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+_:B81e5a24fX2D36b6X2D4328X2D8eacX2D8efd6e846e71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc250802eX2D92baX2D4768X2D86b6X2D03623baa1c20 .
+<http://purl.org/ontology/holding> <http://purl.org/vocab/vann/preferredNamespacePrefix> "holding" .
+<http://purl.org/ontology/holding#narrowerExemplar> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Item> .
+_:B767bcf3fX2D2520X2D49a8X2Db49bX2D87f88f2672fb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B01538939X2D8a8eX2D49e6X2Da810X2D58d22cfcf128 .
+<http://purl.org/ontology/holding#collectedBy> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/collector> .
+<http://purl.org/ontology/holding#narrowerExemplar> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/containsItem> .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/holding#exemplar> .
+<http://purl.org/ontology/holding#narrowerExemplar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding> <http://purl.org/dc/terms/modified> "2015-12-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://purl.org/ontology/holding#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/goodrelations/v1#Location> <http://www.w3.org/2002/07/owl#equivalentClass> <http://schema.org/Place> .
+<http://purl.org/ontology/holding#exemplar> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a document to an item that is an exemplar of the document."@en .
+<http://purl.org/ontology/holding#narrowerExemplar> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Document> .
+<http://purl.org/ontology/holding#broaderExemplarOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an item to a document which is partly exemplified by the item."@en .
+_:B427f2a26X2Dd74eX2D427fX2DafdfX2D4360eebc6b7b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0ced42eeX2D9ac3X2D4c10X2D8c8aX2Db3370c527356 .
+<http://purl.org/ontology/holding#Agent> <http://www.w3.org/2000/01/rdf-schema#comment> "Use one of bf:Agent or foaf:Agent"@en .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/currentOwner> .
+<http://purl.org/ontology/holding#Item> <http://www.w3.org/2000/01/rdf-schema#comment> "Use one of bf:HeldItem frbr:Item rdac:Item"@en .
+<http://purl.org/ontology/holding#narrowerExemplarOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/containedInItem> .
+<http://purl.org/goodrelations/v1#Location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B078a2048X2D3c8cX2D42beX2D9d68X2D49cc6e95e723 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/a/currentOwnerOf> .
+<http://purl.org/ontology/holding#label> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://schema.org/sku> .
+<http://purl.org/ontology/holding#exemplarOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://rdaregistry.info/Elements/i/manifestationExemplified> .
+_:B1efeff68X2Df370X2D4e33X2D9e5eX2Dd5045f9d7232 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Item> .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/holding#heldBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/holding#collectedBy> .
+<http://purl.org/ontology/holding#holds> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/holding#Agent> .
+<http://purl.org/ontology/ecpo#Chronology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/holding#Item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/holding#collectedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/holding#Agent> .
+<http://purl.org/ontology/holding#narrowerExemplarOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an item to a document which is partly exemplified by the item."@en .

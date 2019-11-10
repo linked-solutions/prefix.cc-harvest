@@ -1,262 +1,121 @@
-<http://demiblog.org/vocab/oauth#encrypted>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The encrypted form of a Secret. The standard method is to use the Rijndael algorithm in CBC mode, with a 256-bit key known to the service provider, and no initialisation vector."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Secret> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "encrypted"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://demiblog.org/vocab/oauth#timestamp>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The timestamp provided by the Consumer when creating this OAuth Token."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Token> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "timestamp"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/terms/date> .
-
-<http://demiblog.org/vocab/oauth#consumer_secret>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A secret known only to the OAuth Consumer and Service Provider."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Consumer> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "consumer secret"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://demiblog.org/vocab/oauth#Secret> .
-
-<http://demiblog.org/vocab/oauth#plaintext>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The plain (unencrypted) text form of a Secret."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Secret> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "plaintext"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> .
-
-<http://demiblog.org/vocab/oauth#Secret>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Logically a placeholder for a string literal, but using a resource instead allows us to make it the subject of triples. Especially of the form: <secret> oauth:encrypted 'blah'."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Secret"@en .
-
-<http://demiblog.org/vocab/oauth#consumer>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Consumer responsible for this OAuth Token having been created."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Token> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "consumer"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://demiblog.org/vocab/oauth#Consumer> .
-
-<http://demiblog.org/vocab/oauth#token_secret>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A secret string associated with an OAuth Token."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Token> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "token secret"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://demiblog.org/vocab/oauth#Secret> .
-
-<http://demiblog.org/vocab/oauth#RequestToken>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents a (authorized or not) OAuth Request Token."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Request Token"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://demiblog.org/vocab/oauth#Token> .
-
-<http://demiblog.org/vocab/oauth#nonce>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The nonce provided by the Consumer when creating this OAuth Token."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Token> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "nonce"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://demiblog.org/vocab/oauth#granted_by>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The foaf:OnlineAccount used to authorize an OAuth Request Token."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#RequestToken> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "granted by"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/OnlineAccount> .
-
-<http://demiblog.org/vocab/oauth#verification_code>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The secret code associated with an OAuth Request Token when authorizing it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#RequestToken> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "verification code"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://demiblog.org/vocab/oauth#Secret> .
-
-<http://demiblog.org/vocab/oauth#AccessToken>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents an OAuth Access Token that has been obtained by a Consumer subsequent to a Request Token"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Access Token"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://demiblog.org/vocab/oauth#Token> .
-
-<http://demiblog.org/vocab/oauth#callback>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A callback URL associated with an OAuth Request Token."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#RequestToken> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "callback"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Resource> .
-
-<http://demiblog.org/vocab/oauth#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "OAuth Vocabulary"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://demiblog.org/vocab/oauth-example> ;
-        <http://purl.org/dc/terms/creator>
-                <http://tobyinkster.co.uk/#i> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "oauth" ;
-        <http://purl.org/vocab/vann/preferredNamespaceURI>
-                <http://demiblog.org/vocab/oauth#> .
-
-<http://demiblog.org/vocab/oauth#consumer_contact>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A contact point for the OAuth Consumer."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#Consumer> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "consumer contact"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://demiblog.org/vocab/oauth#granted_at>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The datetime an OAuth Request Token was authorized."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#RequestToken> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "granted at"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://demiblog.org/vocab/oauth#granted_until>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The datetime an OAuth Request Token is considered authorized until."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#RequestToken> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "granted until"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://demiblog.org/vocab/oauth#access_as>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The foaf:OnlineAccount that this OAuth Access Token provides access as."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#AccessToken> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "access as"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/OnlineAccount> .
-
-<http://demiblog.org/vocab/oauth#request_token>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the OAuth Request Token that authorized the issuing of this Access Token."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://demiblog.org/vocab/oauth#AccessToken> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "request token"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://demiblog.org/vocab/oauth#RequestToken> .
-
-<http://demiblog.org/vocab/oauth#Consumer>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents a registered OAuth Consumer"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Consumer"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://demiblog.org/vocab/oauth#Token>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An abstract class. Do not use directly."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://demiblog.org/vocab/oauth#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Token"@en .
+<http://demiblog.org/vocab/oauth#encrypted> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Secret> .
+<http://demiblog.org/vocab/oauth#timestamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://demiblog.org/vocab/oauth#consumer_secret> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Consumer> .
+<http://demiblog.org/vocab/oauth#plaintext> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> .
+<http://demiblog.org/vocab/oauth#Secret> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://demiblog.org/vocab/oauth#consumer> <http://www.w3.org/2000/01/rdf-schema#comment> "The Consumer responsible for this OAuth Token having been created."@en .
+<http://demiblog.org/vocab/oauth#token_secret> <http://www.w3.org/2000/01/rdf-schema#range> <http://demiblog.org/vocab/oauth#Secret> .
+<http://demiblog.org/vocab/oauth#consumer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Token> .
+<http://demiblog.org/vocab/oauth#RequestToken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://demiblog.org/vocab/oauth#nonce> <http://www.w3.org/2000/01/rdf-schema#label> "nonce"@en .
+<http://demiblog.org/vocab/oauth#plaintext> <http://www.w3.org/2000/01/rdf-schema#label> "plaintext"@en .
+<http://demiblog.org/vocab/oauth#granted_by> <http://www.w3.org/2000/01/rdf-schema#comment> "The foaf:OnlineAccount used to authorize an OAuth Request Token."@en .
+<http://demiblog.org/vocab/oauth#verification_code> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#AccessToken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://demiblog.org/vocab/oauth#callback> <http://www.w3.org/2000/01/rdf-schema#comment> "A callback URL associated with an OAuth Request Token."@en .
+<http://demiblog.org/vocab/oauth#RequestToken> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://demiblog.org/vocab/oauth-example> .
+<http://demiblog.org/vocab/oauth#RequestToken> <http://www.w3.org/2000/01/rdf-schema#label> "Request Token"@en .
+<http://demiblog.org/vocab/oauth#AccessToken> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#granted_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#consumer_secret> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#consumer_contact> <http://www.w3.org/2000/01/rdf-schema#label> "consumer contact"@en .
+<http://demiblog.org/vocab/oauth#plaintext> <http://www.w3.org/2000/01/rdf-schema#comment> "The plain (unencrypted) text form of a Secret."@en .
+<http://demiblog.org/vocab/oauth#nonce> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#granted_at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#granted_until> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#Secret> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#access_as> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#timestamp> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#token_secret> <http://www.w3.org/2000/01/rdf-schema#label> "token secret"@en .
+<http://demiblog.org/vocab/oauth#granted_by> <http://www.w3.org/2000/01/rdf-schema#label> "granted by"@en .
+<http://demiblog.org/vocab/oauth#granted_at> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://demiblog.org/vocab/oauth#granted_until> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://demiblog.org/vocab/oauth#consumer> <http://www.w3.org/2000/01/rdf-schema#label> "consumer"@en .
+<http://demiblog.org/vocab/oauth#callback> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#RequestToken> .
+<http://demiblog.org/vocab/oauth#granted_until> <http://www.w3.org/2000/01/rdf-schema#comment> "The datetime an OAuth Request Token is considered authorized until."@en .
+<http://demiblog.org/vocab/oauth#nonce> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://demiblog.org/vocab/oauth#granted_until> <http://www.w3.org/2000/01/rdf-schema#label> "granted until"@en .
+<http://demiblog.org/vocab/oauth#plaintext> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Secret> .
+<http://demiblog.org/vocab/oauth#timestamp> <http://www.w3.org/2000/01/rdf-schema#comment> "The timestamp provided by the Consumer when creating this OAuth Token."@en .
+<http://demiblog.org/vocab/oauth#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://demiblog.org/vocab/oauth#RequestToken> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a (authorized or not) OAuth Request Token."@en .
+<http://demiblog.org/vocab/oauth#> <http://purl.org/vocab/vann/preferredNamespaceURI> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#verification_code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#verification_code> <http://www.w3.org/2000/01/rdf-schema#label> "verification code"@en .
+<http://demiblog.org/vocab/oauth#request_token> <http://www.w3.org/2000/01/rdf-schema#range> <http://demiblog.org/vocab/oauth#RequestToken> .
+<http://demiblog.org/vocab/oauth#> <http://www.w3.org/2000/01/rdf-schema#label> "OAuth Vocabulary"@en .
+<http://demiblog.org/vocab/oauth#consumer_contact> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+<http://demiblog.org/vocab/oauth#Secret> <http://www.w3.org/2000/01/rdf-schema#comment> "Logically a placeholder for a string literal, but using a resource instead allows us to make it the subject of triples. Especially of the form: <secret> oauth:encrypted 'blah'."@en .
+<http://demiblog.org/vocab/oauth#callback> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://demiblog.org/vocab/oauth#granted_at> <http://www.w3.org/2000/01/rdf-schema#comment> "The datetime an OAuth Request Token was authorized."@en .
+<http://demiblog.org/vocab/oauth#request_token> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#AccessToken> .
+<http://demiblog.org/vocab/oauth#AccessToken> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents an OAuth Access Token that has been obtained by a Consumer subsequent to a Request Token"@en .
+<http://demiblog.org/vocab/oauth#granted_by> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#request_token> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the OAuth Request Token that authorized the issuing of this Access Token."@en .
+<http://demiblog.org/vocab/oauth#Consumer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<http://demiblog.org/vocab/oauth#token_secret> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Token> .
+<http://demiblog.org/vocab/oauth#nonce> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#consumer_secret> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#verification_code> <http://www.w3.org/2000/01/rdf-schema#comment> "The secret code associated with an OAuth Request Token when authorizing it."@en .
+<http://demiblog.org/vocab/oauth#timestamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#access_as> <http://www.w3.org/2000/01/rdf-schema#label> "access as"@en .
+<http://demiblog.org/vocab/oauth#granted_at> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#granted_until> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#access_as> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#consumer> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#consumer_secret> <http://www.w3.org/2000/01/rdf-schema#label> "consumer secret"@en .
+<http://demiblog.org/vocab/oauth#plaintext> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://demiblog.org/vocab/oauth#callback> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#Consumer> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#granted_at> <http://www.w3.org/2000/01/rdf-schema#label> "granted at"@en .
+<http://demiblog.org/vocab/oauth#consumer_contact> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#consumer_secret> <http://www.w3.org/2000/01/rdf-schema#comment> "A secret known only to the OAuth Consumer and Service Provider."@en .
+<http://demiblog.org/vocab/oauth#callback> <http://www.w3.org/2000/01/rdf-schema#label> "callback"@en .
+<http://demiblog.org/vocab/oauth#> <http://purl.org/dc/terms/creator> <http://tobyinkster.co.uk/#i> .
+<http://demiblog.org/vocab/oauth#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "oauth" .
+<http://demiblog.org/vocab/oauth#Token> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://demiblog.org/vocab/oauth#verification_code> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#RequestToken> .
+<http://demiblog.org/vocab/oauth#request_token> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#consumer_contact> <http://www.w3.org/2000/01/rdf-schema#comment> "A contact point for the OAuth Consumer."@en .
+<http://demiblog.org/vocab/oauth#Token> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#token_secret> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#access_as> <http://www.w3.org/2000/01/rdf-schema#comment> "The foaf:OnlineAccount that this OAuth Access Token provides access as."@en .
+<http://demiblog.org/vocab/oauth#Consumer> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a registered OAuth Consumer"@en .
+<http://demiblog.org/vocab/oauth#token_secret> <http://www.w3.org/2000/01/rdf-schema#comment> "A secret string associated with an OAuth Token."@en .
+<http://demiblog.org/vocab/oauth#access_as> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/OnlineAccount> .
+<http://demiblog.org/vocab/oauth#encrypted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#timestamp> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Token> .
+<http://demiblog.org/vocab/oauth#consumer> <http://www.w3.org/2000/01/rdf-schema#range> <http://demiblog.org/vocab/oauth#Consumer> .
+<http://demiblog.org/vocab/oauth#Token> <http://www.w3.org/2000/01/rdf-schema#comment> "An abstract class. Do not use directly."@en .
+<http://demiblog.org/vocab/oauth#AccessToken> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://demiblog.org/vocab/oauth#Token> .
+<http://demiblog.org/vocab/oauth#RequestToken> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://demiblog.org/vocab/oauth#Token> .
+<http://demiblog.org/vocab/oauth#encrypted> <http://www.w3.org/2000/01/rdf-schema#label> "encrypted"@en .
+<http://demiblog.org/vocab/oauth#granted_by> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/OnlineAccount> .
+<http://demiblog.org/vocab/oauth#consumer_contact> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Consumer> .
+<http://demiblog.org/vocab/oauth#plaintext> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#Consumer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://demiblog.org/vocab/oauth#AccessToken> <http://www.w3.org/2000/01/rdf-schema#label> "Access Token"@en .
+<http://demiblog.org/vocab/oauth#callback> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#access_as> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#AccessToken> .
+<http://demiblog.org/vocab/oauth#consumer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#consumer_contact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://demiblog.org/vocab/oauth#Secret> <http://www.w3.org/2000/01/rdf-schema#label> "Secret"@en .
+<http://demiblog.org/vocab/oauth#Token> <http://www.w3.org/2000/01/rdf-schema#label> "Token"@en .
+<http://demiblog.org/vocab/oauth#Consumer> <http://www.w3.org/2000/01/rdf-schema#label> "Consumer"@en .
+<http://demiblog.org/vocab/oauth#encrypted> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://demiblog.org/vocab/oauth#consumer_secret> <http://www.w3.org/2000/01/rdf-schema#range> <http://demiblog.org/vocab/oauth#Secret> .
+<http://demiblog.org/vocab/oauth#nonce> <http://www.w3.org/2000/01/rdf-schema#comment> "The nonce provided by the Consumer when creating this OAuth Token."@en .
+<http://demiblog.org/vocab/oauth#request_token> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#encrypted> <http://www.w3.org/2000/01/rdf-schema#comment> "The encrypted form of a Secret. The standard method is to use the Rijndael algorithm in CBC mode, with a 256-bit key known to the service provider, and no initialisation vector."@en .
+<http://demiblog.org/vocab/oauth#token_secret> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#request_token> <http://www.w3.org/2000/01/rdf-schema#label> "request token"@en .
+<http://demiblog.org/vocab/oauth#nonce> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#Token> .
+<http://demiblog.org/vocab/oauth#timestamp> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/date> .
+<http://demiblog.org/vocab/oauth#encrypted> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://demiblog.org/vocab/oauth#> .
+<http://demiblog.org/vocab/oauth#granted_by> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#RequestToken> .
+<http://demiblog.org/vocab/oauth#verification_code> <http://www.w3.org/2000/01/rdf-schema#range> <http://demiblog.org/vocab/oauth#Secret> .
+<http://demiblog.org/vocab/oauth#granted_at> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#RequestToken> .
+<http://demiblog.org/vocab/oauth#granted_until> <http://www.w3.org/2000/01/rdf-schema#domain> <http://demiblog.org/vocab/oauth#RequestToken> .
+<http://demiblog.org/vocab/oauth#timestamp> <http://www.w3.org/2000/01/rdf-schema#label> "timestamp"@en .
+<http://demiblog.org/vocab/oauth#plaintext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .

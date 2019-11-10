@@ -1,394 +1,201 @@
-<http://www.w3.org/ns/prov#startedAtTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/prov#Activity> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/wf4ever/roevo#archivedAtTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The time at which an roevo:ArchiveRO was completely created and is available for use" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#ArchivedRO> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "archivedAtTime" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#generatedAtTime> .
-
-<http://purl.org/wf4ever/roevo#VersionableResource>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A prov:Entity representing a type of artifact that may be versioned and for which we want to track its different versions. This class is equivalent to the union of roevo:SnapshotRO, roevo:ArchivedRO, ro:Resource and ro:AggregatedAnnotation that are the artifacts for which we want to track their versions." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "VersionableResource" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/identifier> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2000/01/rdf-schema#Literal>
-                ] ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/wf4ever/ro#AggregatedAnnotation> <http://purl.org/wf4ever/ro#Resource> <http://purl.org/wf4ever/roevo#ArchivedRO> <http://purl.org/wf4ever/roevo#SnapshotRO> )
-                ] .
-
-<http://purl.org/wf4ever/roevo#hasChange>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates a roevo:Change to the roevo:ChangeSpecification including this change (in the set of changes generating a version of a resource)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#ChangeSpecification> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasChange" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#Change> .
-
-<http://purl.org/wf4ever/roevo#LiveRO>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A subclass of ro:ResearchObject representing a type of Research Object in live state. It is also a subclass of prov:Entity as this is a type of artifact with fixed aspects and for which we want to provide provenance. \n\nLive ROs  represent a work in progress. They are thus mutable as the content or state of their resources may change." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "LiveRO" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/ro#ResearchObject> , <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roevo>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Research Object Evolution Ontology (roevo) extends the ro ontology to capture the lifecycle and versioning of research objects. ro ontology and other extensions are described at http://wf4ever.github.io/ro/.\n        roevo is also an extension of PROV ontology for describing Research Object evolution provenance. PROV ontology is described at http://www.w3.org/TR/prov-o/."@en ;
-        <http://purl.org/dc/elements/1.1/contributor>
-                "Oscar Corcho" , "Khalid Belhajjame" , "Jun Zhao" , "Stian Soiland-Reyes" ;
-        <http://purl.org/dc/elements/1.1/creator>
-                "Raul Palma" ;
-        <http://purl.org/dc/elements/1.1/date>
-                "2014-01-15" ;
-        <http://purl.org/dc/elements/1.1/description>
-                "The Research Object Evolution Ontology (roevo) extends the ro ontology to capture the lifecycle and versioning of research objects (ROs). roevo is also an extension of PROV ontology for describing Research Object evolution provenance.\n        roevo enables the representation of the different stages of the ROs lifecycle, their dependencies, as well as the corresponding versions of ROs and their aggregated resources, with the associated changes in these resources. \n        roevo follows a modular approach, enabling the creation of extensions for modeling detailed taxonomies of changes for particular resources, e.g., workflows.\n        Additional information about roevo and background information is available at http://www.wf4ever-project.org/wiki/display/docs/RO+evolution" ;
-        <http://purl.org/dc/elements/1.1/description>
-                <http://www.wf4ever-project.org/wiki/download/attachments/2065027/ROevo_v0.4%2823%29.png> ;
-        <http://purl.org/dc/elements/1.1/rights>
-                "This ontology is distributed under Creative Commons Attribution 3.0 License - http://creativecommons.org/licenses/by/3.0" ;
-        <http://purl.org/dc/elements/1.1/title>
-                "Research Object Evolution Ontology" ;
-        <http://www.w3.org/2002/07/owl#versionIRI>
-                <http://purl.org/wf4ever/roevo/0.6.1> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "0.6.1" .
-
-<http://purl.org/wf4ever/roevo#Change>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A prov:Activity that changes the Research Object (RO) aggregation, content, structure, or the annotations about the RO or its aggregated resources." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Change" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Activity> .
-
-<http://purl.org/wf4ever/roevo#wasChangedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates a version of the resource (roevo:VersionableResource) to the set of changes (roevo:ChangeSpecification) that generated it" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#VersionableResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wasChangedBy" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#ChangeSpecification> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#wasGeneratedBy> .
-
-<http://purl.org/wf4ever/roevo#snapshotedAtTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The time at which an roevo:SnapshotRO was completely created and is available for use" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#SnapshotRO> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "snapshotedAtTime" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#generatedAtTime> .
-
-<http://purl.org/wf4ever/roevo#wasArchivedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the prov:Agent responsible for creating the associated roevo:ArchivedRO" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#ArchivedRO> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wasArchivedBy" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/prov#Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#wasAttributedTo> .
-
-<http://www.w3.org/ns/prov#endedAtTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/prov#Activity> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://www.w3.org/ns/prov#wasAssociatedWith>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/prov#Activity> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/prov#Agent> .
-
-<http://purl.org/wf4ever/roevo#toVersion>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates the set of changes (roevo:ChangeSpecification) that generated the pointed version of the resource (roevo:VersionableResource)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#ChangeSpecification> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "toVersion" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#VersionableResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#generated> .
-
-<http://www.w3.org/ns/prov#wasRevisionOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#wasDerivedFrom> .
-
-<http://purl.org/wf4ever/roevo#Modification>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A type of roevo:Change that modifies the aggregation, content and/or structure of the Research Object by updating an aggregated resource content or an existing annotation" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Modification" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/roevo#Change> .
-
-<http://www.w3.org/ns/prov#hadOriginalSource>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#wasDerivedFrom> .
-
-<http://purl.org/wf4ever/roevo#SnapshotRO>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A subclass of ro:ResearchObject representing a type of Research Object in snapshot state. It is also a subclass of prov:Entity as this is a type of artifact with fixed aspects and for which we want to provide provenance. \n\nSnapshot ROs are intended as a record of past activity, ready to be disseminated as a whole. They are immutable, and reflect the state of the Live RO at a certain time. " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "SnapshotRO" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/ro#ResearchObject> , <http://www.w3.org/ns/prov#Entity> .
-
-<http://www.w3.org/ns/prov#wasQuotedFrom>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#wasDerivedFrom> .
-
-<http://purl.org/wf4ever/roevo#wasSnapshotedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the prov:Agent responsible for creating the associated roevo:SnapshotRO" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#SnapshotRO> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wasSnapshotedBy" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/prov#Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#wasAttributedTo> .
-
-<http://purl.org/wf4ever/roevo#isSnapshotOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Inverse of roevo:hasSnapshot. It associates an roevo:SnapshotRO with the roevo:LiveRO from which it was created" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isSnapshotOf" .
-
-<http://purl.org/wf4ever/roevo#hasSnapshot>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Link a roevo:LiveRO with its different snapshots (roevo:SnapshotRO)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#LiveRO> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasSnapshot" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#SnapshotRO> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/wf4ever/roevo#isSnapshotOf> .
-
-<http://www.w3.org/ns/prov#wasDerivedFrom>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/prov#Entity> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roevo#Addition>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A type of roevo:Change that changes the aggregation, content and/or structure of the Research Object by adding a resources or an annotation" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Addition" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/roevo#Change> .
-
-<http://purl.org/wf4ever/roevo#hasRevision>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Inverse of prov:wasRevisionOf, where a revision is a derivation for which the resulting entity is a revised version of some original. Hence, it associates an entity with another entity derived from the former." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasRevision" ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/prov#wasRevisionOf> .
-
-<http://purl.org/wf4ever/ro#AggregatedAnnotation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ao/annotatesResource> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                            <http://www.w3.org/2002/07/owl#unionOf>
-                                    ( <http://purl.org/wf4ever/roevo#Change> <http://purl.org/wf4ever/roevo#ChangeSpecification> <http://purl.org/wf4ever/roevo#VersionableResource> )
-                          ]
-                ] .
-
-<http://purl.org/ao/annotatesResource>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/wf4ever/ro#Resource>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/wf4ever/roevo#Removal>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A type of roevo:Change that changes the aggregation, content and/or structure of the Research Object by removing a resources or an annotation" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Removal" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/roevo#Change> .
-
-<http://purl.org/wf4ever/roevo#isArchiveOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Inverse of roevo:hasArchive. It associates an roevo:ArchivedRO with the roevo:LiveRO from which it was created" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isArchiveOf" .
-
-<http://purl.org/wf4ever/roevo#ChangeSpecification>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A collection of roevo:Changes activities representing the set of changes in a Research Object between two different versions" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ChangeSpecification" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Activity> .
-
-<http://www.w3.org/ns/prov#wasGeneratedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/wf4ever/roevo#ArchivedRO>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A subclass of ro:ResearchObject representing a type of Research Object in archival state. It is also a subclass of prov:Entity as this is a type of artifact with fixed aspects and for which we want to provide provenance. \n\nArchived ROs represent the final stage of a RO (release) where it has either reached a version that the author prescribes to be stable and meaningful and is appropriate for publication and long-term preservation, or it has been deprecated. They are therefore immutable, with no further changes or versions allowed" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ArchivedRO" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> , <http://purl.org/wf4ever/ro#ResearchObject> .
-
-<http://purl.org/wf4ever/roevo#hasPreviousChange>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates two roevo:Changes that occurred one after the other" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasPreviousChange" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#Change> .
-
-<http://www.w3.org/ns/prov#generated>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/wf4ever/roevo#fromVersion>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates the set of changes (roevo:ChangeSpecification) that were used (applied) by the pointed version of the resource (roevo:VersionableResource)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#ChangeSpecification> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "fromVersion" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#VersionableResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#used> .
-
-<http://purl.org/wf4ever/roevo#relatedResource>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates a change (roevo:Change) to the resource (roevo:VersionableResource) affected by this change" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "relatedResource" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#VersionableResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/prov#used> .
-
-<http://www.w3.org/ns/prov#Entity>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/prov#Activity>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/prov#Agent>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/prov#used>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/wf4ever/roevo#hasArchive>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Link a roevo:LiveRO with its archived version (roevo:ArchivedRO)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/roevo#LiveRO> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasArchive" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roevo#ArchivedRO> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/wf4ever/roevo#isArchiveOf> .
-
-<http://www.w3.org/ns/prov#wasAttributedTo>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/ns/prov#generatedAtTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/wf4ever/ro#ResearchObject>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dc/terms/identifier>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/prov#startedAtTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+_:B0b4b267dX2D2c1cX2D4f64X2D998aX2D5a3e960a56b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B5bde7783X2Da1ddX2D49bdX2Da69cX2Df5ac96d86108 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/wf4ever/roevo#archivedAtTime> <http://www.w3.org/2000/01/rdf-schema#comment> "The time at which an roevo:ArchiveRO was completely created and is available for use" .
+_:Bfb1165d6X2D9466X2D43f7X2D8913X2D1d31d01ae587 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wf4ever/roevo#ChangeSpecification> .
+<http://purl.org/wf4ever/roevo#VersionableResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#hasChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a roevo:Change to the roevo:ChangeSpecification including this change (in the set of changes generating a version of a resource)" .
+<http://purl.org/wf4ever/roevo#LiveRO> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/ro#ResearchObject> .
+_:Bc0caa2b1X2D9a04X2D48efX2Db7ecX2D5b5dacb0d311 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wf4ever/ro#Resource> .
+<http://purl.org/wf4ever/roevo> <http://www.w3.org/2000/01/rdf-schema#comment> "The Research Object Evolution Ontology (roevo) extends the ro ontology to capture the lifecycle and versioning of research objects. ro ontology and other extensions are described at http://wf4ever.github.io/ro/.\n        roevo is also an extension of PROV ontology for describing Research Object evolution provenance. PROV ontology is described at http://www.w3.org/TR/prov-o/."@en .
+_:B0b4b267dX2D2c1cX2D4f64X2D998aX2D5a3e960a56b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wf4ever/roevo#VersionableResource> .
+<http://purl.org/wf4ever/roevo#Change> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<http://purl.org/wf4ever/roevo> <http://www.w3.org/2002/07/owl#versionInfo> "0.6.1" .
+_:B03e6316fX2DdebbX2D434eX2D95cbX2D0efc507e840d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasGeneratedBy> .
+<http://purl.org/wf4ever/roevo#snapshotedAtTime> <http://www.w3.org/2000/01/rdf-schema#comment> "The time at which an roevo:SnapshotRO was completely created and is available for use" .
+<http://purl.org/wf4ever/roevo#wasArchivedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#ArchivedRO> .
+_:Bf407ee88X2De382X2D4e7fX2Da24fX2Da6e3d9d42634 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5bde7783X2Da1ddX2D49bdX2Da69cX2Df5ac96d86108 .
+<http://purl.org/wf4ever/roevo#VersionableResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#endedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/creator> "Raul Palma" .
+<http://www.w3.org/ns/prov#endedAtTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/date> "2014-01-15" .
+<http://purl.org/wf4ever/roevo#toVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#ChangeSpecification> .
+<http://www.w3.org/ns/prov#wasRevisionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a version of the resource (roevo:VersionableResource) to the set of changes (roevo:ChangeSpecification) that generated it" .
+_:B23b82333X2Deaa5X2D42bdX2Da816X2De8dbe3232cfe <http://www.w3.org/2002/07/owl#someValuesFrom> _:B03e6316fX2DdebbX2D434eX2D95cbX2D0efc507e840d .
+_:B03e6316fX2DdebbX2D434eX2D95cbX2D0efc507e840d <http://www.w3.org/2002/07/owl#unionOf> _:B5d2990b7X2D6d59X2D465eX2D902aX2Ddc57960433b6 .
+<http://purl.org/wf4ever/roevo#LiveRO> <http://www.w3.org/2000/01/rdf-schema#label> "LiveRO" .
+<http://purl.org/wf4ever/roevo#Modification> <http://www.w3.org/2000/01/rdf-schema#label> "Modification" .
+<http://purl.org/wf4ever/roevo#archivedAtTime> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generatedAtTime> .
+<http://purl.org/wf4ever/roevo#Change> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B5d2990b7X2D6d59X2D465eX2D902aX2Ddc57960433b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bfb1165d6X2D9466X2D43f7X2D8913X2D1d31d01ae587 .
+<http://www.w3.org/ns/prov#hadOriginalSource> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Agent> .
+<http://purl.org/wf4ever/roevo#SnapshotRO> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/ro#ResearchObject> .
+<http://www.w3.org/ns/prov#wasQuotedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#startedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/wf4ever/roevo#snapshotedAtTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#SnapshotRO> .
+_:B3f7a0ef2X2D1f7fX2D4a03X2Db97eX2D8375838ebe49 <http://www.w3.org/2002/07/owl#unionOf> _:Bc4323a71X2Dd636X2D46aaX2D9c4fX2D95d62b83576c .
+_:Bc4323a71X2Dd636X2D46aaX2D9c4fX2D95d62b83576c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wf4ever/ro#AggregatedAnnotation> .
+<http://purl.org/wf4ever/roevo#VersionableResource> <http://www.w3.org/2000/01/rdf-schema#label> "VersionableResource" .
+<http://purl.org/wf4ever/roevo#archivedAtTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/wf4ever/roevo#SnapshotRO> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roevo#wasSnapshotedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasSnapshotedBy" .
+<http://purl.org/wf4ever/roevo#wasSnapshotedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Agent> .
+<http://purl.org/wf4ever/roevo#Change> <http://www.w3.org/2000/01/rdf-schema#comment> "A prov:Activity that changes the Research Object (RO) aggregation, content, structure, or the annotations about the RO or its aggregated resources." .
+<http://purl.org/wf4ever/roevo#isSnapshotOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of roevo:hasSnapshot. It associates an roevo:SnapshotRO with the roevo:LiveRO from which it was created" .
+<http://purl.org/wf4ever/roevo#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasChangedBy" .
+<http://purl.org/wf4ever/roevo> <http://www.w3.org/2002/07/owl#versionIRI> <http://purl.org/wf4ever/roevo/0.6.1> .
+<http://purl.org/wf4ever/roevo#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#VersionableResource> .
+<http://purl.org/wf4ever/roevo#hasSnapshot> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/wf4ever/roevo#isSnapshotOf> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roevo#wasArchivedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the prov:Agent responsible for creating the associated roevo:ArchivedRO" .
+<http://purl.org/wf4ever/roevo#SnapshotRO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#Addition> <http://www.w3.org/2000/01/rdf-schema#label> "Addition" .
+<http://purl.org/wf4ever/roevo#hasRevision> <http://www.w3.org/2000/01/rdf-schema#label> "hasRevision" .
+<http://www.w3.org/ns/prov#wasRevisionOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+_:B86f3c790X2D1a25X2D4f9fX2D99a1X2Df820b8c0e8a8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/wf4ever/roevo#VersionableResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B86f3c790X2D1a25X2D4f9fX2D99a1X2Df820b8c0e8a8 .
+<http://purl.org/wf4ever/roevo#isSnapshotOf> <http://www.w3.org/2000/01/rdf-schema#label> "isSnapshotOf" .
+<http://www.w3.org/ns/prov#hadOriginalSource> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roevo#wasSnapshotedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#Change> <http://www.w3.org/2000/01/rdf-schema#label> "Change" .
+<http://www.w3.org/ns/prov#wasQuotedFrom> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<http://purl.org/ao/annotatesResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/ro#Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#hasChange> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#ChangeSpecification> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/title> "Research Object Evolution Ontology" .
+<http://purl.org/wf4ever/roevo#hasChange> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#Change> .
+<http://purl.org/wf4ever/roevo#Removal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/roevo#Change> .
+<http://purl.org/wf4ever/roevo#isArchiveOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of roevo:hasArchive. It associates an roevo:ArchivedRO with the roevo:LiveRO from which it was created" .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/description> <http://www.wf4ever-project.org/wiki/download/attachments/2065027/ROevo_v0.4%2823%29.png> .
+<http://purl.org/wf4ever/roevo#LiveRO> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+_:Bc0caa2b1X2D9a04X2D48efX2Db7ecX2D5b5dacb0d311 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf407ee88X2De382X2D4e7fX2Da24fX2Da6e3d9d42634 .
+<http://purl.org/wf4ever/roevo#Addition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#ChangeSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "ChangeSpecification" .
+<http://www.w3.org/ns/prov#wasGeneratedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/ro#AggregatedAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#ArchivedRO> <http://www.w3.org/2000/01/rdf-schema#comment> "A subclass of ro:ResearchObject representing a type of Research Object in archival state. It is also a subclass of prov:Entity as this is a type of artifact with fixed aspects and for which we want to provide provenance. \n\nArchived ROs represent the final stage of a RO (release) where it has either reached a version that the author prescribes to be stable and meaningful and is appropriate for publication and long-term preservation, or it has been deprecated. They are therefore immutable, with no further changes or versions allowed" .
+<http://purl.org/wf4ever/roevo#Modification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/roevo#Change> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/description> "The Research Object Evolution Ontology (roevo) extends the ro ontology to capture the lifecycle and versioning of research objects (ROs). roevo is also an extension of PROV ontology for describing Research Object evolution provenance.\n        roevo enables the representation of the different stages of the ROs lifecycle, their dependencies, as well as the corresponding versions of ROs and their aggregated resources, with the associated changes in these resources. \n        roevo follows a modular approach, enabling the creation of extensions for modeling detailed taxonomies of changes for particular resources, e.g., workflows.\n        Additional information about roevo and background information is available at http://www.wf4ever-project.org/wiki/display/docs/RO+evolution" .
+<http://purl.org/wf4ever/roevo#hasPreviousChange> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#Change> .
+<http://purl.org/wf4ever/roevo#ArchivedRO> <http://www.w3.org/2000/01/rdf-schema#label> "ArchivedRO" .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/contributor> "Oscar Corcho" .
+<http://purl.org/wf4ever/roevo#Modification> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of roevo:Change that modifies the aggregation, content and/or structure of the Research Object by updating an aggregated resource content or an existing annotation" .
+<http://www.w3.org/ns/prov#generated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#archivedAtTime> <http://www.w3.org/2000/01/rdf-schema#label> "archivedAtTime" .
+<http://purl.org/wf4ever/roevo#fromVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#ChangeSpecification> .
+<http://purl.org/wf4ever/roevo#wasArchivedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAttributedTo> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/rights> "This ontology is distributed under Creative Commons Attribution 3.0 License - http://creativecommons.org/licenses/by/3.0" .
+<http://purl.org/wf4ever/roevo#toVersion> <http://www.w3.org/2000/01/rdf-schema#label> "toVersion" .
+<http://purl.org/wf4ever/roevo#LiveRO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#toVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generated> .
+<http://purl.org/wf4ever/roevo#archivedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B5bde7783X2Da1ddX2D49bdX2Da69cX2Df5ac96d86108 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wf4ever/roevo#SnapshotRO> .
+<http://purl.org/wf4ever/roevo#relatedResource> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#Change> .
+<http://purl.org/wf4ever/roevo#LiveRO> <http://www.w3.org/2000/01/rdf-schema#comment> "A subclass of ro:ResearchObject representing a type of Research Object in live state. It is also a subclass of prov:Entity as this is a type of artifact with fixed aspects and for which we want to provide provenance. \n\nLive ROs  represent a work in progress. They are thus mutable as the content or state of their resources may change." .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#wasChangedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#fromVersion> <http://www.w3.org/2000/01/rdf-schema#label> "fromVersion" .
+<http://purl.org/wf4ever/roevo#fromVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#VersionableResource> .
+<http://purl.org/wf4ever/roevo#ArchivedRO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#toVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#VersionableResource> <http://www.w3.org/2002/07/owl#equivalentClass> _:B3f7a0ef2X2D1f7fX2D4a03X2Db97eX2D8375838ebe49 .
+<http://purl.org/wf4ever/roevo#VersionableResource> <http://www.w3.org/2000/01/rdf-schema#comment> "A prov:Entity representing a type of artifact that may be versioned and for which we want to track its different versions. This class is equivalent to the union of roevo:SnapshotRO, roevo:ArchivedRO, ro:Resource and ro:AggregatedAnnotation that are the artifacts for which we want to track their versions." .
+<http://purl.org/wf4ever/roevo#Removal> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of roevo:Change that changes the aggregation, content and/or structure of the Research Object by removing a resources or an annotation" .
+<http://purl.org/wf4ever/roevo#hasPreviousChange> <http://www.w3.org/2000/01/rdf-schema#label> "hasPreviousChange" .
+<http://purl.org/wf4ever/roevo#relatedResource> <http://www.w3.org/2000/01/rdf-schema#label> "relatedResource" .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://www.w3.org/ns/prov#endedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/contributor> "Khalid Belhajjame" .
+<http://purl.org/wf4ever/roevo#hasSnapshot> <http://www.w3.org/2000/01/rdf-schema#label> "hasSnapshot" .
+<http://purl.org/wf4ever/roevo#fromVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
+<http://purl.org/wf4ever/roevo#ArchivedRO> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roevo#hasRevision> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#SnapshotRO> <http://www.w3.org/2000/01/rdf-schema#comment> "A subclass of ro:ResearchObject representing a type of Research Object in snapshot state. It is also a subclass of prov:Entity as this is a type of artifact with fixed aspects and for which we want to provide provenance. \n\nSnapshot ROs are intended as a record of past activity, ready to be disseminated as a whole. They are immutable, and reflect the state of the Live RO at a certain time. " .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#snapshotedAtTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/wf4ever/roevo#SnapshotRO> <http://www.w3.org/2000/01/rdf-schema#label> "SnapshotRO" .
+<http://purl.org/wf4ever/roevo#hasArchive> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#LiveRO> .
+<http://purl.org/wf4ever/roevo#Removal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#isArchiveOf> <http://www.w3.org/2000/01/rdf-schema#label> "isArchiveOf" .
+<http://purl.org/wf4ever/roevo#fromVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates the set of changes (roevo:ChangeSpecification) that were used (applied) by the pointed version of the resource (roevo:VersionableResource)" .
+<http://purl.org/wf4ever/roevo#snapshotedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/wf4ever/roevo#snapshotedAtTime> <http://www.w3.org/2000/01/rdf-schema#label> "snapshotedAtTime" .
+<http://www.w3.org/ns/prov#hadOriginalSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#ChangeSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "A collection of roevo:Changes activities representing the set of changes in a Research Object between two different versions" .
+_:B5d2990b7X2D6d59X2D465eX2D902aX2Ddc57960433b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wf4ever/roevo#Change> .
+<http://purl.org/wf4ever/roevo#relatedResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a change (roevo:Change) to the resource (roevo:VersionableResource) affected by this change" .
+<http://purl.org/wf4ever/ro#AggregatedAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B23b82333X2Deaa5X2D42bdX2Da816X2De8dbe3232cfe .
+<http://purl.org/wf4ever/roevo#Addition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/roevo#Change> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#startedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/wf4ever/roevo#Modification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#wasChangedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#ChangeSpecification> .
+<http://purl.org/wf4ever/roevo#relatedResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#generatedAtTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/wf4ever/roevo#hasArchive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasRevisionOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<http://purl.org/wf4ever/roevo#hasChange> <http://www.w3.org/2000/01/rdf-schema#label> "hasChange" .
+_:Bfb1165d6X2D9466X2D43f7X2D8913X2D1d31d01ae587 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0b4b267dX2D2c1cX2D4f64X2D998aX2D5a3e960a56b2 .
+<http://purl.org/wf4ever/roevo#archivedAtTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#ArchivedRO> .
+<http://www.w3.org/ns/prov#wasQuotedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roevo#hasRevision> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/prov#wasRevisionOf> .
+<http://www.w3.org/ns/prov#wasQuotedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B23b82333X2Deaa5X2D42bdX2Da816X2De8dbe3232cfe <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ao/annotatesResource> .
+<http://purl.org/wf4ever/roevo#hasRevision> <http://www.w3.org/2000/01/rdf-schema#comment> "Inverse of prov:wasRevisionOf, where a revision is a derivation for which the resulting entity is a revised version of some original. Hence, it associates an entity with another entity derived from the former." .
+<http://purl.org/wf4ever/roevo#isSnapshotOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#hasSnapshot> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#SnapshotRO> .
+<http://purl.org/wf4ever/roevo#hasSnapshot> <http://www.w3.org/2000/01/rdf-schema#comment> "Link a roevo:LiveRO with its different snapshots (roevo:SnapshotRO)" .
+<http://purl.org/wf4ever/roevo#hasChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/contributor> "Jun Zhao" .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#startedAtTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasRevisionOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roevo#hasArchive> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#ArchivedRO> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://purl.org/wf4ever/roevo#ChangeSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#fromVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#wasSnapshotedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAttributedTo> .
+_:B23b82333X2Deaa5X2D42bdX2Da816X2De8dbe3232cfe <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B3f7a0ef2X2D1f7fX2D4a03X2Db97eX2D8375838ebe49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo#toVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#VersionableResource> .
+_:Bc4323a71X2Dd636X2D46aaX2D9c4fX2D95d62b83576c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc0caa2b1X2D9a04X2D48efX2Db7ecX2D5b5dacb0d311 .
+<http://www.w3.org/ns/prov#hadOriginalSource> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roevo#Addition> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of roevo:Change that changes the aggregation, content and/or structure of the Research Object by adding a resources or an annotation" .
+<http://purl.org/wf4ever/roevo#hasPreviousChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#Removal> <http://www.w3.org/2000/01/rdf-schema#label> "Removal" .
+<http://purl.org/wf4ever/ro#ResearchObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roevo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/wf4ever/roevo#toVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates the set of changes (roevo:ChangeSpecification) that generated the pointed version of the resource (roevo:VersionableResource)" .
+_:Bf407ee88X2De382X2D4e7fX2Da24fX2Da6e3d9d42634 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/wf4ever/roevo#ArchivedRO> .
+<http://purl.org/wf4ever/roevo#wasSnapshotedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#SnapshotRO> .
+<http://purl.org/wf4ever/roevo#hasSnapshot> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#LiveRO> .
+<http://purl.org/wf4ever/roevo> <http://purl.org/dc/elements/1.1/contributor> "Stian Soiland-Reyes" .
+<http://purl.org/wf4ever/roevo#relatedResource> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
+<http://purl.org/wf4ever/roevo#wasArchivedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Agent> .
+_:B86f3c790X2D1a25X2D4f9fX2D99a1X2Df820b8c0e8a8 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/identifier> .
+<http://purl.org/wf4ever/roevo#hasArchive> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/wf4ever/roevo#isArchiveOf> .
+<http://purl.org/wf4ever/roevo#ArchivedRO> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/ro#ResearchObject> .
+<http://purl.org/wf4ever/roevo#hasArchive> <http://www.w3.org/2000/01/rdf-schema#label> "hasArchive" .
+<http://purl.org/wf4ever/roevo#snapshotedAtTime> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generatedAtTime> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+_:B86f3c790X2D1a25X2D4f9fX2D99a1X2Df820b8c0e8a8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/wf4ever/roevo#hasSnapshot> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#hasPreviousChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates two roevo:Changes that occurred one after the other" .
+<http://purl.org/wf4ever/roevo#ChangeSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<http://purl.org/wf4ever/roevo#hasPreviousChange> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/roevo#Change> .
+<http://purl.org/wf4ever/roevo#isArchiveOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#endedAtTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://purl.org/wf4ever/roevo#hasArchive> <http://www.w3.org/2000/01/rdf-schema#comment> "Link a roevo:LiveRO with its archived version (roevo:ArchivedRO)" .
+<http://purl.org/wf4ever/roevo#wasSnapshotedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the prov:Agent responsible for creating the associated roevo:SnapshotRO" .
+<http://purl.org/wf4ever/roevo#wasArchivedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasArchivedBy" .
+<http://purl.org/wf4ever/roevo#wasArchivedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roevo#relatedResource> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roevo#VersionableResource> .
+<http://purl.org/dc/terms/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .

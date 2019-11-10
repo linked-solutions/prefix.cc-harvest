@@ -1,235 +1,134 @@
-<http://purl.org/ontology/pbo/core#PlaylistSlot>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A playlist slot. It could contain e.g. a music track, a video or a slide, and maybe related with some \nadditional properties. However, it could maybe also included a \"sub\" playlist, e.g. to keep a fixed sequence of some tracks."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Playlist Slot"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ontology/olo/core#Slot> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/ontology/pbo/core#playlist_item>
-                ] ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing"@en .
-
-<http://purl.org/ontology/pbo/core#playlist_item>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A specific playlist item, e.g. a music track, video or slides. The range types of this property must be \nbased on bibo:Document or frbr:Endeavour (to keep it somehow media based)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/pbo/core#PlaylistSlot> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has playlist item"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/ontology/bibo/Document> <http://purl.org/vocab/frbr/core#Endeavour> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ontology/olo/core#item> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                [ a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-                  <http://www.w3.org/2000/01/rdf-schema#label>
-                          "is playlist item of"@en
-                ] ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable"@en .
-
-<http://purl.org/ontology/pbo/core#playlist_slot>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A specific slot in a playlist."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/pbo/core#Playlist> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has playlist slot"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/pbo/core#PlaylistSlot> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ontology/olo/core#slot> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing"@en .
-
-<http://purl.org/ontology/pbo/core#FixedPlaylist>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A (sub) playlist of a fixed length and a fixed order. This concept should be used to express static relations, \ne.g. \"those three music tracks must always be played in a row\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Fixed Playlist"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ontology/pbo/core#Playlist> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing"@en .
-
-<http://purl.org/ontology/pbo/core#Playlist>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A playlist of specific media items, e.g. music tracks, videos or slides."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Playlist"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ontology/olo/core#OrderedList> , <http://purl.org/ontology/bibo/Document> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable"@en .
-
-<http://purl.org/ontology/pbo/core#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://purl.org/dc/elements/1.1/creator>
-                <http://kurtisrandom.com/foaf.rdf#kurtjx> , <http://foaf.me/zazi#me> ;
-        <http://purl.org/dc/elements/1.1/date>
-                "2010-09-13T18:31:52+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "The Play Back Ontology specification provides basic concepts and properties \nfor describing concepts that are related to the play back domain, e.g. an playlist, play back count and skip counter \non/ for the Semantic Web. This document contains a RDF description of the Play Back Ontology."@en ;
-        <http://purl.org/dc/elements/1.1/title>
-                "The Play Back Ontology"@en ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://purl.org/vocab/frbr/core> , <http://www.w3.org/2003/06/sw-vocab-status/ns> , <http://purl.org/dc/elements/1.1/> , <http://purl.org/ontology/similarity/> , <http://purl.org/ontology/olo/core> , <http://purl.org/NET/c4dm/event.owl> , <http://purl.org/ontology/bibo/> , <http://purl.org/ontology/co/core> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                0.6 .
-
-<http://purl.org/ontology/pbo/core#skip_time>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The moment, when someone skipped the media object, e.g. an instant of a timeline of an audio signal." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/pbo/core#SkipEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has skip time" ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/NET/c4dm/event.owl#time> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing" .
-
-<http://purl.org/ontology/pbo/core#playlist>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates a playlist to something."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has playlist"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/ontology/pbo/core#Playlist> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing"@en .
-
-<http://purl.org/ontology/pbo/core#media_scrobble_object>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A media specific scrobble object, e.g. a music track or a video."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has media scrobble object"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/ontology/bibo/Document> <http://purl.org/vocab/frbr/core#Endeavour> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ontology/co/core#scrobble_object> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing"@en .
-
-<http://purl.org/ontology/pbo/core#SkipCounter>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A skip counter, e.g. to count skip events of a media object." ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Skip Counter" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ontology/pbo/core#MediaActionCounter> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" .
-
-<http://purl.org/ontology/pbo/core#media_object>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Associates a media object to its related counter."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/pbo/core#MediaActionCounter> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has media object"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/ontology/bibo/Document> <http://purl.org/vocab/frbr/core#Endeavour> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ontology/co/core#object> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable"@en .
-
-<http://purl.org/ontology/pbo/core#transition>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This relation directs to a description of a transition between two neighbouring playlist slots, e.g. two successive music tracks in a dj mix."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/ontology/pbo/core#PlaylistSlot> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has transition"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/ontology/similarity/association> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing"@en .
-
-<http://purl.org/ontology/pbo/core#MediaActionCounter>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A media action counter. Media actions are for example play back or skip events." ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Media Action Counter"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ontology/co/core#Counter> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable"@en .
-
-<http://purl.org/ontology/pbo/core#SkipEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A specific skip event of something." ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Skip Event" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ontology/co/core#ScrobbleEvent> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "testing" .
-
-<http://purl.org/ontology/pbo/core#PlayBackCounter>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A play back counter, e.g. to count the playback of a media object." ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/ontology/pbo/core#> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Play Back Counter"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/ontology/pbo/core#MediaActionCounter> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable"@en .
+<http://purl.org/ontology/pbo/core#PlaylistSlot> <http://www.w3.org/2000/01/rdf-schema#comment> "A playlist slot. It could contain e.g. a music track, a video or a slide, and maybe related with some \nadditional properties. However, it could maybe also included a \"sub\" playlist, e.g. to keep a fixed sequence of some tracks."@en .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/pbo/core#PlaylistSlot> .
+<http://purl.org/ontology/pbo/core#playlist_slot> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing"@en .
+<http://purl.org/ontology/pbo/core#FixedPlaylist> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/pbo/core#Playlist> .
+<http://purl.org/ontology/pbo/core#PlaylistSlot> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#PlaylistSlot> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#Playlist> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/vocab/frbr/core> .
+<http://purl.org/ontology/pbo/core#Playlist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2002/07/owl#inverseOf> _:B1e2a80afX2D447eX2D4286X2D8d94X2D418986ba4463 .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/2003/06/sw-vocab-status/ns> .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#versionInfo> "0.6"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://purl.org/ontology/pbo/core#skip_time> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing" .
+_:B1e2a80afX2D447eX2D4286X2D8d94X2D418986ba4463 <http://www.w3.org/2000/01/rdf-schema#label> "is playlist item of"@en .
+<http://purl.org/ontology/pbo/core#playlist> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a playlist to something."@en .
+<http://purl.org/ontology/pbo/core#FixedPlaylist> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#FixedPlaylist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#playlist> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/pbo/core#FixedPlaylist> <http://www.w3.org/2000/01/rdf-schema#label> "Fixed Playlist"@en .
+_:B241ba418X2D2ac7X2D4c7dX2Db4aeX2D9513a028825e <http://www.w3.org/2002/07/owl#unionOf> _:B0b53541fX2D702dX2D437fX2D86ffX2D4bd96caf366a .
+<http://purl.org/ontology/pbo/core#skip_time> <http://www.w3.org/2000/01/rdf-schema#label> "has skip time" .
+_:B0b53541fX2D702dX2D437fX2D86ffX2D4bd96caf366a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B721fde3fX2Dde18X2D46ddX2D83a4X2D025e0e51bc82 .
+<http://purl.org/ontology/pbo/core#Playlist> <http://www.w3.org/2000/01/rdf-schema#label> "Playlist"@en .
+<http://purl.org/ontology/pbo/core#PlaylistSlot> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3ebf8103X2Df58aX2D4fccX2D94c8X2D3e090d8a1239 .
+<http://purl.org/ontology/pbo/core#media_scrobble_object> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing"@en .
+_:B3ebf8103X2Df58aX2D4fccX2D94c8X2D3e090d8a1239 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/pbo/core#playlist_item> .
+_:B95baf5ebX2D39abX2D4320X2Dab5eX2D6061c35ce4b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vocab/frbr/core#Endeavour> .
+<http://purl.org/ontology/pbo/core#playlist_slot> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/olo/core#slot> .
+_:B1e2a80afX2D447eX2D4286X2D8d94X2D418986ba4463 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/ontology/pbo/core#SkipCounter> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#SkipCounter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#PlaylistSlot> <http://www.w3.org/2000/01/rdf-schema#label> "Playlist Slot"@en .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2000/01/rdf-schema#range> _:B25467aaaX2D60eeX2D437dX2D952fX2D2c9830f8f549 .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/ontology/similarity/> .
+<http://purl.org/ontology/pbo/core#skip_time> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#SkipCounter> <http://www.w3.org/2000/01/rdf-schema#comment> "A skip counter, e.g. to count skip events of a media object." .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B25467aaaX2D60eeX2D437dX2D952fX2D2c9830f8f549 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#skip_time> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/pbo/core#SkipEvent> .
+_:B241ba418X2D2ac7X2D4c7dX2Db4aeX2D9513a028825e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#transition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/pbo/core#PlaylistSlot> .
+<http://purl.org/ontology/pbo/core#SkipCounter> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+_:B95baf5ebX2D39abX2D4320X2Dab5eX2D6061c35ce4b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ontology/pbo/core#Playlist> <http://www.w3.org/2000/01/rdf-schema#comment> "A playlist of specific media items, e.g. music tracks, videos or slides."@en .
+<http://purl.org/ontology/pbo/core#transition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#media_scrobble_object> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/co/core#scrobble_object> .
+<http://purl.org/ontology/pbo/core#media_scrobble_object> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/ontology/olo/core> .
+<http://purl.org/ontology/pbo/core#FixedPlaylist> <http://www.w3.org/2000/01/rdf-schema#comment> "A (sub) playlist of a fixed length and a fixed order. This concept should be used to express static relations, \ne.g. \"those three music tracks must always be played in a row\"."@en .
+<http://purl.org/ontology/pbo/core#playlist> <http://www.w3.org/2000/01/rdf-schema#label> "has playlist"@en .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/ontology/pbo/core#MediaActionCounter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/co/core#Counter> .
+<http://purl.org/ontology/pbo/core#MediaActionCounter> <http://www.w3.org/2000/01/rdf-schema#comment> "A media action counter. Media actions are for example play back or skip events." .
+<http://purl.org/ontology/pbo/core#SkipEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific skip event of something." .
+<http://purl.org/ontology/pbo/core#playlist_slot> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/pbo/core#> <http://purl.org/dc/elements/1.1/creator> <http://kurtisrandom.com/foaf.rdf#kurtjx> .
+<http://purl.org/ontology/pbo/core#SkipEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/co/core#ScrobbleEvent> .
+_:B923810bdX2D417bX2D43a9X2DaafdX2D273048033e09 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/bibo/Document> .
+_:B923810bdX2D417bX2D43a9X2DaafdX2D273048033e09 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B95baf5ebX2D39abX2D4320X2Dab5eX2D6061c35ce4b5 .
+<http://purl.org/ontology/pbo/core#skip_time> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/NET/c4dm/event.owl#time> .
+<http://purl.org/ontology/pbo/core#Playlist> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable"@en .
+<http://purl.org/ontology/pbo/core#SkipEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Skip Event" .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable"@en .
+<http://purl.org/ontology/pbo/core#Playlist> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/olo/core#OrderedList> .
+<http://purl.org/ontology/pbo/core#SkipCounter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/pbo/core#MediaActionCounter> .
+<http://purl.org/ontology/pbo/core#playlist> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing"@en .
+_:Bfc56812cX2D789dX2D42ffX2D81eaX2Db4f9e04e9e8b <http://www.w3.org/2002/07/owl#unionOf> _:B923810bdX2D417bX2D43a9X2DaafdX2D273048033e09 .
+<http://purl.org/ontology/pbo/core#> <http://purl.org/dc/elements/1.1/creator> <http://foaf.me/zazi#me> .
+_:B3ebf8103X2Df58aX2D4fccX2D94c8X2D3e090d8a1239 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/pbo/core#PlayBackCounter> <http://www.w3.org/2000/01/rdf-schema#label> "Play Back Counter"@en .
+<http://purl.org/ontology/pbo/core#playlist_slot> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific slot in a playlist."@en .
+<http://purl.org/ontology/pbo/core#playlist> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/ontology/pbo/core#PlayBackCounter> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable"@en .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+_:B79b79997X2D9875X2D4963X2D9dcdX2Dfe7fc8a6612c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/bibo/Document> .
+<http://purl.org/ontology/pbo/core#SkipEvent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+_:B25467aaaX2D60eeX2D437dX2D952fX2D2c9830f8f549 <http://www.w3.org/2002/07/owl#unionOf> _:B79b79997X2D9875X2D4963X2D9dcdX2Dfe7fc8a6612c .
+<http://purl.org/ontology/pbo/core#PlayBackCounter> <http://www.w3.org/2000/01/rdf-schema#comment> "A play back counter, e.g. to count the playback of a media object." .
+<http://purl.org/ontology/pbo/core#SkipEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B3ebf8103X2Df58aX2D4fccX2D94c8X2D3e090d8a1239 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/ontology/pbo/core#MediaActionCounter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bfc56812cX2D789dX2D42ffX2D81eaX2Db4f9e04e9e8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#MediaActionCounter> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#transition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/pbo/core#media_scrobble_object> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#playlist_slot> <http://www.w3.org/2000/01/rdf-schema#label> "has playlist slot"@en .
+_:Bea4a8abeX2D4f30X2D46a6X2DafefX2D5c29c635263e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/ontology/pbo/core#> <http://purl.org/dc/elements/1.1/description> "The Play Back Ontology specification provides basic concepts and properties \nfor describing concepts that are related to the play back domain, e.g. an playlist, play back count and skip counter \non/ for the Semantic Web. This document contains a RDF description of the Play Back Ontology."@en .
+<http://purl.org/ontology/pbo/core#> <http://purl.org/dc/elements/1.1/title> "The Play Back Ontology"@en .
+<http://purl.org/ontology/pbo/core#playlist_slot> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/pbo/core#Playlist> .
+<http://purl.org/ontology/pbo/core#> <http://purl.org/dc/elements/1.1/date> "2010-09-13T18:31:52+01:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/ontology/pbo/core#PlayBackCounter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/pbo/core#MediaActionCounter> .
+<http://purl.org/ontology/pbo/core#FixedPlaylist> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing"@en .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/2000/01/rdf-schema#range> _:B241ba418X2D2ac7X2D4c7dX2Db4aeX2D9513a028825e .
+_:B721fde3fX2Dde18X2D46ddX2D83a4X2D025e0e51bc82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B0b53541fX2D702dX2D437fX2D86ffX2D4bd96caf366a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/bibo/Document> .
+<http://purl.org/ontology/pbo/core#PlaylistSlot> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing"@en .
+<http://purl.org/ontology/pbo/core#playlist_slot> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/pbo/core#PlaylistSlot> .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/NET/c4dm/event.owl> .
+<http://purl.org/ontology/pbo/core#skip_time> <http://www.w3.org/2000/01/rdf-schema#comment> "The moment, when someone skipped the media object, e.g. an instant of a timeline of an audio signal." .
+<http://purl.org/ontology/pbo/core#SkipEvent> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing" .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/co/core#object> .
+<http://purl.org/ontology/pbo/core#transition> <http://www.w3.org/2000/01/rdf-schema#label> "has transition"@en .
+_:B79b79997X2D9875X2D4963X2D9dcdX2Dfe7fc8a6612c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bea4a8abeX2D4f30X2D46a6X2DafefX2D5c29c635263e .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/ontology/bibo/> .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2000/01/rdf-schema#label> "has playlist item"@en .
+<http://purl.org/ontology/pbo/core#playlist> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/pbo/core#MediaActionCounter> .
+<http://purl.org/ontology/pbo/core#PlaylistSlot> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/olo/core#Slot> .
+<http://purl.org/ontology/pbo/core#transition> <http://www.w3.org/2000/01/rdf-schema#comment> "This relation directs to a description of a transition between two neighbouring playlist slots, e.g. two successive music tracks in a dj mix."@en .
+_:B721fde3fX2Dde18X2D46ddX2D83a4X2D025e0e51bc82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vocab/frbr/core#Endeavour> .
+<http://purl.org/ontology/pbo/core#playlist> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/pbo/core#Playlist> .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/pbo/core#> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/ontology/co/core> .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/2000/01/rdf-schema#label> "has media object"@en .
+<http://purl.org/ontology/pbo/core#media_scrobble_object> <http://www.w3.org/2000/01/rdf-schema#range> _:Bfc56812cX2D789dX2D42ffX2D81eaX2Db4f9e04e9e8b .
+<http://purl.org/ontology/pbo/core#media_scrobble_object> <http://www.w3.org/2000/01/rdf-schema#label> "has media scrobble object"@en .
+<http://purl.org/ontology/pbo/core#SkipCounter> <http://www.w3.org/2000/01/rdf-schema#label> "Skip Counter" .
+<http://purl.org/ontology/pbo/core#media_scrobble_object> <http://www.w3.org/2000/01/rdf-schema#comment> "A media specific scrobble object, e.g. a music track or a video."@en .
+<http://purl.org/ontology/pbo/core#PlayBackCounter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/pbo/core#transition> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/similarity/association> .
+_:Bea4a8abeX2D4f30X2D46a6X2DafefX2D5c29c635263e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/vocab/frbr/core#Endeavour> .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable"@en .
+<http://purl.org/ontology/pbo/core#PlayBackCounter> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/ontology/pbo/core#> .
+<http://purl.org/ontology/pbo/core#media_object> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a media object to its related counter."@en .
+<http://purl.org/ontology/pbo/core#MediaActionCounter> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable"@en .
+<http://purl.org/ontology/pbo/core#skip_time> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/pbo/core#MediaActionCounter> <http://www.w3.org/2000/01/rdf-schema#label> "Media Action Counter"@en .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/olo/core#item> .
+<http://purl.org/ontology/pbo/core#transition> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing"@en .
+<http://purl.org/ontology/pbo/core#Playlist> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/bibo/Document> .
+<http://purl.org/ontology/pbo/core#playlist_item> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific playlist item, e.g. a music track, video or slides. The range types of this property must be \nbased on bibo:Document or frbr:Endeavour (to keep it somehow media based)."@en .

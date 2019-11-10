@@ -1,604 +1,410 @@
-<http://datos.bcn.cl/ontologies/bcn-norms#Rectification>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes a text published as update for any typing error detected in another norm."@en , "Describe un texto publicado como actualizaci&oacute;n por alg&uacute;n error de tipeo o similar detectado en tora norma."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Rectification"@en , "Rectificacion"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2004/02/skos/core#Concept> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that a Norm is updated through a RecastedText instance."@en , "Indica que una norma es actualizada a traves de una instancia de RecastedText (TextoRefundido)"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isRecastedBy"@en , "esRefundidoPor"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#recasts> .
-
-<http://purl.org/dc/elements/1.1/language>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "El lenguaje de un recurso."@es , "A language of the resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Idioma"@es , "Language"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#CategoryByKeyword>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes the By Keyword Category, a extension of Category to which a norm can belong."@en , "Describe la categoria por palabra clave, una extension de categoria a los que una norma puede pertenecer."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "CategoriaPorPalabraClave"@es , "CategoryByKeyword"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Category> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasName>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of a entity."@en , "El nombre de una entidad."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://datos.bcn.cl/ontologies/bcn-norms#NormType> <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> <http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> <http://xmlns.com/foaf/0.1/#Document> <http://dbpedia.org/resource/Country> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "tieneNombre"@es , "hasName"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#recasts>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indica que una instancia de RecastedText (Texto Refundido) hace una actualizacion del contenido de una instancia de norma."@es , "Indicates that a RecastedText instance make update of the content of a Norm instance."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "recasts"@en , "refundeA"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indica que una Norma o Rectificacion es rectificada por una instancia de rectificacion."@es , "Indicates that a Norm or Rectification instance is rectified by a Rectification instance."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "esRectificadoPor"@es , "isRectifiedBy"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Rectification> .
-
-<http://purl.org/dc/elements/1.1/title>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define un titulo para una Norma."@es , "Defines a title for a Norm."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "title"@en , "titulo"@es .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#Country>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes a Country for the relationship with Treaty class."@en , "Describe un pais para la relacion con la clase Treaty (Tratado Internacional)."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Country"@en , "Pais"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://dbpedia.org/resource/Country> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasCode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indica el codigo de pais en formato ISO-3166 alpha2."@es , "Indicates the country code in ISO-3166 alpha2 format."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Country> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasCode"@en , "tieneCodigo"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.geonames.org/ontology#countryCode> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Una organizacion internacional que esta relacionada con un tratado."@es , "A international Organization that is related with a treaty."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "InternationalOrganization"@en , "OrganizacionInternacional"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/org#FormalOrganization> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Through this class a norm is described from legislative context."@en , "Mediante esta clase se describe una norma a nivel generico en el contexto legislativo."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "NormaRaiz"@es , "RootNorm"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2004/02/skos/core#altLabel>
-                "RootLaw"@en , "LeyRaiz"@es ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "NormaRaiz"@es , "RootNorm"@en .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#createdBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines the creator organization for a norm."@en , "Determina la organizacion creadora de una norma."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "creadoPor"@es , "createdBy"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define que una norma raiz tiene versiones de la norma."@es , "Defines that a root norm has got versions of the norm."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasVersion"@en , "tieneVersion"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#versionOf> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates if a norm instance is the latest version."@en , "Indica si una instancia de norma es la ultima version de esta."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "esUltimaVersion"@es , "isLatestVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://www.w3.org/2004/02/skos/core#Collection>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define una coleccion de elementos."@es , "Defines a collection of elements."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Collection"@en , "Coleccion"@es .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#Treaty>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes a norm in legislative context related with a external country or international organization. This is called too International Treaty."@en , "Describe una norma en el contexto legislativo relacionado con un pais externo u organizacion internacional. Tambien es llamada tratado internacional."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Tratado"@es , "Treaty"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#RecastedText>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describe un texto publicado para actualizar normas antiguas."@es , "Describes a text published for update old norms."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "TextoRefundido"@es , "RecastedText"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
-
-<http://www.w3.org/2004/02/skos/core#Concept>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define un concepto que puede existir dentro de una coleccion de elementos."@es , "Defines a concept that may exist inner a collection."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Concept"@en , "Concepto"@es .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indica que un documento pertenece a una norma."@es , "Indicates that a document belongs to a Norm."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://xmlns.com/foaf/0.1/#Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isDocumentOf"@en , "esDocumentoDe"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
-
-[ <http://www.w3.org/2000/01/rdf-schema#comment>
-          "Ontologia de Normas para la Biblioteca del Congreso Nacional de Chile" , "Ontology of Norms for Library of Congress of Chile" ] .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Mediante esta clase se describe una instancna de norma a nivel generico en el contexto legislativo, agregando una fecha de version y otros metadatos."@es , "Through this class a norm instance is described from legislative context, adding a version date and other metadata."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "NormaVersionada"@es , "NormInstance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          1 ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate>
-                ] ;
-        <http://www.w3.org/2004/02/skos/core#altLabel>
-                "Law Instance"@en , "Instancia de Ley"@es ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Instancia de Norma"@es , "Norm Instance"@en .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#Norm>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Through this class a base norm structure is described from legislative context."@en , "Mediante esta clase se describe la estructura base de una norma a nivel generico en el contexto legislativo."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Norma"@es , "Norm"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2004/02/skos/core#Concept> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          1 ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://datos.bcn.cl/ontologies/bcn-norms#hasNumber>
-                ] ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          1 ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://datos.bcn.cl/ontologies/bcn-norms#publishDate>
-                ] ;
-        <http://www.w3.org/2002/07/owl#hasKey>
-                ( <http://purl.org/dc/elements/1.1/identifier> ) ;
-        <http://www.w3.org/2004/02/skos/core#altLabel>
-                "Ley"@es , "Norm"@en ;
-        <http://www.w3.org/2004/02/skos/core#prefLabel>
-                "Norm"@en , "Norma"@es .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describe una relacion entre un pais u organizacion internacional y sus Tratados."@es , "Describes a relationship between a Country or International Organization and their Treaties."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "tieneTratado"@es , "hasTreaty"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Treaty> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#versionOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a norm as version of another root norm."@en , "Define que una norma es version de otra norma raiz."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "versionDe"@es , "versionOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#regulates>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define una relacion entre dos normas, donde la primera es una regulacion sobre la segunda."@es , "Defines a relationship between two norms, where the first is a regulation over the second."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "regulates"@en , "regula"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#publishDate>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define la fecha de publicacion de un recurso."@es , "Defines the publication date of a resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "fechaPublicacion"@es , "publishDate"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/elements/1.1/date> .
-
-<http://purl.org/dc/elements/1.1/identifier>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Permite agregar un identificador unico a un recurso."@es , "Allows add an unique identifier to a resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "identifier"@en , "identificador"@es .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define una relacion entre un documento Xml y una Norma."@es , "Defines a relationship between a Xml document and a Norm."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasXmlDocument"@en , "tieneDocumentoXml"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#SymmetricProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a relationship between a generic document and a Norm."@en , "Define una relacion entre un documento generico y una Norma."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "tieneDocumento"@es , "hasDocument"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/#Document> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines the promulgation date of a resource."@en , "Define la fecha de promulgacion de un recurso."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "fechaPromugacion"@es , "promulgationDate"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/elements/1.1/date> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define una relacion entre dos normas, donde la primera modifica a la segunda."@es , "Defines a relationship between two norms, where the first modifies to second."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "modifiesTo"@en , "modificaA"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#SymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define una correspondencia entre dos normas."@es , "Define a correspondency between two norms."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "concuerdaCon"@es , "agreeWith"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
-
-<http://www.w3.org/2002/07/owl#sameAs>
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines an URI with a reference to an object."@en , "Define una URI con una referencia a un objeto."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "sameAs"@en , "loMismoQue"@es .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganizationOriginal>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Esta clase es una organizacion creada para resoler un desajuste entre la base de datos y las tripletas RDF."@es , "This class is an organization created for resolve a mismatch between the data base and the RDF triples."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GovernmentalOrganizationOriginal"@en , "OrganizacionGubernamentalOriginal"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasTag>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a tag for a a Thing instance."@en , "Define una etiqueta para una instancia de Thing."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "tieneEtiqueta"@es , "hasTag"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#type>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines the type of a norm."@en , "Determina el tipo de una norma."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "type"@en , "deTipo"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormType> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Corresponde al identificador de la norma en el portal Leychile."@es , "Corresponds to leychile identifier"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "An identifier in Leychile"@en , "Id en Leychile"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#Category>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describe metodos de agrupacion a los que una norma puede pertenecer."@es , "Describes grouping methods to which a norm can belong."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Categoria"@es , "Category"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2004/02/skos/core#Collection> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A governmental Organization that is creator of a Norm."@en , "Una organizacion gubernamental que es creadora de una norma."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GovernmentalOrganization"@en , "OrganizacionGubernamental"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/org#FormalOrganization> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Determina una organizacion sub organizacion de la otra."@es , "Defines that a organization is sub organization of another."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "subOrganizationOf"@en , "subOrganizacionDe"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#Classification>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes grouping methods to which a Category can belong."@en , "Describe metodos de agrupacion a los que una Categoria puede pertenecer."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Clasificacion"@es , "Classification"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2004/02/skos/core#Collection> ;
-        <http://www.w3.org/2004/02/skos/core#related>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Rectification> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An advice in an obsolete norm if there is a most current recasted text."@en , "Un aviso en una norma obsoleta si existe un texto refundido mas actual."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "alertedBy"@en , "alertadoPor"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> .
-
-<http://purl.org/dc/elements/1.1/date>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a date in dublin core format."@en , "Define una fecha en formato dublin core."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "fecha"@es , "date"@en .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#rectifies>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indica que una instancia de Rectificacion rectifica a una instancia de Norma o Rectificacion."@es , "Indicates that a Rectification instance rectifies to a Norm or Rectification instance."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Rectification> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "rectifies"@en , "rectifica"@es ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#versionDate>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines the version date of a resource."@en , "Define la fecha de la version de un recurso."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "versionDate"@en , "fechaVersion"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/elements/1.1/date> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines the norms created for an organization."@en , "Determina las normas creadoras por una organizacion."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "creatorOf"@en , "creadorDe"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#createdBy> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a relationship between two norms, where a first norm is regulated by a second norm."@en , "Define una relacion entre dos normas, donde la primera es regulada por una segunda norma."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "esReguladoPor"@es , "isRegulatedBy"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#regulates> .
-
-<http://xmlns.com/foaf/0.1/#Document>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describe un documento relacionado a alguna instancia derivada de Thing."@es , "Describes a document related to a instance of Thing."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Documento"@es , "Document"@en .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a abbreviation for a character string."@en , "Define una abreviacion para una cadena de caracteres."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#NormType> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "abreviacion"@es , "abbreviation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a relationship between a Html document and a Norm."@en , "Define una relacion entre un documento Html y una Norma."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasHtmlDocument"@en , "tieneDocumentoHtml"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#NormType>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describe un tipo de norma en contexto legislativo. "@es , "Describes a type norm in legislative context."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "TipoDeNorma"@es , "NormType"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://datos.bcn.cl/ontologies/bcn-norms#type>
-                ] .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Defines a relationship between a Norm instance and a Country or International Organization."@en , "Define una relacion entre una instancia de norma y un pais u organizacion internacional."@es ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Treaty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isTreatyWith"@en , "esTratadoCon"@es ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> .
-
-<http://www.w3.org/2000/01/rdf-schema#comment>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define un numero para una norma."@es , "Defines a number for a Norm."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasNumber"@en , "tieneNumero"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Define una relacion entre dos normas, donde la primera es modificada por la segunda."@es , "Defines a relationship between two norms, where the first is modified by the second."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isModifiedBy"@en , "esModificadoPor"@es ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
-
-<http://www.geonames.org/ontology#countryCode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://www.w3.org/ns/org#FormalOrganization>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://dbpedia.org/resource/Country>
-        a       <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Rectification> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a text published as update for any typing error detected in another norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Norm is updated through a RecastedText instance."@en .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/2000/01/rdf-schema#comment> "El lenguaje de un recurso."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#CategoryByKeyword> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the By Keyword Category, a extension of Category to which a norm can belong."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasName> <http://www.w3.org/2000/01/rdf-schema#label> "tieneNombre"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#recasts> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indica que una Norma o Rectificacion es rectificada por una instancia de rectificacion."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#recasts> <http://www.w3.org/2000/01/rdf-schema#comment> "Indica que una instancia de RecastedText (Texto Refundido) hace una actualizacion del contenido de una instancia de norma."@es .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/2000/01/rdf-schema#comment> "Define un titulo para una Norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Country> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a Country for the relationship with Treaty class."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/2000/01/rdf-schema#label> "hasCode"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2004/02/skos/core#altLabel> "RootLaw"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#createdBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2002/07/owl#hasKey> _:B0ddab984X2D1f6bX2D409fX2D8faeX2Db51691b2f4f1 .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#versionOf> .
+_:B7459a8e7X2Dd666X2D4999X2DaaccX2D5e25d506a97d <http://www.w3.org/2002/07/owl#onProperty> <http://datos.bcn.cl/ontologies/bcn-norms#type> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion> <http://www.w3.org/2000/01/rdf-schema#label> "esUltimaVersion"@es .
+<http://www.w3.org/2004/02/skos/core#Collection> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una coleccion de elementos."@es .
+_:Be258609aX2D9e68X2D45fbX2Dab20X2D3158be6684d5 <http://www.w3.org/2000/01/rdf-schema#comment> "Ontologia de Normas para la Biblioteca del Congreso Nacional de Chile" .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2002/07/owl#equivalentClass> _:B99ce787fX2D27ffX2D46daX2Dbc06X2D5b853c4c6549 .
+<http://datos.bcn.cl/ontologies/bcn-norms#Treaty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> <http://www.w3.org/2000/01/rdf-schema#label> "InternationalOrganization"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe un texto publicado para actualizar normas antiguas."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasName> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bfc2e7e0eX2D8c0cX2D4687X2Da4c2X2Db7bf59fb09ed .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/2000/01/rdf-schema#label> "Concept"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Rectification> <http://www.w3.org/2000/01/rdf-schema#label> "Rectification"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> <http://www.w3.org/2000/01/rdf-schema#label> "OrganizacionInternacional"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indica que un documento pertenece a una norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2000/01/rdf-schema#comment> "Mediante esta clase se describe una instancna de norma a nivel generico en el contexto legislativo, agregando una fecha de version y otros metadatos."@es .
+<http://www.w3.org/2004/02/skos/core#Collection> <http://www.w3.org/2000/01/rdf-schema#label> "Collection"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2000/01/rdf-schema#label> "Norma"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe una relacion entre un pais u organizacion internacional y sus Tratados."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a norm as version of another root norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#regulates> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#publishDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/elements/1.1/identifier> <http://www.w3.org/2000/01/rdf-schema#label> "identifier"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#regulates> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre dos normas, donde la primera es una regulacion sobre la segunda."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/#Document> .
+<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Instancia de Norma"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> <http://www.w3.org/2000/01/rdf-schema#label> "fechaPromugacion"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#publishDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/elements/1.1/date> .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a text published for update old norms."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2000/01/rdf-schema#comment> "Through this class a norm is described from legislative context."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/2000/01/rdf-schema#label> "concuerdaCon"@es .
+<http://www.w3.org/2002/07/owl#sameAs> <http://www.w3.org/2000/01/rdf-schema#label> "sameAs"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Rectification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between a generic document and a Norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#CategoryByKeyword> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe la categoria por palabra clave, una extension de categoria a los que una norma puede pertenecer."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganizationOriginal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#type> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the type of a norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Category> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe metodos de agrupacion a los que una norma puede pertenecer."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2004/02/skos/core#prefLabel> "Norm"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2004/02/skos/core#altLabel> "Law Instance"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#publishDate> <http://www.w3.org/2000/01/rdf-schema#label> "fechaPublicacion"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> <http://www.w3.org/2000/01/rdf-schema#label> "GovernmentalOrganization"@en .
+_:B0ddab984X2D1f6bX2D409fX2D8faeX2Db51691b2f4f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/dc/elements/1.1/identifier> .
+<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/elements/1.1/date> .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/2000/01/rdf-schema#label> "subOrganizationOf"@en .
+_:B11a93390X2D0b07X2D4013X2D9c13X2D74de3c777b83 <http://www.w3.org/2002/07/owl#onProperty> <http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2000/01/rdf-schema#comment> "Mediante esta clase se describe una norma a nivel generico en el contexto legislativo."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Classification> <http://www.w3.org/2000/01/rdf-schema#label> "Clasificacion"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "An advice in an obsolete norm if there is a most current recasted text."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2004/02/skos/core#prefLabel> "NormaRaiz"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Treaty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre un documento generico y una Norma."@es .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/2000/01/rdf-schema#label> "Idioma"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> <http://www.w3.org/2000/01/rdf-schema#label> "esRectificadoPor"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#recasts> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a RecastedText instance make update of the content of a Norm instance."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2000/01/rdf-schema#comment> "Through this class a norm instance is described from legislative context, adding a version date and other metadata."@en .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/2000/01/rdf-schema#label> "fecha"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Norm or Rectification instance is rectified by a Rectification instance."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/elements/1.1/identifier> <http://www.w3.org/2000/01/rdf-schema#comment> "Permite agregar un identificador unico a un recurso."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the promulgation date of a resource."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Country> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe un pais para la relacion con la clase Treaty (Tratado Internacional)."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/2000/01/rdf-schema#label> "date"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> <http://www.w3.org/2000/01/rdf-schema#label> "promulgationDate"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the version date of a resource."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates if a norm instance is the latest version."@en .
+<http://www.w3.org/2002/07/owl#sameAs> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines an URI with a reference to an object."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/2000/01/rdf-schema#label> "creatorOf"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#type> <http://www.w3.org/2000/01/rdf-schema#comment> "Determina el tipo de una norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionDate> <http://www.w3.org/2000/01/rdf-schema#label> "versionDate"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> <http://www.w3.org/2000/01/rdf-schema#comment> "A governmental Organization that is creator of a Norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://xmlns.com/foaf/0.1/#Document> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe un documento relacionado a alguna instancia derivada de Thing."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/elements/1.1/identifier> <http://www.w3.org/2000/01/rdf-schema#label> "identificador"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B182bf2b4X2D98a8X2D4f71X2D835eX2Dc96a0534a1cc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> .
+<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a abbreviation for a character string."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> <http://www.w3.org/2000/01/rdf-schema#comment> "Una organizacion internacional que esta relacionada con un tratado."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Rectification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument> <http://www.w3.org/2000/01/rdf-schema#label> "hasHtmlDocument"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy> <http://www.w3.org/2000/01/rdf-schema#label> "alertedBy"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormType> <http://www.w3.org/2000/01/rdf-schema#label> "TipoDeNorma"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Classification> <http://www.w3.org/2004/02/skos/core#related> <http://datos.bcn.cl/ontologies/bcn-norms#Rectification> .
+<http://datos.bcn.cl/ontologies/bcn-norms#type> <http://www.w3.org/2000/01/rdf-schema#label> "type"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#type> <http://www.w3.org/2000/01/rdf-schema#label> "deTipo"@es .
+<http://www.w3.org/2004/02/skos/core#Collection> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a collection of elements."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Classification> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes grouping methods to which a Category can belong."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument> <http://www.w3.org/2000/01/rdf-schema#label> "tieneDocumentoHtml"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between two norms, where a first norm is regulated by a second norm."@en .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a date in dublin core format."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7459a8e7X2Dd666X2D4999X2DaaccX2D5e25d506a97d .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2000/01/rdf-schema#label> "NormaVersionada"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> <http://www.w3.org/2000/01/rdf-schema#label> "tieneTratado"@es .
+_:B4f8e56caX2D8839X2D461eX2D81e7X2D39411a2a7d12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://datos.bcn.cl/ontologies/bcn-norms#NormType> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.geonames.org/ontology#countryCode> .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2004/02/skos/core#altLabel> "Instancia de Ley"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Classification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Collection> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> <http://www.w3.org/2000/01/rdf-schema#label> "hasTreaty"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#regulates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B182bf2b4X2D98a8X2D4f71X2D835eX2Dc96a0534a1cc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B3b1c976cX2D9159X2D47e8X2Da305X2D61c42a06f7dc .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a title for a Norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/2000/01/rdf-schema#label> "creadorDe"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/2000/01/rdf-schema#label> "modifiesTo"@en .
+<http://www.w3.org/2002/07/owl#sameAs> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una URI con una referencia a un objeto."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Rectification> .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Determina una organizacion sub organizacion de la otra."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2000/01/rdf-schema#label> "NormaRaiz"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganizationOriginal> <http://www.w3.org/2000/01/rdf-schema#label> "GovernmentalOrganizationOriginal"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2000/01/rdf-schema#comment> "Through this class a base norm structure is described from legislative context."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> <http://www.w3.org/2000/01/rdf-schema#label> "isDocumentOf"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode> <http://www.w3.org/2000/01/rdf-schema#comment> "Corresponde al identificador de la norma en el portal Leychile."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2002/07/owl#equivalentClass> _:B11a93390X2D0b07X2D4013X2D9c13X2D74de3c777b83 .
+<http://datos.bcn.cl/ontologies/bcn-norms#recasts> <http://www.w3.org/2000/01/rdf-schema#label> "recasts"@en .
+<http://www.w3.org/2004/02/skos/core#Collection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#CategoryByKeyword> <http://www.w3.org/2000/01/rdf-schema#label> "CategoriaPorPalabraClave"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> <http://www.w3.org/2000/01/rdf-schema#comment> "Una organizacion gubernamental que es creadora de una norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
+_:Bcfef4573X2D70e6X2D4d27X2Db759X2Ddd55beca6b80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B2b905e69X2Dfcc0X2D4ec8X2D89a0X2D51167086596b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/2000/01/rdf-schema#label> "title"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/2000/01/rdf-schema#comment> "Indica el codigo de pais en formato ISO-3166 alpha2."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#recasts> <http://www.w3.org/2000/01/rdf-schema#label> "refundeA"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indica que una norma es actualizada a traves de una instancia de RecastedText (TextoRefundido)"@es .
+<http://www.w3.org/2000/01/rdf-schema#comment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode> <http://www.w3.org/2000/01/rdf-schema#label> "An identifier in Leychile"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between a Norm instance and a Country or International Organization."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Rectification> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2000/01/rdf-schema#label> "Norm"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
+<http://www.w3.org/2002/07/owl#sameAs> <http://www.w3.org/2000/01/rdf-schema#label> "loMismoQue"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasName> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of a entity."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://datos.bcn.cl/ontologies/bcn-norms#recasts> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/elements/1.1/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una abreviacion para una cadena de caracteres."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#createdBy> <http://www.w3.org/2000/01/rdf-schema#label> "creadoPor"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#type> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#NormType> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Classification> <http://www.w3.org/2000/01/rdf-schema#label> "Classification"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a relationship between a Country or International Organization and their Treaties."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument> <http://www.w3.org/2000/01/rdf-schema#label> "hasXmlDocument"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe un tipo de norma en contexto legislativo. "@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionDate> <http://www.w3.org/2000/01/rdf-schema#label> "fechaVersion"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2004/02/skos/core#prefLabel> "Norma"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> <http://www.w3.org/2000/01/rdf-schema#label> "esDocumentoDe"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una correspondencia entre dos normas."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#regulates> <http://www.w3.org/2000/01/rdf-schema#label> "regulates"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2004/02/skos/core#altLabel> "Ley"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isModifiedBy"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganizationOriginal> <http://www.w3.org/2000/01/rdf-schema#comment> "Esta clase es una organizacion creada para resoler un desajuste entre la base de datos y las tripletas RDF."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> <http://www.w3.org/2000/01/rdf-schema#label> "hasNumber"@en .
+_:B4f8e56caX2D8839X2D461eX2D81e7X2D39411a2a7d12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B2b905e69X2Dfcc0X2D4ec8X2D89a0X2D51167086596b .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument> <http://www.w3.org/2000/01/rdf-schema#label> "tieneDocumentoXml"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#CategoryByKeyword> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://datos.bcn.cl/ontologies/bcn-norms#Category> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "esReguladoPor"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre un documento Xml y una Norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#CategoryByKeyword> <http://www.w3.org/2000/01/rdf-schema#label> "CategoryByKeyword"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Un aviso en una norma obsoleta si existe un texto refundido mas actual."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> <http://www.w3.org/2000/01/rdf-schema#comment> "A international Organization that is related with a treaty."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the norms created for an organization."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/2000/01/rdf-schema#comment> "Indica que una instancia de Rectificacion rectifica a una instancia de Norma o Rectificacion."@es .
+<http://purl.org/dc/elements/1.1/identifier> <http://www.w3.org/2000/01/rdf-schema#comment> "Allows add an unique identifier to a resource."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#promulgationDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Define la fecha de promulgacion de un recurso."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> <http://www.w3.org/2000/01/rdf-schema#label> "tieneNumero"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/org#FormalOrganization> .
+<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2004/02/skos/core#altLabel> "Norm"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Category> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Collection> .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Classification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#publishDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> <http://www.w3.org/2000/01/rdf-schema#label> "OrganizacionGubernamental"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#recasts> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith> <http://www.w3.org/2000/01/rdf-schema#label> "isTreatyWith"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre dos normas, donde la primera es modificada por la segunda."@es .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/2000/01/rdf-schema#label> "Language"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#createdBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bcfef4573X2D70e6X2D4d27X2Db759X2Ddd55beca6b80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://dbpedia.org/resource/Country> .
+<http://datos.bcn.cl/ontologies/bcn-norms#publishDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Define la fecha de publicacion de un recurso."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith> <http://www.w3.org/2000/01/rdf-schema#label> "esTratadoCon"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganizationOriginal> <http://www.w3.org/2000/01/rdf-schema#comment> "This class is an organization created for resolve a mismatch between the data base and the RDF triples."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#recasts> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
+<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode> <http://www.w3.org/2000/01/rdf-schema#comment> "Corresponds to leychile identifier"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines that a organization is sub organization of another."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#publishDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the publication date of a resource."@en .
+_:B0ddab984X2D1f6bX2D409fX2D8faeX2Db51691b2f4f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre dos normas, donde la primera modifica a la segunda."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/2000/01/rdf-schema#comment> "A language of the resource."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isRegulatedBy"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTag> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a tag for a a Thing instance."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#regulates> <http://www.w3.org/2000/01/rdf-schema#label> "regula"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the country code in ISO-3166 alpha2 format."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#createdBy> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a document belongs to a Norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganizationOriginal> <http://www.w3.org/2000/01/rdf-schema#label> "OrganizacionGubernamentalOriginal"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Rectification instance rectifies to a Norm or Rectification instance."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2002/07/owl#equivalentClass> _:B6e73492cX2Dd329X2D4569X2D950eX2D379b1be65d66 .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/2000/01/rdf-schema#label> "subOrganizacionDe"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre una instancia de norma y un pais u organizacion internacional."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/2000/01/rdf-schema#label> "hasVersion"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#Category> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes grouping methods to which a norm can belong."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> <http://www.w3.org/2000/01/rdf-schema#label> "TextoRefundido"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between two norms, where the first modifies to second."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Country> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Treaty> <http://www.w3.org/2000/01/rdf-schema#label> "Tratado"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#createdBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the creator organization for a norm."@en .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/2000/01/rdf-schema#label> "titulo"@es .
+_:B6e73492cX2Dd329X2D4569X2D950eX2D379b1be65d66 <http://www.w3.org/2002/07/owl#onProperty> <http://datos.bcn.cl/ontologies/bcn-norms#publishDate> .
+<http://datos.bcn.cl/ontologies/bcn-norms#regulates> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between two norms, where the first is a regulation over the second."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> <http://www.w3.org/2000/01/rdf-schema#label> "RecastedText"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2000/01/rdf-schema#label> "RootNorm"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre dos normas, donde la primera es regulada por una segunda norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation> <http://www.w3.org/2000/01/rdf-schema#label> "abreviacion"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Category> <http://www.w3.org/2000/01/rdf-schema#label> "Categoria"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/2000/01/rdf-schema#label> "versionDe"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> <http://www.w3.org/2000/01/rdf-schema#label> "esModificadoPor"@es .
+_:B6e73492cX2Dd329X2D4569X2D950eX2D379b1be65d66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isRectifiedBy"@en .
+_:B2b905e69X2Dfcc0X2D4ec8X2D89a0X2D51167086596b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B182bf2b4X2D98a8X2D4f71X2D835eX2Dc96a0534a1cc .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/2000/01/rdf-schema#label> "rectifies"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#createdBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/2000/01/rdf-schema#label> "tieneCodigo"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#publishDate> <http://www.w3.org/2000/01/rdf-schema#label> "publishDate"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/2000/01/rdf-schema#label> "tieneDocumento"@es .
+<http://purl.org/dc/elements/1.1/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B7459a8e7X2Dd666X2D4999X2DaaccX2D5e25d506a97d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Treaty> <http://www.w3.org/2000/01/rdf-schema#label> "Treaty"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTag> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Category> <http://www.w3.org/2000/01/rdf-schema#label> "Category"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#NormType> .
+_:B3b1c976cX2D9159X2D47e8X2Da305X2D61c42a06f7dc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://xmlns.com/foaf/0.1/#Document> .
+<http://datos.bcn.cl/ontologies/bcn-norms#subOrganizationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://datos.bcn.cl/ontologies/bcn-norms#regulates> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasName> <http://www.w3.org/2000/01/rdf-schema#comment> "El nombre de una entidad."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasXmlDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between a Xml document and a Norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2004/02/skos/core#altLabel> "LeyRaiz"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTag> <http://www.w3.org/2000/01/rdf-schema#label> "tieneEtiqueta"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isRecastedBy"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Treaty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganizationOriginal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B3b1c976cX2D9159X2D47e8X2Da305X2D61c42a06f7dc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bcfef4573X2D70e6X2D4d27X2Db759X2Ddd55beca6b80 .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormType> <http://www.w3.org/2000/01/rdf-schema#label> "NormType"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Determina las normas creadoras por una organizacion."@es .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/2000/01/rdf-schema#comment> "Define un concepto que puede existir dentro de una coleccion de elementos."@es .
+_:B6e73492cX2Dd329X2D4569X2D950eX2D379b1be65d66 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://datos.bcn.cl/ontologies/bcn-norms#CategoryByKeyword> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/2000/01/rdf-schema#comment> "Define a correspondency between two norms."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTreaty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Country> <http://www.w3.org/2000/01/rdf-schema#label> "Country"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Define que una norma raiz tiene versiones de la norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/2000/01/rdf-schema#label> "esRefundidoPor"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/2000/01/rdf-schema#label> "hasDocument"@en .
+_:Bfc2e7e0eX2D8c0cX2D4687X2Da4c2X2Db7bf59fb09ed <http://www.w3.org/2002/07/owl#unionOf> _:B4f8e56caX2D8839X2D461eX2D81e7X2D39411a2a7d12 .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#InternationalOrganization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/org#FormalOrganization> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Treaty> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a norm in legislative context related with a external country or international organization. This is called too International Treaty."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Norm Instance"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/2000/01/rdf-schema#label> "modificaA"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/2000/01/rdf-schema#label> "agreeWith"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation> <http://www.w3.org/2000/01/rdf-schema#label> "abbreviation"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/elements/1.1/date> .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Define la fecha de la version de un recurso."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Country> <http://www.w3.org/2000/01/rdf-schema#label> "Pais"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#GovernmentalOrganization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B99ce787fX2D27ffX2D46daX2Dbc06X2D5b853c4c6549 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://datos.bcn.cl/ontologies/bcn-norms#createdBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Determina la organizacion creadora de una norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/2000/01/rdf-schema#label> "versionOf"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> .
+<http://www.geonames.org/ontology#countryCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+_:B7459a8e7X2Dd666X2D4999X2DaaccX2D5e25d506a97d <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/org#FormalOrganization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasName> <http://www.w3.org/2000/01/rdf-schema#label> "hasName"@en .
+_:B99ce787fX2D27ffX2D46daX2Dbc06X2D5b853c4c6549 <http://www.w3.org/2002/07/owl#onProperty> <http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> .
+<http://www.w3.org/2004/02/skos/core#Collection> <http://www.w3.org/2000/01/rdf-schema#label> "Coleccion"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#agreeWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#creatorOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Treaty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Treaty> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe una norma en el contexto legislativo relacionado con un pais externo u organizacion internacional. Tambien es llamada tratado internacional."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#regulates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode> <http://www.w3.org/2000/01/rdf-schema#label> "Id en Leychile"@es .
+<http://dbpedia.org/resource/Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#createdBy> <http://www.w3.org/2000/01/rdf-schema#label> "createdBy"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between a Html document and a Norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTag> <http://www.w3.org/2000/01/rdf-schema#label> "hasTag"@en .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a concept that may exist inner a collection."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#leychileCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indica si una instancia de norma es la ultima version de esta."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Rectification> <http://www.w3.org/2000/01/rdf-schema#label> "Rectificacion"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> .
+<http://datos.bcn.cl/ontologies/bcn-norms#rectifies> <http://www.w3.org/2000/01/rdf-schema#label> "rectifica"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Norm> <http://www.w3.org/2000/01/rdf-schema#comment> "Mediante esta clase se describe la estructura base de una norma a nivel generico en el contexto legislativo."@es .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a type norm in legislative context."@en .
+_:B99ce787fX2D27ffX2D46daX2Dbc06X2D5b853c4c6549 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Be258609aX2D9e68X2D45fbX2Dab20X2D3158be6684d5 <http://www.w3.org/2000/01/rdf-schema#comment> "Ontology of Norms for Library of Congress of Chile" .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/2000/01/rdf-schema#label> "Concepto"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#versionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Define que una norma es version de otra norma raiz."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#Rectification> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe un texto publicado como actualizaci&oacute;n por alg&uacute;n error de tipeo o similar detectado en tora norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a relationship between two norms, where the first is modified by the second."@en .
+<http://xmlns.com/foaf/0.1/#Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+<http://datos.bcn.cl/ontologies/bcn-norms#RootNorm> <http://www.w3.org/2004/02/skos/core#prefLabel> "RootNorm"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/2000/01/rdf-schema#label> "tieneVersion"@es .
+_:B11a93390X2D0b07X2D4013X2D9c13X2D74de3c777b83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRecastedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#RecastedText> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isModifiedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Define un numero para una norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#isDocumentOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/#Document> .
+<http://xmlns.com/foaf/0.1/#Document> <http://www.w3.org/2000/01/rdf-schema#label> "Documento"@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#modifiesTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Classification> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe metodos de agrupacion a los que una Categoria puede pertenecer."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#abbreviation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bfc2e7e0eX2D8c0cX2D4687X2Da4c2X2Db7bf59fb09ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .
+_:B11a93390X2D0b07X2D4013X2D9c13X2D74de3c777b83 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasTag> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una etiqueta para una instancia de Thing."@es .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://datos.bcn.cl/ontologies/bcn-norms#Country> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://dbpedia.org/resource/Country> .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una fecha en formato dublin core."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#NormInstance> <http://www.w3.org/2000/01/rdf-schema#label> "NormInstance"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasHtmlDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "Define una relacion entre un documento Html y una Norma."@es .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines a number for a Norm."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRectifiedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isLatestVersion> <http://www.w3.org/2000/01/rdf-schema#label> "isLatestVersion"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#isTreatyWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines that a root norm has got versions of the norm."@en .
+<http://xmlns.com/foaf/0.1/#Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document"@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#alertedBy> <http://www.w3.org/2000/01/rdf-schema#label> "alertadoPor"@es .
+<http://xmlns.com/foaf/0.1/#Document> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a document related to a instance of Thing."@en .
+<http://datos.bcn.cl/ontologies/bcn-norms#hasDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://datos.bcn.cl/ontologies/bcn-norms#isRegulatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://datos.bcn.cl/ontologies/bcn-norms#Norm> .

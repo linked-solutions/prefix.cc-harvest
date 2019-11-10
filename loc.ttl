@@ -1,828 +1,460 @@
-<http://www.w3.org/2007/uwa/context/location.owl#SatelliteLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The location method uses satellites to assist in obtaining the location" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Satellite  Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property represents the reference system in which are expressed the geographical coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Georeference System" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#Location>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents all the information about a location" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#position> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/location.owl#Position>
-                ] .
-
-<http://www.w3.org/2007/uwa/context/location.owl#BluetoothBinaryLocMeth>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#ShortRangeLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A room-oriented approach, uses a proximity detection method. An\naccess point is installed in every room. For each tag, the system than\nfinds the nearest AP, and respectively indicates its room location" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "BluetoothBinaryLocationMethod" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Universal Traversal Marcator coordinate reference system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UTM" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#id>
-                "__GeocordinateRS_UTM" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "UTM" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Utility> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property represents the LocationProviders that are currently available in a network, device or the Delivery Context itself as whole" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://www.w3.org/2007/uwa/context/network.owl#Network> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Device> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#DeliveryContext> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Available Location Providers" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> , <http://www.w3.org/2007/uwa/context/common.owl#available> .
-
-<http://www.w3.org/2007/uwa/context/common.owl#name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Coordinates of a point expressed in the  UTM reference system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UTM Coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#coordinates> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#Feature_SPEED>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#Feature> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This feature indicates that a location provider is capable of determining the speed" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Speed Feature" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#id>
-                "__Location_Feature_Speed" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "Speed" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#longitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The longitude as defined by the WGS84 coordinate system" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Longitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#CellIdLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method Cell-ID for cellular (in GSM, this is the same as CGI, Cell Global Identity)" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Cell Id Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#Feature_COURSE>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#Feature> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This feature indicates that the location provider supports course determination" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Course Feature" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#id>
-                "__Location_Feature_Course" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "Course" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#TDOA>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The TDOA technique works by measuring the exact time of arrival of a handset radio signal at three or more separate cell sites." ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "TDOA" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#LocationMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "It represents an specific mechanism used to calculate the location of a thing" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#name>
-                ] .
-
-<http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method Time Difference for cellular / terrestrial RF system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Time Difference Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates what are goegraphical coordinate systems supported by the location provider" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Geographical Coordinate Systems" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2007/uwa/context/common.owl#supports> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#verticalAccuracy>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Stimate of the vertical accuracy of the location in metres" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Vertical Accuracy" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#timestamp>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A timestamp that indicates when it was obtained the position in question" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#Position> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location Timestamp" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#AngleOfArrivalLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Standard angle of arrival location method in a cellular network" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#id>
-                "CellularStandardAngleOfArrival" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "CellularStandardAngleOfArrival" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Utility> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#currentLocation>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The current location associated to the environment component of this Delivery Context" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Environment> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Current Location" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#Location> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method Time of Arrival (TOA) for cellular / terrestrial RF system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Time of Arrival Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class reprensents the set of all delivery context entities that has to do with location" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Context Location Entity" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Context_Entity> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents a geographical coordinate system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Geographical Coordinate Reference System" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#id>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/common.owl#name>
-                ] .
-
-<http://www.w3.org/2007/uwa/context/location.owl#E-OTD>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "E-OTD systems operate by placing location receivers or reference beacons, overlaid on the wireless network as a location measurement units (LMU) at multiple sites geographically dispersed in a wide area." ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "E-OTD" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#latitude>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Latitude as defined by the WGS84 coordinate reference system" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Latitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property is a list of the Location Providers supported by a Device or a Network" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Device> <http://www.w3.org/2007/uwa/context/network.owl#Network> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Supported Location Providers" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2007/uwa/context/common.owl#supports> .
-
-<http://www.w3.org/2007/uwa/context/common.owl#supports>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#locationMethod>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The location method used by a LocationProvider for determining the current location" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#datum>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The datum that express the reference of the coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Datum" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#horizontalAccuracy>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Stimate of the horizontal accuracy of the location in metres" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Horizontal Accuracy" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents UTM coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UTM Coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#northing>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#easting>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#datum>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#latitudeZone>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#hasValue>
-                          <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#longitudeZone>
-                ] ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents geographical coordinates that allow to locate precisely a point on the Earth surface" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Geographical Coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem>
-                ] .
-
-<http://www.w3.org/2007/uwa/context/location.owl#position>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The position associated to a Location" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#Location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Position" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#Position> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#TermGroup_Location>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#TermGroup> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This group of terms is aimed at defining a set of classes, properties and instances that have to do with Geographic Location" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Utility> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#termGroupPrefix>
-                "loc" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The WGS 84 geographic coordinates reference system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "WGS 84" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#id>
-                "__GeoCordinateRS_WGS84" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "WGS84" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method is assisted by the other party (Terminal assisted for Network based, Network assisted for terminal based)" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Assisted Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#easting>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The easting (x) component of the UTM coordinates measured in metres" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Easting" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method is of type network based. This means that the final location result is calculated in the network" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Network Based Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents an entity capable of providing location information" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location Provider" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#locationMethod>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#locationMethod> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS>
-                ] .
-
-<http://www.w3.org/2007/uwa/context/location.owl#Position>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents a position, which it is composed by the coordinates of a point on the Earth surface, together with the speed, course, and the corresponding accuracies and timestamp" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Position" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#coordinates>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#cardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://www.w3.org/2007/uwa/context/location.owl#coordinates>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#cardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://www.w3.org/2007/uwa/context/location.owl#iso6709String>
-                            ]
-                          )
-                ] .
-
-<http://www.w3.org/2007/uwa/context/location.owl#lastKnownLocation>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The last known location associated to a Delivery Context" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Environment> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Last Known Location" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#Location> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method is unassisted it does not need other party in order to obtain the location" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Unassisted Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#AllDisjointSet> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#disjointClass>
-                "loc:Position" , "loc:GeoCoordinates" , "loc:GeoCoordinateRS" , "loc:LocationMethod" , "loc:Location" , "loc:LocationProvider" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#wgs84Coordinates>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Coordinates of a point expressed in the  WGS84 reference system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "WGS84 Coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#coordinates> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property represents the longitude zone according to the UTM coordinate system" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UTM Longitude Zone" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#altitude>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The altitude as defined by the WGS84 coordinate system" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Altitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#estimatedPosition>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The estimated position provided by a location provider" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Estimated Position" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#Position> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#northing>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The northing component of the UTM coordinates measured in metres" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Northing" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#TerminallGPSUnAssisted>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#SatelliteLocMethod> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method GPS assisted with no network cooperation" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "TerminallGPSUnAssisted" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This class represents WGS84 coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "WGS84 Coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#hasValue>
-                          <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#hasValue>
-                          "WGS84" ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#datum>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#latitude>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2007/uwa/context/location.owl#longitude>
-                ] .
-
-<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint2>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#AllDisjointSet> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#disjointClass>
-                "loc:NetworkBasedLocMethod" , "loc:TerminalBasedLocMethod" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint1>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#AllDisjointSet> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#disjointClass>
-                "loc:UnassistedLocMethod" , "loc:AssistedLocMethod" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#coordinates>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The coordinates of a point" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#Position> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Coordinates" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#AngleOfArrivalLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method Angle of Arrival for cellular / terrestrial RF system" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Angle Of Arrival Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#course>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The course made good in degrees relative to true north. The value is always in the range [0.0,360.0) degrees" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#Position> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Course" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#locationCostsMoney>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property indicates whether the location provider has a cost for the user" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Location Costs Money" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#Feature_ALTITUDE>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#Feature> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates that the location provider is capable of determining the altitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Altitude Feature" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#id>
-                "__Location_Feature_Altitude" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "Altitude" ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#GSMCellGlobalIdentity>
-        a       <http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> , <http://www.w3.org/2007/uwa/context/location.owl#CellIdLocMethod> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#name>
-                "GSMCellGlobalIdentity" .
-
-<http://www.w3.org/2007/uwa/context/location.owl#iso6709String>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The position represented as an ISO6709:1983 String" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#Position> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ISO 6709:1983 String" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property represent the UTM latitude zone" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UTM Latitude Zone" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus>
-                <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#typicalResponseTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property represents the typical response time in seconds of a location provider from the instant in which the location is requested to the moment in which the location is returned" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Typical Response Time" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#speed>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Observed speed in meters per second" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2007/uwa/context/location.owl#Position> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Speed" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#ShortRangeLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method Short-range positioning system (for example, Bluetooth LP)" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Short Range Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/common.owl#id>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> .
-
-<http://www.w3.org/2007/uwa/context/deliverycontext.owl#DeliveryContext>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Location method is of type terminal based. This means that the final location result is calculated in the terminal" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Terminal Based Method" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
-
-<http://www.w3.org/2007/uwa/context/deliverycontext.owl#Device>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/2007/uwa/context/network.owl#Network>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/2007/uwa/context/common.owl#Utility>
-        a       <http://www.w3.org/2007/uwa/context/common.owl#NormativeStatus> .
+<http://www.w3.org/2007/uwa/context/location.owl#SatelliteLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Satellite  Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#Location> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents all the information about a location" .
+<http://www.w3.org/2007/uwa/context/location.owl#BluetoothBinaryLocMeth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#ShortRangeLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> <http://www.w3.org/2000/01/rdf-schema#comment> "The Universal Traversal Marcator coordinate reference system" .
+<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders> <http://www.w3.org/2000/01/rdf-schema#label> "Available Location Providers" .
+_:Bb791b031X2D46aeX2D46caX2Db51aX2D04df50e537e0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/common.owl#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B241c034fX2DefbbX2D4b88X2D84c5X2D525ada7d6244 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#datum> .
+<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#SatelliteLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_SPEED> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
+<http://www.w3.org/2007/uwa/context/location.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#comment> "The longitude as defined by the WGS84 coordinate system" .
+<http://www.w3.org/2007/uwa/context/location.owl#CellIdLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_COURSE> <http://www.w3.org/2007/uwa/context/common.owl#id> "__Location_Feature_Course" .
+<http://www.w3.org/2007/uwa/context/location.owl#TDOA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "It represents an specific mechanism used to calculate the location of a thing" .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#verticalAccuracy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#timestamp> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+_:B3e158e03X2Dd581X2D44d6X2Db5f4X2D415ea8fc6096 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method Time Difference for cellular / terrestrial RF system" .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_SPEED> <http://www.w3.org/2000/01/rdf-schema#label> "Speed Feature" .
+<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival> <http://www.w3.org/2000/01/rdf-schema#comment> "Standard angle of arrival location method in a cellular network" .
+_:B4986e552X2D889eX2D4bc8X2Da2f3X2D024d2c1e06d3 <http://www.w3.org/2002/07/owl#hasValue> "WGS84" .
+<http://www.w3.org/2007/uwa/context/location.owl#currentLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Time of Arrival Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bcae7804aX2Df0b6X2D4312X2Db4e8X2Dcda971f543ff .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> .
+<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> .
+_:Bc1f3da81X2Dd853X2D4bd7X2Da173X2Df045802e71d5 <http://www.w3.org/2002/07/owl#unionOf> _:B8f4b9bb4X2Dbf16X2D42efX2D9e84X2D5bd7cb6f3c0e .
+_:B129123ecX2D688dX2D46afX2D8178X2Dabd28bd05203 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9c0784d6X2Dbba3X2D48a7X2Db258X2Dea2ba48ff16a .
+_:B0b6fda9aX2D5613X2D44b5X2D9f66X2D7bc17e509361 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#E-OTD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#verticalAccuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#timestamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> .
+_:B603c6dfeX2D8da8X2D4db3X2Da694X2Ded7d4ed7c17f <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/common.owl#id> .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+_:B8aba81c8X2D0c73X2D456bX2Db026X2D5ceac956e2c8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/common.owl#supports> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationMethod> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#datum> <http://www.w3.org/2000/01/rdf-schema#comment> "The datum that express the reference of the coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#horizontalAccuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#label> "UTM Coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> .
+<http://www.w3.org/2007/uwa/context/location.owl#timestamp> <http://www.w3.org/2000/01/rdf-schema#label> "Location Timestamp" .
+_:B3e158e03X2Dd581X2D44d6X2Db5f4X2D415ea8fc6096 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+_:B606a48adX2Db0e0X2D4415X2D9f7fX2D3741aa172635 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Device> .
+<http://www.w3.org/2007/uwa/context/location.owl#position> <http://www.w3.org/2000/01/rdf-schema#label> "Position" .
+<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> <http://www.w3.org/2000/01/rdf-schema#domain> _:B173a776eX2Df3d3X2D4f3cX2D9643X2D5895c0c0df0f .
+<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
+<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates> <http://www.w3.org/2000/01/rdf-schema#comment> "Coordinates of a point expressed in the  UTM reference system" .
+<http://www.w3.org/2007/uwa/context/location.owl#TermGroup_Location> <http://www.w3.org/2000/01/rdf-schema#comment> "This group of terms is aimed at defining a set of classes, properties and instances that have to do with Geographic Location" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> <http://www.w3.org/2000/01/rdf-schema#comment> "The WGS 84 geographic coordinates reference system" .
+<http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Assisted Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#easting> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#easting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B8aba81c8X2D0c73X2D456bX2Db026X2D5ceac956e2c8 <http://www.w3.org/2002/07/owl#hasValue> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> .
+_:Ba2469dc8X2D6d31X2D4dd7X2D8badX2D0657e6be1636 <http://www.w3.org/2002/07/owl#unionOf> _:B8857d47aX2Db476X2D4743X2DaffdX2Dcbeadc757c17 .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_SPEED> <http://www.w3.org/2000/01/rdf-schema#comment> "This feature indicates that a location provider is capable of determining the speed" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> <http://www.w3.org/2007/uwa/context/common.owl#id> "__GeoCordinateRS_WGS84" .
+_:Bb4fac110X2D229dX2D4433X2D93c3X2D2fc47b4e4219 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+_:B71ed875dX2Dc6a6X2D4298X2Dbb4eX2D80d7644807a0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2007/uwa/context/common.owl#available> .
+_:B8aba81c8X2D0c73X2D456bX2Db026X2D5ceac956e2c8 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> .
+<http://www.w3.org/2007/uwa/context/location.owl#TermGroup_Location> <http://www.w3.org/2007/uwa/context/common.owl#termGroupPrefix> "loc" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Utility> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> <http://www.w3.org/2007/uwa/context/common.owl#id> "__GeocordinateRS_UTM" .
+_:B6e8d4fe8X2D3550X2D4764X2Da5aeX2Dd639928b5f81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B8f4b9bb4X2Dbf16X2D42efX2D9e84X2D5bd7cb6f3c0e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5ac40c43X2D2ce1X2D4936X2D8b6fX2D210544d7600b .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Location Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates what are goegraphical coordinate systems supported by the location provider" .
+<http://www.w3.org/2007/uwa/context/location.owl#currentLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#Location> .
+<http://www.w3.org/2007/uwa/context/location.owl#lastKnownLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Environment> .
+_:B0140e629X2D68d2X2D40efX2D9125X2Dcc40702fd807 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+<http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Context_Entity> .
+<http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:Position" .
+<http://www.w3.org/2007/uwa/context/location.owl#wgs84Coordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#altitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#estimatedPosition> <http://www.w3.org/2000/01/rdf-schema#comment> "The estimated position provided by a location provider" .
+<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#AngleOfArrivalLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#northing> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method Time of Arrival (TOA) for cellular / terrestrial RF system" .
+_:Bc1f3da81X2Dd853X2D4bd7X2Da173X2Df045802e71d5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminallGPSUnAssisted> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method GPS assisted with no network cooperation" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> <http://www.w3.org/2000/01/rdf-schema#label> "UTM" .
+<http://www.w3.org/2007/uwa/context/location.owl#E-OTD> <http://www.w3.org/2000/01/rdf-schema#comment> "E-OTD systems operate by placing location receivers or reference beacons, overlaid on the wireless network as a location measurement units (LMU) at multiple sites geographically dispersed in a wide area." .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#northing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> .
+_:Bbf65dbdbX2Df648X2D4f03X2Db22cX2D07b8116fd167 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B241c034fX2DefbbX2D4b88X2D84c5X2D525ada7d6244 .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B603c6dfeX2D8da8X2D4db3X2Da694X2Ded7d4ed7c17f .
+<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#label> "Geographical Coordinate Reference System" .
+_:Bb4fac110X2D229dX2D4433X2D93c3X2D2fc47b4e4219 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#coordinates> .
+_:B129123ecX2D688dX2D46afX2D8178X2Dabd28bd05203 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Bb4fac110X2D229dX2D4433X2D93c3X2D2fc47b4e4219 .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B71ed875dX2Dc6a6X2D4298X2Dbb4eX2D80d7644807a0 .
+_:B3c02a317X2Da53cX2D40bbX2D884bX2D09450d970df1 <http://www.w3.org/2002/07/owl#unionOf> _:Bb7d5693fX2D7adaX2D4b14X2D9a3cX2D55b5efe02f56 .
+<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:GeoCoordinates" .
+_:B241c034fX2DefbbX2D4b88X2D84c5X2D525ada7d6244 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#estimatedPosition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates> <http://www.w3.org/2000/01/rdf-schema#label> "UTM Coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#BluetoothBinaryLocMeth> <http://www.w3.org/2000/01/rdf-schema#comment> "A room-oriented approach, uses a proximity detection method. An\naccess point is installed in every room. For each tag, the system than\nfinds the nearest AP, and respectively indicates its room location" .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminallGPSUnAssisted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#AllDisjointSet> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#AllDisjointSet> .
+<http://www.w3.org/2007/uwa/context/location.owl#TDOA> <http://www.w3.org/2000/01/rdf-schema#comment> "The TDOA technique works by measuring the exact time of arrival of a handset radio signal at three or more separate cell sites." .
+<http://www.w3.org/2007/uwa/context/location.owl#coordinates> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#CellIdLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Cell Id Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
+<http://www.w3.org/2007/uwa/context/location.owl#AngleOfArrivalLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Angle Of Arrival Method" .
+_:Bfb24ceaaX2D0215X2D488cX2Dbf26X2De944ff8a07b2 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#position> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#Location> .
+<http://www.w3.org/2007/uwa/context/location.owl#course> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationCostsMoney> <http://www.w3.org/2000/01/rdf-schema#comment> "This property indicates whether the location provider has a cost for the user" .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminallGPSUnAssisted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Unassisted Method" .
+_:B6e8d4fe8X2D3550X2D4764X2Da5aeX2Dd639928b5f81 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/common.owl#name> .
+_:B9c0784d6X2Dbba3X2D48a7X2Db258X2Dea2ba48ff16a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Bc51a5805X2D1f24X2D4ee3X2DaebbX2D4ff624a6ea77 .
+<http://www.w3.org/2007/uwa/context/location.owl#altitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#SatelliteLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "The location method uses satellites to assist in obtaining the location" .
+<http://www.w3.org/2007/uwa/context/location.owl#estimatedPosition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B0e7eb8d6X2Ddb29X2D400aX2Da9faX2D43d4ca5e3208 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint2> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:NetworkBasedLocMethod" .
+<http://www.w3.org/2007/uwa/context/location.owl#longitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#coordinates> <http://www.w3.org/2000/01/rdf-schema#comment> "The coordinates of a point" .
+<http://www.w3.org/2007/uwa/context/location.owl#TDOA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#estimatedPosition> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+<http://www.w3.org/2007/uwa/context/location.owl#wgs84Coordinates> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#SatelliteLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3e158e03X2Dd581X2D44d6X2Db5f4X2D415ea8fc6096 .
+<http://www.w3.org/2007/uwa/context/location.owl#locationCostsMoney> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#datum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_ALTITUDE> <http://www.w3.org/2000/01/rdf-schema#label> "Altitude Feature" .
+<http://www.w3.org/2007/uwa/context/location.owl#currentLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Environment> .
+<http://www.w3.org/2007/uwa/context/location.owl#lastKnownLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#Location> .
+<http://www.w3.org/2007/uwa/context/location.owl#Location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B63778fe7X2Db890X2D490eX2D8a9dX2D22ac9fb6dad1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:GeoCoordinateRS" .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> .
+_:B4986e552X2D889eX2D4bc8X2Da2f3X2D024d2c1e06d3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0e7eb8d6X2Ddb29X2D400aX2Da9faX2D43d4ca5e3208 .
+<http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Context Location Entity" .
+<http://www.w3.org/2007/uwa/context/location.owl#GSMCellGlobalIdentity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_ALTITUDE> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that the location provider is capable of determining the altitude" .
+<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders> <http://www.w3.org/2000/01/rdf-schema#comment> "This property represents the LocationProviders that are currently available in a network, device or the Delivery Context itself as whole" .
+<http://www.w3.org/2007/uwa/context/location.owl#iso6709String> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#TDOA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#wgs84Coordinates> <http://www.w3.org/2000/01/rdf-schema#comment> "Coordinates of a point expressed in the  WGS84 reference system" .
+<http://www.w3.org/2007/uwa/context/location.owl#datum> <http://www.w3.org/2000/01/rdf-schema#label> "Datum" .
+<http://www.w3.org/2007/uwa/context/location.owl#CellIdLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents a position, which it is composed by the coordinates of a point on the Earth surface, together with the speed, course, and the corresponding accuracies and timestamp" .
+<http://www.w3.org/2007/uwa/context/location.owl#verticalAccuracy> <http://www.w3.org/2000/01/rdf-schema#comment> "Stimate of the vertical accuracy of the location in metres" .
+<http://www.w3.org/2007/uwa/context/location.owl#position> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B4986e552X2D889eX2D4bc8X2Da2f3X2D024d2c1e06d3 .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/2000/01/rdf-schema#label> "WGS84 Coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#typicalResponseTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#GSMCellGlobalIdentity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_COURSE> <http://www.w3.org/2007/uwa/context/common.owl#name> "Course" .
+<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival> <http://www.w3.org/2007/uwa/context/common.owl#id> "CellularStandardAngleOfArrival" .
+<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7eafd876X2D182bX2D49cdX2D98ebX2Db4610196fa78 .
+_:B63778fe7X2Db890X2D490eX2D8a9dX2D22ac9fb6dad1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#DeliveryContext> .
+<http://www.w3.org/2007/uwa/context/location.owl#position> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+_:Bef27eccfX2Dd8e4X2D425fX2Da477X2D53d04158dfed <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+_:Bc51a5805X2D1f24X2D4ee3X2DaebbX2D4ff624a6ea77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> <http://www.w3.org/2000/01/rdf-schema#label> "Geographical Coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/2000/01/rdf-schema#label> "Position" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents geographical coordinates that allow to locate precisely a point on the Earth surface" .
+_:Bbc638373X2D888fX2D496cX2Dac1aX2D2dcb8e5d1d5c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/2007/uwa/context/location.owl#speed> <http://www.w3.org/2000/01/rdf-schema#comment> "Observed speed in meters per second" .
+<http://www.w3.org/2007/uwa/context/location.owl#coordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#typicalResponseTime> <http://www.w3.org/2000/01/rdf-schema#comment> "This property represents the typical response time in seconds of a location provider from the instant in which the location is requested to the moment in which the location is returned" .
+<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
+_:B603c6dfeX2D8da8X2D4db3X2Da694X2Ded7d4ed7c17f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#speed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#lastKnownLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint1> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:UnassistedLocMethod" .
+<http://www.w3.org/2007/uwa/context/location.owl#CellIdLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method Cell-ID for cellular (in GSM, this is the same as CGI, Cell Global Identity)" .
+<http://www.w3.org/2007/uwa/context/location.owl#latitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B0140e629X2D68d2X2D40efX2D9125X2Dcc40702fd807 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#position> .
+<http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method is of type network based. This means that the final location result is calculated in the network" .
+_:B7eafd876X2D182bX2D49cdX2D98ebX2Db4610196fa78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0b6fda9aX2D5613X2D44b5X2D9f66X2D7bc17e509361 .
+_:B173a776eX2Df3d3X2D4f3cX2D9643X2D5895c0c0df0f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B424b621eX2D3ce8X2D4ab0X2Dae38X2Da33dd5bf3c67 .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_SPEED> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#Feature> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B714ae435X2DacbfX2D4ec6X2D9a66X2D32f24f5aa554 .
+<http://www.w3.org/2007/uwa/context/location.owl#TDOA> <http://www.w3.org/2007/uwa/context/common.owl#name> "TDOA" .
+_:B0e7eb8d6X2Ddb29X2D400aX2Da9faX2D43d4ca5e3208 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#coordinates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+_:B606a48adX2Db0e0X2D4415X2D9f7fX2D3741aa172635 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B52aad546X2D6804X2D4360X2Db65bX2Dee7faca12350 .
+_:Bb7d5693fX2D7adaX2D4b14X2D9a3cX2D55b5efe02f56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bbc638373X2D888fX2D496cX2Dac1aX2D2dcb8e5d1d5c .
+_:B714ae435X2DacbfX2D4ec6X2D9a66X2D32f24f5aa554 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#BluetoothBinaryLocMeth> <http://www.w3.org/2007/uwa/context/common.owl#name> "BluetoothBinaryLocationMethod" .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_ALTITUDE> <http://www.w3.org/2007/uwa/context/common.owl#id> "__Location_Feature_Altitude" .
+<http://www.w3.org/2007/uwa/context/location.owl#datum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#Location> <http://www.w3.org/2000/01/rdf-schema#label> "Location" .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> <http://www.w3.org/2000/01/rdf-schema#comment> "This property is a list of the Location Providers supported by a Device or a Network" .
+_:Bbbec3cfcX2Db3ceX2D4490X2Da462X2Dc4c9a9ebb78b <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#coordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+<http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B0b6fda9aX2D5613X2D44b5X2D9f66X2D7bc17e509361 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#locationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.w3.org/2007/uwa/context/location.owl#lastKnownLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "The last known location associated to a Delivery Context" .
+<http://www.w3.org/2007/uwa/context/location.owl#verticalAccuracy> <http://www.w3.org/2000/01/rdf-schema#label> "Vertical Accuracy" .
+<http://www.w3.org/2007/uwa/context/location.owl#typicalResponseTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+<http://www.w3.org/2007/uwa/context/location.owl#Location> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0140e629X2D68d2X2D40efX2D9125X2Dcc40702fd807 .
+_:Bc51a5805X2D1f24X2D4ee3X2DaebbX2D4ff624a6ea77 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#iso6709String> .
+<http://www.w3.org/2007/uwa/context/location.owl#easting> <http://www.w3.org/2000/01/rdf-schema#label> "Easting" .
+<http://www.w3.org/2007/uwa/context/location.owl#ShortRangeLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Short Range Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#altitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bc51a5805X2D1f24X2D4ee3X2DaebbX2D4ff624a6ea77 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+_:B12684369X2Dc605X2D42dbX2Da428X2Da0b484ea49c8 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationCostsMoney> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+_:B3c02a317X2Da53cX2D40bbX2D884bX2D09450d970df1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#longitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents UTM coordinates" .
+_:B9c0784d6X2Dbba3X2D48a7X2Db258X2Dea2ba48ff16a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B52aad546X2D6804X2D4360X2Db65bX2Dee7faca12350 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint2> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:TerminalBasedLocMethod" .
+<http://www.w3.org/2007/uwa/context/common.owl#id> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#ShortRangeLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#iso6709String> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+_:B8f4b9bb4X2Dbf16X2D42efX2D9e84X2D5bd7cb6f3c0e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/network.owl#Network> .
+_:Bef27eccfX2Dd8e4X2D425fX2Da477X2D53d04158dfed <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bbc638373X2D888fX2D496cX2Dac1aX2D2dcb8e5d1d5c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+_:B6e8d4fe8X2D3550X2D4764X2Da5aeX2Dd639928b5f81 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#altitude> <http://www.w3.org/2000/01/rdf-schema#label> "Altitude" .
+<http://www.w3.org/2007/uwa/context/location.owl#AngleOfArrivalLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method Angle of Arrival for cellular / terrestrial RF system" .
+_:Bbbec3cfcX2Db3ceX2D4490X2Da462X2Dc4c9a9ebb78b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#course> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Network Based Method" .
+_:B603c6dfeX2D8da8X2D4db3X2Da694X2Ded7d4ed7c17f <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocMeth_Disjoint1> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:AssistedLocMethod" .
+_:B8a3c2568X2D0a01X2D4c49X2Dae37X2D879d9b29c89f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents an entity capable of providing location information" .
+<http://www.w3.org/2007/uwa/context/location.owl#iso6709String> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.w3.org/2007/uwa/context/location.owl#wgs84Coordinates> <http://www.w3.org/2000/01/rdf-schema#label> "WGS84 Coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_COURSE> <http://www.w3.org/2000/01/rdf-schema#comment> "This feature indicates that the location provider supports course determination" .
+_:B714ae435X2DacbfX2D4ec6X2D9a66X2D32f24f5aa554 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#course> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_SPEED> <http://www.w3.org/2007/uwa/context/common.owl#id> "__Location_Feature_Speed" .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2007/uwa/context/common.owl#supports> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_ALTITUDE> <http://www.w3.org/2007/uwa/context/common.owl#name> "Altitude" .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2007/uwa/context/common.owl#supports> .
+_:B0e7eb8d6X2Ddb29X2D400aX2Da9faX2D43d4ca5e3208 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#estimatedPosition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B12684369X2Dc605X2D42dbX2Da428X2Da0b484ea49c8 <http://www.w3.org/2002/07/owl#hasValue> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationCostsMoney> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+_:B71ed875dX2Dc6a6X2D4298X2Dbb4eX2D80d7644807a0 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationCostsMoney> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents WGS84 coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#Location> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> .
+<http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method is unassisted it does not need other party in order to obtain the location" .
+<http://www.w3.org/2007/uwa/context/location.owl#verticalAccuracy> <http://www.w3.org/2000/01/rdf-schema#domain> _:B3c02a317X2Da53cX2D40bbX2D884bX2D09450d970df1 .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#TDOA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#speed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:Bfb24ceaaX2D0215X2D488cX2Dbf26X2De944ff8a07b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#label> "Longitude" .
+<http://www.w3.org/2007/uwa/context/location.owl#locationMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B9ff9e2a3X2Dd003X2D4a41X2D86ceX2D3891e08a4bcb <http://www.w3.org/2002/07/owl#unionOf> _:B129123ecX2D688dX2D46afX2D8178X2Dabd28bd05203 .
+_:B424b621eX2D3ce8X2D4ab0X2Dae38X2Da33dd5bf3c67 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
+_:B8857d47aX2Db476X2D4743X2DaffdX2Dcbeadc757c17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+_:B52aad546X2D6804X2D4360X2Db65bX2Dee7faca12350 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/network.owl#Network> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_COURSE> <http://www.w3.org/2000/01/rdf-schema#label> "Course Feature" .
+_:B241c034fX2DefbbX2D4b88X2D84c5X2D525ada7d6244 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#latitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bbbec3cfcX2Db3ceX2D4490X2Da462X2Dc4c9a9ebb78b <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#horizontalAccuracy> <http://www.w3.org/2000/01/rdf-schema#label> "Horizontal Accuracy" .
+<http://www.w3.org/2007/uwa/context/location.owl#altitude> <http://www.w3.org/2000/01/rdf-schema#comment> "The altitude as defined by the WGS84 coordinate system" .
+<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#currentLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "The current location associated to the environment component of this Delivery Context" .
+<http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/deliverycontext.owl#DeliveryContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#easting> <http://www.w3.org/2000/01/rdf-schema#comment> "The easting (x) component of the UTM coordinates measured in metres" .
+<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:Bcae7804aX2Df0b6X2D4312X2Db4e8X2Dcda971f543ff <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+<http://www.w3.org/2007/uwa/context/location.owl#TermGroup_Location> <http://www.w3.org/2000/01/rdf-schema#label> "Location" .
+_:Bb7d5693fX2D7adaX2D4b14X2D9a3cX2D55b5efe02f56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+_:B424b621eX2D3ce8X2D4ab0X2Dae38X2Da33dd5bf3c67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B0b6fda9aX2D5613X2D44b5X2D9f66X2D7bc17e509361 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B8a3c2568X2D0a01X2D4c49X2Dae37X2D879d9b29c89f .
+<http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "This property represents the reference system in which are expressed the geographical coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> <http://www.w3.org/2000/01/rdf-schema#comment> "This property represent the UTM latitude zone" .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#label> "Geographical Coordinate Systems" .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#typicalResponseTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#lastKnownLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Ba2469dc8X2D6d31X2D4dd7X2D8badX2D0657e6be1636 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb791b031X2D46aeX2D46caX2Db51aX2D04df50e537e0 .
+<http://www.w3.org/2007/uwa/context/location.owl#coordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#AllDisjointSet> .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminallGPSUnAssisted> <http://www.w3.org/2007/uwa/context/common.owl#name> "TerminallGPSUnAssisted" .
+<http://www.w3.org/2007/uwa/context/location.owl#TermGroup_Location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#TermGroup> .
+<http://www.w3.org/2007/uwa/context/location.owl#currentLocation> <http://www.w3.org/2000/01/rdf-schema#label> "Current Location" .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bfb24ceaaX2D0215X2D488cX2Dbf26X2De944ff8a07b2 .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_ALTITUDE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#Feature> .
+<http://www.w3.org/2007/uwa/context/location.owl#BluetoothBinaryLocMeth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#UnassistedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#altitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.w3.org/2007/uwa/context/location.owl#AngleOfArrivalLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> <http://www.w3.org/2000/01/rdf-schema#label> "Location Provider" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#comment> "This class represents a geographical coordinate system" .
+<http://www.w3.org/2007/uwa/context/location.owl#speed> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#Position> .
+<http://www.w3.org/2007/uwa/context/location.owl#position> <http://www.w3.org/2000/01/rdf-schema#comment> "The position associated to a Location" .
+<http://www.w3.org/2007/uwa/context/location.owl#position> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#iso6709String> <http://www.w3.org/2000/01/rdf-schema#label> "ISO 6709:1983 String" .
+_:B7eafd876X2D182bX2D49cdX2D98ebX2Db4610196fa78 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#locationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_COURSE> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
+<http://www.w3.org/2007/uwa/context/location.owl#BluetoothBinaryLocMeth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#horizontalAccuracy> <http://www.w3.org/2000/01/rdf-schema#domain> _:Ba2469dc8X2D6d31X2D4dd7X2D8badX2D0657e6be1636 .
+<http://www.w3.org/2007/uwa/context/location.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#comment> "Latitude as defined by the WGS84 coordinate reference system" .
+_:B12684369X2Dc605X2D42dbX2Da428X2Da0b484ea49c8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#datum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B9ff9e2a3X2Dd003X2D4a41X2D86ceX2D3891e08a4bcb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#E-OTD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> .
+_:B71ed875dX2Dc6a6X2D4298X2Dbb4eX2D80d7644807a0 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+_:B8857d47aX2Db476X2D4743X2DaffdX2Dcbeadc757c17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bef27eccfX2Dd8e4X2D425fX2Da477X2D53d04158dfed .
+_:Bb4fac110X2D229dX2D4433X2D93c3X2D2fc47b4e4219 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#timestamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://www.w3.org/2007/uwa/context/location.owl#iso6709String> <http://www.w3.org/2000/01/rdf-schema#comment> "The position represented as an ISO6709:1983 String" .
+_:B5ac40c43X2D2ce1X2D4936X2D8b6fX2D210544d7600b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B63778fe7X2Db890X2D490eX2D8a9dX2D22ac9fb6dad1 .
+<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> <http://www.w3.org/2000/01/rdf-schema#label> "UTM Longitude Zone" .
+<http://www.w3.org/2007/uwa/context/location.owl#E-OTD> <http://www.w3.org/2007/uwa/context/common.owl#name> "E-OTD" .
+_:B173a776eX2Df3d3X2D4f3cX2D9643X2D5895c0c0df0f <http://www.w3.org/2002/07/owl#unionOf> _:B606a48adX2Db0e0X2D4415X2D9f7fX2D3741aa172635 .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminallGPSUnAssisted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#SatelliteLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6e8d4fe8X2D3550X2D4764X2Da5aeX2Dd639928b5f81 .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B12684369X2Dc605X2D42dbX2Da428X2Da0b484ea49c8 .
+<http://www.w3.org/2007/uwa/context/location.owl#typicalResponseTime> <http://www.w3.org/2000/01/rdf-schema#label> "Typical Response Time" .
+_:B8a3c2568X2D0a01X2D4c49X2Dae37X2D879d9b29c89f <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#availableLocationProviders> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bc1f3da81X2Dd853X2D4bd7X2Da173X2Df045802e71d5 .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Terminal Based Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#northing> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.w3.org/2007/uwa/context/location.owl#horizontalAccuracy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+_:Bcae7804aX2Df0b6X2D4312X2Db4e8X2Dcda971f543ff <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> <http://www.w3.org/2000/01/rdf-schema#label> "WGS 84" .
+<http://www.w3.org/2007/uwa/context/location.owl#northing> <http://www.w3.org/2000/01/rdf-schema#label> "Northing" .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_SPEED> <http://www.w3.org/2007/uwa/context/common.owl#name> "Speed" .
+<http://www.w3.org/2007/uwa/context/location.owl#GSMCellGlobalIdentity> <http://www.w3.org/2007/uwa/context/common.owl#name> "GSMCellGlobalIdentity" .
+_:B55f9fd0cX2D4547X2D4416X2Db338X2D861fb482bb2e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bbf65dbdbX2Df648X2D4f03X2Db22cX2D07b8116fd167 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#latitude> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> <http://www.w3.org/2007/uwa/context/common.owl#name> "WGS84" .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_ALTITUDE> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
+<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:LocationMethod" .
+<http://www.w3.org/2007/uwa/context/location.owl#course> <http://www.w3.org/2000/01/rdf-schema#label> "Course" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Georeference System" .
+<http://www.w3.org/2007/uwa/context/location.owl#course> <http://www.w3.org/2000/01/rdf-schema#comment> "The course made good in degrees relative to true north. The value is always in the range [0.0,360.0) degrees" .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> <http://www.w3.org/2000/01/rdf-schema#label> "Supported Location Providers" .
+<http://www.w3.org/2007/uwa/context/location.owl#horizontalAccuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#LocationProvider> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Location Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#currentLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bb791b031X2D46aeX2D46caX2Db51aX2D04df50e537e0 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#easting> .
+<http://www.w3.org/2007/uwa/context/location.owl#estimatedPosition> <http://www.w3.org/2000/01/rdf-schema#label> "Estimated Position" .
+<http://www.w3.org/2007/uwa/context/location.owl#iso6709String> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeDifferenceLocMethod> <http://www.w3.org/2000/01/rdf-schema#label> "Time Difference Method" .
+<http://www.w3.org/2007/uwa/context/location.owl#course> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbbec3cfcX2Db3ceX2D4490X2Da462X2Dc4c9a9ebb78b .
+<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Utility> .
+<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:Location" .
+<http://www.w3.org/2007/uwa/context/location.owl#Position> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9ff9e2a3X2Dd003X2D4a41X2D86ceX2D3891e08a4bcb .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedLocationProviders> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B0140e629X2D68d2X2D40efX2D9125X2Dcc40702fd807 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "This class reprensents the set of all delivery context entities that has to do with location" .
+<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2007/uwa/context/location.owl#coordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#coordinates> <http://www.w3.org/2000/01/rdf-schema#label> "Coordinates" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B55f9fd0cX2D4547X2D4416X2Db338X2D861fb482bb2e .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#GSMCellGlobalIdentity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#CellIdLocMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#utmCoordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#Feature_COURSE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#Feature> .
+<http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbf65dbdbX2Df648X2D4f03X2Db22cX2D07b8116fd167 .
+<http://www.w3.org/2007/uwa/context/location.owl#locationMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "The location method used by a LocationProvider for determining the current location" .
+<http://www.w3.org/2007/uwa/context/location.owl#timestamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#horizontalAccuracy> <http://www.w3.org/2000/01/rdf-schema#comment> "Stimate of the horizontal accuracy of the location in metres" .
+<http://www.w3.org/2007/uwa/context/location.owl#E-OTD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> .
+_:Bbf65dbdbX2Df648X2D4f03X2Db22cX2D07b8116fd167 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method is assisted by the other party (Terminal assisted for Network based, Network assisted for terminal based)" .
+<http://www.w3.org/2007/uwa/context/location.owl#ShortRangeLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#easting> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://www.w3.org/2007/uwa/context/location.owl#verticalAccuracy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#AngleOfArrivalLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#speed> <http://www.w3.org/2000/01/rdf-schema#label> "Speed" .
+<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#easting> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
+_:Bb791b031X2D46aeX2D46caX2Db51aX2D04df50e537e0 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.w3.org/2007/uwa/context/location.owl#northing> <http://www.w3.org/2000/01/rdf-schema#comment> "The northing component of the UTM coordinates measured in metres" .
+<http://www.w3.org/2007/uwa/context/deliverycontext.owl#Device> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#AllSibling_Disjoint> <http://www.w3.org/2007/uwa/context/common.owl#disjointClass> "loc:LocationProvider" .
+<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> <http://www.w3.org/2000/01/rdf-schema#label> "UTM Latitude Zone" .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B7eafd876X2D182bX2D49cdX2D98ebX2Db4610196fa78 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#easting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B8a3c2568X2D0a01X2D4c49X2Dae37X2D879d9b29c89f <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/common.owl#name> .
+_:B5ac40c43X2D2ce1X2D4936X2D8b6fX2D210544d7600b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2007/uwa/context/deliverycontext.owl#Device> .
+<http://www.w3.org/2007/uwa/context/location.owl#wgs84Coordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#TerminalBasedLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method is of type terminal based. This means that the final location result is calculated in the terminal" .
+_:Bfb24ceaaX2D0215X2D488cX2Dbf26X2De944ff8a07b2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#longitude> .
+<http://www.w3.org/2007/uwa/context/location.owl#timestamp> <http://www.w3.org/2000/01/rdf-schema#comment> "A timestamp that indicates when it was obtained the position in question" .
+<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> <http://www.w3.org/2000/01/rdf-schema#comment> "This property represents the longitude zone according to the UTM coordinate system" .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_WGS84> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Normative> .
+_:B55f9fd0cX2D4547X2D4416X2Db338X2D861fb482bb2e <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#geoReferenceSystem> .
+_:B55f9fd0cX2D4547X2D4416X2Db338X2D861fb482bb2e <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#wgs84Coordinates> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2007/uwa/context/location.owl#coordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#latitudeZone> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.w3.org/2007/uwa/context/location.owl#TermGroup_Location> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Utility> .
+<http://www.w3.org/2007/uwa/context/network.owl#Network> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2007/uwa/context/location.owl#lastKnownLocation> <http://www.w3.org/2000/01/rdf-schema#label> "Last Known Location" .
+<http://www.w3.org/2007/uwa/context/location.owl#CellularStandardAngleOfArrival> <http://www.w3.org/2007/uwa/context/common.owl#name> "CellularStandardAngleOfArrival" .
+_:Bcae7804aX2Df0b6X2D4312X2Db4e8X2Dcda971f543ff <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#TimeOfArrivalLocMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B714ae435X2DacbfX2D4ec6X2D9a66X2D32f24f5aa554 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#northing> .
+_:B424b621eX2D3ce8X2D4ab0X2Dae38X2Da33dd5bf3c67 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#supportedGeoCoordinateRS> .
+<http://www.w3.org/2007/uwa/context/location.owl#northing> <http://www.w3.org/2007/uwa/context/common.owl#normativeStatus> <http://www.w3.org/2007/uwa/context/common.owl#Informative> .
+_:B4986e552X2D889eX2D4bc8X2Da2f3X2D024d2c1e06d3 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2007/uwa/context/location.owl#datum> .
+<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/2007/uwa/context/location.owl#ShortRangeLocMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "Location method Short-range positioning system (for example, Bluetooth LP)" .
+<http://www.w3.org/2007/uwa/context/location.owl#datum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.w3.org/2007/uwa/context/location.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#label> "Latitude" .
+<http://www.w3.org/2007/uwa/context/location.owl#E-OTD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/location.owl#NetworkBasedLocMethod> .
+<http://www.w3.org/2007/uwa/context/common.owl#Utility> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/uwa/context/common.owl#NormativeStatus> .
+<http://www.w3.org/2007/uwa/context/location.owl#GeoCoordinateRS_UTM> <http://www.w3.org/2007/uwa/context/common.owl#name> "UTM" .
+<http://www.w3.org/2007/uwa/context/location.owl#speed> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://www.w3.org/2007/uwa/context/location.owl#longitudeZone> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#Context_LocationEntity> .
+<http://www.w3.org/2007/uwa/context/location.owl#northing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B3e158e03X2Dd581X2D44d6X2Db5f4X2D415ea8fc6096 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/2007/uwa/context/location.owl#UTMCoordinates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B8aba81c8X2D0c73X2D456bX2Db026X2D5ceac956e2c8 .
+<http://www.w3.org/2007/uwa/context/location.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2007/uwa/context/location.owl#WGS84Coordinates> .
+<http://www.w3.org/2007/uwa/context/location.owl#AssistedLocMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2007/uwa/context/location.owl#LocationMethod> .
+<http://www.w3.org/2007/uwa/context/location.owl#locationCostsMoney> <http://www.w3.org/2000/01/rdf-schema#label> "Location Costs Money" .

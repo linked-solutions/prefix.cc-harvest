@@ -1,1016 +1,531 @@
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#NamedGeographicRegion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A geographic region specified by a name." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "named geographic region" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> ;
-        <http://semanticscience.org/resource/example>
-                "North America, Great Lakes, Indonesia" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSDataset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wfs vector dataset" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> ;
-        <http://semanticscience.org/resource/comment>
-                "A WFS vector dataset is composed by all possible datasets provided by a WFS service manifestation depending on the parameters set in a service call. " ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSManifestation>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDataBand>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has data band" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Time period defined by an start and end date." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "date range" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Duration> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                          )
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLandingPageURL>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has landing page url" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Provides information about the file that is returned by a Web coverage service, including the format." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wfs response manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> ;
-        <http://semanticscience.org/resource/example>
-                "A MODIS dataset, encoded in a specific format, and returned by a WFS service." .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSDataset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A WCS raster dataset is composed by all possible datasets provided by a WCS service manifestation depending on the parameters set in a service call. " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wcs raster dataset" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSManifestation>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLayer>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has layer" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "vector dataset" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> ;
-        <http://semanticscience.org/resource/comment>
-                "A dataset that represents values using points, lines and polygons." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLayer> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Provides information about a service that can be executed over the web  using OGC standards, including the URL where the service is located." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "OGC  service manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ServiceManifestation> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasCapabilitiesDocumentURL> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2000/01/rdf-schema#Literal>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Duration>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Time period defined by a start and end time." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "duration" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "payload format" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> ;
-        <http://semanticscience.org/resource/comment>
-                "Describes the format of a payload." ;
-        <http://semanticscience.org/resource/example>
-                "tiff, hdf5" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A file manifestation provides the information required to retrieve a file over the web, including the format and the URL where the file is available." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "file manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLandingPageURL> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://www.w3.org/2000/01/rdf-schema#Literal>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#cardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasFileDownloadURL>
-                            ]
-                          )
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasResolution>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has resolution" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUnits>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has units" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "band identification" ;
-        <http://semanticscience.org/resource/comment>
-                "An identifier used to identify a specific band." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandName> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2000/01/rdf-schema#Literal>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has payload format" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has left longitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLatitude> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A set of geometric features or characteristics observed from an entity. This class is equivalent to the notion of an ArcGIS feature" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "feature set" ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has start date" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDate> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "represents entity" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasCapabilitiesDocumentURL>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has capabilities document url" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLatitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has latitude" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A geographic region that is specified by left longitude, lower latitude, right longitude and upper latitude." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "boxed geographic region" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> ;
-        <http://semanticscience.org/resource/example>
-                "The region specified by the bounds (N,E,S,W): 49.39, -78.75, 32.25, -120.24" ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://www.w3.org/2001/XMLSchema#double>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://www.w3.org/2001/XMLSchema#double>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://www.w3.org/2001/XMLSchema#double>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://www.w3.org/2001/XMLSchema#double>
-                            ]
-                          )
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A subclass of SIO's class unit of measurement. A unit is a a definite magnitude of a physical quantity." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "unit" ;
-        <http://semanticscience.org/resource/example>
-                "Meter" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasFileDownloadURL>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has file download url" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#capturesCharacteristic>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "captures characteristic" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A band is one component of a multi-characteristic dataset." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "band" ;
-        <http://semanticscience.org/resource/example>
-                "A satellite image composed of more than one measured value at different wavelengths of the electromagnetic spectrum for each pixel in the image." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandIdentification> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Processing of datasets, where a set of rules generated by a model are applied onto a climate scenario of related environmental layers." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "projection" ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#integer> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEPSGCode> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes how the data and metadata are included in a file." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "container format" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#containsFeatureSet>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "contains feature set" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A raster dataset is a geospatial dataset that organizes information as the value of a single characteristic at every location in space, such as temperature. Multiple raster datasets can be combined into a single dataset as bands of information." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "raster dataset" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> ;
-        <http://semanticscience.org/resource/example>
-                "satellite imagery, aerial photographs." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDataBand> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Provides information about the file that is returned by a Web coverage service, including the format." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wcs response manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> ;
-        <http://semanticscience.org/resource/example>
-                "A WCS service, in a described URL, will return a MODIS dataset encoded in a specific format." .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversRegion>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "covers region" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ComplexDerivedUnit>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A unit that is calculated from defined operations." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "complexed derived unit" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMinimumValue>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has minimum value" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponse>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wfs vector response" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> ;
-        <http://semanticscience.org/resource/comment>
-                "A specific vector dataset returned by calling a WFS service with specific parameters." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has upper latitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLongitude> .
-
-<http://provenanceweb.org/format/mime/image/vnd.wap.wbmp>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "time period" ;
-        <http://semanticscience.org/resource/comment>
-                "Following DCAT's descriptions, a time period is a temporal period that the dataset covers." .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "enconded in format" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A geospatial dataset contains data that covers a specified geographic region and specifies how a measured characteristic varies across that region, for a specific date range. It has a specific manifestation, a theme, and a geospatial projection" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "geospatial dataset" ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversRegion> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasTheme> ;
-                              <http://www.w3.org/2002/07/owl#someValuesFrom>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Theme>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversTimePeriod> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasGeospatialProjection> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                          )
-                ] .
-
-<http://provenanceweb.org/format/mime/text/csv>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMaximumValue>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has maximum value" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A WCS service, located in a specific URL, that will return a dataset." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wcs service manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has lower latitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLongitude> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Provides information about a file that is returned from a web service using OGC standards, including the container format." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ogc response manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEPSGCode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has epsg code" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandIdentification>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has band identification" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Following the definition of OBOE and SIO, an entity denotes a concrete or conceptual object that has been observed (e.g., a tree, a community, an ecological process). " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "entity" ;
-        <http://semanticscience.org/resource/example>
-                "Air" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> ;
-        <http://creativecommons.org/ns#license>
-                "http://creativecommons.org/licenses/by/3.0/"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://protege.stanford.edu/plugins/owl/protege#defaultLanguage>
-                "en" ;
-        <http://purl.org/dc/elements/1.1/contributor>
-                "Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):\nkarl benedict\nluis garnica\ncj grady\nbill hudspeth\ndeana pennington\nsoren scott\naimee stewart" ;
-        <http://purl.org/dc/elements/1.1/creator>
-                "Natalia Villanueva-Rosales"@en , "http://cybershare.utep.edu"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "Nicholas del Rio"@en , "ELSEWeb team"@en ;
-        <http://purl.org/dc/elements/1.1/description>
-                "The ELSEWeb Data ontology provides simple classes for describing datasets. This project provides foundational support for the ELSEWeb project(http://elseweb.cybershare.utep.edu/).\nwebsite: http://elseweb.cybershare.utep.edu/ontologies\nemail: nvillanuevarosales@utep.edu\n"@en ;
-        <http://purl.org/dc/elements/1.1/issued>
-                "2014-05-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/elements/1.1/rights>
-                "free to use,share,modify. modify with attribution [http://creativecommons.org/licenses/by/3.0/]." ;
-        <http://purl.org/dc/elements/1.1/title>
-                "ELSEWeb Data Ontology"@en ;
-        <http://purl.org/dc/terms/identifier>
-                "elseweb-data.owl" ;
-        <http://purl.org/dc/terms/modified>
-                "2015-09-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "elseweb-data"@en ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://ontology.cybershare.utep.edu/ELSEWeb/" ;
-        <http://www.w3.org/2002/07/owl#versionIRI>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "1.2" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has right longitude" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLatitude> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLongitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has longitude" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "characteristic" ;
-        <http://semanticscience.org/resource/comment>
-                "A characteristic, following OBOE guidelines,  represents a property of an entity that can be measured. " ;
-        <http://semanticscience.org/resource/example>
-                "Temperature of air." .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has end date" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDate> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Theme>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Metadata describing the information captured in a dataset." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "theme" ;
-        <http://semanticscience.org/resource/example>
-                "vegetation" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasTheme>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has theme" .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hdf5>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasGeospatialProjection>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has geospatial projection" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "data band" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> ;
-        <http://semanticscience.org/resource/comment>
-                "A databand will contain data about a specific characteristic of an entity. It uses a specific unit and resolution." ;
-        <http://semanticscience.org/resource/example>
-                "A databand can capture air temperature in Farenheit degrees with a resolution of 250m." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#capturesCharacteristic> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUnits> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onClass>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onDataRange>
-                                      <http://www.w3.org/2001/XMLSchema#double> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMaximumValue> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onDataRange>
-                                      <http://www.w3.org/2001/XMLSchema#double> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMinimumValue> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onDataRange>
-                                      <http://www.w3.org/2001/XMLSchema#double> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasNoDataValue> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#onDataRange>
-                                      <http://www.w3.org/2001/XMLSchema#double> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasResolution> ;
-                              <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                                      "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                            ]
-                          )
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "date" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Instant> ;
-        <http://semanticscience.org/resource/comment>
-                "A period of time with the same start and end time." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onDataRange>
-                          <http://www.w3.org/2001/XMLSchema#dateTime> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDateTime> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversTimePeriod>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "covers time period" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A WCS service, located in a specific URL, that will return a dataset." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wfs service manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeoTIFF>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponse>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A specific raster dataset returned by calling a WCS service with specific parameters." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wcs raster response" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Instant>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "instant" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> ;
-        <http://semanticscience.org/resource/comment>
-                "A time period with the same start and end time." .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A layer is a set of environmental information quantifying the value of a single characteristic through space, used to compose a climate scenario to generate a model." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "layer" ;
-        <http://semanticscience.org/resource/example>
-                "A dataset that quanifies temperature at many spatial locations" ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#containsFeatureSet> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet>
-                ] .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ServiceManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A service manifestation provides the information required to execute a service over the web. In particular, a service that will return a dataset." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "service manifestation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The arrangement of data for computer input or output." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "format" ;
-        <http://semanticscience.org/resource/example>
-                "tiff" .
-
-<http://provenanceweb.org/format/mime/image/png>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://provenanceweb.org/format/mime/image/tiff>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A dataset manifestation, that follows the description of a DCAT Distribution, provides the information to retrieve a dataset, including the fomat, endpoint, etc." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "dataset manifestation" ;
-        <http://semanticscience.org/resource/example>
-                "A donwnloadable RGIS WCS data set." .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasNoDataValue>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has no data value" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#double> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#esri-grid>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://provenanceweb.org/format/mime/image/jpeg>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandName>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has band name" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#tiff-container>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> ;
-        <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat>
-                <http://provenanceweb.org/format/mime/image/tiff> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "geographic region" ;
-        <http://semanticscience.org/resource/comment>
-                "A geographic region, aligned to DCAT location, is a spatial region or named place." ;
-        <http://semanticscience.org/resource/example>
-                "America" .
-
-<http://provenanceweb.org/format/mime/image/gif>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes the format of the metadata included in a file." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "metadata format" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> ;
-        <http://semanticscience.org/resource/example>
-                "XML, RDF." .
-
-<http://semanticscience.org/resource/example>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#esri-shapefile>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDateTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has date time" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDate>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has date" .
-
-<http://provenanceweb.org/format/mime/text/xml>
-        a       <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat> , <http://www.w3.org/2002/07/owl#NamedIndividual> .
-
-<http://semanticscience.org/resource/comment>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B133e3d7eX2DeccdX2D45bfX2D8876X2D93822b5a4824 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B6ae78164X2D2551X2D4a2cX2Da734X2D7fe221c923be .
+_:Baf0e9acaX2D3599X2D4151X2D8b69X2D478b59177d29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9b7dff34X2D8079X2D407eX2Dbd39X2De37df16cdfd4 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#NamedGeographicRegion> <http://semanticscience.org/resource/example> "North America, Great Lakes, Indonesia" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDataBand> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> <http://www.w3.org/2000/01/rdf-schema#comment> "Time period defined by an start and end date." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLandingPageURL> <http://www.w3.org/2000/01/rdf-schema#label> "has landing page url" .
+_:Be6841704X2Df507X2D484aX2Db1fdX2D6a88d772593a <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> .
+_:Bf91a9ff4X2Ddbf5X2D4525X2Da1d0X2Da52decf21d50 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B5944c7d1X2D284fX2D4784X2Da95cX2D2651a4b617cd <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSDataset> <http://www.w3.org/2000/01/rdf-schema#comment> "A WCS raster dataset is composed by all possible datasets provided by a WCS service manifestation depending on the parameters set in a service call. " .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLayer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> <http://www.w3.org/2000/01/rdf-schema#label> "vector dataset" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation> <http://semanticscience.org/resource/example> "A MODIS dataset, encoded in a specific format, and returned by a WFS service." .
+_:B50dc9b2eX2D25cfX2D4462X2Da396X2D05cad056dc59 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Duration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> .
+_:Bb38b15d0X2De71bX2D44ebX2Da84bX2D53ba0e458e67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B3c0421c1X2D1d34X2D4979X2Da83aX2Dc28056d031db .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> .
+_:B863009e3X2D9606X2D4e38X2D9955X2D9af609d12f6f <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B3dd4cc0eX2D77eeX2D4db3X2Db870X2D574043b8674d <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLayer> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasResolution> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUnits> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> <http://www.w3.org/2000/01/rdf-schema#label> "band identification" .
+_:B350d669fX2D5b4aX2D4e59X2DbdfeX2D23533d1776ae <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "has manifestation" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDate> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> <http://www.w3.org/2000/01/rdf-schema#label> "represents entity" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasCapabilitiesDocumentURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLatitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> <http://semanticscience.org/resource/example> "The region specified by the bounds (N,E,S,W): 49.39, -78.75, 32.25, -120.24" .
+_:Be49d4030X2D067aX2D4db1X2D8bbeX2D6d95ddcf9fdb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> <http://www.w3.org/2000/01/rdf-schema#label> "unit" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasFileDownloadURL> <http://www.w3.org/2000/01/rdf-schema#label> "has file download url" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#capturesCharacteristic> <http://www.w3.org/2000/01/rdf-schema#label> "captures characteristic" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bb2f08f1aX2D67f4X2D4a15X2D9a66X2D048ef2417a1e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Bf91a9ff4X2Ddbf5X2D4525X2Da1d0X2Da52decf21d50 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B3dd4cc0eX2D77eeX2D4db3X2Db870X2D574043b8674d <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> <http://www.w3.org/2002/07/owl#equivalentClass> _:B221ae0b6X2De051X2D4de4X2Db7c7X2D411b06241226 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> <http://www.w3.org/2002/07/owl#equivalentClass> _:B176e8adcX2D36acX2D4e9dX2D885dX2D6425401af0de .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#containsFeatureSet> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> <http://www.w3.org/2000/01/rdf-schema#comment> "A raster dataset is a geospatial dataset that organizes information as the value of a single characteristic at every location in space, such as temperature. Multiple raster datasets can be combined into a single dataset as bands of information." .
+_:B939834f2X2D15d8X2D4aaaX2D9da8X2D5bbf72fcfd25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B7e99f8a7X2Db066X2D4c51X2Db06cX2D9bf51a75f816 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation> <http://semanticscience.org/resource/example> "A WCS service, in a described URL, will return a MODIS dataset encoded in a specific format." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversRegion> <http://www.w3.org/2000/01/rdf-schema#label> "covers region" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#containsFeatureSet> <http://www.w3.org/2000/01/rdf-schema#label> "contains feature set" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ComplexDerivedUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "A unit that is calculated from defined operations." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMinimumValue> <http://www.w3.org/2000/01/rdf-schema#label> "has minimum value" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> <http://www.w3.org/2002/07/owl#equivalentClass> _:B863009e3X2D9606X2D4e38X2D9955X2D9af609d12f6f .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bb318269bX2D967cX2D4ceaX2Dbca8X2D1a46de09cf08 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation> .
+_:Bf3519c9aX2D5938X2D45daX2D9624X2D19b55e74fc3c <http://www.w3.org/2002/07/owl#intersectionOf> _:Bdae03a5fX2D1de7X2D45ecX2D987eX2D8c624dfb9902 .
+<http://provenanceweb.org/format/mime/image/vnd.wap.wbmp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bf8d0f685X2D1b19X2D4091X2Da452X2Da283c3e7ed6f <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasNoDataValue> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponse> <http://www.w3.org/2002/07/owl#equivalentClass> _:Bb318269bX2D967cX2D4ceaX2Dbca8X2D1a46de09cf08 .
+_:B5944c7d1X2D284fX2D4784X2Da95cX2D2651a4b617cd <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://provenanceweb.org/format/mime/image/vnd.wap.wbmp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+_:Baa977f11X2D794bX2D4e46X2Da8d8X2D88538b19df9e <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> .
+<http://provenanceweb.org/format/mime/text/csv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+<http://provenanceweb.org/format/mime/text/csv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bf58edf71X2D5b7dX2D4cc8X2D9335X2Db0239e951d72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMaximumValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> <http://www.w3.org/2002/07/owl#equivalentClass> _:Be7b520b7X2Da810X2D41d6X2Da892X2Dcfb1186ebde8 .
+_:Be12734f9X2Dc09fX2D49a8X2D9f44X2D0b2569c096f8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B1cc45a8dX2D7f01X2D4b01X2Daaf6X2Db753ab809445 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandIdentification> .
+_:B5cd79cc4X2D4b29X2D4371X2Da061X2D6529a765e31e <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasCapabilitiesDocumentURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> .
+_:B221ae0b6X2De051X2D4de4X2Db7c7X2D411b06241226 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> <http://www.w3.org/2000/01/rdf-schema#label> "time period" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEPSGCode> <http://www.w3.org/2000/01/rdf-schema#label> "has epsg code" .
+_:Be94bfcd4X2Ddcf0X2D4e60X2D87fcX2D61f70b3a487a <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDateTime> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandIdentification> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "entity" .
+_:B176e8adcX2D36acX2D4e9dX2D885dX2D6425401af0de <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://ontology.cybershare.utep.edu/ELSEWeb/" .
+_:B9b7dff34X2D8079X2D407eX2Dbd39X2De37df16cdfd4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSDataset> <http://www.w3.org/2002/07/owl#equivalentClass> _:Bdda11671X2D3858X2D468dX2D9995X2D74334168c1ad .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/creator> "Natalia Villanueva-Rosales"@en .
+_:Bf3519c9aX2D5938X2D45daX2D9624X2D19b55e74fc3c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#NamedGeographicRegion> <http://www.w3.org/2000/01/rdf-schema#label> "named geographic region" .
+_:Be6841704X2Df507X2D484aX2Db1fdX2D6a88d772593a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLongitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> <http://www.w3.org/2000/01/rdf-schema#label> "characteristic" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMinimumValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> <http://www.w3.org/2000/01/rdf-schema#label> "projection" .
+_:B937f2ba4X2Dca39X2D4604X2D9ac9X2Deab108667032 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B597312c2X2D5b1dX2D4a81X2Dbb6bX2D9aafe4d685d2 .
+_:Bc5ecbb40X2D67dfX2D4adaX2Db42dX2D34d37994d1bb <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponse> <http://www.w3.org/2000/01/rdf-schema#label> "wfs vector response" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate> <http://www.w3.org/2000/01/rdf-schema#label> "has end date" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Theme> <http://semanticscience.org/resource/example> "vegetation" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponse> <http://semanticscience.org/resource/comment> "A specific vector dataset returned by calling a WFS service with specific parameters." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLongitude> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasTheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B8dbf298bX2D5d46X2D4602X2Dbb37X2D92c5dfc8c9c4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Baf0e9acaX2D3599X2D4151X2D8b69X2D478b59177d29 .
+_:B5944c7d1X2D284fX2D4784X2Da95cX2D2651a4b617cd <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#capturesCharacteristic> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> <http://www.w3.org/2000/01/rdf-schema#comment> "A geographic region that is specified by left longitude, lower latitude, right longitude and upper latitude." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://creativecommons.org/ns#license> "http://creativecommons.org/licenses/by/3.0/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B6ae78164X2D2551X2D4a2cX2Da734X2D7fe221c923be <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMaximumValue> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> <http://www.w3.org/2000/01/rdf-schema#comment> "Following the definition of OBOE and SIO, an entity denotes a concrete or conceptual object that has been observed (e.g., a tree, a community, an ecological process). " .
+_:Be6841704X2Df507X2D484aX2Db1fdX2D6a88d772593a <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasGeospatialProjection> .
+_:Beba1b560X2D88d1X2D40efX2D9e59X2Def532fe3cb20 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSManifestation> .
+_:B829487c3X2Df313X2D4bc2X2Db01aX2D114854da194f <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hdf5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasGeospatialProjection> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hdf5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> <http://www.w3.org/2000/01/rdf-schema#label> "data band" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> <http://semanticscience.org/resource/example> "satellite imagery, aerial photographs." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> <http://www.w3.org/2000/01/rdf-schema#comment> "A subclass of SIO's class unit of measurement. A unit is a a definite magnitude of a physical quantity." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ComplexDerivedUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Beba1b560X2D88d1X2D40efX2D9e59X2Def532fe3cb20 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversTimePeriod> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "wfs service manifestation" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> <http://semanticscience.org/resource/comment> "A characteristic, following OBOE guidelines,  represents a property of an entity that can be measured. " .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeoTIFF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+_:Be49d4030X2D067aX2D4db1X2D8bbeX2D6d95ddcf9fdb <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> <http://www.w3.org/2002/07/owl#equivalentClass> _:Bf3519c9aX2D5938X2D45daX2D9624X2D19b55e74fc3c .
+_:B4cebca90X2D81d8X2D4995X2D94a0X2Df02971381752 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0d86e3c1X2D0659X2D49c2X2D91fbX2D448985d32059 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeoTIFF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bcb29a173X2De9a7X2D411dX2Db691X2D461d138acd21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8dbf298bX2D5d46X2D4602X2Dbb37X2D92c5dfc8c9c4 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponse> <http://www.w3.org/2000/01/rdf-schema#label> "wcs raster response" .
+_:B63c68c3cX2Dc590X2D49c3X2Db3b6X2D5db77ad98c68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "Provides information about a file that is returned from a web service using OGC standards, including the container format." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponse> <http://www.w3.org/2002/07/owl#equivalentClass> _:B2729048cX2D400bX2D445eX2D9cb7X2D4840639a8df3 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> <http://www.w3.org/2000/01/rdf-schema#label> "enconded in format" .
+_:Baa977f11X2D794bX2D4e46X2Da8d8X2D88538b19df9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Instant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUnits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> <http://www.w3.org/2002/07/owl#equivalentClass> _:B48f954dfX2D0004X2D4d29X2Da6aeX2D14fcfb25e246 .
+_:B98fc3eb0X2D3a9dX2D4409X2D84a3X2Df2c25a4bef3f <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "wcs service manifestation" .
+_:B19cfe6caX2D5c92X2D4a68X2Dbb08X2D5013d09bbe07 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+_:B5cd79cc4X2D4b29X2D4371X2Da061X2D6529a765e31e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ServiceManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "A service manifestation provides the information required to execute a service over the web. In particular, a service that will return a dataset." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> <http://www.w3.org/2000/01/rdf-schema#comment> "The arrangement of data for computer input or output." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> <http://www.w3.org/2000/01/rdf-schema#label> "date range" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#NamedGeographicRegion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "A file manifestation provides the information required to retrieve a file over the web, including the format and the URL where the file is available." .
+_:Baa977f11X2D794bX2D4e46X2Da8d8X2D88538b19df9e <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude> .
+<http://provenanceweb.org/format/mime/image/png> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+<http://provenanceweb.org/format/mime/image/tiff> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> <http://www.w3.org/2000/01/rdf-schema#comment> "A geospatial dataset contains data that covers a specified geographic region and specifies how a measured characteristic varies across that region, for a specific date range. It has a specific manifestation, a theme, and a geospatial projection" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/terms/modified> "2015-09-24"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude> <http://www.w3.org/2000/01/rdf-schema#label> "has lower latitude" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> <http://semanticscience.org/resource/example> "A donwnloadable RGIS WCS data set." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> <http://semanticscience.org/resource/example> "tiff, hdf5" .
+<http://provenanceweb.org/format/mime/image/tiff> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+<http://provenanceweb.org/format/mime/image/png> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> <http://www.w3.org/2000/01/rdf-schema#label> "payload format" .
+_:B5cc103b4X2D2bbdX2D4c9eX2DafadX2Dc9167136e9b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> <http://www.w3.org/2002/07/owl#equivalentClass> _:B3dd4cc0eX2D77eeX2D4db3X2Db870X2D574043b8674d .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasNoDataValue> <http://www.w3.org/2000/01/rdf-schema#label> "has no data value" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasNoDataValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#esri-grid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+_:B9b7dff34X2D8079X2D407eX2Dbd39X2De37df16cdfd4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Baa977f11X2D794bX2D4e46X2Da8d8X2D88538b19df9e .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> <http://semanticscience.org/resource/example> "A dataset that quanifies temperature at many spatial locations" .
+_:B6194dd12X2Ddb71X2D4346X2Db81bX2Dcc9ef97025a3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4cebca90X2D81d8X2D4995X2D94a0X2Df02971381752 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ServiceManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "service manifestation" .
+_:Bdae03a5fX2D1de7X2D45ecX2D987eX2D8c624dfb9902 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf58edf71X2D5b7dX2D4cc8X2D9335X2Db0239e951d72 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "wfs response manifestation" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#esri-grid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bdda11671X2D3858X2D468dX2D9995X2D74334168c1ad <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSManifestation> .
+_:B48f954dfX2D0004X2D4d29X2Da6aeX2D14fcfb25e246 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bb7ef97fdX2D419dX2D4c7dX2D80ecX2D39f433a72a45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#capturesCharacteristic> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet> <http://www.w3.org/2000/01/rdf-schema#comment> "A set of geometric features or characteristics observed from an entity. This class is equivalent to the notion of an ArcGIS feature" .
+_:Bb318269bX2D967cX2D4ceaX2Dbca8X2D1a46de09cf08 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> <http://www.w3.org/2000/01/rdf-schema#label> "container format" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Duration> <http://www.w3.org/2000/01/rdf-schema#comment> "Time period defined by a start and end time." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEPSGCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> <http://www.w3.org/2002/07/owl#equivalentClass> _:B34518735X2Dbe27X2D4885X2D8c75X2Dddfa4450df91 .
+_:B6c14e7cfX2D3996X2D479cX2D89f7X2D1cfd2f625953 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> .
+_:Bf8d0f685X2D1b19X2D4091X2Da452X2Da283c3e7ed6f <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
+_:Bb7ef97fdX2D419dX2D4c7dX2D80ecX2D39f433a72a45 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversTimePeriod> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> <http://www.w3.org/2000/01/rdf-schema#label> "band" .
+_:B4751cfe9X2D5241X2D479eX2DaaddX2D28878e6db67e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Bf8d0f685X2D1b19X2D4091X2Da452X2Da283c3e7ed6f .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "A WCS service, located in a specific URL, that will return a dataset." .
+_:B94035fc2X2D160fX2D426eX2Dbc49X2D257386c52f46 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude> .
+_:Bf7a96c9aX2D4975X2D4c60X2D93dcX2Ddee3600c5f31 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B12223564X2Dec13X2D4297X2Db574X2D0349d46f24c5 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasTheme> .
+_:B2729048cX2D400bX2D445eX2D9cb7X2D4840639a8df3 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> .
+_:B78c39b1bX2D835eX2D4377X2D9a9dX2Dab6cb4f32624 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMinimumValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B1cf9437fX2D094cX2D4a71X2Dacc2X2Db3d2b7db6022 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
+<http://provenanceweb.org/format/mime/image/jpeg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> .
+_:Bb7ef97fdX2D419dX2D4c7dX2D80ecX2D39f433a72a45 <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> .
+_:Bdda11671X2D3858X2D468dX2D9995X2D74334168c1ad <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandName> <http://www.w3.org/2000/01/rdf-schema#label> "has band name" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> <http://semanticscience.org/resource/comment> "An identifier used to identify a specific band." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#NamedGeographicRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLatitude> <http://www.w3.org/2000/01/rdf-schema#label> "has latitude" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/terms/identifier> "elseweb-data.owl" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Duration> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> .
+_:Bb89dc9b7X2Da509X2D456fX2Da322X2Db5cf735c0f2a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Be6841704X2Df507X2D484aX2Db1fdX2D6a88d772593a .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> .
+<http://provenanceweb.org/format/mime/image/jpeg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#tiff-container> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat> <http://provenanceweb.org/format/mime/image/tiff> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> <http://semanticscience.org/resource/example> "America" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDataBand> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> .
+_:B3dd4cc0eX2D77eeX2D4db3X2Db870X2D574043b8674d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Theme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B50dc9b2eX2D25cfX2D4462X2Da396X2D05cad056dc59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasTheme> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> .
+_:B597312c2X2D5b1dX2D4a81X2Dbb6bX2D9aafe4d685d2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/vocab/vann/preferredNamespacePrefix> "elseweb-data"@en .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes how the data and metadata are included in a file." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSDataset> <http://www.w3.org/2000/01/rdf-schema#label> "wcs raster dataset" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> .
+_:B6ae78164X2D2551X2D4a2cX2Da734X2D7fe221c923be <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B1cf9437fX2D094cX2D4a71X2Dacc2X2Db3d2b7db6022 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B5cd79cc4X2D4b29X2D4371X2Da061X2D6529a765e31e <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDataBand> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasGeospatialProjection> <http://www.w3.org/2000/01/rdf-schema#label> "has geospatial projection" .
+_:B350d669fX2D5b4aX2D4e59X2DbdfeX2D23533d1776ae <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMaximumValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B350d669fX2D5b4aX2D4e59X2DbdfeX2D23533d1776ae <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bf8d0f685X2D1b19X2D4091X2Da452X2Da283c3e7ed6f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B19cfe6caX2D5c92X2D4a68X2Dbb08X2D5013d09bbe07 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasCapabilitiesDocumentURL> .
+_:B98fc3eb0X2D3a9dX2D4409X2D84a3X2Df2c25a4bef3f <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLandingPageURL> .
+_:B597312c2X2D5b1dX2D4a81X2Dbb6bX2D9aafe4d685d2 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B939834f2X2D15d8X2D4aaaX2D9da8X2D5bbf72fcfd25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B829487c3X2Df313X2D4bc2X2Db01aX2D114854da194f .
+_:B176e8adcX2D36acX2D4e9dX2D885dX2D6425401af0de <http://www.w3.org/2002/07/owl#intersectionOf> _:Bb38b15d0X2De71bX2D44ebX2Da84bX2D53ba0e458e67 .
+_:B4d799eecX2D66a9X2D41cfX2D8b08X2D6d4ffd6ba44b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Bb7ef97fdX2D419dX2D4c7dX2D80ecX2D39f433a72a45 .
+_:B12223564X2Dec13X2D4297X2Db574X2D0349d46f24c5 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Theme> .
+_:Be94bfcd4X2Ddcf0X2D4e60X2D87fcX2D61f70b3a487a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Be49d4030X2D067aX2D4db1X2D8bbeX2D6d95ddcf9fdb <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> <http://semanticscience.org/resource/example> "tiff" .
+_:Bc5ecbb40X2D67dfX2D4adaX2Db42dX2D34d37994d1bb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bcb29a173X2De9a7X2D411dX2Db691X2D461d138acd21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Be49d4030X2D067aX2D4db1X2D8bbeX2D6d95ddcf9fdb .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> <http://www.w3.org/2000/01/rdf-schema#label> "geospatial dataset" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDataBand> <http://www.w3.org/2000/01/rdf-schema#label> "has data band" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEPSGCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> <http://www.w3.org/2000/01/rdf-schema#comment> "A layer is a set of environmental information quantifying the value of a single characteristic through space, used to compose a climate scenario to generate a model." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/rights> "free to use,share,modify. modify with attribution [http://creativecommons.org/licenses/by/3.0/]." .
+_:B221ae0b6X2De051X2D4de4X2Db7c7X2D411b06241226 <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+_:Bdda11671X2D3858X2D468dX2D9995X2D74334168c1ad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#capturesCharacteristic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B6ae78164X2D2551X2D4a2cX2Da734X2D7fe221c923be <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B1cf9437fX2D094cX2D4a71X2Dacc2X2Db3d2b7db6022 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversTimePeriod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Instant> <http://semanticscience.org/resource/comment> "A time period with the same start and end time." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDataBand> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+_:B1cc45a8dX2D7f01X2D4b01X2Daaf6X2Db753ab809445 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> <http://semanticscience.org/resource/comment> "Following DCAT's descriptions, a time period is a temporal period that the dataset covers." .
+_:B767a4914X2D964aX2D4ebeX2Da1b7X2Db0ef75885a1d <http://www.w3.org/2002/07/owl#intersectionOf> _:B6194dd12X2Ddb71X2D4346X2Db81bX2Dcc9ef97025a3 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> <http://www.w3.org/2002/07/owl#equivalentClass> _:B767a4914X2D964aX2D4ebeX2Da1b7X2Db0ef75885a1d .
+<http://provenanceweb.org/format/mime/image/gif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+_:B350d669fX2D5b4aX2D4e59X2DbdfeX2D23533d1776ae <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bf8d0f685X2D1b19X2D4091X2Da452X2Da283c3e7ed6f <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "Provides information about a service that can be executed over the web  using OGC standards, including the URL where the service is located." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLayer> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> .
+_:B3c0421c1X2D1d34X2D4979X2Da83aX2Dc28056d031db <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B63c68c3cX2Dc590X2D49c3X2Db3b6X2D5db77ad98c68 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> .
+_:B5cc103b4X2D2bbdX2D4c9eX2DafadX2Dc9167136e9b7 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat> <http://semanticscience.org/resource/example> "XML, RDF." .
+_:B2729048cX2D400bX2D445eX2D9cb7X2D4840639a8df3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "en" .
+<http://provenanceweb.org/format/mime/image/gif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> <http://semanticscience.org/resource/comment> "A geographic region, aligned to DCAT location, is a spatial region or named place." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Be94bfcd4X2Ddcf0X2D4e60X2D87fcX2D61f70b3a487a <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B12223564X2Dec13X2D4297X2Db574X2D0349d46f24c5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> <http://www.w3.org/2000/01/rdf-schema#label> "format" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Projection> <http://www.w3.org/2000/01/rdf-schema#comment> "Processing of datasets, where a set of rules generated by a model are applied onto a climate scenario of related environmental layers." .
+_:Bc5ecbb40X2D67dfX2D4adaX2Db42dX2D34d37994d1bb <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B63c68c3cX2Dc590X2D49c3X2Db3b6X2D5db77ad98c68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Be12734f9X2Dc09fX2D49a8X2D9f44X2D0b2569c096f8 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Theme> <http://www.w3.org/2000/01/rdf-schema#label> "theme" .
+_:B7e99f8a7X2Db066X2D4c51X2Db06cX2D9bf51a75f816 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> <http://www.w3.org/2002/07/owl#equivalentClass> _:B1cc45a8dX2D7f01X2D4b01X2Daaf6X2Db753ab809445 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate> <http://www.w3.org/2000/01/rdf-schema#label> "has start date" .
+_:B1cf9437fX2D094cX2D4a71X2Dacc2X2Db3d2b7db6022 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMinimumValue> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLandingPageURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> <http://www.w3.org/2002/07/owl#equivalentClass> _:Be94bfcd4X2Ddcf0X2D4e60X2D87fcX2D61f70b3a487a .
+_:Be7b520b7X2Da810X2D41d6X2Da892X2Dcfb1186ebde8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B34518735X2Dbe27X2D4885X2D8c75X2Dddfa4450df91 <http://www.w3.org/2002/07/owl#intersectionOf> _:B7a310474X2D3bcbX2D4215X2Da7aeX2D999632aa470f .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/creator> "http://cybershare.utep.edu"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:Bf7a96c9aX2D4975X2D4c60X2D93dcX2Ddee3600c5f31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B6ae78164X2D2551X2D4a2cX2Da734X2D7fe221c923be <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
+<http://semanticscience.org/resource/example> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B4cebca90X2D81d8X2D4995X2D94a0X2Df02971381752 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B7e99f8a7X2Db066X2D4c51X2Db06cX2D9bf51a75f816 .
+_:B2729048cX2D400bX2D445eX2D9cb7X2D4840639a8df3 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasGeospatialProjection> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> .
+_:B94035fc2X2D160fX2D426eX2Dbc49X2D257386c52f46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B0d86e3c1X2D0659X2D49c2X2D91fbX2D448985d32059 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4d799eecX2D66a9X2D41cfX2D8b08X2D6d4ffd6ba44b .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasNoDataValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+_:B98fc3eb0X2D3a9dX2D4409X2D84a3X2Df2c25a4bef3f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasResolution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> <http://www.w3.org/2002/07/owl#equivalentClass> _:B5cd79cc4X2D4b29X2D4371X2Da061X2D6529a765e31e .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> <http://www.w3.org/2000/01/rdf-schema#label> "raster dataset" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "Provides information about the file that is returned by a Web coverage service, including the format." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLongitude> .
+_:Bf91a9ff4X2Ddbf5X2D4525X2Da1d0X2Da52decf21d50 <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> .
+_:B78c39b1bX2D835eX2D4377X2D9a9dX2Dab6cb4f32624 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/issued> "2014-05-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#esri-shapefile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> .
+_:B597312c2X2D5b1dX2D4a81X2Dbb6bX2D9aafe4d685d2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#esri-shapefile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B19cfe6caX2D5c92X2D4a68X2Dbb08X2D5013d09bbe07 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#containsFeatureSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/contributor> "Contributors are those that engage in discussions during the development of this ontology (in alphabetical order):\nkarl benedict\nluis garnica\ncj grady\nbill hudspeth\ndeana pennington\nsoren scott\naimee stewart" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat> <http://www.w3.org/2000/01/rdf-schema#label> "has payload format" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDateTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> .
+_:Bdae03a5fX2D1de7X2D45ecX2D987eX2D8c624dfb9902 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Bf7a96c9aX2D4975X2D4c60X2D93dcX2Ddee3600c5f31 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> <http://www.w3.org/2002/07/owl#equivalentClass> _:B8076af62X2D9210X2D45cfX2D9873X2D79418f9eaa94 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet> <http://www.w3.org/2002/07/owl#equivalentClass> _:B6c14e7cfX2D3996X2D479cX2D89f7X2D1cfd2f625953 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponse> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/creator> "Nicholas del Rio"@en .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ComplexDerivedUnit> <http://www.w3.org/2000/01/rdf-schema#label> "complexed derived unit" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLandingPageURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Beba1b560X2D88d1X2D40efX2D9e59X2Def532fe3cb20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B8076af62X2D9210X2D45cfX2D9873X2D79418f9eaa94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> <http://www.w3.org/2000/01/rdf-schema#label> "geographic region" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/description> "The ELSEWeb Data ontology provides simple classes for describing datasets. This project provides foundational support for the ELSEWeb project(http://elseweb.cybershare.utep.edu/).\nwebsite: http://elseweb.cybershare.utep.edu/ontologies\nemail: nvillanuevarosales@utep.edu\n"@en .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> <http://semanticscience.org/resource/example> "A databand can capture air temperature in Farenheit degrees with a resolution of 250m." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://www.w3.org/2002/07/owl#versionInfo> "1.2" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Instant> <http://www.w3.org/2000/01/rdf-schema#label> "instant" .
+_:B48f954dfX2D0004X2D4d29X2Da6aeX2D14fcfb25e246 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasFileDownloadURL> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> .
+_:Bb7ef97fdX2D419dX2D4c7dX2D80ecX2D39f433a72a45 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> <http://www.w3.org/2000/01/rdf-schema#label> "layer" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEPSGCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+_:B1cc45a8dX2D7f01X2D4b01X2Daaf6X2Db753ab809445 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> <http://semanticscience.org/resource/comment> "A dataset that represents values using points, lines and polygons." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> .
+_:B133e3d7eX2DeccdX2D45bfX2D8876X2D93822b5a4824 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bcc093697X2D0ef1X2D403fX2Db6dbX2D49ba22bfa6ac .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandIdentification> <http://www.w3.org/2000/01/rdf-schema#label> "has band identification" .
+_:Bf58edf71X2D5b7dX2D4cc8X2D9335X2Db0239e951d72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B350d669fX2D5b4aX2D4e59X2DbdfeX2D23533d1776ae .
+_:B6194dd12X2Ddb71X2D4346X2Db81bX2Dcc9ef97025a3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B78c39b1bX2D835eX2D4377X2D9a9dX2Dab6cb4f32624 .
+_:B863009e3X2D9606X2D4e38X2D9955X2D9af609d12f6f <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude> <http://www.w3.org/2000/01/rdf-schema#label> "has right longitude" .
+_:B221ae0b6X2De051X2D4de4X2Db7c7X2D411b06241226 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasPayloadFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasStartDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DateRange> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLatitude> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSDataset> <http://www.w3.org/2000/01/rdf-schema#label> "wfs vector dataset" .
+_:B7a310474X2D3bcbX2D4215X2Da7aeX2D999632aa470f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb2f08f1aX2D67f4X2D4a15X2D9a66X2D048ef2417a1e .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "A WCS service, located in a specific URL, that will return a dataset." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> <http://semanticscience.org/resource/comment> "A period of time with the same start and end time." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasResolution> <http://www.w3.org/2000/01/rdf-schema#label> "has resolution" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the format of the metadata included in a file." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUnits> <http://www.w3.org/2000/01/rdf-schema#label> "has units" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasCapabilitiesDocumentURL> <http://www.w3.org/2000/01/rdf-schema#label> "has capabilities document url" .
+_:Bb318269bX2D967cX2D4ceaX2Dbca8X2D1a46de09cf08 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversRegion> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDateTime> <http://www.w3.org/2000/01/rdf-schema#label> "has date time" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#NamedGeographicRegion> <http://www.w3.org/2000/01/rdf-schema#comment> "A geographic region specified by a name." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/title> "ELSEWeb Data Ontology"@en .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Instant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#TimePeriod> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ServiceManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bb2f08f1aX2D67f4X2D4a15X2D9a66X2D048ef2417a1e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B937f2ba4X2Dca39X2D4604X2D9ac9X2Deab108667032 .
+_:Be12734f9X2Dc09fX2D49a8X2D9f44X2D0b2569c096f8 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasFileDownloadURL> .
+_:Bcc093697X2D0ef1X2D403fX2Db6dbX2D49ba22bfa6ac <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B1cf9437fX2D094cX2D4a71X2Dacc2X2Db3d2b7db6022 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://www.w3.org/2002/07/owl#versionIRI> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#capturesCharacteristic> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+_:Be6841704X2Df507X2D484aX2Db1fdX2D6a88d772593a <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B5cc103b4X2D2bbdX2D4c9eX2DafadX2Dc9167136e9b7 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandName> .
+_:B48f954dfX2D0004X2D4d29X2Da6aeX2D14fcfb25e246 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#integer> .
+_:B78c39b1bX2D835eX2D4377X2D9a9dX2Dab6cb4f32624 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversRegion> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasNoDataValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bc5ecbb40X2D67dfX2D4adaX2Db42dX2D34d37994d1bb <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> .
+_:Bb38b15d0X2De71bX2D44ebX2Da84bX2D53ba0e458e67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:Bc5ecbb40X2D67dfX2D4adaX2Db42dX2D34d37994d1bb .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> <http://semanticscience.org/resource/comment> "A databand will contain data about a specific characteristic of an entity. It uses a specific unit and resolution." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDateTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> <http://semanticscience.org/resource/example> "A satellite image composed of more than one measured value at different wavelengths of the electromagnetic spectrum for each pixel in the image." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasResolution> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "A dataset manifestation, that follows the description of a DCAT Distribution, provides the information to retrieve a dataset, including the fomat, endpoint, etc." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSDataset> <http://semanticscience.org/resource/comment> "A WFS vector dataset is composed by all possible datasets provided by a WFS service manifestation depending on the parameters set in a service call. " .
+_:B4d799eecX2D66a9X2D41cfX2D8b08X2D6d4ffd6ba44b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb89dc9b7X2Da509X2D456fX2Da322X2Db5cf735c0f2a .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DataBand> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#tiff-container> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#comment> "Provides information about the file that is returned by a Web coverage service, including the format." .
+_:B829487c3X2Df313X2D4bc2X2Db01aX2D114854da194f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bf7a96c9aX2D4975X2D4c60X2D93dcX2Ddee3600c5f31 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#containsFeatureSet> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Layer> .
+_:B50dc9b2eX2D25cfX2D4462X2Da396X2D05cad056dc59 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLowerLatitude> .
+_:B34518735X2Dbe27X2D4885X2D8c75X2Dddfa4450df91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasGeospatialProjection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+_:B4751cfe9X2D5241X2D479eX2DaaddX2D28878e6db67e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B939834f2X2D15d8X2D4aaaX2D9da8X2D5bbf72fcfd25 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasFileDownloadURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSDataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> .
+_:Baf0e9acaX2D3599X2D4151X2D8b69X2D478b59177d29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B94035fc2X2D160fX2D426eX2Dbc49X2D257386c52f46 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat> <http://www.w3.org/2000/01/rdf-schema#label> "metadata format" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#PayloadFormat> <http://semanticscience.org/resource/comment> "Describes the format of a payload." .
+_:B48f954dfX2D0004X2D4d29X2Da6aeX2D14fcfb25e246 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEPSGCode> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B0d86e3c1X2D0659X2D49c2X2D91fbX2D448985d32059 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B12223564X2Dec13X2D4297X2Db574X2D0349d46f24c5 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDateTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> .
+_:B8076af62X2D9210X2D45cfX2D9873X2D79418f9eaa94 <http://www.w3.org/2002/07/owl#intersectionOf> _:Bcb29a173X2De9a7X2D411dX2Db691X2D461d138acd21 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasCapabilitiesDocumentURL> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversTimePeriod> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDate> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLayer> <http://www.w3.org/2000/01/rdf-schema#label> "has layer" .
+<http://provenanceweb.org/format/mime/text/xml> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#MetadataFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandIdentification> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> .
+_:B221ae0b6X2De051X2D4de4X2Db7c7X2D411b06241226 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B829487c3X2Df313X2D4bc2X2Db01aX2D114854da194f <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#double> .
+_:Be7b520b7X2Da810X2D41d6X2Da892X2Dcfb1186ebde8 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#containsFeatureSet> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasRightLongitude> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLatitude> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ServiceManifestation> .
+_:B937f2ba4X2Dca39X2D4604X2D9ac9X2Deab108667032 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B133e3d7eX2DeccdX2D45bfX2D8876X2D93822b5a4824 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://purl.org/dc/elements/1.1/creator> "ELSEWeb team"@en .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Characteristic> <http://semanticscience.org/resource/example> "Temperature of air." .
+_:B829487c3X2Df313X2D4bc2X2Db01aX2D114854da194f <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasResolution> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ComplexDerivedUnit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "file manifestation" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet> <http://www.w3.org/2000/01/rdf-schema#label> "feature set" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> .
+<http://provenanceweb.org/format/mime/text/xml> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasEndDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> .
+_:B6c14e7cfX2D3996X2D479cX2D89f7X2D1cfd2f625953 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMaximumValue> <http://www.w3.org/2000/01/rdf-schema#label> "has maximum value" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLeftLongitude> <http://www.w3.org/2000/01/rdf-schema#label> "has left longitude" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUnits> <http://www.w3.org/2000/01/rdf-schema#range> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Instant> .
+_:Be12734f9X2Dc09fX2D49a8X2D9f44X2D0b2569c096f8 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Be94bfcd4X2Ddcf0X2D4e60X2D87fcX2D61f70b3a487a <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "ogc response manifestation" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMaximumValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversTimePeriod> <http://www.w3.org/2000/01/rdf-schema#label> "covers time period" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUpperLatitude> <http://www.w3.org/2000/01/rdf-schema#label> "has upper latitude" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponse> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#RasterDataset> .
+<http://semanticscience.org/resource/comment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasDate> <http://www.w3.org/2000/01/rdf-schema#label> "has date" .
+_:B7a310474X2D3bcbX2D4215X2Da7aeX2D999632aa470f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B5944c7d1X2D284fX2D4784X2Da95cX2D2651a4b617cd .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponse> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific raster dataset returned by calling a WCS service with specific parameters." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSDataset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#VectorDataset> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeographicRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLongitude> <http://www.w3.org/2000/01/rdf-schema#label> "has longitude" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "dataset manifestation" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Duration> <http://www.w3.org/2000/01/rdf-schema#label> "duration" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bf91a9ff4X2Ddbf5X2D4525X2Da1d0X2Da52decf21d50 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasUnits> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BoxedGeographicRegion> <http://www.w3.org/2000/01/rdf-schema#label> "boxed geographic region" .
+_:Bf7a96c9aX2D4975X2D4c60X2D93dcX2Ddee3600c5f31 <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#BandIdentification> <http://www.w3.org/2002/07/owl#equivalentClass> _:B5cc103b4X2D2bbdX2D4c9eX2DafadX2Dc9167136e9b7 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#encodedInFormat> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandIdentification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasTheme> <http://www.w3.org/2000/01/rdf-schema#label> "has theme" .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Format> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasLandingPageURL> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FileManifestation> .
+_:Bcc093697X2D0ef1X2D403fX2Db6dbX2D49ba22bfa6ac <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4751cfe9X2D5241X2D479eX2DaaddX2D28878e6db67e .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasMinimumValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#double> .
+_:B7e99f8a7X2Db066X2D4c51X2Db06cX2D9bf51a75f816 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "OGC  service manifestation" .
+_:Be7b520b7X2Da810X2D41d6X2Da892X2Dcfb1186ebde8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#FeatureSet> .
+_:Bf91a9ff4X2Ddbf5X2D4525X2Da1d0X2Da52decf21d50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> <http://www.w3.org/2002/07/owl#equivalentClass> _:B19cfe6caX2D5c92X2D4a68X2Dbb08X2D5013d09bbe07 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasManifestation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B5944c7d1X2D284fX2D4784X2Da95cX2D2651a4b617cd <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WFSManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#OGCServiceManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+_:B6c14e7cfX2D3996X2D479cX2D89f7X2D1cfd2f625953 <http://www.w3.org/2002/07/owl#onProperty> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#representsEntity> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Theme> <http://www.w3.org/2000/01/rdf-schema#comment> "Metadata describing the information captured in a dataset." .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSResponseManifestation> <http://www.w3.org/2000/01/rdf-schema#label> "wcs response manifestation" .
+_:B863009e3X2D9606X2D4e38X2D9955X2D9af609d12f6f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B767a4914X2D964aX2D4ebeX2Da1b7X2Db0ef75885a1d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#WCSDataset> <http://www.w3.org/2002/07/owl#equivalentClass> _:Beba1b560X2D88d1X2D40efX2D9e59X2Def532fe3cb20 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasBandName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#hasFileDownloadURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Unit> <http://semanticscience.org/resource/example> "Meter" .
+_:B8dbf298bX2D5d46X2D4602X2Dbb37X2D92c5dfc8c9c4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B50dc9b2eX2D25cfX2D4462X2Da396X2D05cad056dc59 .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ServiceManifestation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#DatasetManifestation> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Band> <http://www.w3.org/2000/01/rdf-schema#comment> "A band is one component of a multi-characteristic dataset." .
+_:B94035fc2X2D160fX2D426eX2Dbc49X2D257386c52f46 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#double> .
+_:B863009e3X2D9606X2D4e38X2D9955X2D9af609d12f6f <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#ContainerFormat> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Date> <http://www.w3.org/2000/01/rdf-schema#label> "date" .
+_:B3c0421c1X2D1d34X2D4979X2Da83aX2Dc28056d031db <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B98fc3eb0X2D3a9dX2D4409X2D84a3X2Df2c25a4bef3f .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#coversRegion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#GeospatialDataset> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Duration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B597312c2X2D5b1dX2D4a81X2Dbb6bX2D9aafe4d685d2 <http://www.w3.org/2002/07/owl#onClass> <http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> .
+<http://ontology.cybershare.utep.edu/ELSEWeb/elseweb-data.owl#Entity> <http://semanticscience.org/resource/example> "Air" .
+_:Bb89dc9b7X2Da509X2D456fX2Da322X2Db5cf735c0f2a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .

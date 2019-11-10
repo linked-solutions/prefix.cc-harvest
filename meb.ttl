@@ -1,1432 +1,738 @@
-<http://rdf.myexperiment.org/ontologies/base/Request>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Request can be made by an Actor to another Actor" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Request" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Submission> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-requester>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/accepted-at>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-accepter>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#has_owner>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Announcement> , <http://rdf.myexperiment.org/ontologies/base/Annotation> , <http://rdf.myexperiment.org/ontologies/base/Message> , <http://rdf.myexperiment.org/ontologies/base/Contribution> .
-
-<http://rdf.myexperiment.org/ontologies/base/MembershipInvitation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A MembershipInvitation to an external email address" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "MembershipInvitation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Invitation> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-annotator>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Annotation has User as annotator" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Annotation> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-annotator" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://rdfs.org/sioc/ns#has_owner> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdf.myexperiment.org/ontologies/base/annotator-of> .
-
-<http://rdf.myexperiment.org/ontologies/base/annotator-of>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User is an annotator-of an Annotation" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "annotator" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Annotation> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://rdfs.org/sioc/ns#owner_of> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdf.myexperiment.org/ontologies/base/has-annotator> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-annotation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Annotable may have a Annotation" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Annotatable> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-annotation" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Annotation> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdf.myexperiment.org/ontologies/base/annotates> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-membership>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User has a Membership (of a Group)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-membership" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Membership> .
-
-<http://rdf.myexperiment.org/ontologies/base/membership-policy>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The policy for Users joining a Group (e.g. open, invite only, etc.)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Group> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/receive-notifications>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Does the user receive-notifications" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "receive-notifications" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://rdf.myexperiment.org/ontologies/base/Invitation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Request could be an external Invitation" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Invitation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Request> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://xmlns.com/foaf/0.1/mbox_sha1sum>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#has_owner>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Membership> , <http://rdf.myexperiment.org/ontologies/base/Friendship> .
-
-<http://rdf.myexperiment.org/ontologies/base/Upload>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An object that can be contributed by a User that requires uploading" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Upload" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Contribution> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/content-url>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/title>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-content-type>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://web.resource.org/cc/license>
-                ] .
-
-<http://rdf.myexperiment.org/ontologies/base/has-announcement>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Groups may have GroupAnnouncements" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Group> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-announcement" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdf.myexperiment.org/ontologies/base/announced-to> .
-
-<http://rdf.myexperiment.org/ontologies/base/announced-to>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Group a GroupAnnouncement has been announced to" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "announced-to" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Group> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-version>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Versionable object has at least one version" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Versionable> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-version" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/terms/hasVersion> .
-
-<http://rdf.myexperiment.org/ontologies/base/annotates>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Annotation is associated with a particular Contribution" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Annotation> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "annotates" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Annotatable> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdf.myexperiment.org/ontologies/base/has-annotation> .
-
-<http://rdf.myexperiment.org/ontologies/base/Actor>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An object that can perform an action" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Actor" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/dc/terms/Agent> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/description>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/modified>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/created>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://xmlns.com/foaf/0.1/name>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#name>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Submission> .
-
-<http://rdf.myexperiment.org/ontologies/base/Contribution>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An object that is contributed by a User" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Contribution" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Submission> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/modified>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#has_owner>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/description>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-policy>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Message> , <http://rdf.myexperiment.org/ontologies/base/Request> , <http://rdf.myexperiment.org/ontologies/base/Annotation> , <http://rdf.myexperiment.org/ontologies/base/Announcement> .
-
-<http://xmlns.com/foaf/0.1/homepage>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://rdf.myexperiment.org/ontologies/base/username>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User may have a username represented as a string" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "username" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdfs.org/sioc/ns#UserGroup>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://rdf.myexperiment.org/ontologies/base/version-number>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Version has a version-number" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "version-number" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#positiveInteger> .
-
-<http://rdf.myexperiment.org/ontologies/base/>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This provides the base elements required by myExperiment for content management, social networking and object annotation." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "myExperiment Base v1.0" ;
-        <http://purl.org/dc/elements/1.1/contributor>
-                "David R Newman" ;
-        <http://purl.org/dc/elements/1.1/creator>
-                <http://id.ecs.soton.ac.uk/person/9421> ;
-        <http://purl.org/dc/elements/1.1/date>
-                "2009-01-28"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/elements/1.1/format>
-                "rdf/xml" ;
-        <http://purl.org/dc/elements/1.1/language>
-                "en" ;
-        <http://purl.org/dc/elements/1.1/publisher>
-                <http://rdf.myexperiment.org> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "The myExperiment Base Ontology"@en ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://rdf.myexperiment.org/ontologies/snarm/> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "$Date: 2013/03/26 $" .
-
-<http://rdf.myexperiment.org/ontologies/base/has-accepter>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Request must have an accepter that can accept" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Request> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-accepter" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Actor> .
-
-<http://rdf.myexperiment.org/ontologies/base/count>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Certain Annotations may be a count of something" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Annotation> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "count" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-
-<http://rdf.myexperiment.org/ontologies/base/Group>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Group of Users" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Group" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Actor> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#has_owner>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/description>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#has_member>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://rdfs.org/sioc/ns#UserGroup> .
-
-<http://rdf.myexperiment.org/ontologies/base/User>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "User" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Actor> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://dbpedia.org/ontology/residence>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://xmlns.com/foaf/0.1/mbox>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/username>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://xmlns.com/foaf/0.1/based_near>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#avatar>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://xmlns.com/foaf/0.1/homepage>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdfs.org/sioc/ns#member_of>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://xmlns.com/foaf/0.1/mbox_sha1sum>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Group> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://rdfs.org/sioc/ns#UserAccount> .
-
-<http://rdf.myexperiment.org/ontologies/base/Membership>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Membership of a User to a Group" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Membership" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Request> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Invitation> , <http://rdf.myexperiment.org/ontologies/base/Friendship> .
-
-<http://rdf.myexperiment.org/ontologies/base/subject>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Message has a subject" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "subject" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/Annotation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Annotation of a Annotatable object" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Annotation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Submission> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/annotates>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-annotator>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Request> , <http://rdf.myexperiment.org/ontologies/base/Message> , <http://rdf.myexperiment.org/ontologies/base/Announcement> , <http://rdf.myexperiment.org/ontologies/base/Contribution> .
-
-<http://rdf.myexperiment.org/ontologies/base/Announcement>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A public Announcement" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Announcement" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Submission> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/text>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/title>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-announcer>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/modified>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Annotation> , <http://rdf.myexperiment.org/ontologies/base/Request> , <http://rdf.myexperiment.org/ontologies/base/Message> , <http://rdf.myexperiment.org/ontologies/base/Contribution> .
-
-<http://rdf.myexperiment.org/ontologies/base/to>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Message is sent to a User" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "to" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/User> .
-
-<http://rdf.myexperiment.org/ontologies/base/public-announcement>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Is the GroupAnnouncement viewable (public) to those outside the Group" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "public-announcement" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-friendship>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User has a Friendship (with another User)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-friendship" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Friendship> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-current-version>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Versionable object has a current version" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-current-version" ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://rdf.myexperiment.org/ontologies/base/has-version> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-announcer>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Announcement has an annoucer that is a User" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Announcement> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-announcer" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://rdfs.org/sioc/ns#has_owner> .
-
-<http://web.resource.org/cc/License>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://rdf.myexperiment.org/ontologies/base/accepted-at>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Request can be accepted-at a certain dateTime" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Request> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "accepted-at" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-policy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Contribution has a Policy for access rights management" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Contribution> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-policy" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/snarm/Policy> .
-
-<http://xmlns.com/foaf/0.1/name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://web.resource.org/cc/license>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://rdf.myexperiment.org/ontologies/base/occupation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User has an occupation" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "occupation" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-shared-item>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Contributions that are shared within a Group" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Group> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-shared-item" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Contribution> .
-
-<http://rdf.myexperiment.org/ontologies/base/uri>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The URI for some object" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "uri" .
-
-<http://rdf.myexperiment.org/ontologies/base/License>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A License under which an Upload is licensed under" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "License" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://web.resource.org/cc/License> , <http://rdf.myexperiment.org/ontologies/base/Contribution> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/identifier>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://web.resource.org/cc/requires>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://web.resource.org/cc/permits>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://web.resource.org/cc/prohibits>
-                ] .
-
-<http://rdf.myexperiment.org/ontologies/base/reply-to>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Message may have a Message it is a reply-to" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "reply-to" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Message> .
-
-<http://purl.org/dc/elements/1.1/title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://rdf.myexperiment.org/ontologies/base/openid-url>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User may have an openid-url represented as a uri" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "openid-url" .
-
-<http://rdf.myexperiment.org/ontologies/base/is-friends-with>
-        a       <http://www.w3.org/2002/07/owl#SymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User may be friends with another User" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is-friends-with" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://xmlns.com/foaf/0.1/knows> .
-
-<http://rdf.myexperiment.org/ontologies/base/email>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User has an email address" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "email" ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://xmlns.com/foaf/0.1/mbox> .
-
-<http://rdf.myexperiment.org/ontologies/base/Friendship>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Friendship between two Users" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Friendship" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Request> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Invitation> , <http://rdf.myexperiment.org/ontologies/base/Membership> .
-
-<http://rdfs.org/sioc/ns#UserAccount>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://dbpedia.org/ontology/residence>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://xmlns.com/foaf/0.1/mbox>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://rdf.myexperiment.org/ontologies/base/filename>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A File has a filename" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Upload> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "filename" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/revision-comments>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Comments may be associated with a particular Version of something" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "revision-comments" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/deleted-by-recipient>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The recipient has deleted this Message from their inbox" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deleted-by-recipient" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-content-type>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Upload has a ContentType" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Upload> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-content-type" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/ContentType> .
-
-<http://rdf.myexperiment.org/ontologies/base/content-url>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Upload has content at a URL" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "content-url" .
-
-<http://purl.org/dc/terms/description>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/has-requester>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Request must have a requester" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Request> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has-requester" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/Actor> .
-
-<http://rdf.myexperiment.org/ontologies/base/Message>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Message sent between two Users" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Message" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Submission> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/text>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Contribution> , <http://rdf.myexperiment.org/ontologies/base/Request> , <http://rdf.myexperiment.org/ontologies/base/Announcement> , <http://rdf.myexperiment.org/ontologies/base/Annotation> .
-
-<http://rdf.myexperiment.org/ontologies/base/organisation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User is part of an organisation" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "organisation" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An Announcement to a Group" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GroupAnnouncement" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Announcement> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/announced-to>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/public-announcement>
-                ] .
-
-<http://rdf.myexperiment.org/ontologies/base/unconfirmed-email>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An email that has yet to be confirmed" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "unconfirmed-email" .
-
-<http://rdf.myexperiment.org/ontologies/base/Versionable>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Contribution that can be a Version" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Versionable" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Interface> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-version>
-                ] .
-
-<http://rdf.myexperiment.org/ontologies/base/deleted-by-sender>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The sender has deleted this Message from their inbox" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deleted-by-sender" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An email is confirmed at a certain dateTime" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "email-confirmed-at" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://rdf.myexperiment.org/ontologies/base/text>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Submission has some text associated with it" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Submission> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "text" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/Annotatable>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An object that can be annotated with Annotations" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Annotatable" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Interface> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/has-annotation>
-                ] .
-
-<http://rdf.myexperiment.org/ontologies/base/Submission>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An object that has been submitted.  This might be a Contribution, Annotation, Request or an Attibution/Creditation of an Upload" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Submission" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/created>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/Actor> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://rdfs.org/sioc/ns#Item> .
-
-<http://rdf.myexperiment.org/ontologies/base/activated-at>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User account is a activated-at certain dateTime" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "activated-at" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://rdf.myexperiment.org/ontologies/base/read-at>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Message is a read-at a particular dateTime" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "read-at" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/dc/elements/1.1/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://rdf.myexperiment.org/ontologies/base/last-seen-at>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The last time a User was seen" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "last-seen-at" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://rdf.myexperiment.org/ontologies/base/request-token>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Requests may have a request-token as a string" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Request> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "request-token" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/elements/1.1/format>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/elements/1.1/publisher>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://rdf.myexperiment.org/ontologies/base/Version>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Contribution may be a Version of another Contribution" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Version" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Interface> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/dc/terms/isVersionOf>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://rdf.myexperiment.org/ontologies/base/version-number>
-                ] .
-
-<http://rdf.myexperiment.org/ontologies/base/is-current-version>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User's interests" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Versionable> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is-current-version" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#boolean> .
-
-<http://rdfs.org/sioc/ns#has_member>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdfs.org/sioc/ns#member_of> .
-
-<http://rdf.myexperiment.org/ontologies/base/country>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User is based in a country" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "country" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/interests>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User's interests" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "interests" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/terms/isVersionOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/dc/terms/hasVersion> .
-
-<http://purl.org/dc/elements/1.1/date>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/modified>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://rdf.myexperiment.org/ontologies/base/contact-details>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User has contact-details" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "contact-details" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A FriendshipInvitation to an external email address" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "FriendshipInvitation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Invitation> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> .
-
-<http://purl.org/dc/terms/title>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/Interface>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Superclass for all Interface classes" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Interface" .
-
-<http://rdf.myexperiment.org/ontologies/base/ContentType>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The type of content for an Upload" ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ContentType" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdf.myexperiment.org/ontologies/base/Contribution> .
-
-<http://purl.org/dc/terms/type>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdf.myexperiment.org/ontologies/base/field>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A User works in a field" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/User> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "field" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdfs.org/sioc/ns#has_owner>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdfs.org/sioc/ns#owner_of> .
-
-<http://purl.org/dc/terms/Agent>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://rdf.myexperiment.org/ontologies/base/from>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Message is sent from a User" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdf.myexperiment.org/ontologies/base/Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://rdf.myexperiment.org/ontologies/base/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "from" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://rdf.myexperiment.org/ontologies/base/User> .
-
-<http://xmlns.com/foaf/0.1/mbox_sha1sum>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://rdfs.org/sioc/ns#owner_of>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdfs.org/sioc/ns#has_owner> .
-
-<http://rdfs.org/sioc/ns#name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/terms/identifier>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://web.resource.org/cc/permits>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://xmlns.com/foaf/0.1/based_near>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://xmlns.com/foaf/0.1/knows>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/terms/hasVersion>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/dc/terms/isVersionOf> .
-
-<http://web.resource.org/cc/requires>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://rdfs.org/sioc/ns#Item>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dc/elements/1.1/language>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://web.resource.org/cc/prohibits>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/elements/1.1/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://rdfs.org/sioc/ns#member_of>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://rdfs.org/sioc/ns#has_member> .
-
-<http://rdfs.org/sioc/ns#avatar>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/terms/created>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://rdf.myexperiment.org/ontologies/snarm/Policy>
-        a       <http://www.w3.org/2002/07/owl#Class> .
+_:B770d72c8X2D34b7X2D4107X2D9359X2D9cd22f35d07a <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Announcement> .
+_:B6987a9d8X2Dcf91X2D4313X2Dbd6eX2D9e012ba7a64b <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bfac13a73X2D8b5eX2D4c17X2D8b5bX2D8aa67adf3439 .
+<http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:Beec974f1X2Dff16X2D4448X2Dbae3X2Dffa026bae958 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B1cd4b0e3X2D8c4bX2D4541X2Da1bcX2Dd5bb9b10c36b <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/2000/01/rdf-schema#label> "annotator" .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/2000/01/rdf-schema#comment> "An Annotable may have a Annotation" .
+<http://rdf.myexperiment.org/ontologies/base/has-membership> <http://www.w3.org/2000/01/rdf-schema#comment> "A User has a Membership (of a Group)" .
+<http://rdf.myexperiment.org/ontologies/base/membership-policy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/receive-notifications> <http://www.w3.org/2000/01/rdf-schema#label> "receive-notifications" .
+<http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> <http://www.w3.org/2000/01/rdf-schema#label> "MembershipInvitation" .
+_:Bddbf84bbX2Dd38bX2D4bd8X2D8855X2Db6b047349dd4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcement> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> .
+<http://rdf.myexperiment.org/ontologies/base/announced-to> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> .
+<http://rdf.myexperiment.org/ontologies/base/has-version> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/hasVersion> .
+_:B320dcbfcX2D1f39X2D4587X2Dac95X2D2664a49bb9c3 <http://www.w3.org/2002/07/owl#onProperty> <http://web.resource.org/cc/license> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/2000/01/rdf-schema#label> "annotates" .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#label> "Actor" .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://xmlns.com/foaf/0.1/homepage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/username> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdfs.org/sioc/ns#UserGroup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/version-number> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:Bc9c7e646X2D295dX2D4153X2D97a5X2D63e3075f65ba <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://www.w3.org/2002/07/owl#versionInfo> "$Date: 2013/03/26 $" .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/has-accepter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/count> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B4eb72f1cX2De007X2D41a0X2D98b2X2Dbb046d060f46 .
+_:Bb3976c0bX2D4f2fX2D4946X2Dbd83X2Ddac2931e6dfe <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-announcer> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/2000/01/rdf-schema#label> "has-annotation" .
+<http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> <http://www.w3.org/2000/01/rdf-schema#comment> "A MembershipInvitation to an external email address" .
+<http://rdf.myexperiment.org/ontologies/base/membership-policy> <http://www.w3.org/2000/01/rdf-schema#label> "" .
+<http://rdf.myexperiment.org/ontologies/base/Membership> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2000/01/rdf-schema#label> "Annotation" .
+_:Bab97682bX2Dee0eX2D4890X2D8b88X2Dc0f2245c60ea <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://rdf.myexperiment.org/ontologies/base/to> <http://www.w3.org/2000/01/rdf-schema#comment> "A Message is sent to a User" .
+<http://rdf.myexperiment.org/ontologies/base/public-announcement> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Membership> .
+<http://rdf.myexperiment.org/ontologies/base/has-friendship> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bec6ae89dX2D0b3fX2D4711X2D801aX2De3496cf6518b <http://www.w3.org/2002/07/owl#onProperty> <http://xmlns.com/foaf/0.1/name> .
+_:B1f437a1bX2Dfd64X2D4b0fX2Dbf29X2Db700e745e31b <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/accepted-at> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2002/07/owl#equivalentClass> <http://rdfs.org/sioc/ns#UserGroup> .
+<http://rdf.myexperiment.org/ontologies/base/public-announcement> <http://www.w3.org/2000/01/rdf-schema#comment> "Is the GroupAnnouncement viewable (public) to those outside the Group" .
+<http://rdf.myexperiment.org/ontologies/base/has-current-version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B51023f8bX2D995eX2D4834X2D8e3aX2Df9d684703a67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Announcement> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://purl.org/dc/elements/1.1/creator> <http://id.ecs.soton.ac.uk/person/9421> .
+<http://web.resource.org/cc/License> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B94c8f2b8X2D297aX2D4e95X2Dbd17X2D1b72aa4bca59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/accepted-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-policy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B16ea11a5X2D5a9dX2D4726X2D9ca9X2D5237033dcc46 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/description> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://rdf.myexperiment.org/ontologies/base/to> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6987a9d8X2Dcf91X2D4313X2Dbd6eX2D9e012ba7a64b .
+_:B93243f49X2Dd619X2D47e9X2D9e71X2D64bc9af250cd <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#avatar> .
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://web.resource.org/cc/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/occupation> <http://www.w3.org/2000/01/rdf-schema#comment> "A User has an occupation" .
+<http://rdf.myexperiment.org/ontologies/base/occupation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-shared-item> <http://www.w3.org/2000/01/rdf-schema#label> "has-shared-item" .
+<http://rdf.myexperiment.org/ontologies/base/uri> <http://www.w3.org/2000/01/rdf-schema#comment> "The URI for some object" .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#label> "License" .
+<http://rdf.myexperiment.org/ontologies/base/reply-to> <http://www.w3.org/2000/01/rdf-schema#comment> "A Message may have a Message it is a reply-to" .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B7a9ef888X2Db63eX2D4d64X2Db85cX2D3b7b46ae6136 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B11bfb6deX2Db56eX2D42ceX2Da986X2Da41998ad0303 .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/2000/01/rdf-schema#comment> "An Announcement has an annoucer that is a User" .
+<http://rdf.myexperiment.org/ontologies/base/> <http://www.w3.org/2000/01/rdf-schema#comment> "This provides the base elements required by myExperiment for content management, social networking and object annotation." .
+<http://rdf.myexperiment.org/ontologies/base/openid-url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B16ea11a5X2D5a9dX2D4726X2D9ca9X2D5237033dcc46 .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/2000/01/rdf-schema#label> "is-friends-with" .
+<http://rdf.myexperiment.org/ontologies/base/occupation> <http://www.w3.org/2000/01/rdf-schema#label> "occupation" .
+_:B1f437a1bX2Dfd64X2D4b0fX2Dbf29X2Db700e745e31b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/email> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B86669d9fX2De05aX2D45d9X2DaacfX2Dbb3ee4ba342e .
+<http://rdf.myexperiment.org/ontologies/base/Friendship> <http://www.w3.org/2000/01/rdf-schema#comment> "A Friendship between two Users" .
+<http://rdfs.org/sioc/ns#UserAccount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://dbpedia.org/ontology/residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bccff97e3X2Db455X2D41d7X2Db28bX2Dedf3706cf474 .
+<http://xmlns.com/foaf/0.1/mbox> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Friendship> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://web.resource.org/cc/License> .
+<http://rdf.myexperiment.org/ontologies/base/count> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+_:Bbd9ececdX2D396cX2D4a8cX2D9833X2Db3c3307aaa7d <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/filename> <http://www.w3.org/2000/01/rdf-schema#comment> "A File has a filename" .
+<http://rdf.myexperiment.org/ontologies/base/revision-comments> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-membership> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Membership> .
+_:Bcd18785eX2D01bbX2D4804X2Db289X2D55da6c6a3432 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B8177e0eaX2Ded4aX2D4c6aX2D91c3X2Df26d04579a4e <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#member_of> .
+_:Bb64bb73dX2D4a90X2D410aX2DbbfdX2D0a95d5b859cf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bb5d839e4X2Dc797X2D4195X2Da9e6X2D471784e78503 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/description> .
+_:B7c9fccebX2Dbd33X2D40fbX2DadfbX2Dab2358f46c5e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-recipient> <http://www.w3.org/2000/01/rdf-schema#comment> "The recipient has deleted this Message from their inbox" .
+_:B09541d52X2D1cbbX2D40a4X2D9a9fX2D78e81ce8e112 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B11bfb6deX2Db56eX2D42ceX2Da986X2Da41998ad0303 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#comment> "A public Announcement" .
+<http://rdf.myexperiment.org/ontologies/base/has-content-type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Upload> .
+<http://rdf.myexperiment.org/ontologies/base/version-number> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Version> .
+_:B74b4dcb7X2D502dX2D4e24X2Da95bX2Dfb9513a08147 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/content-url> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/2000/01/rdf-schema#label> "has-annotator" .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Submission> .
+_:Be9fb845aX2D144cX2D4692X2D8848X2D4d804c1cc89e <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bde75b1f3X2D3e25X2D469dX2D893fX2Dc5bcb0a33b11 <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-annotator> .
+<http://rdf.myexperiment.org/ontologies/base/has-requester> <http://www.w3.org/2000/01/rdf-schema#label> "has-requester" .
+<http://rdf.myexperiment.org/ontologies/base/filename> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B97f6b788X2D66f4X2D4be2X2Daa57X2D59d38d01ba9f .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2000/01/rdf-schema#label> "Message" .
+<http://rdf.myexperiment.org/ontologies/base/organisation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-policy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Announcement> .
+<http://rdf.myexperiment.org/ontologies/base/unconfirmed-email> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/Versionable> <http://www.w3.org/2000/01/rdf-schema#comment> "A Contribution that can be a Version" .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb3976c0bX2D4f2fX2D4946X2Dbd83X2Ddac2931e6dfe .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B1cd4b0e3X2D8c4bX2D4541X2Da1bcX2Dd5bb9b10c36b .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-sender> <http://www.w3.org/2000/01/rdf-schema#comment> "The sender has deleted this Message from their inbox" .
+<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/receive-notifications> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#label> "User" .
+<http://rdf.myexperiment.org/ontologies/base/text> <http://www.w3.org/2000/01/rdf-schema#comment> "A Submission has some text associated with it" .
+<http://rdf.myexperiment.org/ontologies/base/Annotatable> <http://www.w3.org/2000/01/rdf-schema#comment> "An object that can be annotated with Annotations" .
+<http://rdf.myexperiment.org/ontologies/base/Submission> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Actor> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B93243f49X2Dd619X2D47e9X2D9e71X2D64bc9af250cd .
+<http://rdf.myexperiment.org/ontologies/base/activated-at> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://rdf.myexperiment.org/ontologies/base/has-requester> <http://www.w3.org/2000/01/rdf-schema#comment> "A Request must have a requester" .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://rdf.myexperiment.org/ontologies/base/read-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B6987a9d8X2Dcf91X2D4313X2Dbd6eX2D9e012ba7a64b <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-policy> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/2000/01/rdf-schema#comment> "A User is an annotator-of an Annotation" .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Submission> <http://www.w3.org/2000/01/rdf-schema#label> "Submission" .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B320dcbfcX2D1f39X2D4587X2Dac95X2D2664a49bb9c3 .
+<http://rdf.myexperiment.org/ontologies/base/has-membership> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/last-seen-at> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-sender> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/email> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/mbox> .
+<http://rdf.myexperiment.org/ontologies/base/has-version> <http://www.w3.org/2000/01/rdf-schema#label> "has-version" .
+<http://rdf.myexperiment.org/ontologies/base/has-content-type> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Annotatable> .
+<http://rdf.myexperiment.org/ontologies/base/accepted-at> <http://www.w3.org/2000/01/rdf-schema#comment> "A Request can be accepted-at a certain dateTime" .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2000/01/rdf-schema#comment> "A Group of Users" .
+<http://rdf.myexperiment.org/ontologies/base/has-announcement> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-policy> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/snarm/Policy> .
+<http://rdf.myexperiment.org/ontologies/base/request-token> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-shared-item> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+<http://rdf.myexperiment.org/ontologies/base/uri> <http://www.w3.org/2000/01/rdf-schema#label> "uri" .
+<http://rdf.myexperiment.org/ontologies/base/count> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/reply-to> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://purl.org/dc/elements/1.1/date> "2009-01-28"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://purl.org/dc/elements/1.1/format> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:Bec6ae89dX2D0b3fX2D4711X2D801aX2De3496cf6518b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Ba92fe008X2D1a59X2D42e0X2Da650X2Dd73f3ba19576 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/uri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://purl.org/dc/elements/1.1/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-requester> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:Bb3976c0bX2D4f2fX2D4946X2Dbd83X2Ddac2931e6dfe <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B770d72c8X2D34b7X2D4107X2D9359X2D9cd22f35d07a <http://www.w3.org/2002/07/owl#onProperty> <http://xmlns.com/foaf/0.1/mbox> .
+<http://rdf.myexperiment.org/ontologies/base/activated-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://www.w3.org/2000/01/rdf-schema#label> "myExperiment Base v1.0" .
+<http://rdf.myexperiment.org/ontologies/base/Submission> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/openid-url> <http://www.w3.org/2000/01/rdf-schema#label> "openid-url" .
+<http://rdf.myexperiment.org/ontologies/base/is-current-version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc2741735X2Dbd66X2D4068X2Dac7dX2D4ba7a68a07ea .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Actor> .
+<http://rdf.myexperiment.org/ontologies/base/has-shared-item> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Group> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B207cb50cX2D78b3X2D42b0X2Dacc7X2Defba9f6d583c <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bfac13a73X2D8b5eX2D4c17X2D8b5bX2D8aa67adf3439 <http://www.w3.org/2002/07/owl#onProperty> <http://xmlns.com/foaf/0.1/based_near> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/is-current-version> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://rdfs.org/sioc/ns#has_member> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdfs.org/sioc/ns#member_of> .
+<http://rdf.myexperiment.org/ontologies/base/country> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Beec974f1X2Dff16X2D4448X2Dbae3X2Dffa026bae958 .
+<http://rdf.myexperiment.org/ontologies/base/Versionable> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Submission> <http://www.w3.org/2002/07/owl#equivalentClass> <http://rdfs.org/sioc/ns#Item> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Submission> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-recipient> <http://www.w3.org/2000/01/rdf-schema#label> "deleted-by-recipient" .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B8177e0eaX2Ded4aX2D4c6aX2D91c3X2Df26d04579a4e .
+_:Bd07e6ba3X2D9f99X2D4d54X2D9f6fX2D99a704233845 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/has-current-version> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/interests> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/has-friendship> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B4eb72f1cX2De007X2D41a0X2D98b2X2Dbb046d060f46 <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/annotates> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb64bb73dX2D4a90X2D410aX2DbbfdX2D0a95d5b859cf .
+<http://rdf.myexperiment.org/ontologies/base/membership-policy> <http://www.w3.org/2000/01/rdf-schema#comment> "The policy for Users joining a Group (e.g. open, invite only, etc.)" .
+<http://rdf.myexperiment.org/ontologies/base/revision-comments> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Annotatable> <http://www.w3.org/2000/01/rdf-schema#label> "Annotatable" .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B97f6b788X2D66f4X2D4be2X2Daa57X2D59d38d01ba9f <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/dc/terms/isVersionOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/dc/terms/hasVersion> .
+_:B74b4dcb7X2D502dX2D4e24X2Da95bX2Dfb9513a08147 <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#has_owner> .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#comment> "An object that can be contributed by a User that requires uploading" .
+_:B97f6b788X2D66f4X2D4be2X2Daa57X2D59d38d01ba9f <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/text> .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Version> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7a9ef888X2Db63eX2D4d64X2Db85cX2D3b7b46ae6136 .
+<http://rdf.myexperiment.org/ontologies/base/Version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B09e65c56X2D87abX2D4509X2Db658X2D723571617c9d <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B74b4dcb7X2D502dX2D4e24X2Da95bX2Dfb9513a08147 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/dc/terms/modified> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba92fe008X2D1a59X2D42e0X2Da650X2Dd73f3ba19576 .
+_:B3bbeabf0X2D23d2X2D42cfX2D9101X2Ddc21bace20ad <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B8177e0eaX2Ded4aX2D4c6aX2D91c3X2Df26d04579a4e <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Submission> .
+<http://rdf.myexperiment.org/ontologies/base/Friendship> <http://www.w3.org/2000/01/rdf-schema#label> "Friendship" .
+<http://rdf.myexperiment.org/ontologies/base/has-accepter> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/reply-to> <http://www.w3.org/2000/01/rdf-schema#label> "reply-to" .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bde75b1f3X2D3e25X2D469dX2D893fX2Dc5bcb0a33b11 .
+<http://rdf.myexperiment.org/ontologies/base/has-current-version> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdf.myexperiment.org/ontologies/base/has-version> .
+<http://rdf.myexperiment.org/ontologies/base/contact-details> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/occupation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B921b00c0X2D46a3X2D47faX2Dad3cX2D2eb95399eb2b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://purl.org/dc/elements/1.1/contributor> "David R Newman" .
+<http://rdf.myexperiment.org/ontologies/base/is-current-version> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Versionable> .
+<http://rdf.myexperiment.org/ontologies/base/text> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Submission> .
+<http://rdf.myexperiment.org/ontologies/base/unconfirmed-email> <http://www.w3.org/2000/01/rdf-schema#comment> "An email that has yet to be confirmed" .
+<http://rdf.myexperiment.org/ontologies/base/subject> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B207cb50cX2D78b3X2D42b0X2Dacc7X2Defba9f6d583c .
+<http://rdf.myexperiment.org/ontologies/base/subject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/public-announcement> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2000/01/rdf-schema#label> "Invitation" .
+<http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> .
+_:B11bfb6deX2Db56eX2D42ceX2Da986X2Da41998ad0303 <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-accepter> .
+_:Bcf8d19d3X2D0ca4X2D49aeX2D9582X2D7770c8bdb5f1 <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/public-announcement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Version> <http://www.w3.org/2000/01/rdf-schema#comment> "A Contribution may be a Version of another Contribution" .
+_:Be42c5511X2Dced3X2D4208X2D855dX2D589ee64631f9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/version-number> <http://www.w3.org/2000/01/rdf-schema#comment> "A Version has a version-number" .
+_:B09541d52X2D1cbbX2D40a4X2D9a9fX2D78e81ce8e112 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/identifier> .
+<http://rdf.myexperiment.org/ontologies/base/Interface> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-content-type> <http://www.w3.org/2000/01/rdf-schema#label> "has-content-type" .
+<http://rdf.myexperiment.org/ontologies/base/count> <http://www.w3.org/2000/01/rdf-schema#label> "count" .
+<http://rdf.myexperiment.org/ontologies/base/accepted-at> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Request> .
+_:B7fdba0f3X2D6195X2D4c88X2Db897X2D1a9a3ed47167 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/isVersionOf> .
+<http://rdf.myexperiment.org/ontologies/base/contact-details> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Submission> .
+<http://rdf.myexperiment.org/ontologies/base/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/ContentType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of content for an Upload" .
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Interface> <http://www.w3.org/2000/01/rdf-schema#comment> "Superclass for all Interface classes" .
+<http://rdf.myexperiment.org/ontologies/base/openid-url> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+<http://rdf.myexperiment.org/ontologies/base/has-friendship> <http://www.w3.org/2000/01/rdf-schema#comment> "A User has a Friendship (with another User)" .
+_:Bd07e6ba3X2D9f99X2D4d54X2D9f6fX2D99a704233845 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+<http://rdf.myexperiment.org/ontologies/base/version-number> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Announcement> .
+<http://purl.org/dc/terms/type> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/username> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B4ec2fdf0X2D7b7dX2D4edeX2D86c8X2D279e343c254f .
+<http://rdf.myexperiment.org/ontologies/base/field> <http://www.w3.org/2000/01/rdf-schema#label> "field" .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B377b7d51X2Df303X2D4ad2X2D8d92X2D54bd6f970d49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/membership-policy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/interests> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/filename> <http://www.w3.org/2000/01/rdf-schema#label> "filename" .
+<http://rdf.myexperiment.org/ontologies/base/has-policy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B7e655184X2Dcb73X2D4c06X2Db9dfX2D967d65f5838c <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#comment> "A User" .
+_:Bccff97e3X2Db455X2D41d7X2Db28bX2Dedf3706cf474 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdf.myexperiment.org/ontologies/base/annotates> .
+<http://rdfs.org/sioc/ns#has_owner> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdfs.org/sioc/ns#owner_of> .
+<http://rdf.myexperiment.org/ontologies/base/has-content-type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://purl.org/dc/terms/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/from> <http://www.w3.org/2000/01/rdf-schema#comment> "A Message is sent from a User" .
+<http://rdf.myexperiment.org/ontologies/base/country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://xmlns.com/foaf/0.1/mbox_sha1sum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/has-membership> <http://www.w3.org/2000/01/rdf-schema#label> "has-membership" .
+<http://rdf.myexperiment.org/ontologies/base/version-number> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+_:B6a6b7f4bX2D187fX2D4d1aX2D8199X2Db89e3b98e6aa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B4ec2fdf0X2D7b7dX2D4edeX2D86c8X2D279e343c254f <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/title> .
+<http://rdf.myexperiment.org/ontologies/base/has-membership> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/announced-to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Submission> .
+<http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Membership> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Invitation> .
+_:B770d72c8X2D34b7X2D4107X2D9359X2D9cd22f35d07a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at> <http://www.w3.org/2000/01/rdf-schema#label> "email-confirmed-at" .
+<http://rdf.myexperiment.org/ontologies/base/Annotatable> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B6987a9d8X2Dcf91X2D4313X2Dbd6eX2D9e012ba7a64b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/is-current-version> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/filename> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B4ec2fdf0X2D7b7dX2D4edeX2D86c8X2D279e343c254f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bddbf84bbX2Dd38bX2D4bd8X2D8855X2Db6b047349dd4 <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#has_owner> .
+_:B1cd4b0e3X2D8c4bX2D4541X2Da1bcX2Dd5bb9b10c36b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/revision-comments> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Version> .
+<http://rdf.myexperiment.org/ontologies/base/public-announcement> <http://www.w3.org/2000/01/rdf-schema#label> "public-announcement" .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#comment> "An object that can perform an action" .
+_:B4eb72f1cX2De007X2D41a0X2D98b2X2Dbb046d060f46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/ContentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/activated-at> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/is-current-version> <http://www.w3.org/2000/01/rdf-schema#label> "is-current-version" .
+<http://rdf.myexperiment.org/ontologies/base/text> <http://www.w3.org/2000/01/rdf-schema#label> "text" .
+<http://rdf.myexperiment.org/ontologies/base/revision-comments> <http://www.w3.org/2000/01/rdf-schema#label> "revision-comments" .
+<http://rdf.myexperiment.org/ontologies/base/has-shared-item> <http://www.w3.org/2000/01/rdf-schema#comment> "Contributions that are shared within a Group" .
+<http://rdf.myexperiment.org/ontologies/base/Submission> <http://www.w3.org/2000/01/rdf-schema#comment> "An object that has been submitted.  This might be a Contribution, Annotation, Request or an Attibution/Creditation of an Upload" .
+<http://rdf.myexperiment.org/ontologies/base/unconfirmed-email> <http://www.w3.org/2000/01/rdf-schema#label> "unconfirmed-email" .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-recipient> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#label> "Upload" .
+<http://rdfs.org/sioc/ns#owner_of> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bc2741735X2Dbd66X2D4068X2Dac7dX2D4ba7a68a07ea <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcement> <http://www.w3.org/2000/01/rdf-schema#label> "has-announcement" .
+<http://rdf.myexperiment.org/ontologies/base/is-current-version> <http://www.w3.org/2000/01/rdf-schema#comment> "A User's interests" .
+_:Bab97682bX2Dee0eX2D4890X2D8b88X2Dc0f2245c60ea <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Membership> <http://www.w3.org/2000/01/rdf-schema#comment> "A Membership of a User to a Group" .
+<http://rdf.myexperiment.org/ontologies/base/has-friendship> <http://www.w3.org/2000/01/rdf-schema#label> "has-friendship" .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#label> "Contribution" .
+<http://rdf.myexperiment.org/ontologies/base/request-token> <http://www.w3.org/2000/01/rdf-schema#label> "request-token" .
+<http://rdf.myexperiment.org/ontologies/base/request-token> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/content-url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/read-at> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/field> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/from> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdfs.org/sioc/ns#name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/Version> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Interface> .
+<http://purl.org/dc/terms/identifier> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B1f437a1bX2Dfd64X2D4b0fX2Dbf29X2Db700e745e31b <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/contact-details> <http://www.w3.org/2000/01/rdf-schema#label> "contact-details" .
+_:B7fdba0f3X2D6195X2D4c88X2Db897X2D1a9a3ed47167 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B74b4dcb7X2D502dX2D4e24X2Da95bX2Dfb9513a08147 .
+<http://rdf.myexperiment.org/ontologies/base/has-requester> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/field> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/Friendship> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/text> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/last-seen-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/reply-to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://web.resource.org/cc/permits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/2000/01/rdf-schema#comment> "An Annotation has User as annotator" .
+<http://rdf.myexperiment.org/ontologies/base/has-accepter> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Actor> .
+<http://rdf.myexperiment.org/ontologies/base/Version> <http://www.w3.org/2000/01/rdf-schema#label> "Version" .
+_:Bde75b1f3X2D3e25X2D469dX2D893fX2Dc5bcb0a33b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bb64bb73dX2D4a90X2D410aX2DbbfdX2D0a95d5b859cf <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/username> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Announcement> .
+<http://rdf.myexperiment.org/ontologies/base/has-content-type> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/ContentType> .
+_:B11bfb6deX2Db56eX2D42ceX2Da986X2Da41998ad0303 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdfs.org/sioc/ns#owner_of> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdfs.org/sioc/ns#has_owner> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B51023f8bX2D995eX2D4834X2D8e3aX2Df9d684703a67 .
+<http://rdf.myexperiment.org/ontologies/base/organisation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bcd18785eX2D01bbX2D4804X2Db289X2D55da6c6a3432 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B055f0ba8X2D38e7X2D4da2X2D921dX2Da3ffafb68861 <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B320dcbfcX2D1f39X2D4587X2Dac95X2D2664a49bb9c3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/activated-at> <http://www.w3.org/2000/01/rdf-schema#label> "activated-at" .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/organisation> <http://www.w3.org/2000/01/rdf-schema#comment> "A User is part of an organisation" .
+_:B86669d9fX2De05aX2D45d9X2DaacfX2Dbb3ee4ba342e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/unconfirmed-email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/has-version> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Version> .
+<http://xmlns.com/foaf/0.1/based_near> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdfs.org/sioc/ns#owner_of> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/dc/terms/Agent> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/receive-notifications> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+_:B3bbeabf0X2D23d2X2D42cfX2D9101X2Ddc21bace20ad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B16ea11a5X2D5a9dX2D4726X2D9ca9X2D5237033dcc46 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B09e65c56X2D87abX2D4509X2Db658X2D723571617c9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2000/01/rdf-schema#comment> "A Message sent between two Users" .
+_:B09e65c56X2D87abX2D4509X2Db658X2D723571617c9d <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/title> .
+<http://rdf.myexperiment.org/ontologies/base/username> <http://www.w3.org/2000/01/rdf-schema#label> "username" .
+_:Bc9c7e646X2D295dX2D4153X2D97a5X2D63e3075f65ba <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:Bc2741735X2Dbd66X2D4068X2Dac7dX2D4ba7a68a07ea <http://www.w3.org/2002/07/owl#onProperty> <http://web.resource.org/cc/prohibits> .
+<http://rdf.myexperiment.org/ontologies/base/has-policy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B97f6b788X2D66f4X2D4be2X2Daa57X2D59d38d01ba9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/accepted-at> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/ContentType> <http://www.w3.org/2000/01/rdf-schema#label> "ContentType" .
+<http://rdf.myexperiment.org/ontologies/base/> <http://purl.org/dc/elements/1.1/format> "rdf/xml" .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+<http://rdf.myexperiment.org/ontologies/base/has-policy> <http://www.w3.org/2000/01/rdf-schema#comment> "A Contribution has a Policy for access rights management" .
+_:B93243f49X2Dd619X2D47e9X2D9e71X2D64bc9af250cd <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7c9fccebX2Dbd33X2D40fbX2DadfbX2Dab2358f46c5e .
+<http://rdf.myexperiment.org/ontologies/base/subject> <http://www.w3.org/2000/01/rdf-schema#comment> "A Message has a subject" .
+<http://rdf.myexperiment.org/ontologies/base/field> <http://www.w3.org/2000/01/rdf-schema#comment> "A User works in a field" .
+<http://rdf.myexperiment.org/ontologies/base/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> <http://www.w3.org/2000/01/rdf-schema#comment> "A FriendshipInvitation to an external email address" .
+<http://rdf.myexperiment.org/ontologies/base/has-shared-item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/username> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/membership-policy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/has-friendship> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bb5d839e4X2Dc797X2D4195X2Da9e6X2D471784e78503 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bfac13a73X2D8b5eX2D4c17X2D8b5bX2D8aa67adf3439 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Annotatable> .
+<http://rdf.myexperiment.org/ontologies/base/has-friendship> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/Friendship> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Invitation> .
+<http://rdf.myexperiment.org/ontologies/base/count> <http://www.w3.org/2000/01/rdf-schema#comment> "Certain Annotations may be a count of something" .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/interests> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://purl.org/dc/elements/1.1/language> "en" .
+<http://rdf.myexperiment.org/ontologies/base/version-number> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://xmlns.com/foaf/0.1/knows> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B3bbeabf0X2D23d2X2D42cfX2D9101X2Ddc21bace20ad <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/modified> .
+_:B1cd4b0e3X2D8c4bX2D4541X2Da1bcX2Dd5bb9b10c36b <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/description> .
+<http://rdf.myexperiment.org/ontologies/base/ContentType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#label> "Request" .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/revision-comments> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/2000/01/rdf-schema#comment> "An Annotation is associated with a particular Contribution" .
+<http://rdfs.org/sioc/ns#has_owner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Be42c5511X2Dced3X2D4208X2D855dX2D589ee64631f9 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/openid-url> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+_:B94c8f2b8X2D297aX2D4e95X2Dbd17X2D1b72aa4bca59 <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb5d839e4X2Dc797X2D4195X2Da9e6X2D471784e78503 .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Group> .
+<http://rdfs.org/sioc/ns#has_member> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B7c9fccebX2Dbd33X2D40fbX2DadfbX2Dab2358f46c5e <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-requester> .
+_:Be42c5511X2Dced3X2D4208X2D855dX2D589ee64631f9 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/created> .
+_:Bccff97e3X2Db455X2D41d7X2Db28bX2Dedf3706cf474 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/has-content-type> <http://www.w3.org/2000/01/rdf-schema#comment> "An Upload has a ContentType" .
+<http://rdf.myexperiment.org/ontologies/base/public-announcement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+_:B8d567c1cX2D51d9X2D40d7X2D8150X2D3759b069cf18 <http://www.w3.org/2002/07/owl#onProperty> <http://xmlns.com/foaf/0.1/homepage> .
+_:B207cb50cX2D78b3X2D42b0X2Dacc7X2Defba9f6d583c <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#has_owner> .
+<http://rdf.myexperiment.org/ontologies/base/has-accepter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/interests> <http://www.w3.org/2000/01/rdf-schema#comment> "A User's interests" .
+<http://rdf.myexperiment.org/ontologies/base/Membership> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/has-version> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/contact-details> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdfs.org/sioc/ns#has_owner> .
+_:B377b7d51X2Df303X2D4ad2X2D8d92X2D54bd6f970d49 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2000/01/rdf-schema#label> "Group" .
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/interests> <http://www.w3.org/2000/01/rdf-schema#label> "interests" .
+<http://rdf.myexperiment.org/ontologies/base/Annotatable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/2000/01/rdf-schema#label> "has-announcer" .
+<http://rdf.myexperiment.org/ontologies/base/has-requester> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Actor> .
+_:B51023f8bX2D995eX2D4834X2D8e3aX2Df9d684703a67 <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#name> .
+<http://rdf.myexperiment.org/ontologies/base/subject> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2000/01/rdf-schema#comment> "An Annotation of a Annotatable object" .
+_:B377b7d51X2Df303X2D4ad2X2D8d92X2D54bd6f970d49 <http://www.w3.org/2002/07/owl#onProperty> <http://xmlns.com/foaf/0.1/mbox_sha1sum> .
+<http://rdf.myexperiment.org/ontologies/base/from> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-sender> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://rdf.myexperiment.org/ontologies/base/last-seen-at> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://rdf.myexperiment.org/ontologies/base/has-requester> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B4ec2fdf0X2D7b7dX2D4edeX2D86c8X2D279e343c254f <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/membership-policy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Group> .
+<http://rdf.myexperiment.org/ontologies/base/uri> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bd07e6ba3X2D9f99X2D4d54X2D9f6fX2D99a704233845 .
+<http://rdf.myexperiment.org/ontologies/base/field> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/text> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B921b00c0X2D46a3X2D47faX2Dad3cX2D2eb95399eb2b <http://www.w3.org/2002/07/owl#onProperty> <http://web.resource.org/cc/requires> .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-sender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B6a6b7f4bX2D187fX2D4d1aX2D8199X2Db89e3b98e6aa <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/activated-at> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/count> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:Bccff97e3X2Db455X2D41d7X2Db28bX2Dedf3706cf474 <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/public-announcement> .
+<http://rdf.myexperiment.org/ontologies/base/request-token> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcement> <http://www.w3.org/2000/01/rdf-schema#comment> "Groups may have GroupAnnouncements" .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/2000/01/rdf-schema#comment> "A User may be friends with another User" .
+<http://rdf.myexperiment.org/ontologies/base/has-version> <http://www.w3.org/2000/01/rdf-schema#comment> "A Versionable object has at least one version" .
+<http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Invitation> .
+<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at> <http://www.w3.org/2000/01/rdf-schema#comment> "An email is confirmed at a certain dateTime" .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/unconfirmed-email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bddbf84bbX2Dd38bX2D4bd8X2D8855X2Db6b047349dd4 .
+<http://rdf.myexperiment.org/ontologies/base/Annotatable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Interface> .
+<http://rdf.myexperiment.org/ontologies/base/country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Be9fb845aX2D144cX2D4692X2D8848X2D4d804c1cc89e .
+<http://rdf.myexperiment.org/ontologies/base/has-policy> <http://www.w3.org/2000/01/rdf-schema#label> "has-policy" .
+<http://rdf.myexperiment.org/ontologies/base/filename> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/from> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> <http://www.w3.org/2000/01/rdf-schema#label> "GroupAnnouncement" .
+<http://rdf.myexperiment.org/ontologies/base/announced-to> <http://www.w3.org/2000/01/rdf-schema#comment> "The Group a GroupAnnouncement has been announced to" .
+_:B6a6b7f4bX2D187fX2D4d1aX2D8199X2Db89e3b98e6aa <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/announced-to> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B770d72c8X2D34b7X2D4107X2D9359X2D9cd22f35d07a .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Friendship> .
+<http://rdf.myexperiment.org/ontologies/base/reply-to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B055f0ba8X2D38e7X2D4da2X2D921dX2Da3ffafb68861 <http://www.w3.org/2002/07/owl#onProperty> <http://dbpedia.org/ontology/residence> .
+_:B4eb72f1cX2De007X2D41a0X2D98b2X2Dbb046d060f46 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Interface> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B1f437a1bX2Dfd64X2D4b0fX2Dbf29X2Db700e745e31b .
+<http://purl.org/dc/terms/description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/has-version> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Versionable> .
+<http://purl.org/dc/terms/hasVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B921b00c0X2D46a3X2D47faX2Dad3cX2D2eb95399eb2b .
+<http://rdf.myexperiment.org/ontologies/base/receive-notifications> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://rdfs.org/sioc/ns#has_owner> .
+<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Membership> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Friendship> .
+_:B7fdba0f3X2D6195X2D4c88X2Db897X2D1a9a3ed47167 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Actor> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://web.resource.org/cc/requires> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/knows> .
+<http://rdf.myexperiment.org/ontologies/base/request-token> <http://www.w3.org/2000/01/rdf-schema#comment> "Requests may have a request-token as a string" .
+_:Bbd9ececdX2D396cX2D4a8cX2D9833X2Db3c3307aaa7d <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#has_owner> .
+_:Bcd18785eX2D01bbX2D4804X2Db289X2D55da6c6a3432 <http://www.w3.org/2002/07/owl#onProperty> <http://xmlns.com/foaf/0.1/mbox_sha1sum> .
+<http://rdf.myexperiment.org/ontologies/base/receive-notifications> <http://www.w3.org/2000/01/rdf-schema#comment> "Does the user receive-notifications" .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B8d567c1cX2D51d9X2D40d7X2D8150X2D3759b069cf18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#comment> "An object that is contributed by a User" .
+<http://rdf.myexperiment.org/ontologies/base/announced-to> <http://www.w3.org/2000/01/rdf-schema#label> "announced-to" .
+_:B86669d9fX2De05aX2D45d9X2DaacfX2Dbb3ee4ba342e <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/username> <http://www.w3.org/2000/01/rdf-schema#comment> "A User may have a username represented as a string" .
+<http://rdf.myexperiment.org/ontologies/base/has-content-type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#label> "Announcement" .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-recipient> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:B7e655184X2Dcb73X2D4c06X2Db9dfX2D967d65f5838c <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-version> .
+_:Bcf8d19d3X2D0ca4X2D49aeX2D9582X2D7770c8bdb5f1 <http://www.w3.org/2002/07/owl#onProperty> <http://rdfs.org/sioc/ns#has_member> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:Bab97682bX2Dee0eX2D4890X2D8b88X2Dc0f2245c60ea <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-content-type> .
+_:B320dcbfcX2D1f39X2D4587X2Dac95X2D2664a49bb9c3 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B86669d9fX2De05aX2D45d9X2DaacfX2Dbb3ee4ba342e <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/text> .
+<http://rdf.myexperiment.org/ontologies/base/Versionable> <http://www.w3.org/2000/01/rdf-schema#label> "Versionable" .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/announced-to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Version> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2000/01/rdf-schema#comment> "A Request could be an external Invitation" .
+_:Bde75b1f3X2D3e25X2D469dX2D893fX2Dc5bcb0a33b11 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/email> <http://www.w3.org/2000/01/rdf-schema#label> "email" .
+<http://rdf.myexperiment.org/ontologies/base/openid-url> <http://www.w3.org/2000/01/rdf-schema#comment> "A User may have an openid-url represented as a uri" .
+<http://rdf.myexperiment.org/ontologies/base/read-at> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/last-seen-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Membership> <http://www.w3.org/2000/01/rdf-schema#label> "Membership" .
+<http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Invitation> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Announcement> .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/has-current-version> <http://www.w3.org/2000/01/rdf-schema#comment> "A Versionable object has a current version" .
+<http://rdf.myexperiment.org/ontologies/base/subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+_:B8177e0eaX2Ded4aX2D4c6aX2D91c3X2Df26d04579a4e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/to> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/Submission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcement> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdf.myexperiment.org/ontologies/base/announced-to> .
+<http://purl.org/dc/terms/isVersionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-shared-item> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/contact-details> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/occupation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/Submission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Be42c5511X2Dced3X2D4208X2D855dX2D589ee64631f9 .
+_:Bddbf84bbX2Dd38bX2D4bd8X2D8855X2Db6b047349dd4 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Version> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7fdba0f3X2D6195X2D4c88X2Db897X2D1a9a3ed47167 .
+<http://rdf.myexperiment.org/ontologies/base/> <http://purl.org/dc/elements/1.1/title> "The myExperiment Base Ontology"@en .
+<http://rdfs.org/sioc/ns#Item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/accepted-at> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+_:Beec974f1X2Dff16X2D4448X2Dbae3X2Dffa026bae958 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/created> .
+<http://rdf.myexperiment.org/ontologies/base/content-url> <http://www.w3.org/2000/01/rdf-schema#label> "content-url" .
+<http://rdf.myexperiment.org/ontologies/base/Versionable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Beec974f1X2Dff16X2D4448X2Dbae3X2Dffa026bae958 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/dc/elements/1.1/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Interface> <http://www.w3.org/2000/01/rdf-schema#label> "Interface" .
+<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> <http://www.w3.org/2000/01/rdf-schema#comment> "An Announcement to a Group" .
+<http://rdf.myexperiment.org/ontologies/base/membership-policy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/read-at> <http://www.w3.org/2000/01/rdf-schema#label> "read-at" .
+<http://rdf.myexperiment.org/ontologies/base/last-seen-at> <http://www.w3.org/2000/01/rdf-schema#label> "last-seen-at" .
+<http://rdf.myexperiment.org/ontologies/base/country> <http://www.w3.org/2000/01/rdf-schema#label> "country" .
+<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/openid-url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Annotatable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc9c7e646X2D295dX2D4153X2D97a5X2D63e3075f65ba .
+<http://rdf.myexperiment.org/ontologies/base/announced-to> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Group> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Group> .
+<http://rdf.myexperiment.org/ontologies/base/to> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/username> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B7a9ef888X2Db63eX2D4d64X2Db85cX2D3b7b46ae6136 <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/version-number> .
+_:B921b00c0X2D46a3X2D47faX2Dad3cX2D2eb95399eb2b <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B055f0ba8X2D38e7X2D4da2X2D921dX2Da3ffafb68861 .
+<http://rdf.myexperiment.org/ontologies/base/interests> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bd07e6ba3X2D9f99X2D4d54X2D9f6fX2D99a704233845 <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/content-url> .
+_:B7a9ef888X2Db63eX2D4d64X2Db85cX2D3b7b46ae6136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://rdf.myexperiment.org/ontologies/base/organisation> <http://www.w3.org/2000/01/rdf-schema#label> "organisation" .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B8d567c1cX2D51d9X2D40d7X2D8150X2D3759b069cf18 .
+_:Bcf8d19d3X2D0ca4X2D49aeX2D9582X2D7770c8bdb5f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/dc/terms/type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/to> <http://www.w3.org/2000/01/rdf-schema#label> "to" .
+<http://rdf.myexperiment.org/ontologies/base/revision-comments> <http://www.w3.org/2000/01/rdf-schema#comment> "Comments may be associated with a particular Version of something" .
+<http://rdf.myexperiment.org/ontologies/base/has-current-version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B377b7d51X2Df303X2D4ad2X2D8d92X2D54bd6f970d49 .
+<http://rdf.myexperiment.org/ontologies/base/revision-comments> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://web.resource.org/cc/prohibits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B51023f8bX2D995eX2D4834X2D8e3aX2Df9d684703a67 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/has-friendship> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Friendship> .
+_:B09541d52X2D1cbbX2D40a4X2D9a9fX2D78e81ce8e112 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/occupation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B7c9fccebX2Dbd33X2D40fbX2DadfbX2Dab2358f46c5e <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B7e655184X2Dcb73X2D4c06X2Db9dfX2D967d65f5838c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/accepted-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bb64bb73dX2D4a90X2D410aX2DbbfdX2D0a95d5b859cf <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bcd18785eX2D01bbX2D4804X2Db289X2D55da6c6a3432 .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B94c8f2b8X2D297aX2D4e95X2Dbd17X2D1b72aa4bca59 .
+<http://rdf.myexperiment.org/ontologies/base/email> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/subject> <http://www.w3.org/2000/01/rdf-schema#label> "subject" .
+<http://rdf.myexperiment.org/ontologies/base/has-accepter> <http://www.w3.org/2000/01/rdf-schema#label> "has-accepter" .
+<http://rdf.myexperiment.org/ontologies/base/version-number> <http://www.w3.org/2000/01/rdf-schema#label> "version-number" .
+_:Bbd9ececdX2D396cX2D4a8cX2D9833X2Db3c3307aaa7d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-accepter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B8d567c1cX2D51d9X2D40d7X2D8150X2D3759b069cf18 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bc9c7e646X2D295dX2D4153X2D97a5X2D63e3075f65ba <http://www.w3.org/2002/07/owl#onProperty> <http://rdf.myexperiment.org/ontologies/base/has-annotation> .
+<http://rdf.myexperiment.org/ontologies/base/from> <http://www.w3.org/2000/01/rdf-schema#label> "from" .
+<http://rdf.myexperiment.org/ontologies/base/has-accepter> <http://www.w3.org/2000/01/rdf-schema#comment> "A Request must have an accepter that can accept" .
+<http://rdf.myexperiment.org/ontologies/base/request-token> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/base/last-seen-at> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:Ba92fe008X2D1a59X2D42e0X2Da650X2Dd73f3ba19576 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/modified> .
+<http://rdf.myexperiment.org/ontologies/base/reply-to> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-sender> <http://www.w3.org/2000/01/rdf-schema#label> "deleted-by-sender" .
+<http://rdf.myexperiment.org/ontologies/base/read-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B93243f49X2Dd619X2D47e9X2D9e71X2D64bc9af250cd <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/is-friends-with> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Friendship> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/request-token> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Request> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://purl.org/dc/elements/1.1/publisher> <http://rdf.myexperiment.org> .
+<http://rdf.myexperiment.org/ontologies/base/Annotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/ContentType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Contribution> .
+_:Be9fb845aX2D144cX2D4692X2D8848X2D4d804c1cc89e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/> <http://www.w3.org/2002/07/owl#imports> <http://rdf.myexperiment.org/ontologies/snarm/> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-recipient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/has-membership> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-recipient> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://rdfs.org/sioc/ns#member_of> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdfs.org/sioc/ns#has_member> .
+<http://rdf.myexperiment.org/ontologies/base/text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Versionable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7e655184X2Dcb73X2D4c06X2Db9dfX2D967d65f5838c .
+<http://purl.org/dc/terms/hasVersion> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/dc/terms/isVersionOf> .
+_:B16ea11a5X2D5a9dX2D4726X2D9ca9X2D5237033dcc46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/has-membership> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/unconfirmed-email> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdfs.org/sioc/ns#avatar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bcf8d19d3X2D0ca4X2D49aeX2D9582X2D7770c8bdb5f1 .
+<http://rdf.myexperiment.org/ontologies/base/last-seen-at> <http://www.w3.org/2000/01/rdf-schema#comment> "The last time a User was seen" .
+<http://rdf.myexperiment.org/ontologies/base/organisation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B09e65c56X2D87abX2D4509X2Db658X2D723571617c9d .
+<http://rdf.myexperiment.org/ontologies/base/has-annotator> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdf.myexperiment.org/ontologies/base/annotator-of> .
+<http://rdf.myexperiment.org/ontologies/base/accepted-at> <http://www.w3.org/2000/01/rdf-schema#label> "accepted-at" .
+_:Bc2741735X2Dbd66X2D4068X2Dac7dX2D4ba7a68a07ea <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/contact-details> <http://www.w3.org/2000/01/rdf-schema#comment> "A User has contact-details" .
+<http://rdf.myexperiment.org/ontologies/base/Actor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bec6ae89dX2D0b3fX2D4711X2D801aX2De3496cf6518b .
+<http://rdf.myexperiment.org/ontologies/base/Upload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bab97682bX2Dee0eX2D4890X2D8b88X2Dc0f2245c60ea .
+<http://rdf.myexperiment.org/ontologies/base/has-current-version> <http://www.w3.org/2000/01/rdf-schema#label> "has-current-version" .
+_:Bb5d839e4X2Dc797X2D4195X2Da9e6X2D471784e78503 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bfac13a73X2D8b5eX2D4c17X2D8b5bX2D8aa67adf3439 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Invitation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/annotates> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdf.myexperiment.org/ontologies/base/has-annotation> .
+<http://rdf.myexperiment.org/ontologies/base/receive-notifications> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Request> <http://www.w3.org/2000/01/rdf-schema#comment> "A Request can be made by an Actor to another Actor" .
+<http://rdf.myexperiment.org/ontologies/base/Announcement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3bbeabf0X2D23d2X2D42cfX2D9101X2Ddc21bace20ad .
+<http://rdf.myexperiment.org/ontologies/base/country> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://xmlns.com/foaf/0.1/mbox_sha1sum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Annotation> .
+<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/uri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/receive-notifications> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://rdf.myexperiment.org/ontologies/base/has-requester> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/from> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/reply-to> <http://www.w3.org/2000/01/rdf-schema#range> <http://rdf.myexperiment.org/ontologies/base/Message> .
+<http://rdf.myexperiment.org/ontologies/base/FriendshipInvitation> <http://www.w3.org/2000/01/rdf-schema#label> "FriendshipInvitation" .
+<http://rdf.myexperiment.org/ontologies/base/Membership> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/announced-to> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/content-url> <http://www.w3.org/2000/01/rdf-schema#comment> "An Upload has content at a URL" .
+<http://xmlns.com/foaf/0.1/based_near> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/country> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/User> .
+<http://rdf.myexperiment.org/ontologies/base/activated-at> <http://www.w3.org/2000/01/rdf-schema#comment> "A User account is a activated-at certain dateTime" .
+<http://rdf.myexperiment.org/ontologies/base/email-confirmed-at> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/dc/terms/created> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://rdf.myexperiment.org/ontologies/base/Versionable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Interface> .
+<http://rdf.myexperiment.org/ontologies/base/filename> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+_:Bb3976c0bX2D4f2fX2D4946X2Dbd83X2Ddac2931e6dfe <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bec6ae89dX2D0b3fX2D4711X2D801aX2De3496cf6518b <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://rdf.myexperiment.org/ontologies/base/Group> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/has-announcer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Ba92fe008X2D1a59X2D42e0X2Da650X2Dd73f3ba19576 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/organisation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://rdf.myexperiment.org/ontologies/snarm/Policy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#comment> "A License under which an Upload is licensed under" .
+<http://rdf.myexperiment.org/ontologies/base/annotator-of> <http://www.w3.org/2002/07/owl#inverseOf> <http://rdf.myexperiment.org/ontologies/base/has-annotator> .
+_:Be9fb845aX2D144cX2D4692X2D8848X2D4d804c1cc89e <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/dc/terms/modified> .
+<http://rdf.myexperiment.org/ontologies/base/User> <http://www.w3.org/2002/07/owl#equivalentClass> <http://rdfs.org/sioc/ns#UserAccount> .
+<http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6a6b7f4bX2D187fX2D4d1aX2D8199X2Db89e3b98e6aa .
+<http://rdf.myexperiment.org/ontologies/base/Contribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbd9ececdX2D396cX2D4a8cX2D9833X2Db3c3307aaa7d .
+<http://rdf.myexperiment.org/ontologies/base/email> <http://www.w3.org/2000/01/rdf-schema#comment> "A User has an email address" .
+<http://rdf.myexperiment.org/ontologies/base/read-at> <http://www.w3.org/2000/01/rdf-schema#comment> "A Message is a read-at a particular dateTime" .
+<http://rdfs.org/sioc/ns#member_of> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://rdf.myexperiment.org/ontologies/base/MembershipInvitation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://rdf.myexperiment.org/ontologies/base/count> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/Friendship> <http://www.w3.org/2002/07/owl#disjointWith> <http://rdf.myexperiment.org/ontologies/base/Membership> .
+<http://rdf.myexperiment.org/ontologies/base/activated-at> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://rdf.myexperiment.org/ontologies/base/field> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B94c8f2b8X2D297aX2D4e95X2Dbd17X2D1b72aa4bca59 <http://www.w3.org/2002/07/owl#onProperty> <http://web.resource.org/cc/permits> .
+_:B207cb50cX2D78b3X2D42b0X2Dacc7X2Defba9f6d583c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/country> <http://www.w3.org/2000/01/rdf-schema#comment> "A User is based in a country" .
+<http://rdf.myexperiment.org/ontologies/base/deleted-by-sender> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://rdf.myexperiment.org/ontologies/base/> .
+<http://rdf.myexperiment.org/ontologies/base/filename> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/Upload> .
+_:B055f0ba8X2D38e7X2D4da2X2D921dX2Da3ffafb68861 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://rdf.myexperiment.org/ontologies/base/Message> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdf.myexperiment.org/ontologies/base/Submission> .
+<http://rdf.myexperiment.org/ontologies/base/read-at> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/dc/terms/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdfs.org/sioc/ns#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://rdf.myexperiment.org/ontologies/base/License> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B09541d52X2D1cbbX2D40a4X2D9a9fX2D78e81ce8e112 .
+<http://rdf.myexperiment.org/ontologies/base/public-announcement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdf.myexperiment.org/ontologies/base/GroupAnnouncement> .

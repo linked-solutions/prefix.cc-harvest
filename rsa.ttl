@@ -1,91 +1,47 @@
-<http://www.w3.org/ns/auth/rsa>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "ontology for the RSA public private keys "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://en.wikipedia.org/wiki/RSA> , <http://www.w3.org/ns/auth/X509Uml.svg> , <http://lists.foaf-project.org/mailman/listinfo/foaf-protocols> ;
-        <http://purl.org/dc/terms/contributor>
-                [ <http://xmlns.com/foaf/0.1/homepage>
-                          <http://ii.uwb.edu.pl/~dtomaszuk/card> ] ;
-        <http://purl.org/dc/terms/created>
-                "2008-11-13"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" ;
-        <http://xmlns.com/foaf/0.1/maker>
-                <http://bblfish.net/people/henry/card#me> .
-
-<http://www.w3.org/ns/auth/rsa#RSAPublicKey>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n    The RSA public key.  Padded message m are encrypted by applying the function\n      modulus(power(m,exponent),modulus)\n    "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "RSA Public Key"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://en.wikipedia.org/wiki/RSA> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/auth/rsa#RSAKey> , <http://www.w3.org/ns/auth/cert#PublicKey> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" .
-
-<http://www.w3.org/ns/auth/rsa#private_exponent>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n       The exponent used to decrypt the message\n       calculated as \n          public_exponent*private_exponent = 1 modulo totient(p*q)\n       The private exponent is often named 'd'\n    "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/auth/rsa#RSAPrivateKey> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "private"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/auth/cert#int> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" .
-
-<http://www.w3.org/ns/auth/rsa#RSAKey>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n    The union of the public and private components of an RSAKey.\n    Usually those pieces are not kept together\n    "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "RSA Key"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/auth/cert#Key> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" .
-
-<http://www.w3.org/ns/auth/rsa#modulus>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "    \n   The modulus of an RSA public and private key. \n   This is defined as n = p*q\n   "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/auth/rsa#RSAKey> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "modulus"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/auth/cert#int> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" .
-
-<http://www.w3.org/ns/auth/rsa#public_exponent>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n       The exponent used to encrypt the message. Number chosen between\n       1 and the totient(p*q). Often named 'e' .\n    "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/auth/rsa#RSAPublicKey> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "public_exponent"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/auth/cert#int> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" .
-
-<http://www.w3.org/ns/auth/rsa#RSAPrivateKey>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n    A Private Key in the RSA framework \n    "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "RSA Private Key"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://en.wikipedia.org/wiki/RSA> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/auth/cert#PrivateKey> , <http://www.w3.org/ns/auth/rsa#RSAKey> ;
-        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status>
-                "unstable" .
+<http://www.w3.org/ns/auth/rsa> <http://xmlns.com/foaf/0.1/maker> <http://bblfish.net/people/henry/card#me> .
+<http://www.w3.org/ns/auth/rsa#RSAPublicKey> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/auth/rsa#RSAKey> .
+<http://www.w3.org/ns/auth/rsa#private_exponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/auth/rsa#RSAKey> <http://www.w3.org/2000/01/rdf-schema#comment> "\n    The union of the public and private components of an RSAKey.\n    Usually those pieces are not kept together\n    "@en .
+<http://www.w3.org/ns/auth/rsa#RSAPublicKey> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/auth/cert#PublicKey> .
+<http://www.w3.org/ns/auth/rsa#modulus> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/auth/rsa#RSAKey> .
+<http://www.w3.org/ns/auth/rsa#private_exponent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/auth/cert#int> .
+<http://www.w3.org/ns/auth/rsa#private_exponent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/auth/rsa#RSAPrivateKey> .
+<http://www.w3.org/ns/auth/rsa> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://en.wikipedia.org/wiki/RSA> .
+<http://www.w3.org/ns/auth/rsa#RSAKey> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/auth/rsa#modulus> <http://www.w3.org/2000/01/rdf-schema#comment> "    \n   The modulus of an RSA public and private key. \n   This is defined as n = p*q\n   "@en .
+<http://www.w3.org/ns/auth/rsa#public_exponent> <http://www.w3.org/2000/01/rdf-schema#comment> "\n       The exponent used to encrypt the message. Number chosen between\n       1 and the totient(p*q). Often named 'e' .\n    "@en .
+_:B83a74783X2D2702X2D40eeX2Daba3X2Da677c414615d <http://xmlns.com/foaf/0.1/homepage> <http://ii.uwb.edu.pl/~dtomaszuk/card> .
+<http://www.w3.org/ns/auth/rsa#public_exponent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/auth/cert#int> .
+<http://www.w3.org/ns/auth/rsa#RSAPrivateKey> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/auth/rsa#RSAPublicKey> <http://www.w3.org/2000/01/rdf-schema#comment> "\n    The RSA public key.  Padded message m are encrypted by applying the function\n      modulus(power(m,exponent),modulus)\n    "@en .
+<http://www.w3.org/ns/auth/rsa#RSAPrivateKey> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://en.wikipedia.org/wiki/RSA> .
+<http://www.w3.org/ns/auth/rsa#modulus> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://www.w3.org/ns/auth/rsa#RSAKey> <http://www.w3.org/2000/01/rdf-schema#label> "RSA Key"@en .
+<http://www.w3.org/ns/auth/rsa#public_exponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/auth/rsa#RSAPrivateKey> <http://www.w3.org/2000/01/rdf-schema#comment> "\n    A Private Key in the RSA framework \n    "@en .
+<http://www.w3.org/ns/auth/rsa#RSAPrivateKey> <http://www.w3.org/2000/01/rdf-schema#label> "RSA Private Key"@en .
+<http://www.w3.org/ns/auth/rsa#RSAPublicKey> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://www.w3.org/ns/auth/rsa#RSAPublicKey> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://en.wikipedia.org/wiki/RSA> .
+<http://www.w3.org/ns/auth/rsa#RSAPublicKey> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/auth/rsa#RSAKey> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/auth/cert#Key> .
+<http://www.w3.org/ns/auth/rsa#RSAPrivateKey> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://www.w3.org/ns/auth/rsa#modulus> <http://www.w3.org/2000/01/rdf-schema#label> "modulus"@en .
+<http://www.w3.org/ns/auth/rsa> <http://purl.org/dc/terms/contributor> _:B83a74783X2D2702X2D40eeX2Daba3X2Da677c414615d .
+<http://www.w3.org/ns/auth/rsa#private_exponent> <http://www.w3.org/2000/01/rdf-schema#label> "private"@en .
+<http://www.w3.org/ns/auth/rsa> <http://purl.org/dc/terms/created> "2008-11-13"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.w3.org/ns/auth/rsa> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://www.w3.org/ns/auth/rsa#public_exponent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/auth/rsa#RSAPublicKey> .
+<http://www.w3.org/ns/auth/rsa> <http://www.w3.org/2000/01/rdf-schema#comment> "ontology for the RSA public private keys "@en .
+<http://www.w3.org/ns/auth/rsa#RSAKey> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://www.w3.org/ns/auth/rsa#private_exponent> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://www.w3.org/ns/auth/rsa#modulus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/auth/rsa#RSAPrivateKey> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/auth/cert#PrivateKey> .
+<http://www.w3.org/ns/auth/rsa#public_exponent> <http://www.w3.org/2000/01/rdf-schema#label> "public_exponent"@en .
+<http://www.w3.org/ns/auth/rsa#public_exponent> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://www.w3.org/ns/auth/rsa#modulus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/auth/cert#int> .
+<http://www.w3.org/ns/auth/rsa#private_exponent> <http://www.w3.org/2000/01/rdf-schema#comment> "\n       The exponent used to decrypt the message\n       calculated as \n          public_exponent*private_exponent = 1 modulo totient(p*q)\n       The private exponent is often named 'd'\n    "@en .
+<http://www.w3.org/ns/auth/rsa#RSAPublicKey> <http://www.w3.org/2000/01/rdf-schema#label> "RSA Public Key"@en .
+<http://www.w3.org/ns/auth/rsa> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/ns/auth/X509Uml.svg> .
+<http://www.w3.org/ns/auth/rsa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.w3.org/ns/auth/rsa> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://lists.foaf-project.org/mailman/listinfo/foaf-protocols> .
+<http://www.w3.org/ns/auth/rsa#RSAPrivateKey> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/auth/rsa#RSAKey> .

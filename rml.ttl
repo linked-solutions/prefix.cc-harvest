@@ -1,250 +1,128 @@
-<http://www.w3.org/ns/r2rml#predicate>
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( <http://www.w3.org/ns/r2rml#PredicateMap>
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                                      "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                              <http://www.w3.org/2002/07/owl#onDataRange>
-                                      <http://www.w3.org/2001/XMLSchema#string> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://semweb.mmlab.be/ns/rml#reference>
-                            ]
-                          )
-                ] .
-
-<http://semweb.mmlab.be/ns/rml#iterator>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an expression qualified according to the reference formulation specified for pointing to an extract of the source data. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "iterator" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://semweb.mmlab.be/ns/rml#version>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "It defines the version of the reference Formulation used. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "version" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://semweb.mmlab.be/ns/rml#TriplesMap>
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents a triples map."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://semweb.mmlab.be/ns/rml#LogicalSource> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://semweb.mmlab.be/ns/rml#logicalSource>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://semweb.mmlab.be/ns/rml#SubjectMap> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://semweb.mmlab.be/ns/rml#subjectMap> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://semweb.mmlab.be/ns/ql#CSV>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Denotes that the CSV file's column names are used for referring to extracts of CSV resources."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "CSV" ;
-        <http://semweb.mmlab.be/ns/ql#specification>
-                <http://tools.ietf.org/html/rfc4180> .
-
-<http://semweb.mmlab.be/ns/rml#logicalSource>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents the logical source to be mapped. This can be a pointer to any dataset."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/r2rml#TriplesMap> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "logical source" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> .
-
-<http://semweb.mmlab.be/ns/rml#BaseSource>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Base Source" , "Represents a base source."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Base Source" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> .
-
-<http://semweb.mmlab.be/ns/rml#reference>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A valid expression that selects values from the source data. The reference should confront to the syntax rules/grammar of the specified Reference Formulation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/r2rml#TermMap> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "reference" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://semweb.mmlab.be/ns/rml#query>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A valid query."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> .
-
-<http://www.w3.org/ns/r2rml#LogicalTable>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> .
-
-<http://semweb.mmlab.be/ns/rml#source>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "qualified name of the source data."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "source" .
-
-<http://semweb.mmlab.be/ns/ql#XPath>
-        a       <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Denotes the XPath reference formulation, used for referring to extracts of XML sources."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "XPath" ;
-        <http://semweb.mmlab.be/ns/ql#specification>
-                <http://www.w3.org/TR/xpath20/> ;
-        <http://semweb.mmlab.be/ns/rml#version>
-                "2.0" .
-
-<http://www.w3.org/ns/r2rml#object>
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( <http://www.w3.org/ns/r2rml#ObjectMap>
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                                      "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                              <http://www.w3.org/2002/07/owl#onDataRange>
-                                      <http://www.w3.org/2001/XMLSchema#string> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://semweb.mmlab.be/ns/rml#reference>
-                            ]
-                          )
-                ] .
-
-<http://semweb.mmlab.be/ns/rml>
-        a       <http://purl.org/vocommons/voaf#Vocabulary> , <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://creativecommons.org/ns#license>
-                <http://creativecommons.org/licenses/by/3.0/> ;
-        <http://purl.org/dc/elements/1.1/creator>
-                [ <http://xmlns.com/foaf/0.1/name>
-                          "Miel Vander Sande" ] ;
-        <http://purl.org/dc/elements/1.1/creator>
-                [ <http://xmlns.com/foaf/0.1/name>
-                          "Anastasia Dimou" ] ;
-        <http://purl.org/dc/elements/1.1/description>
-                "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"@en ;
-        <http://purl.org/dc/elements/1.1/issued>
-                "2013-07-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/elements/1.1/modified>
-                "2014-09-10"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "RML: Generic Mapping Language for RDF"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "rml" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://semweb.mmlab.be/ns/rml#" ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://www.w3.org/ns/r2rml#> .
-
-<http://semweb.mmlab.be/ns/ql#CSS3>
-        a       <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> , <http://www.w3.org/2002/07/owl#NamedIndividual> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Denotes the selectors, namely the patterns that match against elements in a tree and are used in CSS and other thechnolgies to select elements in HTML or XML documents." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Selectors Level 3" ;
-        <http://semweb.mmlab.be/ns/ql#specification>
-                <http://www.w3.org/TR/css3-selectors/> .
-
-<http://semweb.mmlab.be/ns/rml#ReferenceFormulation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents a Reference Formulation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Reference Formulation" .
-
-<http://semweb.mmlab.be/ns/rml#referenceFormulation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The reference formulation used to refer to extracts of the source data. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://semweb.mmlab.be/ns/rml#LogicalSource> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "reference formulation" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> .
-
-<http://www.w3.org/ns/r2rml#sqlQuery>
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://semweb.mmlab.be/ns/rml#query> .
-
-<http://semweb.mmlab.be/ns/ql#JSONPath>
-        a       <http://www.w3.org/2002/07/owl#NamedIndividual> , <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Denotes the JSONPath reference formulation, used for referring to extracts of JSON sources."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "JSONPath" .
-
-<http://www.w3.org/ns/r2rml#tableName>
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://semweb.mmlab.be/ns/rml#source> .
-
-<http://semweb.mmlab.be/ns/rml#LogicalSource>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents a logical source."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Logical Source" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://www.w3.org/ns/r2rml#TriplesMap>
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://semweb.mmlab.be/ns/rml#TriplesMap> .
-
-<http://www.w3.org/ns/r2rml#subject>
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#intersectionOf>
-                          ( <http://www.w3.org/ns/r2rml#SubjectMap>
-                            [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                              <http://www.w3.org/2002/07/owl#maxQualifiedCardinality>
-                                      "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                              <http://www.w3.org/2002/07/owl#onDataRange>
-                                      <http://www.w3.org/2001/XMLSchema#string> ;
-                              <http://www.w3.org/2002/07/owl#onProperty>
-                                      <http://semweb.mmlab.be/ns/rml#reference>
-                            ]
-                          )
-                ] .
-
-<http://www.w3.org/ns/r2rml#column>
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://semweb.mmlab.be/ns/rml#reference> .
-
-<http://www.w3.org/ns/r2rml#sqlVersion>
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://semweb.mmlab.be/ns/rml#version> .
+_:Bfc71ec44d29a7ccb18f17ff2d5cc6772 <http://www.w3.org/2002/07/owl#intersectionOf> _:Bda1e8302X2D3a10X2D470fX2D88a7X2D135bad23e637 .
+<http://semweb.mmlab.be/ns/rml#iterator> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://semweb.mmlab.be/ns/rml#version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B2194c94bd2439835e284eadd903f5eef <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B94a42ab46aa3e2edc74b02fcea7f43d2 <http://xmlns.com/foaf/0.1/name> "Miel Vander Sande" .
+_:B5a70542bX2D1d30X2D447bX2D92aaX2D452a5b1445e6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B8783aa3fb9b8c0c2dab0627ac1e894f4 .
+<http://semweb.mmlab.be/ns/ql#CSV> <http://www.w3.org/2000/01/rdf-schema#comment> "Denotes that the CSV file's column names are used for referring to extracts of CSV resources."@en .
+<http://semweb.mmlab.be/ns/rml#TriplesMap> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a triples map."@en .
+_:B49e719cd7b2ab04feed85ef9fd7a8db2 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/dc/elements/1.1/creator> _:B94a42ab46aa3e2edc74b02fcea7f43d2 .
+<http://semweb.mmlab.be/ns/rml#logicalSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the logical source to be mapped. This can be a pointer to any dataset."@en .
+<http://semweb.mmlab.be/ns/rml#BaseSource> <http://www.w3.org/2000/01/rdf-schema#label> "Base Source" .
+<http://semweb.mmlab.be/ns/rml#reference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B316da6bf68a90d448fb53cbb5eed41a8 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://semweb.mmlab.be/ns/rml#reference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://semweb.mmlab.be/ns/rml#query> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B3a4ff97eX2Ddb2aX2D41bfX2D8c57X2D40e27c767f5c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://semweb.mmlab.be/ns/ql#CSV> <http://semweb.mmlab.be/ns/ql#specification> <http://tools.ietf.org/html/rfc4180> .
+<http://www.w3.org/ns/r2rml#LogicalTable> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/rml#source> <http://www.w3.org/2000/01/rdf-schema#label> "source" .
+<http://semweb.mmlab.be/ns/rml#iterator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://semweb.mmlab.be/ns/rml#version> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://semweb.mmlab.be/ns/ql#XPath> <http://www.w3.org/2000/01/rdf-schema#comment> "Denotes the XPath reference formulation, used for referring to extracts of XML sources."@en .
+_:Bec66501b869e4c31a72dc0e47185fd7f <http://xmlns.com/foaf/0.1/name> "Anastasia Dimou" .
+<http://semweb.mmlab.be/ns/rml#logicalSource> <http://www.w3.org/2000/01/rdf-schema#range> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/dc/elements/1.1/issued> "2013-07-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://semweb.mmlab.be/ns/rml#iterator> <http://www.w3.org/2000/01/rdf-schema#label> "iterator" .
+<http://semweb.mmlab.be/ns/ql#CSS3> <http://www.w3.org/2000/01/rdf-schema#label> "Selectors Level 3" .
+_:B8783aa3fb9b8c0c2dab0627ac1e894f4 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://semweb.mmlab.be/ns/rml#" .
+<http://semweb.mmlab.be/ns/rml> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/r2rml#> .
+_:Bda1e8302X2D3a10X2D470fX2D88a7X2D135bad23e637 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B564961a9X2D48c5X2D4061X2D97eeX2Dc6acefb0946a .
+<http://semweb.mmlab.be/ns/rml#iterator> <http://www.w3.org/2000/01/rdf-schema#comment> "an expression qualified according to the reference formulation specified for pointing to an extract of the source data. "@en .
+<http://semweb.mmlab.be/ns/rml#BaseSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Base Source" .
+_:Ba6496a29X2D6d6eX2D4245X2Da976X2D63af7b8fdb2b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5a70542bX2D1d30X2D447bX2D92aaX2D452a5b1445e6 .
+_:Bda1e8302X2D3a10X2D470fX2D88a7X2D135bad23e637 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/r2rml#PredicateMap> .
+_:B682b72fbb5aa571330ee914cf9ec5870 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/r2rml#predicate> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bfc71ec44d29a7ccb18f17ff2d5cc6772 .
+_:B2194c94bd2439835e284eadd903f5eef <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://semweb.mmlab.be/ns/ql#CSV> <http://www.w3.org/2000/01/rdf-schema#label> "CSV" .
+<http://semweb.mmlab.be/ns/rml#ReferenceFormulation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semweb.mmlab.be/ns/ql#CSV> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://semweb.mmlab.be/ns/rml#referenceFormulation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://semweb.mmlab.be/ns/rml#ReferenceFormulation> <http://www.w3.org/2000/01/rdf-schema#label> "Reference Formulation" .
+<http://semweb.mmlab.be/ns/ql#XPath> <http://semweb.mmlab.be/ns/ql#specification> <http://www.w3.org/TR/xpath20/> .
+_:B564961a9X2D48c5X2D4061X2D97eeX2Dc6acefb0946a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B682b72fbb5aa571330ee914cf9ec5870 .
+<http://semweb.mmlab.be/ns/ql#XPath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> .
+<http://www.w3.org/ns/r2rml#subject> <http://www.w3.org/2000/01/rdf-schema#domain> _:B9ced1ce1fe3fb778b2f7b87bb63956b5 .
+<http://www.w3.org/ns/r2rml#sqlQuery> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://semweb.mmlab.be/ns/rml#query> .
+_:B49e719cd7b2ab04feed85ef9fd7a8db2 <http://www.w3.org/2002/07/owl#onClass> <http://semweb.mmlab.be/ns/rml#SubjectMap> .
+_:Ba131ba9eX2D3754X2D4cafX2D8cbdX2D07052808add7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/r2rml#ObjectMap> .
+<http://semweb.mmlab.be/ns/ql#JSONPath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:B5a70542bX2D1d30X2D447bX2D92aaX2D452a5b1445e6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://semweb.mmlab.be/ns/ql#CSS3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> .
+<http://semweb.mmlab.be/ns/rml#reference> <http://www.w3.org/2000/01/rdf-schema#comment> "A valid expression that selects values from the source data. The reference should confront to the syntax rules/grammar of the specified Reference Formulation. "@en .
+<http://www.w3.org/ns/r2rml#tableName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://semweb.mmlab.be/ns/rml#source> .
+<http://semweb.mmlab.be/ns/ql#CSV> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> .
+<http://semweb.mmlab.be/ns/ql#CSS3> <http://www.w3.org/2000/01/rdf-schema#comment> "Denotes the selectors, namely the patterns that match against elements in a tree and are used in CSS and other thechnolgies to select elements in HTML or XML documents." .
+<http://semweb.mmlab.be/ns/rml#logicalSource> <http://www.w3.org/2000/01/rdf-schema#label> "logical source" .
+<http://semweb.mmlab.be/ns/rml#query> <http://www.w3.org/2000/01/rdf-schema#domain> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/rml#LogicalSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B067bfd17f3d1cfced5e4ce27742605fc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B2194c94bd2439835e284eadd903f5eef <http://www.w3.org/2002/07/owl#onProperty> <http://semweb.mmlab.be/ns/rml#logicalSource> .
+<http://semweb.mmlab.be/ns/rml#referenceFormulation> <http://www.w3.org/2000/01/rdf-schema#comment> "The reference formulation used to refer to extracts of the source data. "@en .
+<http://semweb.mmlab.be/ns/rml> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+_:B8783aa3fb9b8c0c2dab0627ac1e894f4 <http://www.w3.org/2002/07/owl#onProperty> <http://semweb.mmlab.be/ns/rml#reference> .
+_:Ba6496a29X2D6d6eX2D4245X2Da976X2D63af7b8fdb2b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/r2rml#SubjectMap> .
+<http://semweb.mmlab.be/ns/ql#CSS3> <http://semweb.mmlab.be/ns/ql#specification> <http://www.w3.org/TR/css3-selectors/> .
+<http://semweb.mmlab.be/ns/rml#BaseSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semweb.mmlab.be/ns/rml#iterator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/rml#TriplesMap> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B2194c94bd2439835e284eadd903f5eef .
+<http://semweb.mmlab.be/ns/rml#version> <http://www.w3.org/2000/01/rdf-schema#comment> "It defines the version of the reference Formulation used. "@en .
+_:B682b72fbb5aa571330ee914cf9ec5870 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://semweb.mmlab.be/ns/ql#XPath> <http://semweb.mmlab.be/ns/rml#version> "2.0" .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/dc/elements/1.1/modified> "2014-09-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://semweb.mmlab.be/ns/rml#logicalSource> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/r2rml#TriplesMap> .
+<http://semweb.mmlab.be/ns/rml#query> <http://www.w3.org/2000/01/rdf-schema#comment> "A valid query."@en .
+_:B9ced1ce1fe3fb778b2f7b87bb63956b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semweb.mmlab.be/ns/rml#version> <http://www.w3.org/2000/01/rdf-schema#domain> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/rml#reference> <http://www.w3.org/2000/01/rdf-schema#label> "reference" .
+<http://semweb.mmlab.be/ns/rml#BaseSource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/rml> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/3.0/> .
+<http://semweb.mmlab.be/ns/ql#CSS3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:B316da6bf68a90d448fb53cbb5eed41a8 <http://www.w3.org/2002/07/owl#onProperty> <http://semweb.mmlab.be/ns/rml#reference> .
+<http://semweb.mmlab.be/ns/rml#referenceFormulation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/rml#source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:B682b72fbb5aa571330ee914cf9ec5870 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://semweb.mmlab.be/ns/ql#XPath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://semweb.mmlab.be/ns/rml#source> <http://www.w3.org/2000/01/rdf-schema#comment> "qualified name of the source data."@en .
+<http://semweb.mmlab.be/ns/ql#JSONPath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> .
+<http://www.w3.org/ns/r2rml#TriplesMap> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://semweb.mmlab.be/ns/rml#TriplesMap> .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/vocab/vann/preferredNamespacePrefix> "rml" .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/dc/elements/1.1/description> "Generic Mapping Language for RDF (RDB/CSV/TSV/XML/JSON/... to RDF) - Vocabulary description"@en .
+_:B564961a9X2D48c5X2D4061X2D97eeX2Dc6acefb0946a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B3a4ff97eX2Ddb2aX2D41bfX2D8c57X2D40e27c767f5c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:B316da6bf68a90d448fb53cbb5eed41a8 .
+<http://www.w3.org/ns/r2rml#column> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://semweb.mmlab.be/ns/rml#reference> .
+<http://semweb.mmlab.be/ns/rml#LogicalSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a logical source."@en .
+_:Ba131ba9eX2D3754X2D4cafX2D8cbdX2D07052808add7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B3a4ff97eX2Ddb2aX2D41bfX2D8c57X2D40e27c767f5c .
+<http://semweb.mmlab.be/ns/rml#source> <http://www.w3.org/2000/01/rdf-schema#domain> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+_:B8783aa3fb9b8c0c2dab0627ac1e894f4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://semweb.mmlab.be/ns/ql#XPath> <http://www.w3.org/2000/01/rdf-schema#label> "XPath" .
+<http://semweb.mmlab.be/ns/rml#reference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/r2rml#TermMap> .
+_:B316da6bf68a90d448fb53cbb5eed41a8 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bfc71ec44d29a7ccb18f17ff2d5cc6772 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/dc/elements/1.1/creator> _:Bec66501b869e4c31a72dc0e47185fd7f .
+<http://semweb.mmlab.be/ns/rml#TriplesMap> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B49e719cd7b2ab04feed85ef9fd7a8db2 .
+<http://semweb.mmlab.be/ns/rml#BaseSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a base source."@en .
+<http://semweb.mmlab.be/ns/rml#ReferenceFormulation> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a Reference Formulation."@en .
+<http://semweb.mmlab.be/ns/rml#LogicalSource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://semweb.mmlab.be/ns/rml#logicalSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B49e719cd7b2ab04feed85ef9fd7a8db2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://semweb.mmlab.be/ns/rml> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://semweb.mmlab.be/ns/rml#LogicalSource> <http://www.w3.org/2000/01/rdf-schema#label> "Logical Source" .
+_:B067bfd17f3d1cfced5e4ce27742605fc <http://www.w3.org/2002/07/owl#intersectionOf> _:Ba131ba9eX2D3754X2D4cafX2D8cbdX2D07052808add7 .
+<http://www.w3.org/ns/r2rml#object> <http://www.w3.org/2000/01/rdf-schema#domain> _:B067bfd17f3d1cfced5e4ce27742605fc .
+_:B682b72fbb5aa571330ee914cf9ec5870 <http://www.w3.org/2002/07/owl#onProperty> <http://semweb.mmlab.be/ns/rml#reference> .
+_:B316da6bf68a90d448fb53cbb5eed41a8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://semweb.mmlab.be/ns/rml#referenceFormulation> <http://www.w3.org/2000/01/rdf-schema#label> "reference formulation" .
+_:B9ced1ce1fe3fb778b2f7b87bb63956b5 <http://www.w3.org/2002/07/owl#intersectionOf> _:Ba6496a29X2D6d6eX2D4245X2Da976X2D63af7b8fdb2b .
+<http://semweb.mmlab.be/ns/ql#JSONPath> <http://www.w3.org/2000/01/rdf-schema#comment> "Denotes the JSONPath reference formulation, used for referring to extracts of JSON sources."@en .
+_:B8783aa3fb9b8c0c2dab0627ac1e894f4 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<http://semweb.mmlab.be/ns/rml#version> <http://www.w3.org/2000/01/rdf-schema#label> "version" .
+_:B2194c94bd2439835e284eadd903f5eef <http://www.w3.org/2002/07/owl#onClass> <http://semweb.mmlab.be/ns/rml#LogicalSource> .
+<http://semweb.mmlab.be/ns/ql#JSONPath> <http://www.w3.org/2000/01/rdf-schema#label> "JSONPath" .
+<http://semweb.mmlab.be/ns/rml> <http://purl.org/dc/elements/1.1/title> "RML: Generic Mapping Language for RDF"@en .
+<http://semweb.mmlab.be/ns/rml#referenceFormulation> <http://www.w3.org/2000/01/rdf-schema#range> <http://semweb.mmlab.be/ns/rml#ReferenceFormulation> .
+_:B49e719cd7b2ab04feed85ef9fd7a8db2 <http://www.w3.org/2002/07/owl#onProperty> <http://semweb.mmlab.be/ns/rml#subjectMap> .
+<http://www.w3.org/ns/r2rml#sqlVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://semweb.mmlab.be/ns/rml#version> .

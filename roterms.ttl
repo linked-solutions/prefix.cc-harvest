@@ -1,339 +1,157 @@
-<http://purl.org/wf4ever/roterms#performsTask>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The resource is intended to functionally perform the given task. \n\nThis property does not specify a domain, but SHOULD generally have a subject like software, workflows and services. It MAY however also be used with agents, such as an foaf:Organization or crowd sourcing.\n\nThis property does not specify the task (beyond being a skos:Concept), as it is intended to reuse existing vocabularies. A task might be for general purposes like copying a file and calculating a numeric average, or domain-specific tasks like aligning genome sequences and identifying galaxies."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "performs task"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2004/02/skos/core#Concept> .
-
-<http://www.w3.org/ns/prov#Entity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/prov#> .
-
-<http://purl.org/wf4ever/roterms#defaultValue>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The default value for a wfdesc:Input or wfdesc:Configuration.\n\nThe default value is not a suggested value (see roterms:exampleValue), it is the value that is inherently assumed if no value is provided by the workflow run.\n\nThe value is given as an roterms:WorkflowValue instance, which allows specification of the value typically as text (cnt:chars), Base64 encoded bytes (cnt:bytes) or a collection of these (co:element)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfdesc#Parameter> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "default value"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roterms#WorkflowValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2002/07/owl#topObjectProperty> .
-
-<http://purl.org/wf4ever/roterms#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Research Object vocabularies are built on existing popular vocabularies and standards, such as ORE, DC terms, PROV, to cite a few. In addition to terms that we borrowed and adapted from such vocabularies, we defined new terms under the name space roterms. \n\nThese new terms serve two main purposes. They are used to specify annotations that are, to our knowledge, not catered for by existing ontologies, e.g., roterms:Hypothesis and roterms:exampleValue. ii) They are also used to specify shortcuts that make the ontology easy to use and more accessible. \n"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "RO terms"@en ;
-        <http://purl.org/dc/elements/1.1/contributor>
-                "Graham Klyne"@en , "Khalid Belhajjame"@en ;
-        <http://purl.org/dc/elements/1.1/creator>
-                "Stian Soiland-Reyes"@en ;
-        <http://purl.org/dc/terms/issued>
-                "2015-07-30T15:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <http://purl.org/dc/terms/license>
-                <http://creativecommons.org/licenses/by/4.0/> ;
-        <http://purl.org/dc/terms/modified>
-                "2015-07-30T14:55:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-        <http://purl.org/dc/terms/publisher>
-                <http://researchobject.org/> ;
-        <http://www.w3.org/2002/07/owl#backwardCompatibleWith>
-                <https://cdn.rawgit.com/wf4ever/ro/roterms-0.3.0/roterms.owl> , <https://cdn.rawgit.com/wf4ever/ro/roterms-0.2.0/roterms.owl> ;
-        <http://www.w3.org/2002/07/owl#versionIRI>
-                <https://cdn.rawgit.com/wf4ever/ro/roterms-0.3.1/roterms.owl> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "0.3.1" .
-
-<http://purl.org/wf4ever/roterms#OptionalInput>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An input parameter that is optional, meaning a value is not (always) neccessary for executing the associated process (workflow). An optional parameter may receive no value. \n\nWhen the value of the optional parameter is not provided, the execution of the associated process may internally assume a value, which can be explicitly described using roterms:defaultParameter.\n"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Optional input"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/wf4ever/roterms#defaultValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/wfdesc#Input> .
-
-<http://purl.org/dc/terms/requires>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/dc/terms/> .
-
-<http://purl.org/wf4ever/wfprov#WorkflowRun>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wf4ever/wfprov> .
-
-<http://purl.org/wf4ever/roterms#previousWorkflow>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Previous workflow that is or should be execute" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfdesc#Workflow> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "previous workflow"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfdesc#Workflow> .
-
-<http://purl.org/wf4ever/roterms#Conclusion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A proposition reached from given premises"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Conclusions"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roterms#ProspectiveRun>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A workflow run that is ready to start executing, e.g. all workflow inputs and configuration options have been provided, but no outputs are available yet."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Prospective Workflow Run"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/wfprov#WorkflowRun> .
-
-<http://purl.org/wf4ever/roterms#requiresDataset>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The resource requires the given dataset to function. Although the range is dcat:Dataset, this property does not specify how to detail the dataset, it might be a general requirement (any reference genome) or a particular dataset (an XML file located at a specific URI). "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "requires dataset"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/dcat#Dataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/terms/requires> .
-
-<http://www.w3.org/2011/content#Content>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/2011/content> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/roterms#WorkflowValue> .
-
-<http://purl.org/wf4ever/roterms#requiresSoftware>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The resource requires the given software to function. This property has no particular requirements on how to specify the software, it might be a general requirement (Linux), or a particular software installation (python-minimal 2.6.5-0ubuntu1)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "requires software"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/terms/requires> .
-
-<http://purl.org/wf4ever/roterms#Result>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An item of information obtained by experiment or some other scientific method; a quantity or formula obtained by calculation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Result"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roterms#ResearchQuestion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The methodological point of departure of scholarly research in both the natural and social sciences. It determines (i) where and what kind of research the writer will be looking for and (ii) the specific objectives the study or paper will address"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Research Question"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roterms#Hypothesis>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Hypothesis"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roterms#ResultGenerationRun>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A workflow run that generated scientific results. Such workflow runs typically take complete data sets as inputs and may take longer to execute."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Results Generating Workflow Run"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/wfprov#WorkflowRun> .
-
-<http://purl.org/wf4ever/roterms#exampleValue>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An example value for a given input or output parameter. The value is given as an roterms:WorkflowValue instance, which allows specification of the value typically as text (cnt:chars), Base64 encoded bytes (cnt:bytes) or a collection of these (co:element).\n\n" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfdesc#Parameter> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "example value"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/roterms#WorkflowValue> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2002/07/owl#topObjectProperty> .
-
-<http://purl.org/wf4ever/roterms#Sketch>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A graphical representation of an experiment/investigation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Sketch"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roterms#Paper>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A bibliographic resource about an experiment/investigation (to be replaced by dct:BibliographicResource)"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Paper"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/roterms#sampleSize>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "e.g., 500 patients  or 500000 lines" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#Artifact> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "sample size"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> .
-
-<http://purl.org/wf4ever/roterms#requiresHardware>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The resource requires the given hardware to function. This property has no particular requirements on how to specify the hardware, it might be a general requirement (x86 Intel architecture) or a particular machine (the super computer Blue Gene)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "requires hardware"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/dc/terms/requires> .
-
-<http://xmlns.com/foaf/0.1/Agent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://xmlns.com/foaf/0.1/> .
-
-<http://purl.org/wf4ever/roterms#WorkflowValue>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A (potential) workflow value. The value is a piece of data that was used or generated by a wfdesc:WorkflowRun (as a wfprov:Artifact). It can also be used to specify a value that is suggested for a wfdesc:Parameter given by roterms:exampleValue or roterms:defaultValue.\n\nA value can be provided in different forms, indicated as a subclass of roterms:WorkflowValue:\n\nwfprov:Artifact refers directly to the resource by URI\n\ncnt:ContentAsText - inlining the textual value with cnt:chars.\n\ncnt:ContentAsBase64 - inlining the bytes in base64-encoding using cnt:bytes.\n\n\nco:Collection / co:List listing nested roterms:WorkflowValue instances."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Workflow value"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/wf4ever/wfprov#Artifact> , <http://www.w3.org/TR/Content-in-RDF10/#charsProperty> , <http://purl.org/co> , <http://www.w3.org/TR/Content-in-RDF10/#bytesProperty> , <http://purl.org/co/Collection> , <http://www.w3.org/2011/content#Content> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/prov#Entity> .
-
-<http://purl.org/wf4ever/wfdesc#Output>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wf4ever/wfdesc> .
-
-<http://purl.org/wf4ever/roterms#subsequentWorkflow>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Subsequent workflow is or should be execute" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfdesc#Workflow> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "subsequent workflow"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfdesc#Workflow> .
-
-<http://purl.org/wf4ever/roterms#ofStructuralType>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The wfdesc:Artifact describes a potential wfdesc:WorkflowValue which is of the given structural type.\n\nThe format (media type) of the value SHOULD be specified using dct:format. This property MAY be used when the format is not specific enough, for instance dct:format [ rdv:value \"application/xml\" ] specifies the serialization as XML, while roterms:ofStructuralType might point to the XML schema.\n\nThe range of this property is undefined, it is expected that format-specific classes would define how to define the structural requirements."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "of structural type"@en .
-
-<http://www.w3.org/2004/02/skos/core#Concept>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/2004/02/skos/core> .
-
-<http://purl.org/wf4ever/roterms#ofSemanticType>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The wfdesc:Artifact describes a potential wfdesc:WorkflowValue which is of the given semantic type.\n\nThe range of this property is given as skos:Concept, because it is envisioned that URIs from any existing (general and domain-specific) vocabularies could be used. It MAY be used with URIs identifying owl:Class-es; indicating that when a workflow is run, its wfprov:Artifact's would be instances of that type.\n \nUnlike the structural type (see roterms:ofStructuralType), the semantic type defines the domain-specific meaning or role of the expected value, for instance Genome Sequence or X-ray image."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfdesc#Artifact> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "of semantic type"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2004/02/skos/core#Concept> .
-
-<http://www.w3.org/ns/dcat#Dataset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/dcat> .
-
-<http://purl.org/dc/elements/1.1/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/dc/elements/1.1/> .
-
-<http://purl.org/dc/elements/1.1/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/dc/elements/1.1/> .
-
-<http://purl.org/wf4ever/roterms#technicalContact>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The technical support contact for the  resource, given as a foaf:Agent.\n \nThis property does not specify a domain, but could be used on resources like software, workflows, services, vocabularies, datasets, etc.\n\nThe agent SHOULD have a foaf:name. It SHOULD have one of foaf:mbox, foaf:phone or foaf:homepage. The agent may be a foaf:Person (e.g. technical contact),  foaf:Group (e.g. mailing lists) or other kind of agent (like automated support)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "technical contact"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://purl.org/wf4ever/wfdesc#Parameter>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wf4ever/wfdesc> .
-
-<http://purl.org/wf4ever/wfdesc#Input>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wf4ever/wfdesc> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/wfdesc#Parameter> .
-
-<http://purl.org/wf4ever/wfprov#Artifact>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wf4ever/wfprov> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/roterms#WorkflowValue> .
-
-<http://purl.org/co/Collection>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/co> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/roterms#WorkflowValue> .
-
-<http://purl.org/wf4ever/wfdesc#Artifact>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wf4ever/wfdesc> .
-
-<http://purl.org/wf4ever/wfdesc#Workflow>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/wf4ever/wfdesc> .
-
-<http://purl.org/wf4ever/roterms#ExampleRun>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A workflow run that serves as an example of how to use this workflow. Example runs typically take only a small subset of inputs and have short execution time."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Example Workflow Run"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/roterms#performsTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#defaultValue> <http://www.w3.org/2000/01/rdf-schema#comment> "The default value for a wfdesc:Input or wfdesc:Configuration.\n\nThe default value is not a suggested value (see roterms:exampleValue), it is the value that is inherently assumed if no value is provided by the workflow run.\n\nThe value is given as an roterms:WorkflowValue instance, which allows specification of the value typically as text (cnt:chars), Base64 encoded bytes (cnt:bytes) or a collection of these (co:element)."@en .
+<http://purl.org/wf4ever/roterms#> <http://www.w3.org/2002/07/owl#backwardCompatibleWith> <https://cdn.rawgit.com/wf4ever/ro/roterms-0.3.0/roterms.owl> .
+<http://purl.org/wf4ever/roterms#defaultValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfdesc#Parameter> .
+<http://purl.org/wf4ever/roterms#OptionalInput> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/roterms#defaultValue> .
+<http://purl.org/dc/terms/requires> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#previousWorkflow> <http://www.w3.org/2000/01/rdf-schema#label> "previous workflow"@en .
+<http://purl.org/wf4ever/roterms#Conclusion> <http://www.w3.org/2000/01/rdf-schema#label> "Conclusions"@en .
+<http://purl.org/wf4ever/roterms#ProspectiveRun> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/roterms#requiresDataset> <http://www.w3.org/2000/01/rdf-schema#label> "requires dataset"@en .
+<http://purl.org/wf4ever/roterms#ProspectiveRun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2011/content#Content> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2011/content> .
+<http://purl.org/wf4ever/roterms#requiresSoftware> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/requires> .
+<http://purl.org/wf4ever/roterms#Result> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roterms#ResearchQuestion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#> <http://purl.org/dc/terms/publisher> <http://researchobject.org/> .
+<http://purl.org/wf4ever/roterms#defaultValue> <http://www.w3.org/2000/01/rdf-schema#label> "default value"@en .
+<http://purl.org/wf4ever/roterms#Hypothesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roterms#ResultGenerationRun> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/roterms#exampleValue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfdesc#Parameter> .
+<http://purl.org/wf4ever/roterms#Sketch> <http://www.w3.org/2000/01/rdf-schema#label> "Sketch"@en .
+<http://purl.org/wf4ever/roterms#OptionalInput> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#Paper> <http://www.w3.org/2000/01/rdf-schema#label> "Paper"@en .
+<http://purl.org/wf4ever/roterms#> <http://purl.org/dc/elements/1.1/contributor> "Graham Klyne"@en .
+<http://purl.org/wf4ever/roterms#sampleSize> <http://www.w3.org/2000/01/rdf-schema#label> "sample size"@en .
+<http://purl.org/wf4ever/roterms#> <http://www.w3.org/2000/01/rdf-schema#label> "RO terms"@en .
+<http://purl.org/wf4ever/roterms#requiresHardware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#requiresSoftware> <http://www.w3.org/2000/01/rdf-schema#label> "requires software"@en .
+<http://purl.org/wf4ever/roterms#Result> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by/4.0/> .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#Artifact> .
+<http://purl.org/wf4ever/roterms#Hypothesis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#ResearchQuestion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roterms#ResultGenerationRun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#> <http://purl.org/dc/elements/1.1/contributor> "Khalid Belhajjame"@en .
+<http://purl.org/wf4ever/wfdesc#Output> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#> <http://purl.org/dc/elements/1.1/creator> "Stian Soiland-Reyes"@en .
+<http://purl.org/wf4ever/roterms#exampleValue> <http://www.w3.org/2000/01/rdf-schema#comment> "An example value for a given input or output parameter. The value is given as an roterms:WorkflowValue instance, which allows specification of the value typically as text (cnt:chars), Base64 encoded bytes (cnt:bytes) or a collection of these (co:element).\n\n" .
+<http://purl.org/wf4ever/roterms#previousWorkflow> <http://www.w3.org/2000/01/rdf-schema#comment> "Previous workflow that is or should be execute" .
+<http://purl.org/wf4ever/roterms#exampleValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roterms#WorkflowValue> .
+<http://purl.org/wf4ever/roterms#requiresHardware> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/requires> .
+<http://purl.org/wf4ever/roterms#subsequentWorkflow> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfdesc#Workflow> .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/TR/Content-in-RDF10/#charsProperty> .
+<http://purl.org/wf4ever/roterms#> <http://purl.org/dc/terms/issued> "2015-07-30T15:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/wf4ever/roterms#ofStructuralType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#subsequentWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#subsequentWorkflow> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfdesc#Workflow> .
+<http://purl.org/wf4ever/roterms#Result> <http://www.w3.org/2000/01/rdf-schema#label> "Result"@en .
+<http://purl.org/wf4ever/roterms#sampleSize> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2004/02/skos/core> .
+<http://purl.org/wf4ever/roterms#> <http://www.w3.org/2002/07/owl#backwardCompatibleWith> <https://cdn.rawgit.com/wf4ever/ro/roterms-0.2.0/roterms.owl> .
+<http://purl.org/wf4ever/roterms#ofStructuralType> <http://www.w3.org/2000/01/rdf-schema#label> "of structural type"@en .
+<http://purl.org/wf4ever/roterms#Sketch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roterms#Hypothesis> <http://www.w3.org/2000/01/rdf-schema#label> "Hypothesis"@en .
+<http://purl.org/wf4ever/roterms#ofSemanticType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://purl.org/wf4ever/roterms#defaultValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/roterms#WorkflowValue> .
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wf4ever/wfprov> .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/co> .
+<http://purl.org/dc/terms/requires> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/wf4ever/roterms#requiresSoftware> <http://www.w3.org/2000/01/rdf-schema#comment> "The resource requires the given software to function. This property has no particular requirements on how to specify the software, it might be a general requirement (Linux), or a particular software installation (python-minimal 2.6.5-0ubuntu1)."@en .
+<http://purl.org/wf4ever/roterms#requiresSoftware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfdesc#Output> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wf4ever/wfdesc> .
+<http://purl.org/wf4ever/roterms#OptionalInput> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/wfdesc#Input> .
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://xmlns.com/foaf/0.1/> .
+<http://purl.org/wf4ever/roterms#Sketch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/wf4ever/roterms#ofStructuralType> <http://www.w3.org/2000/01/rdf-schema#comment> "The wfdesc:Artifact describes a potential wfdesc:WorkflowValue which is of the given structural type.\n\nThe format (media type) of the value SHOULD be specified using dct:format. This property MAY be used when the format is not specific enough, for instance dct:format [ rdv:value \"application/xml\" ] specifies the serialization as XML, while roterms:ofStructuralType might point to the XML schema.\n\nThe range of this property is undefined, it is expected that format-specific classes would define how to define the structural requirements."@en .
+<http://purl.org/wf4ever/roterms#requiresDataset> <http://www.w3.org/2000/01/rdf-schema#comment> "The resource requires the given dataset to function. Although the range is dcat:Dataset, this property does not specify how to detail the dataset, it might be a general requirement (any reference genome) or a particular dataset (an XML file located at a specific URI). "@en .
+<http://purl.org/wf4ever/roterms#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/wf4ever/roterms#technicalContact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#Conclusion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/wfdesc#Parameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#ofSemanticType> <http://www.w3.org/2000/01/rdf-schema#label> "of semantic type"@en .
+<http://purl.org/wf4ever/roterms#ofSemanticType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfdesc#Artifact> .
+<http://purl.org/wf4ever/roterms#ProspectiveRun> <http://www.w3.org/2000/01/rdf-schema#comment> "A workflow run that is ready to start executing, e.g. all workflow inputs and configuration options have been provided, but no outputs are available yet."@en .
+<http://purl.org/wf4ever/wfdesc#Input> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wf4ever/wfdesc> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/roterms#WorkflowValue> .
+<http://purl.org/wf4ever/roterms#Conclusion> <http://www.w3.org/2000/01/rdf-schema#comment> "A proposition reached from given premises"@en .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/TR/Content-in-RDF10/#bytesProperty> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wf4ever/wfprov> .
+<http://purl.org/co/Collection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/wfdesc#Artifact> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wf4ever/wfdesc> .
+<http://purl.org/wf4ever/roterms#> <http://www.w3.org/2002/07/owl#versionIRI> <https://cdn.rawgit.com/wf4ever/ro/roterms-0.3.1/roterms.owl> .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/co/Collection> .
+<http://purl.org/wf4ever/roterms#performsTask> <http://www.w3.org/2000/01/rdf-schema#label> "performs task"@en .
+<http://purl.org/wf4ever/roterms#performsTask> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://purl.org/wf4ever/roterms#> <http://purl.org/dc/terms/modified> "2015-07-30T14:55:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/wf4ever/roterms#requiresHardware> <http://www.w3.org/2000/01/rdf-schema#label> "requires hardware"@en .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/wf4ever/roterms#sampleSize> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#Artifact> .
+<http://purl.org/wf4ever/roterms#Conclusion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/elements/1.1/> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov#> .
+<http://purl.org/wf4ever/roterms#technicalContact> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/wf4ever/roterms#Result> <http://www.w3.org/2000/01/rdf-schema#comment> "An item of information obtained by experiment or some other scientific method; a quantity or formula obtained by calculation"@en .
+<http://purl.org/wf4ever/roterms#performsTask> <http://www.w3.org/2000/01/rdf-schema#comment> "The resource is intended to functionally perform the given task. \n\nThis property does not specify a domain, but SHOULD generally have a subject like software, workflows and services. It MAY however also be used with agents, such as an foaf:Organization or crowd sourcing.\n\nThis property does not specify the task (beyond being a skos:Concept), as it is intended to reuse existing vocabularies. A task might be for general purposes like copying a file and calculating a numeric average, or domain-specific tasks like aligning genome sequences and identifying galaxies."@en .
+<http://purl.org/wf4ever/wfdesc#Workflow> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wf4ever/wfdesc> .
+<http://purl.org/wf4ever/roterms#requiresDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#OptionalInput> <http://www.w3.org/2000/01/rdf-schema#comment> "An input parameter that is optional, meaning a value is not (always) neccessary for executing the associated process (workflow). An optional parameter may receive no value. \n\nWhen the value of the optional parameter is not provided, the execution of the associated process may internally assume a value, which can be explicitly described using roterms:defaultParameter.\n"@en .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.w3.org/2011/content#Content> .
+<http://www.w3.org/2011/content#Content> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/roterms#WorkflowValue> .
+<http://purl.org/wf4ever/roterms#subsequentWorkflow> <http://www.w3.org/2000/01/rdf-schema#comment> "Subsequent workflow is or should be execute" .
+<http://purl.org/wf4ever/roterms#ResultGenerationRun> <http://www.w3.org/2000/01/rdf-schema#comment> "A workflow run that generated scientific results. Such workflow runs typically take complete data sets as inputs and may take longer to execute."@en .
+<http://purl.org/wf4ever/wfdesc#Parameter> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/wf4ever/wfdesc> .
+<http://purl.org/wf4ever/roterms#Paper> <http://www.w3.org/2000/01/rdf-schema#comment> "A bibliographic resource about an experiment/investigation (to be replaced by dct:BibliographicResource)"@en .
+<http://purl.org/wf4ever/roterms#exampleValue> <http://www.w3.org/2000/01/rdf-schema#label> "example value"@en .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/co> .
+<http://purl.org/wf4ever/roterms#ofSemanticType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#ExampleRun> <http://www.w3.org/2000/01/rdf-schema#label> "Example Workflow Run"@en .
+<http://purl.org/wf4ever/roterms#Paper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roterms#ResearchQuestion> <http://www.w3.org/2000/01/rdf-schema#label> "Research Question"@en .
+<http://purl.org/wf4ever/roterms#sampleSize> <http://www.w3.org/2000/01/rdf-schema#comment> "e.g., 500 patients  or 500000 lines" .
+<http://purl.org/wf4ever/roterms#requiresDataset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/requires> .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#technicalContact> <http://www.w3.org/2000/01/rdf-schema#label> "technical contact"@en .
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#technicalContact> <http://www.w3.org/2000/01/rdf-schema#comment> "The technical support contact for the  resource, given as a foaf:Agent.\n \nThis property does not specify a domain, but could be used on resources like software, workflows, services, vocabularies, datasets, etc.\n\nThe agent SHOULD have a foaf:name. It SHOULD have one of foaf:mbox, foaf:phone or foaf:homepage. The agent may be a foaf:Person (e.g. technical contact),  foaf:Group (e.g. mailing lists) or other kind of agent (like automated support)."@en .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#comment> "A (potential) workflow value. The value is a piece of data that was used or generated by a wfdesc:WorkflowRun (as a wfprov:Artifact). It can also be used to specify a value that is suggested for a wfdesc:Parameter given by roterms:exampleValue or roterms:defaultValue.\n\nA value can be provided in different forms, indicated as a subclass of roterms:WorkflowValue:\n\nwfprov:Artifact refers directly to the resource by URI\n\ncnt:ContentAsText - inlining the textual value with cnt:chars.\n\ncnt:ContentAsBase64 - inlining the bytes in base64-encoding using cnt:bytes.\n\n\nco:Collection / co:List listing nested roterms:WorkflowValue instances."@en .
+<http://www.w3.org/2011/content#Content> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#defaultValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#requiresDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dcat#Dataset> .
+<http://purl.org/wf4ever/roterms#ProspectiveRun> <http://www.w3.org/2000/01/rdf-schema#label> "Prospective Workflow Run"@en .
+<http://purl.org/wf4ever/wfdesc#Input> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/wfdesc#Parameter> .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#label> "Workflow value"@en .
+<http://purl.org/wf4ever/wfdesc#Input> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#defaultValue> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://purl.org/wf4ever/roterms#Hypothesis> <http://www.w3.org/2000/01/rdf-schema#comment> "A supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation"@en .
+<http://purl.org/wf4ever/roterms#OptionalInput> <http://www.w3.org/2000/01/rdf-schema#label> "Optional input"@en .
+<http://purl.org/wf4ever/roterms#previousWorkflow> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfdesc#Workflow> .
+<http://purl.org/wf4ever/roterms#previousWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#previousWorkflow> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfdesc#Workflow> .
+<http://purl.org/wf4ever/roterms#Sketch> <http://www.w3.org/2000/01/rdf-schema#comment> "A graphical representation of an experiment/investigation"@en .
+<http://purl.org/wf4ever/roterms#ExampleRun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/wfdesc#Artifact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#Paper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#requiresHardware> <http://www.w3.org/2000/01/rdf-schema#comment> "The resource requires the given hardware to function. This property has no particular requirements on how to specify the hardware, it might be a general requirement (x86 Intel architecture) or a particular machine (the super computer Blue Gene)."@en .
+<http://purl.org/wf4ever/roterms#sampleSize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/wf4ever/roterms#ResearchQuestion> <http://www.w3.org/2000/01/rdf-schema#comment> "The methodological point of departure of scholarly research in both the natural and social sciences. It determines (i) where and what kind of research the writer will be looking for and (ii) the specific objectives the study or paper will address"@en .
+<http://purl.org/wf4ever/roterms#> <http://www.w3.org/2002/07/owl#versionInfo> "0.3.1" .
+<http://purl.org/wf4ever/roterms#WorkflowValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://purl.org/wf4ever/roterms#ExampleRun> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/roterms#> <http://www.w3.org/2000/01/rdf-schema#comment> "The Research Object vocabularies are built on existing popular vocabularies and standards, such as ORE, DC terms, PROV, to cite a few. In addition to terms that we borrowed and adapted from such vocabularies, we defined new terms under the name space roterms. \n\nThese new terms serve two main purposes. They are used to specify annotations that are, to our knowledge, not catered for by existing ontologies, e.g., roterms:Hypothesis and roterms:exampleValue. ii) They are also used to specify shortcuts that make the ontology easy to use and more accessible. \n"@en .
+<http://purl.org/wf4ever/roterms#ExampleRun> <http://www.w3.org/2000/01/rdf-schema#comment> "A workflow run that serves as an example of how to use this workflow. Example runs typically take only a small subset of inputs and have short execution time."@en .
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/dcat> .
+<http://purl.org/wf4ever/roterms#ofSemanticType> <http://www.w3.org/2000/01/rdf-schema#comment> "The wfdesc:Artifact describes a potential wfdesc:WorkflowValue which is of the given semantic type.\n\nThe range of this property is given as skos:Concept, because it is envisioned that URIs from any existing (general and domain-specific) vocabularies could be used. It MAY be used with URIs identifying owl:Class-es; indicating that when a workflow is run, its wfprov:Artifact's would be instances of that type.\n \nUnlike the structural type (see roterms:ofStructuralType), the semantic type defines the domain-specific meaning or role of the expected value, for instance Genome Sequence or X-ray image."@en .
+<http://purl.org/wf4ever/roterms#exampleValue> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#subsequentWorkflow> <http://www.w3.org/2000/01/rdf-schema#label> "subsequent workflow"@en .
+<http://purl.org/co/Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/roterms#WorkflowValue> .
+<http://purl.org/wf4ever/wfdesc#Workflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/roterms#exampleValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/roterms#ResultGenerationRun> <http://www.w3.org/2000/01/rdf-schema#label> "Results Generating Workflow Run"@en .

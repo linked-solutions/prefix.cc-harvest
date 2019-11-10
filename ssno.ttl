@@ -1,1018 +1,520 @@
-<http://www.w3.org/ns/sosa/Sample>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/sosa/Result> , <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isResultOf>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isSampleOf>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isSampleOf>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sampling> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isResultOf>
-                ] .
-
-<http://www.w3.org/ns/ssn/detects>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A relation from a Sensor to the Stimulus that the Sensor detects. The Stimulus itself will be serving as a proxy for some ObservableProperty."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "detects"@en ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "A relation from a Sensor to the Stimulus that the Sensor detects. The Stimulus itself will be serving as a proxy for some ObservableProperty."@en .
-
-<http://www.w3.org/ns/sosa/usedProcedure>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://www.w3.org/ns/sosa/madeBySensor> <http://www.w3.org/ns/ssn/implements> ) ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://www.w3.org/ns/sosa/madeByActuator> <http://www.w3.org/ns/ssn/implements> ) ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://www.w3.org/ns/sosa/madeBySampler> <http://www.w3.org/ns/ssn/implements> ) .
-
-<http://www.w3.org/ns/ssn/implementedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a Procedure (an algorithm, procedure or method) and an entity that implements that Procedure in some executable way."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "implemented by"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/implements> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a Procedure (an algorithm, procedure or method) and an entity that implements that Procedure in some executable way."@en ;
-        <http://www.w3.org/2004/02/skos/core#example>
-                "For example, the relationship between a scientific measuring Procedure and a sensor that senses via that Procedure."@en .
-
-<http://www.w3.org/ns/sosa/Sampling>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sample> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasResult>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasResult>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sampler> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeBySampler>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/resultTime>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeBySampler>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Procedure> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/usedProcedure>
-                ] .
-
-<http://www.w3.org/ns/ssn/Output>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Any information that is reported from a Procedure."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Output"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/hasOutput> ]
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Procedure> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/hasOutput> ]
-                ] ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Any information that is reported from a Procedure."@en .
-
-<http://www.w3.org/ns/ssn/wasOriginatedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between an Observation and the Stimulus that originated it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "was originated by"@en ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between an Observation and the Stimulus that originated it."@en .
-
-<http://www.w3.org/ns/ssn/isPropertyOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a Property and the entity it belongs to."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is property of"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/hasProperty> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a Property and the entity it belongs to."@en .
-
-<http://www.w3.org/2004/02/skos/core#example>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/sosa/Observation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/phenomenonTime>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasResult>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sensor> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeBySensor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Result> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasResult>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/resultTime>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Stimulus> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/wasOriginatedBy>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeBySensor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/ObservableProperty> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/observedProperty>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/wasOriginatedBy>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/observedProperty>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Procedure> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/usedProcedure>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                ] .
-
-<http://www.w3.org/ns/sosa/Sampler>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ssn/System> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/implements>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sampling> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeSampling>
-                ] .
-
-<http://www.w3.org/ns/ssn/isProxyFor>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A relation from a Stimulus to the Property that the Stimulus is serving as a proxy for."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is proxy for"@en ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "A relation from a Stimulus to the Property that the Stimulus is serving as a proxy for."@en ;
-        <http://www.w3.org/2004/02/skos/core#example>
-                "For example, the expansion of quicksilver is a stimulus that serves as a proxy for some temperature property. An increase or decrease in the velocity of spinning cups on a wind sensor is serving as a proxy for the wind speed."@en .
-
-<http://www.w3.org/ns/ssn/deployedOnPlatform>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a Deployment and the Platform on which the Systems are deployed."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deployed on platform"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/inDeployment> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a Deployment and the Platform on which the Systems are deployed."@en .
-
-<http://www.w3.org/ns/ssn/>
-        a       <http://purl.org/vocommons/voaf#Vocabulary> , <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology> ;
-        <http://purl.org/dc/terms/created>
-                "2017-04-17"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/creator>
-                [ a       <http://xmlns.com/foaf/0.1/Agent> ;
-                  <http://xmlns.com/foaf/0.1/name>
-                          "W3C/OGC Spatial Data on the Web Working Group"@en
-                ] ;
-        <http://purl.org/dc/terms/description>
-                "This ontology describes sensors, actuators and observations, and related concepts. It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports."@en ;
-        <http://purl.org/dc/terms/license>
-                <http://www.opengeospatial.org/ogc/Software> , <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> ;
-        <http://purl.org/dc/terms/rights>
-                "Copyright 2017 W3C/OGC." ;
-        <http://purl.org/dc/terms/title>
-                "Semantic Sensor Network Ontology"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "ssn" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://www.w3.org/ns/ssn/" ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "New modular version of the SSN ontology. \n\nThis ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatial Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. \n\nIn particular, (a) the scope is extended to include actuation and sampling; (b) the core concepts and properties are factored out into the SOSA ontology. The SSN ontology imports SOSA and adds formal axiomatization consistent with the text definitions in SOSA, and adds classes and properties to accommodate the scope of the original SSN ontology. "@en .
-
-<http://www.w3.org/ns/sosa/hasSample>
-        a       <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/ssn/implements>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between an entity that implements a Procedure in some executable way and the Procedure (an algorithm, procedure or method)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "implements"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/implementedBy> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between an entity that implements a Procedure in some executable way and the Procedure (an algorithm, procedure or method)."@en ;
-        <http://www.w3.org/2004/02/skos/core#example>
-                "For example, the relationship between a sensor and the scientific measuring Procedure via which it senses."@en .
-
-<http://www.w3.org/ns/ssn/hasProperty>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between an entity and a Property of that entity."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has property"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/isPropertyOf> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between an entity and a Property of that entity."@en .
-
-<http://www.w3.org/ns/ssn/deployedSystem>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a Deployment and a deployed System."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deployed system"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/hasDeployment> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a Deployment and a deployed System."@en .
-
-<http://www.w3.org/ns/sosa/FeatureOfInterest>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Property> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/hasProperty>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sample> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasSample>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/hasProperty>
-                ] .
-
-<http://www.w3.org/ns/ssn/System>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "System"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/System> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/hasSubSystem> ]
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Platform> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isHostedBy>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Deployment> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/hasDeployment>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/System> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/hasSubSystem>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Procedure> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/implements>
-                ] ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems."@en .
-
-<http://www.w3.org/ns/ssn/hasSubSystem>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a System and its component parts."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has subsystem"@en ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a System and its component parts."@en .
-
-<http://www.w3.org/ns/ssn/inDeployment>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a Platform and a Deployment, meaning that the deployedSystems of the Deployment are hosted on the Platform."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "in deployment"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/deployedOnPlatform> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a Platform and a Deployment, meaning that the deployedSystems of the Deployment are hosted on the Platform."@en ;
-        <http://www.w3.org/2004/02/skos/core#example>
-                "For example, a relation between a buoy and a deployment of several Sensors."@en .
-
-<http://www.w3.org/ns/ssn/hasDeployment>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a System and a Deployment, recording that the System is deployed in that Deployment."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has deployment"@en ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.w3.org/ns/ssn/deployedSystem> ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a System and a Deployment, recording that the System is deployed in that Deployment."@en .
-
-<http://www.w3.org/ns/sosa/Sensor>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ssn/System> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/implements>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/ObservableProperty> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/observes>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Stimulus> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/detects>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Observation> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeObservation>
-                ] .
-
-<http://www.w3.org/ns/ssn/Input>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Any information that is provided to a Procedure for its use."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Input"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Procedure> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/hasInput> ]
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/hasInput> ]
-                ] ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Any information that is provided to a Procedure for its use."@en .
-
-<http://purl.org/vocommons/voaf#Vocabulary>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/sosa/Actuation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/resultTime>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeByActuator>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Result> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasResult>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/ActuatableProperty> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/actsOnProperty>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/actsOnProperty>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hasResult>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Actuator> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeByActuator>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Procedure> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/usedProcedure>
-                ] .
-
-<http://www.w3.org/ns/ssn/hasInput>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a Procedure and an Input to it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has input"@en ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a Procedure and an Input to it."@en .
-
-<http://www.w3.org/ns/sosa/Actuator>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ssn/System> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Actuation> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/madeActuation>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/implements>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/ActuatableProperty> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/forProperty>
-                ] .
-
-<http://www.w3.org/ns/sosa/resultTime>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/madeSampling>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/ssn/Deployment>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Deployment"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Property> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/forProperty>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/System> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/deployedSystem>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Platform> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/deployedOnPlatform>
-                ] ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."@en ;
-        <http://www.w3.org/2004/02/skos/core#example>
-                "For example, a temperature Sensor deployed on a wall, or a whole network of Sensors deployed for an Observation campaign."@en .
-
-<http://purl.org/dc/terms/license>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/ssn/hasOutput>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Relation between a Procedure and an Output of it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has output"@en ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "Relation between a Procedure and an Output of it."@en .
-
-<http://www.w3.org/ns/ssn/Property>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Property"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/isPropertyOf>
-                ] ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en .
-
-<http://www.w3.org/ns/sosa/Procedure>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/System> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/implementedBy>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Output> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/hasOutput>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Input> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/hasInput>
-                ] .
-
-<http://www.w3.org/ns/sosa/madeBySampler>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/ObservableProperty>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ssn/Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Observation> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/sosa/observedProperty> ]
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sensor> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isObservedBy>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Stimulus> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/isProxyFor> ]
-                ] .
-
-<http://purl.org/dc/terms/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/ssn/forProperty>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A relation between some aspect of an entity and a Property."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "for property"@en ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "A relation between some aspect of an entity and a Property."@en ;
-        <http://www.w3.org/2004/02/skos/core#example>
-                "For example, from a Sensor to the properties it can observe; from an Actuator to the properties it can act on; from a Deployment to the properties it was installed to observe or act on; from a SystemCapability to the Property the capability is described for."@en .
-
-<http://xmlns.com/foaf/0.1/Agent>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/ssn/Stimulus>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/ssn/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Stimulus"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Observation> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/wasOriginatedBy> ]
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/ObservableProperty> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/isProxyFor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Sensor> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          [ <http://www.w3.org/2002/07/owl#inverseOf>
-                                    <http://www.w3.org/ns/ssn/detects> ]
-                ] ;
-        <http://www.w3.org/2004/02/skos/core#definition>
-                "An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor."@en .
-
-<http://www.w3.org/ns/sosa/isResultOf>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/hosts>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2002/07/owl#propertyChainAxiom>
-                ( <http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/ns/ssn/deployedSystem> ) .
-
-<http://www.w3.org/ns/sosa/isObservedBy>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/isActedOnBy>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/ActuatableProperty>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/ns/ssn/Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/sosa/Actuation> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isActedOnBy>
-                ] .
-
-<http://www.w3.org/ns/sosa/phenomenonTime>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/madeActuation>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://purl.org/vocab/vann/preferredNamespaceUri>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/created>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://xmlns.com/foaf/0.1/name>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/sosa/hasResult>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/observes>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/ns/ssn/forProperty> .
-
-<http://www.w3.org/ns/sosa/Result>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/isResultOf>
-                ] .
-
-<http://www.w3.org/ns/sosa/isHostedBy>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/madeByActuator>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/hasSimpleResult>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/Platform>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/Deployment> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/ssn/inDeployment>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.w3.org/ns/ssn/System> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/ns/sosa/hosts>
-                ] .
-
-<http://www.w3.org/2004/02/skos/core#definition>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/sosa/actsOnProperty>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/madeObservation>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://purl.org/dc/terms/description>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/sosa/madeBySensor>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/isSampleOf>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://www.w3.org/ns/sosa/isFeatureOfInterestOf>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://purl.org/dc/terms/rights>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://www.w3.org/ns/sosa/observedProperty>
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://www.w3.org/ns/sosa/> .
-
-<http://purl.org/vocab/vann/preferredNamespacePrefix>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B964f6f962a032e4a398d5ddc18d6e4e1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bb07269003a075be1bb5522fae266c053 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Actuation> .
+<http://www.w3.org/ns/ssn/detects> <http://www.w3.org/2004/02/skos/core#definition> "A relation from a Sensor to the Stimulus that the Sensor detects. The Stimulus itself will be serving as a proxy for some ObservableProperty."@en .
+_:B7c5b996ef5724413e765fc8d280802e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B10b25e732a6eb71d1b39cee346870b9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/implementedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/implements> .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B75c4b848fe98d98a3f5509f0291d4853 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sampling> .
+_:Ba34200dfe8f75d25a23f54aefbf9d501 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B7c7183e9f5751c6d9669bb69f8fc5545 <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/hasInput> .
+_:B69a8218465025a358a25f3ac41b95a5e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Baec3f194a282e7acfba358a948de30b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B21a6ed3b9282b0c44d0a4b44ba4d5eb1 <http://www.w3.org/2002/07/owl#onProperty> _:Ba4363cd2d2b2b26f9272b1805a5c552a .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B32f338d3e688d3705dccac633b8a0893 .
+<http://www.w3.org/ns/ssn/wasOriginatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ssn/isPropertyOf> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a Property and the entity it belongs to."@en .
+<http://www.w3.org/2004/02/skos/core#example> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B0452a4d14d2bea722f1fee88fdeacb01 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+<http://www.w3.org/ns/sosa/FeatureOfInterest> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B26d049b853b2d2a49fead7f2943db28b .
+_:B94270ebbf96f4ef8e0366f53c483b96e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Sampler> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B446593edc49d3d3cf1ec1e9718077e99 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/ActuatableProperty> .
+_:B40c3bd18a790131a8e6422b760606d3d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B7fa4f3865e69adcbd6d614e6efd016a7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B5feb5fcfcbdbe928c14396bfbaec73ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Sampler> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ssn/System> .
+_:Bdcb691d869c24c55a8277c0b8fced469 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/implementedBy> .
+_:Bb62041f82303dac6af85635ddf71ca8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B94270ebbf96f4ef8e0366f53c483b96e <http://www.w3.org/2002/07/owl#onProperty> _:B42fea9c3d0eb4d22a622681c60230434 .
+<http://www.w3.org/ns/ssn/isProxyFor> <http://www.w3.org/2004/02/skos/core#example> "For example, the expansion of quicksilver is a stimulus that serves as a proxy for some temperature property. An increase or decrease in the velocity of spinning cups on a wind sensor is serving as a proxy for the wind speed."@en .
+<http://www.w3.org/ns/ssn/deployedOnPlatform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/dc/terms/description> "This ontology describes sensors, actuators and observations, and related concepts. It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports."@en .
+_:B964f6f962a032e4a398d5ddc18d6e4e1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeBySensor> .
+_:B9459aee1255e7aadfa2bc6e672077929 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isObservedBy> .
+<http://www.w3.org/ns/ssn/> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology> .
+<http://www.w3.org/ns/sosa/hasSample> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf38eaa21c52245ff569b8c30653f8eae .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb62041f82303dac6af85635ddf71ca8a .
+_:B00a289c411b2d7dafb45f26c0a94928c <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/hasSubSystem> .
+_:B4aad94c48afd8af789bfde910fedad61 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/ActuatableProperty> .
+_:Bf38eaa21c52245ff569b8c30653f8eae <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bf96cfbbded3a818542ebaca910f16e48 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/hasProperty> .
+_:Bb9efa46e64b77be52ed3c5003a8f5035 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeByActuator> .
+_:Bf198a73955ce19e009c505b266f483db <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+<http://www.w3.org/ns/ssn/isProxyFor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B00a289c411b2d7dafb45f26c0a94928c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Actuator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf069f7d38cf2a293428c81b7ded1bde5 .
+_:Baa55974581c18f4688d54aaacb5f3709 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isHostedBy> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/ssn/implements> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an entity that implements a Procedure in some executable way and the Procedure (an algorithm, procedure or method)."@en .
+_:B23190af98489fca07a13ab4d62d87a84 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observedProperty> .
+<http://www.w3.org/ns/ssn/hasProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/dc/terms/rights> "Copyright 2017 W3C/OGC." .
+<http://www.w3.org/ns/ssn/deployedSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B9459aee1255e7aadfa2bc6e672077929 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.w3.org/ns/ssn/detects> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B321cdc5d25adfafa4679c3301eb34759 <http://www.w3.org/2002/07/owl#onProperty> _:B7c7183e9f5751c6d9669bb69f8fc5545 .
+<http://www.w3.org/ns/ssn/wasOriginatedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an Observation and the Stimulus that originated it."@en .
+<http://www.w3.org/ns/sosa/usedProcedure> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B7c81d098X2Db1c8X2D4855X2Db1d8X2D6c0ef855b535 .
+_:B30b8db1dfbb07cea64d1a2395429f7ab <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/inDeployment> .
+_:B30b8db1dfbb07cea64d1a2395429f7ab <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Deployment> .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B00a289c411b2d7dafb45f26c0a94928c .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb6eedfd55dd303b4b9f503f516a5b78e .
+<http://www.w3.org/ns/ssn/hasSubSystem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B0acfebe3bd18f3012dba098fd93c66ba <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/ssn/isProxyFor> <http://www.w3.org/2004/02/skos/core#definition> "A relation from a Stimulus to the Property that the Stimulus is serving as a proxy for."@en .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#comment> "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems."@en .
+<http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/2000/01/rdf-schema#label> "in deployment"@en .
+<http://www.w3.org/ns/ssn/hasDeployment> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a System and a Deployment, recording that the System is deployed in that Deployment."@en .
+<http://www.w3.org/ns/ssn/implements> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B6810ed19e2af7179949ef44e16600f82 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/ObservableProperty> .
+_:Bf069f7d38cf2a293428c81b7ded1bde5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bdcb691d869c24c55a8277c0b8fced469 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/System> .
+_:B19c125fb19b5f58617aa5501b32ce59d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B1d747f91c976379d4529e0ddc486092d <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/ssn/Input> <http://www.w3.org/2004/02/skos/core#definition> "Any information that is provided to a Procedure for its use."@en .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbcdcbe10bc4df929be8945dea6c147b7 .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bdace624a4204b874ed240d6e08861e43 .
+<http://www.w3.org/ns/ssn/implements> <http://www.w3.org/2004/02/skos/core#example> "For example, the relationship between a sensor and the scientific measuring Procedure via which it senses."@en .
+<http://www.w3.org/ns/ssn/> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/sosa/> .
+_:B91776984d26856dbd164842c1ce4fd8e <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+_:Bf9b50f4403f112eb988964d849f21af1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Ba4363cd2d2b2b26f9272b1805a5c552a <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/detects> .
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Ba34200dfe8f75d25a23f54aefbf9d501 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeBySampler> .
+_:B5dc633714b2f34148a6f7b8f25b5c098 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeActuation> .
+_:Ba454e4ac56ce3e62073cad648d6fe141 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isSampleOf> .
+<http://www.w3.org/ns/sosa/hosts> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B92f0d8aaX2D9b34X2D4728X2D8c92X2D5caad8999cd0 .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B40c3bd18a790131a8e6422b760606d3d <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isResultOf> .
+_:Bc54d43568b5eae7b7de28a2e2501b13f <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/dc/terms/license> <http://www.opengeospatial.org/ogc/Software> .
+_:B92f0d8aaX2D9b34X2D4728X2D8c92X2D5caad8999cd0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B7d75b19fX2Dbff5X2D450bX2D92b7X2D430cf944441e .
+_:B973085c3440f237da323a22928bf8702 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Output> .
+<http://www.w3.org/ns/ssn/hasInput> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a Procedure and an Input to it."@en .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B21a6ed3b9282b0c44d0a4b44ba4d5eb1 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.w3.org/ns/sosa/resultTime> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/hasInput> <http://www.w3.org/2000/01/rdf-schema#label> "has input"@en .
+_:B288bb038733750af4a64db1030240bb6 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/deployedOnPlatform> .
+<http://www.w3.org/ns/sosa/hasFeatureOfInterest> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/sosa/madeSampling> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/sosa/FeatureOfInterest> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf96cfbbded3a818542ebaca910f16e48 .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2000/01/rdf-schema#label> "Deployment"@en .
+<http://www.w3.org/ns/ssn/Output> <http://www.w3.org/2004/02/skos/core#definition> "Any information that is reported from a Procedure."@en .
+_:Bacb1a14cX2Db10dX2D41edX2D8688X2De40aadfedcd5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/sosa/madeByActuator> .
+_:B5193ca3364804a14402a2ec86e925995 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B2ceebcebe75b3bbfb28653f6af2a4cdf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B32f338d3e688d3705dccac633b8a0893 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/> <http://www.w3.org/2002/07/owl#versionInfo> "New modular version of the SSN ontology. \n\nThis ontology was originally developed in 2009-2011 by the W3C Semantic Sensor Networks Incubator Group (SSN-XG). For more information on the group's activities see: http://www.w3.org/2005/Incubator/ssn/. The ontology was revised and modularized in 2015-2017 by the W3C/OGC Spatial Data on the Web Working Group, see: https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology. \n\nIn particular, (a) the scope is extended to include actuation and sampling; (b) the core concepts and properties are factored out into the SOSA ontology. The SSN ontology imports SOSA and adds formal axiomatization consistent with the text definitions in SOSA, and adds classes and properties to accommodate the scope of the original SSN ontology. "@en .
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B7afb56a7X2Dc0e4X2D47daX2Db99cX2Dd3d77dde95eb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bf198a73955ce19e009c505b266f483db <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Procedure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B973085c3440f237da323a22928bf8702 .
+_:Bf9b50f4403f112eb988964d849f21af1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeBySensor> .
+_:B446593edc49d3d3cf1ec1e9718077e99 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/actsOnProperty> .
+_:B3446fbba263551318d6705030ae25e89 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bf069f7d38cf2a293428c81b7ded1bde5 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/implements> .
+_:Bf36189aed1c1353edddbcf67b6dac03e <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasResult> .
+<http://www.w3.org/ns/ssn/hasOutput> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B9070c49dX2D7f3aX2D46e0X2Dbb46X2Debb6f7ab5e8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/sosa/madeBySensor> .
+<http://www.w3.org/ns/ssn/Property> <http://www.w3.org/2000/01/rdf-schema#comment> "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/hasProperty> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/isPropertyOf> .
+_:B10b25e732a6eb71d1b39cee346870b9d <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/hasInput> .
+_:Bb62041f82303dac6af85635ddf71ca8a <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Result> .
+_:B7fa4f3865e69adcbd6d614e6efd016a7 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sampler> .
+_:Bdace624a4204b874ed240d6e08861e43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/madeBySampler> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/2004/02/skos/core#example> "For example, a relation between a buoy and a deployment of several Sensors."@en .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba34200dfe8f75d25a23f54aefbf9d501 .
+<http://www.w3.org/ns/ssn/hasProperty> <http://www.w3.org/2000/01/rdf-schema#label> "has property"@en .
+_:B288bb038733750af4a64db1030240bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B7c81d098X2Db1c8X2D4855X2Db1d8X2D6c0ef855b535 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B7afb56a7X2Dc0e4X2D47daX2Db99cX2Dd3d77dde95eb .
+<http://www.w3.org/ns/ssn/isPropertyOf> <http://www.w3.org/2000/01/rdf-schema#label> "is property of"@en .
+_:Bc20f0021d5cb9b85cba997cf79d24e09 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:Ba454e4ac56ce3e62073cad648d6fe141 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B5286bf403c6fdc2f027121b7cfc970be <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+_:B069fd35338f1dfa84f2412a0448ac1ad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/forProperty> <http://www.w3.org/2004/02/skos/core#definition> "A relation between some aspect of an entity and a Property."@en .
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B0255bb0fd2af9b8d4cdf5e520408e295 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Stimulus> .
+_:B288bb038733750af4a64db1030240bb6 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Platform> .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B94270ebbf96f4ef8e0366f53c483b96e .
+_:B4aad94c48afd8af789bfde910fedad61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/deployedSystem> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a Deployment and a deployed System."@en .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/2000/01/rdf-schema#label> "Stimulus"@en .
+_:B23190af98489fca07a13ab4d62d87a84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb07269003a075be1bb5522fae266c053 .
+<http://www.w3.org/ns/ssn/forProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/sosa/isResultOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:Bba3e8739e25cdd1a4cfef933e67ddd8c <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+_:Bcb05a2cd1f445770cb3f7b4147dfbbea <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sample> .
+<http://www.w3.org/ns/sosa/Sample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Result> .
+<http://www.w3.org/ns/ssn/Output> <http://www.w3.org/2000/01/rdf-schema#label> "Output"@en .
+_:B0be5ff2710e41597000638b48980fb5c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/Input> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bcaebef271bd0bb8c7f8211caf45995ab .
+_:B446593edc49d3d3cf1ec1e9718077e99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B75c4b848fe98d98a3f5509f0291d4853 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeSampling> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B964f6f962a032e4a398d5ddc18d6e4e1 .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B1f188d398a500d16ccf0c9e1ee588c3f .
+<http://www.w3.org/ns/sosa/hosts> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B7afb56a7X2Dc0e4X2D47daX2Db99cX2Dd3d77dde95eb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ssn/implements> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/dc/terms/license> <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document> .
+<http://www.w3.org/ns/sosa/isObservedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B9371df67b0604a08f8849a568c693e4d <http://www.w3.org/2002/07/owl#onProperty> _:B07bdbbbe5532257f28ebafa1753fd4ce .
+<http://www.w3.org/ns/ssn/implementedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Procedure (an algorithm, procedure or method) and an entity that implements that Procedure in some executable way."@en .
+_:B7c81d098X2Db1c8X2D4855X2Db1d8X2D6c0ef855b535 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/sosa/madeBySampler> .
+_:B26d049b853b2d2a49fead7f2943db28b <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/hasProperty> .
+_:B069fd35338f1dfa84f2412a0448ac1ad <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/wasOriginatedBy> .
+_:B6e6a886127d5f01f66bc5031387cf5fe <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B5193ca3364804a14402a2ec86e925995 .
+<http://www.w3.org/ns/ssn/hasInput> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Platform and a Deployment, meaning that the deployedSystems of the Deployment are hosted on the Platform."@en .
+<http://www.w3.org/ns/ssn/Property> <http://www.w3.org/2000/01/rdf-schema#label> "Property"@en .
+_:Bbcdcbe10bc4df929be8945dea6c147b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B69a8218465025a358a25f3ac41b95a5e <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/deployedSystem> .
+<http://www.w3.org/ns/ssn/hasSubSystem> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a System and its component parts."@en .
+<http://www.w3.org/ns/ssn/hasDeployment> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/deployedSystem> .
+_:Bf36189aed1c1353edddbcf67b6dac03e <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/ssn/Input> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B321cdc5d25adfafa4679c3301eb34759 .
+<http://www.w3.org/ns/sosa/ObservableProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bff3e2079ec57a91cbe9eb0be6acc9d8e .
+<http://www.w3.org/ns/sosa/isActedOnBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/deployedOnPlatform> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a Deployment and the Platform on which the Systems are deployed."@en .
+_:B23e3ac4e9daa681905ae87b5e4c79087 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B26d049b853b2d2a49fead7f2943db28b <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Property> .
+<http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ssn/Output> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/deployedOnPlatform> .
+<http://www.w3.org/ns/sosa/hasSample> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B36b20ae193bd1e83940c18aea1c457ad <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B321cdc5d25adfafa4679c3301eb34759 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ssn/System> .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B21a6ed3b9282b0c44d0a4b44ba4d5eb1 .
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Baec3f194a282e7acfba358a948de30b5 .
+_:B5286bf403c6fdc2f027121b7cfc970be <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/forProperty> <http://www.w3.org/2004/02/skos/core#example> "For example, from a Sensor to the properties it can observe; from an Actuator to the properties it can act on; from a Deployment to the properties it was installed to observe or act on; from a SystemCapability to the Property the capability is described for."@en .
+_:B91776984d26856dbd164842c1ce4fd8e <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/isPropertyOf> .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2004/02/skos/core#definition> "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."@en .
+_:B2ceebcebe75b3bbfb28653f6af2a4cdf <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/phenomenonTime> .
+<http://www.w3.org/ns/ssn/hasProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between an entity and a Property of that entity."@en .
+_:B792eee4f92771fea5a74b98b322270d2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/phenomenonTime> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/2004/02/skos/core#definition> "An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor."@en .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B23190af98489fca07a13ab4d62d87a84 .
+<http://www.w3.org/ns/sosa/madeActuation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/isPropertyOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B3446fbba263551318d6705030ae25e89 <http://www.w3.org/2002/07/owl#onProperty> _:B40cda052228bb04093f0afe46bdb1e60 .
+<http://www.w3.org/ns/ssn/implementedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B446593edc49d3d3cf1ec1e9718077e99 .
+<http://www.w3.org/ns/ssn/Property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B8db6d13499d9f3f3c93f6c67399c91d7 <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/hasInput> .
+_:Bff3e2079ec57a91cbe9eb0be6acc9d8e <http://www.w3.org/2002/07/owl#onProperty> _:Ba21707340eb605f6cbd8854f3d54facf .
+_:B75c4b848fe98d98a3f5509f0291d4853 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B7159413161a13661f01461f4937a8f23 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B0d8055710211200acd0c5d48de250301 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isResultOf> .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7fa4f3865e69adcbd6d614e6efd016a7 .
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/ssn/detects> <http://www.w3.org/2000/01/rdf-schema#label> "detects"@en .
+_:Bf96cfbbded3a818542ebaca910f16e48 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0452a4d14d2bea722f1fee88fdeacb01 .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B5feb5fcfcbdbe928c14396bfbaec73ed .
+_:B7402b3d05a4d3f17c5ab5a72d944d007 <http://xmlns.com/foaf/0.1/name> "W3C/OGC Spatial Data on the Web Working Group"@en .
+<http://www.w3.org/ns/ssn/hasDeployment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ssn/wasOriginatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "was originated by"@en .
+<http://www.w3.org/ns/ssn/Property> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B42fea9c3d0eb4d22a622681c60230434 <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/hasSubSystem> .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0be5ff2710e41597000638b48980fb5c .
+_:Bba3e8739e25cdd1a4cfef933e67ddd8c <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isSampleOf> .
+<http://www.w3.org/ns/sosa/Actuator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B5dc633714b2f34148a6f7b8f25b5c098 .
+_:B9371df67b0604a08f8849a568c693e4d <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Stimulus> .
+_:B6e6a886127d5f01f66bc5031387cf5fe <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B0be5ff2710e41597000638b48980fb5c <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/resultTime> .
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/ssn/deployedSystem> <http://www.w3.org/2000/01/rdf-schema#label> "deployed system"@en .
+_:B91a278733aa8596428e895e32b89a40a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6f20efd7f15580c3b778cd239b17dbb9 .
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/isProxyFor> <http://www.w3.org/2000/01/rdf-schema#label> "is proxy for"@en .
+<http://www.w3.org/ns/sosa/Platform> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B30b8db1dfbb07cea64d1a2395429f7ab .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B069fd35338f1dfa84f2412a0448ac1ad .
+_:Bc54d43568b5eae7b7de28a2e2501b13f <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/ObservableProperty> .
+<http://www.w3.org/ns/ssn/hasOutput> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a Procedure and an Output of it."@en .
+_:B4d5d42b0f2b2f9096efd88f5d18f3e32 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasResult> .
+_:B5dc633714b2f34148a6f7b8f25b5c098 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bbcdcbe10bc4df929be8945dea6c147b7 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+<http://www.w3.org/ns/ssn/Output> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/ssn/implements> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/implementedBy> .
+_:B0acfebe3bd18f3012dba098fd93c66ba <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasResult> .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#label> "System"@en .
+<http://www.w3.org/ns/sosa/FeatureOfInterest> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bcb05a2cd1f445770cb3f7b4147dfbbea .
+<http://www.w3.org/ns/sosa/usedProcedure> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:B9070c49dX2D7f3aX2D46e0X2Dbb46X2Debb6f7ab5e8f .
+<http://www.w3.org/ns/sosa/Platform> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7c5b996ef5724413e765fc8d280802e7 .
+<http://www.w3.org/ns/sosa/Actuator> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:Bdace624a4204b874ed240d6e08861e43 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/ssn/> <http://www.w3.org/2000/01/rdf-schema#comment> "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-sdw-wg@w3.org"@en .
+_:B9371df67b0604a08f8849a568c693e4d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/dc/terms/creator> _:B7402b3d05a4d3f17c5ab5a72d944d007 .
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/sosa/Sample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B40c3bd18a790131a8e6422b760606d3d .
+<http://www.w3.org/ns/sosa/hasResult> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B23190af98489fca07a13ab4d62d87a84 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/sosa/Procedure> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/sosa/observes> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B40c3bd18a790131a8e6422b760606d3d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Result> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/implements> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B069fd35338f1dfa84f2412a0448ac1ad <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B792eee4f92771fea5a74b98b322270d2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/hasDeployment> .
+<http://www.w3.org/ns/ssn/deployedSystem> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/hasDeployment> .
+<http://www.w3.org/ns/sosa/Sample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0d8055710211200acd0c5d48de250301 .
+<http://www.w3.org/ns/sosa/ObservableProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ssn/Property> .
+_:B9459aee1255e7aadfa2bc6e672077929 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/dc/terms/created> "2017-04-17"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:B5193ca3364804a14402a2ec86e925995 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/forProperty> .
+<http://www.w3.org/ns/ssn/hasOutput> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Procedure and an Output of it."@en .
+<http://www.w3.org/ns/ssn/hasSubSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B23e3ac4e9daa681905ae87b5e4c79087 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/actsOnProperty> .
+<http://www.w3.org/ns/sosa/Sampler> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B19c125fb19b5f58617aa5501b32ce59d .
+<http://www.w3.org/ns/sosa/isHostedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/hasOutput> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ssn/implementedBy> <http://www.w3.org/2004/02/skos/core#example> "For example, the relationship between a scientific measuring Procedure and a sensor that senses via that Procedure."@en .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7159413161a13661f01461f4937a8f23 .
+<http://www.w3.org/ns/ssn/deployedOnPlatform> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Deployment and the Platform on which the Systems are deployed."@en .
+<http://www.w3.org/ns/sosa/Procedure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B10b25e732a6eb71d1b39cee346870b9d .
+_:B0be5ff2710e41597000638b48980fb5c <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/sosa/madeByActuator> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:Bba3e8739e25cdd1a4cfef933e67ddd8c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/hasSimpleResult> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/Property> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B91776984d26856dbd164842c1ce4fd8e .
+_:B964f6f962a032e4a398d5ddc18d6e4e1 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sensor> .
+_:Bdcb691d869c24c55a8277c0b8fced469 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bcb05a2cd1f445770cb3f7b4147dfbbea <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bd70ba1738e8613db2a5f906ba59199d5 <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/hasOutput> .
+_:Bc954093ab3317926818d49bbd4fd6293 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/usedProcedure> .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/2000/01/rdf-schema#comment> "An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor."@en .
+<http://www.w3.org/ns/sosa/Sample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba454e4ac56ce3e62073cad648d6fe141 .
+_:Bbcdcbe10bc4df929be8945dea6c147b7 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/ssn/hasProperty> <http://www.w3.org/2004/02/skos/core#definition> "Relation between an entity and a Property of that entity."@en .
+<http://www.w3.org/ns/sosa/usedProcedure> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:Bacb1a14cX2Db10dX2D41edX2D8688X2De40aadfedcd5 .
+<http://www.w3.org/ns/ssn/implementedBy> <http://www.w3.org/2000/01/rdf-schema#label> "implemented by"@en .
+_:Bb6eedfd55dd303b4b9f503f516a5b78e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."@en .
+_:B7159413161a13661f01461f4937a8f23 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/resultTime> .
+_:B7c5b996ef5724413e765fc8d280802e7 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hosts> .
+<http://www.w3.org/ns/sosa/Platform> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/sosa/Actuator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ssn/System> .
+_:B7d75b19fX2Dbff5X2D450bX2D92b7X2D430cf944441e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/ns/sosa/Result> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc20f0021d5cb9b85cba997cf79d24e09 .
+_:Bf069f7d38cf2a293428c81b7ded1bde5 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B69a8218465025a358a25f3ac41b95a5e .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B288bb038733750af4a64db1030240bb6 .
+_:Bb07269003a075be1bb5522fae266c053 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B07bdbbbe5532257f28ebafa1753fd4ce <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/isProxyFor> .
+_:B21a6ed3b9282b0c44d0a4b44ba4d5eb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B91a278733aa8596428e895e32b89a40a <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasResult> .
+_:B19c125fb19b5f58617aa5501b32ce59d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bff3e2079ec57a91cbe9eb0be6acc9d8e <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B23e3ac4e9daa681905ae87b5e4c79087 .
+<http://www.w3.org/2004/02/skos/core#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B0acfebe3bd18f3012dba098fd93c66ba <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/actsOnProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B4d5d42b0f2b2f9096efd88f5d18f3e32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Baa55974581c18f4688d54aaacb5f3709 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bff3e2079ec57a91cbe9eb0be6acc9d8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B32f338d3e688d3705dccac633b8a0893 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/ObservableProperty> .
+<http://www.w3.org/ns/ssn/wasOriginatedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B6f20efd7f15580c3b778cd239b17dbb9 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeObservation> .
+<http://www.w3.org/ns/sosa/madeObservation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+<http://www.w3.org/ns/ssn/hasSubSystem> <http://www.w3.org/2000/01/rdf-schema#label> "has subsystem"@en .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0acfebe3bd18f3012dba098fd93c66ba .
+<http://www.w3.org/ns/ssn/Input> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B00a289c411b2d7dafb45f26c0a94928c <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/System> .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B91a278733aa8596428e895e32b89a40a .
+<http://www.w3.org/ns/ssn/implementedBy> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a Procedure (an algorithm, procedure or method) and an entity that implements that Procedure in some executable way."@en .
+_:B5f25c6f2X2D563cX2D4af3X2D8c31X2De8ed50bf2b04 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B4d5d42b0f2b2f9096efd88f5d18f3e32 .
+<http://www.w3.org/ns/ssn/hasSubSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a System and its component parts."@en .
+<http://www.w3.org/ns/sosa/Sample> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B5286bf403c6fdc2f027121b7cfc970be <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/dc/terms/title> "Semantic Sensor Network Ontology"@en .
+<http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a Platform and a Deployment, meaning that the deployedSystems of the Deployment are hosted on the Platform."@en .
+_:B973085c3440f237da323a22928bf8702 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bcc3b110dX2D567cX2D437cX2D8ff4X2D73f29a83e1a6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ssn/implements> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0255bb0fd2af9b8d4cdf5e520408e295 .
+_:Baa55974581c18f4688d54aaacb5f3709 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Platform> .
+_:B0255bb0fd2af9b8d4cdf5e520408e295 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/wasOriginatedBy> .
+<http://www.w3.org/ns/ssn/Property> <http://www.w3.org/2004/02/skos/core#definition> "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en .
+_:Bb6eedfd55dd303b4b9f503f516a5b78e <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/usedProcedure> .
+_:Bc954093ab3317926818d49bbd4fd6293 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B9687489cadb49aa6fa28e57604ca5f35 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Procedure> .
+_:Bcaebef271bd0bb8c7f8211caf45995ab <http://www.w3.org/2002/07/owl#onProperty> _:B8db6d13499d9f3f3c93f6c67399c91d7 .
+<http://www.w3.org/ns/ssn/Input> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:Bb9efa46e64b77be52ed3c5003a8f5035 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/detects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/ssn/deployedSystem> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B2ceebcebe75b3bbfb28653f6af2a4cdf .
+_:B7c5b996ef5724413e765fc8d280802e7 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/System> .
+<http://www.w3.org/ns/ssn/hasProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bcaebef271bd0bb8c7f8211caf45995ab <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Procedure> .
+_:B4cf1966f097c56c47424ffb75bd7e9ca <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Procedure> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6810ed19e2af7179949ef44e16600f82 .
+_:B69a8218465025a358a25f3ac41b95a5e <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/System> .
+_:B7159413161a13661f01461f4937a8f23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/isProxyFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/ssn/forProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "A relation between some aspect of an entity and a Property."@en .
+_:B19c125fb19b5f58617aa5501b32ce59d <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/implements> .
+_:B791be12bdb1b10c8a11869b175cb3de5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B6810ed19e2af7179949ef44e16600f82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B30b8db1dfbb07cea64d1a2395429f7ab <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B26d049b853b2d2a49fead7f2943db28b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/madeBySensor> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B3446fbba263551318d6705030ae25e89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ssn/Property> .
+_:Bacb1a14cX2Db10dX2D41edX2D8688X2De40aadfedcd5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bcc3b110dX2D567cX2D437cX2D8ff4X2D73f29a83e1a6 .
+_:B94270ebbf96f4ef8e0366f53c483b96e <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/System> .
+_:B0d8055710211200acd0c5d48de250301 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sampling> .
+<http://www.w3.org/ns/ssn/deployedSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Deployment and a deployed System."@en .
+_:B7d75b19fX2Dbff5X2D450bX2D92b7X2D430cf944441e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ssn/deployedSystem> .
+<http://www.w3.org/ns/ssn/deployedOnPlatform> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/ssn/Stimulus> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/sosa/Actuator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B4aad94c48afd8af789bfde910fedad61 .
+_:B6e6a886127d5f01f66bc5031387cf5fe <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B0255bb0fd2af9b8d4cdf5e520408e295 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/hasInput> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Procedure and an Input to it."@en .
+<http://www.w3.org/ns/sosa/ObservableProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9459aee1255e7aadfa2bc6e672077929 .
+_:B10b25e732a6eb71d1b39cee346870b9d <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Input> .
+_:Ba34200dfe8f75d25a23f54aefbf9d501 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/isPropertyOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:Bb6eedfd55dd303b4b9f503f516a5b78e <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Procedure> .
+_:B6f20efd7f15580c3b778cd239b17dbb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/implementedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B1d747f91c976379d4529e0ddc486092d <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+<http://www.w3.org/ns/sosa/Sampler> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B75c4b848fe98d98a3f5509f0291d4853 .
+_:B4cf1966f097c56c47424ffb75bd7e9ca <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/usedProcedure> .
+<http://www.w3.org/ns/ssn/deployedOnPlatform> <http://www.w3.org/2000/01/rdf-schema#label> "deployed on platform"@en .
+<http://www.w3.org/ns/sosa/Sample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+_:B5feb5fcfcbdbe928c14396bfbaec73ed <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Sample> .
+_:B6f20efd7f15580c3b778cd239b17dbb9 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf36189aed1c1353edddbcf67b6dac03e .
+<http://www.w3.org/ns/ssn/deployedOnPlatform> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/inDeployment> .
+<http://www.w3.org/ns/sosa/isSampleOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:Bb9efa46e64b77be52ed3c5003a8f5035 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Actuator> .
+<http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B5f25c6f2X2D563cX2D4af3X2D8c31X2De8ed50bf2b04 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ssn/implements> .
+_:Bb62041f82303dac6af85635ddf71ca8a <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasResult> .
+<http://www.w3.org/ns/ssn/Output> <http://www.w3.org/2000/01/rdf-schema#comment> "Any information that is reported from a Procedure."@en .
+<http://www.w3.org/ns/ssn/hasDeployment> <http://www.w3.org/2000/01/rdf-schema#label> "has deployment"@en .
+<http://www.w3.org/ns/ssn/inDeployment> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:B0d8055710211200acd0c5d48de250301 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/hasOutput> <http://www.w3.org/2000/01/rdf-schema#label> "has output"@en .
+_:B792eee4f92771fea5a74b98b322270d2 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Deployment> .
+_:Bc20f0021d5cb9b85cba997cf79d24e09 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bcc3b110dX2D567cX2D437cX2D8ff4X2D73f29a83e1a6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/ns/sosa/Sampling> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B1d747f91c976379d4529e0ddc486092d .
+_:Ba454e4ac56ce3e62073cad648d6fe141 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/isFeatureOfInterestOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B0452a4d14d2bea722f1fee88fdeacb01 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/hasDeployment> <http://www.w3.org/2004/02/skos/core#definition> "Relation between a System and a Deployment, recording that the System is deployed in that Deployment."@en .
+<http://www.w3.org/ns/ssn/isProxyFor> <http://www.w3.org/2000/01/rdf-schema#comment> "A relation from a Stimulus to the Property that the Stimulus is serving as a proxy for."@en .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2004/02/skos/core#definition> "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems."@en .
+_:Bf38eaa21c52245ff569b8c30653f8eae <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B32f338d3e688d3705dccac633b8a0893 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/isProxyFor> .
+<http://www.w3.org/ns/ssn/wasOriginatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9687489cadb49aa6fa28e57604ca5f35 .
+_:B5feb5fcfcbdbe928c14396bfbaec73ed <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasResult> .
+<http://www.w3.org/ns/ssn/Input> <http://www.w3.org/2000/01/rdf-schema#comment> "Any information that is provided to a Procedure for its use."@en .
+<http://www.w3.org/ns/ssn/Output> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B791be12bdb1b10c8a11869b175cb3de5 .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf198a73955ce19e009c505b266f483db .
+<http://www.w3.org/ns/sosa/Procedure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bdcb691d869c24c55a8277c0b8fced469 .
+<http://www.w3.org/ns/ssn/Output> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3446fbba263551318d6705030ae25e89 .
+_:B1f188d398a500d16ccf0c9e1ee588c3f <http://www.w3.org/2002/07/owl#onProperty> _:B16cfeeb95148ba79a177ba49f85f549b .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6e6a886127d5f01f66bc5031387cf5fe .
+_:Ba21707340eb605f6cbd8854f3d54facf <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/sosa/observedProperty> .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B792eee4f92771fea5a74b98b322270d2 .
+<http://www.w3.org/ns/ssn/hasDeployment> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+_:Bb07269003a075be1bb5522fae266c053 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isActedOnBy> .
+_:B973085c3440f237da323a22928bf8702 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/hasOutput> .
+<http://www.w3.org/ns/ssn/forProperty> <http://www.w3.org/2000/01/rdf-schema#label> "for property"@en .
+_:B5dc633714b2f34148a6f7b8f25b5c098 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Actuation> .
+<http://www.w3.org/ns/ssn/implements> <http://www.w3.org/2000/01/rdf-schema#label> "implements"@en .
+_:B321cdc5d25adfafa4679c3301eb34759 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B1d747f91c976379d4529e0ddc486092d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B5193ca3364804a14402a2ec86e925995 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Property> .
+<http://www.w3.org/ns/ssn/forProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B791be12bdb1b10c8a11869b175cb3de5 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Procedure> .
+_:B36b20ae193bd1e83940c18aea1c457ad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bc54d43568b5eae7b7de28a2e2501b13f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B16cfeeb95148ba79a177ba49f85f549b <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/wasOriginatedBy> .
+_:B9070c49dX2D7f3aX2D46e0X2Dbb46X2Debb6f7ab5e8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5f25c6f2X2D563cX2D4af3X2D8c31X2De8ed50bf2b04 .
+_:Bf36189aed1c1353edddbcf67b6dac03e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B7fa4f3865e69adcbd6d614e6efd016a7 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeBySampler> .
+_:B23e3ac4e9daa681905ae87b5e4c79087 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/ObservableProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9371df67b0604a08f8849a568c693e4d .
+<http://www.w3.org/ns/ssn/> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.w3.org/ns/ssn/" .
+<http://www.w3.org/ns/ssn/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+_:B1f188d398a500d16ccf0c9e1ee588c3f <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.w3.org/ns/ssn/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "ssn" .
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B4cf1966f097c56c47424ffb75bd7e9ca .
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Baa55974581c18f4688d54aaacb5f3709 .
+<http://www.w3.org/ns/ssn/Input> <http://www.w3.org/2000/01/rdf-schema#label> "Input"@en .
+_:Bc954093ab3317926818d49bbd4fd6293 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Procedure> .
+_:B9687489cadb49aa6fa28e57604ca5f35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/ssn/implements> <http://www.w3.org/2004/02/skos/core#definition> "Relation between an entity that implements a Procedure in some executable way and the Procedure (an algorithm, procedure or method)."@en .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/sosa/observedProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:B791be12bdb1b10c8a11869b175cb3de5 <http://www.w3.org/2002/07/owl#onProperty> _:Bd70ba1738e8613db2a5f906ba59199d5 .
+<http://www.w3.org/ns/sosa/observes> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/ssn/forProperty> .
+_:B91776984d26856dbd164842c1ce4fd8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B0452a4d14d2bea722f1fee88fdeacb01 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+_:Bcaebef271bd0bb8c7f8211caf45995ab <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B6810ed19e2af7179949ef44e16600f82 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observedProperty> .
+<http://www.w3.org/ns/ssn/wasOriginatedBy> <http://www.w3.org/2004/02/skos/core#definition> "Relation between an Observation and the Stimulus that originated it."@en .
+_:B4cf1966f097c56c47424ffb75bd7e9ca <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bdace624a4204b874ed240d6e08861e43 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/madeByActuator> .
+_:B1f188d398a500d16ccf0c9e1ee588c3f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/FeatureOfInterest> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:Bf9b50f4403f112eb988964d849f21af1 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://www.w3.org/ns/sosa/isSampleOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://www.w3.org/ns/sosa/Sample> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bba3e8739e25cdd1a4cfef933e67ddd8c .
+<http://www.w3.org/ns/ssn/detects> <http://www.w3.org/2000/01/rdf-schema#comment> "A relation from a Sensor to the Stimulus that the Sensor detects. The Stimulus itself will be serving as a proxy for some ObservableProperty."@en .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/2004/02/skos/core#example> "For example, a temperature Sensor deployed on a wall, or a whole network of Sensors deployed for an Observation campaign."@en .
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc54d43568b5eae7b7de28a2e2501b13f .
+_:B92f0d8aaX2D9b34X2D4728X2D8c92X2D5caad8999cd0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/ssn/inDeployment> .
+_:B9687489cadb49aa6fa28e57604ca5f35 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/implements> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B5286bf403c6fdc2f027121b7cfc970be .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc954093ab3317926818d49bbd4fd6293 .
+<http://www.w3.org/ns/ssn/Deployment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/ssn/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.w3.org/ns/ssn/hasInput> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/ssn/> .
+<http://www.w3.org/ns/sosa/Actuation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb9efa46e64b77be52ed3c5003a8f5035 .
+_:Bc20f0021d5cb9b85cba997cf79d24e09 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/isResultOf> .
+<http://www.w3.org/ns/sosa/usedProcedure> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:Baec3f194a282e7acfba358a948de30b5 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/ssn/Stimulus> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf9b50f4403f112eb988964d849f21af1 .
+_:Bcb05a2cd1f445770cb3f7b4147dfbbea <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/hasSample> .
+_:Bf96cfbbded3a818542ebaca910f16e48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B36b20ae193bd1e83940c18aea1c457ad .
+_:B4d5d42b0f2b2f9096efd88f5d18f3e32 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/Result> .
+<http://www.w3.org/ns/sosa/ObservableProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
+_:Baec3f194a282e7acfba358a948de30b5 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/detects> .
+_:B40cda052228bb04093f0afe46bdb1e60 <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/hasOutput> .
+<http://www.w3.org/ns/ssn/isPropertyOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relation between a Property and the entity it belongs to."@en .
+_:B4aad94c48afd8af789bfde910fedad61 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/forProperty> .
+_:Bf38eaa21c52245ff569b8c30653f8eae <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/resultTime> .
+_:B7402b3d05a4d3f17c5ab5a72d944d007 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B36b20ae193bd1e83940c18aea1c457ad <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/ssn/implements> .
+_:B91a278733aa8596428e895e32b89a40a <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B2ceebcebe75b3bbfb28653f6af2a4cdf <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bf198a73955ce19e009c505b266f483db <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+<http://www.w3.org/ns/ssn/isPropertyOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/ssn/hasProperty> .

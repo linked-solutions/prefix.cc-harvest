@@ -1,113 +1,65 @@
-<http://purl.org/wf4ever/wfprov#wasOutputFrom>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property specifies that a wfprov:Artifact was generated as an output from a wfprov:ProcessRun"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#Artifact> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfprov#ProcessRun> .
-
-<http://purl.org/wf4ever/wfprov#wasEnactedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "wfprov:wasEnactedBy associates a wfprov:ProcessRun with a wfprov:WorkflowEngine, specifying that the execution of the process was enacted by the engine."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#ProcessRun> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfprov#WorkflowEngine> .
-
-<http://purl.org/wf4ever/wfprov#describedByParameter>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This object property is used to associate a wfprov:Artifact to the wfdesc:Parameter description."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#Artifact> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfdesc#Parameter> .
-
-<http://purl.org/wf4ever/wfprov#describedByProcess>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This object property associate a wfprov:Processrun to its wfdesc:Process description ."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#ProcessRun> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfdesc#Process> .
-
-<http://purl.org/wf4ever/wfprov#ProcessRun>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A process run is a particular execution of a wfdesc:Process description (wfprov:describedByProcess), which can wfprov:usedInput some wfprov:Artifact instances, and produce new artifacts (wfprov:wasOutputFrom). A wfprov:WorkflowRun is a specialisation of this class."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/wf4ever/wfprov#Artifact> , <http://purl.org/wf4ever/wfdesc#Process> , <http://purl.org/wf4ever/wfprov#usedInput> , <http://purl.org/wf4ever/wfprov#WorkflowRun> , <http://purl.org/wf4ever/wfprov#wasOutputFrom> , <http://purl.org/wf4ever/wfprov#describedByProcess> .
-
-<http://purl.org/wf4ever/wfprov#Artifact>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Artifact is a general concept that represents immutable piece of state, which may have a physical embodiment in a physical object, or a digital representation in a computer system. In the case of wfprov, an artifact is used as input to a process run, or produced by the output of a process run."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/wf4ever/ro#ResearchObject> , <http://purl.org/wf4ever/wfprov#usedInput> , <http://purl.org/wf4ever/wfprov#wasOutputFrom> , <http://purl.org/wf4ever/wfprov#workflowRun> , <http://purl.org/wf4ever/wfprov#ProcessRun> , <http://purl.org/wf4ever/ro#Resource> .
-
-<http://purl.org/wf4ever/wfprov#WorkflowRun>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A workflow run is a wfprov:ProcessRun which have been enacted by a wfprov:WorkflowEngine, according to a workflow definition (which could be wfdesc:describedByWorkflow a wfdesc:Workflow). Such a process typically contains several subprocesses (wfprov:wasPartOfWorkflowRun) corresponding to wfdesc:Process descriptions"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/wf4ever/wfdesc#Process> , <http://purl.org/wf4ever/wfprov#WorkflowEngine> , <http://purl.org/wf4ever/wfdesc#Workflow> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/wf4ever/wfprov#ProcessRun> .
-
-<http://purl.org/wf4ever/wfprov>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The wfprov ontology shows how to express minimal provenance information about the execution of a workflow described using the wf ontology. \n\nHere the concern is mainly the provenance which affects the research object, so in particular how some ro:Resource's might have been generated or used by the execution of a wfdesc:Workflow.\n\nThe main class here is a wfprov:WorkflowRun which shows how wfprov:Artifact instances (the data) wfprov:wasOutputFrom a wfprov:ProcessRun for generated artifacts, or wfprov:usedInput for consumed artifacts. The WorkflowRun is also a ProcessRun, and so the overall inputs and outputs of thw workflow execution can be described in the same manner.\n\nThese provenance details are linked to the corresponding wfdesc descriptions using wfdesc:describedbyProcess, wfdesc:describedByWorkflow and wfdesc:describedByParameter.\n\n\nThis ontology can be further linked to more specific provenance ontologies like OPM-V or W3C PROV-O, but this should be done separately."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/wf4ever/ro> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "The wfprov ontology shows how to express minimal provenance information about the execution of a workflow described using the wfdesc ontology. "@en ;
-        <http://purl.org/dc/elements/1.1/title>
-                "The Wfprov Ontology"@en ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://purl.org/wf4ever/wfdesc> , <http://xmlns.com/foaf/0.1/> ;
-        <http://www.w3.org/2002/07/owl#versionIRI>
-                <https://raw.github.com/wf4ever/ro/0.1.1/wfprov.owl> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "0.1.1" .
-
-<http://purl.org/wf4ever/wfprov#WorkflowEngine>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A workflow engine is an foaf:Agent that is responsible for enacting a workflow definition (which could be described in a wfdesc:Workflow). The result of workflow enactment gives rise to a wfprov:WorkflowRun."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://purl.org/wf4ever/wfprov#WorkflowRun> , <http://purl.org/wf4ever/wfdesc#Workflow> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://purl.org/wf4ever/wfprov#describedByWorkflow>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property associates a wfprov:WorkflowRun to its corresponding wfdesc:Workflow description."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#WorkflowRun> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfdesc#WorkflowTemplate> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/wf4ever/wfprov#describedByProcess> .
-
-<http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property specifies that a wfprov:ProcessRun was executed as part of a wfprov:WorkflowRun. This typically corresponds to wfdesc:hasSubProcess in the workflow description."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#ProcessRun> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfprov#WorkflowRun> .
-
-<http://purl.org/wf4ever/wfprov#usedInput>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This property specifies that a wfprov:ProcessRun used an wfprov:Artifact as an input"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/wf4ever/wfprov#ProcessRun> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/wf4ever/wfprov#Artifact> .
+<http://purl.org/wf4ever/wfprov#wasOutputFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfprov#ProcessRun> .
+<http://purl.org/wf4ever/wfprov#wasEnactedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#describedByParameter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfdesc#Parameter> .
+<http://purl.org/wf4ever/wfprov#describedByProcess> <http://www.w3.org/2000/01/rdf-schema#comment> "This object property associate a wfprov:Processrun to its wfdesc:Process description ."@en .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#Artifact> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/ro#ResearchObject> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/wfprov> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/wf4ever/wfprov#WorkflowEngine> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/wfprov#describedByWorkflow> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfdesc#WorkflowTemplate> .
+<http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/2000/01/rdf-schema#comment> "A workflow run is a wfprov:ProcessRun which have been enacted by a wfprov:WorkflowEngine, according to a workflow definition (which could be wfdesc:describedByWorkflow a wfdesc:Workflow). Such a process typically contains several subprocesses (wfprov:wasPartOfWorkflowRun) corresponding to wfdesc:Process descriptions"@en .
+<http://purl.org/wf4ever/wfprov#usedInput> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#ProcessRun> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#comment> "Artifact is a general concept that represents immutable piece of state, which may have a physical embodiment in a physical object, or a digital representation in a computer system. In the case of wfprov, an artifact is used as input to a process run, or produced by the output of a process run."@en .
+<http://purl.org/wf4ever/wfprov> <http://purl.org/dc/elements/1.1/title> "The Wfprov Ontology"@en .
+<http://purl.org/wf4ever/wfprov> <http://www.w3.org/2000/01/rdf-schema#comment> "The wfprov ontology shows how to express minimal provenance information about the execution of a workflow described using the wf ontology. \n\nHere the concern is mainly the provenance which affects the research object, so in particular how some ro:Resource's might have been generated or used by the execution of a wfdesc:Workflow.\n\nThe main class here is a wfprov:WorkflowRun which shows how wfprov:Artifact instances (the data) wfprov:wasOutputFrom a wfprov:ProcessRun for generated artifacts, or wfprov:usedInput for consumed artifacts. The WorkflowRun is also a ProcessRun, and so the overall inputs and outputs of thw workflow execution can be described in the same manner.\n\nThese provenance details are linked to the corresponding wfdesc descriptions using wfdesc:describedbyProcess, wfdesc:describedByWorkflow and wfdesc:describedByParameter.\n\n\nThis ontology can be further linked to more specific provenance ontologies like OPM-V or W3C PROV-O, but this should be done separately."@en .
+<http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun> <http://www.w3.org/2000/01/rdf-schema#comment> "This property specifies that a wfprov:ProcessRun was executed as part of a wfprov:WorkflowRun. This typically corresponds to wfdesc:hasSubProcess in the workflow description."@en .
+<http://purl.org/wf4ever/wfprov#wasEnactedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfprov#WorkflowEngine> .
+<http://purl.org/wf4ever/wfprov#describedByWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/2000/01/rdf-schema#comment> "A process run is a particular execution of a wfdesc:Process description (wfprov:describedByProcess), which can wfprov:usedInput some wfprov:Artifact instances, and produce new artifacts (wfprov:wasOutputFrom). A wfprov:WorkflowRun is a specialisation of this class."@en .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfdesc#Process> .
+<http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#ProcessRun> .
+<http://purl.org/wf4ever/wfprov#describedByWorkflow> <http://www.w3.org/2000/01/rdf-schema#comment> "This property associates a wfprov:WorkflowRun to its corresponding wfdesc:Workflow description."@en .
+<http://purl.org/wf4ever/wfprov#describedByProcess> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#ProcessRun> .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#usedInput> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/wf4ever/wfprov#ProcessRun> .
+<http://purl.org/wf4ever/wfprov> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/wf4ever/wfdesc> .
+<http://purl.org/wf4ever/wfprov> <http://www.w3.org/2002/07/owl#imports> <http://xmlns.com/foaf/0.1/> .
+<http://purl.org/wf4ever/wfprov#WorkflowEngine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#usedInput> .
+<http://purl.org/wf4ever/wfprov#wasEnactedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "wfprov:wasEnactedBy associates a wfprov:ProcessRun with a wfprov:WorkflowEngine, specifying that the execution of the process was enacted by the engine."@en .
+<http://purl.org/wf4ever/wfprov#describedByWorkflow> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/wf4ever/wfprov#describedByProcess> .
+<http://purl.org/wf4ever/wfprov#describedByParameter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#Artifact> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#wasOutputFrom> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfdesc#Process> .
+<http://purl.org/wf4ever/wfprov#WorkflowEngine> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfdesc#Workflow> .
+<http://purl.org/wf4ever/wfprov> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/ro> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#WorkflowEngine> .
+<http://purl.org/wf4ever/wfprov#wasOutputFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "This property specifies that a wfprov:Artifact was generated as an output from a wfprov:ProcessRun"@en .
+<http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#describedByProcess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#describedByParameter> <http://www.w3.org/2000/01/rdf-schema#comment> "This object property is used to associate a wfprov:Artifact to the wfdesc:Parameter description."@en .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#wasOutputFrom> .
+<http://purl.org/wf4ever/wfprov#WorkflowEngine> <http://www.w3.org/2000/01/rdf-schema#comment> "A workflow engine is an foaf:Agent that is responsible for enacting a workflow definition (which could be described in a wfdesc:Workflow). The result of workflow enactment gives rise to a wfprov:WorkflowRun."@en .
+<http://purl.org/wf4ever/wfprov#describedByParameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#WorkflowEngine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/wf4ever/wfprov> <http://www.w3.org/2002/07/owl#versionIRI> <https://raw.github.com/wf4ever/ro/0.1.1/wfprov.owl> .
+<http://purl.org/wf4ever/wfprov#usedInput> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/wfprov#usedInput> <http://www.w3.org/2000/01/rdf-schema#comment> "This property specifies that a wfprov:ProcessRun used an wfprov:Artifact as an input"@en .
+<http://purl.org/wf4ever/wfprov#describedByProcess> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfdesc#Process> .
+<http://purl.org/wf4ever/wfprov> <http://purl.org/dc/elements/1.1/description> "The wfprov ontology shows how to express minimal provenance information about the execution of a workflow described using the wfdesc ontology. "@en .
+<http://purl.org/wf4ever/wfprov#wasOutputFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#Artifact> .
+<http://purl.org/wf4ever/wfprov#describedByWorkflow> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
+<http://purl.org/wf4ever/wfprov#WorkflowRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfdesc#Workflow> .
+<http://purl.org/wf4ever/wfprov#ProcessRun> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#describedByProcess> .
+<http://purl.org/wf4ever/wfprov> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.1" .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#workflowRun> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/wf4ever/wfprov#wasEnactedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/wf4ever/wfprov#ProcessRun> .
+<http://purl.org/wf4ever/wfprov#usedInput> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/wf4ever/wfprov#Artifact> .
+<http://purl.org/wf4ever/wfprov#wasOutputFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/wfprov#ProcessRun> .
+<http://purl.org/wf4ever/wfprov#Artifact> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/wf4ever/ro#Resource> .

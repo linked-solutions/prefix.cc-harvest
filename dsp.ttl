@@ -1,102 +1,49 @@
-<http://purl.org/metainfo/terms/dsp#inScheme>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "クラスのメンバーが、目的語で示されるシソーラスなどの語彙の概念の集合で構成されることを表す。\r\n\tたとえば、国立国会図書館件名標目表（NDLSH）に含まれるそれぞれの件名は、skos:Conceptのインスタンスと捉えられるが、これを「NDLSH件名全体の集合」という匿名クラスのインスタンスとして表現できると具合がよい場合がある。これは、[owl:onProperty skos:inScheme; owl:allValuesFrom ndlsh: ]という具合にOWLクラス制約に相当するが、これを[dsp:inScheme ndlsh: ]と簡易に表現する。\r\n\t項目記述規則において、dc:subjectの値制約としてNDLSH語彙を指定する場合、[dsp:StatementTemplate; owl:onProperty dc:subject; owl:onClass [dsp:inScheme ndlsh:]] という表現ができる。複数語彙が許される場合、制約に用いるクラスを[owl:unionOf([dsp:inScheme ndlsh:] [dsp:inScheme bsh:])]のように和集合クラスとする。\r\n\tDCMI-DSPのvocabularyEncodingSchemeに近い。" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "In Scheme" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
-
-<http://purl.org/metainfo/terms/dsp#resourceClass>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "レコード記述規則によって記述したメタデータインスタンスは、このクラスのメンバーとなることを示す。DCMI-DSPのresourceClassと同等。" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/metainfo/terms/dsp#DescriptionTemplate> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Resource Class" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Class> .
-
-<http://purl.org/metainfo/terms/dsp#DescriptionTemplate>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "レコード記述規則を表すメタクラス。\r\n\tレコード記述規則DはOWLのクラス:CDとして表現し、その記述規則Dにしたがって書かれたメタデータ:Mは記述規則クラス:CRのインスタンスとなる（すなわち、:CD a owl:Class.であり、:M a :CD.となる）。\r\n\tクラス:CDがレコード記述規則であることを分かりやすくするため、OWLクラスの代わりにDescriptionTemplateのインスタンス（つまり:CD a dsp:DescriptionTemplate.）として表現してよい。" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Description Template" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#maxCardinality>
-                          1 ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/metainfo/terms/dsp#idStatement>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minQualifiedCardinality>
-                          1 ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://purl.org/metainfo/terms/dsp#StatementTemplate> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                ] .
-
-<http://purl.org/metainfo/terms/dsp#idStatement>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "レコード記述規則のIDを記述する項目を表す。" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/metainfo/terms/dsp#DescriptionTemplate> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ID Statement" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/metainfo/terms/dsp#IdStatementTemplate> .
-
-<http://purl.org/metainfo/terms/dsp#StatementTemplate>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "項目記述規則を表すメタクラス。\r\n\t項目記述規則SはOWLのクラス制約:RSとして表現し、その記述規則Sを持つレコード記述規則Dのクラス:CDは、:RSのサブクラスとなる（すなわち、:RS a owl:Restriction.であり、:CD rdfs:subClassOf :RS.となる）。レコード記述規則D1が項目記述規則S1、S2、S3を持つならば、それぞれのクラス、クラス制約の関係は:CD1 rdfs:subClassOf :RS1, :RS2, :RS3.となる。レコード記述規則D1に従うメタデータは、項目記述規則の制約S1、S2、S3をすべて満たすもの（RS1, :RS2, :RS3の共通部分）だからである。\r\n\tクラス制約:RSが項目記述規則であることを分かりやすくするため、OWLクラス制約の代わりにStatementTemplateのインスタンス（つまり:RS a dsp:StatementTemplate.）として表現してよい。" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Statement Template" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Restriction> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          1 ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.w3.org/2002/07/owl#onProperty>
-                ] .
-
-<http://purl.org/metainfo/terms/dsp>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "メタデータの記述規則を表現するためのメタ言語。メタデータのレコード記述規則は、OWLのクラスで表現し、各レコードの項目記述規則をOWLのクラス制約として表現する。メタデータをレコード記述規則クラスのインスタンスとして記述することで、推論ツールの拡張による整合性検証を可能にする。このメタ言語では、制約記述を表現するためのプロパティのほか、OWLクラス、OWLクラス制約がレコード記述規則、項目記述規則であることを明示するためのメタクラスも定義する。" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Description Set Profile Definition Language" ;
-        <http://purl.org/dc/terms/created>
-                "2011-02-05" ;
-        <http://purl.org/dc/terms/modified>
-                "2011-02-06" ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "ver. 0.20" .
-
-<http://purl.org/metainfo/terms/dsp#cardinalityNote>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "項目記述規則の出現回数制約のうち、「推奨」「あれば必須」など数値表現できない制約を記述する。このプロパティがある場合、owl:minCardinalityは1と解釈される。" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/metainfo/terms/dsp#StatementTemplate> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Cardinality Note" .
-
-<http://purl.org/metainfo/terms/dsp#IdStatementTemplate>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "IDを記述する項目を表すメタクラス。制約は記述しない。" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ID Statement Template" .
+<http://purl.org/metainfo/terms/dsp#inScheme> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://purl.org/metainfo/terms/dsp#resourceClass> <http://www.w3.org/2000/01/rdf-schema#label> "Resource Class" .
+<http://purl.org/metainfo/terms/dsp#DescriptionTemplate> <http://www.w3.org/2000/01/rdf-schema#label> "Description Template" .
+<http://purl.org/metainfo/terms/dsp#idStatement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/metainfo/terms/dsp#DescriptionTemplate> .
+<http://purl.org/metainfo/terms/dsp#inScheme> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B338989c3X2D088cX2D481bX2D8f00X2D82dcdbf4bd7e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/metainfo/terms/dsp#StatementTemplate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/metainfo/terms/dsp> <http://www.w3.org/2002/07/owl#versionInfo> "ver. 0.20" .
+<http://purl.org/metainfo/terms/dsp#idStatement> <http://www.w3.org/2000/01/rdf-schema#comment> "レコード記述規則のIDを記述する項目を表す。" .
+<http://purl.org/metainfo/terms/dsp#cardinalityNote> <http://www.w3.org/2000/01/rdf-schema#label> "Cardinality Note" .
+<http://purl.org/metainfo/terms/dsp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/metainfo/terms/dsp#resourceClass> <http://www.w3.org/2000/01/rdf-schema#comment> "レコード記述規則によって記述したメタデータインスタンスは、このクラスのメンバーとなることを示す。DCMI-DSPのresourceClassと同等。" .
+<http://purl.org/metainfo/terms/dsp#IdStatementTemplate> <http://www.w3.org/2000/01/rdf-schema#label> "ID Statement Template" .
+_:B582c5875X2D4508X2D453eX2D8a80X2D46f78c0af09f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/metainfo/terms/dsp#resourceClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B338989c3X2D088cX2D481bX2D8f00X2D82dcdbf4bd7e <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://purl.org/metainfo/terms/dsp#cardinalityNote> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/metainfo/terms/dsp#StatementTemplate> .
+<http://purl.org/metainfo/terms/dsp#DescriptionTemplate> <http://www.w3.org/2000/01/rdf-schema#comment> "レコード記述規則を表すメタクラス。\r\n\tレコード記述規則DはOWLのクラス:CDとして表現し、その記述規則Dにしたがって書かれたメタデータ:Mは記述規則クラス:CRのインスタンスとなる（すなわち、:CD a owl:Class.であり、:M a :CD.となる）。\r\n\tクラス:CDがレコード記述規則であることを分かりやすくするため、OWLクラスの代わりにDescriptionTemplateのインスタンス（つまり:CD a dsp:DescriptionTemplate.）として表現してよい。" .
+_:Bc5c4b8b5X2Ded20X2D435aX2D872bX2D9918bb6cef35 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://purl.org/metainfo/terms/dsp#StatementTemplate> <http://www.w3.org/2000/01/rdf-schema#comment> "項目記述規則を表すメタクラス。\r\n\t項目記述規則SはOWLのクラス制約:RSとして表現し、その記述規則Sを持つレコード記述規則Dのクラス:CDは、:RSのサブクラスとなる（すなわち、:RS a owl:Restriction.であり、:CD rdfs:subClassOf :RS.となる）。レコード記述規則D1が項目記述規則S1、S2、S3を持つならば、それぞれのクラス、クラス制約の関係は:CD1 rdfs:subClassOf :RS1, :RS2, :RS3.となる。レコード記述規則D1に従うメタデータは、項目記述規則の制約S1、S2、S3をすべて満たすもの（RS1, :RS2, :RS3の共通部分）だからである。\r\n\tクラス制約:RSが項目記述規則であることを分かりやすくするため、OWLクラス制約の代わりにStatementTemplateのインスタンス（つまり:RS a dsp:StatementTemplate.）として表現してよい。" .
+<http://purl.org/metainfo/terms/dsp#cardinalityNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B582c5875X2D4508X2D453eX2D8a80X2D46f78c0af09f <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:B338989c3X2D088cX2D481bX2D8f00X2D82dcdbf4bd7e <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> .
+<http://purl.org/metainfo/terms/dsp#idStatement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/metainfo/terms/dsp#inScheme> <http://www.w3.org/2000/01/rdf-schema#comment> "クラスのメンバーが、目的語で示されるシソーラスなどの語彙の概念の集合で構成されることを表す。\r\n\tたとえば、国立国会図書館件名標目表（NDLSH）に含まれるそれぞれの件名は、skos:Conceptのインスタンスと捉えられるが、これを「NDLSH件名全体の集合」という匿名クラスのインスタンスとして表現できると具合がよい場合がある。これは、[owl:onProperty skos:inScheme; owl:allValuesFrom ndlsh: ]という具合にOWLクラス制約に相当するが、これを[dsp:inScheme ndlsh: ]と簡易に表現する。\r\n\t項目記述規則において、dc:subjectの値制約としてNDLSH語彙を指定する場合、[dsp:StatementTemplate; owl:onProperty dc:subject; owl:onClass [dsp:inScheme ndlsh:]] という表現ができる。複数語彙が許される場合、制約に用いるクラスを[owl:unionOf([dsp:inScheme ndlsh:] [dsp:inScheme bsh:])]のように和集合クラスとする。\r\n\tDCMI-DSPのvocabularyEncodingSchemeに近い。" .
+<http://purl.org/metainfo/terms/dsp#DescriptionTemplate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/metainfo/terms/dsp#inScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/metainfo/terms/dsp#DescriptionTemplate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B338989c3X2D088cX2D481bX2D8f00X2D82dcdbf4bd7e .
+<http://purl.org/metainfo/terms/dsp#IdStatementTemplate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/metainfo/terms/dsp> <http://purl.org/dc/terms/modified> "2011-02-06" .
+_:B338989c3X2D088cX2D481bX2D8f00X2D82dcdbf4bd7e <http://www.w3.org/2002/07/owl#onClass> <http://purl.org/metainfo/terms/dsp#StatementTemplate> .
+_:Bc5c4b8b5X2Ded20X2D435aX2D872bX2D9918bb6cef35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/metainfo/terms/dsp#idStatement> <http://www.w3.org/2000/01/rdf-schema#label> "ID Statement" .
+<http://purl.org/metainfo/terms/dsp#resourceClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/metainfo/terms/dsp#DescriptionTemplate> .
+<http://purl.org/metainfo/terms/dsp#IdStatementTemplate> <http://www.w3.org/2000/01/rdf-schema#comment> "IDを記述する項目を表すメタクラス。制約は記述しない。" .
+_:B582c5875X2D4508X2D453eX2D8a80X2D46f78c0af09f <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/metainfo/terms/dsp#idStatement> .
+<http://purl.org/metainfo/terms/dsp#StatementTemplate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/metainfo/terms/dsp#StatementTemplate> <http://www.w3.org/2000/01/rdf-schema#label> "Statement Template" .
+<http://purl.org/metainfo/terms/dsp#DescriptionTemplate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/metainfo/terms/dsp#resourceClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/metainfo/terms/dsp#idStatement> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/metainfo/terms/dsp#IdStatementTemplate> .
+<http://purl.org/metainfo/terms/dsp#cardinalityNote> <http://www.w3.org/2000/01/rdf-schema#comment> "項目記述規則の出現回数制約のうち、「推奨」「あれば必須」など数値表現できない制約を記述する。このプロパティがある場合、owl:minCardinalityは1と解釈される。" .
+<http://purl.org/metainfo/terms/dsp#DescriptionTemplate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B582c5875X2D4508X2D453eX2D8a80X2D46f78c0af09f .
+<http://purl.org/metainfo/terms/dsp> <http://www.w3.org/2000/01/rdf-schema#comment> "メタデータの記述規則を表現するためのメタ言語。メタデータのレコード記述規則は、OWLのクラスで表現し、各レコードの項目記述規則をOWLのクラス制約として表現する。メタデータをレコード記述規則クラスのインスタンスとして記述することで、推論ツールの拡張による整合性検証を可能にする。このメタ言語では、制約記述を表現するためのプロパティのほか、OWLクラス、OWLクラス制約がレコード記述規則、項目記述規則であることを明示するためのメタクラスも定義する。" .
+_:Bc5c4b8b5X2Ded20X2D435aX2D872bX2D9918bb6cef35 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2002/07/owl#onProperty> .
+<http://purl.org/metainfo/terms/dsp#inScheme> <http://www.w3.org/2000/01/rdf-schema#label> "In Scheme" .
+<http://purl.org/metainfo/terms/dsp> <http://www.w3.org/2000/01/rdf-schema#label> "Description Set Profile Definition Language" .
+<http://purl.org/metainfo/terms/dsp> <http://purl.org/dc/terms/created> "2011-02-05" .
+<http://purl.org/metainfo/terms/dsp#StatementTemplate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc5c4b8b5X2Ded20X2D435aX2D872bX2D9918bb6cef35 .

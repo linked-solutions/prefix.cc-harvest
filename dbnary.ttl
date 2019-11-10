@@ -1,195 +1,116 @@
-<http://kaiko.getalp.org/dbnary#Translation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Describe translation information for a Lexical Entry or a Lexical Sense."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://kaiko.getalp.org/dbnary#partOfSpeech>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The original part of speech as it was defined in the Wiktionary page. This property takes a String litteral as object."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/terms/LinguisticSystem>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://kaiko.getalp.org/dbnary#gloss>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A short description of the context (usually a brief definition) under which the subject Translation or Relation is valid"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement> <http://www.w3.org/ns/lemon/vartrans#Translation> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://kaiko.getalp.org/dbnary#Gloss> .
-
-<http://kaiko.getalp.org/dbnary>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "DBnary: A lexicon model designed to allow the representation of lexical data extracted from wiktionary language editions (http://www.wiktionary.org/). The dbnary model extends the ontolex model (http://www.w3.org/ns/lemon/ontolex)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "dbnary" ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                "http://kaiko.getalp.org/about-dbnary/" ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://www.w3.org/ns/lemon/ontolex> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#> , <http://www.w3.org/ns/lemon/synsem> , <http://www.w3.org/ns/lemon/vartrans> , <http://www.w3.org/ns/lemon/lime> ;
-        <http://www.w3.org/2002/07/owl#versionIRI>
-                <http://kaiko.getalp.org/dbnary/2.0.0> .
-
-<http://kaiko.getalp.org/dbnary#describes>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "links a vocable to any lexical entry that share the same written form. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://kaiko.getalp.org/dbnary#Page> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> .
-
-<http://kaiko.getalp.org/dbnary#topNymProperty>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified lexico semantic relation between LexicalEntities (Lexical entry OR Lexical Sense). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://kaiko.getalp.org/dbnary#Page> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> <http://www.w3.org/ns/lemon/ontolex#LexicalSense> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://kaiko.getalp.org/dbnary#Page> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> <http://www.w3.org/ns/lemon/ontolex#LexicalSense> )
-                ] .
-
-<http://kaiko.getalp.org/dbnary#senseNumber>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The number of the lexical Sense in the Lexical Entry, as given by Wiktionary. This property takes a String literal as an object."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/ns/lemon/ontolex#LexicalSense> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://kaiko.getalp.org/dbnary#isTranslationOf>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "links the translation information to the Lexical Entity it belongs to."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://kaiko.getalp.org/dbnary#Translation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://kaiko.getalp.org/dbnary#Page> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> <http://www.w3.org/ns/lemon/ontolex#LexicalSense> )
-                ] .
-
-<http://kaiko.getalp.org/dbnary#rank>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#int> .
-
-<http://kaiko.getalp.org/dbnary#troponym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A verb that indicates more precisely the manner of doing something by replacing a verb of a more generalized meaning. E.g.: \"Stroll\" is a troponym of \"walk\", since it involves a slow and relaxed sort of walking."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
-
-<http://kaiko.getalp.org/dbnary#hypernym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified hypernymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
-
-<http://kaiko.getalp.org/dbnary#Page>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Page corresponds to a Wiktionary web page describing a set of Lexical Entries that usually share the same written form but that do not necessarily share the same Part Of Speech. E.g. cat_n and cat_v are distinct lexical entries while the page \"cat\" refers to both of them."@en .
-
-<http://kaiko.getalp.org/dbnary#synonym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified synonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
-
-<http://kaiko.getalp.org/dbnary#writtenForm>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The written form of a translation equivalent."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://kaiko.getalp.org/dbnary#Translation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://kaiko.getalp.org/dbnary#targetLanguage>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The target language of a given translation, defined as a Linguistic System."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://kaiko.getalp.org/dbnary#Translation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/dc/terms/LinguisticSystem> .
-
-<http://kaiko.getalp.org/dbnary#targetLanguageCode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The target language of a given translation. This may be used when the dbnary:targetLanguage object property can not be used."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://kaiko.getalp.org/dbnary#Translation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://kaiko.getalp.org/dbnary#holonym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified holonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
-
-<http://kaiko.getalp.org/dbnary#usage>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Usage note that is used to further annotate the target of the translation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://kaiko.getalp.org/dbnary#Translation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://kaiko.getalp.org/dbnary#approximateSynonym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified approximate synonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
-
-<http://kaiko.getalp.org/dbnary#hyponym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified hyponymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
-
-<http://kaiko.getalp.org/dbnary#Gloss>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A gloss used to represent the context in which a translation or a relation is valid."@en .
-
-<http://kaiko.getalp.org/dbnary#meronym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified meronymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
-
-<http://kaiko.getalp.org/dbnary#antonym>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An underspecified antonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://kaiko.getalp.org/dbnary#topNymProperty> .
+<http://kaiko.getalp.org/dbnary#Translation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B15d2b53eX2Df23eX2D4014X2D8ac7X2D57684b5e3aa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/lemon/ontolex#LexicalSense> .
+<http://kaiko.getalp.org/dbnary#partOfSpeech> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/dc/terms/LinguisticSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B6a0bd36dX2D6da0X2D4ba5X2Da8f7X2D5bdd921aaf35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kaiko.getalp.org/dbnary#Page> .
+_:Bbb20d9f1X2Dc814X2D4b29X2Dbd1cX2D3a206ee159d1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kaiko.getalp.org/dbnary#Page> .
+<http://kaiko.getalp.org/dbnary#gloss> <http://www.w3.org/2000/01/rdf-schema#range> <http://kaiko.getalp.org/dbnary#Gloss> .
+_:Ba915b81cX2D3775X2D4842X2Dbd1dX2D6eb3564f7036 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://kaiko.getalp.org/dbnary#describes> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> .
+<http://kaiko.getalp.org/dbnary#topNymProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/lemon/ontolex> .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+<http://kaiko.getalp.org/dbnary#senseNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of the lexical Sense in the Lexical Entry, as given by Wiktionary. This property takes a String literal as an object."@en .
+_:Bbc94fe76X2Daeb2X2D495fX2D990dX2Dc8e36ceeca4b <http://www.w3.org/2002/07/owl#unionOf> _:Bcfec1c75X2D36f7X2D41f0X2Da9fcX2D69f98d57e8c7 .
+_:Bee04571dX2D1fa3X2D4383X2D9117X2D09f66ff20925 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://kaiko.getalp.org/dbnary#gloss> <http://www.w3.org/2000/01/rdf-schema#domain> _:B2f9c6d09X2D59c2X2D4c36X2Dbd20X2D2d1332c2e208 .
+<http://kaiko.getalp.org/dbnary#partOfSpeech> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://kaiko.getalp.org/dbnary#rank> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/lemon/synsem> .
+<http://kaiko.getalp.org/dbnary#troponym> <http://www.w3.org/2000/01/rdf-schema#comment> "A verb that indicates more precisely the manner of doing something by replacing a verb of a more generalized meaning. E.g.: \"Stroll\" is a troponym of \"walk\", since it involves a slow and relaxed sort of walking."@en .
+<http://kaiko.getalp.org/dbnary#hypernym> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified hypernymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+<http://kaiko.getalp.org/dbnary#hypernym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+<http://kaiko.getalp.org/dbnary#Page> <http://www.w3.org/2000/01/rdf-schema#comment> "A Page corresponds to a Wiktionary web page describing a set of Lexical Entries that usually share the same written form but that do not necessarily share the same Part Of Speech. E.g. cat_n and cat_v are distinct lexical entries while the page \"cat\" refers to both of them."@en .
+_:Bee04571dX2D1fa3X2D4383X2D9117X2D09f66ff20925 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/lemon/vartrans#Translation> .
+<http://kaiko.getalp.org/dbnary#synonym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+_:B137a0120X2D1a6aX2D439cX2D8b90X2D620b5d3fb233 <http://www.w3.org/2002/07/owl#unionOf> _:Bbb20d9f1X2Dc814X2D4b29X2Dbd1cX2D3a206ee159d1 .
+<http://kaiko.getalp.org/dbnary#writtenForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://kaiko.getalp.org/dbnary#targetLanguage> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/dc/terms/LinguisticSystem> .
+<http://kaiko.getalp.org/dbnary#targetLanguageCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://kaiko.getalp.org/dbnary#holonym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+<http://kaiko.getalp.org/dbnary#isTranslationOf> <http://www.w3.org/2000/01/rdf-schema#range> _:B137a0120X2D1a6aX2D439cX2D8b90X2D620b5d3fb233 .
+<http://kaiko.getalp.org/dbnary#isTranslationOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kaiko.getalp.org/dbnary#Translation> .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2000/01/rdf-schema#label> "dbnary" .
+<http://kaiko.getalp.org/dbnary#topNymProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified lexico semantic relation between LexicalEntities (Lexical entry OR Lexical Sense). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+<http://kaiko.getalp.org/dbnary#Translation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "http://kaiko.getalp.org/about-dbnary/" .
+<http://kaiko.getalp.org/dbnary#usage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B0426b360X2Db370X2D4aa5X2Db710X2D98d618f4c2ba <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://kaiko.getalp.org/dbnary#approximateSynonym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+<http://kaiko.getalp.org/dbnary#approximateSynonym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B13261bd0X2Dab3bX2D425fX2D96ffX2Da8331b13360c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/lemon/ontolex#LexicalSense> .
+<http://kaiko.getalp.org/dbnary#targetLanguageCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://kaiko.getalp.org/dbnary#partOfSpeech> <http://www.w3.org/2000/01/rdf-schema#comment> "The original part of speech as it was defined in the Wiktionary page. This property takes a String litteral as object."@en .
+<http://kaiko.getalp.org/dbnary#writtenForm> <http://www.w3.org/2000/01/rdf-schema#comment> "The written form of a translation equivalent."@en .
+<http://kaiko.getalp.org/dbnary#usage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://kaiko.getalp.org/dbnary#targetLanguageCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B5f0c56f0X2Deb8bX2D4f91X2D9fb4X2D7c44764726f5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/lemon/ontolex#LexicalSense> .
+<http://kaiko.getalp.org/dbnary#holonym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#writtenForm> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bf6ac4a68X2D0397X2D43ceX2Dbb78X2D1c79f55bf25b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement> .
+<http://kaiko.getalp.org/dbnary#synonym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#targetLanguage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kaiko.getalp.org/dbnary#Translation> .
+<http://kaiko.getalp.org/dbnary#rank> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://kaiko.getalp.org/dbnary#gloss> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#hypernym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#topNymProperty> <http://www.w3.org/2000/01/rdf-schema#range> _:B0426b360X2Db370X2D4aa5X2Db710X2D98d618f4c2ba .
+<http://kaiko.getalp.org/dbnary#hyponym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+_:B137a0120X2D1a6aX2D439cX2D8b90X2D620b5d3fb233 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://kaiko.getalp.org/dbnary#isTranslationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "links the translation information to the Lexical Entity it belongs to."@en .
+_:Bcfec1c75X2D36f7X2D41f0X2Da9fcX2D69f98d57e8c7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be7ccc018X2Dbcc4X2D441dX2Dbd02X2Dc15824db8f85 .
+<http://kaiko.getalp.org/dbnary#targetLanguage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Ba915b81cX2D3775X2D4842X2Dbd1dX2D6eb3564f7036 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B15d2b53eX2Df23eX2D4014X2D8ac7X2D57684b5e3aa2 .
+_:B0426b360X2Db370X2D4aa5X2Db710X2D98d618f4c2ba <http://www.w3.org/2002/07/owl#unionOf> _:B6a0bd36dX2D6da0X2D4ba5X2Da8f7X2D5bdd921aaf35 .
+_:Bbc94fe76X2Daeb2X2D495fX2D990dX2Dc8e36ceeca4b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B6f916710X2D311dX2D4104X2Dabb6X2D5972f44bcff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> .
+<http://kaiko.getalp.org/dbnary#senseNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://kaiko.getalp.org/dbnary#Gloss> <http://www.w3.org/2000/01/rdf-schema#comment> "A gloss used to represent the context in which a translation or a relation is valid."@en .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2002/07/owl#versionIRI> <http://kaiko.getalp.org/dbnary/2.0.0> .
+<http://kaiko.getalp.org/dbnary#partOfSpeech> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> .
+<http://kaiko.getalp.org/dbnary#describes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kaiko.getalp.org/dbnary#Page> .
+_:B15d2b53eX2Df23eX2D4014X2D8ac7X2D57684b5e3aa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://kaiko.getalp.org/dbnary#troponym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+<http://kaiko.getalp.org/dbnary#meronym> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified meronymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+_:Be7ccc018X2Dbcc4X2D441dX2Dbd02X2Dc15824db8f85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B13261bd0X2Dab3bX2D425fX2D96ffX2Da8331b13360c .
+<http://kaiko.getalp.org/dbnary#troponym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#isTranslationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#Gloss> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://kaiko.getalp.org/dbnary#Page> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B2f9c6d09X2D59c2X2D4c36X2Dbd20X2D2d1332c2e208 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://kaiko.getalp.org/dbnary#holonym> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified holonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+_:Be7ccc018X2Dbcc4X2D441dX2Dbd02X2Dc15824db8f85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/lemon/ontolex#LexicalEntry> .
+_:Bbb20d9f1X2Dc814X2D4b29X2Dbd1cX2D3a206ee159d1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba915b81cX2D3775X2D4842X2Dbd1dX2D6eb3564f7036 .
+<http://kaiko.getalp.org/dbnary#topNymProperty> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bbc94fe76X2Daeb2X2D495fX2D990dX2Dc8e36ceeca4b .
+<http://kaiko.getalp.org/dbnary#senseNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://kaiko.getalp.org/dbnary#synonym> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified synonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+_:B6a0bd36dX2D6da0X2D4ba5X2Da8f7X2D5bdd921aaf35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B6f916710X2D311dX2D4104X2Dabb6X2D5972f44bcff8 .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/lemon/vartrans> .
+<http://kaiko.getalp.org/dbnary#hyponym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#targetLanguageCode> <http://www.w3.org/2000/01/rdf-schema#comment> "The target language of a given translation. This may be used when the dbnary:targetLanguage object property can not be used."@en .
+<http://kaiko.getalp.org/dbnary#gloss> <http://www.w3.org/2000/01/rdf-schema#comment> "A short description of the context (usually a brief definition) under which the subject Translation or Relation is valid"@en .
+_:B6f916710X2D311dX2D4104X2Dabb6X2D5972f44bcff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5f0c56f0X2Deb8bX2D4f91X2D9fb4X2D7c44764726f5 .
+<http://kaiko.getalp.org/dbnary#approximateSynonym> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified approximate synonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+<http://kaiko.getalp.org/dbnary#antonym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+<http://kaiko.getalp.org/dbnary#Translation> <http://www.w3.org/2000/01/rdf-schema#comment> "Describe translation information for a Lexical Entry or a Lexical Sense."@en .
+_:Bcfec1c75X2D36f7X2D41f0X2Da9fcX2D69f98d57e8c7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kaiko.getalp.org/dbnary#Page> .
+_:Bf6ac4a68X2D0397X2D43ceX2Dbb78X2D1c79f55bf25b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bee04571dX2D1fa3X2D4383X2D9117X2D09f66ff20925 .
+<http://kaiko.getalp.org/dbnary#usage> <http://www.w3.org/2000/01/rdf-schema#comment> "Usage note that is used to further annotate the target of the translation."@en .
+<http://kaiko.getalp.org/dbnary#meronym> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://kaiko.getalp.org/dbnary#topNymProperty> .
+_:B2f9c6d09X2D59c2X2D4c36X2Dbd20X2D2d1332c2e208 <http://www.w3.org/2002/07/owl#unionOf> _:Bf6ac4a68X2D0397X2D43ceX2Dbb78X2D1c79f55bf25b .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/lemon/lime> .
+<http://kaiko.getalp.org/dbnary#hyponym> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified hyponymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+<http://kaiko.getalp.org/dbnary#targetLanguage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://kaiko.getalp.org/dbnary#usage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kaiko.getalp.org/dbnary#Translation> .
+<http://kaiko.getalp.org/dbnary#meronym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#antonym> <http://www.w3.org/2000/01/rdf-schema#comment> "An underspecified antonymy relation between LexicalEntities (Lexical entries or Lexical Senses). This relation is used to encode an information available in a lexicon when the linked Lexical Senses are not known. When both source and target of the relation are Lexical Senses, one should use the corresponding LEMON relation. "@en .
+_:B5f0c56f0X2Deb8bX2D4f91X2D9fb4X2D7c44764726f5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://kaiko.getalp.org/dbnary> <http://www.w3.org/2000/01/rdf-schema#comment> "DBnary: A lexicon model designed to allow the representation of lexical data extracted from wiktionary language editions (http://www.wiktionary.org/). The dbnary model extends the ontolex model (http://www.w3.org/ns/lemon/ontolex)."@en .
+<http://kaiko.getalp.org/dbnary#describes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://kaiko.getalp.org/dbnary#describes> <http://www.w3.org/2000/01/rdf-schema#comment> "links a vocable to any lexical entry that share the same written form. "@en .
+<http://kaiko.getalp.org/dbnary#targetLanguage> <http://www.w3.org/2000/01/rdf-schema#comment> "The target language of a given translation, defined as a Linguistic System."@en .
+<http://kaiko.getalp.org/dbnary#antonym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B13261bd0X2Dab3bX2D425fX2D96ffX2Da8331b13360c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://kaiko.getalp.org/dbnary#writtenForm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kaiko.getalp.org/dbnary#Translation> .
+<http://kaiko.getalp.org/dbnary#targetLanguageCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kaiko.getalp.org/dbnary#Translation> .
+<http://kaiko.getalp.org/dbnary#senseNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/lemon/ontolex#LexicalSense> .

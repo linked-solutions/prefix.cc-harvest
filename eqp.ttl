@@ -1,483 +1,246 @@
-<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightHighBound>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The upper bound of the maximum takeoff weight for this category." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "max takeoff weight high bound" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightLowBound>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The lower bound of the aircraft weight category." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "aircraft weight low bound" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#isAircraftType>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Links an aircraft model to its type, where the type represents a set of related models." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is aircraft type" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWeightClass>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Links an aircraft model to its weight class." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has aircraft weight class" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#designedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Links an aircraft model to the airframe manufacturer that designed the model." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "designed by" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/NAS#AirframeManufacturer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftNavigationSystem>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An aircraft subsystem responsible for navigation functions." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft navigation system" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfSeats>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The number of seats on this aircraft." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "number of seats" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftEngine>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An aircraft engine is the component of the propulsion system for an aircraft that generates mechanical power." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft engine" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <https://data.nasa.gov/ontologies/atmonto/NAS#AircraftEngineManufacturer> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy>
-                ] .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A complex engineering system that can be further decomposed into a set of decomposable subsystems and primitive components." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Decomposable system" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#NavigationAid>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A navaid (navigational aid) is an engineered system on the ground that airplanes can detect based on their emission of radio signals that enable the aircraft to navigate. Modern examples include NDBs and VORs, which both transmit radio signals that aircraft can follow and home in on." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Navigation aid" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanHighBound>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The upper bound of the wingspan for this category." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wing span high bound" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#manufactureYear>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The year the system was manufactured." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "manufacture year" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanLowBound>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The lower bound of the wingspan for this category." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wing span low bound" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents engineered systems as either decomposable or non-decomposible subsystems." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Engineered system" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#ElectricalPowerSystem>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An aircraft subsystem responsible for generating and distributing electrical power." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Electrical power system" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <https://data.nasa.gov/ontologies/atmonto/general> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "Created with TopBraid Composer" .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An aircraft model represents a generic specification that describes the characteristics of a specific type of aircraft to be manufactured." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft model" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#cicttNumber>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "CAST/ICAO Common Taxonomy Team (CICTT) identifier for this model as specified by the International Aircraft Categorisation And Identification Standard (IACIS)." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "CICTT number" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftCommunicationSystem>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An aircraft subsystem involving all voice and data communications functions." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft communication system" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Specifies a category of aircraft according to their wake turbulance characteristics (including takeoff weight and wingspan). These categories are useful for the purpose of FAA separation assurance. See FAA Order JO 7110.659B, Wake Turbulence Recategorization, effective March 01, 2015." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft Wake Category" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftModel>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Links a specific aircraft to its model." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has aircraft model" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A physical realization of an aircraft, produced according to the specifications defined for a specific model type." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> , <https://data.nasa.gov/ontologies/atmonto/general#SequencedItem> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <https://data.nasa.gov/ontologies/atmonto/NAS#AirframeManufacturer> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy>
-                ] .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The number of engines specified for this aircraft model or found on this aircraft." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> , <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "number of engines" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#modeSCode>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The unique Mode S address of the transponder aboard the aircraft. Mode S equipment on aircraft are assigned a unique ICAO 24-bit address or (informally) Mode S hex code upon national registration and this address becomes a part of the aircraft's Certificate of Registration." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "mode SCode" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#wakeCategoryID>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The wake category identification character (A through F)." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "wake category ID" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#EngineType>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Represents different generic types of aircraft engines." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Engine Type" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#modelID>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The string identifier of the model for this system/subsystem/assembly." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "model ID" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A link to the entity that manufactured the system." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "manufactured by" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/NAS#AviationIndustryManufacturer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#engineTypeDescription>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A text description of the engine type characteristics." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "engine type description" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Specifies a category of aircraft that can be used to partition aircraft according to their weight." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft Weight Class" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightHighBound>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The upper bound of the aircraft weight category." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "aircraft weight high bound" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#certificateIssueDate>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The date that an operating certificate was issued to the aircraft." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "certificate issue date" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#date> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftRegistrant>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of the entity that registered the aircraft with the FAA." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "aircraft registrant" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftTypeDesignator>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The type designator code for this type of aircraft (e.g., B777)." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "aircraft type designator" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftEngineType>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Links an aircraft type to the type of engine it uses." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has aircraft engine type" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An engineering subsystem of an aircraft." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft subsystem" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#registrationNumber>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The aircraft FAA registration number (the tail number, or the N-Number in the US)." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "registration number" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#hasComponent>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Connects an engineered system to its primitive components." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has component" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWakeCategory>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Links an aircraft model to its wake category." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has aircraft wake category" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftSerialNumber>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The manufacturer serial number of the aircraft." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "serial number" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#BallBearing>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A unit assembly in an aircraft mechanical subsystem, a ball bearing is positioned between a wheel and a fixed axle, in which the rotating part and the stationary part are separated by a ring of small solid metal balls that reduce friction." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Ball bearing" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An aircraft type represents a set of related aircraft models. Each type corresponds to one of the FAA's aircraft type designators (e.g., B777 covers all Boeing 777 models)." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Aircraft Type" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftModelCertainty>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A numeric measure between 0 and 1 reflecting how certain the eqp:hasAircraftModel link is to be correct between the aircraft and the model. A value of one indicates 100% certainty. A lesser value is not to be taken as a percentage, but is a heuristic similarity value taken from the scoring of the TF/IDF similarity assessment performed between the FAA aircraft make/model in the FAA registration database and ICAO make/model names used in the ontology." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "aircraft model certainty" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightLowBound>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The lower bound of the maximum takeoff weight for this category." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "max takeoff weight low bound" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#integer> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#hasSubsystem>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Connects an engineered system to its subsystems." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has subsystem" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
-
-<https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A primitive, non-decomposible component in an engineered system." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Unit assembly" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> .
+_:Ba00bd92eX2Dce20X2D4058X2D8ec9X2D7554999b5435 <http://www.w3.org/2002/07/owl#onProperty> <https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#label> "max takeoff weight high bound" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightHighBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#label> "aircraft weight low bound" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#isAircraftType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWeightClass> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#designedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightLowBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftNavigationSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "An aircraft subsystem responsible for navigation functions." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfSeats> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftEngine> <http://www.w3.org/2000/01/rdf-schema#comment> "An aircraft engine is the component of the propulsion system for an aircraft that generates mechanical power." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#designedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#isAircraftType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#NavigationAid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanHighBound> <http://www.w3.org/2000/01/rdf-schema#comment> "The upper bound of the wingspan for this category." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufactureYear> <http://www.w3.org/2000/01/rdf-schema#label> "manufacture year" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanLowBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftEngine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B644124b0X2D10b5X2D49acX2Da067X2D26bff9e0081a .
+<https://data.nasa.gov/ontologies/atmonto/equipment#ElectricalPowerSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Electrical power system" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWeightClass> <http://www.w3.org/2000/01/rdf-schema#label> "has aircraft weight class" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfSeats> <http://www.w3.org/2000/01/rdf-schema#label> "number of seats" .
+<https://data.nasa.gov/ontologies/atmonto/equipment> <http://www.w3.org/2002/07/owl#imports> <https://data.nasa.gov/ontologies/atmonto/general> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#cicttNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftCommunicationSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft communication system" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWeightClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of engines specified for this aircraft model or found on this aircraft." .
+_:Ba00bd92eX2Dce20X2D4058X2D8ec9X2D7554999b5435 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://data.nasa.gov/ontologies/atmonto/NAS#AirframeManufacturer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#isAircraftType> <http://www.w3.org/2000/01/rdf-schema#label> "is aircraft type" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#NavigationAid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modeSCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> <http://www.w3.org/2000/01/rdf-schema#comment> "An aircraft model represents a generic specification that describes the characteristics of a specific type of aircraft to be manufactured." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#designedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an aircraft model to the airframe manufacturer that designed the model." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftCommunicationSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "An aircraft subsystem involving all voice and data communications functions." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wakeCategoryID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#ElectricalPowerSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanHighBound> <http://www.w3.org/2000/01/rdf-schema#label> "wing span high bound" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftNavigationSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modelID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfSeats> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> <http://www.w3.org/2000/01/rdf-schema#comment> "A physical realization of an aircraft, produced according to the specifications defined for a specific model type." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/NAS#AviationIndustryManufacturer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanLowBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#engineTypeDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft Weight Class" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#label> "aircraft weight high bound" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftEngine> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft engine" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#designedBy> <http://www.w3.org/2000/01/rdf-schema#label> "designed by" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wakeCategoryID> <http://www.w3.org/2000/01/rdf-schema#comment> "The wake category identification character (A through F)." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#certificateIssueDate> <http://www.w3.org/2000/01/rdf-schema#comment> "The date that an operating certificate was issued to the aircraft." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#cicttNumber> <http://www.w3.org/2000/01/rdf-schema#label> "CICTT number" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents different generic types of aircraft engines." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines> <http://www.w3.org/2000/01/rdf-schema#label> "number of engines" .
+<https://data.nasa.gov/ontologies/atmonto/equipment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftRegistrant> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the entity that registered the aircraft with the FAA." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wakeCategoryID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftTypeDesignator> <http://www.w3.org/2000/01/rdf-schema#comment> "The type designator code for this type of aircraft (e.g., B777)." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modelID> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modeSCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanLowBound> <http://www.w3.org/2000/01/rdf-schema#label> "wing span low bound" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftTypeDesignator> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftEngineType> <http://www.w3.org/2000/01/rdf-schema#label> "has aircraft engine type" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft subsystem" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "A complex engineering system that can be further decomposed into a set of decomposable subsystems and primitive components." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#registrationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "The aircraft FAA registration number (the tail number, or the N-Number in the US)." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWakeCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftRegistrant> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufactureYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Engineered system" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftSerialNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#BallBearing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightHighBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftModelCertainty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanHighBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#certificateIssueDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWakeCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#BallBearing> <http://www.w3.org/2000/01/rdf-schema#label> "Ball bearing" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftTypeDesignator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWakeCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an aircraft model to its wake category." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftNavigationSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft navigation system" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#label> "manufactured by" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftEngineType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#engineTypeDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanHighBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasComponent> <http://www.w3.org/2000/01/rdf-schema#label> "has component" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects an engineered system to its primitive components." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#registrationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> <http://www.w3.org/2000/01/rdf-schema#label> "Engine Type" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightLowBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftSerialNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftTypeDesignator> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modeSCode> <http://www.w3.org/2000/01/rdf-schema#label> "mode SCode" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#ElectricalPowerSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wakeCategoryID> <http://www.w3.org/2000/01/rdf-schema#label> "wake category ID" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufactureYear> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Ba00bd92eX2Dce20X2D4058X2D8ec9X2D7554999b5435 .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftNavigationSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#registrationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftModelCertainty> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment> <http://www.w3.org/2002/07/owl#versionInfo> "Created with TopBraid Composer" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#certificateIssueDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWakeCategory> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasSubsystem> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies a category of aircraft according to their wake turbulance characteristics (including takeoff weight and wingspan). These categories are useful for the purpose of FAA separation assurance. See FAA Order JO 7110.659B, Wake Turbulence Recategorization, effective March 01, 2015." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftTypeDesignator> <http://www.w3.org/2000/01/rdf-schema#label> "aircraft type designator" .
+_:Ba00bd92eX2Dce20X2D4058X2D8ec9X2D7554999b5435 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftSerialNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "The manufacturer serial number of the aircraft." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanLowBound> <http://www.w3.org/2000/01/rdf-schema#comment> "The lower bound of the wingspan for this category." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Decomposable system" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufactureYear> <http://www.w3.org/2000/01/rdf-schema#comment> "The year the system was manufactured." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#cicttNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfSeats> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> <http://www.w3.org/2000/01/rdf-schema#label> "Unit assembly" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#BallBearing> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasComponent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modeSCode> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#BallBearing> <http://www.w3.org/2000/01/rdf-schema#comment> "A unit assembly in an aircraft mechanical subsystem, a ball bearing is positioned between a wheel and a fixed axle, in which the rotating part and the stationary part are separated by a ring of small solid metal balls that reduce friction." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanLowBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftModel> <http://www.w3.org/2000/01/rdf-schema#label> "has aircraft model" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftModel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightHighBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> <http://www.w3.org/2000/01/rdf-schema#comment> "An engineering subsystem of an aircraft." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#comment> "The lower bound of the maximum takeoff weight for this category." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#engineTypeDescription> <http://www.w3.org/2000/01/rdf-schema#label> "engine type description" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWeightClass> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftModel> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a specific aircraft to its model." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanLowBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B644124b0X2D10b5X2D49acX2Da067X2D26bff9e0081a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B644124b0X2D10b5X2D49acX2Da067X2D26bff9e0081a <http://www.w3.org/2002/07/owl#allValuesFrom> <https://data.nasa.gov/ontologies/atmonto/NAS#AircraftEngineManufacturer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#NavigationAid> <http://www.w3.org/2000/01/rdf-schema#label> "Navigation aid" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightLowBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#isAircraftType> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#label> "max takeoff weight low bound" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftModel> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/general#SequencedItem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWeightClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an aircraft model to its weight class." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#cicttNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents engineered systems as either decomposable or non-decomposible subsystems." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfSeats> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modelID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modeSCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wakeCategoryID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#registrationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "registration number" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftModelCertainty> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWeightClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasSubsystem> <http://www.w3.org/2000/01/rdf-schema#label> "has subsystem" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftCommunicationSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftEngine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#comment> "The upper bound of the aircraft weight category." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies a category of aircraft that can be used to partition aircraft according to their weight." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftEngineType> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/equipment#EngineType> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wakeCategoryID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#cicttNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#isAircraftType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modelID> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasSubsystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> <http://www.w3.org/2000/01/rdf-schema#comment> "A primitive, non-decomposible component in an engineered system." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "A link to the entity that manufactured the system." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfSeats> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of seats on this aircraft." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftModelCertainty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modelID> <http://www.w3.org/2000/01/rdf-schema#label> "model ID" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftEngineType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#cicttNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "CAST/ICAO Common Taxonomy Team (CICTT) identifier for this model as specified by the International Aircraft Categorisation And Identification Standard (IACIS)." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftEngineType> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an aircraft type to the type of engine it uses." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftSerialNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightHighBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft Type" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasSubsystem> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects an engineered system to its subsystems." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modeSCode> <http://www.w3.org/2000/01/rdf-schema#comment> "The unique Mode S address of the transponder aboard the aircraft. Mode S equipment on aircraft are assigned a unique ICAO 24-bit address or (informally) Mode S hex code upon national registration and this address becomes a part of the aircraft's Certificate of Registration." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftModel> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft model" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftTypeDesignator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#ElectricalPowerSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "An aircraft subsystem responsible for generating and distributing electrical power." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#isAircraftType> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an aircraft model to its type, where the type represents a set of related models." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftSerialNumber> <http://www.w3.org/2000/01/rdf-schema#label> "serial number" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#engineTypeDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A text description of the engine type characteristics." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#certificateIssueDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufactureYear> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#EngineeredSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftEngineType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#modelID> <http://www.w3.org/2000/01/rdf-schema#comment> "The string identifier of the model for this system/subsystem/assembly." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#comment> "The upper bound of the maximum takeoff weight for this category." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#designedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/NAS#AirframeManufacturer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftSerialNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#manufactureYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#registrationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftModelCertainty> <http://www.w3.org/2000/01/rdf-schema#comment> "A numeric measure between 0 and 1 reflecting how certain the eqp:hasAircraftModel link is to be correct between the aircraft and the model. A value of one indicates 100% certainty. A lesser value is not to be taken as a percentage, but is a heuristic similarity value taken from the scoring of the TF/IDF similarity assessment performed between the FAA aircraft make/model in the FAA registration database and ICAO make/model names used in the ontology." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#numberOfEngines> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#Aircraft> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanHighBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftRegistrant> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B644124b0X2D10b5X2D49acX2Da067X2D26bff9e0081a <http://www.w3.org/2002/07/owl#onProperty> <https://data.nasa.gov/ontologies/atmonto/equipment#manufacturedBy> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#certificateIssueDate> <http://www.w3.org/2000/01/rdf-schema#label> "certificate issue date" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftCommunicationSystem> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftSubsystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWeightClass> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> <http://www.w3.org/2000/01/rdf-schema#comment> "An aircraft type represents a set of related aircraft models. Each type corresponds to one of the FAA's aircraft type designators (e.g., B777 covers all Boeing 777 models)." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#engineTypeDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftWakeCategory> <http://www.w3.org/2000/01/rdf-schema#label> "Aircraft Wake Category" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#certificateIssueDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWakeCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#NavigationAid> <http://www.w3.org/2000/01/rdf-schema#comment> "A navaid (navigational aid) is an engineered system on the ground that airplanes can detect based on their emission of radio signals that enable the aircraft to navigate. Modern examples include NDBs and VORs, which both transmit radio signals that aircraft can follow and home in on." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftEngine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasComponent> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#UnitAssembly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftRegistrant> <http://www.w3.org/2000/01/rdf-schema#label> "aircraft registrant" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#engineTypeDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#wingSpanHighBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightLowBound> <http://www.w3.org/2000/01/rdf-schema#comment> "The lower bound of the aircraft weight category." .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasAircraftWakeCategory> <http://www.w3.org/2000/01/rdf-schema#label> "has aircraft wake category" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#hasSubsystem> <http://www.w3.org/2000/01/rdf-schema#range> <https://data.nasa.gov/ontologies/atmonto/equipment#DecomposableSystem> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#AircraftType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#maxTakeoffWeightLowBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftWeightHighBound> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#registrationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftModelCertainty> <http://www.w3.org/2000/01/rdf-schema#label> "aircraft model certainty" .
+<https://data.nasa.gov/ontologies/atmonto/equipment#aircraftRegistrant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .

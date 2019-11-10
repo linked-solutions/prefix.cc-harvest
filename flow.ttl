@@ -1,409 +1,194 @@
-<http://www.w3.org/2005/01/wf/flow#requires>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "To be a valid transition,\n\t\ta necessary (but not necessarily sufficuent) condition\n\t\tis that there be recorded these properties for the record" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Transition> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "requires" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-
-<http://www.w3.org/2005/01/wf/flow#date>
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#DateTime> .
-
-<http://www.w3.org/2005/01/wf/flow#Creation>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A creation is a change from existence\nto non-existence\na task. Typical properties include date and/or source\n(a document causing the transition), and a final state." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "creation" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2005/01/wf/flow#Change> .
-
-<http://www.w3.org/2005/01/wf/flow#Product>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A product is a task which monitors something\n                which must be produced." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "product" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2005/01/wf/flow#Task> .
-
-<http://www.w3.org/2005/01/wf/flow#attachment>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Something related is attached for information." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "attachment" .
-
-<http://www.w3.org/2005/01/wf/flow#terminalOutput>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A file showing user interaction from a\n                text terminal or console etc. " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "terminal output"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2005/01/wf/flow#attachment> .
-
-<http://www.w3.org/2005/01/wf/flow#dateDue>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Poperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The date this task is due.\n                " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Task> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "due"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#date> .
-
-<http://www.w3.org/2005/01/wf/flow#Task>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Something to be done in a wide sense,\n\tan agenda item at a meeting is one example, but any\n\tissue, task, action item, goal, product, deliverable, milestone, can such a thing.\n\tThe requirement for this framework was that it would allow\n\tone to customize ontologies for things such as agenda items,\n\taction items, working group issues with a spec, w3c Last Call issues,\n\tsoftware bugs and administrative requests.\n\tIn π-calculus, a process.\n\tMake your type of issue a subclass of Task.\n\t" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "task"@en ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://www.w3.org/2005/01/wf/flow#Open> <http://www.w3.org/2005/01/wf/flow#Closed> ) .
-
-<http://www.w3.org/2005/01/wf/flow#issueClass>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The class of issues which are allowed in this tracker.\n                This is essemtial to the operation of the tracker, \n                as it defines which states an issue can be in.\n                (The issueClass must be a disjointUnionOf the state classes)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Tracker> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "all issues must be in" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2005/01/wf/flow#State> .
-
-<http://www.w3.org/2005/01/wf/flow#Tracker>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A set of issues and \n                the constraints on how they evolve.\n                To use this ontology, craete a new tracker.\n                Copy an existing one or make up your own." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "tracker" .
-
-<http://www.w3.org/2005/01/wf/flow#Open>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A task which needs attention. The very crude states of Open and Closed all\n        interoperatbility between different systems if the states for a given\n        application are made subclasses of either Open or Closed. This allows\n        tasks from different systems to be mixed and treatd together with\n        limited but valuable functionality.\n\t" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ouvert"@fr , "open"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2005/01/wf/flow#Task> .
-
-<http://www.w3.org/2005/01/wf/flow#Transition>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A transition is a change of state of\na task. Typical properties include date and/or source\n(a document causing the transition), and a final state." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "transition" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2005/01/wf/flow#Change> .
-
-<http://www.w3.org/2005/01/wf/flow#final>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Transition> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "to" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#State> .
-
-<http://www.w3.org/2005/01/wf/flow#NonTerminalState>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A state from which there are transisions." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "non-terminal state" ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://www.w3.org/2005/01/wf/flow#TerminalState> .
-
-<http://www.w3.org/2005/01/wf/flow#affects>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/10/swap/pim/doc#Work> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "affects" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#Task> .
-
-<http://www.w3.org/2005/01/wf/flow#tracker>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Task> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "tracker" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#Tracker> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                [ <http://www.w3.org/2000/01/rdf-schema#label>
-                          "issue" ] .
-
-<http://www.w3.org/2005/01/wf/flow#transactionStore>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An appendable document. Transactions and messsages\n                    can be written into here" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Tracker> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "transaction store" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/10/swap/pim/doc#Document> .
-
-<http://www.w3.org/2005/01/wf/flow#successCriteria>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Poperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A textual description of the successs critera.\n                How when we know this is done?" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Task> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "success criteria" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://www.w3.org/2005/01/wf/flow#dependent>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Another task upon which this depends, in the sense that\n        this task cannot be completed without that task being done.\n        You can't use this for dependencies on anything other than other tasks.\n        (Note the US spelling of the URI. In the UK, a dependant is a something\n        which is dependent on somehing else.)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Task> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "how" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#Task> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                [ <http://www.w3.org/2000/01/rdf-schema#label>
-                          "why" ] .
-
-<http://www.w3.org/2005/01/wf/flow#deliverable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Something which must be deliverered to accomplish this" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deliverable"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#Product> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2005/01/wf/flow#dependent> .
-
-<http://www.w3.org/2005/01/wf/flow#Closed>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A task which does not neeed attention. It may be closed because\n        has been abandonned or completed, for example.\n\t" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "fermé"@fr , "closed"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2005/01/wf/flow#Task> .
-
-<http://www.w3.org/2005/01/wf/flow>
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This ontology defines a very general class (Task)\n    which can used for any kind of bug tracking, issue tracking,\n    to-do-list management, action items, goal depednency, and so on.\n    It captures the state of a task as a subclass, so that\n    subsumption can be used.\n    It captures a discussion thread about a task.\n    It captures subtasks structure if necessary.\n    A \"Tracker\" defines actual set of states, categories, etc.,\n    which  a task can be in. The data about the tracker\n    guides the software managing the task. \n    \n    There is some workflow modeling finite state machine\n    terms which are optional for  more complex definition\n    of the transitions allowed.\n    " ;
-        <http://purl.org/dc/elements/1.1/title>
-                "Issue Tracking Ontology" ;
-        <http://purl.org/dc/terms/creator>
-                <http://www.w3.org/People/Berners-Lee/card#i> .
-
-<http://www.w3.org/2005/01/wf/flow#TerminalState>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A state from which there are no transisions." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "terminal state" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2005/01/wf/flow#State> .
-
-<http://www.w3.org/2005/01/wf/flow#issue>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A transition changes the state of the given issue." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "issue" .
-
-<http://www.w3.org/2005/01/wf/flow#goalDescription>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Poperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A textual description of the goals of this product, etc." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Task> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "goals" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://www.w3.org/2005/01/wf/flow#creates>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2000/10/swap/pim/doc#Work> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "creates" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#Task> .
-
-<http://www.w3.org/2005/01/wf/flow#recipent>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "to" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://www.w3.org/2005/01/wf/flow#asigneeClass>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "When an issue is assigned, the assignee must be from this class" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Tracker> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "assignees must be" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Class> .
-
-<http://www.w3.org/2005/01/wf/flow#Change>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The universal class of things which\nchange the state of a task.\nIncluded now: Creation, Transition. (Maybe in the future\nmore π-calculus constructions such as splitting & merging tasks,\nand import/export of obligations to a foreign opaque system.)\n" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "change" .
-
-<http://www.w3.org/2005/01/wf/flow#initialState>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The initial state for a new issue" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Tracker> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "état initial"@fr , "initial state"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#State> .
-
-<http://www.w3.org/2005/01/wf/flow#stateStore>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A read-write document.\n                The state of the issues is modified here.\n                When you set up a trcaker, thgis must be set to point\n                to a writeble data resource on the web." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Tracker> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "state store" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/10/swap/pim/doc#Document> .
-
-<http://www.w3.org/2005/01/wf/flow#screenShot>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An image taken by capturing the state of a\n                 computer screen, for example to demonstrate a problem" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "screen shot"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2005/01/wf/flow#attachment> .
-
-<http://www.w3.org/2005/01/wf/flow#Message>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "message"@en .
-
-<http://www.w3.org/2005/01/wf/flow#source>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The source of a transition is\n\t\t\t\tthe document by which it happened" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "source" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/10/swap/pim/doc#Work> .
-
-<http://www.w3.org/2005/01/wf/flow#issueCategory>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Issues may be categorized according to the\n                subclasses of this class" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Tracker> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "issue category" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Class> .
-
-<http://www.w3.org/2005/01/wf/flow#testData>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A file which can be used as inpiut to a test\n                or to demonstrate a problem. " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "test data"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2005/01/wf/flow#attachment> .
-
-<http://www.w3.org/2005/01/wf/flow#sender>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#Message> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "from" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://www.w3.org/2005/01/wf/flow#description>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The description, definition,\n        or abstract. Information explaining what this is. \n        Not arbitrary comment about anything, only about the subject.\n        (Use this property for anything. There is no domain restriction.)." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "description" .
-
-<http://usefulinc.com/ns/doap#bug-database>
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                [ <http://www.w3.org/2000/01/rdf-schema#label>
-                          "project"@en ] .
-
-<http://www.w3.org/2005/01/wf/flow#allowedTransitions>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The state machine is defined\n\tby these lists of transition allowed for each issue.\n\t(An interesting option in the Web is to make an allowed transition\n\tto a state in soemone else's ontology, which in turn allows\n\ttransitions into many ontologies.  So a finite state maxchine\n\tmay become very large. In practice this means that a task handed\n\toff to another organization may be processed on all kinds of ways.)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2005/01/wf/flow#State> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "allowed transitions" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-
-<http://www.w3.org/2005/01/wf/flow#modifiedBy>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "changed by" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://www.w3.org/2005/01/wf/flow#assignee>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The person or group to whom this has been assigned." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "assigned to" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                [ <http://www.w3.org/2000/01/rdf-schema#label>
-                          "assignment" ] .
-
-<http://www.w3.org/2005/01/wf/flow#message>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A message about this. Attached for information." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "message"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2005/01/wf/flow#attachment> .
-
-<http://www.w3.org/2005/01/wf/flow#task>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "task" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2005/01/wf/flow#Task> .
-
-<http://www.w3.org/2005/01/wf/flow#subscriber>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "subscriber" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> .
+<http://www.w3.org/2005/01/wf/flow#requires> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/2005/01/wf/flow#date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#DateTime> .
+<http://www.w3.org/2005/01/wf/flow#tracker> <http://www.w3.org/2002/07/owl#inverseOf> _:B8ac62965X2D6e60X2D40fcX2Db266X2D53d3f00ed0b9 .
+<http://www.w3.org/2005/01/wf/flow#Creation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2005/01/wf/flow#Change> .
+<http://www.w3.org/2005/01/wf/flow#Product> <http://www.w3.org/2000/01/rdf-schema#label> "product" .
+<http://www.w3.org/2005/01/wf/flow#attachment> <http://www.w3.org/2000/01/rdf-schema#comment> "Something related is attached for information." .
+<http://www.w3.org/2005/01/wf/flow#terminalOutput> <http://www.w3.org/2000/01/rdf-schema#label> "terminal output"@en .
+<http://www.w3.org/2005/01/wf/flow#dateDue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.w3.org/2005/01/wf/flow#issueClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#Task> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#assignee> <http://www.w3.org/2002/07/owl#inverseOf> _:B209c7abcX2Dc564X2D47edX2D8f65X2Db20f9b85aeba .
+<http://www.w3.org/2005/01/wf/flow#Tracker> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#Open> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#terminalOutput> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#Transition> <http://www.w3.org/2000/01/rdf-schema#label> "transition" .
+<http://www.w3.org/2005/01/wf/flow#final> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Transition> .
+_:B02dd430aX2Dbc69X2D4892X2Dbaf3X2De3ab65e3cc3c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://www.w3.org/2005/01/wf/flow#NonTerminalState> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/2005/01/wf/flow#TerminalState> .
+<http://www.w3.org/2005/01/wf/flow#affects> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/10/swap/pim/doc#Work> .
+<http://www.w3.org/2005/01/wf/flow#tracker> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#transactionStore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#successCriteria> <http://www.w3.org/2000/01/rdf-schema#label> "success criteria" .
+<http://www.w3.org/2005/01/wf/flow#dependent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#deliverable> <http://www.w3.org/2000/01/rdf-schema#comment> "Something which must be deliverered to accomplish this" .
+<http://www.w3.org/2005/01/wf/flow#Closed> <http://www.w3.org/2000/01/rdf-schema#label> "fermé"@fr .
+<http://www.w3.org/2005/01/wf/flow#successCriteria> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Poperty> .
+<http://www.w3.org/2005/01/wf/flow> <http://purl.org/dc/terms/creator> <http://www.w3.org/People/Berners-Lee/card#i> .
+<http://www.w3.org/2005/01/wf/flow#TerminalState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2005/01/wf/flow#State> .
+<http://www.w3.org/2005/01/wf/flow#Tracker> <http://www.w3.org/2000/01/rdf-schema#label> "tracker" .
+<http://www.w3.org/2005/01/wf/flow#issue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#dateDue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2005/01/wf/flow#goalDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.w3.org/2005/01/wf/flow#creates> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#recipent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Message> .
+<http://www.w3.org/2005/01/wf/flow#asigneeClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Tracker> .
+<http://www.w3.org/2005/01/wf/flow> <http://purl.org/dc/elements/1.1/title> "Issue Tracking Ontology" .
+<http://www.w3.org/2005/01/wf/flow#issue> <http://www.w3.org/2000/01/rdf-schema#comment> "A transition changes the state of the given issue." .
+<http://www.w3.org/2005/01/wf/flow#goalDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2005/01/wf/flow#affects> <http://www.w3.org/2000/01/rdf-schema#label> "affects" .
+<http://www.w3.org/2005/01/wf/flow#final> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#Task> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:Bf2215e00X2Da26fX2D4b10X2D9943X2D53e128cf636f .
+<http://www.w3.org/2005/01/wf/flow#Change> <http://www.w3.org/2000/01/rdf-schema#comment> "The universal class of things which\nchange the state of a task.\nIncluded now: Creation, Transition. (Maybe in the future\nmore π-calculus constructions such as splitting & merging tasks,\nand import/export of obligations to a foreign opaque system.)\n" .
+<http://www.w3.org/2005/01/wf/flow#Change> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#initialState> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Tracker> .
+<http://www.w3.org/2005/01/wf/flow#Creation> <http://www.w3.org/2000/01/rdf-schema#label> "creation" .
+<http://www.w3.org/2005/01/wf/flow#stateStore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Tracker> .
+<http://www.w3.org/2005/01/wf/flow#Product> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#dependent> <http://www.w3.org/2000/01/rdf-schema#label> "how" .
+<http://www.w3.org/2005/01/wf/flow#transactionStore> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/10/swap/pim/doc#Document> .
+<http://www.w3.org/2005/01/wf/flow#terminalOutput> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2005/01/wf/flow#attachment> .
+<http://www.w3.org/2005/01/wf/flow#screenShot> <http://www.w3.org/2000/01/rdf-schema#comment> "An image taken by capturing the state of a\n                 computer screen, for example to demonstrate a problem" .
+<http://www.w3.org/2005/01/wf/flow#issueClass> <http://www.w3.org/2000/01/rdf-schema#label> "all issues must be in" .
+<http://www.w3.org/2005/01/wf/flow#Closed> <http://www.w3.org/2000/01/rdf-schema#label> "closed"@en .
+<http://www.w3.org/2005/01/wf/flow#dependent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#Message> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#dependent> <http://www.w3.org/2002/07/owl#inverseOf> _:B9e9d9feeX2D1ef1X2D443fX2D974fX2D0bb80f2ca614 .
+<http://www.w3.org/2005/01/wf/flow#transactionStore> <http://www.w3.org/2000/01/rdf-schema#label> "transaction store" .
+<http://www.w3.org/2005/01/wf/flow#recipent> <http://www.w3.org/2000/01/rdf-schema#label> "to" .
+<http://www.w3.org/2005/01/wf/flow#issueClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Tracker> .
+<http://www.w3.org/2005/01/wf/flow#Creation> <http://www.w3.org/2000/01/rdf-schema#comment> "A creation is a change from existence\nto non-existence\na task. Typical properties include date and/or source\n(a document causing the transition), and a final state." .
+<http://www.w3.org/2005/01/wf/flow#TerminalState> <http://www.w3.org/2000/01/rdf-schema#label> "terminal state" .
+<http://www.w3.org/2005/01/wf/flow#source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#creates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#Open> <http://www.w3.org/2000/01/rdf-schema#label> "ouvert"@fr .
+<http://www.w3.org/2005/01/wf/flow#asigneeClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:Bf2215e00X2Da26fX2D4b10X2D9943X2D53e128cf636f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2005/01/wf/flow#Open> .
+<http://www.w3.org/2005/01/wf/flow#issueCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#testData> <http://www.w3.org/2000/01/rdf-schema#comment> "A file which can be used as inpiut to a test\n                or to demonstrate a problem. " .
+<http://www.w3.org/2005/01/wf/flow#sender> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Message> .
+<http://www.w3.org/2005/01/wf/flow#description> <http://www.w3.org/2000/01/rdf-schema#comment> "The description, definition,\n        or abstract. Information explaining what this is. \n        Not arbitrary comment about anything, only about the subject.\n        (Use this property for anything. There is no domain restriction.)." .
+<http://www.w3.org/2005/01/wf/flow#stateStore> <http://www.w3.org/2000/01/rdf-schema#comment> "A read-write document.\n                The state of the issues is modified here.\n                When you set up a trcaker, thgis must be set to point\n                to a writeble data resource on the web." .
+<http://www.w3.org/2005/01/wf/flow#source> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/10/swap/pim/doc#Work> .
+<http://www.w3.org/2005/01/wf/flow#screenShot> <http://www.w3.org/2000/01/rdf-schema#label> "screen shot"@en .
+<http://www.w3.org/2005/01/wf/flow#issueClass> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of issues which are allowed in this tracker.\n                This is essemtial to the operation of the tracker, \n                as it defines which states an issue can be in.\n                (The issueClass must be a disjointUnionOf the state classes)" .
+<http://www.w3.org/2005/01/wf/flow#Open> <http://www.w3.org/2000/01/rdf-schema#label> "open"@en .
+<http://www.w3.org/2005/01/wf/flow#Product> <http://www.w3.org/2000/01/rdf-schema#comment> "A product is a task which monitors something\n                which must be produced." .
+<http://www.w3.org/2005/01/wf/flow#Closed> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#allowedTransitions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#asigneeClass> <http://www.w3.org/2000/01/rdf-schema#comment> "When an issue is assigned, the assignee must be from this class" .
+<http://www.w3.org/2005/01/wf/flow#deliverable> <http://www.w3.org/2000/01/rdf-schema#label> "deliverable"@en .
+<http://www.w3.org/2005/01/wf/flow#stateStore> <http://www.w3.org/2000/01/rdf-schema#label> "state store" .
+<http://www.w3.org/2005/01/wf/flow#allowedTransitions> <http://www.w3.org/2000/01/rdf-schema#comment> "The state machine is defined\n\tby these lists of transition allowed for each issue.\n\t(An interesting option in the Web is to make an allowed transition\n\tto a state in soemone else's ontology, which in turn allows\n\ttransitions into many ontologies.  So a finite state maxchine\n\tmay become very large. In practice this means that a task handed\n\toff to another organization may be processed on all kinds of ways.)" .
+<http://www.w3.org/2005/01/wf/flow#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#tracker> <http://www.w3.org/2000/01/rdf-schema#label> "tracker" .
+<http://www.w3.org/2005/01/wf/flow#successCriteria> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#Change> <http://www.w3.org/2000/01/rdf-schema#label> "change" .
+<http://www.w3.org/2005/01/wf/flow#Transition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#final> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#State> .
+<http://www.w3.org/2005/01/wf/flow#Open> <http://www.w3.org/2000/01/rdf-schema#comment> "A task which needs attention. The very crude states of Open and Closed all\n        interoperatbility between different systems if the states for a given\n        application are made subclasses of either Open or Closed. This allows\n        tasks from different systems to be mixed and treatd together with\n        limited but valuable functionality.\n\t" .
+<http://www.w3.org/2005/01/wf/flow#screenShot> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#allowedTransitions> <http://www.w3.org/2000/01/rdf-schema#label> "allowed transitions" .
+<http://www.w3.org/2005/01/wf/flow#attachment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#Transition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2005/01/wf/flow#Change> .
+<http://www.w3.org/2005/01/wf/flow#modifiedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+_:B92c55061X2D1f19X2D4f53X2Db516X2D644596fc9668 <http://www.w3.org/2000/01/rdf-schema#label> "project"@en .
+<http://www.w3.org/2005/01/wf/flow#Product> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#requires> <http://www.w3.org/2000/01/rdf-schema#label> "requires" .
+<http://www.w3.org/2005/01/wf/flow#assignee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#source> <http://www.w3.org/2000/01/rdf-schema#label> "source" .
+<http://www.w3.org/2005/01/wf/flow#initialState> <http://www.w3.org/2000/01/rdf-schema#label> "état initial"@fr .
+<http://www.w3.org/2005/01/wf/flow#tracker> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#Tracker> .
+<http://usefulinc.com/ns/doap#bug-database> <http://www.w3.org/2002/07/owl#inverseOf> _:B92c55061X2D1f19X2D4f53X2Db516X2D644596fc9668 .
+<http://www.w3.org/2005/01/wf/flow#Closed> <http://www.w3.org/2000/01/rdf-schema#comment> "A task which does not neeed attention. It may be closed because\n        has been abandonned or completed, for example.\n\t" .
+<http://www.w3.org/2005/01/wf/flow#requires> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Transition> .
+<http://www.w3.org/2005/01/wf/flow#issueCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Tracker> .
+<http://www.w3.org/2005/01/wf/flow#message> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2005/01/wf/flow#attachment> .
+<http://www.w3.org/2005/01/wf/flow#message> <http://www.w3.org/2000/01/rdf-schema#comment> "A message about this. Attached for information." .
+<http://www.w3.org/2005/01/wf/flow#NonTerminalState> <http://www.w3.org/2000/01/rdf-schema#label> "non-terminal state" .
+<http://www.w3.org/2005/01/wf/flow#Closed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#testData> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2005/01/wf/flow#attachment> .
+<http://www.w3.org/2005/01/wf/flow#dependent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#sender> <http://www.w3.org/2000/01/rdf-schema#label> "from" .
+<http://www.w3.org/2005/01/wf/flow#issueClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#requires> <http://www.w3.org/2000/01/rdf-schema#comment> "To be a valid transition,\n\t\ta necessary (but not necessarily sufficuent) condition\n\t\tis that there be recorded these properties for the record" .
+<http://www.w3.org/2005/01/wf/flow#task> <http://www.w3.org/2000/01/rdf-schema#label> "task" .
+<http://www.w3.org/2005/01/wf/flow#sender> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+<http://www.w3.org/2005/01/wf/flow#recipent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#dateDue> <http://www.w3.org/2000/01/rdf-schema#label> "due"@en .
+<http://www.w3.org/2005/01/wf/flow#terminalOutput> <http://www.w3.org/2000/01/rdf-schema#comment> "A file showing user interaction from a\n                text terminal or console etc. " .
+<http://www.w3.org/2005/01/wf/flow#subscriber> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+<http://www.w3.org/2005/01/wf/flow#allowedTransitions> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#State> .
+<http://www.w3.org/2005/01/wf/flow#goalDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#task> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology defines a very general class (Task)\n    which can used for any kind of bug tracking, issue tracking,\n    to-do-list management, action items, goal depednency, and so on.\n    It captures the state of a task as a subclass, so that\n    subsumption can be used.\n    It captures a discussion thread about a task.\n    It captures subtasks structure if necessary.\n    A \"Tracker\" defines actual set of states, categories, etc.,\n    which  a task can be in. The data about the tracker\n    guides the software managing the task. \n    \n    There is some workflow modeling finite state machine\n    terms which are optional for  more complex definition\n    of the transitions allowed.\n    " .
+<http://www.w3.org/2005/01/wf/flow#attachment> <http://www.w3.org/2000/01/rdf-schema#label> "attachment" .
+<http://www.w3.org/2005/01/wf/flow#affects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#requires> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#dateDue> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#issue> <http://www.w3.org/2000/01/rdf-schema#label> "issue" .
+<http://www.w3.org/2005/01/wf/flow#dependent> <http://www.w3.org/2000/01/rdf-schema#comment> "Another task upon which this depends, in the sense that\n        this task cannot be completed without that task being done.\n        You can't use this for dependencies on anything other than other tasks.\n        (Note the US spelling of the URI. In the UK, a dependant is a something\n        which is dependent on somehing else.)" .
+<http://www.w3.org/2005/01/wf/flow#testData> <http://www.w3.org/2000/01/rdf-schema#label> "test data"@en .
+<http://www.w3.org/2005/01/wf/flow#stateStore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#Tracker> <http://www.w3.org/2000/01/rdf-schema#comment> "A set of issues and \n                the constraints on how they evolve.\n                To use this ontology, craete a new tracker.\n                Copy an existing one or make up your own." .
+<http://www.w3.org/2005/01/wf/flow#deliverable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#Product> .
+<http://www.w3.org/2005/01/wf/flow#TerminalState> <http://www.w3.org/2000/01/rdf-schema#comment> "A state from which there are no transisions." .
+<http://www.w3.org/2005/01/wf/flow#initialState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#goalDescription> <http://www.w3.org/2000/01/rdf-schema#label> "goals" .
+<http://www.w3.org/2005/01/wf/flow#dateDue> <http://www.w3.org/2000/01/rdf-schema#comment> "The date this task is due.\n                " .
+<http://www.w3.org/2005/01/wf/flow#initialState> <http://www.w3.org/2000/01/rdf-schema#label> "initial state"@en .
+<http://www.w3.org/2005/01/wf/flow#Transition> <http://www.w3.org/2000/01/rdf-schema#comment> "A transition is a change of state of\na task. Typical properties include date and/or source\n(a document causing the transition), and a final state." .
+<http://www.w3.org/2005/01/wf/flow#source> <http://www.w3.org/2000/01/rdf-schema#comment> "The source of a transition is\n\t\t\t\tthe document by which it happened" .
+<http://www.w3.org/2005/01/wf/flow#final> <http://www.w3.org/2000/01/rdf-schema#label> "to" .
+<http://www.w3.org/2005/01/wf/flow#message> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#issueCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Issues may be categorized according to the\n                subclasses of this class" .
+<http://www.w3.org/2005/01/wf/flow#assignee> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+<http://www.w3.org/2005/01/wf/flow#NonTerminalState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#subscriber> <http://www.w3.org/2000/01/rdf-schema#label> "subscriber" .
+<http://www.w3.org/2005/01/wf/flow#asigneeClass> <http://www.w3.org/2000/01/rdf-schema#label> "assignees must be" .
+<http://www.w3.org/2005/01/wf/flow#description> <http://www.w3.org/2000/01/rdf-schema#label> "description" .
+<http://www.w3.org/2005/01/wf/flow#issueCategory> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#Task> <http://www.w3.org/2000/01/rdf-schema#comment> "Something to be done in a wide sense,\n\tan agenda item at a meeting is one example, but any\n\tissue, task, action item, goal, product, deliverable, milestone, can such a thing.\n\tThe requirement for this framework was that it would allow\n\tone to customize ontologies for things such as agenda items,\n\taction items, working group issues with a spec, w3c Last Call issues,\n\tsoftware bugs and administrative requests.\n\tIn π-calculus, a process.\n\tMake your type of issue a subclass of Task.\n\t" .
+_:Bf2215e00X2Da26fX2D4b10X2D9943X2D53e128cf636f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B02dd430aX2Dbc69X2D4892X2Dbaf3X2De3ab65e3cc3c .
+<http://www.w3.org/2005/01/wf/flow#asigneeClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#modifiedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#message> <http://www.w3.org/2000/01/rdf-schema#label> "message"@en .
+_:B8ac62965X2D6e60X2D40fcX2Db266X2D53d3f00ed0b9 <http://www.w3.org/2000/01/rdf-schema#label> "issue" .
+<http://www.w3.org/2005/01/wf/flow#task> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#Task> .
+<http://www.w3.org/2005/01/wf/flow#modifiedBy> <http://www.w3.org/2000/01/rdf-schema#label> "changed by" .
+<http://www.w3.org/2005/01/wf/flow#screenShot> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2005/01/wf/flow#attachment> .
+<http://www.w3.org/2005/01/wf/flow#initialState> <http://www.w3.org/2000/01/rdf-schema#comment> "The initial state for a new issue" .
+<http://www.w3.org/2005/01/wf/flow#allowedTransitions> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/2005/01/wf/flow#affects> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#Task> .
+_:B02dd430aX2Dbc69X2D4892X2Dbaf3X2De3ab65e3cc3c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2005/01/wf/flow#Closed> .
+<http://www.w3.org/2005/01/wf/flow#Open> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#TerminalState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#successCriteria> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description of the successs critera.\n                How when we know this is done?" .
+_:B209c7abcX2Dc564X2D47edX2D8f65X2Db20f9b85aeba <http://www.w3.org/2000/01/rdf-schema#label> "assignment" .
+_:B9e9d9feeX2D1ef1X2D443fX2D974fX2D0bb80f2ca614 <http://www.w3.org/2000/01/rdf-schema#label> "why" .
+<http://www.w3.org/2005/01/wf/flow#issueClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#State> .
+<http://www.w3.org/2005/01/wf/flow#transactionStore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2005/01/wf/flow#Tracker> .
+<http://www.w3.org/2005/01/wf/flow#successCriteria> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2005/01/wf/flow#assignee> <http://www.w3.org/2000/01/rdf-schema#comment> "The person or group to whom this has been assigned." .
+<http://www.w3.org/2005/01/wf/flow#goalDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description of the goals of this product, etc." .
+<http://www.w3.org/2005/01/wf/flow#stateStore> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/10/swap/pim/doc#Document> .
+<http://www.w3.org/2005/01/wf/flow#creates> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/10/swap/pim/doc#Work> .
+<http://www.w3.org/2005/01/wf/flow#deliverable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#tracker> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#transactionStore> <http://www.w3.org/2000/01/rdf-schema#comment> "An appendable document. Transactions and messsages\n                    can be written into here" .
+<http://www.w3.org/2005/01/wf/flow#dateDue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Poperty> .
+<http://www.w3.org/2005/01/wf/flow#goalDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Poperty> .
+<http://www.w3.org/2005/01/wf/flow#assignee> <http://www.w3.org/2000/01/rdf-schema#label> "assigned to" .
+<http://www.w3.org/2005/01/wf/flow#sender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#deliverable> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2005/01/wf/flow#dependent> .
+<http://www.w3.org/2005/01/wf/flow#recipent> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+<http://www.w3.org/2005/01/wf/flow#Task> <http://www.w3.org/2000/01/rdf-schema#label> "task"@en .
+<http://www.w3.org/2005/01/wf/flow#issueCategory> <http://www.w3.org/2000/01/rdf-schema#label> "issue category" .
+<http://www.w3.org/2005/01/wf/flow#successCriteria> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.w3.org/2005/01/wf/flow#testData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#initialState> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2005/01/wf/flow#State> .
+<http://www.w3.org/2005/01/wf/flow#Creation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.w3.org/2005/01/wf/flow#NonTerminalState> <http://www.w3.org/2000/01/rdf-schema#comment> "A state from which there are transisions." .
+<http://www.w3.org/2005/01/wf/flow#Message> <http://www.w3.org/2000/01/rdf-schema#label> "message"@en .
+<http://www.w3.org/2005/01/wf/flow#subscriber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.w3.org/2005/01/wf/flow#creates> <http://www.w3.org/2000/01/rdf-schema#label> "creates" .

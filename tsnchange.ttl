@@ -1,844 +1,395 @@
-<http://purl.org/net/tsnchange#Reallocation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Reallocation concept describes operations of redistribution of the spatial area that modify the identity of all the input TSNFeatures (i.e., their identifier is modified), and modify their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This operation leads to: (1) the disappearance of all the 'n' input TSNFeatures ; (2) the creation of 'p' TSNFeatures as output to the change event by redistribution of the spatial area covered by the 'n' input TSNFeatures. This concept is equivalent to the \"Reallocation\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Reallocation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#DerivationChange> , <http://purl.org/net/tsnchange#Redistribution> .
-
-<http://purl.org/net/tsnchange#Rectification>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Rectification concept describes operations of redistribution of the spatial area, without modifying the identity of all the input TSNFeatures (i.e., their identifier is not modified), but modifying their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This concept is equivalent to the \"Rectification\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Rectification"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#Redistribution> , <http://purl.org/net/tsnchange#ContinuationChange> .
-
-<http://purl.org/net/tsnchange#hasNextVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the next Version of a Version resource, in a TSN lineage."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasNextVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#hasPreviousVersion> .
-
-<http://purl.org/net/tsnchange#inputUnitVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a UnitVersion is an input resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Unit> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "inputUnitVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#input> .
-
-<http://purl.org/net/tsnchange#Merge>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Merge concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature. This concept is equivalent to the \"Union\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"fusion of 'n' zones into a single entity (union)\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Merge"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryRestructuration> .
-
-<http://purl.org/net/tsnchange#LevelChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The LevelChange concept describes all the changes undergone by a LevelVersion feature from one TSN version to another."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "LevelChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#isPredecessorOf>
-        a       <http://www.w3.org/2002/07/owl#DeprecatedProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Deprecated Property, <http://purl.org/net/tsn#hasNextVersion> property is now preferred. Indicates the predecessor Version of a Version resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isPredecessorOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2002/07/owl#equivalentProperty>
-                <http://purl.org/net/tsn#hasNextVersion> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#isSuccessorOf> .
-
-<http://purl.org/net/tsnchange#outputTerritoryVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a TerritoryVersion is an output resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#TerritoryVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "outputTerritoryVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#output> .
-
-<http://purl.org/net/tsnchange#levelVersionAfter>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a LevelVersion after a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "levelVersionAfter"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#LevelVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#after> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#outputLevelVersion> .
-
-<http://purl.org/net/tsnchange#input>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change resource  of which a TSNComponent is an input resource (i.e., an object subject to change)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#TSNComponent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "input"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#before> .
-
-<http://purl.org/net/tsnchange#label>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Assign a name to the change that occurred."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "label"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
-        <http://www.w3.org/2002/07/owl#equivalentProperty>
-                <http://www.w3.org/2000/01/rdf-schema#label> .
-
-<http://purl.org/net/tsnchange#Fusion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Fusion concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single new TSNFeature that did not exist before the change. This operation leads to: (1) the disappearance of all the input TSNFeature(s) (i.e., the identity of the involved TSNFeatures is not extended after the Fusion); (2) the creation of one output TSNFeature whose footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the \"Fusion\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Fusion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#DerivationChange> , <http://purl.org/net/tsnchange#Merge> .
-
-<http://purl.org/net/tsnchange#hasPreviousVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates the previous Version of a Version resource, in a TSN lineage."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasPreviousVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/pav/previousVersion> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#hasNextVersion> .
-
-<http://purl.org/net/tsnchange#Split>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Split concept describes the split of a TSNFeature, into two or more TSNFeature. This concept is equivalent to the \"Split\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"division of a zone into 'n' parts (split)\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Split"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryRestructuration> .
-
-<http://purl.org/net/tsnchange#territoryVersionBefore>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a TerritoryVersion before a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "territoryVersionBefore"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#TerritoryVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#before> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#inputTerritoryVersion> .
-
-<http://purl.org/net/tsnchange#inputLevelVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a LevelVersion is an input resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Level> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "inputLevelVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#input> .
-
-<http://purl.org/net/tsnchange#Scission>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Scission concept describes the split of one TSNFeature (into two or more TSNFeatures) that ceases to exist after the change event. This operation leads to: (1) the disappearance of the input TSNFeature (i.e., the identity of this TSNFeature is not extended after the event i.e., at least the identifier of the TSNFeature is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the \"Scission\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Scission"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#DerivationChange> , <http://purl.org/net/tsnchange#Split> .
-
-<http://purl.org/net/tsnchange#UpperLevelChange>
-        a       <http://www.w3.org/2002/07/owl#DeprecatedClass> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Deprecated Class, <http://purl.org/net/tsn#SuperLevelChange> Class is now preferred. The upper level  of a level changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UpperLevelChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#LevelHierarchyChange> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://purl.org/net/tsnchange#SuperLevelChange> .
-
-<http://purl.org/net/tsnchange#levelVersionBefore>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Level before a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "levelVersionBefore"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#LevelVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#before> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#inputLevelVersion> .
-
-<http://purl.org/net/tsnchange#territoryVersionAfter>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a TerritoryVersion after a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "territoryVersionAfter"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#TerritoryVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#after> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#outputTerritoryVersion> .
-
-<http://purl.org/net/tsnchange#nomenclatureVersionAfter>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a NomenclatureVersion after a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "nomenclatureVersionAfter"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#NomenclatureVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#after> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#outputNomenclatureVersion> .
-
-<http://purl.org/net/tsnchange#unitVersionAfter>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a UnitVersion after a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "unitVersionAfter"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#UnitVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#after> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#outputUnitVersion> .
-
-<http://purl.org/net/tsnchange#Disappearance>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Disappearance concept describes the disappearance (or end) of a TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) that comes as an input resource to the change event: the TSNFeature no longer exists after the change event i.e., no TSNFeature will carry its identifier in the output NomenclatureVersion. This concept is equivalent to the \"Disappearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Disappearance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#upperChange>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates an upper Change that causes the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature > Territory > Level > Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "upperChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> .
-
-<http://purl.org/net/tsnchange#outputUnitVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a UnitVersion is an output resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Unit> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "outputUnitVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#output> .
-
-<http://purl.org/net/tsnchange#AcronymChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The acronym of a TSNFeature changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "AcronymChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#IdentificationChange> .
-
-<http://purl.org/net/tsnchange#Appearance>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Appearance concept describes the appearance (or creation) of a new TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) as an output to the change event. \"Appearance\" means the identifier of the new TSNFeature is different from all that already exist, in the input and output NomenclatureVersion. This concept is equivalent to the \"Appearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Appearance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#HierarchyChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The HierarchyChange concept describes modification of the position of one TSNFeature (LevelVersion or UnitVersion) in the NomenclatureVersion hierarchy. For example, a Unit may change the Level it belongs to."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "HierarchyChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#SubLevelChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Sub level of a level changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "SubLevelChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#LevelHierarchyChange> .
-
-<http://purl.org/net/tsnchange#DerivationChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The DerivationChange concept describes restructuration operations that do modify the identity of  TSNFeatures that comes as input to the Change Operation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "DerivationChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryRestructuration> .
-
-<http://purl.org/net/tsnchange#unitVersionBefore>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a UnitVersion before a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "unitVersionBefore"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#UnitVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#before> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#inputUnitVersion> .
-
-<http://purl.org/net/tsnchange#Contraction>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Contraction of a TSNFeature, in terms of shape, means its size decrease between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Contraction\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Contraction"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryChange> .
-
-<http://purl.org/net/tsnchange#Change>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As \"a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area\", we have to link \"together all the various units that were involved in a common territorial change\"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): \"A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Change"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.obolibrary.org/obo/BFO_0000003> , <http://linkedearth.org/change/ns#Change> .
-
-<http://purl.org/net/tsnchange#IdentificationRestructuration>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The IdentificationRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their attributs of identification. Those changes make sense grouped together (e.g., all the sub-units of a Super one are renamed)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "IdentificationRestructuration"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#StructureChange> .
-
-<http://purl.org/net/tsnchange#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This 1.1 version of the ontology enables the description of new operations of restructuration of the TSN: IdentificationRestructuration and HierarchyRestructuration, operation that impact several features at the same time." ;
-        <http://creativecommons.org/ns#license>
-                <http://creativecommons.org/licenses/by/3.0/> , <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> ;
-        <http://purl.org/dc/terms/creator>
-                [ a       <http://xmlns.com/foaf/0.1/Person> ;
-                  <http://xmlns.com/foaf/0.1/homepage>
-                          <http://lig-membres.imag.fr/bernardc/> ;
-                  <http://xmlns.com/foaf/0.1/name>
-                          "Camille BERNARD"
-                ] ;
-        <http://purl.org/dc/terms/creator>
-                [ a       <http://xmlns.com/foaf/0.1/Person> ;
-                  <http://xmlns.com/foaf/0.1/homepage>
-                          <http://lig-membres.imag.fr/gensel/> ;
-                  <http://xmlns.com/foaf/0.1/name>
-                          "Jérôme GENSEL"
-                ] ;
-        <http://purl.org/dc/terms/creator>
-                [ a       <http://xmlns.com/foaf/0.1/Person> ;
-                  <http://xmlns.com/foaf/0.1/homepage>
-                          <https://unige.ch/gedt/membres/dao/> ;
-                  <http://xmlns.com/foaf/0.1/name>
-                          "Hy DAO"
-                ] ;
-        <http://purl.org/dc/terms/creator>
-                [ a       <http://xmlns.com/foaf/0.1/Person> ;
-                  <http://xmlns.com/foaf/0.1/homepage>
-                          <http://lig-membres.imag.fr/villanov/> ;
-                  <http://xmlns.com/foaf/0.1/name>
-                          "Marlène VILLANOVA-OLIVER"
-                ] ;
-        <http://purl.org/dc/terms/description>
-                "The TSN-Change ontology aims at describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation)."@en ;
-        <http://purl.org/dc/terms/issued>
-                "2017-01-31"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/modified>
-                "2019-05-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/publisher>
-                <http://steamer.imag.fr> ;
-        <http://purl.org/dc/terms/title>
-                "Territorial Statistical Nomenclature Change Ontology"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "tsnchange" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                <http://purl.org/net/tsnchange#> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                1.1 .
-
-<http://purl.org/net/tsnchange#inputTerritoryVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a TerritoryVersion is an input resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#TerritoryVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "inputTerritoryVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#input> .
-
-<http://purl.org/net/tsnchange#TerritoryChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The TerritoryChange concept describes all the changes undergone by a TerritoryVersion feature from one TSN version to another."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "TerritoryChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#date>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Assign a date to the change that occurred."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "date"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Literal> ;
-        <http://www.w3.org/2002/07/owl#equivalentProperty>
-                <http://purl.org/dc/terms/date> .
-
-<http://purl.org/net/tsnchange#LevelHierarchyChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The LevelHierarchyChange concept describes changes that affect TSNFeatures that are of type LevelVersion. It describes changes of the Level position within the TSN hierarchy."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "LevelHierarchyChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#HierarchyChange> .
-
-<http://purl.org/net/tsnchange#isCausedBy>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a societal or other cause to the described Change (e.g., administrative reform)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isCausedBy"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://purl.org/net/tsnchange#LevelBelongingChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The level a Unit belongs to changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "LevelBelongingChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#UnitHierarchyChange> .
-
-<http://purl.org/net/tsnchange#Redistribution>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Redistribution concept describes operations of redistribution of the spatial area covered by 'n' TSNFeature(s) in the input NomenclatureVersion to form 'p' TSNFeature(s) in the output NomenclatureVersion. This concept is equivalent to the \"Re-allocation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"reallocation of land covered by 'n' initial zones to form 'p' new zones \"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Redistribution"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryRestructuration> .
-
-<http://purl.obolibrary.org/obo/BFO_0000003>
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An occurrent is an entity that unfolds itself in time or it is the instantaneous boundary of such an entity (for example a beginning or an ending) or it is a temporal or spatiotemporal region which such an entity occupies_temporal_region or occupies_spatiotemporal_region (SPAN) (Grenon and Smith definition)." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "bfo:Occurrent"@en ;
-        <http://purl.org/dc/terms/description>
-                "An occurrent is an entity that unfolds itself in time or it is the instantaneous boundary of such an entity (for example a beginning or an ending) or it is a temporal or spatiotemporal region which such an entity occupies_temporal_region or occupies_spatiotemporal_region (SPAN) (Grenon and Smith definition). "@en .
-
-<http://purl.org/net/tsnchange#SuperLevelChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Super level  of a level changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "SuperLevelChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#LevelHierarchyChange> .
-
-<http://purl.org/net/tsnchange#Expansion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Expansion of a TSNFeature, in terms of shape, means its size increase between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Expansion\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Expansion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryChange> .
-
-<http://purl.org/pav/previousVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The previous version of a resource in a lineage. For instance a news article updated to correct factual information would point to the previous version of the article with pav:previousVersion. If however the content has significantly changed so that the two resources no longer share lineage (say a new article that talks about the same facts), they can instead be related using pav:derivedFrom. This property is normally used in a functional way, although PAV does not formally restrict this. Earlier versions which are not direct ancestors of this resource may instead be provided using the superproperty pav:hasEarlierVersion. A version number of this resource can be provided using the data property pav:version. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. 'Weather Today' vs. 'Weather Today on 2013-12-07', see pav:hasVersion. Note that it might be confusing to indicate pav:previousVersion from a resource that also has pav:hasVersion or pav:hasCurrentVersion relations, as such resources are intended to be a long-living and 'unversioned', while pav:previousVersion is intended for use between permalink-like 'snapshots' arranged in a linear history."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://purl.org/pav/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "pav:previousVersion"@en .
-
-<http://purl.org/net/tsnchange#outputLevelVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a LevelVersion is an output resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Level> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "outputLevelVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#output> .
-
-<http://purl.org/net/tsnchange#isSuccessorOf>
-        a       <http://www.w3.org/2002/07/owl#DeprecatedProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Deprecated Property, <http://purl.org/net/tsn#hasPreviousVersion> property is now preferred. Indicates the successor Version of a Version resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isSuccessorOf"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#Version> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/pav/previousVersion> ;
-        <http://www.w3.org/2002/07/owl#equivalentProperty>
-                <http://purl.org/net/tsn#hasPreviousVersion> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#isPredecessorOf> .
-
-<http://purl.org/net/tsnchange#lowerChange>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a lower Change that is caused by the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature > Territory > Level > Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "lowerChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> .
-
-<http://purl.org/net/tsnchange#nomenclatureVersionBefore>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a NomenclatureVersion before a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "nomenclatureVersionBefore"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#NomenclatureVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#before> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#inputNomenclatureVersion> .
-
-<http://purl.org/net/tsnchange#GeometryChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The GeometryChange concept describes modification of the Geometry of one TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is equivalent to the \"Transformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GeometryChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#LowerLevelChange>
-        a       <http://www.w3.org/2002/07/owl#DeprecatedClass> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Deprecated Class, <http://purl.org/net/tsn#SubLevelChange> Class is now preferred. The lower level of a level changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "LowerLevelChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#LevelHierarchyChange> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://purl.org/net/tsnchange#SubLevelChange> .
-
-<http://purl.org/net/tsnchange#FeatureChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The FeatureChange concept describes one or a set of changes that occur simultaneously and affect only one TSNFeature resource (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is closed to the concept \"Basic change\" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2). And, this concept is equivalent to the \"LifeEvent:Transformation\" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "FeatureChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#Change> .
-
-<http://purl.org/net/tsnchange#SubUnitChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Sub Unit(s) of a Unit change(s) i.e., whatever the nature of the change of the Sub Unit(s)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "SubUnitChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#UnitHierarchyChange> .
-
-<http://purl.org/net/tsnchange#UnitHierarchyChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The UnitHierarchyChange concept describes changes that affect TSNFeatures that are of type UnitVersion. It describes changes of the Unit position within the TSN hierarchy (e.g., change in the level it belongs to and/or Super unit change)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UnitHierarchyChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#HierarchyChange> .
-
-<http://purl.org/net/tsnchange#IdentifierChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The identifier (within the TSN) of a TSNFeature changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "IdentifierChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#IdentificationChange> .
-
-<http://purl.org/net/tsnchange#outputNomenclatureVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a NomenclatureVersion is an output resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#NomenclatureVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "outputNomenclatureVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#output> .
-
-<http://purl.org/net/tsnchange#TerritoryBelongingChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Territory a Unit belongs to changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "TerritoryBelongingChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#UnitHierarchyChange> .
-
-<http://purl.org/net/tsnchange#Integration>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Integration concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature that existed before the change and maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the disappearance of at least one input TSNFeature ; (2) the Expansion of the footprint of the output TSNFeatures. Its new footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the \"Integration\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Integration"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#ContinuationChange> , <http://purl.org/net/tsnchange#Merge> .
-
-<http://purl.org/net/tsnchange#GeometryRestructuration>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The GeometryRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their Geometry and sometime other attributs of the TSNFeatures. The set of TSNFeatures (TerritoryVersion, LevelVersion or UnitVersion) impacted by the GeometryRestructuration event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)):\"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).\". Except in case of GeometryRestructuration caused by a TerritoryChange that affect the external boundaries of the TerritoryVersion observed. Then, in this case, the set of TSNFeature (TerritoryVersion, LevelVersion or UnitVersion) impacted by the StructureChange event is determined following the rule: changes are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the \"evolution of spatial structure\" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "GeometryRestructuration"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#StructureChange> .
-
-<http://purl.org/net/tsnchange#Extraction>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Extraction concept describes the split of one TSNFeature (into two or more TSNFeatures) that nevertheless maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the Appearance of at least one new TSNFeature as an output of the change event: this/those new TSNFeature(s) take(s) territory from the input TSNFeature ; (2) the Contraction of the footprint of the input TSNFeature that nevertheless still exist after the change event. This concept is equivalent to the \"Extraction\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Extraction"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#Split> , <http://purl.org/net/tsnchange#ContinuationChange> .
-
-<http://purl.org/net/tsnchange#ContinuationChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The ContinuationChange concept describes restructuration operations that do not modify the identity of all the involved TSNFeatures that comes as input to the Change Operation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ContinuationChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryRestructuration> .
-
-<http://purl.org/net/tsnchange#HierarchyRestructuration>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The HierarchyRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying the hierarchy of the TSN. Those changes make sense grouped together (e.g., if a new Level integrate the nomenclature as well as new Unit composing this Level, then all those Appearance event of TSNFeatures will be grouped under one HierarchyRestructuration node)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "HierarchyRestructuration"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#StructureChange> .
-
-<http://purl.org/net/tsnchange#DescriptionChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The description of a TSNFeature changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "DescriptionChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#IdentificationChange> .
-
-<http://purl.org/net/tsnchange#output>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change resource of which a TSNComponent is an output resource (i.e., a result of the Change event)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#TSNComponent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "output"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#after> .
-
-<http://purl.org/net/tsnchange#NameChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of a TSNFeature changes."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "NameChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#IdentificationChange> .
-
-<http://purl.org/net/tsnchange#UnitChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The UnitChange concept describes all the changes undergone by a UnitVersion feature from one TSN version to another."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "UnitChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#inputNomenclatureVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a Change of which a NomenclatureVersion is an input resource."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsn#NomenclatureVersion> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "inputNomenclatureVersion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/tsnchange#input> .
-
-<http://purl.org/net/tsnchange#SuperUnitChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Super Unit of a Unit changes i.e., the Identifier of the Super Unit is not the same between the input and output NomenclatureVersion."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "SuperUnitChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#UnitHierarchyChange> .
-
-<http://purl.org/net/tsnchange#StructureChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The StructureChange concept describes restructuration operations that impact the TSN and several of its features simultaneously."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "StructureChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#Change> .
-
-<http://purl.org/net/tsnchange#after>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a TSNComponent after a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "after"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#TSNComponent> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#output> .
-
-<http://purl.org/net/tsnchange#IdentificationChange>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The IdentificationChange concept describes change(s) that modify the identifier, name, acronym and/or description attributs of one TSNFeature."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "IdentificationChange"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#FeatureChange> .
-
-<http://purl.org/net/tsnchange#Deformation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Deformation of a TSNFeature describes shape modification without size change between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Deformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Deformation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/tsnchange#GeometryChange> .
-
-<http://purl.org/net/tsnchange#before>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Indicates a TSNComponent before a change event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/tsnchange#Change> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "before"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/tsn#TSNComponent> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/tsnchange#input> .
+<http://purl.org/net/tsnchange#Reallocation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#DerivationChange> .
+<http://purl.org/net/tsnchange#Rectification> <http://www.w3.org/2000/01/rdf-schema#label> "Rectification"@en .
+<http://purl.org/net/tsnchange#hasNextVersion> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#hasPreviousVersion> .
+<http://purl.org/net/tsnchange#inputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#label> "inputUnitVersion"@en .
+<http://purl.org/net/tsnchange#Merge> <http://www.w3.org/2000/01/rdf-schema#comment> "The Merge concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature. This concept is equivalent to the \"Union\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"fusion of 'n' zones into a single entity (union)\"."@en .
+<http://purl.org/net/tsnchange#LevelChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+<http://purl.org/net/tsnchange#isPredecessorOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#outputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#TerritoryVersion> .
+<http://purl.org/net/tsnchange#levelVersionAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a LevelVersion after a change event."@en .
+<http://purl.org/net/tsnchange#input> <http://www.w3.org/2000/01/rdf-schema#label> "input"@en .
+<http://purl.org/net/tsnchange#label> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Fusion> <http://www.w3.org/2000/01/rdf-schema#label> "Fusion"@en .
+<http://purl.org/net/tsnchange#LevelChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#Split> <http://www.w3.org/2000/01/rdf-schema#comment> "The Split concept describes the split of a TSNFeature, into two or more TSNFeature. This concept is equivalent to the \"Split\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"division of a zone into 'n' parts (split)\"."@en .
+<http://purl.org/net/tsnchange#input> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#before> .
+_:Be448ef5aX2Da45cX2D4868X2Da4b8X2Df40b73407102 <http://xmlns.com/foaf/0.1/name> "Jérôme GENSEL" .
+_:BfdfdbaebX2D4c88X2D41fcX2D80a3X2D5ba5375bd3b1 <http://xmlns.com/foaf/0.1/homepage> <https://unige.ch/gedt/membres/dao/> .
+<http://purl.org/net/tsnchange#territoryVersionBefore> <http://www.w3.org/2000/01/rdf-schema#label> "territoryVersionBefore"@en .
+<http://purl.org/net/tsnchange#inputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Scission> <http://www.w3.org/2000/01/rdf-schema#label> "Scission"@en .
+<http://purl.org/net/tsnchange#territoryVersionBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#outputTerritoryVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#UpperLevelChange> <http://www.w3.org/2000/01/rdf-schema#label> "UpperLevelChange"@en .
+<http://purl.org/net/tsnchange#levelVersionBefore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#label> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://www.w3.org/2000/01/rdf-schema#label> .
+<http://purl.org/net/tsnchange#territoryVersionAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#outputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#label> "outputTerritoryVersion"@en .
+<http://purl.org/net/tsnchange#inputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#nomenclatureVersionAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#unitVersionAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Disappearance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+<http://purl.org/net/tsnchange#upperChange> <http://www.w3.org/2000/01/rdf-schema#label> "upperChange"@en .
+<http://purl.org/net/tsnchange#Reallocation> <http://www.w3.org/2000/01/rdf-schema#label> "Reallocation"@en .
+<http://purl.org/net/tsnchange#outputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#levelVersionBefore> <http://www.w3.org/2000/01/rdf-schema#label> "levelVersionBefore"@en .
+<http://purl.org/net/tsnchange#AcronymChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#IdentificationChange> .
+<http://purl.org/net/tsnchange#Appearance> <http://www.w3.org/2000/01/rdf-schema#comment> "The Appearance concept describes the appearance (or creation) of a new TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) as an output to the change event. \"Appearance\" means the identifier of the new TSNFeature is different from all that already exist, in the input and output NomenclatureVersion. This concept is equivalent to the \"Appearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en .
+<http://purl.org/net/tsnchange#HierarchyChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+<http://purl.org/net/tsnchange#Fusion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#SubLevelChange> <http://www.w3.org/2000/01/rdf-schema#label> "SubLevelChange"@en .
+<http://purl.org/net/tsnchange#DerivationChange> <http://www.w3.org/2000/01/rdf-schema#label> "DerivationChange"@en .
+<http://purl.org/net/tsnchange#unitVersionBefore> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#before> .
+<http://purl.org/net/tsnchange#label> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/tsnchange#Contraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#HierarchyChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#outputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#label> "outputUnitVersion"@en .
+<http://purl.org/net/tsnchange#Change> <http://www.w3.org/2000/01/rdf-schema#comment> "The Change concept is the super class of all types of change that may occur from one TSN version to another. A Change node may group under one node several changes on TSNFeatures that make sense grouped together. As \"a change is rarely isolated and independent from the other changes that occur simultaneously within the other units inside a given area\", we have to link \"together all the various units that were involved in a common territorial change\"  (Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)). The Change concept is based on the Change Bridge concept of (Kauppinen T, Hyvönen E. Modeling and reasoning about changes in ontology time series. In: Ontologies [Internet]. Springer; 2007. p. 319–338. Available from: http://link.springer.com/chapter/10.1007/978-0-387-37022-4_11): \"A change bridge is associated with a change point and tells, what current concepts become obsolete (if any), what new concepts are created (if any), and how the new concepts overlap with older ones.\"."@en .
+<http://purl.org/net/tsnchange#IdentificationRestructuration> <http://www.w3.org/2000/01/rdf-schema#comment> "The IdentificationRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their attributs of identification. Those changes make sense grouped together (e.g., all the sub-units of a Super one are renamed)."@en .
+<http://purl.org/net/tsnchange#unitVersionBefore> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#UnitVersion> .
+<http://purl.org/net/tsnchange#levelVersionAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Appearance> <http://www.w3.org/2000/01/rdf-schema#label> "Appearance"@en .
+<http://purl.org/net/tsnchange#inputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Disappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#IdentificationRestructuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Contraction> <http://www.w3.org/2000/01/rdf-schema#label> "Contraction"@en .
+<http://purl.org/net/tsnchange#TerritoryChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The TerritoryChange concept describes all the changes undergone by a TerritoryVersion feature from one TSN version to another."@en .
+<http://purl.org/net/tsnchange#levelVersionBefore> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#LevelVersion> .
+<http://purl.org/net/tsnchange#SubLevelChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#LevelHierarchyChange> .
+<http://purl.org/net/tsnchange#unitVersionAfter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#UnitVersion> .
+<http://purl.org/net/tsnchange#hasPreviousVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#LevelHierarchyChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#LevelBelongingChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#UnitHierarchyChange> .
+<http://purl.org/net/tsnchange#Reallocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Split> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#input> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Redistribution> <http://www.w3.org/2000/01/rdf-schema#comment> "The Redistribution concept describes operations of redistribution of the spatial area covered by 'n' TSNFeature(s) in the input NomenclatureVersion to form 'p' TSNFeature(s) in the output NomenclatureVersion. This concept is equivalent to the \"Re-allocation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"reallocation of land covered by 'n' initial zones to form 'p' new zones \"."@en .
+<http://purl.org/net/tsnchange#isPredecessorOf> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://purl.org/net/tsn#hasNextVersion> .
+<http://purl.org/net/tsnchange#label> <http://www.w3.org/2000/01/rdf-schema#comment> "Assign a name to the change that occurred."@en .
+<http://purl.org/net/tsnchange#territoryVersionAfter> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#after> .
+<http://purl.org/net/tsnchange#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the previous Version of a Version resource, in a TSN lineage."@en .
+<http://purl.obolibrary.org/obo/BFO_0000003> <http://www.w3.org/2000/01/rdf-schema#label> "bfo:Occurrent"@en .
+<http://purl.org/net/tsnchange#> <http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/3.0/> .
+<http://purl.org/net/tsnchange#SuperLevelChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The Super level  of a level changes."@en .
+<http://purl.org/net/tsnchange#unitVersionBefore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/net/tsnchange#unitVersionAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a UnitVersion after a change event."@en .
+<http://purl.org/net/tsnchange#IdentificationRestructuration> <http://www.w3.org/2000/01/rdf-schema#label> "IdentificationRestructuration"@en .
+<http://purl.org/net/tsnchange#Expansion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#UpperLevelChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Deprecated Class, <http://purl.org/net/tsn#SuperLevelChange> Class is now preferred. The upper level  of a level changes."@en .
+<http://purl.org/net/tsnchange#date> <http://www.w3.org/2000/01/rdf-schema#comment> "Assign a date to the change that occurred."@en .
+<http://purl.org/net/tsnchange#Fusion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#DerivationChange> .
+_:Bf582d05cX2Dd788X2D4550X2Daa3aX2Da4e18c048c18 <http://xmlns.com/foaf/0.1/name> "Camille BERNARD" .
+_:BfdfdbaebX2D4c88X2D41fcX2D80a3X2D5ba5375bd3b1 <http://xmlns.com/foaf/0.1/name> "Hy DAO" .
+<http://purl.org/net/tsnchange#SubLevelChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bf37773d3X2Db90cX2D4174X2Da05eX2D98ef8b1cbfbf <http://xmlns.com/foaf/0.1/name> "Marlène VILLANOVA-OLIVER" .
+<http://purl.org/net/tsnchange#date> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://purl.org/dc/terms/date> .
+<http://purl.org/pav/previousVersion> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/pav/> .
+<http://purl.org/net/tsnchange#unitVersionAfter> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#after> .
+<http://purl.org/net/tsnchange#LevelBelongingChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.obolibrary.org/obo/BFO_0000003> <http://www.w3.org/2000/01/rdf-schema#comment> "An occurrent is an entity that unfolds itself in time or it is the instantaneous boundary of such an entity (for example a beginning or an ending) or it is a temporal or spatiotemporal region which such an entity occupies_temporal_region or occupies_spatiotemporal_region (SPAN) (Grenon and Smith definition)." .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/issued> "2017-01-31"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://purl.org/net/tsnchange#outputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#label> "outputLevelVersion"@en .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#lowerChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Rectification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Redistribution> .
+<http://purl.org/net/tsnchange#levelVersionBefore> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#before> .
+<http://purl.org/net/tsnchange#date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/tsnchange#nomenclatureVersionBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a NomenclatureVersion before a change event."@en .
+<http://purl.org/net/tsnchange#nomenclatureVersionAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a NomenclatureVersion after a change event."@en .
+<http://purl.org/net/tsnchange#IdentificationRestructuration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#StructureChange> .
+<http://purl.org/net/tsnchange#GeometryChange> <http://www.w3.org/2000/01/rdf-schema#label> "GeometryChange"@en .
+<http://purl.org/net/tsnchange#unitVersionBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a UnitVersion before a change event."@en .
+<http://purl.org/net/tsnchange#outputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#output> .
+<http://purl.org/net/tsnchange#territoryVersionBefore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#levelVersionBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#nomenclatureVersionAfter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#NomenclatureVersion> .
+<http://purl.org/net/tsnchange#LowerLevelChange> <http://www.w3.org/2000/01/rdf-schema#label> "LowerLevelChange"@en .
+<http://purl.org/net/tsnchange#Merge> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryRestructuration> .
+<http://purl.org/net/tsnchange#territoryVersionAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#FeatureChange> <http://www.w3.org/2000/01/rdf-schema#label> "FeatureChange"@en .
+<http://purl.org/net/tsnchange#LowerLevelChange> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/net/tsnchange#SubLevelChange> .
+<http://purl.org/net/tsnchange#SubUnitChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#Change> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.obolibrary.org/obo/BFO_0000003> .
+<http://purl.org/net/tsnchange#UnitHierarchyChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#HierarchyChange> .
+<http://purl.org/net/tsnchange#IdentifierChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#outputLevelVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Rectification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#outputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a NomenclatureVersion is an output resource."@en .
+<http://purl.org/net/tsnchange#label> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the next Version of a Version resource, in a TSN lineage."@en .
+<http://purl.org/net/tsnchange#TerritoryBelongingChange> <http://www.w3.org/2000/01/rdf-schema#label> "TerritoryBelongingChange"@en .
+<http://purl.org/net/tsnchange#outputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Level> .
+<http://purl.org/net/tsnchange#DerivationChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The DerivationChange concept describes restructuration operations that do modify the identity of  TSNFeatures that comes as input to the Change Operation."@en .
+<http://purl.org/net/tsnchange#input> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change resource  of which a TSNComponent is an input resource (i.e., an object subject to change)."@en .
+<http://purl.org/net/tsnchange#Integration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#ContinuationChange> .
+<http://purl.org/net/tsnchange#GeometryRestructuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Redistribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryRestructuration> .
+<http://purl.org/net/tsnchange#outputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a TerritoryVersion is an output resource."@en .
+<http://purl.org/net/tsnchange#levelVersionAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Expansion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryChange> .
+<http://purl.org/net/tsnchange#GeometryChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The GeometryChange concept describes modification of the Geometry of one TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is equivalent to the \"Transformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2): \"transformations processes involving chn-ange in shape or size: expansion, contraction and deformation (i.e. shape modification without size change)\"."@en .
+<http://purl.org/net/tsnchange#Extraction> <http://www.w3.org/2000/01/rdf-schema#comment> "The Extraction concept describes the split of one TSNFeature (into two or more TSNFeatures) that nevertheless maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the Appearance of at least one new TSNFeature as an output of the change event: this/those new TSNFeature(s) take(s) territory from the input TSNFeature ; (2) the Contraction of the footprint of the input TSNFeature that nevertheless still exist after the change event. This concept is equivalent to the \"Extraction\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en .
+<http://purl.org/net/tsnchange#Fusion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Merge> .
+<http://purl.org/net/tsnchange#ContinuationChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/pav/previousVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "The previous version of a resource in a lineage. For instance a news article updated to correct factual information would point to the previous version of the article with pav:previousVersion. If however the content has significantly changed so that the two resources no longer share lineage (say a new article that talks about the same facts), they can instead be related using pav:derivedFrom. This property is normally used in a functional way, although PAV does not formally restrict this. Earlier versions which are not direct ancestors of this resource may instead be provided using the superproperty pav:hasEarlierVersion. A version number of this resource can be provided using the data property pav:version. To indicate that this version is a snapshot of a more general, non-versioned resource, e.g. 'Weather Today' vs. 'Weather Today on 2013-12-07', see pav:hasVersion. Note that it might be confusing to indicate pav:previousVersion from a resource that also has pav:hasVersion or pav:hasCurrentVersion relations, as such resources are intended to be a long-living and 'unversioned', while pav:previousVersion is intended for use between permalink-like 'snapshots' arranged in a linear history."@en .
+<http://purl.org/net/tsnchange#LevelHierarchyChange> <http://www.w3.org/2000/01/rdf-schema#label> "LevelHierarchyChange"@en .
+<http://purl.org/net/tsnchange#lowerChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a lower Change that is caused by the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature > Territory > Level > Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN."@en .
+<http://purl.org/net/tsnchange#HierarchyRestructuration> <http://www.w3.org/2000/01/rdf-schema#label> "HierarchyRestructuration"@en .
+<http://purl.org/net/tsnchange#SubUnitChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#UnitHierarchyChange> .
+<http://purl.org/net/tsnchange#Reallocation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Redistribution> .
+<http://purl.org/net/tsnchange#UpperLevelChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#LevelHierarchyChange> .
+<http://purl.org/net/tsnchange#GeometryRestructuration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#StructureChange> .
+<http://purl.org/net/tsnchange#DescriptionChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The description of a TSNFeature changes."@en .
+<http://purl.org/net/tsnchange#UnitHierarchyChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The UnitHierarchyChange concept describes changes that affect TSNFeatures that are of type UnitVersion. It describes changes of the Unit position within the TSN hierarchy (e.g., change in the level it belongs to and/or Super unit change)."@en .
+<http://purl.org/net/tsnchange#output> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#TSNComponent> .
+<http://purl.org/net/tsnchange#isPredecessorOf> <http://www.w3.org/2000/01/rdf-schema#label> "isPredecessorOf"@en .
+<http://purl.org/net/tsnchange#NameChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of a TSNFeature changes."@en .
+<http://purl.org/net/tsnchange#DerivationChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryRestructuration> .
+<http://purl.org/net/tsnchange#nomenclatureVersionAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#unitVersionAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#NameChange> <http://www.w3.org/2000/01/rdf-schema#label> "NameChange"@en .
+<http://purl.org/net/tsnchange#TerritoryChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+<http://purl.org/net/tsnchange#LevelBelongingChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The level a Unit belongs to changes."@en .
+<http://purl.org/net/tsnchange#label> <http://www.w3.org/2000/01/rdf-schema#label> "label"@en .
+<http://purl.org/net/tsnchange#unitVersionBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+_:Bf37773d3X2Db90cX2D4174X2Da05eX2D98ef8b1cbfbf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://purl.org/net/tsnchange#UnitChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/creator> _:Be448ef5aX2Da45cX2D4868X2Da4b8X2Df40b73407102 .
+<http://purl.org/net/tsnchange#SubUnitChange> <http://www.w3.org/2000/01/rdf-schema#label> "SubUnitChange"@en .
+<http://purl.org/net/tsnchange#inputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#NomenclatureVersion> .
+<http://purl.org/net/tsnchange#TerritoryChange> <http://www.w3.org/2000/01/rdf-schema#label> "TerritoryChange"@en .
+<http://purl.org/pav/previousVersion> <http://www.w3.org/2000/01/rdf-schema#label> "pav:previousVersion"@en .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/2000/01/rdf-schema#label> "isSuccessorOf"@en .
+<http://purl.org/net/tsnchange#> <http://purl.org/vocab/vann/preferredNamespaceUri> <http://purl.org/net/tsnchange#> .
+<http://purl.org/net/tsnchange#HierarchyChange> <http://www.w3.org/2000/01/rdf-schema#label> "HierarchyChange"@en .
+<http://purl.org/net/tsnchange#UnitChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+<http://purl.org/net/tsnchange#SuperLevelChange> <http://www.w3.org/2000/01/rdf-schema#label> "SuperLevelChange"@en .
+<http://purl.org/net/tsnchange#date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#IdentifierChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The identifier (within the TSN) of a TSNFeature changes."@en .
+<http://purl.org/net/tsnchange#UnitChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The UnitChange concept describes all the changes undergone by a UnitVersion feature from one TSN version to another."@en .
+<http://purl.org/net/tsnchange#nomenclatureVersionAfter> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#outputNomenclatureVersion> .
+<http://purl.org/net/tsnchange#DescriptionChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#IdentificationChange> .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/creator> _:BfdfdbaebX2D4c88X2D41fcX2D80a3X2D5ba5375bd3b1 .
+<http://purl.org/net/tsnchange#isCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#output> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#hasNextVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#outputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#TerritoryChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#nomenclatureVersionBefore> <http://www.w3.org/2000/01/rdf-schema#label> "nomenclatureVersionBefore"@en .
+<http://purl.org/net/tsnchange#upperChange> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#LowerLevelChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#LevelHierarchyChange> .
+<http://purl.org/net/tsnchange#Extraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/net/tsnchange#outputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#NomenclatureVersion> .
+<http://purl.org/net/tsnchange#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/pav/previousVersion> .
+<http://purl.org/net/tsnchange#> <http://www.w3.org/2000/01/rdf-schema#comment> "This 1.1 version of the ontology enables the description of new operations of restructuration of the TSN: IdentificationRestructuration and HierarchyRestructuration, operation that impact several features at the same time." .
+<http://purl.org/net/tsnchange#outputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#output> .
+<http://purl.org/net/tsnchange#levelVersionAfter> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#after> .
+<http://purl.org/net/tsnchange#hasPreviousVersion> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#hasNextVersion> .
+<http://purl.org/net/tsnchange#lowerChange> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#FeatureChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The FeatureChange concept describes one or a set of changes that occur simultaneously and affect only one TSNFeature resource (i.e., TerritoryVersion, LevelVersion or UnitVersion). This concept is closed to the concept \"Basic change\" of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2). And, this concept is equivalent to the \"LifeEvent:Transformation\" concept from the model of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en .
+<http://purl.org/net/tsnchange#territoryVersionBefore> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#before> .
+<http://purl.org/net/tsnchange#levelVersionAfter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#LevelVersion> .
+<http://purl.org/net/tsnchange#inputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Extraction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Split> .
+<http://purl.org/net/tsnchange#nomenclatureVersionAfter> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#after> .
+<http://purl.org/net/tsnchange#SuperUnitChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The Super Unit of a Unit changes i.e., the Identifier of the Super Unit is not the same between the input and output NomenclatureVersion."@en .
+_:Bf582d05cX2Dd788X2D4550X2Daa3aX2Da4e18c048c18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://purl.org/net/tsnchange#StructureChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Contraction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryChange> .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DeprecatedProperty> .
+<http://purl.org/net/tsnchange#FeatureChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#NameChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bf582d05cX2Dd788X2D4550X2Daa3aX2Da4e18c048c18 <http://xmlns.com/foaf/0.1/homepage> <http://lig-membres.imag.fr/bernardc/> .
+<http://purl.org/pav/previousVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#isPredecessorOf> .
+<http://purl.org/net/tsnchange#after> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#TSNComponent> .
+<http://purl.org/net/tsnchange#outputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/pav/previousVersion> .
+<http://purl.org/net/tsnchange#TerritoryBelongingChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The Territory a Unit belongs to changes."@en .
+<http://purl.org/net/tsnchange#outputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#label> "outputNomenclatureVersion"@en .
+<http://purl.org/net/tsnchange#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#label> "hasNextVersion"@en .
+<http://purl.org/net/tsnchange#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#LevelBelongingChange> <http://www.w3.org/2000/01/rdf-schema#label> "LevelBelongingChange"@en .
+<http://purl.org/net/tsnchange#isPredecessorOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DeprecatedProperty> .
+<http://purl.org/net/tsnchange#inputLevelVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Redistribution> <http://www.w3.org/2000/01/rdf-schema#label> "Redistribution"@en .
+<http://purl.org/net/tsnchange#SuperLevelChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#territoryVersionAfter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#TerritoryVersion> .
+<http://purl.org/net/tsnchange#Rectification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#ContinuationChange> .
+<http://purl.org/net/tsnchange#territoryVersionAfter> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#outputTerritoryVersion> .
+<http://purl.org/net/tsnchange#isPredecessorOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#isSuccessorOf> .
+<http://purl.org/net/tsnchange#territoryVersionBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a TerritoryVersion before a change event."@en .
+<http://purl.org/net/tsnchange#UpperLevelChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DeprecatedClass> .
+<http://purl.org/net/tsnchange#territoryVersionAfter> <http://www.w3.org/2000/01/rdf-schema#label> "territoryVersionAfter"@en .
+<http://purl.org/net/tsnchange#inputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Level> .
+<http://purl.org/net/tsnchange#HierarchyRestructuration> <http://www.w3.org/2000/01/rdf-schema#comment> "The HierarchyRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying the hierarchy of the TSN. Those changes make sense grouped together (e.g., if a new Level integrate the nomenclature as well as new Unit composing this Level, then all those Appearance event of TSNFeatures will be grouped under one HierarchyRestructuration node)."@en .
+<http://purl.org/net/tsnchange#IdentifierChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#IdentificationChange> .
+<http://purl.org/net/tsnchange#GeometryRestructuration> <http://www.w3.org/2000/01/rdf-schema#label> "GeometryRestructuration"@en .
+<http://purl.org/net/tsnchange#Integration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#UpperLevelChange> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/net/tsnchange#SuperLevelChange> .
+<http://purl.org/net/tsnchange#inputTerritoryVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Change> <http://www.w3.org/2000/01/rdf-schema#label> "Change"@en .
+_:Be448ef5aX2Da45cX2D4868X2Da4b8X2Df40b73407102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://purl.org/net/tsnchange#after> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#output> .
+<http://purl.org/net/tsnchange#outputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a LevelVersion is an output resource."@en .
+<http://purl.org/net/tsnchange#input> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#TSNComponent> .
+<http://purl.org/net/tsnchange#Split> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryRestructuration> .
+_:BfdfdbaebX2D4c88X2D41fcX2D80a3X2D5ba5375bd3b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://purl.org/net/tsnchange#IdentificationChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The IdentificationChange concept describes change(s) that modify the identifier, name, acronym and/or description attributs of one TSNFeature."@en .
+<http://purl.org/net/tsnchange#SuperLevelChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#LevelHierarchyChange> .
+<http://purl.org/net/tsnchange#UnitChange> <http://www.w3.org/2000/01/rdf-schema#label> "UnitChange"@en .
+<http://purl.org/net/tsnchange#outputUnitVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#IdentifierChange> <http://www.w3.org/2000/01/rdf-schema#label> "IdentifierChange"@en .
+<http://purl.org/net/tsnchange#inputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#TerritoryVersion> .
+<http://purl.org/net/tsnchange#nomenclatureVersionBefore> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#inputNomenclatureVersion> .
+<http://purl.org/net/tsnchange#output> <http://www.w3.org/2000/01/rdf-schema#label> "output"@en .
+<http://purl.org/net/tsnchange#inputUnitVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#lowerChange> <http://www.w3.org/2000/01/rdf-schema#label> "lowerChange"@en .
+<http://purl.org/net/tsnchange#Reallocation> <http://www.w3.org/2000/01/rdf-schema#comment> "The Reallocation concept describes operations of redistribution of the spatial area that modify the identity of all the input TSNFeatures (i.e., their identifier is modified), and modify their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This operation leads to: (1) the disappearance of all the 'n' input TSNFeatures ; (2) the creation of 'p' TSNFeatures as output to the change event by redistribution of the spatial area covered by the 'n' input TSNFeatures. This concept is equivalent to the \"Reallocation\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/creator> _:Bf37773d3X2Db90cX2D4174X2Da05eX2D98ef8b1cbfbf .
+<http://purl.org/net/tsnchange#> <http://creativecommons.org/ns#license> <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> .
+<http://purl.org/net/tsnchange#DescriptionChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/publisher> <http://steamer.imag.fr> .
+<http://purl.org/net/tsnchange#Expansion> <http://www.w3.org/2000/01/rdf-schema#label> "Expansion"@en .
+<http://purl.org/net/tsnchange#levelVersionBefore> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#inputLevelVersion> .
+<http://purl.org/net/tsnchange#inputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#input> .
+<http://purl.org/net/tsnchange#Change> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://linkedearth.org/change/ns#Change> .
+<http://purl.org/net/tsnchange#UnitHierarchyChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Split> <http://www.w3.org/2000/01/rdf-schema#label> "Split"@en .
+<http://purl.org/net/tsnchange#unitVersionBefore> <http://www.w3.org/2000/01/rdf-schema#label> "unitVersionBefore"@en .
+<http://purl.org/net/tsnchange#inputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Unit> .
+<http://purl.org/net/tsnchange#UnitHierarchyChange> <http://www.w3.org/2000/01/rdf-schema#label> "UnitHierarchyChange"@en .
+<http://purl.org/net/tsnchange#inputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#input> .
+<http://purl.org/net/tsnchange#SuperUnitChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#input> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#outputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#output> .
+<http://purl.org/net/tsnchange#Deformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#outputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Unit> .
+<http://purl.org/net/tsnchange#upperChange> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#inputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a LevelVersion is an input resource."@en .
+<http://purl.org/net/tsnchange#Extraction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#ContinuationChange> .
+<http://purl.org/net/tsnchange#LevelHierarchyChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The LevelHierarchyChange concept describes changes that affect TSNFeatures that are of type LevelVersion. It describes changes of the Level position within the TSN hierarchy."@en .
+<http://purl.org/net/tsnchange#levelVersionBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Level before a change event."@en .
+<http://purl.org/net/tsnchange#territoryVersionBefore> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#inputTerritoryVersion> .
+<http://purl.org/net/tsnchange#levelVersionAfter> <http://www.w3.org/2000/01/rdf-schema#label> "levelVersionAfter"@en .
+<http://purl.org/net/tsnchange#Contraction> <http://www.w3.org/2000/01/rdf-schema#comment> "Contraction of a TSNFeature, in terms of shape, means its size decrease between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Contraction\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en .
+<http://purl.org/net/tsnchange#inputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#input> .
+<http://purl.org/net/tsnchange#nomenclatureVersionAfter> <http://www.w3.org/2000/01/rdf-schema#label> "nomenclatureVersionAfter"@en .
+<http://purl.org/net/tsnchange#inputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a NomenclatureVersion is an input resource."@en .
+<http://purl.org/net/tsnchange#before> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#NameChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#IdentificationChange> .
+<http://purl.org/net/tsnchange#Integration> <http://www.w3.org/2000/01/rdf-schema#comment> "The Integration concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single TSNFeature that existed before the change and maintains its identity after the change event (i.e., its identifier is not modified). This operation leads to: (1) the disappearance of at least one input TSNFeature ; (2) the Expansion of the footprint of the output TSNFeatures. Its new footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the \"Integration\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en .
+<http://purl.org/net/tsnchange#GeometryChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+<http://purl.org/net/tsnchange#LowerLevelChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DeprecatedClass> .
+<http://purl.org/net/tsnchange#ContinuationChange> <http://www.w3.org/2000/01/rdf-schema#label> "ContinuationChange"@en .
+<http://purl.org/net/tsnchange#nomenclatureVersionBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#lowerChange> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#inputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#label> "inputTerritoryVersion"@en .
+<http://purl.org/net/tsnchange#SuperUnitChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#UnitHierarchyChange> .
+<http://purl.org/net/tsnchange#before> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a TSNComponent before a change event."@en .
+<http://purl.org/net/tsnchange#inputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a UnitVersion is an input resource."@en .
+<http://purl.org/net/tsnchange#GeometryChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#AcronymChange> <http://www.w3.org/2000/01/rdf-schema#label> "AcronymChange"@en .
+<http://purl.org/net/tsnchange#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a societal or other cause to the described Change (e.g., administrative reform)."@en .
+<http://purl.org/net/tsnchange#after> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#inputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#input> .
+<http://purl.org/net/tsnchange#Scission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#DerivationChange> .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Deprecated Property, <http://purl.org/net/tsn#hasPreviousVersion> property is now preferred. Indicates the successor Version of a Version resource."@en .
+<http://purl.org/net/tsnchange#> <http://www.w3.org/2002/07/owl#versionInfo> "1.1"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://purl.org/net/tsnchange#unitVersionAfter> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#outputUnitVersion> .
+<http://purl.org/net/tsnchange#isPredecessorOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#before> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#TSNComponent> .
+<http://purl.org/net/tsnchange#Appearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#unitVersionAfter> <http://www.w3.org/2000/01/rdf-schema#label> "unitVersionAfter"@en .
+<http://purl.org/net/tsnchange#Change> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#LevelHierarchyChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#HierarchyChange> .
+<http://purl.org/net/tsnchange#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "tsnchange" .
+<http://purl.org/net/tsnchange#territoryVersionBefore> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#TerritoryVersion> .
+<http://purl.org/net/tsnchange#inputTerritoryVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a TerritoryVersion is an input resource."@en .
+<http://purl.org/net/tsnchange#Appearance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+<http://purl.org/net/tsnchange#ContinuationChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The ContinuationChange concept describes restructuration operations that do not modify the identity of all the involved TSNFeatures that comes as input to the Change Operation."@en .
+<http://purl.org/net/tsnchange#Deformation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryChange> .
+<http://purl.org/net/tsnchange#outputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Integration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Merge> .
+<http://purl.org/net/tsnchange#SubUnitChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The Sub Unit(s) of a Unit change(s) i.e., whatever the nature of the change of the Sub Unit(s)."@en .
+<http://purl.org/net/tsnchange#Disappearance> <http://www.w3.org/2000/01/rdf-schema#comment> "The Disappearance concept describes the disappearance (or end) of a TSNFeature (i.e., TerritoryVersion, LevelVersion or UnitVersion) that comes as an input resource to the change event: the TSNFeature no longer exists after the change event i.e., no TSNFeature will carry its identifier in the output NomenclatureVersion. This concept is equivalent to the \"Disappearance\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en .
+<http://purl.org/net/tsnchange#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#SubLevelChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The Sub level of a level changes."@en .
+<http://purl.org/net/tsnchange#nomenclatureVersionBefore> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#before> .
+<http://purl.org/net/tsnchange#outputUnitVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change of which a UnitVersion is an output resource."@en .
+<http://purl.org/net/tsnchange#inputLevelVersion> <http://www.w3.org/2000/01/rdf-schema#label> "inputLevelVersion"@en .
+<http://purl.org/net/tsnchange#DescriptionChange> <http://www.w3.org/2000/01/rdf-schema#label> "DescriptionChange"@en .
+<http://purl.org/net/tsnchange#AcronymChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The acronym of a TSNFeature changes."@en .
+_:Bf37773d3X2Db90cX2D4174X2Da05eX2D98ef8b1cbfbf <http://xmlns.com/foaf/0.1/homepage> <http://lig-membres.imag.fr/villanov/> .
+<http://purl.org/net/tsnchange#IdentificationChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Merge> <http://www.w3.org/2000/01/rdf-schema#label> "Merge"@en .
+<http://purl.org/net/tsnchange#outputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/tsnchange#output> .
+<http://purl.org/net/tsnchange#upperChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates an upper Change that causes the described Change. The Change hierarchy is alligned on the Nomenclature components hierarchy i.e., Nomenclature > Territory > Level > Unit. Then a change that affect a Territory is above a change that affect the levels of the TSN."@en .
+<http://purl.obolibrary.org/obo/BFO_0000003> <http://purl.org/dc/terms/description> "An occurrent is an entity that unfolds itself in time or it is the instantaneous boundary of such an entity (for example a beginning or an ending) or it is a temporal or spatiotemporal region which such an entity occupies_temporal_region or occupies_spatiotemporal_region (SPAN) (Grenon and Smith definition). "@en .
+<http://purl.org/net/tsnchange#Extraction> <http://www.w3.org/2000/01/rdf-schema#label> "Extraction"@en .
+<http://purl.org/net/tsnchange#Rectification> <http://www.w3.org/2000/01/rdf-schema#comment> "The Rectification concept describes operations of redistribution of the spatial area, without modifying the identity of all the input TSNFeatures (i.e., their identifier is not modified), but modifying their Geometry. The combination of footprints of the input TSNFeatures is equal to the combination of footprints of the output TSNFeatures. This concept is equivalent to the \"Rectification\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en .
+<http://purl.org/net/tsnchange#HierarchyChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The HierarchyChange concept describes modification of the position of one TSNFeature (LevelVersion or UnitVersion) in the NomenclatureVersion hierarchy. For example, a Unit may change the Level it belongs to."@en .
+<http://purl.org/net/tsnchange#after> <http://www.w3.org/2000/01/rdf-schema#label> "after"@en .
+<http://purl.org/net/tsnchange#Expansion> <http://www.w3.org/2000/01/rdf-schema#comment> "Expansion of a TSNFeature, in terms of shape, means its size increase between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Expansion\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en .
+<http://purl.org/net/tsnchange#before> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#input> .
+<http://purl.org/net/tsnchange#Disappearance> <http://www.w3.org/2000/01/rdf-schema#label> "Disappearance"@en .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/creator> _:Bf582d05cX2Dd788X2D4550X2Daa3aX2Da4e18c048c18 .
+<http://purl.org/net/tsnchange#IdentificationChange> <http://www.w3.org/2000/01/rdf-schema#label> "IdentificationChange"@en .
+<http://purl.org/net/tsnchange#output> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#after> .
+<http://purl.org/net/tsnchange#StructureChange> <http://www.w3.org/2000/01/rdf-schema#label> "StructureChange"@en .
+<http://purl.org/net/tsnchange#LowerLevelChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Deprecated Class, <http://purl.org/net/tsn#SubLevelChange> Class is now preferred. The lower level of a level changes."@en .
+<http://purl.org/net/tsnchange#IdentificationChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#FeatureChange> .
+_:Be448ef5aX2Da45cX2D4868X2Da4b8X2Df40b73407102 <http://xmlns.com/foaf/0.1/homepage> <http://lig-membres.imag.fr/gensel/> .
+<http://purl.org/net/tsnchange#AcronymChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#LevelChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The LevelChange concept describes all the changes undergone by a LevelVersion feature from one TSN version to another."@en .
+<http://purl.org/net/tsnchange#LevelChange> <http://www.w3.org/2000/01/rdf-schema#label> "LevelChange"@en .
+<http://purl.org/net/tsnchange#upperChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#label> "hasPreviousVersion"@en .
+<http://purl.org/net/tsnchange#outputNomenclatureVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#FeatureChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#isPredecessorOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Deprecated Property, <http://purl.org/net/tsn#hasNextVersion> property is now preferred. Indicates the predecessor Version of a Version resource."@en .
+<http://purl.org/net/tsnchange#ContinuationChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#GeometryRestructuration> .
+<http://purl.org/net/tsnchange#StructureChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Integration> <http://www.w3.org/2000/01/rdf-schema#label> "Integration"@en .
+<http://purl.org/net/tsnchange#nomenclatureVersionBefore> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#NomenclatureVersion> .
+<http://purl.org/net/tsnchange#output> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/modified> "2019-05-24"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://purl.org/net/tsnchange#territoryVersionAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a TerritoryVersion after a change event."@en .
+<http://purl.org/net/tsnchange#Scission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Deformation> <http://www.w3.org/2000/01/rdf-schema#label> "Deformation"@en .
+<http://purl.org/net/tsnchange#inputNomenclatureVersion> <http://www.w3.org/2000/01/rdf-schema#label> "inputNomenclatureVersion"@en .
+<http://purl.org/net/tsnchange#HierarchyRestructuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#unitVersionBefore> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#inputUnitVersion> .
+<http://purl.org/net/tsnchange#DerivationChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#Deformation> <http://www.w3.org/2000/01/rdf-schema#comment> "Deformation of a TSNFeature describes shape modification without size change between the input NomenclatureVersion and the output NomenclatureVersion. This concept is equivalent to the \"Deformation\" concept of (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en .
+<http://purl.org/net/tsnchange#TerritoryBelongingChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#StructureChange> <http://www.w3.org/2000/01/rdf-schema#comment> "The StructureChange concept describes restructuration operations that impact the TSN and several of its features simultaneously."@en .
+<http://purl.org/net/tsnchange#after> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a TSNComponent after a change event."@en .
+<http://purl.org/net/tsnchange#after> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#HierarchyRestructuration> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#StructureChange> .
+<http://purl.org/net/tsnchange#Scission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#Split> .
+<http://purl.org/net/tsnchange#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isCausedBy"@en .
+<http://purl.org/net/tsnchange#output> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a Change resource of which a TSNComponent is an output resource (i.e., a result of the Change event)."@en .
+<http://purl.org/net/tsnchange#Merge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#date> <http://www.w3.org/2000/01/rdf-schema#label> "date"@en .
+<http://purl.org/net/tsnchange#inputNomenclatureVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/tsnchange#Fusion> <http://www.w3.org/2000/01/rdf-schema#comment> "The Fusion concept describes the merge of two or more TSNFeatures (e.g., merge of two TerritoryVersion or merge of two UnitVersion), into a single new TSNFeature that did not exist before the change. This operation leads to: (1) the disappearance of all the input TSNFeature(s) (i.e., the identity of the involved TSNFeatures is not extended after the Fusion); (2) the creation of one output TSNFeature whose footprint is equal to the combination of all the footprint of the input TSNFeatures. This concept is equivalent to the \"Fusion\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://purl.org/net/tsn#hasPreviousVersion> .
+<http://purl.org/net/tsnchange#before> <http://www.w3.org/2000/01/rdf-schema#label> "before"@en .
+<http://purl.org/net/tsnchange#isSuccessorOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/tsn#Version> .
+<http://purl.org/net/tsnchange#before> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#Scission> <http://www.w3.org/2000/01/rdf-schema#comment> "The Scission concept describes the split of one TSNFeature (into two or more TSNFeatures) that ceases to exist after the change event. This operation leads to: (1) the disappearance of the input TSNFeature (i.e., the identity of this TSNFeature is not extended after the event i.e., at least the identifier of the TSNFeature is modified); (2) the creation of two or more Units in the NomenclatureVersion V+1 by split of the footprint of the input Unit in NomenclatureVersion V. This concept is equivalent to the \"Scission\" concept from the classification of territorial events of (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 2011;25(10):1597–1612)."@en .
+<http://purl.org/net/tsnchange#nomenclatureVersionBefore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/tsnchange#Change> .
+<http://purl.org/net/tsnchange#SuperUnitChange> <http://www.w3.org/2000/01/rdf-schema#label> "SuperUnitChange"@en .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/title> "Territorial Statistical Nomenclature Change Ontology"@en .
+<http://purl.org/net/tsnchange#> <http://purl.org/dc/terms/description> "The TSN-Change ontology aims at describing changes that occured from one version of a Territorial Statistical Nomenclature (TSN) (i.e., partition of the territory) and its subsequent (e.g., change in territorial units boundaries to reflect an administrative reorganisation)."@en .
+<http://purl.org/net/tsnchange#TerritoryBelongingChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/tsnchange#UnitHierarchyChange> .
+<http://purl.org/net/tsnchange#Redistribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/tsnchange#GeometryRestructuration> <http://www.w3.org/2000/01/rdf-schema#comment> "The GeometryRestructuration concept is a sub concept of the StructureChange concept. It describes changes that simultaneously affect several TSNFeature by modifying their Geometry and sometime other attributs of the TSNFeatures. The set of TSNFeatures (TerritoryVersion, LevelVersion or UnitVersion) impacted by the GeometryRestructuration event is determined following the rule described by (Plumejeaud C, Mathian H, Gensel J, Grasland C. Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science. 25, 1597–1612 (2011)):\"For any event type, a geometrical invariant defines the set of units involved in the one event: the combination of unit footprints that existed prior the event (preceding ones) is equal to the combination of unit footprints that are still in existence after the event (succeeding ones).\". Except in case of GeometryRestructuration caused by a TerritoryChange that affect the external boundaries of the TerritoryVersion observed. Then, in this case, the set of TSNFeature (TerritoryVersion, LevelVersion or UnitVersion) impacted by the StructureChange event is determined following the rule: changes are grouped together if they occur simultaneously, inside a area which extends from the new territory boundaries to unit(s) boundaries that match the ones of unit(s) before the event. This concept is equivalent to the \"evolution of spatial structure\" notion from (Claramunt C, Thériault M. Managing Time in GIS An Event-Oriented Approach. In: Clifford J, Tuzhilin A, editors. Recent Advances in Temporal Databases. London: Springer London; 1995. p. 23–42. Available from: http://link.springer.com/10.1007/978-1-4471-3033-8_2)."@en .
+<http://purl.org/net/tsnchange#levelVersionAfter> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/tsnchange#outputLevelVersion> .

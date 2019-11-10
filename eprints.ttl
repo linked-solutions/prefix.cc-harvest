@@ -1,135 +1,69 @@
-<http://id.ecs.soton.ac.uk/person/1248>
-        a       <http://xmlns.com/foaf/0.1/Person> ;
-        <http://xmlns.com/foaf/0.1/name>
-                "Christopher Gutteridge" .
-
-<http://xmlns.com/foaf/0.1/>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "foaf" .
-
-<http://eprints.org/ontology/hasConceptScheme>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A SKOS concept scheme employed by this dataset."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdfs.org/ns/void#Dataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "SKOS Concept Scheme"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
-
-<http://eprints.org/ontology/hasFile>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A File which is part of this Document."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://eprints.org/ontology/Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has File"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyof>
-                <http://purl.org/dc/terms/hasPart> .
-
-<http://eprints.org/ontology/Document>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A single document that is part of an ep:EPrint record. It may be a machine generated version of another document,  eg. a thumbnail, in which case this will be expressed with relations from the http://eprints.org/relation/ namespace. It will have one or more files associated. Some documents can have multilple files, such as an HTML page plus image files. Resolving a document URI will redirect you to the primary file of the document."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Document"@en ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://xmlns.com/foaf/0.1/Document> .
-
-<http://eprints.org/ontology/hasEPrint>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An EPrint record which is part of this Repository."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://eprints.org/ontology/Repository> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has EPrint Record"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://eprints.org/ontology/EPrint> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyof>
-                <http://purl.org/dc/terms/hasPart> .
-
-<http://eprints.org/ontology/hasDocument>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Document which is part of this EPrint Record."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://eprints.org/ontology/EPrint> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has Document"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://eprints.org/ontology/Document> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyof>
-                <http://purl.org/dc/terms/hasPart> .
-
-<http://purl.org/dc/terms/>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "dcterms" .
-
-<http://eprints.org/ontology/Repository>
-        a       <http://www.w3.org/2002/07/owl#Class> , <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An EPrints Repository. This will have a number of EPrints records associated with it via the ep:hasEPrint predicate, and the records will generally be expressed as BIBO & Dublin Core, plus EPrints extensions to describe the attached documents and files. Resolving the URI of this class using a client which prefers RDF XML (or text/n3) will return an RDF document describing the repository using voID and Dublin Core, plus a ep:hasEPrint link to every current record in the public part of the repository. See ep:EPrint for more description about such records. EPrints generally supports a sitemap.xml file which describes a set of data-dump-locations. Resolving these is the fastest way to obtain every bit of RDF data from an EPrints repository."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "EPrints Repository"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://rdfs.org/ns/void#Dataset> .
-
-<http://eprints.org/ontology/>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://purl.org/dc/terms/creator>
-                <http://id.ecs.soton.ac.uk/person/1248> ;
-        <http://purl.org/dc/terms/description>
-                "Describes the main classes and properties which EPrints adds to voID, DC, BIBO and SKOS etc. and some notes on the patterns this data will take."@en ;
-        <http://purl.org/dc/terms/issued>
-                "2010-10-20"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/title>
-                "EPrints Ontology"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "ep" .
-
-<http://www.w3.org/2004/02/skos/core#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "skos" .
-
-<http://eprints.org/ontology/EPrint>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A single record in an EPrints Repository. Generally this will be described as BIBO and Dublin Core, and may have a number of associated ep:Documents. Resolving a URI of class ep:EPrint will direct to the HTML summary page for the record, in an HTML browser, or to an RDF (XML or N3) document in an RDF client. The RDF document will contain all available RDF information about the record including all attached ep:Document records and their metadata and links from the document to the files via ep:hasFile. Not all files may be available without authentication. If the files themselves contain semantic information of interest these will need to be resolved separately. References to people, organisations, publications and locations may be given URIs of the form /id/<typeofthing>/ext-<somevalue> -- in this case the URI will be resolvable as RDF+XML or N3 and may yield additional records in the repository referencing the same thing, although this is usually based on the hashing of metadata strings and may not be complete or perfect. The ext- indicates that this concept is not something the repository actually stores information about, it is just referenced by one or more records. For example, the RDF for an EPrint about a paper given at a conference may reference that conference with a URI of the form /id/event/ext-a43de4454. That URI will be resolvable but the repository does not contain full information about that event, just information derived from EPrint record metadata. It is hoped that the community may develop systems to link such URIs to the more definitive URI for an event, person, location etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "EPrint Record"@en .
-
-<http://eprints.org/ontology/OAIPMH2>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The base URL to use to query this repository via OAI-PMH. Note that the domain is set to any dataset, not just an EPrints Repository, so as not to limit use by non-eprints repositories."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://rdfs.org/ns/void#Dataset> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                <http://eprints.org/ontology/> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "OAI-PMH URL"@en .
-
-<http://rdfs.org/ns/void#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "void" .
+<http://id.ecs.soton.ac.uk/person/1248> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://xmlns.com/foaf/0.1/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://eprints.org/ontology/hasConceptScheme> <http://www.w3.org/2000/01/rdf-schema#label> "SKOS Concept Scheme"@en .
+<http://eprints.org/ontology/hasFile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://eprints.org/ontology/Document> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/2000/01/rdf-schema#subPropertyof> <http://purl.org/dc/terms/hasPart> .
+<http://eprints.org/ontology/Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document"@en .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eprints.org/ontology/EPrint> .
+<http://id.ecs.soton.ac.uk/person/1248> <http://xmlns.com/foaf/0.1/name> "Christopher Gutteridge" .
+<http://purl.org/dc/terms/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "dcterms" .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/2000/01/rdf-schema#subPropertyof> <http://purl.org/dc/terms/hasPart> .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/2000/01/rdf-schema#range> <http://eprints.org/ontology/EPrint> .
+<http://eprints.org/ontology/Repository> <http://www.w3.org/2000/01/rdf-schema#label> "EPrints Repository"@en .
+<http://eprints.org/ontology/hasFile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eprints.org/ontology/> <http://purl.org/dc/terms/description> "Describes the main classes and properties which EPrints adds to voID, DC, BIBO and SKOS etc. and some notes on the patterns this data will take."@en .
+<http://www.w3.org/2004/02/skos/core#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://eprints.org/ontology/hasConceptScheme> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdfs.org/ns/void#Dataset> .
+<http://eprints.org/ontology/hasConceptScheme> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://eprints.org/ontology/Repository> <http://www.w3.org/2000/01/rdf-schema#comment> "An EPrints Repository. This will have a number of EPrints records associated with it via the ep:hasEPrint predicate, and the records will generally be expressed as BIBO & Dublin Core, plus EPrints extensions to describe the attached documents and files. Resolving the URI of this class using a client which prefers RDF XML (or text/n3) will return an RDF document describing the repository using voID and Dublin Core, plus a ep:hasEPrint link to every current record in the public part of the repository. See ep:EPrint for more description about such records. EPrints generally supports a sitemap.xml file which describes a set of data-dump-locations. Resolving these is the fastest way to obtain every bit of RDF data from an EPrints repository."@en .
+<http://eprints.org/ontology/EPrint> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/2000/01/rdf-schema#label> "has Document"@en .
+<http://eprints.org/ontology/hasFile> <http://www.w3.org/2000/01/rdf-schema#label> "has File"@en .
+<http://eprints.org/ontology/> <http://purl.org/dc/terms/title> "EPrints Ontology"@en .
+<http://eprints.org/ontology/hasFile> <http://www.w3.org/2000/01/rdf-schema#comment> "A File which is part of this Document."@en .
+<http://eprints.org/ontology/Repository> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/hasFile> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/hasFile> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eprints.org/ontology/Document> .
+<http://eprints.org/ontology/OAIPMH2> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdfs.org/ns/void#Dataset> .
+<http://rdfs.org/ns/void#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "void" .
+<http://www.w3.org/2004/02/skos/core#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "skos" .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://eprints.org/ontology/Repository> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdfs.org/ns/void#Dataset> .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eprints.org/ontology/EPrint> <http://www.w3.org/2000/01/rdf-schema#comment> "A single record in an EPrints Repository. Generally this will be described as BIBO and Dublin Core, and may have a number of associated ep:Documents. Resolving a URI of class ep:EPrint will direct to the HTML summary page for the record, in an HTML browser, or to an RDF (XML or N3) document in an RDF client. The RDF document will contain all available RDF information about the record including all attached ep:Document records and their metadata and links from the document to the files via ep:hasFile. Not all files may be available without authentication. If the files themselves contain semantic information of interest these will need to be resolved separately. References to people, organisations, publications and locations may be given URIs of the form /id/<typeofthing>/ext-<somevalue> -- in this case the URI will be resolvable as RDF+XML or N3 and may yield additional records in the repository referencing the same thing, although this is usually based on the hashing of metadata strings and may not be complete or perfect. The ext- indicates that this concept is not something the repository actually stores information about, it is just referenced by one or more records. For example, the RDF for an EPrint about a paper given at a conference may reference that conference with a URI of the form /id/event/ext-a43de4454. That URI will be resolvable but the repository does not contain full information about that event, just information derived from EPrint record metadata. It is hoped that the community may develop systems to link such URIs to the more definitive URI for an event, person, location etc."@en .
+<http://eprints.org/ontology/hasConceptScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eprints.org/ontology/> <http://purl.org/dc/terms/issued> "2010-10-20"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://rdfs.org/ns/void#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://eprints.org/ontology/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://eprints.org/ontology/hasConceptScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://eprints.org/ontology/hasConceptScheme> <http://www.w3.org/2000/01/rdf-schema#comment> "A SKOS concept scheme employed by this dataset."@en .
+<http://eprints.org/ontology/Repository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://eprints.org/ontology/hasFile> <http://www.w3.org/2000/01/rdf-schema#subPropertyof> <http://purl.org/dc/terms/hasPart> .
+<http://eprints.org/ontology/EPrint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://eprints.org/ontology/OAIPMH2> <http://www.w3.org/2000/01/rdf-schema#comment> "The base URL to use to query this repository via OAI-PMH. Note that the domain is set to any dataset, not just an EPrints Repository, so as not to limit use by non-eprints repositories."@en .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://eprints.org/ontology/OAIPMH2> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/OAIPMH2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eprints.org/ontology/> <http://purl.org/dc/terms/creator> <http://id.ecs.soton.ac.uk/person/1248> .
+<http://eprints.org/ontology/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://eprints.org/ontology/Repository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/2000/01/rdf-schema#range> <http://eprints.org/ontology/Document> .
+<http://eprints.org/ontology/EPrint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://eprints.org/ontology/hasDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "A Document which is part of this EPrint Record."@en .
+<http://eprints.org/ontology/hasConceptScheme> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/OAIPMH2> <http://www.w3.org/2000/01/rdf-schema#label> "OAI-PMH URL"@en .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/2000/01/rdf-schema#label> "has EPrint Record"@en .
+<http://xmlns.com/foaf/0.1/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "foaf" .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/2000/01/rdf-schema#comment> "An EPrint record which is part of this Repository."@en .
+<http://eprints.org/ontology/Document> <http://www.w3.org/2000/01/rdf-schema#comment> "A single document that is part of an ep:EPrint record. It may be a machine generated version of another document,  eg. a thumbnail, in which case this will be expressed with relations from the http://eprints.org/relation/ namespace. It will have one or more files associated. Some documents can have multilple files, such as an HTML page plus image files. Resolving a document URI will redirect you to the primary file of the document."@en .
+<http://eprints.org/ontology/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://eprints.org/ontology/OAIPMH2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://eprints.org/ontology/> .
+<http://eprints.org/ontology/Document> <http://www.w3.org/2002/07/owl#equivalentClass> <http://xmlns.com/foaf/0.1/Document> .
+<http://eprints.org/ontology/hasEPrint> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eprints.org/ontology/Repository> .
+<http://eprints.org/ontology/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "ep" .
+<http://eprints.org/ontology/EPrint> <http://www.w3.org/2000/01/rdf-schema#label> "EPrint Record"@en .
+<http://purl.org/dc/terms/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .

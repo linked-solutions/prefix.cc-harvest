@@ -1,317 +1,145 @@
-<http://purl.org/net/wf-motifs#hasWorkflowMotif>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Object property that relates a workflow to its correspondent workflow motif."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has workflow motif"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/wf-motifs#WorkflowMotif> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/wf-motifs#hasMotif> .
-
-<http://purl.org/net/wf-motifs#Group>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data preparation motif that refers to the step or set of steps that reorganize the input into different groups. For example, grouping a table by a certain category."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Group"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/net/wf-motifs#InterWorkflowMotif>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Workflow motif that relates workflows with each other by determining whether different workflows are a composition of each other (composite workflow) or not (atomic workflow), or they have a very similar composition but work for different inputs (workflow overloading)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Inter-workflow motif"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#WorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#Filter>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data preparation motif that refers to a filtering step or set of steps. For example, A file filtered by a set of set of keywords, a table filtered by a threshold, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Filter\n"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/net/wf-motifs#DataMovement>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Certain analysis activities that are performed via external tools or services require the submission of data to a location accessible by the service/tool (i.e., a web or a local directory respectively). In such cases the workflow contains dedicated step(s) for the upload/transfer of data to these locations. The same applies to the outputs, in which case a data download/retrieval step is used to chain the data to the next steps of the workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data movement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataOperationMotif> .
-
-<http://purl.org/net/wf-motifs#InternalMacro>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Intra-workflow motif that refers to those groups of steps in the workflow that correspond to repetitive patterns of combining tasks. For example, if a workflow has several branches with the same sequence of repeated steps, the sequence becomes an internal macro."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Internal macro"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#WorkflowOverload>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Inter-workflow motif used to characterize workflows that are used to operate over different input parameter types. An example is performing an analysis over a String input parameter, or performing it over the contents of a specified File. Overloading is a direct response to the heterogeneity of environments in which workflows are used."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Workflow overload"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#InterWorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#Split>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data preparation motif that refers to the step or steps in the workflow separating an input into different outputs. For example, splitting a dataset in three different subsets to be processed in parallel in a workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Split"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/net/wf-motifs>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This ontology is based on the paper: Common Motifs in Scientific Workflows:An Empirical Analysis, by Daniel Garijo, Pinar Alper, Khalid Belhajjame, Oscar Corcho, Yolanda Gil and Carole Goble" , "Workflow Motif Ontology, created by Daniel Garijo, Pinar Alper and Khalid Belhajjame"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Workflow Motif Ontology"@en ;
-        <http://purl.org/dc/terms/contributor>
-                "http://www.cs.man.ac.uk/~carole/"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.isi.edu/~gil/"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.oeg-upm.net/index.php/teachers/11-ocorcho"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://purl.org/dc/terms/created>
-                "2013-03-15"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/creator>
-                "http://delicias.dia.fi.upm.es/members/DGarijo/#me"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://semanticweb.org/wiki/Pinar_Alper"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://semanticweb.org/wiki/Khalid_Belhajjame"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://purl.org/dc/terms/description>
-                " Ontology for describing Workflow Motifs. Workflow Motifs outline the kinds of data-intensive activities that are observed in workflows (data-operation motifs) and the different manners in which activities are implemented within workflows (workflow-oriented motifs)."@en ;
-        <http://purl.org/dc/terms/license>
-                "http://creativecommons.org/licenses/by-nc-sa/2.0/" ;
-        <http://purl.org/dc/terms/title>
-                "The Workflow Motif Ontology"@en ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "wfm" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://purl.org/net/wf-motifs#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "1.02" .
-
-<http://purl.org/net/wf-motifs#CompositeWorkflow>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Inter-workflow motif referring to all those workflows that have one or more sub-workflows included in them (when these sub-workflows overlap they offer different views of the global workflow). "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Composite workflow"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#InterWorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#DataVisualization>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Being able to show the results is as important as producing them in some workflows. Scientists use visualizations to show the conclusions of their experiments and to take important decisions in the pipeline itself. Therefore certain steps in workflows are dedicated to generation of plots and graph outputs from input data. The data visualization motif also includes the generation of tables and files for browsing and reading the results of the workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data visualization"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataOperationMotif> .
-
-<http://purl.org/net/wf-motifs#WorkflowMotif>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Motif that describes how a data operation motif is realized (i.e., implemented) within a workflow. For example, a visualization step (data operation motif) can be realized in different ways: via a stateful multi-step invocation, through a single stateless invocation (depending on the environmental constraints and nature of the services), or via a sub-workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Workflow motif"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#Motif> .
-
-<http://purl.org/net/wf-motifs#DataPreparation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data, as it is originally retrieved, may need several transformations before being able to be used in a workflow step. These steps, typically known as ”Shims” [Duncan Hull et al. Treating shimantic web syndrome with ontologies. In AKT Workshop on Semantic Web Services, 2004.], can be annotated using the Data Preparation motif."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data preparation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataOperationMotif> .
-
-<http://purl.org/net/wf-motifs#StatefulInvocation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Certain activities such as analysis or visualizations could be performed through interaction with stateful (web) services that allow for creation of jobs over remote grid environments. These are typically performed via invocation of multiple operations at a service endpoint. An example would be a BLAST job submission where the service invoker is responsible to first create a job, then submit the data, check the status and retrieve the results once it has finished."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Stateful (asynchronous) invocation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
-
-<http://purl.org/dc/terms/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/wf-motifs#Sort>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data preparation motif that refers to the step or set of steps ordering the input by certain parameter. For example, a quicksort algorithm that takes an unordered vector and produces a sorted output."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Sort"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/dc/terms/title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/wf-motifs#AtomicWorkflow>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                " Inter-workflow motif used to characterize the workflows that perform an atomic unit of functionality, which effectively requires no sub-workflow usage. Typically these workflows are designed to be included in other workflows. Atomic workflows are the main mechanism of modularizing functionality within scientific workflows." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Atomic workflow"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#InterWorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#Combine>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data preparation motif that refers to the step or group of steps in the workflow aggregating information from different sources. For example, the joining of two tables in a new one or the merging of three different files in a bigger one."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Combine"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/net/wf-motifs#DataRetrieval>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Workflows exploit heterogeneous data sources, remote databases, repositories and other web resources mostly exposed via SOAP or REST services. Scientific data deposited in these repositories are retrieved through query and retrieval steps inside workflows. The data retrieval motif identifies those tasks within the workflow which are responsible for retrieving data from external sources into the workflow environment." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data retrieval"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataOperationMotif> .
-
-<http://purl.org/net/wf-motifs#OutputExtraction>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data preparation motif that refers to the step or set of steps in the workflow retrieving only the relevant portion from the the output of a previous step. For example, retrieving the tag value of an XML fragment."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Output extraction"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/net/wf-motifs#InputAugmentation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data preparation motif that refers to the step or set of steps dedicated to generate an aggregation of multiple parameters and scripts for tools and external services. For example, the generation of queries for input retrieval through an aggregation of multiple parameters, the generation of scripts to be executed in further steps, etc."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Input augmentation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/net/wf-motifs#IntraWorkflowMotif>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Workflow motif that describes a step or a series of steps within a single workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Intra-workflow motif"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#WorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#DataOperationMotif>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A data operation motif describes the data manipulation and/or transformation carried out by a step in the workflow, a collection of steps in the workflow or a sub-workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data operation motif"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#Motif> .
-
-<http://purl.org/net/wf-motifs#DataCleaning>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data operation motif that refers to the step or series of steps for cleaning and curating data in a workflow. Typically these steps are undertaken by sophisticated tooling/services, or by human interactions. A data cleaning step preserves and enriches the content of data (e.g., by a user’s annotation of a result with additional information, detecting and removing inconsistencies on the data, etc.)." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data cleaning"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataOperationMotif> .
-
-<http://purl.org/net/wf-motifs#DataAnalysis>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Data operation motif that refers to a broad category of tasks in diverse domains. An important number of workflows are designed with the purpose of analyzing different features of input data, ranging from simple comparisons between the datasets to complex protein analysis to see whether two molecules can be docked successfully or not. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data analysis"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataOperationMotif> .
-
-<http://purl.org/net/wf-motifs#FormatTransformation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Workflows that bring together multiple access or analysis activities usually contain steps for format transformations. These steps preserve the content of the inputs while converting its representation format. An example would be a converter from CSV to VOTable format in the astronomy domain, a converter from FASTA to Swiss-Prott sequence in biology, or an Arff formating component for Weka in the text analysis domain."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Format transformation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#DataPreparation> .
-
-<http://purl.org/dc/terms/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/wf-motifs#hasDataOperationMotif>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Object property that binds a workflow step with its correspondent data operation motif."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has data operation motif"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/wf-motifs#DataOperationMotif> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/wf-motifs#hasMotif> .
-
-<http://purl.org/net/wf-motifs#hasMotif>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Object property that annotates a step in the workflow, a group of steps, a subworkflow, or a workflow with a motif."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has motif"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/wf-motifs#Motif> .
-
-<http://purl.org/net/wf-motifs#Motif>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A motif is a domain independent conceptual abstraction of one or more steps of a given workflow."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Motif"@en .
-
-<http://purl.org/net/wf-motifs#ComputationalStep>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Intra-workflow motif used to refer to activities performed by a computer. This motif applies to most of the steps of the workflow, except for those being human interaction steps."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Computational step"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#StatelessInvocaton>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Intra-workflow motif that requires a step in the workflow for performing a service call or tool invocation. All the steps of a workflow are by default stateless (synchronous) invocations unless they are explicitly declared to be stateful. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Stateless (synchronous) invocation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
-
-<http://purl.org/net/wf-motifs#HumanInteractionStep>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Intra-workflow motif used to characterize the activities that require human inputs during their execution. For example, manual data curation of a table for a future step in the workflow, cleaning and filtering steps (such as selecting a specific dataset to continue the experiment), etc. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Human interaction step"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
-
-<http://purl.org/vocab/vann/preferredNamespaceURI>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/description>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/created>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/vocab/vann/preferredNamespacePrefix>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/wf-motifs#hasWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/wf-motifs#WorkflowMotif> .
+<http://purl.org/net/wf-motifs#Group> <http://www.w3.org/2000/01/rdf-schema#label> "Group"@en .
+<http://purl.org/net/wf-motifs#InterWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#WorkflowMotif> .
+<http://purl.org/net/wf-motifs#Filter> <http://www.w3.org/2000/01/rdf-schema#label> "Filter\n"@en .
+<http://purl.org/net/wf-motifs#DataMovement> <http://www.w3.org/2000/01/rdf-schema#comment> "Certain analysis activities that are performed via external tools or services require the submission of data to a location accessible by the service/tool (i.e., a web or a local directory respectively). In such cases the workflow contains dedicated step(s) for the upload/transfer of data to these locations. The same applies to the outputs, in which case a data download/retrieval step is used to chain the data to the next steps of the workflow."@en .
+<http://purl.org/net/wf-motifs#InternalMacro> <http://www.w3.org/2000/01/rdf-schema#comment> "Intra-workflow motif that refers to those groups of steps in the workflow that correspond to repetitive patterns of combining tasks. For example, if a workflow has several branches with the same sequence of repeated steps, the sequence becomes an internal macro."@en .
+<http://purl.org/net/wf-motifs#WorkflowOverload> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#InterWorkflowMotif> .
+<http://purl.org/net/wf-motifs#Split> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology is based on the paper: Common Motifs in Scientific Workflows:An Empirical Analysis, by Daniel Garijo, Pinar Alper, Khalid Belhajjame, Oscar Corcho, Yolanda Gil and Carole Goble" .
+<http://purl.org/net/wf-motifs> <http://www.w3.org/2000/01/rdf-schema#comment> "Workflow Motif Ontology, created by Daniel Garijo, Pinar Alper and Khalid Belhajjame"@en .
+<http://purl.org/net/wf-motifs#CompositeWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#DataVisualization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#WorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#Motif> .
+<http://purl.org/net/wf-motifs#DataPreparation> <http://www.w3.org/2000/01/rdf-schema#comment> "Data, as it is originally retrieved, may need several transformations before being able to be used in a workflow step. These steps, typically known as ”Shims” [Duncan Hull et al. Treating shimantic web syndrome with ontologies. In AKT Workshop on Semantic Web Services, 2004.], can be annotated using the Data Preparation motif."@en .
+<http://purl.org/net/wf-motifs#StatefulInvocation> <http://www.w3.org/2000/01/rdf-schema#label> "Stateful (asynchronous) invocation"@en .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/title> "The Workflow Motif Ontology"@en .
+<http://purl.org/net/wf-motifs#Sort> <http://www.w3.org/2000/01/rdf-schema#comment> "Data preparation motif that refers to the step or set of steps ordering the input by certain parameter. For example, a quicksort algorithm that takes an unordered vector and produces a sorted output."@en .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/wf-motifs#Filter> <http://www.w3.org/2000/01/rdf-schema#comment> "Data preparation motif that refers to a filtering step or set of steps. For example, A file filtered by a set of set of keywords, a table filtered by a threshold, etc."@en .
+<http://purl.org/net/wf-motifs#Split> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#Split> <http://www.w3.org/2000/01/rdf-schema#label> "Split"@en .
+<http://purl.org/net/wf-motifs#AtomicWorkflow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#Combine> <http://www.w3.org/2000/01/rdf-schema#comment> "Data preparation motif that refers to the step or group of steps in the workflow aggregating information from different sources. For example, the joining of two tables in a new one or the merging of three different files in a bigger one."@en .
+<http://purl.org/net/wf-motifs#WorkflowOverload> <http://www.w3.org/2000/01/rdf-schema#comment> "Inter-workflow motif used to characterize workflows that are used to operate over different input parameter types. An example is performing an analysis over a String input parameter, or performing it over the contents of a specified File. Overloading is a direct response to the heterogeneity of environments in which workflows are used."@en .
+<http://purl.org/net/wf-motifs#StatefulInvocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#hasWorkflowMotif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/wf-motifs#WorkflowMotif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#DataRetrieval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by-nc-sa/2.0/" .
+<http://purl.org/net/wf-motifs#OutputExtraction> <http://www.w3.org/2000/01/rdf-schema#comment> "Data preparation motif that refers to the step or set of steps in the workflow retrieving only the relevant portion from the the output of a previous step. For example, retrieving the tag value of an XML fragment."@en .
+<http://purl.org/net/wf-motifs#DataMovement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataOperationMotif> .
+<http://purl.org/net/wf-motifs#InputAugmentation> <http://www.w3.org/2000/01/rdf-schema#label> "Input augmentation"@en .
+<http://purl.org/net/wf-motifs#Filter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs#DataPreparation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#IntraWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#label> "Intra-workflow motif"@en .
+<http://purl.org/net/wf-motifs#DataOperationMotif> <http://www.w3.org/2000/01/rdf-schema#label> "Data operation motif"@en .
+<http://purl.org/net/wf-motifs#DataVisualization> <http://www.w3.org/2000/01/rdf-schema#label> "Data visualization"@en .
+<http://purl.org/net/wf-motifs#DataCleaning> <http://www.w3.org/2000/01/rdf-schema#label> "Data cleaning"@en .
+<http://purl.org/net/wf-motifs#Combine> <http://www.w3.org/2000/01/rdf-schema#label> "Combine"@en .
+<http://purl.org/net/wf-motifs#DataRetrieval> <http://www.w3.org/2000/01/rdf-schema#comment> "Workflows exploit heterogeneous data sources, remote databases, repositories and other web resources mostly exposed via SOAP or REST services. Scientific data deposited in these repositories are retrieved through query and retrieval steps inside workflows. The data retrieval motif identifies those tasks within the workflow which are responsible for retrieving data from external sources into the workflow environment." .
+<http://purl.org/net/wf-motifs#DataAnalysis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataOperationMotif> .
+<http://purl.org/net/wf-motifs> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/net/wf-motifs#"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/wf-motifs#FormatTransformation> <http://www.w3.org/2000/01/rdf-schema#comment> "Workflows that bring together multiple access or analysis activities usually contain steps for format transformations. These steps preserve the content of the inputs while converting its representation format. An example would be a converter from CSV to VOTable format in the astronomy domain, a converter from FASTA to Swiss-Prott sequence in biology, or an Arff formating component for Weka in the text analysis domain."@en .
+<http://purl.org/net/wf-motifs#DataAnalysis> <http://www.w3.org/2000/01/rdf-schema#label> "Data analysis"@en .
+<http://purl.org/net/wf-motifs#DataCleaning> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataOperationMotif> .
+<http://purl.org/net/wf-motifs#DataMovement> <http://www.w3.org/2000/01/rdf-schema#label> "Data movement"@en .
+<http://purl.org/net/wf-motifs#DataOperationMotif> <http://www.w3.org/2000/01/rdf-schema#comment> "A data operation motif describes the data manipulation and/or transformation carried out by a step in the workflow, a collection of steps in the workflow or a sub-workflow."@en .
+<http://purl.org/net/wf-motifs> <http://purl.org/vocab/vann/preferredNamespacePrefix> "wfm" .
+<http://purl.org/net/wf-motifs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/wf-motifs#StatefulInvocation> <http://www.w3.org/2000/01/rdf-schema#comment> "Certain activities such as analysis or visualizations could be performed through interaction with stateful (web) services that allow for creation of jobs over remote grid environments. These are typically performed via invocation of multiple operations at a service endpoint. An example would be a BLAST job submission where the service invoker is responsible to first create a job, then submit the data, check the status and retrieve the results once it has finished."@en .
+<http://purl.org/net/wf-motifs#DataCleaning> <http://www.w3.org/2000/01/rdf-schema#comment> "Data operation motif that refers to the step or series of steps for cleaning and curating data in a workflow. Typically these steps are undertaken by sophisticated tooling/services, or by human interactions. A data cleaning step preserves and enriches the content of data (e.g., by a user’s annotation of a result with additional information, detecting and removing inconsistencies on the data, etc.)." .
+<http://purl.org/net/wf-motifs#StatefulInvocation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
+<http://purl.org/net/wf-motifs#hasDataOperationMotif> <http://www.w3.org/2000/01/rdf-schema#label> "has data operation motif"@en .
+<http://purl.org/net/wf-motifs#hasMotif> <http://www.w3.org/2000/01/rdf-schema#label> "has motif"@en .
+<http://purl.org/net/wf-motifs#Filter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#IntraWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#WorkflowMotif> .
+<http://purl.org/net/wf-motifs#hasDataOperationMotif> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/wf-motifs#hasMotif> .
+<http://purl.org/net/wf-motifs#hasMotif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/wf-motifs#WorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#comment> "Motif that describes how a data operation motif is realized (i.e., implemented) within a workflow. For example, a visualization step (data operation motif) can be realized in different ways: via a stateful multi-step invocation, through a single stateless invocation (depending on the environmental constraints and nature of the services), or via a sub-workflow."@en .
+<http://purl.org/net/wf-motifs#OutputExtraction> <http://www.w3.org/2000/01/rdf-schema#label> "Output extraction"@en .
+<http://purl.org/net/wf-motifs#FormatTransformation> <http://www.w3.org/2000/01/rdf-schema#label> "Format transformation"@en .
+<http://purl.org/net/wf-motifs#CompositeWorkflow> <http://www.w3.org/2000/01/rdf-schema#comment> "Inter-workflow motif referring to all those workflows that have one or more sub-workflows included in them (when these sub-workflows overlap they offer different views of the global workflow). "@en .
+<http://purl.org/net/wf-motifs#Combine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs#AtomicWorkflow> <http://www.w3.org/2000/01/rdf-schema#comment> " Inter-workflow motif used to characterize the workflows that perform an atomic unit of functionality, which effectively requires no sub-workflow usage. Typically these workflows are designed to be included in other workflows. Atomic workflows are the main mechanism of modularizing functionality within scientific workflows." .
+<http://purl.org/net/wf-motifs#Motif> <http://www.w3.org/2000/01/rdf-schema#label> "Motif"@en .
+<http://purl.org/net/wf-motifs#Motif> <http://www.w3.org/2000/01/rdf-schema#comment> "A motif is a domain independent conceptual abstraction of one or more steps of a given workflow."@en .
+<http://purl.org/net/wf-motifs#Group> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#InternalMacro> <http://www.w3.org/2000/01/rdf-schema#label> "Internal macro"@en .
+<http://purl.org/net/wf-motifs#ComputationalStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Intra-workflow motif used to refer to activities performed by a computer. This motif applies to most of the steps of the workflow, except for those being human interaction steps."@en .
+<http://purl.org/net/wf-motifs#DataPreparation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataOperationMotif> .
+<http://purl.org/net/wf-motifs#InternalMacro> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#StatelessInvocaton> <http://www.w3.org/2000/01/rdf-schema#label> "Stateless (synchronous) invocation"@en .
+<http://purl.org/net/wf-motifs#StatelessInvocaton> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/contributor> "http://www.cs.man.ac.uk/~carole/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/wf-motifs#hasMotif> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/wf-motifs#Motif> .
+<http://purl.org/net/wf-motifs#DataMovement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#CompositeWorkflow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#InterWorkflowMotif> .
+<http://purl.org/net/wf-motifs#FormatTransformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#WorkflowOverload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#DataCleaning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs> <http://www.w3.org/2002/07/owl#versionInfo> "1.02" .
+<http://purl.org/net/wf-motifs#InterWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#label> "Inter-workflow motif"@en .
+<http://purl.org/net/wf-motifs#IntraWorkflowMotif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#DataAnalysis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#DataOperationMotif> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#Motif> .
+<http://purl.org/net/wf-motifs#IntraWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#comment> "Workflow motif that describes a step or a series of steps within a single workflow."@en .
+<http://purl.org/net/wf-motifs#WorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#label> "Workflow motif"@en .
+<http://purl.org/net/wf-motifs#AtomicWorkflow> <http://www.w3.org/2000/01/rdf-schema#label> "Atomic workflow"@en .
+<http://purl.org/net/wf-motifs#ComputationalStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#FormatTransformation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs#HumanInteractionStep> <http://www.w3.org/2000/01/rdf-schema#label> "Human interaction step"@en .
+<http://purl.org/net/wf-motifs#hasWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/wf-motifs#hasMotif> .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/creator> "http://delicias.dia.fi.upm.es/members/DGarijo/#me"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/wf-motifs#hasWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#label> "has workflow motif"@en .
+<http://purl.org/net/wf-motifs#InputAugmentation> <http://www.w3.org/2000/01/rdf-schema#comment> "Data preparation motif that refers to the step or set of steps dedicated to generate an aggregation of multiple parameters and scripts for tools and external services. For example, the generation of queries for input retrieval through an aggregation of multiple parameters, the generation of scripts to be executed in further steps, etc."@en .
+<http://purl.org/net/wf-motifs#Sort> <http://www.w3.org/2000/01/rdf-schema#label> "Sort"@en .
+<http://purl.org/net/wf-motifs#HumanInteractionStep> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
+<http://purl.org/net/wf-motifs#ComputationalStep> <http://www.w3.org/2000/01/rdf-schema#label> "Computational step"@en .
+<http://purl.org/net/wf-motifs#AtomicWorkflow> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#InterWorkflowMotif> .
+<http://purl.org/net/wf-motifs#WorkflowOverload> <http://www.w3.org/2000/01/rdf-schema#label> "Workflow overload"@en .
+<http://purl.org/net/wf-motifs#Group> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs#Combine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#HumanInteractionStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Intra-workflow motif used to characterize the activities that require human inputs during their execution. For example, manual data curation of a table for a future step in the workflow, cleaning and filtering steps (such as selecting a specific dataset to continue the experiment), etc. "@en .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/description> " Ontology for describing Workflow Motifs. Workflow Motifs outline the kinds of data-intensive activities that are observed in workflows (data-operation motifs) and the different manners in which activities are implemented within workflows (workflow-oriented motifs)."@en .
+<http://purl.org/net/wf-motifs#hasWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#comment> "Object property that relates a workflow to its correspondent workflow motif."@en .
+<http://purl.org/net/wf-motifs#DataOperationMotif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#Split> <http://www.w3.org/2000/01/rdf-schema#comment> "Data preparation motif that refers to the step or steps in the workflow separating an input into different outputs. For example, splitting a dataset in three different subsets to be processed in parallel in a workflow."@en .
+<http://purl.org/net/wf-motifs#Sort> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs#Motif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/vocab/vann/preferredNamespaceURI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/wf-motifs#StatelessInvocaton> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/contributor> "http://www.isi.edu/~gil/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/creator> "http://semanticweb.org/wiki/Pinar_Alper"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/wf-motifs#InternalMacro> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
+<http://purl.org/net/wf-motifs#OutputExtraction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs#InputAugmentation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataPreparation> .
+<http://purl.org/net/wf-motifs#InterWorkflowMotif> <http://www.w3.org/2000/01/rdf-schema#comment> "Workflow motif that relates workflows with each other by determining whether different workflows are a composition of each other (composite workflow) or not (atomic workflow), or they have a very similar composition but work for different inputs (workflow overloading)."@en .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/creator> "http://semanticweb.org/wiki/Khalid_Belhajjame"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/wf-motifs#Group> <http://www.w3.org/2000/01/rdf-schema#comment> "Data preparation motif that refers to the step or set of steps that reorganize the input into different groups. For example, grouping a table by a certain category."@en .
+<http://purl.org/net/wf-motifs#DataVisualization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataOperationMotif> .
+<http://purl.org/net/wf-motifs#DataAnalysis> <http://www.w3.org/2000/01/rdf-schema#comment> "Data operation motif that refers to a broad category of tasks in diverse domains. An important number of workflows are designed with the purpose of analyzing different features of input data, ranging from simple comparisons between the datasets to complex protein analysis to see whether two molecules can be docked successfully or not. "@en .
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/wf-motifs#OutputExtraction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#hasDataOperationMotif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/wf-motifs#InputAugmentation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/created> "2013-03-15"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://purl.org/net/wf-motifs#hasDataOperationMotif> <http://www.w3.org/2000/01/rdf-schema#comment> "Object property that binds a workflow step with its correspondent data operation motif."@en .
+<http://purl.org/net/wf-motifs> <http://purl.org/dc/terms/contributor> "http://www.oeg-upm.net/index.php/teachers/11-ocorcho"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/wf-motifs#DataPreparation> <http://www.w3.org/2000/01/rdf-schema#label> "Data preparation"@en .
+<http://purl.org/net/wf-motifs#DataRetrieval> <http://www.w3.org/2000/01/rdf-schema#label> "Data retrieval"@en .
+<http://purl.org/net/wf-motifs#StatelessInvocaton> <http://www.w3.org/2000/01/rdf-schema#comment> "Intra-workflow motif that requires a step in the workflow for performing a service call or tool invocation. All the steps of a workflow are by default stateless (synchronous) invocations unless they are explicitly declared to be stateful. "@en .
+<http://purl.org/net/wf-motifs#InterWorkflowMotif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/wf-motifs#HumanInteractionStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs> <http://www.w3.org/2000/01/rdf-schema#label> "Workflow Motif Ontology"@en .
+<http://purl.org/net/wf-motifs#hasDataOperationMotif> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/wf-motifs#DataOperationMotif> .
+<http://purl.org/net/wf-motifs#CompositeWorkflow> <http://www.w3.org/2000/01/rdf-schema#label> "Composite workflow"@en .
+<http://purl.org/net/wf-motifs#hasMotif> <http://www.w3.org/2000/01/rdf-schema#comment> "Object property that annotates a step in the workflow, a group of steps, a subworkflow, or a workflow with a motif."@en .
+<http://purl.org/net/wf-motifs#Sort> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/wf-motifs#ComputationalStep> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#IntraWorkflowMotif> .
+<http://purl.org/net/wf-motifs#DataVisualization> <http://www.w3.org/2000/01/rdf-schema#comment> "Being able to show the results is as important as producing them in some workflows. Scientists use visualizations to show the conclusions of their experiments and to take important decisions in the pipeline itself. Therefore certain steps in workflows are dedicated to generation of plots and graph outputs from input data. The data visualization motif also includes the generation of tables and files for browsing and reading the results of the workflow."@en .
+<http://purl.org/net/wf-motifs#DataRetrieval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/wf-motifs#DataOperationMotif> .

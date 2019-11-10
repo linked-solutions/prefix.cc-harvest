@@ -1,608 +1,293 @@
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ImageCapable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the device supports the display of\n                    images. If the value is \"Yes\", the property CcppAccept\n                    may list the types of images supported.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Encoding>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of transfer encodings the device supports.\n                    Property value is a list of transfer encodings, where\n                    each item in the list is a transfer encoding name as\n                    specified by RFC 2045 and registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"base64\", \"quoted-printable\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableSoftwareSupport>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of executable content types which the device\n                    supports and which it is willing to accept from the\n                    network. The property value is a list of MIME types,\n                    where each item in the list is a content type\n                    descriptor as specified by RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"application/x-msdos-exe\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBearers>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of bearers supported by the device.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"GPRS\", \"GUTS\", \"SMS\", CSD\", \"USSD\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MsgSize>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Maximum size of a push message that the device can\n                    handle. Value is number of bytes.\n      Type:         Number\n      Resolution:   Override\n      Examples:     \"1024\", \"1400\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Keyboard>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Type of keyboard supported by the device, as an indicator\n                    of ease of text entry.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Disambiguating\", \"Qwerty\", \"PhoneKeypad\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedPictogramSet>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Pictogram classes supported by the device as \n                    defined in \"WAP Pictogram specification\".\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"core\", \"core/operation\", \"human\"\n  " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      The HardwarePlatform component contains properties of the device's\n      Hardware, such as display size, supported character sets, etc.\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Component: HardwarePlatform" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VoiceInputCapable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the device supports any form of voice\n                    input, including speech recognition. This includes voice-\n                    enabled browsers.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Encoding>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of transfer encodings the device supports.\n                    Property value is a list of transfer encodings, where\n                    each item in the list is a transfer encoding name as\n                    specified by RFC 2045 and registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"base64\", \"quoted-printable\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSName>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Name of the device's operating system. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Mac OS\", \"Windows NT\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PixelAspectRatio>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Ratio of pixel width to pixel height.\n      Type:         Dimension\n      Resolution:   Locked\n      Examples:     \"1x2\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JVMVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of the Java virtual machines installed on the\n                    device. Each item in the list is a name token describing\n                    the vendor and version of the VM.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"SunJRE/1.2\", \"MSJVM/1.0\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      The PushCharacteristics component contains properties of the device's\n      push capabilities, such as supported content mime types.\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Component: PushCharacteristics" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of the browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.0\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of content types the device supports, which can be carried\n                    inside the message/http entity body when OTA-HTTP is used.                   \n                    Property value is a list of MIME types, where each item in the\n                    list is a content type descriptor as specified by RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"text/html\", \"text/plain\", \"image/gif\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPackage>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  (from J2EE Client Provisioning) Details about optional \n                    packages installed on the device over and above those \n                    that are part of the Java profile, and the versions of \n                    these additional packages \n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"com.acme.regexp/1.1\", \"com.acme.helper/3.0\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SecuritySupport>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of types of security or encryption mechanisms supported \n                    by the device. \n      Type:         Literal (bag)\n      Resolution:   Locked\n      Example:      \"WTLS-1\", WTLS-2\", \"WTLS-3\", \"signText\", \"PPTP\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TablesCapable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the browser is capable of displaying\n                    tables.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VideoInputEncoder>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of video input encoders supported by the device. \n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"MPEG-1\", \"MPEG-2\", \"H.261\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptEnabled>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the browser supports JavaScript.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of WML language versions supported by the device.\n                    Property value is a list of version numbers, where\n                    each item in the list is a version string conforming\n                    to Version.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"1.1\", \"2.0\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      The NetworkCharacteristics component contains properties describing the                                  \n      network environment including the supported bearers.\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Component: NetworkCharacteristics" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlDeckSize>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Maximum size of a WML deck that can be downloaded to\n                    the device. This may be an estimate of the maximum size\n                    if the true maximum size is not known. Value is number\n                    of bytes.\n      Type:         Number\n      Resolution:   Locked\n      Examples:     \"4096\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserName>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Name of the browser user agent associated with the\n                    current request.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Mozilla\", \"MSIE\", \"WAP42\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmConstraints>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  DRM permission constraints as defined in OMA-Download-DRMREL-v1_0.  \n                    The datetime and interval constraints depend on having a secure \n                    clock in the terminal.  \n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"datetime\", \"interval\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of content types the device supports. Property\n                    value is a list of MIME types, where each item in the\n                    list is a content type descriptor as specified by\n                    RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"text/html\", \"text/plain\", \"text/html\", \"image/gif\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BluetoothProfile>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Supported Bluetooth profiles as defined in the Bluetooth \n                    specification [BLT].\n      Type: \t    Literal (bag)\n      Resolution:   Locked\n      Examples:     \"dialup\", \"lanAccess\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Language>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of preferred document languages. If a resource is\n                    available in more than one natural language, the server\n                    can use this property to determine which version of the\n                    resource to send to the device. The first item in the\n                    list should be considered the user's first choice, the\n                    second the second choice, and so on. Property value is\n                    a list of natural languages, where each item in the list\n                    is the name of a language as defined by RFC 3066[RFC3066].\n      Type:         Literal (sequence)\n      Resolution:   Append\n      Examples:     \"zh-CN\", \"en\", \"fr\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBluetoothVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Supported Bluetooth version.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.0\" \n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PointingResolution>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Type of resolution of the pointing accessory supported\n                    by the device.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Character\", \"Line\", \"Pixel\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      The SoftwarePlatform component contains properties of the device's \n      application environment, operating system, and installed software.\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Component: SoftwarePlatform" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OutputCharSet>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of character sets supported by the device for\n                    output to the display. Property value is a list of\n                    character sets, where each item in the list is a\n                    character set name, as registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      The WapCharacteristics component contains properties of the WAP\n      environment supported by the device.\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Component: WapCharacteristics" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#FramesCapable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the browser is capable of displaying\n                    frames.\n      Type:         Boolean\n      Resolution:   Override\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of WTA user agent.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.1\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AudioInputEncoder>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of audio input encoders supported by the device.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Example:      \"G.711\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CLIPlatform>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  The list of standard Common Language Infrastructure \n                    platforms and profiles installed in the device.  Each \n                    item in the list is a name token describing the name \n                    and edition of the CLI platform specification including \n                    the name of the profile specification.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"Standard CLI 2002/Compact\", \"Standard CLI 2002/Kernel\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HtmlVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of HyperText Markup Language (HTML) supported\n                    by the browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"2.0\", \"3.2\", \"4.0\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Charset>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of character sets the device supports. Property\n                    value is a list of character sets, where each item in\n                    the list is a character set name registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSpec>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Class mark specialization. Refers to the first two\n                    digits of the version of the MExE Stage 2 spec. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"7.02\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Model>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Model number assigned to the terminal device by the\n                    vendor or manufacturer.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Mustang GT\", \"Q30\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptLibraries>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of mandatory and optional libraries supported in\n                    the device's WMLScript VM.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"Lang\", \"Float\", \"String\", \"URL\", \"WMLBrowser\", \"Dialogs\", \"PSTOR\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CurrentBearerService>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  The bearer on which the current session was opened.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"OneWaySMS\", \"GUTS\", \"TwoWayPacket\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OmaDownload>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Supports OMA Download as defined in OMA-Download-OTA-v1_0\n      Type:         Boolean\n      Resolution:   Locked \n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BitsPerPixel>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  The number of bits of color or grayscale information per\n                    pixel, related to the number of colors or shades of gray\n                    the device can display.\n      Type:         Number\n      Resolution:   Override\n      Examples:     \"2\", \"8\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#InputCharSet>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of character sets supported by the device for text\n                    entry. Property's value is a list of character sets,\n                    where each item in the list is a character set name, as\n                    registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      A Component within the CC/PP Schema is a class of related properties \n      that describe the capabilities and preferences information.\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Component" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2000/01/rdf-schema#Resource> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ColorCapable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the device's display supports color.\n                    \"Yes\" means color is supported. \"No\" means the display\n                    supports only grayscale or black and white.\n      Type:         Boolean\n      Resolution:   Override \n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of XHTML supported by the browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.0\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PreferenceForFrames>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates the user's preference for receiving HTML\n                    content that contains frames.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoundOutputCapable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the device supports sound output\n                    through an external speaker, headphone jack, or other\n                    sound output mechanism.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableBrowserApps>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of executable content types which the browser\n                    supports and which it is willing to accept from the\n                    network. The property value is a list of MIME types,\n                    where each item in the list is a content type\n                    descriptor as specified by RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"application/x-java-vm/java-applet\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MaxPushReq>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Maximum number of outstanding push requests that the device \n                    can handle. \n      Type:         Number\n      Resolution:   Override\n      Examples:     \"1\", \"5\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmClass>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  DRM Conformance Class as defined in OMA-Download-DRM-v1_0\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"ForwardLock\", \"CombinedDelivery\", \"SeparateDelivery\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeClassmarks>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of MExE classmarks supported by the device. \n                    Value \"1\" means the MExE device supports WAP, value \"2\" \n                    means that MExE device supports Personal Java, value \n                    \"3\" means that MExE device supports MIDP applications \n                    and value \"4\" means the device supports the CLI Platform.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"1\", \"3\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Email-URI-Schemes>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of URI schemes the device supports for accessing \n                    e-mail. Property value is a list of URI schemes, where each \n                    item in the list is a URI scheme as defined in RFC 2396.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"pop\", \"imap\", \"http\", \"https\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwareNumber>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of the device-specific software (firmware) to\n                    which the device's low-level software conforms. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"2\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NumberOfSoftKeys>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Number of soft keys available on the device.\n      Type:         Number\n      Resolution:   Locked\n      Examples:     \"3\", \"2\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Charset>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of character sets the device supports. Property\n                    value is a list of character sets, where each item in\n                    the list is a character set name registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#component>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      The component attribute links the various components to the root node\n      (profile).\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "component" .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TextInputCapable>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                " \n      Description:  Indicates whether the device supports alpha-numeric text\n                    entry. \"Yes\" means the device supports entry of both\n                    letters and digits. \"No\" means the device supports only\n                    entry of digits.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlModules>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of XHTML modules supported by the browser. Property\n                    value is a list of module names, where each item in the\n                    list is the name of an XHTML module as defined by the\n                    W3C document \"Modularization of XHTML\", Section 4. List\n                    items are separated by white space. Note that the\n                    referenced document is a work in progress. Any subsequent\n                    changes to the module naming conventions should be\n                    reflected in the values of this property.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"XHTML1-struct\", \"XHTML1-blkstruct\", \"XHTML1-frames\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#StandardFontProportional>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the device's standard font is \n                    proportional.\n      Type:         Boolean\n      Resolution:   Locked \n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Vendor>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Name of the vendor manufacturing the terminal device.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Ford\", \"Lexus\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaProtocol>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  (from J2EE Client Provisioning) Details about protocols \n                    supported by the device over and above those that are \n                    part of the standard Java profile indicated and the \n                    versions of these additional protocols\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"sms/1.0\", \"file/1.0\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      The BrowserUA component contains attributes related to the browser                                  \n      user agent running on the device.\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Component: BrowserUA" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSizeChar>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Size of the device's screen in units of characters,\n                    composed of the screen width and screen height. The\n                    device's standard font should be used to determine\n                    this property's value. (Number of characters per \n                    row)x(Number of rows). In calculating this attribute \n                    use the largest character in the device's default font.\n      Type:         Dimension\n      Resolution:   Locked\n      Examples:     \"12x4\", \"16x8\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Language>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of preferred document languages. If a resource is\n                    available in more than one natural language, the server\n                    can use this property to determine which version of the\n                    resource to send to the device. The first item in the\n                    list should be considered the user's first choice, the\n                    second the second choice, and so on. Property value is\n                    a list of natural languages, where each item in the list\n                    is the name of a language as defined by RFC 3066[RFC3066].\n      Type:         Literal (sequence)\n      Resolution:   Override\n      Examples:     \"zh-CN\", \"en\", \"fr\"\n    " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaEnabled>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the device supports a Java virtual\n                    machine.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVendor>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Vendor of the device's operating system. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Apple\", \"Microsoft\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaiLibraries>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of WTAI network common and network specific\n                    libraries supported by the device.\n                    Property value is a list of WTA library names, where each\n                    item in the list list is a library name as specified by\n                    \"WAP WTAI\" and its addendums. Any future addendums to \"WAP WTAI\" \n                    should be reflected in the values of this property.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"WTAVoiceCall\", \"WTANetText\", \"WTAPhoneBook\", \n                    \"WTACallLog\", \"WTAMisc\", \"WTAGSM\", \"WTAIS136\", \"WTAPDC\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of WMLScript versions supported by the device.\n                    Property value is a list of version numbers, where\n                    each item in the list is a version string conforming\n                    to Version.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"1.1\", \"1.2\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-AppID>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  List of applications the device supports, where each item \n                    in the list is an application-id on absoluteURI format\n                    as specified in [PushMsg]. A wildcard (\"*\") may be used\n                    to indicate support for any application. \n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"x-wap-application:wml.ua\", \"*\"\n  " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSize>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  The size of the device's screen in units of pixels,\n                    composed of the screen width and the screen height.\n      Type:         Dimension\n      Resolution:   Locked\n      Examples:     \"160x160\", \"640x480\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CPU>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Name and model number of the device CPU.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Pentium III\", \"PowerPC 750\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of the device's operating system. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"6.0\", \"4.5\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of WAP supported.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.1\", \"1.2.1\", \"2.0\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapDeviceClass>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Classification of the device based on capabilities as\n                    identified in the WAP 1.1 specifications. Current\n                    values are \"A\", \"B\" and \"C\".\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"A\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPlatform>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  The list of JAVA platforms and profiles installed in \n                    the device. Each item in the list is a name token \n                    describing compatibility with the name and version of the \n                    java platform specification or the name and version of the profile \n                    specification name (if profile is included in the device)\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"PersonalJava\", \"CLDC\", \"MIDP\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaAppletEnabled>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the browser supports Java applets.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptVersion>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Version of the JavaScript language supported by the\n                    browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.4\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#RecipientAppAgent>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  User agent associated with the current request. Value\n                    should match the name of one of the components in the\n                    profile. A component name is specified by the ID\n                    attribute on the prf:Component element containing the\n                    properties of that component.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"BrowserMail\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSecureDomains>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates whether the device's supports MExE \n                    security domains. \"Yes\" means that security domains are \n                    supported in accordance with MExE specifications identified \n                    by the MexeSpec attribute. \"No\" means that security domains \n                    are not supported and the device has only untrusted domain \n                    (area).\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
-
-<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AcceptDownloadableSoftware>
-        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "\n      Description:  Indicates the user's preference on whether to accept\n                    downloadable software.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ImageCapable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Encoding> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableSoftwareSupport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBearers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MsgSize> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Keyboard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedPictogramSet> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VoiceInputCapable> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the device supports any form of voice\n                    input, including speech recognition. This includes voice-\n                    enabled browsers.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Encoding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSName> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Name of the device's operating system. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Mac OS\", \"Windows NT\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PixelAspectRatio> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Ratio of pixel width to pixel height.\n      Type:         Dimension\n      Resolution:   Locked\n      Examples:     \"1x2\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JVMVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPackage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SecuritySupport> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of types of security or encryption mechanisms supported \n                    by the device. \n      Type:         Literal (bag)\n      Resolution:   Locked\n      Example:      \"WTLS-1\", WTLS-2\", \"WTLS-3\", \"signText\", \"PPTP\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TablesCapable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VideoInputEncoder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptEnabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlDeckSize> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Maximum size of a WML deck that can be downloaded to\n                    the device. This may be an estimate of the maximum size\n                    if the true maximum size is not known. Value is number\n                    of bytes.\n      Type:         Number\n      Resolution:   Locked\n      Examples:     \"4096\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmConstraints> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      The PushCharacteristics component contains properties of the device's\n      push capabilities, such as supported content mime types.\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BluetoothProfile> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Language> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of content types the device supports. Property\n                    value is a list of MIME types, where each item in the\n                    list is a content type descriptor as specified by\n                    RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"text/html\", \"text/plain\", \"text/html\", \"image/gif\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBluetoothVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PointingResolution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> <http://www.w3.org/2000/01/rdf-schema#label> "Component: SoftwarePlatform" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPackage> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  (from J2EE Client Provisioning) Details about optional \n                    packages installed on the device over and above those \n                    that are part of the Java profile, and the versions of \n                    these additional packages \n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"com.acme.regexp/1.1\", \"com.acme.helper/3.0\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OutputCharSet> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> <http://www.w3.org/2000/01/rdf-schema#label> "Component: WapCharacteristics" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPackage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#FramesCapable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AudioInputEncoder> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of audio input encoders supported by the device.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Example:      \"G.711\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CLIPlatform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HtmlVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Charset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSpec> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Class mark specialization. Refers to the first two\n                    digits of the version of the MExE Stage 2 spec. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"7.02\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Model> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptLibraries> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Encoding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CurrentBearerService> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlDeckSize> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OmaDownload> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AudioInputEncoder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BitsPerPixel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#InputCharSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ColorCapable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JVMVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of XHTML supported by the browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.0\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PreferenceForFrames> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates the user's preference for receiving HTML\n                    content that contains frames.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoundOutputCapable> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the device supports sound output\n                    through an external speaker, headphone jack, or other\n                    sound output mechanism.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableBrowserApps> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MaxPushReq> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Charset> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of character sets the device supports. Property\n                    value is a list of character sets, where each item in\n                    the list is a character set name registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeClassmarks> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of MExE classmarks supported by the device. \n                    Value \"1\" means the MExE device supports WAP, value \"2\" \n                    means that MExE device supports Personal Java, value \n                    \"3\" means that MExE device supports MIDP applications \n                    and value \"4\" means the device supports the CLI Platform.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"1\", \"3\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#InputCharSet> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Email-URI-Schemes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CLIPlatform> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  The list of standard Common Language Infrastructure \n                    platforms and profiles installed in the device.  Each \n                    item in the list is a name token describing the name \n                    and edition of the CLI platform specification including \n                    the name of the profile specification.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"Standard CLI 2002/Compact\", \"Standard CLI 2002/Kernel\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmConstraints> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  DRM permission constraints as defined in OMA-Download-DRMREL-v1_0.  \n                    The datetime and interval constraints depend on having a secure \n                    clock in the terminal.  \n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"datetime\", \"interval\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserName> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Name of the browser user agent associated with the\n                    current request.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Mozilla\", \"MSIE\", \"WAP42\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwareNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of the device-specific software (firmware) to\n                    which the device's low-level software conforms. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"2\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NumberOfSoftKeys> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PixelAspectRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of WTA user agent.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.1\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Charset> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of character sets the device supports. Property\n                    value is a list of character sets, where each item in\n                    the list is a character set name registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#component> <http://www.w3.org/2000/01/rdf-schema#label> "component" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TextInputCapable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlModules> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of XHTML modules supported by the browser. Property\n                    value is a list of module names, where each item in the\n                    list is the name of an XHTML module as defined by the\n                    W3C document \"Modularization of XHTML\", Section 4. List\n                    items are separated by white space. Note that the\n                    referenced document is a work in progress. Any subsequent\n                    changes to the module naming conventions should be\n                    reflected in the values of this property.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"XHTML1-struct\", \"XHTML1-blkstruct\", \"XHTML1-frames\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#StandardFontProportional> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Vendor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OutputCharSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaProtocol> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSizeChar> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Size of the device's screen in units of characters,\n                    composed of the screen width and screen height. The\n                    device's standard font should be used to determine\n                    this property's value. (Number of characters per \n                    row)x(Number of rows). In calculating this attribute \n                    use the largest character in the device's default font.\n      Type:         Dimension\n      Resolution:   Locked\n      Examples:     \"12x4\", \"16x8\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SecuritySupport> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptLibraries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SecuritySupport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Language> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaEnabled> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PreferenceForFrames> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VoiceInputCapable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVendor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaiLibraries> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of WTAI network common and network specific\n                    libraries supported by the device.\n                    Property value is a list of WTA library names, where each\n                    item in the list list is a library name as specified by\n                    \"WAP WTAI\" and its addendums. Any future addendums to \"WAP WTAI\" \n                    should be reflected in the values of this property.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"WTAVoiceCall\", \"WTANetText\", \"WTAPhoneBook\", \n                    \"WTACallLog\", \"WTAMisc\", \"WTAGSM\", \"WTAIS136\", \"WTAPDC\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptLibraries> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of mandatory and optional libraries supported in\n                    the device's WMLScript VM.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"Lang\", \"Float\", \"String\", \"URL\", \"WMLBrowser\", \"Dialogs\", \"PSTOR\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BitsPerPixel> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  The number of bits of color or grayscale information per\n                    pixel, related to the number of colors or shades of gray\n                    the device can display.\n      Type:         Number\n      Resolution:   Override\n      Examples:     \"2\", \"8\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwareNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaProtocol> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedPictogramSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeClassmarks> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of WMLScript versions supported by the device.\n                    Property value is a list of version numbers, where\n                    each item in the list is a version string conforming\n                    to Version.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"1.1\", \"1.2\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#component> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      The component attribute links the various components to the root node\n      (profile).\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OutputCharSet> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of character sets supported by the device for\n                    output to the display. Property value is a list of\n                    character sets, where each item in the list is a\n                    character set name, as registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-AppID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Charset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaiLibraries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      The HardwarePlatform component contains properties of the device's\n      Hardware, such as display size, supported character sets, etc.\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Vendor> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Name of the vendor manufacturing the terminal device.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Ford\", \"Lexus\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVendor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaEnabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CPU> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of the device's operating system. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"6.0\", \"4.5\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Encoding> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PointingResolution> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Type of resolution of the pointing accessory supported\n                    by the device.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Character\", \"Line\", \"Pixel\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BluetoothProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwareNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaProtocol> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  (from J2EE Client Provisioning) Details about protocols \n                    supported by the device over and above those that are \n                    part of the standard Java profile indicated and the \n                    versions of these additional protocols\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"sms/1.0\", \"file/1.0\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSizeChar> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#FramesCapable> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the browser is capable of displaying\n                    frames.\n      Type:         Boolean\n      Resolution:   Override\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Email-URI-Schemes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapDeviceClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Keyboard> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Type of keyboard supported by the device, as an indicator\n                    of ease of text entry.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Disambiguating\", \"Qwerty\", \"PhoneKeypad\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlModules> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPlatform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaAppletEnabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-AppID> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of applications the device supports, where each item \n                    in the list is an application-id on absoluteURI format\n                    as specified in [PushMsg]. A wildcard (\"*\") may be used\n                    to indicate support for any application. \n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"x-wap-application:wml.ua\", \"*\"\n  " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Language> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of preferred document languages. If a resource is\n                    available in more than one natural language, the server\n                    can use this property to determine which version of the\n                    resource to send to the device. The first item in the\n                    list should be considered the user's first choice, the\n                    second the second choice, and so on. Property value is\n                    a list of natural languages, where each item in the list\n                    is the name of a language as defined by RFC 3066[RFC3066].\n      Type:         Literal (sequence)\n      Resolution:   Append\n      Examples:     \"zh-CN\", \"en\", \"fr\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#RecipientAppAgent> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  User agent associated with the current request. Value\n                    should match the name of one of the components in the\n                    profile. A component name is specified by the ID\n                    attribute on the prf:Component element containing the\n                    properties of that component.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"BrowserMail\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaEnabled> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the device supports a Java virtual\n                    machine.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of content types the device supports, which can be carried\n                    inside the message/http entity body when OTA-HTTP is used.                   \n                    Property value is a list of MIME types, where each item in the\n                    list is a content type descriptor as specified by RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"text/html\", \"text/plain\", \"image/gif\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoundOutputCapable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OmaDownload> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Supports OMA Download as defined in OMA-Download-OTA-v1_0\n      Type:         Boolean\n      Resolution:   Locked \n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapDeviceClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSecureDomains> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the device's supports MExE \n                    security domains. \"Yes\" means that security domains are \n                    supported in accordance with MExE specifications identified \n                    by the MexeSpec attribute. \"No\" means that security domains \n                    are not supported and the device has only untrusted domain \n                    (area).\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedPictogramSet> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Pictogram classes supported by the device as \n                    defined in \"WAP Pictogram specification\".\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"core\", \"core/operation\", \"human\"\n  " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of the JavaScript language supported by the\n                    browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.4\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      The NetworkCharacteristics component contains properties describing the                                  \n      network environment including the supported bearers.\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CPU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBluetoothVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBearers> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of bearers supported by the device.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"GPRS\", \"GUTS\", \"SMS\", CSD\", \"USSD\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSize> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ImageCapable> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the device supports the display of\n                    images. If the value is \"Yes\", the property CcppAccept\n                    may list the types of images supported.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VideoInputEncoder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CLIPlatform> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of the browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.0\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TextInputCapable> <http://www.w3.org/2000/01/rdf-schema#comment> " \n      Description:  Indicates whether the device supports alpha-numeric text\n                    entry. \"Yes\" means the device supports entry of both\n                    letters and digits. \"No\" means the device supports only\n                    entry of digits.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoundOutputCapable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AcceptDownloadableSoftware> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JVMVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> <http://www.w3.org/2000/01/rdf-schema#label> "Component: BrowserUA" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVendor> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Vendor of the device's operating system. \n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Apple\", \"Microsoft\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Encoding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#RecipientAppAgent> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MaxPushReq> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Maximum number of outstanding push requests that the device \n                    can handle. \n      Type:         Number\n      Resolution:   Override\n      Examples:     \"1\", \"5\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      The WapCharacteristics component contains properties of the WAP\n      environment supported by the device.\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ColorCapable> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the device's display supports color.\n                    \"Yes\" means color is supported. \"No\" means the display\n                    supports only grayscale or black and white.\n      Type:         Boolean\n      Resolution:   Override \n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-AppID> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaiLibraries> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSecureDomains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableSoftwareSupport> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of executable content types which the device\n                    supports and which it is willing to accept from the\n                    network. The property value is a list of MIME types,\n                    where each item in the list is a content type\n                    descriptor as specified by RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"application/x-msdos-exe\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBearers> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptEnabled> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AudioInputEncoder> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSpec> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBearers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TablesCapable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableSoftwareSupport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSizeChar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VideoInputEncoder> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of video input encoders supported by the device. \n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"MPEG-1\", \"MPEG-2\", \"H.261\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#StandardFontProportional> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TextInputCapable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#component> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AcceptDownloadableSoftware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HtmlVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of WAP supported.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.1\", \"1.2.1\", \"2.0\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NumberOfSoftKeys> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PixelAspectRatio> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#RecipientAppAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AudioInputEncoder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#InputCharSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Email-URI-Schemes> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of URI schemes the device supports for accessing \n                    e-mail. Property value is a list of URI schemes, where each \n                    item in the list is a URI scheme as defined in RFC 2396.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"pop\", \"imap\", \"http\", \"https\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapDeviceClass> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Classification of the device based on capabilities as\n                    identified in the WAP 1.1 specifications. Current\n                    values are \"A\", \"B\" and \"C\".\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"A\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CurrentBearerService> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSecureDomains> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#FramesCapable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> <http://www.w3.org/2000/01/rdf-schema#label> "Component: PushCharacteristics" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Encoding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableSoftwareSupport> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeSpec> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableBrowserApps> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of executable content types which the browser\n                    supports and which it is willing to accept from the\n                    network. The property value is a list of MIME types,\n                    where each item in the list is a content type\n                    descriptor as specified by RFC 2045.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"application/x-java-vm/java-applet\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Charset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MaxPushReq> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VoiceInputCapable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#VideoInputEncoder> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CLIPlatform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JVMVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of the Java virtual machines installed on the\n                    device. Each item in the list is a name token describing\n                    the vendor and version of the VM.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"SunJRE/1.2\", \"MSJVM/1.0\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OSVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Encoding> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of transfer encodings the device supports.\n                    Property value is a list of transfer encodings, where\n                    each item in the list is a transfer encoding name as\n                    specified by RFC 2045 and registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"base64\", \"quoted-printable\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MsgSize> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Maximum size of a push message that the device can\n                    handle. Value is number of bytes.\n      Type:         Number\n      Resolution:   Override\n      Examples:     \"1024\", \"1400\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPackage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      A Component within the CC/PP Schema is a class of related properties \n      that describe the capabilities and preferences information.\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Vendor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CurrentBearerService> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  The bearer on which the current session was opened.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"OneWaySMS\", \"GUTS\", \"TwoWayPacket\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Model> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmClass> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  DRM Conformance Class as defined in OMA-Download-DRM-v1_0\n      Type:         Literal (bag)\n      Resolution:   Locked\n      Examples:     \"ForwardLock\", \"CombinedDelivery\", \"SeparateDelivery\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedBluetoothVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Supported Bluetooth version.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"1.0\" \n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlDeckSize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPlatform> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  The list of JAVA platforms and profiles installed in \n                    the device. Each item in the list is a name token \n                    describing compatibility with the name and version of the \n                    java platform specification or the name and version of the profile \n                    specification name (if profile is included in the device)\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"PersonalJava\", \"CLDC\", \"MIDP\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SecuritySupport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptLibraries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OmaDownload> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> <http://www.w3.org/2000/01/rdf-schema#label> "Component" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#OutputCharSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Charset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeClassmarks> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableBrowserApps> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Charset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PushCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ColorCapable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#InputCharSet> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of character sets supported by the device for text\n                    entry. Property's value is a list of character sets,\n                    where each item in the list is a character set name, as\n                    registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"US-ASCII\", \"ISO-8859-1\", \"Shift_JIS\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptEnabled> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the browser supports JavaScript.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPlatform> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#TablesCapable> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the browser is capable of displaying\n                    tables.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Email-URI-Schemes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PreferenceForFrames> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BitsPerPixel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> <http://www.w3.org/2000/01/rdf-schema#label> "Component: HardwarePlatform" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Model> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Model number assigned to the terminal device by the\n                    vendor or manufacturer.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Mustang GT\", \"Q30\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WapCharacteristics> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaAppletEnabled> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the browser supports Java applets.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"   \n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Encoding> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of transfer encodings the device supports.\n                    Property value is a list of transfer encodings, where\n                    each item in the list is a transfer encoding name as\n                    specified by RFC 2045 and registered with IANA.\n      Type:         Literal (bag)\n      Resolution:   Override\n      Examples:     \"base64\", \"quoted-printable\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DownloadableBrowserApps> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#DrmConstraints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HtmlVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Version of HyperText Markup Language (HTML) supported\n                    by the browser.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"2.0\", \"3.2\", \"4.0\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaPlatform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SoftwarePlatform> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      The SoftwarePlatform component contains properties of the device's \n      application environment, operating system, and installed software.\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlModules> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Keyboard> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NetworkCharacteristics> <http://www.w3.org/2000/01/rdf-schema#label> "Component: NetworkCharacteristics" .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ScreenSize> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  The size of the device's screen in units of pixels,\n                    composed of the screen width and the screen height.\n      Type:         Dimension\n      Resolution:   Locked\n      Examples:     \"160x160\", \"640x480\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-Language> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of preferred document languages. If a resource is\n                    available in more than one natural language, the server\n                    can use this property to determine which version of the\n                    resource to send to the device. The first item in the\n                    list should be considered the user's first choice, the\n                    second the second choice, and so on. Property value is\n                    a list of natural languages, where each item in the list\n                    is the name of a language as defined by RFC 3066[RFC3066].\n      Type:         Literal (sequence)\n      Resolution:   Override\n      Examples:     \"zh-CN\", \"en\", \"fr\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#ImageCapable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#PointingResolution> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#HardwarePlatform> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#NumberOfSoftKeys> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Number of soft keys available on the device.\n      Type:         Number\n      Resolution:   Locked\n      Examples:     \"3\", \"2\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BluetoothProfile> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlScriptVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Component> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaAppletEnabled> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaScriptVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#StandardFontProportional> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates whether the device's standard font is \n                    proportional.\n      Type:         Boolean\n      Resolution:   Locked \n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      The BrowserUA component contains attributes related to the browser                                  \n      user agent running on the device.\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#XhtmlModules> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BrowserUA> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-MsgSize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#AcceptDownloadableSoftware> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Indicates the user's preference on whether to accept\n                    downloadable software.\n      Type:         Boolean\n      Resolution:   Locked\n      Examples:     \"Yes\", \"No\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WmlVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  List of WML language versions supported by the device.\n                    Property value is a list of version numbers, where\n                    each item in the list is a version string conforming\n                    to Version.\n      Type:         Literal (bag)\n      Resolution:   Append\n      Examples:     \"1.1\", \"2.0\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#BluetoothProfile> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Supported Bluetooth profiles as defined in the Bluetooth \n                    specification [BLT].\n      Type: \t    Literal (bag)\n      Resolution:   Locked\n      Examples:     \"dialup\", \"lanAccess\"\n    " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#MexeClassmarks> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#SupportedPictogramSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CcppAccept-Charset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#WtaiLibraries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#Push-Accept-AppID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#CPU> <http://www.w3.org/2000/01/rdf-schema#comment> "\n      Description:  Name and model number of the device CPU.\n      Type:         Literal\n      Resolution:   Locked\n      Examples:     \"Pentium III\", \"PowerPC 750\"\n   " .
+<http://www.openmobilealliance.org/tech/profiles/UAPROF/ccppschema-20021212#JavaProtocol> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .

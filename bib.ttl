@@ -1,933 +1,455 @@
-<http://purl.org/net/nknouf/ns/bibtex#howPublished>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "How something strange has been published. The first word should be capitalized."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "how published"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasLCCN>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Library of Congress Call Number."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has LCCN"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasEditor>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Name(s) of editor(s), typed as indicated in the LaTeX book. If there is also an author field, then the editor field gives the editor of the book or collection in which the reference appears."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has editor"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/nknouf/ns/bibtex#humanCreator> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "Again, the same issues that arose with the \"hasAuthor\" property apply here." .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasNumber>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The number of a journal, magazine, technical report, or of a work in a series. An issue of a journal or magazine is usually identified by its volume and number; the organization that issues a technical report usually gives it a number; and sometimes books are given numbers in a named series."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has number"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasNote>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Any additional information that can help the reader. The first word should be capitalized."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has note"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasCopyright>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Copyright information."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has copyright"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Techreport>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A report published by a school or other institution, usually numbered within a series."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Techreport"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasInstitution>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasURL>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The WWW Universal Resource Locator that points to the item being referenced. This often is used for technical reports to point to the ftp or web site where the postscript source of the report is located."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has URL"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Unpublished>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A document having an author and title, but not formally published."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Unpublished"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasNote>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasYear>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The year of publication or, for an unpublished work, the year it was written. Generally it should consist of four numerals, such as 1984, although the standard styles can handle any year whose last four nonpunctuation characters are numerals, such as '(about 1984)'."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has year"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasVolume>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The volume of a journal or multivolume book."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has volume"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasChapter>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A chapter (or section or whatever) number."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has chapter"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/nknouf/ns/bibtex#pageChapterData> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasInstitution>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The sponsoring institution of a technical report."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has institution"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "This could be an object property that refers to an external set of institution instances." .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasAddress>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Usually the address of the publisher or other type of institution. For major publishing houses, van Leunen recommends omitting the information entirely. For small publishers, on the other hand, you can help the reader by giving the complete address."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has address"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasSeries>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of a series or set of books. When citing an entire book, the the title field gives its title and an optional series field gives the name of a series or multi-volume set in which the book is published."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has series"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Article>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An article from a journal or magazine."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Article"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasJournal>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#Incollection>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A part of a book having its own title."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Incollection"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasBooktitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasPublisher>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasSize>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The physical dimensions of a work."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has size"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasPublisher>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The publisher's name."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has publisher"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "This is a case where an ObjectProperty might be a better choice, where the range is some set of publisher names defined in another ontology.  That would allow all of the metadata for the publisher to be incorporated as needed." .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The work's title, typed as explained in the LaTeX book."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has title"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Inbook>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A part of a book, which may be a chapter (or section or whatever) and/or a range of pages. "@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Inbook"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://purl.org/dc/elements/1.1/description>
-                          "One thing to figure out is whether or not this tells us what we want; that is, does this imply that we must have at least one property of humanCreator, which could be either hasAuthor or hasEditor?" ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#humanCreator>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#pageChapterData>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasPublisher>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasAnnotation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An annotation. It is not used by the standard bibliography styles, but may be used by others that produce an annotated bibliography."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has annotation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasType>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The type of a technical report--for example, \"Research Note\"."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has type"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/elements/1.1/title>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasJournal>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A journal name. Abbreviations are provided for many journals; see the Local Guide"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has journal"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "This could optionally be an object property, whereby the range would refer to an external set of journal instances, thus providing standardized abbreviations for different bibliographic styles." .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasMonth>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The month in which the work was published or, for an unpublished work, in which it was written. You should use the standard three-letter abbreviation, as described in Appendix B.1.3 of the LaTeX book."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has month"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Proceedings>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The proceedings of a conference."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Proceedings"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasLanguage>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The language the document is in."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has language"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasBooktitle>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Title of a book, part of which is being cited. See the LaTeX book for how to type titles. For book entries, use the title field instead."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has booktitle"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Master's thesis."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Mastersthesis"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasSchool>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] .
-
-<http://purl.org/dc/elements/1.1/subject>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasISSN>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The International Standard Serial Number. Used to identify a journal."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has ISSN"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Booklet>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A work that is printed and bound, but without a named publisher or sponsoring institution."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Booklet"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasSchool>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of the school where a thesis was written."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has school"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "As with \"hasPublisher\", this could be an ObjectProperty that refers to an external set of school instances." .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasMrnumber>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Mathematical Reviews number."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has mrnumber"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Conference>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The same as INPROCEEDINGS, included for Scribe compatibility."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Conference"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://purl.org/net/nknouf/ns/bibtex#Inproceedings> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasContents>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A Table of Contents."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has contents"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasLocation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A location associated with the entry, such as the city in which a conference took place."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has location"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name(s) of the author(s), in the format described in the LaTeX book."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has author"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/nknouf/ns/bibtex#humanCreator> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "This is tricky due to the fact that order is not (generally) preserved in RDF documents.  The problem arises when you want to have an author list where the order is _extremely_ important.  How shall we do that?  Perhaps we want to define \"hasPrimaryAuthor\", \"hasSecondaryAuthor\", \"hasTertiaryAuthor\", and \"hasRemainingAuthors\", or something of that sort.  This will be have to given more thought." .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasPrice>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The price of the document."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has price"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/elements/1.1/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> ;
-        <http://purl.org/dc/elements/1.1/title>
-                "Nicholas Knouf" .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasEdition>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The edition of a book--for example, \"Second\". This should be an ordinal, and should have the first letter capitalized, as shown here; the standard styles convert to lower case when necessary."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has edition"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasOrganization>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The organization that sponsors a conference or that publishes a manual."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has organization"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Possible ontology to describe bibTeX entries." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "bibtex ontology" ;
-        <http://purl.org/dc/elements/1.1/creator>
-                "Nick Knouf <nknouf@mit.edu>" ;
-        <http://purl.org/dc/elements/1.1/date>
-                "2003-12-29" ;
-        <http://purl.org/dc/elements/1.1/description>
-                "Transformation of bibTeX into an OWL ontology" ;
-        <http://purl.org/dc/elements/1.1/identifier>
-                "http://zeitkunst.org/bibtex/0.2/bibtex.owl"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://purl.org/dc/elements/1.1/subject>
-                "fMRI, ontology, fMRI analysis" ;
-        <http://purl.org/dc/elements/1.1/title>
-                "bibtex.owl: an ontology for bibTeX entries" ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "0.2" .
-
-<http://purl.org/net/nknouf/ns/bibtex#Inproceedings>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An article in a conference proceedings."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Inproceedings"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasBooktitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasAffiliation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The authors affiliation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has affiliation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/elements/1.1/identifier>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Book>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A book with an explicit publisher."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Book"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://purl.org/dc/elements/1.1/description>
-                          "One thing to figure out is whether or not this tells us what we want; that is, does this imply that we must have at least one property of humanCreator, which could be either hasAuthor or hasEditor?" ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#humanCreator>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasPublisher>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#Phdthesis>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A PhD thesis."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Phdthesis"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasAuthor>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasYear>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasSchool>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#Misc>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Use this type when nothing else fits."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Misc"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> .
-
-<http://purl.org/dc/elements/1.1/date>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/nknouf/ns/bibtex#Entry>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Base class for all entries"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Entry"@en .
-
-<http://purl.org/net/nknouf/ns/bibtex#Manual>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Technical documentation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Manual"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://purl.org/net/nknouf/ns/bibtex#hasTitle>
-                ] .
-
-<http://purl.org/net/nknouf/ns/bibtex#humanCreator>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A generic human creator category, necessary in order to contain both author and editor."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "human creator"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasCrossref>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The database key of the entry being cross referenced."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has crossref"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasISBN>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The International Standard Book Number."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has ISBN"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/dc/elements/1.1/source>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasPages>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "One or more page numbers or range of numbers, such as 42-111 or 7,41,73-97 or 43+ (the `+' in this last example indicates pages following that don't form a simple range). To make it easier to maintain Scribe-compatible databases, the standard styles convert a single dash (as in 7-33) to the double dash used in TeX to denote number ranges (as in 7-33)."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has pages"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://purl.org/net/nknouf/ns/bibtex#pageChapterData> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasKeywords>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Key words used for searching or possibly for annotation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has keywords"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasAbstract>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An abstract of the work."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has abstract"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#hasKey>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The key for a particular bibTeX entry.  Note that the rdf:ID for each Entry instance could be the bibTeX key as well, possibly making this property redundant."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has key"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/nknouf/ns/bibtex#pageChapterData>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A generic property to hold page and/or chapter data."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/nknouf/ns/bibtex#Entry> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "page and/or chapter data"@en .
-
-<http://purl.org/dc/elements/1.1/description>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/abstract>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/dc/terms/bibliographicCitation>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#howPublished> <http://www.w3.org/2000/01/rdf-schema#label> "how published"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasLCCN> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasEditor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B66cf482aX2D0a89X2D49e6X2Db513X2Dd3692956ea84 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasNote> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasCopyright> <http://www.w3.org/2000/01/rdf-schema#comment> "Copyright information."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasURL> <http://www.w3.org/2000/01/rdf-schema#comment> "The WWW Universal Resource Locator that points to the item being referenced. This often is used for technical reports to point to the ftp or web site where the postscript source of the report is located."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasEditor> <http://www.w3.org/2000/01/rdf-schema#comment> "Name(s) of editor(s), typed as indicated in the LaTeX book. If there is also an author field, then the editor field gives the editor of the book or collection in which the reference appears."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/2000/01/rdf-schema#label> "Techreport"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B52ead5cdX2D1703X2D4eacX2D9606X2Dba357b12b1bc <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasPublisher> .
+<http://purl.org/net/nknouf/ns/bibtex#hasVolume> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasChapter> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/nknouf/ns/bibtex#pageChapterData> .
+<http://purl.org/net/nknouf/ns/bibtex#Unpublished> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasInstitution> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAddress> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Proceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B33d5b773X2D47baX2D4718X2D9103X2D9c5a4692fe3c .
+_:B9916e7bcX2D6c9eX2D4e89X2Da485X2Db2db02b07c42 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSeries> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of a series or set of books. When citing an entire book, the the title field gives its title and an optional series field gives the name of a series or multi-volume set in which the book is published."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasCopyright> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B0ceff66aX2D6502X2D47e0X2Da0d2X2Da8acb7d7ec3d <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPublisher> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B5c1cacb4X2D3c88X2D4fc1X2DabcfX2Dd32e98991629 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSeries> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B62997e04X2Db540X2D45deX2Db10dX2D89d15170f3f2 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B2d0c5acdX2D6096X2D4973X2DbedfX2Ded7c56f66a28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B5592c565X2D3218X2D4475X2Dbd3eX2Dfe4cfe66250b .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B62997e04X2Db540X2D45deX2Db10dX2D89d15170f3f2 .
+<http://purl.org/net/nknouf/ns/bibtex#hasAnnotation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasJournal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Proceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B06d28729X2Da5abX2D446fX2D9d2eX2De47cba311c2d .
+<http://purl.org/net/nknouf/ns/bibtex#hasMonth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Booklet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Be7b8886bX2D1bbeX2D49cbX2Da564X2Da3240ac41ad5 .
+<http://purl.org/net/nknouf/ns/bibtex#Proceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLanguage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B16868783X2Da497X2D4878X2Da488X2Daf14507bd997 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B33d65c4bX2Df5a3X2D4806X2D822bX2Dc2d065dcd599 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasBooktitle> <http://www.w3.org/2000/01/rdf-schema#label> "has booktitle"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B2c4cb5d4X2D8953X2D4db6X2Db679X2Dd349e51861dd .
+<http://purl.org/net/nknouf/ns/bibtex#hasInstitution> <http://purl.org/dc/elements/1.1/description> "This could be an object property that refers to an external set of institution instances." .
+_:Bc12b99faX2D3c87X2D4fd3X2D98a5X2D924dda32d728 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+_:Beee6bbd5X2Dedc4X2D4bc3X2Daa74X2D1c0704a12f76 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#pageChapterData> .
+<http://purl.org/dc/elements/1.1/subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasISSN> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Beee6bbd5X2Dedc4X2D4bc3X2Daa74X2D1c0704a12f76 .
+<http://purl.org/net/nknouf/ns/bibtex#hasSchool> <http://purl.org/dc/elements/1.1/description> "As with \"hasPublisher\", this could be an ObjectProperty that refers to an external set of school instances." .
+_:B85038ef5X2Da1c4X2D47d8X2Db63bX2D8245c93f80b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasMrnumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bbdeb023eX2D36f9X2D4022X2D9487X2Db27778cfe817 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Conference> <http://www.w3.org/2000/01/rdf-schema#label> "Conference"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasVolume> <http://www.w3.org/2000/01/rdf-schema#comment> "The volume of a journal or multivolume book."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasContents> <http://www.w3.org/2000/01/rdf-schema#comment> "A Table of Contents."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAuthor> <http://purl.org/dc/elements/1.1/description> "This is tricky due to the fact that order is not (generally) preserved in RDF documents.  The problem arises when you want to have an author list where the order is _extremely_ important.  How shall we do that?  Perhaps we want to define \"hasPrimaryAuthor\", \"hasSecondaryAuthor\", \"hasTertiaryAuthor\", and \"hasRemainingAuthors\", or something of that sort.  This will be have to given more thought." .
+<http://purl.org/net/nknouf/ns/bibtex#hasPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasChapter> <http://www.w3.org/2000/01/rdf-schema#label> "has chapter"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B62997e04X2Db540X2D45deX2Db10dX2D89d15170f3f2 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasAuthor> .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0ceff66aX2D6502X2D47e0X2Da0d2X2Da8acb7d7ec3d .
+_:B9f059da9X2DfaeaX2D43afX2Db35aX2D427776ff7704 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B83e36d7bX2D0953X2D449dX2D9e70X2Db46dda2b2b63 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3a5e6f6bX2D4c30X2D42c6X2Db945X2D0369cc02b7c1 .
+<http://purl.org/net/nknouf/ns/bibtex#hasEdition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Unpublished> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb09d4bb6X2D63d5X2D49ceX2D99c7X2D55afe727da5d .
+<http://purl.org/net/nknouf/ns/bibtex#Conference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#label> "has author"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasOrganization> <http://www.w3.org/2000/01/rdf-schema#comment> "The organization that sponsors a conference or that publishes a manual."@en .
+<http://purl.org/net/nknouf/ns/bibtex> <http://purl.org/dc/elements/1.1/subject> "fMRI, ontology, fMRI analysis" .
+_:B962cb481X2D3c32X2D4a07X2D881aX2Dbedd9b59993f <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B06d28729X2Da5abX2D446fX2D9d2eX2De47cba311c2d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bf32dbc9fX2Da05cX2D4040X2D8a83X2D93528a4f9e2d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/2000/01/rdf-schema#label> "Article"@en .
+<http://purl.org/net/nknouf/ns/bibtex> <http://purl.org/dc/elements/1.1/title> "bibtex.owl: an ontology for bibTeX entries" .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B910b96dbX2D2874X2D4ee0X2D8b56X2D3b95609e30bc .
+<http://purl.org/net/nknouf/ns/bibtex#hasURL> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:Beee6bbd5X2Dedc4X2D4bc3X2Daa74X2D1c0704a12f76 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#comment> "The authors affiliation."@en .
+<http://purl.org/net/nknouf/ns/bibtex#howPublished> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bfb2eb192X2Dd468X2D4f56X2Db38eX2Df55dcfdbfac6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasContents> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B0a25eb51X2Dbe34X2D46d3X2D96ddX2D561f2d98457c <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3f76e3cdX2D5294X2D4b4dX2Da758X2Dc4763e9a2f2a .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7d3d5d33X2De6a3X2D437eX2Da251X2D09af47fa5c9a .
+<http://purl.org/net/nknouf/ns/bibtex#hasLCCN> <http://www.w3.org/2000/01/rdf-schema#label> "has LCCN"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasTitle> <http://www.w3.org/2000/01/rdf-schema#comment> "The work's title, typed as explained in the LaTeX book."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasMonth> <http://www.w3.org/2000/01/rdf-schema#label> "has month"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasOrganization> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSchool> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B7e108316X2Deea7X2D4ac6X2Da00dX2D64ba165d8005 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/dc/elements/1.1/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B33d5b773X2D47baX2D4718X2D9103X2D9c5a4692fe3c <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/2000/01/rdf-schema#comment> "An article from a journal or magazine."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/2000/01/rdf-schema#label> "Phdthesis"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Misc> <http://www.w3.org/2000/01/rdf-schema#comment> "Use this type when nothing else fits."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Unpublished> <http://www.w3.org/2000/01/rdf-schema#comment> "A document having an author and title, but not formally published."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasSize> <http://www.w3.org/2000/01/rdf-schema#comment> "The physical dimensions of a work."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bdfd31efaX2D89a3X2D434bX2D89fbX2D829acef881d6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasEditor> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/nknouf/ns/bibtex#humanCreator> .
+<http://purl.org/dc/elements/1.1/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/nknouf/ns/bibtex> <http://purl.org/dc/elements/1.1/identifier> "http://zeitkunst.org/bibtex/0.2/bibtex.owl"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:Bb10037ffX2D4ae6X2D413aX2D92c2X2D2fe094fdd4f9 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#howPublished> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasContents> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Entry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSchool> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B5592c565X2D3218X2D4475X2Dbd3eX2Dfe4cfe66250b <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Manual> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLanguage> <http://www.w3.org/2000/01/rdf-schema#comment> "The language the document is in."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/2000/01/rdf-schema#comment> "An article in a conference proceedings."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasOrganization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "An annotation. It is not used by the standard bibliography styles, but may be used by others that produce an annotated bibliography."@en .
+_:Bbdeb023eX2D36f9X2D4022X2D9487X2Db27778cfe817 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/2000/01/rdf-schema#label> "Mastersthesis"@en .
+<http://purl.org/net/nknouf/ns/bibtex> <http://www.w3.org/2000/01/rdf-schema#comment> "Possible ontology to describe bibTeX entries." .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#comment> "A part of a book, which may be a chapter (or section or whatever) and/or a range of pages. "@en .
+<http://purl.org/net/nknouf/ns/bibtex#Manual> <http://www.w3.org/2000/01/rdf-schema#label> "Manual"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Entry> <http://www.w3.org/2000/01/rdf-schema#label> "Entry"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Booklet> <http://www.w3.org/2000/01/rdf-schema#label> "Booklet"@en .
+_:Bc12b99faX2D3c87X2D4fd3X2D98a5X2D924dda32d728 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasMrnumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "The number of a journal, magazine, technical report, or of a work in a series. An issue of a journal or magazine is usually identified by its volume and number; the organization that issues a technical report usually gives it a number; and sometimes books are given numbers in a named series."@en .
+<http://purl.org/net/nknouf/ns/bibtex#humanCreator> <http://www.w3.org/2000/01/rdf-schema#comment> "A generic human creator category, necessary in order to contain both author and editor."@en .
+<http://purl.org/net/nknouf/ns/bibtex#humanCreator> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B5592c565X2D3218X2D4475X2Dbd3eX2Dfe4cfe66250b <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasSchool> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPrice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasCrossref> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B3a5e6f6bX2D4c30X2D42c6X2Db945X2D0369cc02b7c1 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasAuthor> .
+<http://purl.org/net/nknouf/ns/bibtex#hasEdition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Conference> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/net/nknouf/ns/bibtex#Inproceedings> .
+<http://purl.org/net/nknouf/ns/bibtex#hasInstitution> <http://www.w3.org/2000/01/rdf-schema#comment> "The sponsoring institution of a technical report."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasType> <http://www.w3.org/2000/01/rdf-schema#label> "has type"@en .
+<http://purl.org/net/nknouf/ns/bibtex> <http://purl.org/dc/elements/1.1/date> "2003-12-29" .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7e108316X2Deea7X2D4ac6X2Da00dX2D64ba165d8005 .
+_:B090a85d5X2D7d54X2D46d5X2Db999X2D85581a0445b1 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Unpublished> <http://www.w3.org/2000/01/rdf-schema#label> "Unpublished"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasISBN> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasOrganization> <http://www.w3.org/2000/01/rdf-schema#label> "has organization"@en .
+_:B2c4cb5d4X2D8953X2D4db6X2Db679X2Dd349e51861dd <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bb09d4bb6X2D63d5X2D49ceX2D99c7X2D55afe727da5d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B33d65c4bX2Df5a3X2D4806X2D822bX2Dc2d065dcd599 .
+<http://purl.org/net/nknouf/ns/bibtex#hasJournal> <http://purl.org/dc/elements/1.1/description> "This could optionally be an object property, whereby the range would refer to an external set of journal instances, thus providing standardized abbreviations for different bibliographic styles." .
+_:B3a5e6f6bX2D4c30X2D42c6X2Db945X2D0369cc02b7c1 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B5dcea96dX2D15b7X2D461eX2Daf60X2D07e24604ee67 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex> <http://purl.org/dc/elements/1.1/creator> "Nick Knouf <nknouf@mit.edu>" .
+_:Baad6f43aX2D2398X2D4fa6X2Daa8bX2D57bc5079b581 <http://purl.org/dc/elements/1.1/description> "One thing to figure out is whether or not this tells us what we want; that is, does this imply that we must have at least one property of humanCreator, which could be either hasAuthor or hasEditor?" .
+_:B7d3d5d33X2De6a3X2D437eX2Da251X2D09af47fa5c9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B52ead5cdX2D1703X2D4eacX2D9606X2Dba357b12b1bc .
+<http://purl.org/net/nknouf/ns/bibtex#hasMonth> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasJournal> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B3a3d2e14X2D0391X2D426eX2D8e42X2De57b097b4134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#comment> "The name(s) of the author(s), in the format described in the LaTeX book."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B0ceff66aX2D6502X2D47e0X2Da0d2X2Da8acb7d7ec3d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/dc/elements/1.1/source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B4ecdc58cX2Df8fdX2D4cdfX2Da0ffX2D000432618d7b <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#howPublished> <http://www.w3.org/2000/01/rdf-schema#comment> "How something strange has been published. The first word should be capitalized."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasJournal> <http://www.w3.org/2000/01/rdf-schema#label> "has journal"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasChapter> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPages> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/nknouf/ns/bibtex#pageChapterData> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLanguage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Be7b8886bX2D1bbeX2D49cbX2Da564X2Da3240ac41ad5 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasKeywords> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLCCN> <http://www.w3.org/2000/01/rdf-schema#comment> "The Library of Congress Call Number."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAbstract> <http://www.w3.org/2000/01/rdf-schema#comment> "An abstract of the work."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasMonth> <http://www.w3.org/2000/01/rdf-schema#comment> "The month in which the work was published or, for an unpublished work, in which it was written. You should use the standard three-letter abbreviation, as described in Appendix B.1.3 of the LaTeX book."@en .
+_:B85038ef5X2Da1c4X2D47d8X2Db63bX2D8245c93f80b9 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+<http://purl.org/net/nknouf/ns/bibtex#hasKey> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Be05e3938X2Da0afX2D4b39X2Dbcd6X2D281b4b04b85d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B33d5b773X2D47baX2D4718X2D9103X2D9c5a4692fe3c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasEditor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bfe19eaf7X2Dbcd3X2D49e0X2D9bd9X2D192900abbc59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/2000/01/rdf-schema#comment> "A report published by a school or other institution, usually numbered within a series."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasYear> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#pageChapterData> <http://www.w3.org/2000/01/rdf-schema#label> "page and/or chapter data"@en .
+_:B090a85d5X2D7d54X2D46d5X2Db999X2D85581a0445b1 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasBooktitle> .
+<http://purl.org/net/nknouf/ns/bibtex#hasEdition> <http://www.w3.org/2000/01/rdf-schema#label> "has edition"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb10037ffX2D4ae6X2D413aX2D92c2X2D2fe094fdd4f9 .
+<http://purl.org/net/nknouf/ns/bibtex#hasKey> <http://www.w3.org/2000/01/rdf-schema#comment> "The key for a particular bibTeX entry.  Note that the rdf:ID for each Entry instance could be the bibTeX key as well, possibly making this property redundant."@en .
+_:B52ead5cdX2D1703X2D4eacX2D9606X2Dba357b12b1bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B0a25eb51X2Dbe34X2D46d3X2D96ddX2D561f2d98457c .
+_:B3f76e3cdX2D5294X2D4b4dX2Da758X2Dc4763e9a2f2a <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Booklet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B16868783X2Da497X2D4878X2Da488X2Daf14507bd997 .
+<http://purl.org/net/nknouf/ns/bibtex#hasKeywords> <http://www.w3.org/2000/01/rdf-schema#comment> "Key words used for searching or possibly for annotation."@en .
+<http://purl.org/net/nknouf/ns/bibtex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+_:B910b96dbX2D2874X2D4ee0X2D8b56X2D3b95609e30bc <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Baad6f43aX2D2398X2D4fa6X2Daa8bX2D57bc5079b581 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#humanCreator> .
+_:B49c1ef43X2D8c30X2D4467X2Db457X2Daa8346ec42a4 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasBooktitle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bdfd31efaX2D89a3X2D434bX2D89fbX2D829acef881d6 .
+_:Bfb2eb192X2Dd468X2D4f56X2Db38eX2Df55dcfdbfac6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+_:B2d0c5acdX2D6096X2D4973X2DbedfX2Ded7c56f66a28 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPages> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Unpublished> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B5c1cacb4X2D3c88X2D4fc1X2DabcfX2Dd32e98991629 .
+<http://purl.org/net/nknouf/ns/bibtex#hasSize> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Misc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasChapter> <http://www.w3.org/2000/01/rdf-schema#comment> "A chapter (or section or whatever) number."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasTitle> <http://www.w3.org/2000/01/rdf-schema#label> "has title"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasTitle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:Baad6f43aX2D2398X2D4fa6X2Daa8bX2D57bc5079b581 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bc79622e9X2Da999X2D4451X2D9f64X2Dd404b65e1eaa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAbstract> <http://www.w3.org/2000/01/rdf-schema#label> "has abstract"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasAbstract> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/2000/01/rdf-schema#comment> "A book with an explicit publisher."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasCopyright> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#label> "Inbook"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasEditor> <http://purl.org/dc/elements/1.1/description> "Again, the same issues that arose with the \"hasAuthor\" property apply here." .
+<http://purl.org/net/nknouf/ns/bibtex#hasPublisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSize> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Conference> <http://www.w3.org/2000/01/rdf-schema#comment> "The same as INPROCEEDINGS, included for Scribe compatibility."@en .
+_:B66cf482aX2D0a89X2D49e6X2Db513X2Dd3692956ea84 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#humanCreator> .
+<http://purl.org/net/nknouf/ns/bibtex#hasTitle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/net/nknouf/ns/bibtex#humanCreator> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAbstract> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B910b96dbX2D2874X2D4ee0X2D8b56X2D3b95609e30bc <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasPublisher> .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Baad6f43aX2D2398X2D4fa6X2Daa8bX2D57bc5079b581 .
+<http://purl.org/net/nknouf/ns/bibtex#Misc> <http://www.w3.org/2000/01/rdf-schema#label> "Misc"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B49c1ef43X2D8c30X2D4467X2Db457X2Daa8346ec42a4 .
+<http://purl.org/net/nknouf/ns/bibtex#hasAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasCopyright> <http://www.w3.org/2000/01/rdf-schema#label> "has copyright"@en .
+<http://purl.org/net/nknouf/ns/bibtex#pageChapterData> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B66cf482aX2D0a89X2D49e6X2Db513X2Dd3692956ea84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPrice> <http://www.w3.org/2000/01/rdf-schema#comment> "The price of the document."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasBooktitle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAddress> <http://www.w3.org/2000/01/rdf-schema#label> "has address"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasPages> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B7e108316X2Deea7X2D4ac6X2Da00dX2D64ba165d8005 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasAuthor> .
+<http://purl.org/net/nknouf/ns/bibtex#hasInstitution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B4ecdc58cX2Df8fdX2D4cdfX2Da0ffX2D000432618d7b <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#hasVolume> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B9916e7bcX2D6c9eX2D4e89X2Da485X2Db2db02b07c42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B5dcea96dX2D15b7X2D461eX2Daf60X2D07e24604ee67 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasInstitution> .
+<http://purl.org/net/nknouf/ns/bibtex#Unpublished> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bfe19eaf7X2Dbcd3X2D49e0X2D9bd9X2D192900abbc59 .
+_:B5c1cacb4X2D3c88X2D4fc1X2DabcfX2Dd32e98991629 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasNumber> <http://www.w3.org/2000/01/rdf-schema#label> "has number"@en .
+_:B49c1ef43X2D8c30X2D4467X2Db457X2Daa8346ec42a4 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasPublisher> .
+<http://purl.org/net/nknouf/ns/bibtex#Proceedings> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasKey> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLCCN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasInstitution> <http://www.w3.org/2000/01/rdf-schema#label> "has institution"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bb10037ffX2D4ae6X2D413aX2D92c2X2D2fe094fdd4f9 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+<http://purl.org/dc/terms/abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSchool> <http://www.w3.org/2000/01/rdf-schema#label> "has school"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasISSN> <http://www.w3.org/2000/01/rdf-schema#label> "has ISSN"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasISSN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSize> <http://www.w3.org/2000/01/rdf-schema#label> "has size"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B962cb481X2D3c32X2D4a07X2D881aX2Dbedd9b59993f .
+<http://purl.org/net/nknouf/ns/bibtex#hasEdition> <http://www.w3.org/2000/01/rdf-schema#comment> "The edition of a book--for example, \"Second\". This should be an ordinal, and should have the first letter capitalized, as shown here; the standard styles convert to lower case when necessary."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasURL> <http://www.w3.org/2000/01/rdf-schema#label> "has URL"@en .
+_:Bb09d4bb6X2D63d5X2D49ceX2D99c7X2D55afe727da5d <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+_:B62997e04X2Db540X2D45deX2Db10dX2D89d15170f3f2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B2d0c5acdX2D6096X2D4973X2DbedfX2Ded7c56f66a28 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasNote> <http://www.w3.org/2000/01/rdf-schema#comment> "Any additional information that can help the reader. The first word should be capitalized."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasKey> <http://www.w3.org/2000/01/rdf-schema#label> "has key"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasKeywords> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Be05e3938X2Da0afX2D4b39X2Dbcd6X2D281b4b04b85d .
+<http://purl.org/net/nknouf/ns/bibtex#hasMonth> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasJournal> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasChapter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B66cf482aX2D0a89X2D49e6X2Db513X2Dd3692956ea84 <http://purl.org/dc/elements/1.1/description> "One thing to figure out is whether or not this tells us what we want; that is, does this imply that we must have at least one property of humanCreator, which could be either hasAuthor or hasEditor?" .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B962cb481X2D3c32X2D4a07X2D881aX2Dbedd9b59993f <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasJournal> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPublisher> <http://www.w3.org/2000/01/rdf-schema#label> "has publisher"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Unpublished> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9916e7bcX2D6c9eX2D4e89X2Da485X2Db2db02b07c42 .
+<http://purl.org/net/nknouf/ns/bibtex#hasYear> <http://www.w3.org/2000/01/rdf-schema#comment> "The year of publication or, for an unpublished work, the year it was written. Generally it should consist of four numerals, such as 1984, although the standard styles can handle any year whose last four nonpunctuation characters are numerals, such as '(about 1984)'."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasSeries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#comment> "A part of a book having its own title."@en .
+_:B16868783X2Da497X2D4878X2Da488X2Daf14507bd997 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B3a3d2e14X2D0391X2D426eX2D8e42X2De57b097b4134 .
+_:B33d65c4bX2Df5a3X2D4806X2D822bX2Dc2d065dcd599 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasCrossref> <http://www.w3.org/2000/01/rdf-schema#label> "has crossref"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bf32dbc9fX2Da05cX2D4040X2D8a83X2D93528a4f9e2d .
+<http://purl.org/net/nknouf/ns/bibtex#hasPages> <http://www.w3.org/2000/01/rdf-schema#comment> "One or more page numbers or range of numbers, such as 42-111 or 7,41,73-97 or 43+ (the `+' in this last example indicates pages following that don't form a simple range). To make it easier to maintain Scribe-compatible databases, the standard styles convert a single dash (as in 7-33) to the double dash used in TeX to denote number ranges (as in 7-33)."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasISBN> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPublisher> <http://purl.org/dc/elements/1.1/description> "This is a case where an ObjectProperty might be a better choice, where the range is some set of publisher names defined in another ontology.  That would allow all of the metadata for the publisher to be incorporated as needed." .
+<http://purl.org/net/nknouf/ns/bibtex#hasSeries> <http://www.w3.org/2000/01/rdf-schema#label> "has series"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B85038ef5X2Da1c4X2D47d8X2Db63bX2D8245c93f80b9 .
+_:Be7b8886bX2D1bbeX2D49cbX2Da564X2Da3240ac41ad5 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+_:Bbdeb023eX2D36f9X2D4022X2D9487X2Db27778cfe817 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasCrossref> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B85038ef5X2Da1c4X2D47d8X2Db63bX2D8245c93f80b9 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPublisher> <http://www.w3.org/2000/01/rdf-schema#comment> "The publisher's name."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbdeb023eX2D36f9X2D4022X2D9487X2Db27778cfe817 .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/2000/01/rdf-schema#comment> "A Master's thesis."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasBooktitle> <http://www.w3.org/2000/01/rdf-schema#comment> "Title of a book, part of which is being cited. See the LaTeX book for how to type titles. For book entries, use the title field instead."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasContents> <http://www.w3.org/2000/01/rdf-schema#label> "has contents"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPrice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAffiliation> <http://www.w3.org/2000/01/rdf-schema#label> "has affiliation"@en .
+_:B9f059da9X2DfaeaX2D43afX2Db35aX2D427776ff7704 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasMrnumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B83e36d7bX2D0953X2D449dX2D9e70X2Db46dda2b2b63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#humanCreator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:Bfb2eb192X2Dd468X2D4f56X2Db38eX2Df55dcfdbfac6 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B2c4cb5d4X2D8953X2D4db6X2Db679X2Dd349e51861dd <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex> <http://www.w3.org/2000/01/rdf-schema#label> "bibtex ontology" .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B0a25eb51X2Dbe34X2D46d3X2D96ddX2D561f2d98457c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAuthor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex> <http://purl.org/dc/elements/1.1/description> "Transformation of bibTeX into an OWL ontology" .
+<http://purl.org/net/nknouf/ns/bibtex#hasType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of a technical report--for example, \"Research Note\"."@en .
+_:Bf32dbc9fX2Da05cX2D4040X2D8a83X2D93528a4f9e2d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSchool> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B06d28729X2Da5abX2D446fX2D9d2eX2De47cba311c2d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B962cb481X2D3c32X2D4a07X2D881aX2Dbedd9b59993f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasYear> <http://www.w3.org/2000/01/rdf-schema#label> "has year"@en .
+_:B33d65c4bX2Df5a3X2D4806X2D822bX2Dc2d065dcd599 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasBooktitle> .
+_:Beee6bbd5X2Dedc4X2D4bc3X2Daa74X2D1c0704a12f76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasISBN> <http://www.w3.org/2000/01/rdf-schema#comment> "The International Standard Book Number."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Booklet> <http://www.w3.org/2000/01/rdf-schema#comment> "A work that is printed and bound, but without a named publisher or sponsoring institution."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Conference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B9f059da9X2DfaeaX2D43afX2Db35aX2D427776ff7704 .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B2d0c5acdX2D6096X2D4973X2DbedfX2Ded7c56f66a28 .
+<http://purl.org/net/nknouf/ns/bibtex#howPublished> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasCrossref> <http://www.w3.org/2000/01/rdf-schema#comment> "The database key of the entry being cross referenced."@en .
+_:Be05e3938X2Da0afX2D4b39X2Dbcd6X2D281b4b04b85d <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+<http://purl.org/net/nknouf/ns/bibtex#hasContents> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasKeywords> <http://www.w3.org/2000/01/rdf-schema#label> "has keywords"@en .
+_:B3f76e3cdX2D5294X2D4b4dX2Da758X2Dc4763e9a2f2a <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+_:B5c1cacb4X2D3c88X2D4fc1X2DabcfX2Dd32e98991629 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasNote> .
+_:B7e108316X2Deea7X2D4ac6X2Da00dX2D64ba165d8005 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasISSN> <http://www.w3.org/2000/01/rdf-schema#comment> "The International Standard Serial Number. Used to identify a journal."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#label> "Incollection"@en .
+<http://purl.org/net/nknouf/ns/bibtex#pageChapterData> <http://www.w3.org/2000/01/rdf-schema#comment> "A generic property to hold page and/or chapter data."@en .
+_:Bc79622e9X2Da999X2D4451X2D9f64X2Dd404b65e1eaa <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasAuthor> .
+_:Bb10037ffX2D4ae6X2D413aX2D92c2X2D2fe094fdd4f9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#humanCreator> <http://www.w3.org/2000/01/rdf-schema#label> "human creator"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Book> <http://www.w3.org/2000/01/rdf-schema#label> "Book"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasMrnumber> <http://www.w3.org/2000/01/rdf-schema#comment> "The Mathematical Reviews number."@en .
+_:B83e36d7bX2D0953X2D449dX2D9e70X2Db46dda2b2b63 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#hasOrganization> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B9916e7bcX2D6c9eX2D4e89X2Da485X2Db2db02b07c42 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLanguage> <http://www.w3.org/2000/01/rdf-schema#label> "has language"@en .
+_:Bdfd31efaX2D89a3X2D434bX2D89fbX2D829acef881d6 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAddress> <http://www.w3.org/2000/01/rdf-schema#comment> "Usually the address of the publisher or other type of institution. For major publishing houses, van Leunen recommends omitting the information entirely. For small publishers, on the other hand, you can help the reader by giving the complete address."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B83e36d7bX2D0953X2D449dX2D9e70X2Db46dda2b2b63 .
+<http://purl.org/net/nknouf/ns/bibtex#hasPrice> <http://www.w3.org/2000/01/rdf-schema#label> "has price"@en .
+<http://purl.org/net/nknouf/ns/bibtex> <http://www.w3.org/2002/07/owl#versionInfo> "0.2" .
+_:B5592c565X2D3218X2D4475X2Dbd3eX2Dfe4cfe66250b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bfe19eaf7X2Dbcd3X2D49e0X2D9bd9X2D192900abbc59 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasAuthor> .
+<http://purl.org/net/nknouf/ns/bibtex#hasVolume> <http://www.w3.org/2000/01/rdf-schema#label> "has volume"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasPages> <http://www.w3.org/2000/01/rdf-schema#label> "has pages"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasISBN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bc12b99faX2D3c87X2D4fd3X2D98a5X2D924dda32d728 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#Manual> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bfb2eb192X2Dd468X2D4f56X2Db38eX2Df55dcfdbfac6 .
+<http://purl.org/net/nknouf/ns/bibtex#Proceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Proceedings"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/2000/01/rdf-schema#comment> "A PhD thesis."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasCrossref> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc79622e9X2Da999X2D4451X2D9f64X2Dd404b65e1eaa .
+<http://purl.org/net/nknouf/ns/bibtex#hasEdition> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B3a3d2e14X2D0391X2D426eX2D8e42X2De57b097b4134 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasAuthor> .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B090a85d5X2D7d54X2D46d5X2Db999X2D85581a0445b1 .
+_:B090a85d5X2D7d54X2D46d5X2Db999X2D85581a0445b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B0a25eb51X2Dbe34X2D46d3X2D96ddX2D561f2d98457c <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#Inproceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Inproceedings"@en .
+_:B2c4cb5d4X2D8953X2D4db6X2Db679X2Dd349e51861dd <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bb09d4bb6X2D63d5X2D49ceX2D99c7X2D55afe727da5d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasISBN> <http://www.w3.org/2000/01/rdf-schema#label> "has ISBN"@en .
+<http://purl.org/dc/terms/bibliographicCitation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Manual> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#humanCreator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/elements/1.1/creator> <http://purl.org/dc/elements/1.1/title> "Nicholas Knouf" .
+_:B06d28729X2Da5abX2D446fX2D9d2eX2De47cba311c2d <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "has annotation"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Techreport> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B5dcea96dX2D15b7X2D461eX2Daf60X2D07e24604ee67 .
+_:B3a3d2e14X2D0391X2D426eX2D8e42X2De57b097b4134 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B0ceff66aX2D6502X2D47e0X2Da0d2X2Da8acb7d7ec3d <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B9f059da9X2DfaeaX2D43afX2Db35aX2D427776ff7704 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+<http://purl.org/net/nknouf/ns/bibtex#Booklet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/nknouf/ns/bibtex#hasISSN> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B3a5e6f6bX2D4c30X2D42c6X2Db945X2D0369cc02b7c1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B5dcea96dX2D15b7X2D461eX2Daf60X2D07e24604ee67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B7d3d5d33X2De6a3X2D437eX2Da251X2D09af47fa5c9a <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLanguage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Entry> <http://www.w3.org/2000/01/rdf-schema#comment> "Base class for all entries"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasNote> <http://www.w3.org/2000/01/rdf-schema#label> "has note"@en .
+<http://purl.org/net/nknouf/ns/bibtex#Manual> <http://www.w3.org/2000/01/rdf-schema#comment> "Technical documentation."@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasAffiliation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasKeywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasChapter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#Misc> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAnnotation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSeries> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:Be7b8886bX2D1bbeX2D49cbX2Da564X2Da3240ac41ad5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B4ecdc58cX2Df8fdX2D4cdfX2Da0ffX2D000432618d7b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Inbook> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B66cf482aX2D0a89X2D49e6X2Db513X2Dd3692956ea84 .
+<http://purl.org/net/nknouf/ns/bibtex#hasEditor> <http://www.w3.org/2000/01/rdf-schema#label> "has editor"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasAbstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bc12b99faX2D3c87X2D4fd3X2D98a5X2D924dda32d728 .
+<http://purl.org/net/nknouf/ns/bibtex#hasCopyright> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#Article> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B4ecdc58cX2Df8fdX2D4cdfX2Da0ffX2D000432618d7b .
+<http://purl.org/net/nknouf/ns/bibtex#Incollection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B910b96dbX2D2874X2D4ee0X2D8b56X2D3b95609e30bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasMrnumber> <http://www.w3.org/2000/01/rdf-schema#label> "has mrnumber"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasPublisher> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "A location associated with the entry, such as the city in which a conference took place."@en .
+_:B3f76e3cdX2D5294X2D4b4dX2Da758X2Dc4763e9a2f2a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B52ead5cdX2D1703X2D4eacX2D9606X2Dba357b12b1bc <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLocation> <http://www.w3.org/2000/01/rdf-schema#label> "has location"@en .
+_:Be05e3938X2Da0afX2D4b39X2Dbcd6X2D281b4b04b85d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#hasYear> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/net/nknouf/ns/bibtex#hasVolume> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B16868783X2Da497X2D4878X2Da488X2Daf14507bd997 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasYear> .
+<http://purl.org/net/nknouf/ns/bibtex#hasInstitution> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasPages> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasAddress> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#pageChapterData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasJournal> <http://www.w3.org/2000/01/rdf-schema#comment> "A journal name. Abbreviations are provided for many journals; see the Local Guide"@en .
+<http://purl.org/net/nknouf/ns/bibtex#hasBooktitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bfe19eaf7X2Dbcd3X2D49e0X2D9bd9X2D192900abbc59 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B33d5b773X2D47baX2D4718X2D9103X2D9c5a4692fe3c <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Bc79622e9X2Da999X2D4451X2D9f64X2Dd404b65e1eaa <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:Baad6f43aX2D2398X2D4fa6X2Daa8bX2D57bc5079b581 <http://www.w3.org/2002/07/owl#minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:B7d3d5d33X2De6a3X2D437eX2Da251X2D09af47fa5c9a <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasSchool> .
+_:Bf32dbc9fX2Da05cX2D4040X2D8a83X2D93528a4f9e2d <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasTitle> .
+<http://purl.org/net/nknouf/ns/bibtex#hasEditor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasLCCN> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+_:B49c1ef43X2D8c30X2D4467X2Db457X2Daa8346ec42a4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/net/nknouf/ns/bibtex#Proceedings> <http://www.w3.org/2000/01/rdf-schema#comment> "The proceedings of a conference."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Mastersthesis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/nknouf/ns/bibtex#Entry> .
+<http://purl.org/net/nknouf/ns/bibtex#hasKey> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/nknouf/ns/bibtex#hasNote> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/nknouf/ns/bibtex#hasSchool> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the school where a thesis was written."@en .
+<http://purl.org/net/nknouf/ns/bibtex#Phdthesis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bdfd31efaX2D89a3X2D434bX2D89fbX2D829acef881d6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/net/nknouf/ns/bibtex#hasAuthor> .

@@ -1,267 +1,131 @@
-<http://guava.iis.sinica.edu.tw/r4r/cites>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/cites"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "cites" ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "Any resource (A) is referenced by any other resource (B) only when the publication time of A is equal to B. .cites. is used to describe this relation. When it is used as the basic relation description for resource publication, r4r:Cites can be used to describe relations between article, data, or code of RRObject. When it is used for reusing context, r4r:Cites relates any resource that reuses RRObject for citation, and the reusing context is enriched by the packaging of RRPolicy." ;
-        <http://www.w3.org/2002/07/owl#propertyDisjointWith>
-                <http://guava.iis.sinica.edu.tw/r4r/isCitedBy> .
-
-<http://guava.iis.sinica.edu.tw/r4r/hasProvenance>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/hasprovenance"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasProvenance" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://guava.iis.sinica.edu.tw/r4r/Provenance> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "It is used for relating subclass of RRObject to its provenance information when RRPolicy is not ready to use. It is used as the basic relation description for resource publication." .
-
-<http://guava.iis.sinica.edu.tw/r4r/isPartOf>
-        a       <http://www.w3.org/2002/07/owl#TransitiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/ispartof"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isPartOf" ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "It describes partial relationships with temporal and spatial constraints, and carries with it some characteristics such as being transitive. A isPartOf B only if A and B share the same time and location. Data can be part of data; code can be part of code or data; data like keywords or sentences can also be described as part of the Article; metadata can be part of provenance as long as two objects carry partial and transitive relations." .
-
-<http://www.w3.org/ns/prov#Entity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://www.w3.org/TR/prov-o/#Entity"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "prov:Entity" ;
-        <http://guava.iis.sinica.edu.tw/r4r/inReusingContext>
-                "http://guava.iis.sinica.edu.tw/r4r/provenance"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://guava.iis.sinica.edu.tw/r4r/RRPolicy>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/rrpolicy"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "RRPolicy" ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "Any mechanism designed for relating to RRObject for reusing purposes is defined as a Reusing Related Policy (RRPolicy). RRPolicy is free to be extended for more issues such as security and trust for its subclasses concepts." ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://guava.iis.sinica.edu.tw/r4r/RRObject>
-                ] .
-
-<http://guava.iis.sinica.edu.tw/r4r/RRObject>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/rrobject"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "RRObject" ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "Any resource served as a component for publication and reusing is defined as a Reusing Related Object (RRObject). It can be a knowledge unit for research purposes, or any resource that has relations similar to the relations between article, data and code." ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://www.w3.org/2000/01/rdf-schema#Resource> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://guava.iis.sinica.edu.tw/r4r/locateAt> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onClass>
-                          <http://www.w3.org/TR/owl-time/#Temporal> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://guava.iis.sinica.edu.tw/r4r/hasTime> ;
-                  <http://www.w3.org/2002/07/owl#qualifiedCardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger>
-                ] .
-
-<http://guava.iis.sinica.edu.tw/r4r/hasTime>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/hastime\n"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasTime" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/TR/owl-time/#Temporal> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "It describes the creation time of the RRObject. It is used as the basic relation description for resource publication and reusing. A complete R4R resource representation (RRObject isPackagedWith RRPolicy) shares the same property, r4r:locateAt with RRObject." .
-
-<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/Provenance> , <http://guava.iis.sinica.edu.tw/r4r/Article> , <http://guava.iis.sinica.edu.tw/r4r/Data> , <http://guava.iis.sinica.edu.tw/r4r/Code> .
-
-<http://www.w3.org/2000/01/rdf-schema#Resource>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://www.w3.org/TR/rdf-schema/"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "rdfs:Resource" .
-
-<http://guava.iis.sinica.edu.tw/r4r/Code>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/code"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Code" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "Any collection of computer instructions is written in human-readable computer language, and served for programming and executing the Data of RRObject." ;
-        <http://guava.iis.sinica.edu.tw/r4r/inReusingContext>
-                "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2002/07/owl#equivalentClass>
-                <http://guava.iis.sinica.edu.tw/r4r/Data> .
-
-<http://guava.iis.sinica.edu.tw/r4r/License>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/license"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "License" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "The authorization of the use and reuse of the referred resource, as well as the document recording that authorization." .
-
-<http://guava.iis.sinica.edu.tw/r4r/hasLicense>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/haslicense"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hasLicense" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://guava.iis.sinica.edu.tw/r4r/License> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "It declares the use of license information for RRObject and its subclass when RRPolicy is not ready to use. It is used as the basic relation description for resource publication." .
-
-<http://guava.iis.sinica.edu.tw/r4r/isPackagedWith>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/ispackagedwith"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isPackagedWith" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "It is used for relating RRObject and RRPolicy for accomplishing a particular component, RRPolicy. This relation is served for the reusing context." .
-
-<http://guava.iis.sinica.edu.tw/r4r>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://purl.org/dc/terms/contributor>
-                "Jason Guan-Shuo Mai" ;
-        <http://purl.org/dc/terms/creator>
-                "Tyng-Ruey Chuang" , "Andrea Wei-Ching Huang"^^<http://www.w3.org/2001/XMLSchema#Name> ;
-        <http://purl.org/dc/terms/description>
-                "R4R is a light-weight ontology for representing general relationships of resource for publication and reusing. It asserts that a certain reusing context occurred and determined by its two basic relations, namely, isPackagedWith and isCitedBy. The isPackagedWith relation declares the resource is ready to be reused by incorporating License and Provenance information. The Cites relation is an exceptional to isCitedBy which occurs only two related objects cite each other at the same time. Five resource objects including article, data, code, provenance and license are major class concepts to represent in this ontology. \n\nThe namespace for all R4R terms is http://guava.iis.sinica.edu.tw/r4r/" ;
-        <http://purl.org/dc/terms/title>
-                "Relations for Reusing (R4R) Ontology" ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "2015-05-12T14:05:12+08:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://guava.iis.sinica.edu.tw/r4r/inReusingContext>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/inReusingContext"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "inReusingContext" .
-
-<http://guava.iis.sinica.edu.tw/r4r/isCitedBy>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/iscitedby"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "isCitedBy" .
-
-<http://guava.iis.sinica.edu.tw/r4r/Provenance>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/provenance"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Provenance" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "metadata, metadata about metadata, or version information. Descriptive metadata can be represented as part of the Provenance." ;
-        <http://guava.iis.sinica.edu.tw/r4r/inReusingContext>
-                "http://www.w3.org/TR/prov-o/#Entity"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://guava.iis.sinica.edu.tw/r4r/Article>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/article"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Article" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "An object is presented mainly as textual form but not exclusively. It is not limited for representing research publications only, and may be presented in a variety of article formats such as: blog articles, encyclopedia articles (a primary division of encyclopedia content; Wikipedia entry pages), Usenet or web forum articles, even non-textual based resources like spoken articles (articles produced in the forms of video clips and audio recordings such as Vlogs/Video blogs, podcasts and audiobooks) are such cases." ;
-        <http://guava.iis.sinica.edu.tw/r4r/inReusingContext>
-                "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://guava.iis.sinica.edu.tw/r4r/locateAt>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://www.w3.org/TR/rdf-schema/#ch_resource" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "locateAt" ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2000/01/rdf-schema#Resource> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.w3.org/2002/07/owl#topObjectProperty> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "It is used to relate a machine-readable representation of the RRObject's identification, such as DOI, URI, URL, etc. It is used as the basic relation description for resource publication and reusing. A complete R4R resource representation (RRObject isPackagedWith RRPolicy) shares the same property, r4r:locateAt with RRObject." .
-
-<http://guava.iis.sinica.edu.tw/r4r/Data>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://guava.iis.sinica.edu.tw/r4r/data"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Data" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://guava.iis.sinica.edu.tw/r4r/RRObject> ;
-        <http://guava.iis.sinica.edu.tw/r4r/Definition>
-                "Data is presented in a structure form such as dataset, algorithms, models, metadata schema or ontologies. There are other forms of data, for instance, tables, figures or nanopublication. Other text based supplement materials like review, comments, and feedbacks are also included." ;
-        <http://guava.iis.sinica.edu.tw/r4r/inReusingContext>
-                "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://www.w3.org/ns/dcat#Dataset>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "dcat:Dataset" ;
-        <http://guava.iis.sinica.edu.tw/r4r/inReusingContext>
-                "http://guava.iis.sinica.edu.tw/r4r/code"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://guava.iis.sinica.edu.tw/r4r/article"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://guava.iis.sinica.edu.tw/r4r/data"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://www.w3.org/TR/owl-time/#Temporal>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
-                "http://www.w3.org/2006/time#"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "time:Temporal" .
-
-<http://guava.iis.sinica.edu.tw/r4r/Definition>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/cites> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/cites"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/hasProvenance> <http://guava.iis.sinica.edu.tw/r4r/Definition> "It is used for relating subclass of RRObject to its provenance information when RRPolicy is not ready to use. It is used as the basic relation description for resource publication." .
+<http://guava.iis.sinica.edu.tw/r4r/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/RRPolicy> <http://guava.iis.sinica.edu.tw/r4r/Definition> "Any mechanism designed for relating to RRObject for reusing purposes is defined as a Reusing Related Policy (RRPolicy). RRPolicy is free to be extended for more issues such as security and trust for its subclasses concepts." .
+<http://guava.iis.sinica.edu.tw/r4r/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/hasTime> <http://guava.iis.sinica.edu.tw/r4r/Definition> "It describes the creation time of the RRObject. It is used as the basic relation description for resource publication and reusing. A complete R4R resource representation (RRObject isPackagedWith RRPolicy) shares the same property, r4r:locateAt with RRObject." .
+<http://guava.iis.sinica.edu.tw/r4r/hasTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/Provenance> .
+<http://www.w3.org/2000/01/rdf-schema#Resource> <http://www.w3.org/2000/01/rdf-schema#label> "rdfs:Resource" .
+<http://guava.iis.sinica.edu.tw/r4r/Code> <http://guava.iis.sinica.edu.tw/r4r/Definition> "Any collection of computer instructions is written in human-readable computer language, and served for programming and executing the Data of RRObject." .
+<http://guava.iis.sinica.edu.tw/r4r/isPartOf> <http://guava.iis.sinica.edu.tw/r4r/Definition> "It describes partial relationships with temporal and spatial constraints, and carries with it some characteristics such as being transitive. A isPartOf B only if A and B share the same time and location. Data can be part of data; code can be part of code or data; data like keywords or sentences can also be described as part of the Article; metadata can be part of provenance as long as two objects carry partial and transitive relations." .
+<http://guava.iis.sinica.edu.tw/r4r/License> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> .
+<http://guava.iis.sinica.edu.tw/r4r/hasLicense> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+<http://guava.iis.sinica.edu.tw/r4r/Code> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+_:Bf55a9f4bX2D5d87X2D4665X2D9128X2Dba33f01462d5 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> <http://guava.iis.sinica.edu.tw/r4r/Definition> "It is used for relating RRObject and RRPolicy for accomplishing a particular component, RRPolicy. This relation is served for the reusing context." .
+<http://guava.iis.sinica.edu.tw/r4r> <http://www.w3.org/2002/07/owl#versionInfo> "2015-05-12T14:05:12+08:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://guava.iis.sinica.edu.tw/r4r/License> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/license"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/RRPolicy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/rrpolicy"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/inReusingContext> <http://www.w3.org/2000/01/rdf-schema#label> "inReusingContext" .
+<http://guava.iis.sinica.edu.tw/r4r/RRObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/isCitedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isCitedBy" .
+<http://guava.iis.sinica.edu.tw/r4r/RRPolicy> <http://www.w3.org/2002/07/owl#equivalentClass> _:Bf8a91f99X2D71c9X2D45b0X2Db1a5X2D7d8b356065d8 .
+<http://www.w3.org/2000/01/rdf-schema#Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/isPartOf> <http://www.w3.org/2000/01/rdf-schema#label> "isPartOf" .
+<http://guava.iis.sinica.edu.tw/r4r/Provenance> <http://guava.iis.sinica.edu.tw/r4r/Definition> "metadata, metadata about metadata, or version information. Descriptive metadata can be represented as part of the Provenance." .
+<http://guava.iis.sinica.edu.tw/r4r/hasLicense> <http://www.w3.org/2000/01/rdf-schema#label> "hasLicense" .
+<http://guava.iis.sinica.edu.tw/r4r/Article> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/Article> .
+<http://guava.iis.sinica.edu.tw/r4r/Code> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/code"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/ispackagedwith"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/locateAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B6e78e5f4X2D3bd0X2D413aX2Db6b9X2Dc3c11a41992e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> <http://www.w3.org/2000/01/rdf-schema#range> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+<http://guava.iis.sinica.edu.tw/r4r/locateAt> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/RRPolicy> <http://www.w3.org/2000/01/rdf-schema#label> "RRPolicy" .
+<http://guava.iis.sinica.edu.tw/r4r/cites> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+<http://guava.iis.sinica.edu.tw/r4r/hasProvenance> <http://www.w3.org/2000/01/rdf-schema#range> <http://guava.iis.sinica.edu.tw/r4r/Provenance> .
+<http://guava.iis.sinica.edu.tw/r4r/hasTime> <http://www.w3.org/2000/01/rdf-schema#label> "hasTime" .
+<http://guava.iis.sinica.edu.tw/r4r/Article> <http://www.w3.org/2000/01/rdf-schema#label> "Article" .
+<http://guava.iis.sinica.edu.tw/r4r/inReusingContext> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/inReusingContext"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/locateAt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+<http://guava.iis.sinica.edu.tw/r4r/locateAt> <http://www.w3.org/2000/01/rdf-schema#label> "locateAt" .
+<http://guava.iis.sinica.edu.tw/r4r/Provenance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/cites> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/locateAt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://guava.iis.sinica.edu.tw/r4r/License> <http://guava.iis.sinica.edu.tw/r4r/Definition> "The authorization of the use and reuse of the referred resource, as well as the document recording that authorization." .
+<http://guava.iis.sinica.edu.tw/r4r/isCitedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/iscitedby"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/RRObject> <http://www.w3.org/2002/07/owl#equivalentClass> _:B6e78e5f4X2D3bd0X2D413aX2Db6b9X2Dc3c11a41992e .
+<http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> .
+<http://guava.iis.sinica.edu.tw/r4r/Data> <http://www.w3.org/2000/01/rdf-schema#label> "Data" .
+<http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> <http://www.w3.org/2000/01/rdf-schema#label> "isPackagedWith" .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "prov:Entity" .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/Data> .
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/2000/01/rdf-schema#label> "dcat:Dataset" .
+<http://guava.iis.sinica.edu.tw/r4r> <http://purl.org/dc/terms/description> "R4R is a light-weight ontology for representing general relationships of resource for publication and reusing. It asserts that a certain reusing context occurred and determined by its two basic relations, namely, isPackagedWith and isCitedBy. The isPackagedWith relation declares the resource is ready to be reused by incorporating License and Provenance information. The Cites relation is an exceptional to isCitedBy which occurs only two related objects cite each other at the same time. Five resource objects including article, data, code, provenance and license are major class concepts to represent in this ontology. \n\nThe namespace for all R4R terms is http://guava.iis.sinica.edu.tw/r4r/" .
+<http://guava.iis.sinica.edu.tw/r4r/RRObject> <http://www.w3.org/2002/07/owl#disjointWith> <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> .
+<http://guava.iis.sinica.edu.tw/r4r/locateAt> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.w3.org/TR/rdf-schema/#ch_resource" .
+<http://guava.iis.sinica.edu.tw/r4r/locateAt> <http://guava.iis.sinica.edu.tw/r4r/Definition> "It is used to relate a machine-readable representation of the RRObject's identification, such as DOI, URI, URL, etc. It is used as the basic relation description for resource publication and reusing. A complete R4R resource representation (RRObject isPackagedWith RRPolicy) shares the same property, r4r:locateAt with RRObject." .
+<http://guava.iis.sinica.edu.tw/r4r/RRObject> <http://www.w3.org/2000/01/rdf-schema#label> "RRObject" .
+<http://www.w3.org/TR/owl-time/#Temporal> <http://www.w3.org/2000/01/rdf-schema#label> "time:Temporal" .
+<http://guava.iis.sinica.edu.tw/r4r/Code> <http://www.w3.org/2002/07/owl#equivalentClass> <http://guava.iis.sinica.edu.tw/r4r/Data> .
+<http://guava.iis.sinica.edu.tw/r4r/Provenance> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/provenance"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/hasLicense> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/dcat#Dataset> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://guava.iis.sinica.edu.tw/r4r/code"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/hasProvenance> <http://www.w3.org/2000/01/rdf-schema#label> "hasProvenance" .
+<http://www.w3.org/TR/owl-time/#Temporal> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.w3.org/2006/time#"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/Data> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+<http://guava.iis.sinica.edu.tw/r4r/RRPolicy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/cites> <http://www.w3.org/2002/07/owl#propertyDisjointWith> <http://guava.iis.sinica.edu.tw/r4r/isCitedBy> .
+<http://guava.iis.sinica.edu.tw/r4r/hasTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+_:Bf8a91f99X2D71c9X2D45b0X2Db1a5X2D7d8b356065d8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.w3.org/TR/prov-o/#Entity"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/Provenance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://guava.iis.sinica.edu.tw/r4r/RRPolicy> .
+<http://guava.iis.sinica.edu.tw/r4r/Article> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/hasTime> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/hastime\n"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/hasTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/TR/owl-time/#Temporal> .
+<http://guava.iis.sinica.edu.tw/r4r/isCitedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/Code> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/hasProvenance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+<http://www.w3.org/ns/dcat#Dataset> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://guava.iis.sinica.edu.tw/r4r/article"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/isPartOf> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/ispartof"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/hasLicense> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/haslicense"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:Bf8a91f99X2D71c9X2D45b0X2Db1a5X2D7d8b356065d8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .
+_:B6e78e5f4X2D3bd0X2D413aX2Db6b9X2Dc3c11a41992e <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/TR/owl-time/#Temporal> .
+_:Bf8a91f99X2D71c9X2D45b0X2Db1a5X2D7d8b356065d8 <http://www.w3.org/2002/07/owl#onProperty> <http://guava.iis.sinica.edu.tw/r4r/isPackagedWith> .
+<http://guava.iis.sinica.edu.tw/r4r> <http://purl.org/dc/terms/contributor> "Jason Guan-Shuo Mai" .
+<http://guava.iis.sinica.edu.tw/r4r/Code> <http://www.w3.org/2000/01/rdf-schema#label> "Code" .
+<http://guava.iis.sinica.edu.tw/r4r/Provenance> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://www.w3.org/TR/prov-o/#Entity"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://guava.iis.sinica.edu.tw/r4r/Article> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/ns/prov#Entity> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://guava.iis.sinica.edu.tw/r4r/provenance"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:Bf55a9f4bX2D5d87X2D4665X2D9128X2Dba33f01462d5 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://guava.iis.sinica.edu.tw/r4r/Definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/RRObject> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/rrobject"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/2000/01/rdf-schema#Resource> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.w3.org/TR/rdf-schema/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/Code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r> <http://purl.org/dc/terms/creator> "Tyng-Ruey Chuang" .
+<http://guava.iis.sinica.edu.tw/r4r> <http://purl.org/dc/terms/title> "Relations for Reusing (R4R) Ontology" .
+<http://guava.iis.sinica.edu.tw/r4r/Article> <http://guava.iis.sinica.edu.tw/r4r/Definition> "An object is presented mainly as textual form but not exclusively. It is not limited for representing research publications only, and may be presented in a variety of article formats such as: blog articles, encyclopedia articles (a primary division of encyclopedia content; Wikipedia entry pages), Usenet or web forum articles, even non-textual based resources like spoken articles (articles produced in the forms of video clips and audio recordings such as Vlogs/Video blogs, podcasts and audiobooks) are such cases." .
+<http://guava.iis.sinica.edu.tw/r4r/RRObject> <http://guava.iis.sinica.edu.tw/r4r/Definition> "Any resource served as a component for publication and reusing is defined as a Reusing Related Object (RRObject). It can be a knowledge unit for research purposes, or any resource that has relations similar to the relations between article, data and code." .
+<http://guava.iis.sinica.edu.tw/r4r> <http://purl.org/dc/terms/creator> "Andrea Wei-Ching Huang"^^<http://www.w3.org/2001/XMLSchema#Name> .
+_:Bf55a9f4bX2D5d87X2D4665X2D9128X2Dba33f01462d5 <http://www.w3.org/2002/07/owl#onProperty> <http://guava.iis.sinica.edu.tw/r4r/locateAt> .
+<http://guava.iis.sinica.edu.tw/r4r/cites> <http://guava.iis.sinica.edu.tw/r4r/Definition> "Any resource (A) is referenced by any other resource (B) only when the publication time of A is equal to B. .cites. is used to describe this relation. When it is used as the basic relation description for resource publication, r4r:Cites can be used to describe relations between article, data, or code of RRObject. When it is used for reusing context, r4r:Cites relates any resource that reuses RRObject for citation, and the reusing context is enriched by the packaging of RRPolicy." .
+<http://guava.iis.sinica.edu.tw/r4r/Provenance> <http://www.w3.org/2000/01/rdf-schema#label> "Provenance" .
+<http://guava.iis.sinica.edu.tw/r4r/hasProvenance> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/hasprovenance"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/Data> <http://guava.iis.sinica.edu.tw/r4r/Definition> "Data is presented in a structure form such as dataset, algorithms, models, metadata schema or ontologies. There are other forms of data, for instance, tables, figures or nanopublication. Other text based supplement materials like review, comments, and feedbacks are also included." .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/Code> .
+<http://guava.iis.sinica.edu.tw/r4r/cites> <http://www.w3.org/2000/01/rdf-schema#label> "cites" .
+_:B6e78e5f4X2D3bd0X2D413aX2Db6b9X2Dc3c11a41992e <http://www.w3.org/2002/07/owl#onProperty> <http://guava.iis.sinica.edu.tw/r4r/hasTime> .
+<http://guava.iis.sinica.edu.tw/r4r/Data> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/data"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/License> <http://www.w3.org/2000/01/rdf-schema#label> "License" .
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:Bf55a9f4bX2D5d87X2D4665X2D9128X2Dba33f01462d5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://guava.iis.sinica.edu.tw/r4r/License> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/Data> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/TR/owl-time/#Temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://guava.iis.sinica.edu.tw/r4r/RRObject> <http://www.w3.org/2002/07/owl#equivalentClass> _:Bf55a9f4bX2D5d87X2D4665X2D9128X2Dba33f01462d5 .
+<http://guava.iis.sinica.edu.tw/r4r/hasProvenance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/hasLicense> <http://guava.iis.sinica.edu.tw/r4r/Definition> "It declares the use of license information for RRObject and its subclass when RRPolicy is not ready to use. It is used as the basic relation description for resource publication." .
+<http://guava.iis.sinica.edu.tw/r4r/Article> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://guava.iis.sinica.edu.tw/r4r/article"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/Data> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://www.w3.org/TR/vocab-dcat/#class-dataset"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/ns/dcat#Dataset> <http://guava.iis.sinica.edu.tw/r4r/inReusingContext> "http://guava.iis.sinica.edu.tw/r4r/data"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://guava.iis.sinica.edu.tw/r4r/hasLicense> <http://www.w3.org/2000/01/rdf-schema#range> <http://guava.iis.sinica.edu.tw/r4r/License> .
+_:B6e78e5f4X2D3bd0X2D413aX2Db6b9X2Dc3c11a41992e <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://guava.iis.sinica.edu.tw/r4r/inReusingContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://guava.iis.sinica.edu.tw/r4r/isCitedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://guava.iis.sinica.edu.tw/r4r/RRObject> .

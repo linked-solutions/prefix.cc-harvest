@@ -1,297 +1,154 @@
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasURL>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A unique resource locator associated to an abstract web location in terms of the URL standard." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The time at which a situation take place." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A resource that is published and available on the web." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#InformationRealization> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cp/owl/intensionextension.owl#InformationObject> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#realizes>
-                ] .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The Identity of Resources and Entity (IRE) ontology. This ontology represents the relation between the web resources and their content by means of the ProxyFor relation. Furthermore, it includes the concepts of Fragment of a web resource, SemanticWebResource, anchor, and Identifier. IRE is a semantic web contribution to the management of the identification of entities on the web. It distinguishes between a resource which is available on the web, its content, and the entity which is about. Moreover, IRE is built by composing and specializing reusable content ontology design patterns." ;
-        <http://www.w3.org/2002/07/owl#imports>
-                <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl> , <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> , <http://www.ontologydesignpatterns.org/cp/owl/intensionextension.owl> , <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl> , <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl> , <http://www.ontologydesignpatterns.org/cp/owl/componency.owl> , <http://www.ontologydesignpatterns.org/cp/owl/informationobjectsandrepresentationlanguages.owl> ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "Created by Valentina Presutti" .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#ExactProxyFor>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A proxy for relation involving a web resource that is about one and only one entity at a certain time. Such a web resource can only be a semantic web resource." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#SemanticWebResource> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource>
-                ] .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#SemanticWebResource>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A web resource that relizes an information encoded with a formal language e.g., the foaf file of a person." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cp/owl/informationobjectsandrepresentationlanguages.owl#FormalExpression> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#realizes>
-                ] .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A relation between a web resource and the abstract web location/s is is assigned to at a certain time." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation>
-                ] .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A web resource invlved in a situation." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The abstract web location assigned at a web resource in a web location of situation." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A relation between a web resource and the entity/ies it is about at a certain time." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource>
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> ;
-                  <http://www.w3.org/2002/07/owl#someValuesFrom>
-                          <http://www.w3.org/2002/07/owl#Thing>
-                ] .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#ApproximateProxyFor>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A proxy for relation involving a web resource which is about more than one entity at a certain time." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#minCardinality>
-                          "2"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity>
-                ] .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasAnchor>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A property of a fragment that associate it with a URI e.g., In a HTML web page, the fragment is an <a> tag, and the value is the URL of the link that can be navigated by that fragment." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The entity involved in a situation." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#entityHasSetting>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A piece of a web resource e.g., a piece of text in a web page, a picture, etc. A fragment is not a web page." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#allValuesFrom>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cp/owl/componency.owl#isComponentOf>
-                ] ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebPage> .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "All possible locations of the combinatorial space identified by the world wide web." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "abstract web location"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Restriction> ;
-                  <http://www.w3.org/2002/07/owl#cardinality>
-                          "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
-                  <http://www.w3.org/2002/07/owl#onProperty>
-                          <http://www.ontologydesignpatterns.org/cpont/ire.owl#hasURL>
-                ] .
-
-<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebPage>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A web page e.g., a personal home page, a Wikipedia article." ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> .
+_:Be82a1795X2D9863X2D4e07X2D9d50X2Dda54d84551f9 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> .
+_:B299c51b9X2De27dX2D432dX2Db459X2D043845887335 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> .
+_:B23dcee30X2D0735X2D41ccX2D92ecX2Dd4d7dfb87062 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cp/owl/componency.owl#isComponentOf> .
+_:Bb513d3faX2Ddd23X2D4c3dX2D87f6X2D3efa913050f1 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasURL> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbc52d182X2D6e9eX2D4963X2Dbdd9X2Da1ce1cea02bb .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> <http://www.w3.org/2000/01/rdf-schema#comment> "The time at which a situation take place." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Be82a1795X2D9863X2D4e07X2D9d50X2Dda54d84551f9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl> .
+_:B7071c662X2D761dX2D4c94X2D8709X2Dac266fadc534 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#SemanticWebResource> <http://www.w3.org/2000/01/rdf-schema#comment> "A web resource that relizes an information encoded with a formal language e.g., the foaf file of a person." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A relation between a web resource and the abstract web location/s is is assigned to at a certain time." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#SemanticWebResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B51d91294X2Dd384X2D4392X2D9eb1X2Dbcc2e60e3db6 .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+_:B2b8636b2X2Dcf20X2D44d9X2D8cf4X2De751bd2a4cfe <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> .
+_:B6296b224X2DecbaX2D404cX2D80baX2D9777ad863cb9 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#realizes> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bdc8a7510X2DfdfeX2D4821X2D9558X2D397f817af41a .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+_:B82866d17X2D64a4X2D49d8X2Db04dX2Dcd7a25a17411 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cpont/ire.owl#SemanticWebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.ontologydesignpatterns.org/cp/owl/intensionextension.owl> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ExactProxyFor> <http://www.w3.org/2000/01/rdf-schema#comment> "A proxy for relation involving a web resource that is about one and only one entity at a certain time. Such a web resource can only be a semantic web resource." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasURL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B15891e47X2D81adX2D45c2X2D8030X2D4d2fbfbe0467 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ExactProxyFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ApproximateProxyFor> <http://www.w3.org/2000/01/rdf-schema#comment> "A proxy for relation involving a web resource which is about more than one entity at a certain time." .
+_:B23dcee30X2D0735X2D41ccX2D92ecX2Dd4d7dfb87062 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> <http://www.w3.org/2000/01/rdf-schema#comment> "A relation between a web resource and the entity/ies it is about at a certain time." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ApproximateProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> .
+_:B660338d1X2Dbf2bX2D43c5X2D8a1eX2Dd8f384559332 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasAnchor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#entityHasSetting> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B660338d1X2Dbf2bX2D43c5X2D8a1eX2Dd8f384559332 .
+_:Bbe9a68efX2D07bbX2D4f08X2D8445X2D73a545dd2269 <http://www.w3.org/2002/07/owl#minCardinality> "2"^^<http://www.w3.org/2001/XMLSchema#int> .
+_:Be7d6c7e7X2D2f0cX2D4a86X2Da780X2Dcc27c77cf7b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> .
+_:Be82a1795X2D9863X2D4e07X2D9d50X2Dda54d84551f9 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ExactProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B7071c662X2D761dX2D4c94X2D8709X2Dac266fadc534 .
+_:Bbc52d182X2D6e9eX2D4963X2Dbdd9X2Da1ce1cea02bb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> .
+_:Bbe9a68efX2D07bbX2D4f08X2D8445X2D73a545dd2269 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> .
+_:B51d91294X2Dd384X2D4392X2D9eb1X2Dbcc2e60e3db6 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#realizes> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#entityHasSetting> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2000/01/rdf-schema#comment> "The Identity of Resources and Entity (IRE) ontology. This ontology represents the relation between the web resources and their content by means of the ProxyFor relation. Furthermore, it includes the concepts of Fragment of a web resource, SemanticWebResource, anchor, and Identifier. IRE is a semantic web contribution to the management of the identification of entities on the web. It distinguishes between a resource which is available on the web, its content, and the entity which is about. Moreover, IRE is built by composing and specializing reusable content ontology design patterns." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#versionInfo> "Created by Valentina Presutti" .
+_:Be7d6c7e7X2D2f0cX2D4a86X2Da780X2Dcc27c77cf7b4 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B299c51b9X2De27dX2D432dX2Db459X2D043845887335 .
+_:B6530a58aX2Dd7ebX2D43a7X2D9ce5X2D3bab4b187d2d <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasAnchor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B660338d1X2Dbf2bX2D43c5X2D8a1eX2Dd8f384559332 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebPage> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "The abstract web location assigned at a web resource in a web location of situation." .
+_:Bbc52d182X2D6e9eX2D4963X2Dbdd9X2Da1ce1cea02bb <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2002/07/owl#Thing> .
+_:Bdc8a7510X2DfdfeX2D4821X2D9558X2D397f817af41a <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebPage> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#SemanticWebResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B2b8636b2X2Dcf20X2D44d9X2D8cf4X2De751bd2a4cfe <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#SemanticWebResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> <http://www.w3.org/2000/01/rdf-schema#comment> "A resource that is published and available on the web." .
+_:B299c51b9X2De27dX2D432dX2Db459X2D043845887335 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasAnchor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+_:B7071c662X2D761dX2D4c94X2D8709X2Dac266fadc534 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#int> .
+_:B7071c662X2D761dX2D4c94X2D8709X2Dac266fadc534 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasAnchor> <http://www.w3.org/2000/01/rdf-schema#comment> "A property of a fragment that associate it with a URI e.g., In a HTML web page, the fragment is an <a> tag, and the value is the URL of the link that can be navigated by that fragment." .
+_:B6296b224X2DecbaX2D404cX2D80baX2D9777ad863cb9 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cp/owl/intensionextension.owl#InformationObject> .
+_:B23dcee30X2D0735X2D41ccX2D92ecX2Dd4d7dfb87062 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "All possible locations of the combinatorial space identified by the world wide web." .
+_:B82866d17X2D64a4X2D49d8X2Db04dX2Dcd7a25a17411 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ExactProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> .
+_:Bb513d3faX2Ddd23X2D4c3dX2D87f6X2D3efa913050f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasURL> <http://www.w3.org/2000/01/rdf-schema#comment> "A unique resource locator associated to an abstract web location in terms of the URL standard." .
+_:Bdc8a7510X2DfdfeX2D4821X2D9558X2D397f817af41a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6296b224X2DecbaX2D404cX2D80baX2D9777ad863cb9 .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#entityHasSetting> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ApproximateProxyFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bb513d3faX2Ddd23X2D4c3dX2D87f6X2D3efa913050f1 .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> <http://www.w3.org/2000/01/rdf-schema#label> "abstract web location"@en .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6530a58aX2Dd7ebX2D43a7X2D9ce5X2D3bab4b187d2d .
+_:B51d91294X2Dd384X2D4392X2D9eb1X2Dbcc2e60e3db6 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cp/owl/informationobjectsandrepresentationlanguages.owl#FormalExpression> .
+_:B2b8636b2X2Dcf20X2D44d9X2D8cf4X2De751bd2a4cfe <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> .
+_:B15891e47X2D81adX2D45c2X2D8030X2D4d2fbfbe0467 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#hasURL> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> .
+_:B15891e47X2D81adX2D45c2X2D8030X2D4d2fbfbe0467 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:B51d91294X2Dd384X2D4392X2D9eb1X2Dbcc2e60e3db6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "The entity involved in a situation." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B23dcee30X2D0735X2D41ccX2D92ecX2Dd4d7dfb87062 .
+_:B82866d17X2D64a4X2D49d8X2Db04dX2Dcd7a25a17411 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#locationHasSetting> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasAnchor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#timeHasSetting> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B2b8636b2X2Dcf20X2D44d9X2D8cf4X2De751bd2a4cfe .
+_:Bb513d3faX2Ddd23X2D4c3dX2D87f6X2D3efa913050f1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForLocation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebPage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#entityHasSetting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bbc52d182X2D6e9eX2D4963X2Dbdd9X2Da1ce1cea02bb <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> .
+_:B6530a58aX2Dd7ebX2D43a7X2D9ce5X2D3bab4b187d2d <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebPage> <http://www.w3.org/2000/01/rdf-schema#comment> "A web page e.g., a personal home page, a Wikipedia article." .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl> .
+_:Bbe9a68efX2D07bbX2D4f08X2D8445X2D73a545dd2269 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ApproximateProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Bbe9a68efX2D07bbX2D4f08X2D8445X2D73a545dd2269 .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.ontologydesignpatterns.org/cp/owl/componency.owl> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> <http://www.w3.org/2000/01/rdf-schema#comment> "A web resource invlved in a situation." .
+_:Be7d6c7e7X2D2f0cX2D4a86X2Da780X2Dcc27c77cf7b4 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.ontologydesignpatterns.org/cp/owl/informationobjectsandrepresentationlanguages.owl> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#ExactProxyFor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B82866d17X2D64a4X2D49d8X2Db04dX2Dcd7a25a17411 .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.ontologydesignpatterns.org/cp/owl/informationrealization.owl#InformationRealization> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B299c51b9X2De27dX2D432dX2Db459X2D043845887335 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#Fragment> <http://www.w3.org/2000/01/rdf-schema#comment> "A piece of a web resource e.g., a piece of text in a web page, a picture, etc. A fragment is not a web page." .
+_:B660338d1X2Dbf2bX2D43c5X2D8a1eX2Dd8f384559332 <http://www.w3.org/2002/07/owl#allValuesFrom> <http://www.ontologydesignpatterns.org/cpont/ire.owl#WebResource> .
+_:B6296b224X2DecbaX2D404cX2D80baX2D9777ad863cb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Be82a1795X2D9863X2D4e07X2D9d50X2Dda54d84551f9 .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#webResourceHasSetting> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cpont/ire.owl#isSettingForWebResource> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#AbstractWebLocation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B15891e47X2D81adX2D45c2X2D8030X2D4d2fbfbe0467 .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#WebLocationOf> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:Be7d6c7e7X2D2f0cX2D4a86X2Da780X2Dcc27c77cf7b4 .
+_:B6530a58aX2Dd7ebX2D43a7X2D9ce5X2D3bab4b187d2d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:Bdc8a7510X2DfdfeX2D4821X2D9558X2D397f817af41a <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/cpont/ire.owl#atTime> .
+<http://www.ontologydesignpatterns.org/cpont/ire.owl#hasURL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .

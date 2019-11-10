@@ -1,700 +1,611 @@
-<http://models.okkam.org/ENS-core-vocabulary.owl#codice_fiscale>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a unique code to identify the person. Generated from first name, last name, birth date and birth place" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "codice_fiscale" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#toponym>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is a toponym for a given street or road" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "toponym" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#place> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#AnnotationProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The creation date of an artifact instance (e.g. the year of production of my Opel Zafira)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "data di creazione"@it , "creation date"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#date> , <http://www.w3.org/2001/XMLSchema#gYear> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#organization>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The class of organizations, including companies, institutes, governamental bodies, committees, and so on." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "organizzazione"@it , "organization"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#other> , <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#authoritative_resolver>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#last_name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A person's last name (or surname)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "family name"@en , "cognome"@it , "surname"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#other>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The class of things which do not fall under any other predefined class of OKKAM entities" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "altro"@it , "other"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#province>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#IrreflexiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The location where a person, real state, a city .. is found" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "province di partezipatene"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#numero_civico>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "numero_civico" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#location_name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A location name" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "nome del luogo"@it , "location name"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#abbreviation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The short name (e.g. acronym) of an OKKAM entity" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "abbreviation"@en , "nome abbreviato"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The class of concrete artifacts, like the London Bridge, my own Opel Zafira , my copy of the Othello, my installation of MS Word, etc.. Not to be confused with the class of artifacts-type, like Opel Zafira, Shakespeare's Othello, MS Word." ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "artifact"@en , "artefatto"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#other> , <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> , <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#event_type>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The type of an event (e.g. conference, acquisition, meeting, party, etc.)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#event> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "event type"@en , "tipo di evento"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A person's birthdate or the year of a person's birthdate" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "birthdate"@en , "data di nascita"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#gYear> , <http://www.w3.org/2001/XMLSchema#date> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#address>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "this is the specic address of buildings in a toponym" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "address" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#place> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#foglio>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "foglio" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#employer>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The employer of a person" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "employer"@en , "datore di lavoro"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#longitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The longitude of a location" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "longitudine"@it , "longitude"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#codeFisco>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "this is the last part of codice fiscale that indicates the birthplace of the person" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "codeFisco" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#start_date>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The starting date of an event or the date when an artifact type was invented, written or the production of its instances started"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#genid100> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "data di inizio"@it , "starting date"@en , "data di produzione"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#date> , <http://www.w3.org/2001/XMLSchema#gYear> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#created_by>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The person or organization which produces/produced, creates/created the type or an instance of an artifact." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "created by"@en , "creato da"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#event>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The class of event, including natural events (hurricane, earthquake, etc.), social events (conference, meeting, wedding, etc.), economical events (closing deals, signing agreements, merging and acquisitions, etc.)" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "event"@en , "evento"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#other> , <http://models.okkam.org/ENS-core-vocabulary.owl#location> , <http://models.okkam.org/ENS-core-vocabulary.owl#organization> , <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#city>
-        a       <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#IrreflexiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The city where an organization is based, in which some other location is included, where an event takes place, or the city which is considered the point of contact of an artifact instance or an artifact type or of an entity in the class OTHER" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "City"@en , "Citta"@it , "Cité"@fr ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#category>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The category of an artifact type or instance (e.g. car, book, building, treatise, etc.) or the category of any entity which is a member of the class OTHER" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#other> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "category, type"@en , "categoria, tipo"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of an artifact type or artifact instance" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "nome dell'artefatto"@it , "artifact name"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#postal_code>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The city where a person is resident" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "city of residence"@en , "citta di residenza"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#denominatore>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "denominatore" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#street_address>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The address of the point of contact of an OKKAM entity"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "indirizzo"@it , "address"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#social_being>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "Each instance of SocialBeing is an intelligent agent whose status as an agent is acknowledged within some social system, and who is capable of playing certain social roles within that system."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "agent, social being"@en , "agente, ente sociale"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#other> )
-                ] .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#organized_by>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#event> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#activity_sector>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The sector or industry where an organization is active" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "activity sector"@en , "settore di attivita"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#picture_URL>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The web address (URL) of an entity's picture" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "picture URL"@en , "URL della foto"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#anyURI> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#tipo_particella>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "tipo_particella"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#occupation>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The job occupation of a person (e.g. teacher, pilot, actor, politician, etc.)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "occupation"@en , "occupazione"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#regione>
-        a       <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#IrreflexiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "province di partizepatetane"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#end_date>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#AnnotationProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The ending date of an event or the date when an artifact type disappeared or the production of its instances ceased"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#genid84> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ending date"@en , "data di fine produzione"@it , "data di chiusura"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#date> , <http://www.w3.org/2001/XMLSchema#gYear> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#first_name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The first (or given) name of a person" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "nome proprio"@it , "first name"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The types (or models) of an artifact which are used to produce an arbitrary number of copies (artifact instances). Examples are: Opel Zafira 2.0 DTI version 1, MS Word 2007, the Othello by Shakespeare. Notice that the class of bridges is not the artifact_type of the London Bridge, as the concept of bridge is not the model from which copies are produced. Works of arts that can be reproduced in copies are membes of this class" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "artifact type"@en , "tipo di artefatto"@it ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> , <http://models.okkam.org/ENS-core-vocabulary.owl#event> , <http://models.okkam.org/ENS-core-vocabulary.owl#other> , <http://models.okkam.org/ENS-core-vocabulary.owl#organization> , <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#place>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#latitude>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The latitude of a location" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "latitude"@en , "latitudine"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#float> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#AnnotationProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The date when an organization was founded" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#organization> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "foundation date"@en , "data di fondazione"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#gYear> , <http://www.w3.org/2001/XMLSchema#date> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#AnnotationProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The date of death of a person"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "date of death"@en , "data di morte"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#gYear> , <http://www.w3.org/2001/XMLSchema#date> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#location>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The class of geographical and physical locations. Examples: London, Canada, Africa, S. Peter square" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "location"@en , "luogo"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#place> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> , <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The property which hold between an artifact instance and an artifact type; for example John's car is instance_of Zafira 2.0 DTI version 1" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "copia, esemplare"@it , "instance, copy, token"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#person>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The class of persons" ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "persona"@it , "person"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#middle_name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The middle name of a perosn (if available)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "middle name"@en , "secondo nome"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of the entity"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "nome"@it , "name"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#denominazione>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "denominazione" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl>
-        a       <http://www.w3.org/2002/07/owl#Ontology> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#codice_strada>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "this is an entity representing streets as an address" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#address> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "codice_strada" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name>
-        a       <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The legal name of an organization (e.g. \"International Business Machines\" for IBM)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#organization> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "organization legal name"@en , "ragione sociale"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#toponimo>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "toponimo" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#istat_code>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#country>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The country where an organization is located or where an event takes place, in which another location is included or the city which is considered the point of contact of an artifact instance or an artifact type or of an entity in the class OTHER." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "paese"@it , "country"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#comune>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "comune of the toponym" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#IrreflexiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The country in which a person is resident" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "country of residence"@en , "paese di residenza"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#numeratore>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "numeratore" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#forma_giuridica>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "this is the type of the organization such us SOCIETA' IN ACCOMANDITA SEMPLICE or INDIVIDUALE ...." ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#organization> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "forma_giuridica" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> , <http://www.w3.org/2002/07/owl#IrreflexiveProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The person or organization who invented the artifact type" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "ideato da, inventato da"@it , "invented by"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by>
-        a       <http://www.w3.org/2002/07/owl#IrreflexiveProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> , <http://www.w3.org/2002/07/owl#AsymmetricProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The person or organization who founded the organization" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#organization> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "fondato da"@it , "founded by"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> )
-                ] .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#sublaterno>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "sublaterno" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#comune_catastale>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "comune_catastale" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#gender>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> , <http://www.w3.org/2002/07/owl#FunctionalProperty> , <http://www.w3.org/2002/07/owl#AnnotationProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A person's gender" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#person> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "sesso"@it , "gender"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#genid59> .
-
-<http://www.w3.org/2002/07/owl#Thing>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#event_name>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The name of an event (e.g. First World War, the 6th European Semantic Web conference, G8 summit)" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#event> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "event name"@en , "nome dell'evento"@it ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#partita_iva>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This is the Vat number of the company" ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#organization> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "partita_iva" .
-
-<http://models.okkam.org/ENS-core-vocabulary.owl#birthplace>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
-
-[ a       <http://www.w3.org/2002/07/owl#Datatype> ] .
+_:B76e04bb3X2Ddf13X2D47acX2D9a73X2D640650ef7c9a <http://www.w3.org/2002/07/owl#unionOf> _:B95dc000fX2D3a23X2D4cebX2Da7a0X2Df2188b6f85a3 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_fiscale> <http://www.w3.org/2000/01/rdf-schema#label> "codice_fiscale" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponym> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B8bc2ec2fX2Dc8fbX2D4018X2Db91dX2Dbb9673cc8268 <http://www.w3.org/2002/07/owl#unionOf> _:B3664604cX2Db19fX2D49f6X2D9f1cX2De592d7f0bd2b .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#authoritative_resolver> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+_:B020a008eX2D1ec0X2D4e21X2Da25dX2Dfba26c9bfecb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Datatype> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#last_name> <http://www.w3.org/2000/01/rdf-schema#label> "family name"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://www.w3.org/2000/01/rdf-schema#label> "altro"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/2000/01/rdf-schema#range> _:B06c6f0fcX2Dc2cfX2D44bdX2D880eX2Daa7a676debd8 .
+_:B47acaaf9X2D4d70X2D4cadX2D8ec2X2Da4d53b9ffb4f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb42f60efX2Da8f2X2D4c10X2Db9f2X2D88a799ca1ed3 .
+_:Baceba80fX2Da86bX2D4d78X2D8e2eX2Dcbf97beab4f2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B652a781eX2D1f27X2D4427X2D982aX2D8f2302623bac .
+_:B8ed2a420X2Dc225X2D476dX2D87ceX2Dda6bb8733b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#province> <http://www.w3.org/2000/01/rdf-schema#label> "province di partezipatene"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#numero_civico> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location_name> <http://www.w3.org/2000/01/rdf-schema#label> "nome del luogo"@it .
+_:B652a781eX2D1f27X2D4427X2D982aX2D8f2302623bac <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/2000/01/rdf-schema#label> "data di creazione"@it .
+_:Baec54aeeX2D3ed2X2D4a96X2Daef8X2D8b8184e909f6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#abbreviation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Ba2fe9219X2D0742X2D45c9X2Dbee1X2D6b8c60fe71b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/2000/01/rdf-schema#label> "artifact"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#gYear> .
+_:Ba172aa4dX2Da3f7X2D4b9eX2D882fX2D149abedde595 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+_:B131e3a9fX2Dd74aX2D4f97X2Db52bX2Dc48c0318744b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf26f3846X2D652eX2D4fcbX2D9de7X2D6784dc23b236 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#address> <http://www.w3.org/2000/01/rdf-schema#comment> "this is the specic address of buildings in a toponym" .
+_:B203db1c6X2D09e8X2D4fa8X2D8646X2D84606ab3c5af <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B6d3005f6X2D53abX2D4ad1X2D9b7aX2Dfa475956aeef .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:Bae38be01X2D07c7X2D41daX2D953dX2D15cc8684cf1d <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:B0adb9957X2D0e66X2D43abX2D9b81X2D85649fdd926d <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foglio> <http://www.w3.org/2000/01/rdf-schema#label> "foglio" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#employer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#label> "longitudine"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codeFisco> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/2000/01/rdf-schema#comment> "The person or organization which produces/produced, creates/created the type or an instance of an artifact." .
+<http://models.okkam.org/ENS-core-vocabulary.owl#category> <http://www.w3.org/2000/01/rdf-schema#domain> _:B76e04bb3X2Ddf13X2D47acX2D9a73X2D640650ef7c9a .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_type> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#province> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bb910b622X2D3ca7X2D4590X2Db487X2D5622d9b26f11 .
+_:Bb940470fX2D8c0dX2D414fX2D8f6fX2D37e48e5a031f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1eadd3d1X2D979aX2D4c98X2Db9a1X2D7470686c35cc .
+_:Bb910b622X2D3ca7X2D4590X2Db487X2D5622d9b26f11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B9cb33bc6X2D3db2X2D4462X2D916cX2D85e68e74e3f9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#abbreviation> <http://www.w3.org/2000/01/rdf-schema#comment> "The short name (e.g. acronym) of an OKKAM entity" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of an artifact type or artifact instance" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#postal_code> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+_:B344dd2fbX2DaaecX2D45c5X2D9786X2Da2ecd01870c5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#denominatore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B71b4d17eX2D0d6aX2D48a6X2Dbd85X2D568d5890d5f9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:Bdb125a6aX2D5d75X2D48cfX2Dbb34X2Dba7babd90883 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B98c1c295X2Df58eX2D41d9X2D9a30X2D8b7be492702f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/2000/01/rdf-schema#comment> "The city where an organization is based, in which some other location is included, where an event takes place, or the city which is considered the point of contact of an artifact instance or an artifact type or of an entity in the class OTHER" .
+_:B52ea615eX2D6d2aX2D4bacX2D9aceX2D64b9ce1e18d5 <http://www.w3.org/2002/07/owl#unionOf> _:B70e57c2dX2D737eX2D4b51X2Dbe56X2Df3c1d859b4e7 .
+_:B7e565713X2D2190X2D4dc1X2D9dd8X2D2ad055cffaff <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B3c5788c9X2Dfe0cX2D4aa0X2D8b76X2D7b022ef17fa2 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#street_address> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#social_being> <http://www.w3.org/2000/01/rdf-schema#label> "agent, social being"@en .
+_:Bddfa9c8fX2Ddc5dX2D49f9X2Da8f6X2Daa20003f00a4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Baec54aeeX2D3ed2X2D4a96X2Daef8X2D8b8184e909f6 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#activity_sector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#tipo_particella> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#occupation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B3d702cdbX2Dcf38X2D4042X2D8ba5X2D758376791787 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B248dd245X2D6c3bX2D4f58X2D9a7eX2D0cf9d893b12e .
+<http://models.okkam.org/ENS-core-vocabulary.owl#regione> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#genid84> .
+_:B8ed2a420X2Dc225X2D476dX2D87ceX2Dda6bb8733b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be441a6caX2Dd05bX2D404fX2Db4eeX2Dab57b24aff1a .
+<http://models.okkam.org/ENS-core-vocabulary.owl#first_name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B666ab78dX2Da8c1X2D44fcX2D9aa0X2Ddaef3b819ddc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/2000/01/rdf-schema#label> "birthdate"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#street_address> <http://www.w3.org/2000/01/rdf-schema#domain> _:B7ca146c5X2Dd88fX2D40bbX2Dabd9X2D02a3da380bc6 .
+_:B1eadd3d1X2D979aX2D4c98X2Db9a1X2D7470686c35cc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B68a97352X2D4d87X2D457cX2Daed8X2D9a3dbab238bd .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codeFisco> <http://www.w3.org/2000/01/rdf-schema#comment> "this is the last part of codice fiscale that indicates the birthplace of the person" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://www.w3.org/2000/01/rdf-schema#label> "other"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#picture_URL> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+_:B4b9cc71bX2Dd932X2D4b6bX2D9cedX2D757137605cc4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B248dd245X2D6c3bX2D4f58X2D9a7eX2D0cf9d893b12e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bae38be01X2D07c7X2D41daX2D953dX2D15cc8684cf1d .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organized_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#place> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#longitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bf395d9c8X2D859bX2D4547X2D8841X2D69af713503cb .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:Ba82a8651X2Df49eX2D4bc0X2D8c76X2D8ddb2f5a5225 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#first_name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#denominatore> <http://www.w3.org/2000/01/rdf-schema#label> "denominatore" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#gYear> .
+_:B6d282a15X2Dfc3dX2D4ac6X2Dbf94X2D49e53ceb97ee <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc477b914X2Df1c0X2D4c6fX2Db2f9X2D6d496483299c .
+_:Bddfa9c8fX2Ddc5dX2D49f9X2Da8f6X2Daa20003f00a4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B3eeb8b1dX2Dacd1X2D4b94X2D8671X2D2dd41c38c207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#regione> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B868cb429X2D80a8X2D4f90X2D8f03X2De487e71ee004 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B93353933X2D5c1eX2D4bc6X2Db419X2D02a2e25dadc5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba532fa31X2Df5c5X2D4c35X2Db56aX2D3d2c49ea6459 .
+_:B6d282a15X2Dfc3dX2D4ac6X2Dbf94X2D49e53ceb97ee <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#latitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://www.w3.org/2000/01/rdf-schema#label> "location"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_name> <http://www.w3.org/2000/01/rdf-schema#domain> _:B76983233X2D1e60X2D41afX2D880fX2D6cde1f2ab049 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#category> <http://www.w3.org/2000/01/rdf-schema#label> "category, type"@en .
+_:B1f0bce82X2D6d92X2D4029X2Dbcb4X2D748ffae09a9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#address> <http://www.w3.org/2000/01/rdf-schema#label> "address" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of persons" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#middle_name> <http://www.w3.org/2000/01/rdf-schema#label> "middle name"@en .
+_:B6a64cb97X2Db416X2D4e77X2Db1ebX2Df71f5fd61abe <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B98c1c295X2Df58eX2D41d9X2D9a30X2D8b7be492702f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B2904510cX2Dac23X2D4c6cX2Da3dcX2Df98fa89e3b84 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#name> <http://www.w3.org/2000/01/rdf-schema#label> "nome"@it .
+_:B70e57c2dX2D737eX2D4b51X2Dbe56X2Df3c1d859b4e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#denominazione> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+_:Bbcdd2586X2Dd5f9X2D4904X2Da2ebX2D2dcbc089bc81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#tipo_particella> <http://www.w3.org/2000/01/rdf-schema#label> "tipo_particella"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+_:Ba764d7fdX2D1879X2D473cX2D8cbdX2D41c256c43314 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#occupation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bf9b5273bX2Dc8c0X2D4fd3X2Da926X2Dc2f11a75210b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location_name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bf26f3846X2D652eX2D4fcbX2D9de7X2D6784dc23b236 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B40eaee19X2D8ebfX2D486dX2Dab15X2D21572c310a37 .
+_:B6d59d153X2D65dcX2D478aX2Db912X2De967a784c97b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4101f758X2D08a7X2D4be5X2D8015X2D89ecb1233f45 .
+_:Bf8b49278X2D9304X2D464dX2D9eabX2D9aad45065b04 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B95dc000fX2D3a23X2D4cebX2Da7a0X2Df2188b6f85a3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5f912a69X2D4669X2D4f6aX2D8518X2D0f7aac364146 .
+_:B0594d867X2D1edaX2D4c41X2Db9b1X2D83b281420b83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb8c797edX2D04d4X2D403aX2D82faX2D4fba9e2cbd4e .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_strada> <http://www.w3.org/2000/01/rdf-schema#label> "codice_strada" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name> <http://www.w3.org/2000/01/rdf-schema#label> "organization legal name"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#employer> <http://www.w3.org/2000/01/rdf-schema#range> _:B0b8c6108X2D549aX2D4dc7X2D9cbeX2D1237ef5b8b2c .
+_:Be4a6796cX2Db920X2D48bcX2D9e6eX2D0d58b9a8bb52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+_:B070cee5dX2Dc423X2D49bfX2Da274X2Daa9961720de7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B7e565713X2D2190X2D4dc1X2D9dd8X2D2ad055cffaff <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://models.okkam.org/ENS-core-vocabulary.owl#place> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of things which do not fall under any other predefined class of OKKAM entities" .
+_:B1eadd3d1X2D979aX2D4c98X2Db9a1X2D7470686c35cc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#abbreviation> <http://www.w3.org/2000/01/rdf-schema#label> "abbreviation"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/2000/01/rdf-schema#label> "copia, esemplare"@it .
+_:B27d6a863X2DddafX2D43bdX2D949bX2D6b427c91a408 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:B7643d37dX2Dd925X2D4066X2Db151X2D77761239b015 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the entity"@it .
+_:B6a3121eaX2Da291X2D44f3X2Dbb75X2D8980b0860879 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B70f02878X2D4b47X2D4117X2Daaa4X2Dcd9532f5b56e .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name> <http://www.w3.org/2000/01/rdf-schema#label> "ragione sociale"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#authoritative_resolver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponimo> <http://www.w3.org/2000/01/rdf-schema#label> "toponimo" .
+_:B4101f758X2D08a7X2D4be5X2D8015X2D89ecb1233f45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#istat_code> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/2000/01/rdf-schema#label> "City"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#first_name> <http://www.w3.org/2000/01/rdf-schema#label> "nome proprio"@it .
+_:B4a17432eX2D2f0fX2D4d14X2D8f29X2D640b16219cf3 <http://www.w3.org/2002/07/owl#unionOf> _:Bcdb5ed71X2D53d9X2D424dX2D87d4X2D69077f837168 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#employer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#picture_URL> <http://www.w3.org/2000/01/rdf-schema#comment> "The web address (URL) of an entity's picture" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/2000/01/rdf-schema#label> "data di nascita"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/2000/01/rdf-schema#comment> "The country where an organization is located or where an event takes place, in which another location is included or the city which is considered the point of contact of an artifact instance or an artifact type or of an entity in the class OTHER." .
+_:B11344b9bX2Dd989X2D478aX2D8551X2Db720379ec62b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B6d59d153X2D65dcX2D478aX2Db912X2De967a784c97b .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponym> <http://www.w3.org/2000/01/rdf-schema#label> "toponym" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#comune> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+_:Bb651213fX2Dde35X2D48acX2D8048X2D85b966bd5962 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb8c797edX2D04d4X2D403aX2D82faX2D4fba9e2cbd4e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+_:B06a0d7f9X2D4913X2D4ce5X2Dad9dX2D8c7d8bfce649 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bff64118cX2Dccb1X2D4fe9X2D8caeX2Db3ab5ff65b7a .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foglio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/2000/01/rdf-schema#label> "data di inizio"@it .
+_:B3ee2cb50X2D9569X2D4d88X2Dbc0bX2D1cd2346f1fb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+_:B33594e1dX2D6172X2D4296X2Da202X2D060868ea58ec <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+_:B1599009cX2Dd293X2D4c66X2Da9caX2D5e9b6aac22ba <http://www.w3.org/2002/07/owl#unionOf> _:B71b4d17eX2D0d6aX2D48a6X2Dbd85X2D568d5890d5f9 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#numeratore> <http://www.w3.org/2000/01/rdf-schema#label> "numeratore" .
+_:Bf9b5273bX2Dc8c0X2D4fd3X2Da926X2Dc2f11a75210b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Badff734cX2De411X2D4c00X2Dac14X2Da71d725f0a9f .
+_:B43e42591X2D3457X2D4e75X2D9e6fX2D39138f89dea5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8978079bX2D7ba5X2D4441X2Da211X2D5c80d37b6030 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://models.okkam.org/ENS-core-vocabulary.owl#place> .
+_:B60f2fa28X2Dde96X2D435eX2Da51dX2Ddf9f6ede2371 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location_name> <http://www.w3.org/2000/01/rdf-schema#comment> "A location name" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/2000/01/rdf-schema#label> "starting date"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#forma_giuridica> <http://www.w3.org/2000/01/rdf-schema#label> "forma_giuridica" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:B373c9fb0X2Da533X2D4cc6X2D8ec1X2Dfd47294f71a2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B99125619X2D1a3aX2D4128X2Da1adX2Df8ad8f1c2675 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#category> <http://www.w3.org/2000/01/rdf-schema#label> "categoria, tipo"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location_name> <http://www.w3.org/2000/01/rdf-schema#label> "location name"@en .
+_:B3eeb8b1dX2Dacd1X2D4b94X2D8671X2D2dd41c38c207 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8e2d7c38X2Df7d5X2D4128X2D9502X2Daf2e1ee4a237 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#istat_code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#place> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+_:Bc37555ebX2Dd5e4X2D4cb7X2D8adaX2D67b91ba2433f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+_:B76e04bb3X2Ddf13X2D47acX2D9a73X2D640650ef7c9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/2000/01/rdf-schema#comment> "The person or organization who founded the organization" .
+_:B3d702cdbX2Dcf38X2D4042X2D8ba5X2D758376791787 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+_:Be441a6caX2Dd05bX2D404fX2Db4eeX2Dab57b24aff1a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B40eaee19X2D8ebfX2D486dX2Dab15X2D21572c310a37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#activity_sector> <http://www.w3.org/2000/01/rdf-schema#comment> "The sector or industry where an organization is active" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B60bae4b3X2DcdcaX2D4f60X2Da9b6X2D30b4954c2c0f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:B1f3326adX2D3bdcX2D426cX2D9973X2D493e24a370d6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#first_name> <http://www.w3.org/2000/01/rdf-schema#label> "first name"@it .
+_:Ba532fa31X2Df5c5X2D4c35X2Db56aX2D3d2c49ea6459 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/2000/01/rdf-schema#comment> "The property which hold between an artifact instance and an artifact type; for example John's car is instance_of Zafira 2.0 DTI version 1" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#name> <http://www.w3.org/2000/01/rdf-schema#label> "name"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+_:B68be398cX2Df5e2X2D4dafX2D8d4eX2D6b593c47dda8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0a3ee901X2D9712X2D4220X2DbdbaX2Deaf5c6960fd5 .
+_:B99125619X2D1a3aX2D4128X2Da1adX2Df8ad8f1c2675 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of event, including natural events (hurricane, earthquake, etc.), social events (conference, meeting, wedding, etc.), economical events (closing deals, signing agreements, merging and acquisitions, etc.)" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://www.w3.org/2000/01/rdf-schema#label> "organizzazione"@it .
+_:Beb3eba8bX2D06e4X2D4be4X2D8cd5X2D4dc31d80401e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/2000/01/rdf-schema#domain> _:B4a17432eX2D2f0fX2D4d14X2D8f29X2D640b16219cf3 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B17def01cX2Dbf1eX2D4f5bX2D80e9X2D5f0e11c11dcb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/2000/01/rdf-schema#label> "ending date"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#genid100> .
+_:Bc37555ebX2Dd5e4X2D4cb7X2D8adaX2D67b91ba2433f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B99125619X2D1a3aX2D4128X2Da1adX2Df8ad8f1c2675 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#middle_name> <http://www.w3.org/2000/01/rdf-schema#comment> "The middle name of a perosn (if available)" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#denominazione> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#middle_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#sublaterno> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#activity_sector> <http://www.w3.org/2000/01/rdf-schema#domain> _:B6418012cX2D1d19X2D4137X2D9c2cX2Dd13560d52291 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#social_being> <http://www.w3.org/2000/01/rdf-schema#label> "agente, ente sociale"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/2000/01/rdf-schema#label> "ideato da, inventato da"@it .
+_:B6418012cX2D1d19X2D4137X2D9c2cX2Dd13560d52291 <http://www.w3.org/2002/07/owl#unionOf> _:B4eb9cdb3X2Df0f2X2D4b9aX2D8190X2Deb0298b41939 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#postal_code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/2000/01/rdf-schema#label> "invented by"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/2000/01/rdf-schema#label> "paese"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B8f18483eX2D0c44X2D4f25X2Dae13X2Dc381dc6b8e0a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_fiscale> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#numero_civico> <http://www.w3.org/2000/01/rdf-schema#label> "numero_civico" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:Bd41fd9a1X2D2fefX2D4878X2D93e7X2D721a252de647 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba2fe9219X2D0742X2D45c9X2Dbee1X2D6b8c60fe71b4 .
+_:B6d3005f6X2D53abX2D4ad1X2D9b7aX2Dfa475956aeef <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B06a0d7f9X2D4913X2D4ce5X2Dad9dX2D8c7d8bfce649 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#comune_catastale> <http://www.w3.org/2000/01/rdf-schema#label> "comune_catastale" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://www.w3.org/2000/01/rdf-schema#label> "persona"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/2000/01/rdf-schema#label> "Citta"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#tipo_particella> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/2000/01/rdf-schema#range> _:B1599009cX2Dd293X2D4c66X2Da9caX2D5e9b6aac22ba .
+_:B25794002X2Dc111X2D4d94X2Da570X2D8514ffecd493 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#last_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2000/01/rdf-schema#label> "event"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/2000/01/rdf-schema#comment> "The date when an organization was founded" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#first_name> <http://www.w3.org/2000/01/rdf-schema#comment> "The first (or given) name of a person" .
+_:B3c5788c9X2Dfe0cX2D4aa0X2D8b76X2D7b022ef17fa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B3c5788c9X2Dfe0cX2D4aa0X2D8b76X2D7b022ef17fa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B373c9fb0X2Da533X2D4cc6X2D8ec1X2Dfd47294f71a2 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponimo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+_:B4d82e449X2Dc5b1X2D4789X2D8760X2Ddd3cf5d886b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B60bae4b3X2DcdcaX2D4f60X2Da9b6X2D30b4954c2c0f .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/2000/01/rdf-schema#label> "sesso"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_strada> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#address> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/2000/01/rdf-schema#comment> "The city where a person is resident" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codeFisco> <http://www.w3.org/2000/01/rdf-schema#label> "codeFisco" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/2000/01/rdf-schema#label> "country of residence"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://www.w3.org/2000/01/rdf-schema#label> "person"@en .
+_:B43e42591X2D3457X2D4e75X2D9e6fX2D39138f89dea5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#street_address> <http://www.w3.org/2000/01/rdf-schema#label> "indirizzo"@it .
+_:B68a97352X2D4d87X2D457cX2Daed8X2D9a3dbab238bd <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba764d7fdX2D1879X2D473cX2D8cbdX2D41c256c43314 .
+_:Bf395d9c8X2D859bX2D4547X2D8841X2D69af713503cb <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#comune_catastale> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/2000/01/rdf-schema#label> "creation date"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B5226a9d2X2De922X2D4d64X2D9f76X2Df95917620faf <http://www.w3.org/2002/07/owl#unionOf> _:Bd8b5279fX2D1c11X2D445dX2D9b51X2D50b176d73a4f .
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/2000/01/rdf-schema#comment> "The ending date of an event or the date when an artifact type disappeared or the production of its instances ceased"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+_:B9d4419caX2D0b06X2D43b5X2Da373X2De05c4aa271ae <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+_:B0b8c6108X2D549aX2D4dc7X2D9cbeX2D1237ef5b8b2c <http://www.w3.org/2002/07/owl#unionOf> _:B11344b9bX2Dd989X2D478aX2D8551X2Db720379ec62b .
+_:B131e3a9fX2Dd74aX2D4f97X2Db52bX2Dc48c0318744b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+_:Bc477b914X2Df1c0X2D4c6fX2Db2f9X2D6d496483299c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B70e57c2dX2D737eX2D4b51X2Dbe56X2Df3c1d859b4e7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Beb3eba8bX2D06e4X2D4be4X2D8cd5X2D4dc31d80401e .
+_:Bcdb5ed71X2D53d9X2D424dX2D87d4X2D69077f837168 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+_:Badff734cX2De411X2D4c00X2Dac14X2Da71d725f0a9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bbdcf7238X2Dd43bX2D4534X2D9850X2Db14ec463f48b <http://www.w3.org/2002/07/owl#unionOf> _:B8f18483eX2D0c44X2D4f25X2Dae13X2Dc381dc6b8e0a .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codeFisco> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B4eb9cdb3X2Df0f2X2D4b9aX2D8190X2Deb0298b41939 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1f3326adX2D3bdcX2D426cX2D9973X2D493e24a370d6 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#partita_iva> <http://www.w3.org/2000/01/rdf-schema#label> "partita_iva" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/2000/01/rdf-schema#label> "data di fine produzione"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#middle_name> <http://www.w3.org/2000/01/rdf-schema#label> "secondo nome"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#employer> <http://www.w3.org/2000/01/rdf-schema#label> "employer"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#numeratore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bae38be01X2D07c7X2D41daX2D953dX2D15cc8684cf1d <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B6a3121eaX2Da291X2D44f3X2Dbb75X2D8980b0860879 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#social_being> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#regione> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2000/01/rdf-schema#comment> "The types (or models) of an artifact which are used to produce an arbitrary number of copies (artifact instances). Examples are: Opel Zafira 2.0 DTI version 1, MS Word 2007, the Othello by Shakespeare. Notice that the class of bridges is not the artifact_type of the London Bridge, as the concept of bridge is not the model from which copies are produced. Works of arts that can be reproduced in copies are membes of this class" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/2000/01/rdf-schema#label> "Cité"@fr .
+_:B06a0d7f9X2D4913X2D4ce5X2Dad9dX2D8c7d8bfce649 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+_:B8978079bX2D7ba5X2D4441X2Da211X2D5c80d37b6030 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of an event (e.g. First World War, the 6th European Semantic Web conference, G8 summit)" .
+_:B6418012cX2D1d19X2D4137X2D9c2cX2Dd13560d52291 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2000/01/rdf-schema#label> "evento"@it .
+_:B52ea615eX2D6d2aX2D4bacX2D9aceX2D64b9ce1e18d5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B8e2d7c38X2Df7d5X2D4128X2D9502X2Daf2e1ee4a237 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_type> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#forma_giuridica> <http://www.w3.org/2000/01/rdf-schema#comment> "this is the type of the organization such us SOCIETA' IN ACCOMANDITA SEMPLICE or INDIVIDUALE ...." .
+<http://models.okkam.org/ENS-core-vocabulary.owl#abbreviation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B344dd2fbX2DaaecX2D45c5X2D9786X2Da2ecd01870c5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be4a6796cX2Db920X2D48bcX2D9e6eX2D0d58b9a8bb52 .
+_:B652a781eX2D1f27X2D4427X2D982aX2D8f2302623bac <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb940470fX2D8c0dX2D414fX2D8f6fX2D37e48e5a031f .
+_:B2904510cX2Dac23X2D4c6cX2Da3dcX2Df98fa89e3b84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B33594e1dX2D6172X2D4296X2Da202X2D060868ea58ec .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/2000/01/rdf-schema#comment> "The country in which a person is resident" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B06c6f0fcX2Dc2cfX2D44bdX2D880eX2Daa7a676debd8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#forma_giuridica> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/2000/01/rdf-schema#label> "foundation date"@en .
+_:B8f18483eX2D0c44X2D4f25X2Dae13X2Dc381dc6b8e0a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bd00f1a71X2Dba0eX2D49bbX2D8fdeX2D2765ccdf80c1 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organized_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/2000/01/rdf-schema#comment> "The person or organization who invented the artifact type" .
+_:Bd0fe9fb3X2DcecbX2D447bX2Da2bfX2Da3a6facf88d3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+_:Bf26f3846X2D652eX2D4fcbX2D9de7X2D6784dc23b236 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:B08e78d1fX2D44daX2D4944X2Db747X2Db64c08b244aa <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+_:Bb8c797edX2D04d4X2D403aX2D82faX2D4fba9e2cbd4e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bd0fe9fb3X2DcecbX2D447bX2Da2bfX2Da3a6facf88d3 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#numeratore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+_:B6c41303aX2De48fX2D4775X2Da61fX2D93f078c44566 <http://www.w3.org/2002/07/owl#unionOf> _:Ba172aa4dX2Da3f7X2D4b9eX2D882fX2D149abedde595 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#street_address> <http://www.w3.org/2000/01/rdf-schema#label> "address"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B70f02878X2D4b47X2D4117X2Daaa4X2Dcd9532f5b56e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#abbreviation> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bbdcf7238X2Dd43bX2D4534X2D9850X2Db14ec463f48b .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organized_by> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+_:B93353933X2D5c1eX2D4bc6X2Db419X2D02a2e25dadc5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+_:Bff64118cX2Dccb1X2D4fe9X2D8caeX2Db3ab5ff65b7a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:B8e2d7c38X2Df7d5X2D4128X2D9502X2Daf2e1ee4a237 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/2000/01/rdf-schema#label> "data di fondazione"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#activity_sector> <http://www.w3.org/2000/01/rdf-schema#label> "activity sector"@en .
+_:Bb42f60efX2Da8f2X2D4c10X2Db9f2X2D88a799ca1ed3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B93353933X2D5c1eX2D4bc6X2Db419X2D02a2e25dadc5 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/2000/01/rdf-schema#label> "city of residence"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#comune_catastale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#employer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#activity_sector> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Baceba80fX2Da86bX2D4d78X2D8e2eX2Dcbf97beab4f2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#gYear> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/2000/01/rdf-schema#label> "data di chiusura"@it .
+_:B95dc000fX2D3a23X2D4cebX2Da7a0X2Df2188b6f85a3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#tipo_particella> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B3664604cX2Db19fX2D49f6X2D9f1cX2De592d7f0bd2b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1f0bce82X2D6d92X2D4029X2Dbcb4X2D748ffae09a9f .
+<http://models.okkam.org/ENS-core-vocabulary.owl#denominazione> <http://www.w3.org/2000/01/rdf-schema#label> "denominazione" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#street_address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/2000/01/rdf-schema#label> "instance, copy, token"@en .
+_:Baec54aeeX2D3ed2X2D4a96X2Daef8X2D8b8184e909f6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponimo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_name> <http://www.w3.org/2000/01/rdf-schema#label> "nome dell'artefatto"@it .
+_:B6d59d153X2D65dcX2D478aX2Db912X2De967a784c97b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#gYear> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#social_being> <http://www.w3.org/2002/07/owl#disjointWith> _:B9cb33bc6X2D3db2X2D4462X2D916cX2D85e68e74e3f9 .
+_:B68be398cX2Df5e2X2D4dafX2D8d4eX2D6b593c47dda8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+_:B60bae4b3X2DcdcaX2D4f60X2Da9b6X2D30b4954c2c0f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B7e565713X2D2190X2D4dc1X2D9dd8X2D2ad055cffaff .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#occupation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B7643d37dX2Dd925X2D4066X2Db151X2D77761239b015 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B0d8a0d37X2Db8d5X2D4fe4X2D84dbX2D29a15968b04c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#picture_URL> <http://www.w3.org/2000/01/rdf-schema#domain> _:B52ea615eX2D6d2aX2D4bacX2D9aceX2D64b9ce1e18d5 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#label> "latitude"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+_:B4d82e449X2Dc5b1X2D4789X2D8760X2Ddd3cf5d886b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:B4101f758X2D08a7X2D4be5X2D8015X2D89ecb1233f45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:Bd00f1a71X2Dba0eX2D49bbX2D8fdeX2D2765ccdf80c1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B693e66a9X2D12e1X2D4efdX2Da33fX2Dcf3e76361d6e .
+<http://models.okkam.org/ENS-core-vocabulary.owl#regione> <http://www.w3.org/2000/01/rdf-schema#label> "province di partizepatetane"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://www.w3.org/2000/01/rdf-schema#label> "organization"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B0594d867X2D1edaX2D4c41X2Db9b1X2D83b281420b83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+_:B6c41303aX2De48fX2D4775X2Da61fX2D93f078c44566 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Ba172aa4dX2Da3f7X2D4b9eX2D882fX2D149abedde595 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0594d867X2D1edaX2D4c41X2Db9b1X2D83b281420b83 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#last_name> <http://www.w3.org/2000/01/rdf-schema#comment> "A person's last name (or surname)" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foglio> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+_:B27d6a863X2DddafX2D43bdX2D949bX2D6b427c91a408 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0d8a0d37X2Db8d5X2D4fe4X2D84dbX2D29a15968b04c .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/2000/01/rdf-schema#label> "country"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2000/01/rdf-schema#label> "artifact type"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#occupation> <http://www.w3.org/2000/01/rdf-schema#label> "occupation"@en .
+_:B3664604cX2Db19fX2D49f6X2D9f1cX2De592d7f0bd2b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://www.w3.org/2000/01/rdf-schema#label> "luogo"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#label> "latitudine"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#comune> <http://www.w3.org/2000/01/rdf-schema#label> "comune of the toponym" .
+_:Bbcdd2586X2Dd5f9X2D4904X2Da2ebX2D2dcbc089bc81 <http://www.w3.org/2002/07/owl#unionOf> _:B4b9cc71bX2Dd932X2D4b6bX2D9cedX2D757137605cc4 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/2000/01/rdf-schema#comment> "The starting date of an event or the date when an artifact type was invented, written or the production of its instances started"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bef694cc1X2D1d00X2D4a89X2Da8a3X2D8e384f63aca4 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_strada> <http://www.w3.org/2000/01/rdf-schema#comment> "this is an entity representing streets as an address" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#first_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Be4a6796cX2Db920X2D48bcX2D9e6eX2D0d58b9a8bb52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B070cee5dX2Dc423X2D49bfX2Da274X2Daa9961720de7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#partita_iva> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B9d4419caX2D0b06X2D43b5X2Da373X2De05c4aa271ae <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B47acaaf9X2D4d70X2D4cadX2D8ec2X2Da4d53b9ffb4f .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthplace> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#last_name> <http://www.w3.org/2000/01/rdf-schema#label> "cognome"@it .
+_:B248dd245X2D6c3bX2D4f58X2D9a7eX2D0cf9d893b12e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+_:B203db1c6X2D09e8X2D4fa8X2D8646X2D84606ab3c5af <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organized_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#sublaterno> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+_:B1f0bce82X2D6d92X2D4029X2Dbcb4X2D748ffae09a9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#genid59> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#numero_civico> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#address> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#name> <http://www.w3.org/2000/01/rdf-schema#domain> _:B8bc2ec2fX2Dc8fbX2D4018X2Db91dX2Dbb9673cc8268 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+_:Ba764d7fdX2D1879X2D473cX2D8cbdX2D41c256c43314 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B25794002X2Dc111X2D4d94X2Da570X2D8514ffecd493 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B60f2fa28X2Dde96X2D435eX2Da51dX2Ddf9f6ede2371 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_fiscale> <http://www.w3.org/2000/01/rdf-schema#comment> "a unique code to identify the person. Generated from first name, last name, birth date and birth place" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#regione> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+_:Bef694cc1X2D1d00X2D4a89X2Da8a3X2D8e384f63aca4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#start_date> <http://www.w3.org/2000/01/rdf-schema#label> "data di produzione"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/2000/01/rdf-schema#label> "date of death"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#gYear> .
+_:Ba82a8651X2Df49eX2D4bc0X2D8c76X2D8ddb2f5a5225 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#instance_of> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bd8b5279fX2D1c11X2D445dX2D9b51X2D50b176d73a4f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bddfa9c8fX2Ddc5dX2D49f9X2Da8f6X2Daa20003f00a4 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#category> <http://www.w3.org/2000/01/rdf-schema#comment> "The category of an artifact type or instance (e.g. car, book, building, treatise, etc.) or the category of any entity which is a member of the class OTHER" .
+_:B4b9cc71bX2Dd932X2D4b6bX2D9cedX2D757137605cc4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B344dd2fbX2DaaecX2D45c5X2D9786X2Da2ecd01870c5 .
+_:B70f02878X2D4b47X2D4117X2Daaa4X2Dcd9532f5b56e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb651213fX2Dde35X2D48acX2D8048X2D85b966bd5962 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/2000/01/rdf-schema#label> "artefatto"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+_:B33594e1dX2D6172X2D4296X2Da202X2D060868ea58ec <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B9cb33bc6X2D3db2X2D4462X2D916cX2D85e68e74e3f9 <http://www.w3.org/2002/07/owl#unionOf> _:B98c1c295X2Df58eX2D41d9X2D9a30X2D8b7be492702f .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:B0a3ee901X2D9712X2D4220X2DbdbaX2Deaf5c6960fd5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthplace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B4eb9cdb3X2Df0f2X2D4b9aX2D8190X2Deb0298b41939 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:Bb940470fX2D8c0dX2D414fX2D8f6fX2D37e48e5a031f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:B0a3ee901X2D9712X2D4220X2DbdbaX2Deaf5c6960fd5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9d4419caX2D0b06X2D43b5X2Da373X2De05c4aa271ae .
+_:B7ca146c5X2Dd88fX2D40bbX2Dabd9X2D02a3da380bc6 <http://www.w3.org/2002/07/owl#unionOf> _:B3ee2cb50X2D9569X2D4d88X2Dbc0bX2D1cd2346f1fb6 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/2000/01/rdf-schema#range> _:Bbcdd2586X2Dd5f9X2D4904X2Da2ebX2D2dcbc089bc81 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponimo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/2000/01/rdf-schema#label> "created by"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#regione> <http://www.w3.org/2000/01/rdf-schema#domain> _:B6c41303aX2De48fX2D4775X2Da61fX2D93f078c44566 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#province> <http://www.w3.org/2000/01/rdf-schema#comment> "The location where a person, real state, a city .. is found" .
+_:B0b8c6108X2D549aX2D4dc7X2D9cbeX2D1237ef5b8b2c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_name> <http://www.w3.org/2000/01/rdf-schema#label> "event name"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+_:B8bc2ec2fX2Dc8fbX2D4018X2Db91dX2Dbb9673cc8268 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#partita_iva> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B3ee2cb50X2D9569X2D4d88X2Dbc0bX2D1cd2346f1fb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B6a64cb97X2Db416X2D4e77X2Db1ebX2Df71f5fd61abe .
+_:B1f3326adX2D3bdcX2D426cX2D9973X2D493e24a370d6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/2000/01/rdf-schema#label> "gender"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of organizations, including companies, institutes, governamental bodies, committees, and so on." .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:Ba532fa31X2Df5c5X2D4c35X2Db56aX2D3d2c49ea6459 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_name> <http://www.w3.org/2000/01/rdf-schema#label> "artifact name"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/2000/01/rdf-schema#label> "fondato da"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_type> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of an event (e.g. conference, acquisition, meeting, party, etc.)" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of concrete artifacts, like the London Bridge, my own Opel Zafira , my copy of the Othello, my installation of MS Word, etc.. Not to be confused with the class of artifacts-type, like Opel Zafira, Shakespeare's Othello, MS Word." .
+_:Bf395d9c8X2D859bX2D4547X2D8841X2D69af713503cb <http://www.w3.org/2002/07/owl#unionOf> _:B3eeb8b1dX2Dacd1X2D4b94X2D8671X2D2dd41c38c207 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location_name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bb910b622X2D3ca7X2D4590X2Db487X2D5622d9b26f11 <http://www.w3.org/2002/07/owl#unionOf> _:B131e3a9fX2Dd74aX2D4f97X2Db52bX2Dc48c0318744b .
+_:B373c9fb0X2Da533X2D4cc6X2D8ec1X2Dfd47294f71a2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+_:Bcdb5ed71X2D53d9X2D424dX2D87d4X2D69077f837168 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B868cb429X2D80a8X2D4f90X2D8f03X2De487e71ee004 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#middle_name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B60f2fa28X2Dde96X2D435eX2Da51dX2Ddf9f6ede2371 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Ba2fe9219X2D0742X2D45c9X2Dbee1X2D6b8c60fe71b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf9b5273bX2Dc8c0X2D4fd3X2Da926X2Dc2f11a75210b .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name> <http://www.w3.org/2000/01/rdf-schema#comment> "The legal name of an organization (e.g. \"International Business Machines\" for IBM)" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponym> <http://www.w3.org/2000/01/rdf-schema#comment> "This is a toponym for a given street or road" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#authoritative_resolver> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bdb125a6aX2D5d75X2D48cfX2Dbb34X2Dba7babd90883 .
+_:B6a64cb97X2Db416X2D4e77X2Db1ebX2Df71f5fd61abe <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Baceba80fX2Da86bX2D4d78X2D8e2eX2Dcbf97beab4f2 .
+_:B11344b9bX2Dd989X2D478aX2D8551X2Db720379ec62b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#latitude> <http://www.w3.org/2000/01/rdf-schema#comment> "The latitude of a location" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#created_by> <http://www.w3.org/2000/01/rdf-schema#label> "creato da"@it .
+_:Bff64118cX2Dccb1X2D4fe9X2D8caeX2Db3ab5ff65b7a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B43e42591X2D3457X2D4e75X2D9e6fX2D39138f89dea5 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#social_being> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#longitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B8978079bX2D7ba5X2D4441X2Da211X2D5c80d37b6030 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf8b49278X2D9304X2D464dX2D9eabX2D9aad45065b04 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_fiscale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/2000/01/rdf-schema#comment> "The date of death of a person"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/2000/01/rdf-schema#comment> "A person's gender" .
+_:Be441a6caX2Dd05bX2D404fX2Db4eeX2Dab57b24aff1a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#birthdate> <http://www.w3.org/2000/01/rdf-schema#comment> "A person's birthdate or the year of a person's birthdate" .
+_:Bb42f60efX2Da8f2X2D4c10X2Db9f2X2D88a799ca1ed3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:B47acaaf9X2D4d70X2D4cadX2D8ec2X2Da4d53b9ffb4f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_type> <http://www.w3.org/2000/01/rdf-schema#label> "event type"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#social_being> <http://www.w3.org/2000/01/rdf-schema#comment> "Each instance of SocialBeing is an intelligent agent whose status as an agent is acknowledged within some social system, and who is capable of playing certain social roles within that system."@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_instance> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#codice_strada> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#other> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#street_address> <http://www.w3.org/2000/01/rdf-schema#comment> "The address of the point of contact of an OKKAM entity"@en .
+_:Bd8b5279fX2D1c11X2D445dX2D9b51X2D50b176d73a4f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+_:Bb651213fX2Dde35X2D48acX2D8048X2D85b966bd5962 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#invented_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/2000/01/rdf-schema#label> "paese di residenza"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#category> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:Bc477b914X2Df1c0X2D4c6fX2Db2f9X2D6d496483299c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B7643d37dX2Dd925X2D4066X2Db151X2D77761239b015 .
+_:Bbdcf7238X2Dd43bX2D4534X2D9850X2Db14ec463f48b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/2000/01/rdf-schema#label> "tipo di artefatto"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#picture_URL> <http://www.w3.org/2000/01/rdf-schema#label> "picture URL"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#last_name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B0d8a0d37X2Db8d5X2D4fe4X2D84dbX2D29a15968b04c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B070cee5dX2Dc423X2D49bfX2Da274X2Daa9961720de7 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/2000/01/rdf-schema#label> "founded by"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:B666ab78dX2Da8c1X2D44fcX2D9aa0X2Ddaef3b819ddc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+_:Badff734cX2De411X2D4c00X2Dac14X2Da71d725f0a9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#social_being> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#latitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B6d3005f6X2D53abX2D4ad1X2D9b7aX2Dfa475956aeef <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#creation_date> <http://www.w3.org/2000/01/rdf-schema#comment> "The creation date of an artifact instance (e.g. the year of production of my Opel Zafira)" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#picture_URL> <http://www.w3.org/2000/01/rdf-schema#label> "URL della foto"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#forma_giuridica> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#organization> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#employer> <http://www.w3.org/2000/01/rdf-schema#comment> "The employer of a person" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country_of_residence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_type> <http://www.w3.org/2000/01/rdf-schema#label> "tipo di evento"@it .
+_:B5f912a69X2D4669X2D4f6aX2D8518X2D0f7aac364146 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+_:B1599009cX2Dd293X2D4c66X2Da9caX2D5e9b6aac22ba <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#abbreviation> <http://www.w3.org/2000/01/rdf-schema#label> "nome abbreviato"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#last_name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:B6a3121eaX2Da291X2D44f3X2Dbb75X2D8980b0860879 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#other> .
+_:B2904510cX2Dac23X2D4c6cX2Da3dcX2Df98fa89e3b84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#middle_name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B68a97352X2D4d87X2D457cX2Daed8X2D9a3dbab238bd <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B08e78d1fX2D44daX2D4944X2Db747X2Db64c08b244aa <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bd41fd9a1X2D2fefX2D4878X2D93e7X2D721a252de647 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#occupation> <http://www.w3.org/2000/01/rdf-schema#label> "occupazione"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#picture_URL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#province> <http://www.w3.org/2000/01/rdf-schema#range> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:B0adb9957X2D0e66X2D43abX2D9b81X2D85649fdd926d <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B17def01cX2Dbf1eX2D4f5bX2D80e9X2D5f0e11c11dcb .
+<http://models.okkam.org/ENS-core-vocabulary.owl#date_of_death> <http://www.w3.org/2000/01/rdf-schema#label> "data di morte"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#foundation_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:B693e66a9X2D12e1X2D4efdX2Da33fX2Dcf3e76361d6e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4d82e449X2Dc5b1X2D4789X2D8760X2Ddd3cf5d886b8 .
+_:B17def01cX2Dbf1eX2D4f5bX2D80e9X2D5f0e11c11dcb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B25794002X2Dc111X2D4d94X2Da570X2D8514ffecd493 .
+_:Bef694cc1X2D1d00X2D4a89X2Da8a3X2D8e384f63aca4 <http://www.w3.org/2002/07/owl#unionOf> _:B68be398cX2Df5e2X2D4dafX2D8d4eX2D6b593c47dda8 .
+_:B76983233X2D1e60X2D41afX2D880fX2D6cde1f2ab049 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#end_date> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#gYear> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#postal_code> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#city_of_residence> <http://www.w3.org/2000/01/rdf-schema#label> "citta di residenza"@it .
+_:B71b4d17eX2D0d6aX2D48a6X2Dbd85X2D568d5890d5f9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8ed2a420X2Dc225X2D476dX2D87ceX2Dda6bb8733b15 .
+_:Bf8b49278X2D9304X2D464dX2D9eabX2D9aad45065b04 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba82a8651X2Df49eX2D4bc0X2D8c76X2D8ddb2f5a5225 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponym> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://models.okkam.org/ENS-core-vocabulary.owl#place> .
+_:B5226a9d2X2De922X2D4d64X2D9f76X2Df95917620faf <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#authoritative_resolver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B693e66a9X2D12e1X2D4efdX2Da33fX2Dcf3e76361d6e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B868cb429X2D80a8X2D4f90X2D8f03X2De487e71ee004 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B08e78d1fX2D44daX2D4944X2Db747X2Db64c08b244aa .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization_legal_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#location> <http://www.w3.org/2000/01/rdf-schema#comment> "The class of geographical and physical locations. Examples: London, Canada, Africa, S. Peter square" .
+_:B76983233X2D1e60X2D41afX2D880fX2D6cde1f2ab049 <http://www.w3.org/2002/07/owl#unionOf> _:Bc37555ebX2Dd5e4X2D4cb7X2D8adaX2D67b91ba2433f .
+_:Bd00f1a71X2Dba0eX2D49bbX2D8fdeX2D2765ccdf80c1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#sublaterno> <http://www.w3.org/2000/01/rdf-schema#label> "sublaterno" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#last_name> <http://www.w3.org/2000/01/rdf-schema#label> "surname"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#occupation> <http://www.w3.org/2000/01/rdf-schema#comment> "The job occupation of a person (e.g. teacher, pilot, actor, politician, etc.)" .
+_:B4a17432eX2D2f0fX2D4d14X2D8f29X2D640b16219cf3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#event> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#event_name> <http://www.w3.org/2000/01/rdf-schema#label> "nome dell'evento"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#founded_by> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+<http://models.okkam.org/ENS-core-vocabulary.owl#partita_iva> <http://www.w3.org/2000/01/rdf-schema#comment> "This is the Vat number of the company" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#label> "longitude"@en .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organized_by> <http://www.w3.org/2000/01/rdf-schema#range> _:B5226a9d2X2De922X2D4d64X2D9f76X2Df95917620faf .
+<http://models.okkam.org/ENS-core-vocabulary.owl#country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AsymmetricProperty> .
+_:B7ca146c5X2Dd88fX2D40bbX2Dabd9X2D02a3da380bc6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bd41fd9a1X2D2fefX2D4878X2D93e7X2D721a252de647 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://models.okkam.org/ENS-core-vocabulary.owl#location> .
+_:Beb3eba8bX2D06e4X2D4be4X2D8cd5X2D4dc31d80401e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B3d702cdbX2Dcf38X2D4042X2D8ba5X2D758376791787 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#activity_sector> <http://www.w3.org/2000/01/rdf-schema#label> "settore di attivita"@it .
+<http://models.okkam.org/ENS-core-vocabulary.owl#longitude> <http://www.w3.org/2000/01/rdf-schema#comment> "The longitude of a location" .
+<http://models.okkam.org/ENS-core-vocabulary.owl#gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B40eaee19X2D8ebfX2D486dX2Dab15X2D21572c310a37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0adb9957X2D0e66X2D43abX2D9b81X2D85649fdd926d .
+<http://models.okkam.org/ENS-core-vocabulary.owl#organization> <http://www.w3.org/2002/07/owl#disjointWith> <http://models.okkam.org/ENS-core-vocabulary.owl#person> .
+_:B5f912a69X2D4669X2D4f6aX2D8518X2D0f7aac364146 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B666ab78dX2Da8c1X2D44fcX2D9aa0X2Ddaef3b819ddc .
+<http://models.okkam.org/ENS-core-vocabulary.owl#denominatore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://models.okkam.org/ENS-core-vocabulary.owl#artifact_type> .
+_:B06c6f0fcX2Dc2cfX2D44bdX2D880eX2Daa7a676debd8 <http://www.w3.org/2002/07/owl#unionOf> _:B6d282a15X2Dfc3dX2D4ac6X2Dbf94X2D49e53ceb97ee .
+<http://models.okkam.org/ENS-core-vocabulary.owl#employer> <http://www.w3.org/2000/01/rdf-schema#label> "datore di lavoro"@it .
+_:Bdb125a6aX2D5d75X2D48cfX2Dbb34X2Dba7babd90883 <http://www.w3.org/2002/07/owl#unionOf> _:B203db1c6X2D09e8X2D4fa8X2D8646X2D84606ab3c5af .
+<http://models.okkam.org/ENS-core-vocabulary.owl#artifact_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Bd0fe9fb3X2DcecbX2D447bX2Da2bfX2Da3a6facf88d3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B27d6a863X2DddafX2D43bdX2D949bX2D6b427c91a408 .
+<http://models.okkam.org/ENS-core-vocabulary.owl#toponimo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .

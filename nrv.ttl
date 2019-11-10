@@ -1,469 +1,257 @@
-<http://ns.inria.fr/nrv#PersistentRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement that needs to be obeyed for the whole duration within the interval in which it is in force."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "persistent requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#NormativeRequirement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#NonPersistentRequirement> .
-
-<http://ns.inria.fr/nrv#Achievement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an obligation for which achieving the content at least once is enough to fulfil it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "achievement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://ns.inria.fr/nrv#PreemptiveAchievement> <http://ns.inria.fr/nrv#NonPreemptiveAchievement> ) ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://ns.inria.fr/nrv#PerdurantAchievement> <http://ns.inria.fr/nrv#NonPerdurantAchievement> ) .
-
-<http://ns.inria.fr/nrv#ViolatedRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement violated by a state of affairs."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "violated requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#ViolableRequirement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "the result of a violated normative requirement."@en , "an indication that an Obligation or Prohibition has been violated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "violation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> .
-
-<http://ns.inria.fr/nrv#ViolableRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement that can be violated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "violable requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#NormativeRequirement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#NonViolableRequirement> .
-
-<http://ns.inria.fr/nrv#NormativeRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement implying, creating, or prescribing a norm."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Normative Requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://ns.inria.fr/nrv#CompensableRequirement> <http://ns.inria.fr/nrv#NonCompensableRequirement> ) ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://ns.inria.fr/nrv#ViolableRequirement> <http://ns.inria.fr/nrv#NonViolableRequirement> ) ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://ns.inria.fr/nrv#PersistentRequirement> <http://ns.inria.fr/nrv#NonPersistentRequirement> ) .
-
-<http://ns.inria.fr/nrv#>
-        a       <http://www.w3.org/2002/07/owl#Ontology> , <http://purl.org/vocommons/voaf#Vocabulary> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "This file specifies the set of OWL classes and properties proposed by the MIREL project to represent normative requirements."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#isDefinedby>
-                <http://ns.inria.fr/nrv> ;
-        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
-                <http://www.mirelproject.eu/> ;
-        <http://purl.org/dc/terms/contributor>
-                "Guido Governatori" , "Fabien Gandon" ;
-        <http://purl.org/dc/terms/created>
-                "2017-07-26"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/creator>
-                "Fabien Gandon" ;
-        <http://purl.org/dc/terms/creator>
-                <http://ns.inria.fr/fabien.gandon/foaf.html#me> ;
-        <http://purl.org/dc/terms/description>
-                "An OWL vocabulary for describing normative requirements."@en ;
-        <http://purl.org/dc/terms/modified>
-                "2017-08-18"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/publisher>
-                "Inria" ;
-        <http://purl.org/dc/terms/status>
-                <http://purl.org/adms/status/UnderDevelopment> ;
-        <http://purl.org/dc/terms/title>
-                "Normative Requirements Vocabulary"@en ;
-        <http://purl.org/dc/terms/type>
-                <http://purl.org/adms/assettype/Ontology> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "nrv" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://ns.inria.fr/nrv#" ;
-        <http://purl.org/vocommons/voaf#specializes>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#> ;
-        <http://xmlns.com/foaf/0.1/homepage>
-                <http://ns.inria.fr/nrv> .
-
-<http://ns.inria.fr/nrv#PreemptiveAchievement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an achievement requirement that can be fulfilled even before it is actually in force."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "preemptive achievement requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#Achievement> .
-
-<http://ns.inria.fr/nrv#CompensatedRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement violated in a state of affairs and compensated in that same state of affairs."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "compensated requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#CompensableRequirement> .
-
-<http://ns.inria.fr/nrv#Compensation>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a set of penalties or sanctions imposed on the violator ; fulfilling them makes amends for the violation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "compensation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> .
-
-<http://ns.inria.fr/nrv#hasViolation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "links a violable requirement to a violation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ns.inria.fr/nrv#ViolableRequirement> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has for violation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> .
-
-<http://ns.inria.fr/nrv#NonCompensableRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement that cannot be compensated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "non compensable requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#NormativeRequirement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#CompensableRequirement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an indication that a PenaltyStatement is linked with a PrescriptiveStatement. It indicates that a sanction may apply where the PrescriptiveStatement entails a Deontic Specification and when there is a Violation of the Deontic Specification."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "reparation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#AtomicFormula> .
-
-<http://ns.inria.fr/nrv#CoOccurantPunctual>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "TODO."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "co-occurant punctual requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#Punctual> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#NonCoOccurantPunctual> .
-
-<http://ns.inria.fr/nrv#PerdurantAchievement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "achievement requirement that persists after being violated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "perdurant achievement requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#Achievement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#NonPerdurantAchievement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesPenalty>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "the PenaltyStatement that is linked to a LegalRule in a Reparation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "applies penalty"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PenaltyStatement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#LogicalFormula>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "logical formula"@en .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a Deontic Specification for a state, an act, or a course of action where the Bearer has no Obligation or Prohibition to the contrary. A weak Permission is the absence of the Obligation or Prohibition to the contrary; a strong Permission is an exception or derogation of the Obligation or Prohibition to the contrary."@en , "something is permitted if the obligation or the prohibition to the contrary does not hold."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "permission"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> , <http://ns.inria.fr/nrv#NonViolableRequirement> , <http://ns.inria.fr/nrv#NonCompensableRequirement> .
-
-<http://ns.inria.fr/nrv#CompliantRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement being compliant with a state of affairs."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "compliant requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#ViolableRequirement> .
-
-<http://ns.inria.fr/nrv#Punctual>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an obligation for which the contents must be immediately achieved."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "punctual"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#NonPersistentRequirement> ;
-        <http://www.w3.org/2002/07/owl#disjointUnionOf>
-                ( <http://ns.inria.fr/nrv#CoOccurantPunctual> <http://ns.inria.fr/nrv#NonCoOccurantPunctual> ) ;
-        <http://www.w3.org/2002/07/owl#intersectionOf>
-                ( <http://ns.inria.fr/nrv#Achievement> <http://ns.inria.fr/nrv#Maintenance> ) .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#toPrescriptiveStatement>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "the PrescriptiveStatement that is linked to a PenaltyStatement in a Reparation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "to prescriptive statement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PrescriptiveStatement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an indication that an Obligation has been fulfilled or a Prohibition has not been violated."@en , "the result of normative requirement being respected."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "compliance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an Obligation, Permission, Prohibition, Right, ...."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deontic specification"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#LogicalFormula> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a role in a Deontic Specification"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deontic role"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#Term> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PenaltyStatement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "penalty statement"@en .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a Deontic Specification for a state, an act, or a course of action to which a Bearer is legally bound, and which, if it is not achieved or performed, results in a Violation."@en , "a situation, an act, or a course of action(s) to which a bearer is legally bound, and if it is not achieved or performed results in a violation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "obligation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> , <http://ns.inria.fr/nrv#CompensableRequirement> , <http://ns.inria.fr/nrv#ViolableRequirement> ;
-        <http://www.w3.org/2002/07/owl#unionOf>
-                ( <http://ns.inria.fr/nrv#Achievement> <http://ns.inria.fr/nrv#Maintenance> ) .
-
-<http://ns.inria.fr/nrv#NonViolableRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement that cannot be violated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "non violable requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#NormativeRequirement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#ViolableRequirement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a situation, an act, or a course of action(s) which a bearer should avoid, and if it is achieved results in a violation."@en , "a Deontic Specification for a state, an act, or a course of action to which a Bearer is legally bound, and which, if it is achieved or performed, results in a Violation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "prohibition"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#ViolableRequirement> , <http://ns.inria.fr/nrv#CompensableRequirement> , <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesModality>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "the deontic mode that applies to a Deontic Specification in a Context or \tAssociation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "applies modality"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Modality> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#applies> .
-
-<http://ns.inria.fr/nrv#NonCoOccurantPunctual>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "TODO."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "non co-occurant punctual requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#Punctual> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#CoOccurantPunctual> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Bearer>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a role in a Deontic Specification to which the Deontic Specification is primarily directed."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "bearer"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticModality>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a modality pertaining to Deontic Specifications."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "deontic modality"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Modality> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#SuborderList>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a Deontic Specification for a sequence of Deontic Specifications, i.e., Obligations, Prohibitions, Permissions, Rights and/or Suborder Lists. When a SuborderList holds, a Deontic Specification in the SuborderList holds if all Deontic Specifications that precede it in the SuborderList have been violated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "suborder list"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
-
-<http://ns.inria.fr/nrv#CompensableRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement that can be compensated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "compensable requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#NormativeRequirement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#NonCompensableRequirement> .
-
-<http://ns.inria.fr/nrv#hasCompliance>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "links a violable requirement to compliance."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ns.inria.fr/nrv#ViolableRequirement> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has for compliance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> ;
-        <http://www.w3.org/2002/07/owl#propertyDisjointWith>
-                <http://ns.inria.fr/nrv#hasViolation> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#applies>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "applies"@en .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#Term>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "term"@en .
-
-<http://ns.inria.fr/nrv#NonPersistentRequirement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "a requirement that is in force at a particular time point only or for the instance it is in force."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "non persistent requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#NormativeRequirement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#PersistentRequirement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Modality>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "modality"@en .
-
-<http://ns.inria.fr/nrv#NonPerdurantAchievement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "achievement requirement that does not persist after being violated."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "non perdurant requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#Achievement> ;
-        <http://www.w3.org/2002/07/owl#disjointWith>
-                <http://ns.inria.fr/nrv#PerdurantAchievement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#AtomicFormula>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "atomic formula"@en .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Right>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "(see also Permission) a Deontic Specification that gives a Permission to a party (the Bearer) and implies there are Obligations or Prohibitions on other parties (the AuxiliaryParty) such that the Bearer can (eventually) exercise the Right."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "right"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
-
-<http://ns.inria.fr/nrv#hasCompensation>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "links a compensable requirement to a compensation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://ns.inria.fr/nrv#CompensableRequirement> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has for compensation"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://ns.inria.fr/nrv#Compensation> .
-
-<http://ns.inria.fr/nrv#Maintenance>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an obligation that needs to be obeyed for the whole duration within the interval in which it is in force."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "maintenance"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> .
-
-<http://ns.inria.fr/nrv#NonPreemptiveAchievement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "an achievement requirement that cannot be fulfilled even before it is actually in force."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "non preemptive achievement requirement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://ns.inria.fr/nrv#Achievement> .
-
-<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PrescriptiveStatement>
-        a       <http://www.w3.org/2000/01/rdf-schema#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "prescriptive statement"@en .
+<http://ns.inria.fr/nrv#PersistentRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NormativeRequirement> .
+<http://ns.inria.fr/nrv#Achievement> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B0ae760bbX2D3f17X2D42f1X2Db4bfX2D1aabf5f8c28a .
+<http://ns.inria.fr/nrv#Achievement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> .
+<http://ns.inria.fr/nrv#ViolatedRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://ns.inria.fr/nrv#NormativeRequirement> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B09e712e8X2D4792X2D4f9cX2Da86bX2D6ea8bde9610d .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+<http://ns.inria.fr/nrv#ViolableRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#> <http://purl.org/vocommons/voaf#specializes> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#> .
+_:B09f5becbX2D1a9bX2D4063X2Db162X2D72f22fba76d7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#NonCompensableRequirement> .
+<http://ns.inria.fr/nrv#PreemptiveAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#ViolatedRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "violated requirement"@en .
+_:Bedc06989X2Dcbd6X2D4529X2D95f2X2D8b86001e8636 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ns.inria.fr/nrv#PersistentRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#CompensatedRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement violated in a state of affairs and compensated in that same state of affairs."@en .
+<http://ns.inria.fr/nrv#Compensation> <http://www.w3.org/2000/01/rdf-schema#label> "compensation"@en .
+<http://ns.inria.fr/nrv#hasViolation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://ns.inria.fr/nrv#PreemptiveAchievement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#Achievement> .
+<http://ns.inria.fr/nrv#NonCompensableRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "non compensable requirement"@en .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/modified> "2017-08-18"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ns.inria.fr/nrv#ViolableRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NormativeRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> <http://www.w3.org/2000/01/rdf-schema#label> "reparation"@en .
+<http://ns.inria.fr/nrv#CoOccurantPunctual> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#PerdurantAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "achievement requirement that persists after being violated."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesPenalty> <http://www.w3.org/2000/01/rdf-schema#comment> "the PenaltyStatement that is linked to a LegalRule in a Reparation."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#LogicalFormula> <http://www.w3.org/2000/01/rdf-schema#label> "logical formula"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission> <http://www.w3.org/2000/01/rdf-schema#label> "permission"@en .
+<http://ns.inria.fr/nrv#CompliantRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/creator> "Fabien Gandon" .
+_:B09f5becbX2D1a9bX2D4063X2Db162X2D72f22fba76d7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B5ae396c6X2Da339X2D4e6cX2D9ad6X2D6a740f045926 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bedc06989X2Dcbd6X2D4529X2D95f2X2D8b86001e8636 .
+<http://ns.inria.fr/nrv#Punctual> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#toPrescriptiveStatement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/nrv#PersistentRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement that needs to be obeyed for the whole duration within the interval in which it is in force."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> <http://www.w3.org/2000/01/rdf-schema#comment> "an indication that an Obligation has been fulfilled or a Prohibition has not been violated."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "an Obligation, Permission, Prohibition, Right, ...."@en .
+<http://ns.inria.fr/nrv#Compensation> <http://www.w3.org/2000/01/rdf-schema#comment> "a set of penalties or sanctions imposed on the violator ; fulfilling them makes amends for the violation."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole> <http://www.w3.org/2000/01/rdf-schema#domain> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PenaltyStatement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/type> <http://purl.org/adms/assettype/Ontology> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/2000/01/rdf-schema#label> "obligation"@en .
+_:B52bb90d9X2Dce6fX2D4f29X2Da466X2Df693f4f8a1d3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B5fa4f205X2D7901X2D4980X2D930cX2D40c0f3b5ef43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#NonPerdurantAchievement> .
+<http://ns.inria.fr/nrv#ViolableRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement that can be violated."@en .
+<http://ns.inria.fr/nrv#NonViolableRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B0993d252X2D5ab3X2D4e14X2D8e98X2D6fe7deca2e53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesModality> <http://www.w3.org/2000/01/rdf-schema#label> "applies modality"@en .
+<http://ns.inria.fr/nrv#NonCoOccurantPunctual> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#Punctual> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Bearer> <http://www.w3.org/2000/01/rdf-schema#label> "bearer"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticModality> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Modality> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#SuborderList> <http://www.w3.org/2000/01/rdf-schema#comment> "a Deontic Specification for a sequence of Deontic Specifications, i.e., Obligations, Prohibitions, Permissions, Rights and/or Suborder Lists. When a SuborderList holds, a Deontic Specification in the SuborderList holds if all Deontic Specifications that precede it in the SuborderList have been violated."@en .
+<http://ns.inria.fr/nrv#hasViolation> <http://www.w3.org/2000/01/rdf-schema#comment> "links a violable requirement to a violation."@en .
+<http://ns.inria.fr/nrv#NonViolableRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NormativeRequirement> .
+_:B3dbf74f2X2Dd3afX2D402bX2D8034X2Dc439e497fe90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#Maintenance> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesPenalty> <http://www.w3.org/2000/01/rdf-schema#range> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PenaltyStatement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#NormativeRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:Ba53ffd01X2DdcdeX2D4e76X2Dad88X2Dd1d8a2aa4212 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B52bb90d9X2Dce6fX2D4f29X2Da466X2Df693f4f8a1d3 .
+_:Bb874dd8dX2Dd827X2D4e0cX2Dbc18X2D8cb784922bf7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ns.inria.fr/nrv#NormativeRequirement> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B9811ef98X2D5495X2D4024X2D992fX2D395ce6e8c7b2 .
+<http://ns.inria.fr/nrv#CompensableRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement that can be compensated."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#toPrescriptiveStatement> <http://www.w3.org/2000/01/rdf-schema#range> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PrescriptiveStatement> .
+<http://ns.inria.fr/nrv#hasCompliance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://ns.inria.fr/nrv#NormativeRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "Normative Requirement"@en .
+_:B0993d252X2D5ab3X2D4e14X2D8e98X2D6fe7deca2e53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#NonPreemptiveAchievement> .
+<http://ns.inria.fr/nrv#ViolableRequirement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#NonViolableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#applies> <http://www.w3.org/2000/01/rdf-schema#label> "applies"@en .
+<http://ns.inria.fr/nrv#NormativeRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> <http://www.w3.org/2000/01/rdf-schema#label> "violation"@en .
+<http://ns.inria.fr/nrv#Achievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+<http://ns.inria.fr/nrv#ViolableRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "violable requirement"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#Term> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+_:B0ae760bbX2D3f17X2D42f1X2Db4bfX2D1aabf5f8c28a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#PreemptiveAchievement> .
+<http://ns.inria.fr/nrv#PerdurantAchievement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#Achievement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#AtomicFormula> .
+<http://ns.inria.fr/nrv#> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.mirelproject.eu/> .
+<http://ns.inria.fr/nrv#Achievement> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B8b75c535X2D70bfX2D4c55X2D9f89X2D1560a42956c0 .
+_:B5ae396c6X2Da339X2D4e6cX2D9ad6X2D6a740f045926 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#Achievement> .
+<http://ns.inria.fr/nrv#NonPersistentRequirement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#PersistentRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesModality> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#applies> .
+<http://ns.inria.fr/nrv#CoOccurantPunctual> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#NonCoOccurantPunctual> .
+<http://ns.inria.fr/nrv#PerdurantAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#PersistentRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "persistent requirement"@en .
+<http://ns.inria.fr/nrv#CompliantRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "compliant requirement"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition> <http://www.w3.org/2000/01/rdf-schema#label> "prohibition"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> <http://www.w3.org/2002/07/owl#disjointWith> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> <http://www.w3.org/2000/01/rdf-schema#comment> "an indication that a PenaltyStatement is linked with a PrescriptiveStatement. It indicates that a sanction may apply where the PrescriptiveStatement entails a Deontic Specification and when there is a Violation of the Deontic Specification."@en .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/title> "Normative Requirements Vocabulary"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NonViolableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole> <http://www.w3.org/2000/01/rdf-schema#range> <http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#Term> .
+<http://ns.inria.fr/nrv#NonCoOccurantPunctual> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#CoOccurantPunctual> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#toPrescriptiveStatement> <http://www.w3.org/2000/01/rdf-schema#label> "to prescriptive statement"@en .
+<http://ns.inria.fr/nrv#NonCoOccurantPunctual> <http://www.w3.org/2000/01/rdf-schema#label> "non co-occurant punctual requirement"@en .
+<http://ns.inria.fr/nrv#CompensatedRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "compensated requirement"@en .
+_:Bb874dd8dX2Dd827X2D4e0cX2Dbc18X2D8cb784922bf7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#NonPersistentRequirement> .
+<http://ns.inria.fr/nrv#hasCompliance> <http://www.w3.org/2000/01/rdf-schema#comment> "links a violable requirement to compliance."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Modality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#Compensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#CoOccurantPunctual> <http://www.w3.org/2000/01/rdf-schema#comment> "TODO."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/nrv#NonCompensableRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement that cannot be compensated."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#CompensableRequirement> .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/contributor> "Guido Governatori" .
+<http://ns.inria.fr/nrv#NonPerdurantAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#AtomicFormula> <http://www.w3.org/2000/01/rdf-schema#label> "atomic formula"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/2002/07/owl#unionOf> _:B730c1c2fX2D1591X2D4fa2X2D8284X2Dfcb3d22cbefa .
+<http://ns.inria.fr/nrv#Compensation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticModality> <http://www.w3.org/2000/01/rdf-schema#label> "deontic modality"@en .
+<http://ns.inria.fr/nrv#CompensableRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#Punctual> <http://www.w3.org/2000/01/rdf-schema#label> "punctual"@en .
+_:Ba53ffd01X2DdcdeX2D4e76X2Dad88X2Dd1d8a2aa4212 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#CoOccurantPunctual> .
+_:B69c661ebX2D7c44X2D4ccfX2D82e4X2D10f0138b3d64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#NonViolableRequirement> .
+<http://ns.inria.fr/nrv#PerdurantAchievement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#NonPerdurantAchievement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Bearer> <http://www.w3.org/2000/01/rdf-schema#comment> "a role in a Deontic Specification to which the Deontic Specification is primarily directed."@en .
+_:B730c1c2fX2D1591X2D4fa2X2D8284X2Dfcb3d22cbefa <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B3dbf74f2X2Dd3afX2D402bX2D8034X2Dc439e497fe90 .
+<http://ns.inria.fr/nrv#NonPerdurantAchievement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#Achievement> .
+<http://ns.inria.fr/nrv#> <http://xmlns.com/foaf/0.1/homepage> <http://ns.inria.fr/nrv> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> <http://www.w3.org/2000/01/rdf-schema#comment> "the result of a violated normative requirement."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> <http://www.w3.org/2000/01/rdf-schema#comment> "an indication that an Obligation or Prohibition has been violated."@en .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/contributor> "Fabien Gandon" .
+<http://ns.inria.fr/nrv#CompensableRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NormativeRequirement> .
+<http://ns.inria.fr/nrv#hasCompliance> <http://www.w3.org/2002/07/owl#propertyDisjointWith> <http://ns.inria.fr/nrv#hasViolation> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#SuborderList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#> <http://www.w3.org/2000/01/rdf-schema#comment> "This file specifies the set of OWL classes and properties proposed by the MIREL project to represent normative requirements."@en .
+<http://ns.inria.fr/nrv#Achievement> <http://www.w3.org/2000/01/rdf-schema#comment> "an obligation for which achieving the content at least once is enough to fulfil it."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesPenalty> <http://www.w3.org/2000/01/rdf-schema#label> "applies penalty"@en .
+_:B0ae760bbX2D3f17X2D42f1X2Db4bfX2D1aabf5f8c28a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0993d252X2D5ab3X2D4e14X2D8e98X2D6fe7deca2e53 .
+<http://ns.inria.fr/nrv#Punctual> <http://www.w3.org/2000/01/rdf-schema#comment> "an obligation for which the contents must be immediately achieved."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#toPrescriptiveStatement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Right> <http://www.w3.org/2000/01/rdf-schema#comment> "(see also Permission) a Deontic Specification that gives a Permission to a party (the Bearer) and implies there are Obligations or Prohibitions on other parties (the AuxiliaryParty) such that the Bearer can (eventually) exercise the Right."@en .
+<http://ns.inria.fr/nrv#PreemptiveAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "an achievement requirement that can be fulfilled even before it is actually in force."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Right> <http://www.w3.org/2000/01/rdf-schema#label> "right"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#SuborderList> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+_:B9811ef98X2D5495X2D4024X2D992fX2D395ce6e8c7b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#CompensableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> <http://www.w3.org/2000/01/rdf-schema#comment> "the result of normative requirement being respected."@en .
+<http://ns.inria.fr/nrv#CompensableRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "compensable requirement"@en .
+<http://ns.inria.fr/nrv#CoOccurantPunctual> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#Punctual> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Bearer> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole> .
+<http://ns.inria.fr/nrv#hasCompensation> <http://www.w3.org/2000/01/rdf-schema#range> <http://ns.inria.fr/nrv#Compensation> .
+<http://ns.inria.fr/nrv#hasCompliance> <http://www.w3.org/2000/01/rdf-schema#label> "has for compliance"@en .
+<http://ns.inria.fr/nrv#PersistentRequirement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#NonPersistentRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole> <http://www.w3.org/2000/01/rdf-schema#label> "deontic role"@en .
+<http://ns.inria.fr/nrv#Punctual> <http://www.w3.org/2002/07/owl#intersectionOf> _:B5ae396c6X2Da339X2D4e6cX2D9ad6X2D6a740f045926 .
+_:Bedc06989X2Dcbd6X2D4529X2D95f2X2D8b86001e8636 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#Maintenance> .
+<http://ns.inria.fr/nrv#NonViolableRequirement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition> <http://www.w3.org/2000/01/rdf-schema#comment> "a situation, an act, or a course of action(s) which a bearer should avoid, and if it is achieved results in a violation."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#Term> <http://www.w3.org/2000/01/rdf-schema#label> "term"@en .
+<http://ns.inria.fr/nrv#PreemptiveAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "preemptive achievement requirement"@en .
+<http://ns.inria.fr/nrv#CompensableRequirement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#NonCompensableRequirement> .
+<http://ns.inria.fr/nrv#NonCompensableRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#hasViolation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B52bb90d9X2Dce6fX2D4f29X2Da466X2Df693f4f8a1d3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#NonCoOccurantPunctual> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesModality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/nrv#CompensatedRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#CompensableRequirement> .
+<http://ns.inria.fr/nrv#Maintenance> <http://www.w3.org/2000/01/rdf-schema#comment> "an obligation that needs to be obeyed for the whole duration within the interval in which it is in force."@en .
+<http://ns.inria.fr/nrv#> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://ns.inria.fr/nrv#" .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NonCompensableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission> <http://www.w3.org/2000/01/rdf-schema#comment> "a Deontic Specification for a state, an act, or a course of action where the Bearer has no Obligation or Prohibition to the contrary. A weak Permission is the absence of the Obligation or Prohibition to the contrary; a strong Permission is an exception or derogation of the Obligation or Prohibition to the contrary."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> <http://www.w3.org/2000/01/rdf-schema#label> "compliance"@en .
+<http://ns.inria.fr/nrv#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/created> "2017-07-26"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://ns.inria.fr/nrv#NonCompensableRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NormativeRequirement> .
+<http://ns.inria.fr/nrv#NonCompensableRequirement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#CompensableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#LogicalFormula> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#AtomicFormula> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/description> "An OWL vocabulary for describing normative requirements."@en .
+<http://ns.inria.fr/nrv#NonPersistentRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "non persistent requirement"@en .
+<http://ns.inria.fr/nrv#NormativeRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement implying, creating, or prescribing a norm."@en .
+<http://ns.inria.fr/nrv#NonViolableRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement that cannot be violated."@en .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/creator> <http://ns.inria.fr/fabien.gandon/foaf.html#me> .
+_:B8d5844c0X2Dbc55X2D4d93X2Dad7eX2D17dab0b46b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb874dd8dX2Dd827X2D4e0cX2Dbc18X2D8cb784922bf7 .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#CompensableRequirement> .
+<http://ns.inria.fr/nrv#hasCompliance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#SuborderList> <http://www.w3.org/2000/01/rdf-schema#label> "suborder list"@en .
+<http://ns.inria.fr/nrv#CoOccurantPunctual> <http://www.w3.org/2000/01/rdf-schema#label> "co-occurant punctual requirement"@en .
+<http://ns.inria.fr/nrv#hasCompensation> <http://www.w3.org/2000/01/rdf-schema#label> "has for compensation"@en .
+<http://ns.inria.fr/nrv#NonPreemptiveAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "an achievement requirement that cannot be fulfilled even before it is actually in force."@en .
+<http://ns.inria.fr/nrv#NonPerdurantAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "non perdurant requirement"@en .
+_:B8b75c535X2D70bfX2D4c55X2D9f89X2D1560a42956c0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#PerdurantAchievement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticRole> <http://www.w3.org/2000/01/rdf-schema#comment> "a role in a Deontic Specification"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Right> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+<http://ns.inria.fr/nrv#NonViolableRequirement> <http://www.w3.org/2000/01/rdf-schema#label> "non violable requirement"@en .
+<http://ns.inria.fr/nrv#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticModality> <http://www.w3.org/2000/01/rdf-schema#comment> "a modality pertaining to Deontic Specifications."@en .
+_:B3dbf74f2X2Dd3afX2D402bX2D8034X2Dc439e497fe90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ns.inria.fr/nrv#PerdurantAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "perdurant achievement requirement"@en .
+<http://ns.inria.fr/nrv#Maintenance> <http://www.w3.org/2000/01/rdf-schema#label> "maintenance"@en .
+_:B8b75c535X2D70bfX2D4c55X2D9f89X2D1560a42956c0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5fa4f205X2D7901X2D4980X2D930cX2D40c0f3b5ef43 .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/2000/01/rdf-schema#comment> "a Deontic Specification for a state, an act, or a course of action to which a Bearer is legally bound, and which, if it is not achieved or performed, results in a Violation."@en .
+<http://ns.inria.fr/nrv#hasViolation> <http://www.w3.org/2000/01/rdf-schema#range> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/publisher> "Inria" .
+_:B09e712e8X2D4792X2D4f9cX2Da86bX2D6ea8bde9610d <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B69c661ebX2D7c44X2D4ccfX2D82e4X2D10f0138b3d64 .
+_:B69c661ebX2D7c44X2D4ccfX2D82e4X2D10f0138b3d64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ns.inria.fr/nrv#CompliantRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement being compliant with a state of affairs."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesPenalty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/nrv#hasCompensation> <http://www.w3.org/2000/01/rdf-schema#comment> "links a compensable requirement to a compensation."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#applies> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticModality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Right> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#Achievement> <http://www.w3.org/2000/01/rdf-schema#label> "achievement"@en .
+<http://ns.inria.fr/nrv#NonCoOccurantPunctual> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#hasViolation> <http://www.w3.org/2000/01/rdf-schema#label> "has for violation"@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Modality> <http://www.w3.org/2000/01/rdf-schema#label> "modality"@en .
+<http://ns.inria.fr/nrv#NonPersistentRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NormativeRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/rule-metamodel#LogicalFormula> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "deontic specification"@en .
+<http://ns.inria.fr/nrv#Punctual> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#NonPersistentRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PrescriptiveStatement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#NormativeRequirement> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:B8d5844c0X2Dbc55X2D4d93X2Dad7eX2D17dab0b46b12 .
+<http://ns.inria.fr/nrv#NonPersistentRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+_:B09e712e8X2D4792X2D4f9cX2Da86bX2D6ea8bde9610d <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://ns.inria.fr/nrv#Maintenance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#toPrescriptiveStatement> <http://www.w3.org/2000/01/rdf-schema#comment> "the PrescriptiveStatement that is linked to a PenaltyStatement in a Reparation."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Prohibition> <http://www.w3.org/2000/01/rdf-schema#comment> "a Deontic Specification for a state, an act, or a course of action to which a Bearer is legally bound, and which, if it is achieved or performed, results in a Violation."@en .
+_:B730c1c2fX2D1591X2D4fa2X2D8284X2Dfcb3d22cbefa <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#Achievement> .
+_:B8d5844c0X2Dbc55X2D4d93X2Dad7eX2D17dab0b46b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ns.inria.fr/nrv#PersistentRequirement> .
+<http://ns.inria.fr/nrv#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "nrv" .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesModality> <http://www.w3.org/2000/01/rdf-schema#comment> "the deontic mode that applies to a Deontic Specification in a Context or \tAssociation."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#NonPreemptiveAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#> <http://purl.org/dc/terms/status> <http://purl.org/adms/status/UnderDevelopment> .
+<http://ns.inria.fr/nrv#Punctual> <http://www.w3.org/2002/07/owl#disjointUnionOf> _:Ba53ffd01X2DdcdeX2D4e76X2Dad88X2Dd1d8a2aa4212 .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#DeonticSpecification> .
+<http://ns.inria.fr/nrv#NonPreemptiveAchievement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#Achievement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Bearer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesPenalty> <http://www.w3.org/2000/01/rdf-schema#domain> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Reparation> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://ns.inria.fr/nrv#NonPerdurantAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "achievement requirement that does not persist after being violated."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PenaltyStatement> <http://www.w3.org/2000/01/rdf-schema#label> "penalty statement"@en .
+<http://ns.inria.fr/nrv#NonPreemptiveAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "non preemptive achievement requirement"@en .
+_:B5fa4f205X2D7901X2D4980X2D930cX2D40c0f3b5ef43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ns.inria.fr/nrv#> <http://www.w3.org/2000/01/rdf-schema#isDefinedby> <http://ns.inria.fr/nrv> .
+<http://ns.inria.fr/nrv#hasCompensation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/nrv#CompensableRequirement> .
+<http://ns.inria.fr/nrv#ViolatedRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Permission> <http://www.w3.org/2000/01/rdf-schema#comment> "something is permitted if the obligation or the prohibition to the contrary does not hold."@en .
+<http://ns.inria.fr/nrv#hasCompensation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#appliesModality> <http://www.w3.org/2000/01/rdf-schema#range> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Modality> .
+<http://ns.inria.fr/nrv#NonCoOccurantPunctual> <http://www.w3.org/2000/01/rdf-schema#comment> "TODO."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Violation> <http://www.w3.org/2002/07/owl#disjointWith> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> .
+<http://ns.inria.fr/nrv#Maintenance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#ViolatedRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement violated by a state of affairs."@en .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Obligation> <http://www.w3.org/2000/01/rdf-schema#comment> "a situation, an act, or a course of action(s) to which a bearer is legally bound, and if it is not achieved or performed results in a violation."@en .
+<http://ns.inria.fr/nrv#CompensatedRequirement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://ns.inria.fr/nrv#CompliantRequirement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/nrv#ViolableRequirement> .
+<http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#PrescriptiveStatement> <http://www.w3.org/2000/01/rdf-schema#label> "prescriptive statement"@en .
+_:B9811ef98X2D5495X2D4024X2D992fX2D395ce6e8c7b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B09f5becbX2D1a9bX2D4063X2Db162X2D72f22fba76d7 .
+<http://ns.inria.fr/nrv#NonPerdurantAchievement> <http://www.w3.org/2002/07/owl#disjointWith> <http://ns.inria.fr/nrv#PerdurantAchievement> .
+<http://ns.inria.fr/nrv#hasCompliance> <http://www.w3.org/2000/01/rdf-schema#range> <http://docs.oasis-open.org/legalruleml/ns/v1.0/metamodel#Compliance> .
+<http://ns.inria.fr/nrv#NonPersistentRequirement> <http://www.w3.org/2000/01/rdf-schema#comment> "a requirement that is in force at a particular time point only or for the instance it is in force."@en .

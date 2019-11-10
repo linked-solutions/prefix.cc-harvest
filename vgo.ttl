@@ -1,753 +1,360 @@
-<http://purl.org/net/VideoGameOntology#GameProduct>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A vgo:GameProduct is anything that is for sale inside a game. These can be either normal game items purchased with in-game currency or with real world money. An example of vgo:GameProduct could be a consumable health potion bought with real money, a better weapon or some visual improvement (e.g. Hats in Steam). Basically a game product can be anything, a character, an item or an achievement.\nGameProduct is a subclass of Good Relations: ProductOrService & schema:Product. Since vgo:GameProduct is a type of buyable product, it reuses the properties available in the schema and Good Relations, such as currency price, validity of the offer and so on."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "game product"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://schema.org/Product> , <http://purl.org/goodrelations/v1#ProductOrService> ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                [ a       <http://www.w3.org/2002/07/owl#Class> ;
-                  <http://www.w3.org/2002/07/owl#unionOf>
-                          ( <http://purl.org/net/VideoGameOntology#Achievement> <http://purl.org/net/VideoGameOntology#Character> <http://purl.org/net/VideoGameOntology#Game> <http://purl.org/net/VideoGameOntology#Item> <http://purl.org/net/VideoGameOntology#PlayingArea> )
-                ] .
-
-<http://purl.org/net/VideoGameOntology#Game>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Game class describes a game product that can be played by a player.\nExamples of games are Pong, Grand Theft Auto, Pokemon and Need for Speed."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Game"@en .
-
-<http://purl.org/net/VideoGameOntology#Leaderboard>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Leaderboard class describes a ranking system of the players. There can be multiple rankings in a game, for example, the kill-count ranking of Modern Warfare or the best time listing of Formula 1 game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Leaderboard"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://purl.org/net/VideoGameOntology#Curiosity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Curiosity describes funny random things that can happen or be found in the game. An example could be jumping from the Eiffel tower without dying or following a comupter controlled character’s activities for one hour."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Curiosity"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#Player>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Player describes the entity playing the game. This can be either a human or a computer. vgo:Player class is used to keep a profile of a certain playing entity and to connect all the games, achievements and characters he/she has. The vgo:Player is a subclass of foaf:Person as it contains all relative information of a certain person."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Player"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://purl.org/net/VideoGameOntology>
-        a       <http://www.w3.org/2002/07/owl#Ontology> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "An ontology for describing video games and game plays. Created by Janne Parkkila, Filip Radulovic, Daniel Garijo and María Poveda."@en ;
-        <http://purl.org/dc/elements/1.1/creator>
-                "http://filip.milstan.net/"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://delicias.dia.fi.upm.es/members/DGarijo/#me"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://www.mendeley.com/profiles/janne-parkkila/"^^<http://www.w3.org/2001/XMLSchema#anyURI> , "http://purl.org/net/mpoveda"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
-        <http://purl.org/dc/elements/1.1/description>
-                "The Video Game Ontology is an ontology designed for describing video games and all the resources related to their game plays."@en ;
-        <http://purl.org/dc/elements/1.1/title>
-                "The Video Game Ontology"@en ;
-        <http://purl.org/dc/terms/created>
-                "2013-10-22"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/dc/terms/license>
-                "http://creativecommons.org/licenses/by-nc-sa/2.0/" ;
-        <http://purl.org/dc/terms/modified>
-                "2014-12-19"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://purl.org/vocab/vann/preferredNamespacePrefix>
-                "vgo" ;
-        <http://purl.org/vocab/vann/preferredNamespaceUri>
-                "http://purl.org/net/VideoGameOntology#" ;
-        <http://www.w3.org/2002/07/owl#versionInfo>
-                "1.0" .
-
-<http://purl.org/net/VideoGameOntology#InAppPurchaseEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:InAppPurchaseEvent describes an event that is related to making a purchase with real money inside a game. This is a subclass of InstantaneousEvent because it happens at certain moment in time. An example of vgo:InAppPurchaseEvent would be unlocking secret levels with real money or purchasing better equipment with real money."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "in-app purchase event"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
-
-<http://purl.org/net/VideoGameOntology#username>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The username connects player to a text string which describes the username a player has."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "username"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/VideoGameOntology#endTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "endTime describes the ending moment in time of a single Session. endTime connects the session to a DateTime value which holds the moment when the session ended."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "end time"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/net/VideoGameOntology#Minigame>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Minigame achievement describes success in mini-games that have been included in a certain game but are not vital for completing the game. An example could be to complete all the Pizza deliveries in GTA minigame or gaining over 100 dollars while playing poker in Red Dead Redemption."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Minigame"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#isAchievementInGame>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The property vgo:isAchievementInGame asserts that a specific vgo:Achievement can be earned in a particular vgo:Game. An achievement must belong to a certain game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Achievement> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is achievement in game"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/VideoGameOntology#hasAchievement> .
-
-<http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isEventAssociatedToPlayer property asserts an event to a specific vgo:Player. A player may have caused an event to happen through the actions of his/her character and this property is used to connect the real person to the event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is event associated to player"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Player> .
-
-<http://purl.org/net/VideoGameOntology#involvesAchievement>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:involvesPlayer property specifies that a session involves a specific player. A session may involve more than one player."@en , "optional"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "involves achievement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#ownsItem>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:ownsItem describes ownership of an item. A vgo:Item is always owned by a certain vgo:Character. A vgo:Character can own multiple vgo:Items and this relationship is used to keep track of the character’s owned items. Even though players may lose items, the vgo:ownsItem connection is still held with the item. This approach allows to keep track of character’s history of owned items."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Character> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "owns item"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Item> .
-
-<http://purl.org/net/VideoGameOntology#ownsCharacter>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:ownsCharacter property asserts which characters are owned by a specific player. A player can have multiple characters in one game and this connection is used to define all the different characters a player could be playing. Even though a player deletes, trades or loses his/her character in any way, the connection can be kept to contain the player’s history of owned characters."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "owns character"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Character> .
-
-<http://purl.org/net/VideoGameOntology#Genre>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Genre class describes the genre a game belongs to. All of the games have at least one genre. Examples of this are RPG, Simulator and Adventure"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Genre"@en .
-
-<http://purl.org/net/VideoGameOntology#Paragon>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Paragon is a rare achievement that is given only to limited number of players. An example of vgo:Paragon achievement could be the first player to finish a game under 10 hours or the first ten players to complete the game 100% through."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Paragon"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#Feature>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "vgo:Feature describes an ability or characteristic. For example, a sword could have “damage dealing” ability and a bottle of water could be “potable”."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Feature"@en .
-
-<http://purl.org/net/VideoGameOntology#GameEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:GameEvent describes an event that takes place in a game without straight player interaction. GameEvents are often very specific for each game. Examples of vgo:GameEvent could be an enemy dying, connecting to a multiplayer server, loading a new level or playing an animation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "game event"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
-
-<http://purl.org/net/VideoGameOntology#isFriendWithPlayer>
-        a       <http://www.w3.org/2002/07/owl#SymmetricProperty> , <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isFriendWithPlayer describes a connection between players. The property is used to model the friends a player has and with whom he might be playing games with. The friends of a player are not bound necessarily to particular game, but can be describe the friendly playing relationship in overall."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is friend with player"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
-                <http://xmlns.com/foaf/0.1/knows> .
-
-<http://purl.org/net/VideoGameOntology#involvesPlayer>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "optional"@en , "The vgo:involvesPlayer property specifies that a session involves a specific player. A session may involve more than one player."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "involves player"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Player> .
-
-<http://purl.org/net/VideoGameOntology#hasItem>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:hasItem property specifies that a game has a specific item. A game often contains more than one items."@en , "optional"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has item"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Item> .
-
-<http://purl.org/net/VideoGameOntology#Luck>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Lucky describes an achievement that is awarded to the player in a lucky situation. An example of vgo:Lucky achievement would be winning in a lottery or throwing “Yahtzee” without re-rolling the dice."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Luck"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#isItemInGame>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isItemInGame is used to specify which item belongs to a particular game. An item cannot exist alone and thus should always be associated to a certain game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is item in game"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/VideoGameOntology#hasItem> .
-
-<http://purl.org/net/VideoGameOntology#SpecialPlayStyle>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:SpecialPlayStyle achievement is awarded to players after playing a game in special fashion. Often this is something harder than the regular play and requires more player experience to excel in it. An example of vgo:SpecialPlayStyle could be to complete a game without any violence or against a timer."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "special play style"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#isLeaderboardInGame>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isLeaderboardInGame property specifies that a leaderboard is from a specific game."@en , "optional"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Leaderboard> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is leaderboard in game"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Game> .
-
-<http://purl.org/net/VideoGameOntology#isPlayerInSession>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isPlayerInSession property connects vgo:Player to a specific vgo:Session. This property is used to keep track of the gameplay sessions the player has played and what has happened in those sessions. For example vgo:Player may have participated in a this can be a one round of Counter-Strike or played one hour session of mario."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is player in session"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/VideoGameOntology#involvesPlayer> .
-
-<http://purl.org/net/VideoGameOntology#hasCharacter>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:hasCharacter property specifies that a game has a specific character. A game can have more than one characters involved."@en , "optional"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has character"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Character> .
-
-<http://purl.org/net/VideoGameOntology#involvesCharacter>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:involvesCharacter property specifies that a session involves a specific character."@en , "optional"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "involves character"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Character> .
-
-<http://purl.org/net/VideoGameOntology#Achievement>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Achievement is a reward gained in a game due to some event accomplished in the game. Achievements are commonly used in game industry to reward players for having accomplished tasks in the game. \nThis ontology defines various subclasses of vgo:Achievement, which are all based on the classification presented by Markus Montola et al. [Markus Montola, Timo Nummenmaa, Andrés Lucero, Marion Boberg, and Hannu Korhonen, 2009, “Applying game achievement systems to enhance user experience in a photo sharing service”, In Proceedings of the 13th International MindTrek Conference: Everyday Life in the Ubiquitous Era (MindTrek '09)] http://dl.acm.org/citation.cfm?id=1621859"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Achievement"@en .
-
-<http://purl.org/net/VideoGameOntology#isEventRelatedToItem>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isEventRelatedToItem property asserts an event to a specific item. This property is used to describe an event that includes an item in one way or another. For example, an event where character gains a new sword can be described with this relation."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is event related to item"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Item> .
-
-<http://purl.org/net/VideoGameOntology#hasLeaderboard>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:hasLeaderboard specifies that a leaderboard belongs to a particular game. A game can have one or more leaderboards that keep track of ranking of the players. For example a leaderboard could be ranking of who has the most soccer game victories or who has the fastest lap in a Formula 1 game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has leaderboard"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Leaderboard> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/VideoGameOntology#isLeaderboardInGame> .
-
-<http://purl.org/net/VideoGameOntology#ownsAchievement>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:ownsAchievement links the vgo:Player to the particular vgo:Achievement earned in a game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "owns achievement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#releaseDate>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "releaseDate connects a game to a time which describes the release date of the game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "release date"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/net/VideoGameOntology#PlayingArea>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:PlayingArea is the description of a place where the gameplay takes place. All of the games have some kind of area where they are played in. An example of playing areas could be football field in soccer game, a race track from a racing game or a star system of EVE Online."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "playing area"@en .
-
-<http://purl.org/net/VideoGameOntology#Session>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Session class describes a session of gameplay. A session can be a single round of chess, a round of Counter-Strike, one half-time of soccer or one race of Formula 1. vgo:Session class can be used to store gameplay information, especially for analytical reasons."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Session"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://purl.org/net/VideoGameOntology#isCharacterInGame>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "vgo:isCharacterInGame property describes the relation between a vgo:Character and a vgo:Game. a vgo:Character always belongs to a certain game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Character> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is character in game"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/VideoGameOntology#hasCharacter> .
-
-<http://xmlns.com/foaf/0.1/knows>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/net/VideoGameOntology#Collection>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Collection type of achievement is typically rewarded from collecting an amount of certain items in a game. An example of vgo:Collection would be obtaining a full set of christmas clothes for a character to wear or collecting every possible flower in the game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Collection"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#hasFeature>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:hasFeature property indicates what is a vgo:Feature (or ability) of a particular vgo:Item. For example, a fire sword, a healing staff or boots of flight connects item to a feature it can have. An item with connection to potable feature would make the item potable."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Item> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has feature"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Feature> .
-
-<http://purl.org/net/VideoGameOntology#isEventInSession>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isEventInSession property links an event to a specific gameplay session. An event always happens during a certain session and this property enables to link the events to that session. For example, an event of moving the queen in game of chess should be connected to a session of chess."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is event in session"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Session> .
-
-<http://purl.org/net/VideoGameOntology#Loyalty>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Loyalty achievement is used to give recognition to loyal players. For example, this could be an achievement received after subscribing to the game for a year."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Loyalty"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#hasAchievement>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "optional"@en , "The vgo:hasAchievement property specifies that a game has a specific achievement. A game often contains more than one achievement that can be awarded to the players."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has achievement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#Multiplayer>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Multiplayer achievement describes anything that can be awarded to one or multiple players due to their gameplay in multiplayer. For example, this could be winning 10 Team Fortress matches in a row with the same team or getting killed ten times in a row in Counter-Strike."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Multiplayer"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#isEventInGame>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isEventInGame property asserts an event to a specific game. An event always happens inside a specific a game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is event in game"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Game> .
-
-<http://purl.org/net/VideoGameOntology#hasPlayingArea>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:hasPlayingArea property asserts a gaming area to a specific game. In every game, the gameplay takes place in some playing area."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has playing area"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#PlayingArea> .
-
-<http://purl.org/net/VideoGameOntology#eventName>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "name connects InstantaneousEvent a text string. This allows the event to have a name to recognize it for."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "event name"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#string> .
-
-<http://purl.org/net/VideoGameOntology#MenuEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:MenuEvent describes an event that is related to interacting with the ingame menu. An example of menu event is muting sounds, changing graphic settings, changing gameplay difficulty or remapping game controls."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "menu event"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
-
-<http://purl.org/net/VideoGameOntology#isAchievedInSession>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The property vgo:isAchievedInSession asserts the receiving of an achievement to a certain gameplay session. This enables to keep track of what achievements a player has gained during one gameplay session."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Achievement> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is achieved in session"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/VideoGameOntology#involvesAchievement> .
-
-<http://purl.org/net/VideoGameOntology#isCharacterInSession>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isCharacterInSession property connects the vgo:Character to a vgo:Session. A character participates in a game session (e.g., a football match or a counter strike round) during a period of time. As players can have multiple characters, a character needs to be connected to the session, in order to know which of those characters participated in the certain session."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Character> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is character in session"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2002/07/owl#inverseOf>
-                <http://purl.org/net/VideoGameOntology#involvesCharacter> .
-
-<http://purl.org/net/VideoGameOntology#LoseEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "vgo:LoseEvent describes an event that is related to character/player losing something in a game. This is a subclass of GameEvent as gaining something is related to a specific game. For example, a player can lose a character due to trade with another player. Another example would be a character losing item due to consuming it."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "lose event"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#GameEvent> .
-
-<http://purl.org/net/VideoGameOntology#playsGame>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "the vgo:playsGame property asserts which games has the vgo:Player played at any point of time."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "plays game"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Game> .
-
-<http://purl.org/net/VideoGameOntology#Veteran>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Veteran achievement is an award that is given for accumulating a lot of play hours or game actions. For example, vgo:Veteran could be playing thousand hours of World of Tanks or making 100 goals in ice hockey game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Veteran"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#InstantaneousEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:InstantaneousEvent class describes an event that happens during the gameplay at a certain moment in time. This can be a player gaining an achievement, killing an enemy or making an in-app purchase."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "instantaneous event"@en .
-
-<http://purl.org/net/VideoGameOntology#Virtuosity>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Virtuosity describes an achievement that is awarded for playing masterfully in the game. Examples of virtuous play could be finishing the game without saving at all, dying zero times or preventing an opposing team from scoring any goals in a soccer game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Virtuosity"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isEventTriggeredByCharacter connects the vgo:InstantaneousEvent to specific vgo:Character. This describes that an event is often caused by a character. The character in question can be either a character controlled by a player or a computer. For example, both player and non-player characters can trigger a character death event."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is event triggered by character"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Character> .
-
-<http://purl.org/net/VideoGameOntology#Item>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A vgo:Item portrays any item that exists in a game. The item can either be just visual part of the game or a concrete usable item. As an example an item could be a drinkable potion, a magical sword or just a flower pot."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Item"@en .
-
-<http://purl.org/net/VideoGameOntology#startTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "startTime describes the starting moment in time of a single Session. startTime connects the session to a DateTime value which holds the moment when the session started."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "start time"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/net/VideoGameOntology#eventTime>
-        a       <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "time describes the connection of InstantaneousEvent happening at a certain moment of time. time Conncets the event to a DateTime value that describes the moment when the event happened."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "event time"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-<http://purl.org/net/VideoGameOntology#HardMode>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:HardMode achievement describes succeeding in a game on a high difficulty level. An example could be completing the “Doom” game on Nightmare difficulty level."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "hard mode"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/dc/elements/1.1/creator>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://dbpedia.org/ontology/PopulatedPlace>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/net/VideoGameOntology#GainEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:GainEvent describes an event that is related to character/player gaining something in a game. This is a subclass of vgo:GameEvent as gaining something is related to a specific game. For example, a player can gain a new character, achievement or item."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "gain event"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#GameEvent> .
-
-<http://purl.org/net/VideoGameOntology#purchasesGameOffering>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:purchasesGameOffering property aseerts a vgo:InAppPurchaseEvent to a specific vgo:GameProduct. This property describes what is purchased by the in-app purchase event that the player has done."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InAppPurchaseEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "purchases game offering"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#GameProduct> .
-
-<http://purl.org/net/VideoGameOntology#PlayerEvent>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:PlayerEvent describes a vgo:InstantaneousEvent that is caused by the player. For example jumping in the game, throwing an item or pressing a joystick button."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "player event"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
-
-<http://purl.org/net/VideoGameOntology#unlocksAchievement>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:unlocksAchievement property asserts an event to a certain achievement. An achievement is always unlocked as a consequence of some event. For example, eating the 100th piece of cake unlocks the “Cake Eater” achievement."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#InstantaneousEvent> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "unlocks achievement"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#livesIn>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:livesIn describes the connection between a player and his place of existence in the real-world. A vgo:Player is connected to wgs84:SpatialThing as that has descriptions for places where people live and contains more detailed information of them, such as continents and regions."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Player> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "lives in"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://dbpedia.org/ontology/PopulatedPlace> .
-
-<http://purl.org/net/VideoGameOntology#hasGameGenre>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:hasGameGenre property specifies that a game belongs to a certain game genre. For example, Pong would be an arcade game and Mario a platformer."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "has game genre"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Genre> .
-
-<http://purl.org/net/VideoGameOntology#isSessionInGame>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:isSessionInGame property links a vgo:Session to a certain vgo:Game. Each gameplay session must belong to a certain game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Session> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "is session in game"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://purl.org/net/VideoGameOntology#Game> .
-
-<http://purl.org/dc/terms/creator>
-        a       <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-        <http://www.w3.org/2000/01/rdf-schema#domain>
-                <http://purl.org/net/VideoGameOntology#Game> ;
-        <http://www.w3.org/2000/01/rdf-schema#range>
-                <http://xmlns.com/foaf/0.1/Agent> .
-
-<http://purl.org/net/VideoGameOntology#Tutorial>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Tutorial achievement is  awarded to a player for trying out various features of the game. This is often related to learning how to play the game, how the controls work and how the game logic works. An example of vgo:Tutorial could be testing out newly gained special equipment or just playing through the in-game tutorial in the beginning."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Tutorial"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/goodrelations/v1#ProductOrService>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://schema.org/Product>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://xmlns.com/foaf/0.1/Agent>
-        a       <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/net/VideoGameOntology#Completion>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Completion type of achievement is usually rewarded from successfully completing a certain goal or subgoal in a game. An example of vgo:Completion would be to save a princess from a burning tower or completing all side-quests in a game."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Completion"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/net/VideoGameOntology#Fandom>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "The vgo:Fandom achievement is related to doing some true fan activities. An example of vgo:Fandom could be purchasing a collectors edition of the game or attending a fan gathering."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Fandom"@en ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://purl.org/net/VideoGameOntology#Achievement> .
-
-<http://purl.org/dc/elements/1.1/contributor>
-        a       <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-
-<http://purl.org/net/VideoGameOntology#Character>
-        a       <http://www.w3.org/2002/07/owl#Class> ;
-        <http://www.w3.org/2000/01/rdf-schema#comment>
-                "A vgo:Character is any actor that can exists in a game. A character  can be a human-like creature as seen traditionally in video games. However, a character could also be a car, a paddle in game of Pong or spaceship of a space shooter game. This is often contextually related to the gameplay of a certain game. A character can be either controller by a player or by a computer."@en ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Character"@en .
-
-<http://www.w3.org/2002/07/owl#Thing>
-        a       <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#GameProduct> <http://www.w3.org/2000/01/rdf-schema#label> "game product"@en .
+<http://purl.org/net/VideoGameOntology#Game> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Leaderboard> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/net/VideoGameOntology#Curiosity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#Player> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/terms/created> "2013-10-22"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://purl.org/net/VideoGameOntology#InAppPurchaseEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:InAppPurchaseEvent describes an event that is related to making a purchase with real money inside a game. This is a subclass of InstantaneousEvent because it happens at certain moment in time. An example of vgo:InAppPurchaseEvent would be unlocking secret levels with real money or purchasing better equipment with real money."@en .
+<http://purl.org/net/VideoGameOntology#username> <http://www.w3.org/2000/01/rdf-schema#label> "username"@en .
+<http://purl.org/net/VideoGameOntology#endTime> <http://www.w3.org/2000/01/rdf-schema#comment> "endTime describes the ending moment in time of a single Session. endTime connects the session to a DateTime value which holds the moment when the session ended."@en .
+<http://purl.org/net/VideoGameOntology#Minigame> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Minigame achievement describes success in mini-games that have been included in a certain game but are not vital for completing the game. An example could be to complete all the Pizza deliveries in GTA minigame or gaining over 100 dollars while playing poker in Red Dead Redemption."@en .
+<http://purl.org/net/VideoGameOntology#isAchievementInGame> <http://www.w3.org/2000/01/rdf-schema#label> "is achievement in game"@en .
+<http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#involvesAchievement> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#ownsItem> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Item> .
+<http://purl.org/net/VideoGameOntology#ownsCharacter> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:ownsCharacter property asserts which characters are owned by a specific player. A player can have multiple characters in one game and this connection is used to define all the different characters a player could be playing. Even though a player deletes, trades or loses his/her character in any way, the connection can be kept to contain the player’s history of owned characters."@en .
+<http://purl.org/net/VideoGameOntology#Genre> <http://www.w3.org/2000/01/rdf-schema#label> "Genre"@en .
+<http://purl.org/net/VideoGameOntology#Paragon> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Feature> <http://www.w3.org/2000/01/rdf-schema#label> "Feature"@en .
+<http://purl.org/net/VideoGameOntology#GameEvent> <http://www.w3.org/2000/01/rdf-schema#label> "game event"@en .
+<http://purl.org/net/VideoGameOntology#involvesAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Paragon> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Paragon is a rare achievement that is given only to limited number of players. An example of vgo:Paragon achievement could be the first player to finish a game under 10 hours or the first ten players to complete the game 100% through."@en .
+<http://purl.org/net/VideoGameOntology#isFriendWithPlayer> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/knows> .
+<http://purl.org/net/VideoGameOntology#involvesPlayer> <http://www.w3.org/2000/01/rdf-schema#label> "involves player"@en .
+_:Bb28293d6X2D74bcX2D426aX2DbaacX2Dd1e7b7765e29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/net/VideoGameOntology#PlayingArea> .
+<http://purl.org/net/VideoGameOntology#hasItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Luck> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#isItemInGame> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isItemInGame is used to specify which item belongs to a particular game. An item cannot exist alone and thus should always be associated to a certain game."@en .
+<http://purl.org/net/VideoGameOntology#SpecialPlayStyle> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:SpecialPlayStyle achievement is awarded to players after playing a game in special fashion. Often this is something harder than the regular play and requires more player experience to excel in it. An example of vgo:SpecialPlayStyle could be to complete a game without any violence or against a timer."@en .
+<http://purl.org/net/VideoGameOntology#ownsCharacter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#username> <http://www.w3.org/2000/01/rdf-schema#comment> "The username connects player to a text string which describes the username a player has."@en .
+<http://purl.org/net/VideoGameOntology#isLeaderboardInGame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#isPlayerInSession> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/VideoGameOntology#involvesPlayer> .
+<http://purl.org/net/VideoGameOntology#hasCharacter> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:hasCharacter property specifies that a game has a specific character. A game can have more than one characters involved."@en .
+<http://purl.org/net/VideoGameOntology#isPlayerInSession> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isPlayerInSession property connects vgo:Player to a specific vgo:Session. This property is used to keep track of the gameplay sessions the player has played and what has happened in those sessions. For example vgo:Player may have participated in a this can be a one round of Counter-Strike or played one hour session of mario."@en .
+<http://purl.org/net/VideoGameOntology#involvesCharacter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#Achievement> <http://www.w3.org/2000/01/rdf-schema#label> "Achievement"@en .
+<http://purl.org/net/VideoGameOntology#Curiosity> <http://www.w3.org/2000/01/rdf-schema#label> "Curiosity"@en .
+<http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isEventAssociatedToPlayer property asserts an event to a specific vgo:Player. A player may have caused an event to happen through the actions of his/her character and this property is used to connect the real person to the event."@en .
+<http://purl.org/net/VideoGameOntology#isEventRelatedToItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isEventRelatedToItem property asserts an event to a specific item. This property is used to describe an event that includes an item in one way or another. For example, an event where character gains a new sword can be described with this relation."@en .
+<http://purl.org/net/VideoGameOntology#hasLeaderboard> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#isAchievementInGame> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#ownsAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "owns achievement"@en .
+<http://purl.org/net/VideoGameOntology#releaseDate> <http://www.w3.org/2000/01/rdf-schema#comment> "releaseDate connects a game to a time which describes the release date of the game."@en .
+<http://purl.org/net/VideoGameOntology#hasCharacter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#PlayingArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Session> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#isCharacterInGame> <http://www.w3.org/2000/01/rdf-schema#label> "is character in game"@en .
+<http://purl.org/net/VideoGameOntology#involvesPlayer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Session> .
+<http://xmlns.com/foaf/0.1/knows> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Collection> <http://www.w3.org/2000/01/rdf-schema#label> "Collection"@en .
+<http://purl.org/net/VideoGameOntology#endTime> <http://www.w3.org/2000/01/rdf-schema#label> "end time"@en .
+<http://purl.org/net/VideoGameOntology#hasFeature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#releaseDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#isEventInSession> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#isPlayerInSession> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#Loyalty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#hasAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "has achievement"@en .
+<http://purl.org/net/VideoGameOntology#Multiplayer> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Multiplayer achievement describes anything that can be awarded to one or multiple players due to their gameplay in multiplayer. For example, this could be winning 10 Team Fortress matches in a row with the same team or getting killed ten times in a row in Counter-Strike."@en .
+_:B5c634b1bX2Dbb59X2D4090X2Db5a3X2D25aa878441dd <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/net/VideoGameOntology#Item> .
+<http://purl.org/net/VideoGameOntology#GameEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#PlayingArea> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:PlayingArea is the description of a place where the gameplay takes place. All of the games have some kind of area where they are played in. An example of playing areas could be football field in soccer game, a race track from a racing game or a star system of EVE Online."@en .
+_:B6aa2029cX2D1958X2D44e4X2D9fb6X2D082d7b05701b <http://www.w3.org/2002/07/owl#unionOf> _:B20bdd91aX2D0f53X2D458cX2Db42dX2D9dcd67e63597 .
+<http://purl.org/net/VideoGameOntology#isEventInSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#isPlayerInSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#isEventInGame> <http://www.w3.org/2000/01/rdf-schema#label> "is event in game"@en .
+<http://purl.org/net/VideoGameOntology#hasPlayingArea> <http://www.w3.org/2000/01/rdf-schema#label> "has playing area"@en .
+<http://purl.org/net/VideoGameOntology#hasCharacter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Character> .
+<http://purl.org/net/VideoGameOntology#eventName> <http://www.w3.org/2000/01/rdf-schema#comment> "name connects InstantaneousEvent a text string. This allows the event to have a name to recognize it for."@en .
+<http://purl.org/net/VideoGameOntology#isEventInGame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Multiplayer> <http://www.w3.org/2000/01/rdf-schema#label> "Multiplayer"@en .
+<http://purl.org/net/VideoGameOntology#eventName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#isFriendWithPlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<http://purl.org/net/VideoGameOntology#Luck> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Lucky describes an achievement that is awarded to the player in a lucky situation. An example of vgo:Lucky achievement would be winning in a lottery or throwing “Yahtzee” without re-rolling the dice."@en .
+<http://purl.org/net/VideoGameOntology#MenuEvent> <http://www.w3.org/2000/01/rdf-schema#label> "menu event"@en .
+<http://purl.org/net/VideoGameOntology#hasLeaderboard> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Leaderboard> .
+<http://purl.org/net/VideoGameOntology#isAchievedInSession> <http://www.w3.org/2000/01/rdf-schema#comment> "The property vgo:isAchievedInSession asserts the receiving of an achievement to a certain gameplay session. This enables to keep track of what achievements a player has gained during one gameplay session."@en .
+<http://purl.org/net/VideoGameOntology#isCharacterInSession> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Character> .
+<http://purl.org/net/VideoGameOntology#LoseEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "vgo:LoseEvent describes an event that is related to character/player losing something in a game. This is a subclass of GameEvent as gaining something is related to a specific game. For example, a player can lose a character due to trade with another player. Another example would be a character losing item due to consuming it."@en .
+<http://purl.org/net/VideoGameOntology#playsGame> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#Feature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#MenuEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#SpecialPlayStyle> <http://www.w3.org/2000/01/rdf-schema#label> "special play style"@en .
+<http://purl.org/net/VideoGameOntology#isCharacterInGame> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#isItemInGame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Veteran> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#hasLeaderboard> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/VideoGameOntology#isLeaderboardInGame> .
+<http://purl.org/net/VideoGameOntology#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#label> "instantaneous event"@en .
+<http://purl.org/net/VideoGameOntology#PlayingArea> <http://www.w3.org/2000/01/rdf-schema#label> "playing area"@en .
+<http://purl.org/net/VideoGameOntology#ownsAchievement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/elements/1.1/creator> "http://filip.milstan.net/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/VideoGameOntology#isLeaderboardInGame> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Leaderboard> .
+<http://purl.org/net/VideoGameOntology#InAppPurchaseEvent> <http://www.w3.org/2000/01/rdf-schema#label> "in-app purchase event"@en .
+<http://purl.org/net/VideoGameOntology#Loyalty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Virtuosity> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Virtuosity describes an achievement that is awarded for playing masterfully in the game. Examples of virtuous play could be finishing the game without saving at all, dying zero times or preventing an opposing team from scoring any goals in a soccer game."@en .
+<http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Character> .
+<http://purl.org/net/VideoGameOntology#isItemInGame> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#isCharacterInGame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:Bb28293d6X2D74bcX2D426aX2DbaacX2Dd1e7b7765e29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/net/VideoGameOntology#involvesPlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "optional"@en .
+<http://purl.org/net/VideoGameOntology#Achievement> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Achievement is a reward gained in a game due to some event accomplished in the game. Achievements are commonly used in game industry to reward players for having accomplished tasks in the game. \nThis ontology defines various subclasses of vgo:Achievement, which are all based on the classification presented by Markus Montola et al. [Markus Montola, Timo Nummenmaa, Andrés Lucero, Marion Boberg, and Hannu Korhonen, 2009, “Applying game achievement systems to enhance user experience in a photo sharing service”, In Proceedings of the 13th International MindTrek Conference: Everyday Life in the Ubiquitous Era (MindTrek '09)] http://dl.acm.org/citation.cfm?id=1621859"@en .
+<http://purl.org/net/VideoGameOntology#Item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#startTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/net/VideoGameOntology#eventTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/VideoGameOntology#Item> <http://www.w3.org/2000/01/rdf-schema#comment> "A vgo:Item portrays any item that exists in a game. The item can either be just visual part of the game or a concrete usable item. As an example an item could be a drinkable potion, a magical sword or just a flower pot."@en .
+<http://purl.org/net/VideoGameOntology#HardMode> <http://www.w3.org/2000/01/rdf-schema#label> "hard mode"@en .
+<http://purl.org/net/VideoGameOntology#LoseEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#GameEvent> .
+<http://purl.org/net/VideoGameOntology#isEventInGame> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#endTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#hasPlayingArea> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#PlayingArea> .
+<http://purl.org/net/VideoGameOntology#isEventInSession> <http://www.w3.org/2000/01/rdf-schema#label> "is event in session"@en .
+<http://purl.org/net/VideoGameOntology#ownsItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:ownsItem describes ownership of an item. A vgo:Item is always owned by a certain vgo:Character. A vgo:Character can own multiple vgo:Items and this relationship is used to keep track of the character’s owned items. Even though players may lose items, the vgo:ownsItem connection is still held with the item. This approach allows to keep track of character’s history of owned items."@en .
+<http://purl.org/net/VideoGameOntology#username> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/VideoGameOntology#InstantaneousEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:InstantaneousEvent class describes an event that happens during the gameplay at a certain moment in time. This can be a player gaining an achievement, killing an enemy or making an in-app purchase."@en .
+<http://purl.org/net/VideoGameOntology#hasItem> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Item> .
+<http://purl.org/net/VideoGameOntology#isCharacterInSession> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/VideoGameOntology#involvesCharacter> .
+<http://purl.org/net/VideoGameOntology#Veteran> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#involvesCharacter> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:involvesCharacter property specifies that a session involves a specific character."@en .
+<http://dbpedia.org/ontology/PopulatedPlace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#GainEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#purchasesGameOffering> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:purchasesGameOffering property aseerts a vgo:InAppPurchaseEvent to a specific vgo:GameProduct. This property describes what is purchased by the in-app purchase event that the player has done."@en .
+<http://purl.org/net/VideoGameOntology#Achievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#isLeaderboardInGame> <http://www.w3.org/2000/01/rdf-schema#label> "is leaderboard in game"@en .
+<http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer> <http://www.w3.org/2000/01/rdf-schema#label> "is event associated to player"@en .
+<http://purl.org/net/VideoGameOntology#isFriendWithPlayer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#ownsItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by-nc-sa/2.0/" .
+<http://purl.org/net/VideoGameOntology#hasPlayingArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#ownsCharacter> <http://www.w3.org/2000/01/rdf-schema#label> "owns character"@en .
+_:B20bdd91aX2D0f53X2D458cX2Db42dX2D9dcd67e63597 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B24a74161X2Df440X2D45eeX2D8930X2D2e7c6ba28bc1 .
+<http://purl.org/net/VideoGameOntology#involvesPlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:involvesPlayer property specifies that a session involves a specific player. A session may involve more than one player."@en .
+<http://purl.org/net/VideoGameOntology#PlayerEvent> <http://www.w3.org/2000/01/rdf-schema#label> "player event"@en .
+<http://purl.org/net/VideoGameOntology#hasAchievement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#Genre> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Item> <http://www.w3.org/2000/01/rdf-schema#label> "Item"@en .
+<http://purl.org/net/VideoGameOntology#isAchievementInGame> <http://www.w3.org/2000/01/rdf-schema#comment> "The property vgo:isAchievementInGame asserts that a specific vgo:Achievement can be earned in a particular vgo:Game. An achievement must belong to a certain game."@en .
+<http://purl.org/net/VideoGameOntology#Curiosity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#unlocksAchievement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#hasItem> <http://www.w3.org/2000/01/rdf-schema#label> "has item"@en .
+<http://purl.org/net/VideoGameOntology#livesIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#isCharacterInGame> <http://www.w3.org/2000/01/rdf-schema#comment> "vgo:isCharacterInGame property describes the relation between a vgo:Character and a vgo:Game. a vgo:Character always belongs to a certain game."@en .
+<http://purl.org/net/VideoGameOntology#Player> <http://www.w3.org/2000/01/rdf-schema#label> "Player"@en .
+<http://purl.org/net/VideoGameOntology#GameProduct> <http://www.w3.org/2000/01/rdf-schema#comment> "A vgo:GameProduct is anything that is for sale inside a game. These can be either normal game items purchased with in-game currency or with real world money. An example of vgo:GameProduct could be a consumable health potion bought with real money, a better weapon or some visual improvement (e.g. Hats in Steam). Basically a game product can be anything, a character, an item or an achievement.\nGameProduct is a subclass of Good Relations: ProductOrService & schema:Product. Since vgo:GameProduct is a type of buyable product, it reuses the properties available in the schema and Good Relations, such as currency price, validity of the offer and so on."@en .
+<http://purl.org/net/VideoGameOntology#isLeaderboardInGame> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#Paragon> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#GameEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#hasPlayingArea> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:hasPlayingArea property asserts a gaming area to a specific game. In every game, the gameplay takes place in some playing area."@en .
+<http://purl.org/net/VideoGameOntology#Leaderboard> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Leaderboard class describes a ranking system of the players. There can be multiple rankings in a game, for example, the kill-count ranking of Modern Warfare or the best time listing of Formula 1 game."@en .
+<http://purl.org/net/VideoGameOntology#LoseEvent> <http://www.w3.org/2000/01/rdf-schema#label> "lose event"@en .
+<http://purl.org/net/VideoGameOntology#startTime> <http://www.w3.org/2000/01/rdf-schema#label> "start time"@en .
+<http://purl.org/net/VideoGameOntology#isAchievementInGame> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/VideoGameOntology#hasAchievement> .
+<http://purl.org/net/VideoGameOntology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/net/VideoGameOntology#MenuEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:MenuEvent describes an event that is related to interacting with the ingame menu. An example of menu event is muting sounds, changing graphic settings, changing gameplay difficulty or remapping game controls."@en .
+<http://purl.org/net/VideoGameOntology#hasGameGenre> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#isSessionInGame> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#eventTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/net/VideoGameOntology#Luck> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#isAchievedInSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#startTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/VideoGameOntology#Player> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/net/VideoGameOntology#Leaderboard> <http://www.w3.org/2000/01/rdf-schema#label> "Leaderboard"@en .
+<http://purl.org/net/VideoGameOntology#hasAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "optional"@en .
+<http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#GameEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:GameEvent describes an event that takes place in a game without straight player interaction. GameEvents are often very specific for each game. Examples of vgo:GameEvent could be an enemy dying, connecting to a multiplayer server, loading a new level or playing an animation."@en .
+<http://purl.org/net/VideoGameOntology#playsGame> <http://www.w3.org/2000/01/rdf-schema#label> "plays game"@en .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/elements/1.1/description> "The Video Game Ontology is an ontology designed for describing video games and all the resources related to their game plays."@en .
+<http://purl.org/net/VideoGameOntology#hasFeature> <http://www.w3.org/2000/01/rdf-schema#label> "has feature"@en .
+<http://purl.org/net/VideoGameOntology#MenuEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#involvesCharacter> <http://www.w3.org/2000/01/rdf-schema#label> "involves character"@en .
+<http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Loyalty> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Loyalty achievement is used to give recognition to loyal players. For example, this could be an achievement received after subscribing to the game for a year."@en .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#GameProduct> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:B6aa2029cX2D1958X2D44e4X2D9fb6X2D082d7b05701b .
+<http://purl.org/net/VideoGameOntology#involvesCharacter> <http://www.w3.org/2000/01/rdf-schema#comment> "optional"@en .
+_:B6aa2029cX2D1958X2D44e4X2D9fb6X2D082d7b05701b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#isAchievedInSession> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#isEventRelatedToItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#isPlayerInSession> <http://www.w3.org/2000/01/rdf-schema#label> "is player in session"@en .
+<http://purl.org/net/VideoGameOntology#isSessionInGame> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#Virtuosity> <http://www.w3.org/2000/01/rdf-schema#label> "Virtuosity"@en .
+<http://purl.org/net/VideoGameOntology#isEventInGame> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#hasGameGenre> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Genre> .
+<http://purl.org/net/VideoGameOntology#purchasesGameOffering> <http://www.w3.org/2000/01/rdf-schema#label> "purchases game offering"@en .
+<http://purl.org/net/VideoGameOntology#isCharacterInSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#involvesAchievement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#isEventInSession> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#livesIn> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:livesIn describes the connection between a player and his place of existence in the real-world. A vgo:Player is connected to wgs84:SpatialThing as that has descriptions for places where people live and contains more detailed information of them, such as continents and regions."@en .
+<http://purl.org/net/VideoGameOntology#isItemInGame> <http://www.w3.org/2000/01/rdf-schema#label> "is item in game"@en .
+<http://purl.org/net/VideoGameOntology#HardMode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology> <http://www.w3.org/2000/01/rdf-schema#comment> "An ontology for describing video games and game plays. Created by Janne Parkkila, Filip Radulovic, Daniel Garijo and María Poveda."@en .
+<http://purl.org/net/VideoGameOntology#isEventRelatedToItem> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Item> .
+<http://purl.org/net/VideoGameOntology#username> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/VideoGameOntology#Virtuosity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#isItemInGame> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/VideoGameOntology#hasItem> .
+<http://purl.org/net/VideoGameOntology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorial"@en .
+<http://purl.org/net/VideoGameOntology#hasGameGenre> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#isCharacterInSession> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#hasAchievement> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#livesIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://dbpedia.org/ontology/PopulatedPlace> .
+<http://purl.org/net/VideoGameOntology#Minigame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Tutorial achievement is  awarded to a player for trying out various features of the game. This is often related to learning how to play the game, how the controls work and how the game logic works. An example of vgo:Tutorial could be testing out newly gained special equipment or just playing through the in-game tutorial in the beginning."@en .
+<http://purl.org/net/VideoGameOntology#isAchievementInGame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#isCharacterInSession> <http://www.w3.org/2000/01/rdf-schema#label> "is character in session"@en .
+<http://purl.org/goodrelations/v1#ProductOrService> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Session> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Session class describes a session of gameplay. A session can be a single round of chess, a round of Counter-Strike, one half-time of soccer or one race of Formula 1. vgo:Session class can be used to store gameplay information, especially for analytical reasons."@en .
+<http://purl.org/net/VideoGameOntology#username> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/VideoGameOntology#involvesCharacter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/vocab/vann/preferredNamespacePrefix> "vgo" .
+<http://purl.org/net/VideoGameOntology#unlocksAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:unlocksAchievement property asserts an event to a certain achievement. An achievement is always unlocked as a consequence of some event. For example, eating the 100th piece of cake unlocks the “Cake Eater” achievement."@en .
+<http://purl.org/net/VideoGameOntology#GainEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:GainEvent describes an event that is related to character/player gaining something in a game. This is a subclass of vgo:GameEvent as gaining something is related to a specific game. For example, a player can gain a new character, achievement or item."@en .
+<http://schema.org/Product> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#livesIn> <http://www.w3.org/2000/01/rdf-schema#label> "lives in"@en .
+<http://purl.org/net/VideoGameOntology#livesIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#purchasesGameOffering> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InAppPurchaseEvent> .
+<http://purl.org/net/VideoGameOntology#Game> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Game class describes a game product that can be played by a player.\nExamples of games are Pong, Grand Theft Auto, Pokemon and Need for Speed."@en .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/2000/01/rdf-schema#range> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/net/VideoGameOntology#hasAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#hasGameGenre> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:hasGameGenre property specifies that a game belongs to a certain game genre. For example, Pong would be an arcade game and Mario a platformer."@en .
+<http://purl.org/net/VideoGameOntology#GameProduct> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Completion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#eventTime> <http://www.w3.org/2000/01/rdf-schema#label> "event time"@en .
+_:B20bdd91aX2D0f53X2D458cX2Db42dX2D9dcd67e63597 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#Curiosity> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Curiosity describes funny random things that can happen or be found in the game. An example could be jumping from the Eiffel tower without dying or following a comupter controlled character’s activities for one hour."@en .
+<http://purl.org/net/VideoGameOntology#isFriendWithPlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#eventName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/elements/1.1/creator> "http://delicias.dia.fi.upm.es/members/DGarijo/#me"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/VideoGameOntology#hasPlayingArea> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#PlayerEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#involvesCharacter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Character> .
+<http://purl.org/net/VideoGameOntology#isSessionInGame> <http://www.w3.org/2000/01/rdf-schema#label> "is session in game"@en .
+<http://purl.org/net/VideoGameOntology#hasFeature> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:hasFeature property indicates what is a vgo:Feature (or ability) of a particular vgo:Item. For example, a fire sword, a healing staff or boots of flight connects item to a feature it can have. An item with connection to potable feature would make the item potable."@en .
+<http://purl.org/net/VideoGameOntology#playsGame> <http://www.w3.org/2000/01/rdf-schema#comment> "the vgo:playsGame property asserts which games has the vgo:Player played at any point of time."@en .
+<http://purl.org/net/VideoGameOntology#Fandom> <http://www.w3.org/2000/01/rdf-schema#label> "Fandom"@en .
+<http://purl.org/net/VideoGameOntology#Tutorial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Leaderboard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Multiplayer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#involvesPlayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isEventTriggeredByCharacter connects the vgo:InstantaneousEvent to specific vgo:Character. This describes that an event is often caused by a character. The character in question can be either a character controlled by a player or a computer. For example, both player and non-player characters can trigger a character death event."@en .
+<http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter> <http://www.w3.org/2000/01/rdf-schema#label> "is event triggered by character"@en .
+<http://purl.org/net/VideoGameOntology#ownsAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:ownsAchievement links the vgo:Player to the particular vgo:Achievement earned in a game."@en .
+<http://purl.org/net/VideoGameOntology#Collection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#InAppPurchaseEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#Feature> <http://www.w3.org/2000/01/rdf-schema#comment> "vgo:Feature describes an ability or characteristic. For example, a sword could have “damage dealing” ability and a bottle of water could be “potable”."@en .
+<http://purl.org/net/VideoGameOntology#isEventRelatedToItem> <http://www.w3.org/2000/01/rdf-schema#label> "is event related to item"@en .
+<http://purl.org/net/VideoGameOntology#ownsAchievement> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#Fandom> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Fandom achievement is related to doing some true fan activities. An example of vgo:Fandom could be purchasing a collectors edition of the game or attending a fan gathering."@en .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/elements/1.1/title> "The Video Game Ontology"@en .
+<http://purl.org/net/VideoGameOntology#Minigame> <http://www.w3.org/2000/01/rdf-schema#label> "Minigame"@en .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/net/VideoGameOntology#playsGame> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#Fandom> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#Session> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://purl.org/net/VideoGameOntology#isAchievedInSession> <http://www.w3.org/2000/01/rdf-schema#label> "is achieved in session"@en .
+<http://purl.org/net/VideoGameOntology#PlayerEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:PlayerEvent describes a vgo:InstantaneousEvent that is caused by the player. For example jumping in the game, throwing an item or pressing a joystick button."@en .
+<http://purl.org/net/VideoGameOntology#Character> <http://www.w3.org/2000/01/rdf-schema#label> "Character"@en .
+<http://purl.org/net/VideoGameOntology#Paragon> <http://www.w3.org/2000/01/rdf-schema#label> "Paragon"@en .
+<http://purl.org/net/VideoGameOntology#eventTime> <http://www.w3.org/2000/01/rdf-schema#comment> "time describes the connection of InstantaneousEvent happening at a certain moment of time. time Conncets the event to a DateTime value that describes the moment when the event happened."@en .
+<http://purl.org/net/VideoGameOntology#ownsAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#eventName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/VideoGameOntology#Veteran> <http://www.w3.org/2000/01/rdf-schema#label> "Veteran"@en .
+<http://purl.org/net/VideoGameOntology#hasAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:hasAchievement property specifies that a game has a specific achievement. A game often contains more than one achievement that can be awarded to the players."@en .
+<http://purl.org/net/VideoGameOntology#SpecialPlayStyle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#hasFeature> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Feature> .
+<http://purl.org/net/VideoGameOntology#isCharacterInGame> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/VideoGameOntology#hasCharacter> .
+<http://purl.org/net/VideoGameOntology#eventTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#endTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/net/VideoGameOntology#releaseDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/net/VideoGameOntology#Luck> <http://www.w3.org/2000/01/rdf-schema#label> "Luck"@en .
+<http://purl.org/net/VideoGameOntology#involvesAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:involvesPlayer property specifies that a session involves a specific player. A session may involve more than one player."@en .
+<http://purl.org/net/VideoGameOntology#isSessionInGame> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isSessionInGame property links a vgo:Session to a certain vgo:Game. Each gameplay session must belong to a certain game."@en .
+<http://purl.org/net/VideoGameOntology#unlocksAchievement> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#Completion> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Completion type of achievement is usually rewarded from successfully completing a certain goal or subgoal in a game. An example of vgo:Completion would be to save a princess from a burning tower or completing all side-quests in a game."@en .
+<http://purl.org/net/VideoGameOntology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology> <http://www.w3.org/2002/07/owl#versionInfo> "1.0" .
+<http://purl.org/net/VideoGameOntology#playsGame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#HardMode> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:HardMode achievement describes succeeding in a game on a high difficulty level. An example could be completing the “Doom” game on Nightmare difficulty level."@en .
+<http://purl.org/net/VideoGameOntology#Multiplayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#hasLeaderboard> <http://www.w3.org/2000/01/rdf-schema#label> "has leaderboard"@en .
+<http://purl.org/net/VideoGameOntology#isLeaderboardInGame> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isLeaderboardInGame property specifies that a leaderboard is from a specific game."@en .
+<http://purl.org/net/VideoGameOntology#Completion> <http://www.w3.org/2000/01/rdf-schema#label> "Completion"@en .
+<http://purl.org/net/VideoGameOntology#unlocksAchievement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/elements/1.1/creator> "http://www.mendeley.com/profiles/janne-parkkila/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/VideoGameOntology#Collection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#isEventRelatedToItem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#involvesPlayer> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#eventName> <http://www.w3.org/2000/01/rdf-schema#label> "event name"@en .
+<http://purl.org/net/VideoGameOntology#Character> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#purchasesGameOffering> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#GameProduct> .
+_:B05587f21X2Dfa01X2D4772X2D8908X2D82d26d235b73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#Fandom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#GameProduct> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Product> .
+<http://purl.org/net/VideoGameOntology#isAchievedInSession> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/net/VideoGameOntology#involvesAchievement> .
+<http://purl.org/net/VideoGameOntology#isPlayerInSession> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#releaseDate> <http://www.w3.org/2000/01/rdf-schema#label> "release date"@en .
+<http://purl.org/net/VideoGameOntology#InstantaneousEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#isCharacterInSession> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isCharacterInSession property connects the vgo:Character to a vgo:Session. A character participates in a game session (e.g., a football match or a counter strike round) during a period of time. As players can have multiple characters, a character needs to be connected to the session, in order to know which of those characters participated in the certain session."@en .
+<http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#InstantaneousEvent> .
+<http://purl.org/net/VideoGameOntology#hasItem> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:hasItem property specifies that a game has a specific item. A game often contains more than one items."@en .
+<http://purl.org/net/VideoGameOntology#startTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Session> .
+<http://purl.org/net/VideoGameOntology#GameProduct> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/goodrelations/v1#ProductOrService> .
+<http://purl.org/net/VideoGameOntology#ownsCharacter> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Character> .
+<http://purl.org/net/VideoGameOntology#Session> <http://www.w3.org/2000/01/rdf-schema#label> "Session"@en .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/elements/1.1/creator> "http://purl.org/net/mpoveda"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://purl.org/net/VideoGameOntology#isFriendWithPlayer> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isFriendWithPlayer describes a connection between players. The property is used to model the friends a player has and with whom he might be playing games with. The friends of a player are not bound necessarily to particular game, but can be describe the friendly playing relationship in overall."@en .
+<http://purl.org/net/VideoGameOntology#SpecialPlayStyle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#isFriendWithPlayer> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Player> .
+<http://purl.org/net/VideoGameOntology#purchasesGameOffering> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Veteran> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Veteran achievement is an award that is given for accumulating a lot of play hours or game actions. For example, vgo:Veteran could be playing thousand hours of World of Tanks or making 100 goals in ice hockey game."@en .
+<http://purl.org/net/VideoGameOntology#isItemInGame> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Item> .
+<http://purl.org/net/VideoGameOntology#hasCharacter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#involvesAchievement> <http://www.w3.org/2000/01/rdf-schema#comment> "optional"@en .
+<http://purl.org/net/VideoGameOntology#Collection> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Collection type of achievement is typically rewarded from collecting an amount of certain items in a game. An example of vgo:Collection would be obtaining a full set of christmas clothes for a character to wear or collecting every possible flower in the game."@en .
+<http://purl.org/net/VideoGameOntology#HardMode> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#GainEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#GameEvent> .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/net/VideoGameOntology#" .
+<http://purl.org/net/VideoGameOntology#hasItem> <http://www.w3.org/2000/01/rdf-schema#comment> "optional"@en .
+<http://purl.org/net/VideoGameOntology#Loyalty> <http://www.w3.org/2000/01/rdf-schema#label> "Loyalty"@en .
+<http://purl.org/net/VideoGameOntology#PlayerEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#unlocksAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "unlocks achievement"@en .
+<http://purl.org/net/VideoGameOntology#hasLeaderboard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:B24a74161X2Df440X2D45eeX2D8930X2D2e7c6ba28bc1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/net/VideoGameOntology#Character> .
+<http://purl.org/net/VideoGameOntology#Genre> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Genre class describes the genre a game belongs to. All of the games have at least one genre. Examples of this are RPG, Simulator and Adventure"@en .
+<http://purl.org/net/VideoGameOntology#Virtuosity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#ownsCharacter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#isAchievementInGame> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#ownsItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Character> .
+_:B5c634b1bX2Dbb59X2D4090X2Db5a3X2D25aa878441dd <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb28293d6X2D74bcX2D426aX2DbaacX2Dd1e7b7765e29 .
+<http://purl.org/net/VideoGameOntology#InAppPurchaseEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2002/07/owl#Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#Minigame> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+_:B05587f21X2Dfa01X2D4772X2D8908X2D82d26d235b73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B5c634b1bX2Dbb59X2D4090X2Db5a3X2D25aa878441dd .
+<http://purl.org/net/VideoGameOntology#hasItem> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Game> .
+<http://purl.org/net/VideoGameOntology#hasLeaderboard> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:hasLeaderboard specifies that a leaderboard belongs to a particular game. A game can have one or more leaderboards that keep track of ranking of the players. For example a leaderboard could be ranking of who has the most soccer game victories or who has the fastest lap in a Formula 1 game."@en .
+<http://purl.org/net/VideoGameOntology#GainEvent> <http://www.w3.org/2000/01/rdf-schema#label> "gain event"@en .
+<http://purl.org/net/VideoGameOntology#ownsItem> <http://www.w3.org/2000/01/rdf-schema#label> "owns item"@en .
+<http://purl.org/net/VideoGameOntology#isFriendWithPlayer> <http://www.w3.org/2000/01/rdf-schema#label> "is friend with player"@en .
+<http://purl.org/net/VideoGameOntology#hasGameGenre> <http://www.w3.org/2000/01/rdf-schema#label> "has game genre"@en .
+<http://purl.org/net/VideoGameOntology> <http://purl.org/dc/terms/modified> "2014-12-19"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://purl.org/net/VideoGameOntology#Game> <http://www.w3.org/2000/01/rdf-schema#label> "Game"@en .
+<http://purl.org/net/VideoGameOntology#hasCharacter> <http://www.w3.org/2000/01/rdf-schema#comment> "optional"@en .
+<http://purl.org/net/VideoGameOntology#isCharacterInGame> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Character> .
+<http://purl.org/net/VideoGameOntology#LoseEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/VideoGameOntology#hasCharacter> <http://www.w3.org/2000/01/rdf-schema#label> "has character"@en .
+<http://purl.org/net/VideoGameOntology#involvesAchievement> <http://www.w3.org/2000/01/rdf-schema#label> "involves achievement"@en .
+<http://purl.org/net/VideoGameOntology#isEventInSession> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isEventInSession property links an event to a specific gameplay session. An event always happens during a certain session and this property enables to link the events to that session. For example, an event of moving the queen in game of chess should be connected to a session of chess."@en .
+_:B24a74161X2Df440X2D45eeX2D8930X2D2e7c6ba28bc1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B05587f21X2Dfa01X2D4772X2D8908X2D82d26d235b73 .
+<http://purl.org/net/VideoGameOntology#isEventInGame> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:isEventInGame property asserts an event to a specific game. An event always happens inside a specific a game."@en .
+<http://purl.org/net/VideoGameOntology#releaseDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/VideoGameOntology#Completion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#Player> <http://www.w3.org/2000/01/rdf-schema#comment> "The vgo:Player describes the entity playing the game. This can be either a human or a computer. vgo:Player class is used to keep a profile of a certain playing entity and to connect all the games, achievements and characters he/she has. The vgo:Player is a subclass of foaf:Person as it contains all relative information of a certain person."@en .
+<http://purl.org/net/VideoGameOntology#isAchievedInSession> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Achievement> .
+<http://purl.org/net/VideoGameOntology#endTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/VideoGameOntology#startTime> <http://www.w3.org/2000/01/rdf-schema#comment> "startTime describes the starting moment in time of a single Session. startTime connects the session to a DateTime value which holds the moment when the session started."@en .
+<http://purl.org/net/VideoGameOntology#hasFeature> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/VideoGameOntology#Item> .
+<http://purl.org/net/VideoGameOntology#isLeaderboardInGame> <http://www.w3.org/2000/01/rdf-schema#comment> "optional"@en .
+<http://purl.org/net/VideoGameOntology#isSessionInGame> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/VideoGameOntology#Character> <http://www.w3.org/2000/01/rdf-schema#comment> "A vgo:Character is any actor that can exists in a game. A character  can be a human-like creature as seen traditionally in video games. However, a character could also be a car, a paddle in game of Pong or spaceship of a space shooter game. This is often contextually related to the gameplay of a certain game. A character can be either controller by a player or by a computer."@en .
